@@ -1,0 +1,994 @@
+fileFormatVersion: 2
+guid: 7d3e30778a6e3884ebeb28be94303561
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PlauerStatus2_0
+      rect:
+        serializedVersion: 2
+        x: 226
+        y: 2224
+        width: 596
+        height: 1133
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4362a9c476543c24aa5824e6bdec5f11
+      internalID: 1238911794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_1
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 926
+        width: 2268
+        height: 1169
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33470c898db2ab94fa75214cc925f872
+      internalID: 1508979232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_2
+      rect:
+        serializedVersion: 2
+        x: 2622
+        y: 1797
+        width: 149
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4121a825a42a6c489719e48898e577d
+      internalID: -1946055679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_3
+      rect:
+        serializedVersion: 2
+        x: 2796
+        y: 1797
+        width: 153
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d57290a9ecc09974dbe321d93e7e30e0
+      internalID: -1959605795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_4
+      rect:
+        serializedVersion: 2
+        x: 2970
+        y: 1797
+        width: 149
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c50cde6398a15248a599131a830af08
+      internalID: 2138193360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_5
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 1797
+        width: 153
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a07b54419dc35345af51526182204e4
+      internalID: 172375171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_6
+      rect:
+        serializedVersion: 2
+        x: 3491
+        y: 974
+        width: 828
+        height: 1059
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4414fc555214329468f2fc37fcfeaa84
+      internalID: 662522640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_7
+      rect:
+        serializedVersion: 2
+        x: 4369
+        y: 1620
+        width: 285
+        height: 413
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb33c635ee9ce304c858d5bda4ba59f9
+      internalID: -782287202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_8
+      rect:
+        serializedVersion: 2
+        x: 4837
+        y: 1620
+        width: 285
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14337451e44d22b439becdbd685e171e
+      internalID: -29917790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_9
+      rect:
+        serializedVersion: 2
+        x: 5263
+        y: 1628
+        width: 190
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d9cee437084c6a4e8349f69fa2be720
+      internalID: 1396960939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_10
+      rect:
+        serializedVersion: 2
+        x: 2695
+        y: 1775
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e3c4d0e2f5aff479fecb62b0597d11
+      internalID: -1239226636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_11
+      rect:
+        serializedVersion: 2
+        x: 2840
+        y: 1775
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 887c1301695fee649af5c232d8ec6301
+      internalID: -1091839090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_12
+      rect:
+        serializedVersion: 2
+        x: 2622
+        y: 1605
+        width: 149
+        height: 168
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d72e83a98ad48c64589388bc4b33daa0
+      internalID: 1770885868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_13
+      rect:
+        serializedVersion: 2
+        x: 2781
+        y: 1620
+        width: 168
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7206f0727df6e274fbbe1b28d758c24f
+      internalID: -998603814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_14
+      rect:
+        serializedVersion: 2
+        x: 2970
+        y: 1620
+        width: 149
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48dec8b2df3d56b4a97b95c4f72618c2
+      internalID: 94278940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_15
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 1620
+        width: 153
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67761fe8a9a407047a87de8f3fd1af4f
+      internalID: 1547375204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_16
+      rect:
+        serializedVersion: 2
+        x: 2844
+        y: 1605
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9114e1c30da7c744baeb20e759e7562
+      internalID: 1395258364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_17
+      rect:
+        serializedVersion: 2
+        x: 4369
+        y: 1404
+        width: 285
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5cf0a26c3a460a42b06e34132eb9b34
+      internalID: -204650461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_18
+      rect:
+        serializedVersion: 2
+        x: 2622
+        y: 1442
+        width: 327
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78b846c466541434b8780d930f1ad471
+      internalID: -473083366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_19
+      rect:
+        serializedVersion: 2
+        x: 2970
+        y: 1442
+        width: 149
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8a7853d1da6e34bb4e8b87f705e5ee
+      internalID: -1433405895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_20
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 1442
+        width: 153
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14af6a08453eb104bbe98fc65455ffb8
+      internalID: -871981917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_21
+      rect:
+        serializedVersion: 2
+        x: 2695
+        y: 1423
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52ad80b611603f3428d7c646b7a4000e
+      internalID: 200505073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_22
+      rect:
+        serializedVersion: 2
+        x: 2844
+        y: 1423
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3eb4b1e8d7c0c014788908b78978162e
+      internalID: -2021915863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_23
+      rect:
+        serializedVersion: 2
+        x: 2622
+        y: 1268
+        width: 149
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d39000c0b82e06488b65c684a6c5ab8
+      internalID: -2068562541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_24
+      rect:
+        serializedVersion: 2
+        x: 2781
+        y: 1268
+        width: 168
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eba968c0271530419f6b4683ee460bf
+      internalID: -1072054204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_25
+      rect:
+        serializedVersion: 2
+        x: 2970
+        y: 1268
+        width: 149
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10575d91a0c4edc4b9460c411580836d
+      internalID: 1503996049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_26
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 1268
+        width: 153
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 900b544fa7b83fb49b9b360d67e051b2
+      internalID: 1054325060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_27
+      rect:
+        serializedVersion: 2
+        x: 4369
+        y: 1193
+        width: 285
+        height: 203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1633deffe26c48a428ebd72ef0e86c4a
+      internalID: -1618089298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_28
+      rect:
+        serializedVersion: 2
+        x: 2622
+        y: 1098
+        width: 149
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6e343ca097e888499cffa0bc1b0e748
+      internalID: 1060494967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_29
+      rect:
+        serializedVersion: 2
+        x: 2782
+        y: 1237
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 093e9028f06983b408e8ad6dcf2327ce
+      internalID: 2000290507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_30
+      rect:
+        serializedVersion: 2
+        x: 2796
+        y: 1098
+        width: 153
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f54cb55c17229e44a3aa9330662f03c
+      internalID: -1799010259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_31
+      rect:
+        serializedVersion: 2
+        x: 2970
+        y: 1098
+        width: 149
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebd9cdf551ce0a94a827e361eead55cd
+      internalID: -855480297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_32
+      rect:
+        serializedVersion: 2
+        x: 3144
+        y: 1098
+        width: 153
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5136dab588a5bd448cbeaaf614c376e
+      internalID: 44966014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_33
+      rect:
+        serializedVersion: 2
+        x: 2695
+        y: 1080
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8db6ca4d1a8d8a143aa86887d6f4d695
+      internalID: -1070243581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_34
+      rect:
+        serializedVersion: 2
+        x: 2753
+        y: 1063
+        width: 104
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4fee2b76512dfb4b8cbd6cee0d91704
+      internalID: -1157715684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_35
+      rect:
+        serializedVersion: 2
+        x: 4369
+        y: 978
+        width: 285
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58c07fc2acd517d45977df21ed07530b
+      internalID: 352487820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_36
+      rect:
+        serializedVersion: 2
+        x: 2883
+        y: 809
+        width: 153
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41c2eb486230a84f8b5a0ae18a68df0
+      internalID: -2039036959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PlauerStatus2_37
+      rect:
+        serializedVersion: 2
+        x: 2956
+        y: 790
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d021bad845199bc48b77c1ad258eaf28
+      internalID: -1165138625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 01905b5f206aa43479859885bb018d3c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PlauerStatus2_32: 44966014
+      PlauerStatus2_20: -871981917
+      PlauerStatus2_35: 352487820
+      PlauerStatus2_21: 200505073
+      PlauerStatus2_17: -204650461
+      PlauerStatus2_16: 1395258364
+      PlauerStatus2_9: 1396960939
+      PlauerStatus2_13: -998603814
+      PlauerStatus2_22: -2021915863
+      PlauerStatus2_4: 2138193360
+      PlauerStatus2_28: 1060494967
+      PlauerStatus2_33: -1070243581
+      PlauerStatus2_25: 1503996049
+      PlauerStatus2_34: -1157715684
+      PlauerStatus2_7: -782287202
+      PlauerStatus2_11: -1091839090
+      PlauerStatus2_23: -2068562541
+      PlauerStatus2_19: -1433405895
+      PlauerStatus2_2: -1946055679
+      PlauerStatus2_5: 172375171
+      PlauerStatus2_31: -855480297
+      PlauerStatus2_37: -1165138625
+      PlauerStatus2_12: 1770885868
+      PlauerStatus2_0: 1238911794
+      PlauerStatus2_27: -1618089298
+      PlauerStatus2_1: 1508979232
+      PlauerStatus2_29: 2000290507
+      PlauerStatus2_15: 1547375204
+      PlauerStatus2_18: -473083366
+      PlauerStatus2_3: -1959605795
+      PlauerStatus2_30: -1799010259
+      PlauerStatus2_24: -1072054204
+      PlauerStatus2_14: 94278940
+      PlauerStatus2_10: -1239226636
+      PlauerStatus2_8: -29917790
+      PlauerStatus2_6: 662522640
+      PlauerStatus2_36: -2039036959
+      PlauerStatus2_26: 1054325060
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

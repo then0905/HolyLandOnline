@@ -1,0 +1,950 @@
+fileFormatVersion: 2
+guid: 67ebd0f71ce79084da7ad5dde6bb070e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: race (4)_0
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2894
+        width: 517
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0384222cbc306e499f2690a0c7222e2
+      internalID: 397960310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_1
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 2890
+        width: 517
+        height: 541
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d9cda4ab38f75e40883a206fd60bd23
+      internalID: 1101405001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_2
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 2894
+        width: 513
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 656f8f6d4f084ff40b76657cee775fa1
+      internalID: 1085548292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_3
+      rect:
+        serializedVersion: 2
+        x: 2117
+        y: 2894
+        width: 515
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93286ab6b2016c74bb6c05fdf23b8c18
+      internalID: 1466476614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_4
+      rect:
+        serializedVersion: 2
+        x: 2916
+        y: 2852
+        width: 335
+        height: 435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25dc4bd35624cef4ea4b98c5d32c2c95
+      internalID: -907636748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_5
+      rect:
+        serializedVersion: 2
+        x: 3516
+        y: 2853
+        width: 348
+        height: 446
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c21fee2ec78a2a4e9e2872aa5aed898
+      internalID: 2033741098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_6
+      rect:
+        serializedVersion: 2
+        x: 4034
+        y: 2857
+        width: 463
+        height: 467
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe3af97c229b3e64cbe936b1eedd6971
+      internalID: 419442067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_7
+      rect:
+        serializedVersion: 2
+        x: 4911
+        y: 528
+        width: 2053
+        height: 2812
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f54a839c40f2e3242a24bf422a6093bd
+      internalID: -535401577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_8
+      rect:
+        serializedVersion: 2
+        x: 7022
+        y: 2873
+        width: 344
+        height: 343
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 290b8e3185fafb046bf20de651000616
+      internalID: -439463399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 2262
+        width: 513
+        height: 557
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac7ae643a61c3aa4f8ba8946e964ed14
+      internalID: 1672266693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_10
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 2277
+        width: 514
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 601ab9720a9793d4a871b1a9f715bcdb
+      internalID: 1618291091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_11
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 2277
+        width: 513
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c52deb6049c79004cba36c98eefe8888
+      internalID: -120052486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_12
+      rect:
+        serializedVersion: 2
+        x: 2113
+        y: 2277
+        width: 517
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 376fa8ae458706344a9d8d3958d73d8c
+      internalID: -491583454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_13
+      rect:
+        serializedVersion: 2
+        x: 2859
+        y: 2228
+        width: 396
+        height: 469
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46202511d1ab7da47b9c2b5503f0cabb
+      internalID: 402695274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_14
+      rect:
+        serializedVersion: 2
+        x: 3508
+        y: 2211
+        width: 405
+        height: 509
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b873e187647d43447989f1d8aec10585
+      internalID: 452147280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_15
+      rect:
+        serializedVersion: 2
+        x: 4092
+        y: 2182
+        width: 422
+        height: 538
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af3fe0b82b929df4da6932920f135ff7
+      internalID: -1460311879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_16
+      rect:
+        serializedVersion: 2
+        x: 7022
+        y: 2439
+        width: 1238
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6af42799da079574e974826f2f0db6f7
+      internalID: -366672937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_17
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 1665
+        width: 517
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2328944d711dabe44b62ed3157ced006
+      internalID: -1039891300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_18
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1665
+        width: 518
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a74f793555139a4980b6f50fcea4d9c
+      internalID: -1388864110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_19
+      rect:
+        serializedVersion: 2
+        x: 1509
+        y: 1665
+        width: 517
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54a857bab2c275a4f98d8080fa43bab4
+      internalID: 139278262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_20
+      rect:
+        serializedVersion: 2
+        x: 2117
+        y: 1665
+        width: 515
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7ccfce7c46c5d94ea358a80af51df3c
+      internalID: 845283302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_21
+      rect:
+        serializedVersion: 2
+        x: 2813
+        y: 1628
+        width: 509
+        height: 417
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15b4fc1a6f63349448ed9a5f40c5d642
+      internalID: 76498667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_22
+      rect:
+        serializedVersion: 2
+        x: 3434
+        y: 1578
+        width: 504
+        height: 463
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3b134bcafe2e4344bb29241e1fcdca6
+      internalID: 2075253340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_23
+      rect:
+        serializedVersion: 2
+        x: 4038
+        y: 1595
+        width: 504
+        height: 434
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dceab92d64dc7d4fb88b444c1aa6590
+      internalID: -1569434017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_24
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 1053
+        width: 513
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b47db4c2c9aac6e4998de5d7a9a4a076
+      internalID: -1998084276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_25
+      rect:
+        serializedVersion: 2
+        x: 905
+        y: 1053
+        width: 517
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f42505b21cd92d4ebc4097f55e9ae48
+      internalID: -1154742641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_26
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 1053
+        width: 513
+        height: 542
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 889851b7533c8d847a662cbcf6738ef4
+      internalID: 1628282345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_27
+      rect:
+        serializedVersion: 2
+        x: 2862
+        y: 971
+        width: 426
+        height: 504
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0228a5c44a8047a49b776ced9b0f6eb4
+      internalID: 343071760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_28
+      rect:
+        serializedVersion: 2
+        x: 3471
+        y: 958
+        width: 437
+        height: 496
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b0f398172f5cfc47a62d40f84d2c6eb
+      internalID: -294893812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_29
+      rect:
+        serializedVersion: 2
+        x: 4092
+        y: 956
+        width: 422
+        height: 506
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fc3b4c05cce9e848a1430e48096a9d5
+      internalID: -1941155040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_30
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 441
+        width: 513
+        height: 541
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d796307e66f678e428a02e5f53e6653b
+      internalID: 1878213448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_31
+      rect:
+        serializedVersion: 2
+        x: 904
+        y: 441
+        width: 514
+        height: 541
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5cdd0f255b480e74da0c654c0041d11f
+      internalID: 172814325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_32
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 441
+        width: 513
+        height: 541
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70f051c940100b041925c96ad79c2cbe
+      internalID: -1586108377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_33
+      rect:
+        serializedVersion: 2
+        x: 2850
+        y: 470
+        width: 426
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f243ac2dec3ad544396311c7a158a7eb
+      internalID: 1467806856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_34
+      rect:
+        serializedVersion: 2
+        x: 3467
+        y: 453
+        width: 426
+        height: 364
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cedc897f83710e488a7179cbfbe47cf
+      internalID: 2088734380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: race (4)_35
+      rect:
+        serializedVersion: 2
+        x: 4063
+        y: 462
+        width: 471
+        height: 392
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9e1a7d3a56710e4aa8c430bfef63df3
+      internalID: -1487378581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 78420421478f145429f0cbe2df84799c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      race (4)_15: -1460311879
+      race (4)_18: -1388864110
+      race (4)_29: -1941155040
+      race (4)_33: 1467806856
+      race (4)_22: 2075253340
+      race (4)_4: -907636748
+      race (4)_12: -491583454
+      race (4)_0: 397960310
+      race (4)_3: 1466476614
+      race (4)_6: 419442067
+      race (4)_14: 452147280
+      race (4)_1: 1101405001
+      race (4)_7: -535401577
+      race (4)_35: -1487378581
+      race (4)_10: 1618291091
+      race (4)_8: -439463399
+      race (4)_32: -1586108377
+      race (4)_20: 845283302
+      race (4)_26: 1628282345
+      race (4)_19: 139278262
+      race (4)_23: -1569434017
+      race (4)_13: 402695274
+      race (4)_11: -120052486
+      race (4)_5: 2033741098
+      race (4)_34: 2088734380
+      race (4)_31: 172814325
+      race (4)_28: -294893812
+      race (4)_30: 1878213448
+      race (4)_24: -1998084276
+      race (4)_27: 343071760
+      race (4)_9: 1672266693
+      race (4)_25: -1154742641
+      race (4)_21: 76498667
+      race (4)_2: 1085548292
+      race (4)_16: -366672937
+      race (4)_17: -1039891300
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

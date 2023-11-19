@@ -1,0 +1,34 @@
+[
+  {
+    "GameSettingID": "HpRecoverySec",
+    "GameSettingValue": 12
+  },
+  {
+    "GameSettingID": "MpRecoverySec",
+    "GameSettingValue": 20
+  },
+  {
+    "GameSettingID": "HumanBasalHpRecovery",
+    "GameSettingValue": 10
+  },
+  {
+    "GameSettingID": "ElfBasalHpRecovery",
+    "GameSettingValue": 8
+  },
+  {
+    "GameSettingID": "DruidBasalHpRecovery",
+    "GameSettingValue": 12
+  },
+  {
+    "GameSettingID": "HumanBasalMpRecovery",
+    "GameSettingValue": 4.2
+  },
+  {
+    "GameSettingID": "ElfBasalMpRecovery",
+    "GameSettingValue": 7.5
+  },
+  {
+    "GameSettingID": "DruidBasalＭpRecovery",
+    "GameSettingValue": 3
+  }
+]
