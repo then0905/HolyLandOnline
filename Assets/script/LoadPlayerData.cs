@@ -44,35 +44,49 @@ public class LoadPlayerData : MonoBehaviour
             sr.Close();
             accountPlayerData = JsonUtility.FromJson<AccountPlayerData>(sjon);
 
-            //讀取資料完 載入玩家資料
+            //讀取資料完 先讀取玩家基本資料
             PlayerData.PlayerName = accountPlayerData.PlayerName;
             PlayerData.Job = accountPlayerData.Job;
             PlayerData.Race = accountPlayerData.Race;
-            PlayerData.HP = accountPlayerData.Hp;
-            PlayerData.MP = accountPlayerData.Mp;
             PlayerData.Exp = accountPlayerData.Exp;
             PlayerData.Lv = accountPlayerData.Lv;
         }
         //若沒有檔案 生成
         else
         {
-            accountPlayerData = new AccountPlayerData()
-            {
-                UID = "",
-                PlayerName = "",
-                Job = PlayerData.Job,
-                Race = PlayerData.Race,
-                Hp = PlayerData.HP,
-                Mp = PlayerData.MP,
-                Exp = PlayerData.Exp,
-                Lv = PlayerData.Lv,
-            };
-            string usersave = JsonUtility.ToJson(accountPlayerData);
-            FileStream fs = new FileStream(Application.persistentDataPath + "/Usersave.txt", FileMode.Create);
-            StreamWriter sw = new StreamWriter(fs);
-            sw.Write(usersave);
-            sw.Close();
+            SaveUserData();
         }
     }
 
+    /// <summary>
+    /// 儲存本地檔案
+    /// </summary>
+    public static void SaveUserData()
+    {
+        accountPlayerData = new AccountPlayerData()
+        {
+            UID = "",
+            PlayerName = "",
+            Job = PlayerData.Job,
+            Race = PlayerData.Race,
+            Hp = PlayerData.HP,
+            Mp = PlayerData.MP,
+            Exp = PlayerData.Exp,
+            Lv = PlayerData.Lv,
+        };
+        string usersave = JsonUtility.ToJson(accountPlayerData);
+        FileStream fs = new FileStream(Application.persistentDataPath + "/Usersave.txt", FileMode.Create);
+        StreamWriter sw = new StreamWriter(fs);
+        sw.Write(usersave);
+        sw.Close();
+    }
+
+    /// <summary>
+    /// 寫入玩家UI屬性資料
+    /// </summary>
+    public static void LoadUserUiData()
+    {
+        PlayerData.HP = accountPlayerData.Hp;
+        PlayerData.MP = accountPlayerData.Mp;
+    }
 }

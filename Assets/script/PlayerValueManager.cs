@@ -112,17 +112,19 @@ public class PlayerValueManager : MonoBehaviour
         //獲取等級
         LVtext.text = PlayerData.Lv.ToString();
 
-        //獲取當前生命值與魔力
-        HPSlider.value = PlayerData.HP;
-        MPSlider.value = PlayerData.MP;
-
         //獲取最大生命值與魔力
         HPSlider.maxValue = PlayerData.MaxHP;
         MPSlider.maxValue = PlayerData.MaxMP;
 
+        //獲取當前生命值與魔力
+        HPSlider.value = PlayerData.HP;
+        MPSlider.value = PlayerData.MP;
+
         //帶入UI Slider
         HPtext.text = HPSlider.value + "/" + HPSlider.maxValue;
         MPtext.text = MPSlider.value + "/" + MPSlider.maxValue;
+
+        LoadPlayerData.SaveUserData();
     }
     /// <summary>
     /// 經驗值更動時的處理

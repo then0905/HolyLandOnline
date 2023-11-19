@@ -5,3 +5,5 @@ Assembly-CSharp.csproj.user
 Assets/3D/
 Logs/
 obj/
+Temp/
+.vs/HLO/v16/.suo
