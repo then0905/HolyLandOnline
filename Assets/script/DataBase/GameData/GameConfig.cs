@@ -1,0 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+//==========================================
+//  創建者:家豪
+//  創建日期:2023/11/19
+//  創建用途:遊戲資料路徑配置
+//==========================================
+public static class GameConfig
+{
+   public const string SkillIcon = "Skill/Icon";
+}

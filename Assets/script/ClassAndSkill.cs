@@ -83,6 +83,7 @@ public class ClassAndSkill : MonoBehaviour
             skillUIobj.SkillCD.text = item.CD.ToString();
             skillUIobj.SkillIntro.text = item.Intro;
             skillUIobj.Characteristic = item.Characteristic;
+            skillUIobj.SkillIcon.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon+"/"+PlayerData.Job,item.SkillID);
 
             skillUIobj.GetComponent<DragSkill>().TopOfUnit = topOfUnit;
             skillUIobj.GetComponent<DragSkill>().SkillHotKey = skillHotKeyTrans;

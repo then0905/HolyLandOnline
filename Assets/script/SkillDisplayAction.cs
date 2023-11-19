@@ -37,9 +37,11 @@ public class SkillDisplayAction : MonoBehaviour
     public Transform CharacterTransform;
     Animator characterAnimator;
 
+    //是否再自動接近目標
+    public bool AutoNavToTarget = false;
+
     //防止動畫未結束播放，因鍵入下一個技能施放指令而中斷動畫或是產生BUG的防呆
     private bool usingSkill = false;
-
     public bool UsingSkill //是否正在施放技能
     {
         get
@@ -218,7 +220,7 @@ public class SkillDisplayAction : MonoBehaviour
                 case "Arrow":
                     //若已選取目標 接近目標到可施放範圍
                     if (TargetUI_Manager.CatchTarget)
-                        SkillDistanceCheck(skillUIData);
+                        StartCoroutine(SkillDistanceCheck(skillUIData));
                     else
                         //若未選取 顯示該技能範圍
                         SkillArrow(skillUIData);
@@ -227,7 +229,7 @@ public class SkillDisplayAction : MonoBehaviour
                 //指定技能類型
                 case "Target":
                     if (TargetUI_Manager.CatchTarget)
-                        SkillDistanceCheck(skillUIData);
+                        StartCoroutine(SkillDistanceCheck(skillUIData));
                     else
                         SkillTarget(skillUIData);
                     break;
@@ -235,7 +237,7 @@ public class SkillDisplayAction : MonoBehaviour
                 //圓圈型範圍技能類型
                 case "Circle":
                     if (TargetUI_Manager.CatchTarget)
-                        SkillDistanceCheck(skillUIData);
+                        StartCoroutine(SkillDistanceCheck(skillUIData));
                     else
                         SkillCircle(skillUIData);
                     break;
@@ -243,7 +245,7 @@ public class SkillDisplayAction : MonoBehaviour
                 //扇型範圍技能類型
                 case "Cone":
                     if (TargetUI_Manager.CatchTarget)
-                        SkillDistanceCheck(skillUIData);
+                        StartCoroutine(SkillDistanceCheck(skillUIData));
                     else
                         SkillCone(skillUIData);
                     break;
@@ -373,7 +375,7 @@ public class SkillDisplayAction : MonoBehaviour
             string queryResule =
             GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(skillUIData.Name)).Select(x => x.Value.SkillID).FirstOrDefault();
             GameObject effectObj = CommonFunction.LoadObject<GameObject>("SkillPrefab", "SkillEffect_" + queryResule);
-            Instantiate(effectObj).GetComponent<Skill_Base>().InitSkillEffectData();
+            //Instantiate(effectObj).GetComponent<Skill_Base>().InitSkillEffectData();
         }
         else
             CommonFunction.MessageHint("魔力不足...");
@@ -453,12 +455,13 @@ public class SkillDisplayAction : MonoBehaviour
     /// <summary>
     /// 確認玩家是否進入可施放範圍
     /// </summary>
-    public void SkillDistanceCheck(SkillUIModel skillUIData)
+    public IEnumerator SkillDistanceCheck(SkillUIModel skillUIData)
     {
         DistanceWithTarget();
 
         if (!UsingSkill)
         {
+            AutoNavToTarget = true;
             //若還沒進入施放距離則移動玩家
             while (dis > skillUIData.Distance)
             {
@@ -466,6 +469,7 @@ public class SkillDisplayAction : MonoBehaviour
                 PlayerCharacter.transform.LookAt(TargetUI_Manager.Targetgameobject.transform);
                 characterAnimator.SetBool("IsRun", true);
                 Player.transform.position = Vector3.Lerp(Player.transform.position, TargetUI_Manager.Targetgameobject.Povit.position, CharacterMove.MoveSpeed * Time.deltaTime * 0.1f);
+                yield return new WaitForEndOfFrame();           
             }
 
             characterAnimator.SetBool("IsRun", false);
