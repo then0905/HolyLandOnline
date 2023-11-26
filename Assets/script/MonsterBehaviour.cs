@@ -13,7 +13,19 @@ public class MonsterBehaviour : MonoBehaviour
     //取得動畫
     [SerializeField]private Animator MonsterAnimator;
     public GameObject MonsterNameUI;
-    public int CurrentHp;
+    protected int currentHp;
+    public int CurrentHp {
+        get {return currentHp; }
+        set
+        {
+            if (value < 0) 
+            {
+                value = 0;
+                StartCoroutine(DeadBehaviourAsync());
+            }
+                currentHp = value;
+        }
+    }
     public BootysHandle BootysHandling;
     public SelectTarget SelectTarget_;
 
@@ -40,7 +52,7 @@ public class MonsterBehaviour : MonoBehaviour
     public void Init()
     {
         monsterValue = GameData.MonstersDic?[MonsterName];
-        CurrentHp = monsterValue.HP;
+        currentHp = monsterValue.HP;
     }
     /// <summary>
     /// 怪物死亡後執行方法

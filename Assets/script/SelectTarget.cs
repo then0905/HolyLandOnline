@@ -10,6 +10,22 @@ using TMPro;
 //==========================================
 public class SelectTarget : MonoBehaviour
 {
+    #region 全域靜態變數
+
+    public static SelectTarget Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = FindObjectOfType<SelectTarget>();
+            return instance;
+        }
+    }
+
+    private static SelectTarget instance;
+
+    #endregion
+
     //玩家攝影機
     public GameObject CharacterCamera;
     //是否抓取到目標
@@ -37,7 +53,7 @@ public class SelectTarget : MonoBehaviour
     void Update()
     {
         //檢查是否有視窗開啟
-        if (!HotKeyManager.BagWindow.activeSelf && !HotKeyManager.SkillsWindow.activeSelf)
+        if (PanelManager.Instance.CheckPanelStatus())
         {
             if (Input.GetMouseButtonDown(0))
             {

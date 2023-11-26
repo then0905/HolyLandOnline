@@ -38,7 +38,7 @@ public class BagItemEquip : MonoBehaviour
     public void OnClick(BaseEventData baseEventData)
     {
         PointerEventData data = baseEventData as PointerEventData;
-        Bagsitemintro.OnClick(data);
+        Bagsitemintro.OnClick(BagWindowTransform.GetComponent<RectTransform>(),data);
     }
 
     /// <summary>
@@ -82,7 +82,10 @@ public class BagItemEquip : MonoBehaviour
         GameObject MovingItem = data.pointerCurrentRaycast.gameObject;
 
         //複製的物件跟隨鼠標
-        cloneItem.transform.position = Input.mousePosition;
+        Vector2 pos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(BagWindowTransform.GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out pos);
+
+        cloneItem.GetComponent<RectTransform>().anchoredPosition = pos;
 
         //關閉物件raycast
         if (cloneItem.transform.GetComponent<Image>().raycastTarget)

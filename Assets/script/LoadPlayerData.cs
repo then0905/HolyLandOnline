@@ -66,7 +66,7 @@ public class LoadPlayerData : MonoBehaviour
         accountPlayerData = new AccountPlayerData()
         {
             UID = "",
-            PlayerName = "",
+            PlayerName = PlayerData.PlayerName,
             Job = PlayerData.Job,
             Race = PlayerData.Race,
             Hp = PlayerData.HP,

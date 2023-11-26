@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Linq;
+using TMPro;
 
 //==========================================
 //  創建者:    家豪
@@ -56,6 +57,7 @@ public class StatusOperation : MonoBehaviour
 
     public ItemManager Itemmanager;
     private static Action refreshStatus;
+
     //暫存基礎能力值
     protected TempBasalStatus tempBasalStatus = new TempBasalStatus();
     //暫存效果影響的能力值
@@ -534,5 +536,8 @@ public class StatusOperation : MonoBehaviour
             PlayerData.AS += tempBasalStatus.AS;
             PlayerData.DisorderResistance += tempBasalStatus.DisorderResistance;
         }
+
+        //刷新數據呈現
+        PlayerDataPanelProcessor.Instance.SetPlayerDataContent();
     }
 }

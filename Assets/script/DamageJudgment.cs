@@ -24,9 +24,8 @@ public class DamageJudgment : MonoBehaviour
             if (SkillDisplayAction.Instance.UsingSkill)
             {
                 //傳送命中s資料
-                BattleOperation.Instance.CatchBattleTarget(other.gameObject);
+               // BattleOperation.Instance.CatchBattleTarget(other.gameObject);
             }
         }
     }
-   
 }

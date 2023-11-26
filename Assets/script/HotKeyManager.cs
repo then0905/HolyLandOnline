@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 //==========================================
 //  創建者:    家豪
@@ -11,25 +12,31 @@ using UnityEngine.UI;
 
 public class HotKeyManager : MonoBehaviour
 {
-    //技能視窗
-    public GameObject SkillsWindow;
-    //背包視窗
-    public GameObject BagWindow;
     //技能欄底圖
     public Image[] SkillsHotKeyBackground;
     //技能欄CD計時圖
     public Image[] SkillsHotKeyFill;
+    //面板管理器
+    private PanelManager panelManager;
+    private void Start()
+    {
+        panelManager = PanelManager.Instance;
+    }
     private void Update()
     {
         if (Input.GetKeyDown("k"))
         {
-            SkillsWindowPage();
+            SkillsPanelPage();
         }
         if (Input.GetKeyDown("b"))
         {
-            BagWindowPage();
+            BagPanelPage();
         }
-        for(int i = 0; i < 10; i++)
+        if (Input.GetKeyDown("c"))
+        {
+            PlayerDataPanelPage();
+        }
+        for (int i = 0; i < 10; i++)
         {
             SkillsHotKeyFill[i].sprite = SkillsHotKeyBackground[i].sprite;
         }
@@ -37,29 +44,47 @@ public class HotKeyManager : MonoBehaviour
     /// <summary>
     /// 開關技能視窗
     /// </summary>
-    public void SkillsWindowPage()
+    public void SkillsPanelPage()
     {
-        if (!SkillsWindow.activeSelf)
+        PanelData skillPanel = panelManager.PanelLsit.Where(x => x.PanelName.Contains("SkillPanel")).FirstOrDefault();
+        if (!skillPanel.PanelObj.activeSelf)
         {
-            SkillsWindow.SetActive(true);
+            panelManager.SetPanelOpen("SkillPanel");
         }
         else
         {
-            SkillsWindow.SetActive(false);
+            panelManager.SetPanelClose("SkillPanel");
         }
     }
     /// <summary>
     /// 開關背包視窗
     /// </summary>
-    public void BagWindowPage()
+    public void BagPanelPage()
     {
-        if (!BagWindow.activeSelf)
+        PanelData bagPanel = panelManager.PanelLsit.Where(x => x.PanelName.Contains("BagPanel")).FirstOrDefault();
+        if (!bagPanel.PanelObj.activeSelf)
         {
-            BagWindow.SetActive(true);
+            panelManager.SetPanelOpen("BagPanel");
         }
         else
         {
-            BagWindow.SetActive(false);
+            panelManager.SetPanelClose("BagPanel");
+        }
+    }
+
+    /// <summary>
+    /// 開關角色資料視窗
+    /// </summary>
+    public void PlayerDataPanelPage()
+    {
+        PanelData playerDataPanel = panelManager.PanelLsit.Where(x => x.PanelName.Contains("PlayerDataPanel")).FirstOrDefault();
+        if (!playerDataPanel.PanelObj.activeSelf)
+        {
+            panelManager.SetPanelOpen("PlayerDataPanel");
+        }
+        else
+        {
+            panelManager.SetPanelClose("PlayerDataPanel");
         }
     }
 }

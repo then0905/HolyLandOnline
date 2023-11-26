@@ -57,19 +57,24 @@ public class BagsItemIntro : MonoBehaviour
     /// 點擊事件
     /// </summary>
     /// <param name="BagsItem"></param>
-    public void OnClick(PointerEventData BagsItem)
+    public void OnClick(RectTransform topOfUnit,PointerEventData BagsItem)
     {
         //檢查是否為背包格子
-        if (BagsItem.pointerCurrentRaycast.gameObject.tag != "BagItem" || BagsItem.pointerCurrentRaycast.gameObject.tag != "Equip")
+        if (BagsItem.pointerCurrentRaycast.gameObject.tag != "BagItem" && BagsItem.pointerCurrentRaycast.gameObject.tag != "Equip")
             return;
         //物品資訊顯示位置跟隨鼠標
-        gameObject.GetComponent<RectTransform>().position = Input.mousePosition;
+        Vector2 pos;
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(topOfUnit, Input.mousePosition, Camera.main, out pos);
+        GetComponent<RectTransform>().anchoredPosition = pos;
+
+        //獲取此次點擊的物品資料
+        Equipment equipment = BagsItem.pointerCurrentRaycast.gameObject.GetComponent<Equipment>();
 
         //檢查是否重複點擊同件物品
-        if (introItem != BagsItem.pointerCurrentRaycast.gameObject.GetComponent<Equipment>())
+        if (introItem ==null && introItem != equipment)
         {
             //若不是則記錄物品資料
-            introItem = BagsItem.pointerCurrentRaycast.gameObject.GetComponent<Equipment>();
+            introItem = equipment;
 
             //檢查空值
             if (introItem.EquipmentDatas != null)

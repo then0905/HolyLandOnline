@@ -17,6 +17,7 @@ public class Character_move : MonoBehaviour
     Animator CharacterAnimator;
     public int RotateSpeed;
     public float MoveSpeed;
+
     void Start()
     {
         CharacterAnimator = Character.GetComponent<Animator>();
@@ -53,14 +54,8 @@ public class Character_move : MonoBehaviour
     public void RunAnimation(Vector2 inputToMove)
     {
         if (SkillDisplayAction.Instance.AutoNavToTarget) return;
-        if (inputToMove != Vector2.zero)
-        {
-            CharacterAnimator.SetBool("IsRun", true);
-        }
-        else
-        {
-            CharacterAnimator.SetBool("IsRun", false);
-        }
+
+        CharacterAnimator.SetBool("IsRun", inputToMove != Vector2.zero);
     }
 
     /// <summary>

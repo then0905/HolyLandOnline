@@ -10,14 +10,24 @@ using System.Linq;
 /// <summary>
 /// 技能類別標籤
 /// </summary>
-public enum Category
+public enum SkillEffectCategory
 {
+    /// <summary>
+    /// 主動型Buff
+    /// </summary>
     Buff,
+    /// <summary>
+    /// 被動Buff
+    /// </summary>
     Passive,
+    /// <summary>
+    /// 純減益效果
+    /// </summary>
     DeBuff,
-    MeleeATK,
-    RemoteATK,
-    MageATK
+    /// <summary>
+    /// 攻擊型
+    /// </summary>
+    Attack
 }
 
 public abstract class Skill_Base : MonoBehaviour
@@ -45,20 +55,50 @@ public abstract class Skill_Base : MonoBehaviour
     protected float distance;                     // 技能範圍(施放者與目標間的距離值)
     protected float width;                        // 矩形範圍的寬
     protected float height;                       // 矩形範圍的長度
-    protected float circleDistance;               // 圓形範圍 
+    protected float circleDistance;               // 圓形範圍
     #endregion
 
-    [Header("技能ID 用來從GameData找資料輸入"), SerializeField] protected string SkillName;
+    #region 供外部獲取資料的結構
 
-    protected Category category;
+    public bool Characteristic { get { return characteristic; } }             // True:主動、False:被動
+    public int MultipleValue { get { return multipleValue; } }                 // 多段傷害的次數 次數大於1需要填
+
+    public List<float> EffectValue { get { return effectValue; } }               // 效果值 
+    public List<string> InfluenceStatus { get { return influenceStatus; } }        // 效果影響的屬性 (Buff)   
+    public List<string> AddType { get { return addType; } }                // 加成運算的方式 Rate:乘法、Value:加法   
+    public string EffectCategory { get { return effectCategory; } }                   // 標籤類型    
+    public List<string> AdditionalEffect { get { return additionalEffect; } }      // 額外附加效果標籤
+    public List<float> AdditionalEffectValue { get { return additionalEffectValue; } }  // 額外附加效果的值
+    public List<float> AdditionalEffectTime { get { return additionalEffectTime; } }   // 額外附加效果持續時間
+    public Dictionary<string, string> Condition { get { return condition; } }              // 執行技能所需條件
+
+    public int EffectRecive { get { return EffectRecive; } }
+    public int TargetCount { get { return TargetCount; } }                        // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
+    public float EffectDurationTime { get { return EffectDurationTime; } }              // 效果持續時間
+    public float ChantTime { get { return ChantTime; } }                        // 詠唱時間
+
+    public string AdditionMode { get { return AdditionMode; } }                    // 攻擊模式 戰鬥計算防禦方面使用 (近距離物理、遠距離物理找物防:魔法找魔防)
+    public float Distance { get { return Distance; } }                        // 技能範圍(施放者與目標間的距離值)
+    public float Width { get { return Width; } }                           // 矩形範圍的寬
+    public float Height { get { return Height; } }                         // 矩形範圍的長度
+    public float CircleDistance { get { return CircleDistance; } }                 // 圓形範圍 
+
+    #endregion
+
+    [Header("技能ID 用來從GameData找資料輸入"), SerializeField] protected string skillName;
+
+    [Header("生成的動畫特效物件"), SerializeField] protected GameObject effectObj;
+
+    protected SkillEffectCategory category;//技能類別標籤
 
     /// <summary>
     /// 初始化技能資料
     /// </summary>
-    public void InitSkillEffectData()
+    /// <param name="costMaga">消耗魔力</param>
+    public void InitSkillEffectData(int costMaga)
     {
         //獲取GameData技能資料
-        var effectData = GameData.SkillsDataDic[SkillName];
+        var effectData = GameData.SkillsDataDic[skillName];
         //轉換List
         TranslateListData(effectData);
         //設定其他資料
@@ -75,6 +115,12 @@ public abstract class Skill_Base : MonoBehaviour
         height = effectData.Height;
         circleDistance = effectData.CircleDistance;
 
+        //扣除消耗魔力
+        PlayerValueManager.Instance.ChangeMpEvent?.Invoke(costMaga * -1);
+
+        SkillEffectStart();
+        //設定生成特效參考
+        if (effectObj != null) InitSkillEffect(effectData.EffectTarget);
     }
     /// <summary>
     /// 轉換資料 To List
@@ -152,10 +198,10 @@ public abstract class Skill_Base : MonoBehaviour
                 conditionHP = PlayerData.MaxHP * float.Parse(value);
                 return conditionHP > PlayerData.HP;
             case "Close":
-            //建立靠近單位的判斷(朝單位移動? 雙方距離縮短? 單位判斷與距離多少?)
+                //建立靠近單位的判斷(朝單位移動? 雙方距離縮短? 單位判斷與距離多少?)
                 return false;
             case "Random":
-            //缺乏隨機條件(目前有的資料 禁衛軍的"回擊好禮")
+                //缺乏隨機條件(目前有的資料 禁衛軍的"回擊好禮")
                 return false;
         }
     }
@@ -167,5 +213,35 @@ public abstract class Skill_Base : MonoBehaviour
     /// <summary>
     /// 技能施放結束
     /// </summary>
-    protected abstract void SkillEffectEnd(string statusType, bool Rate, float value);
+    protected abstract void SkillEffectEnd(string statusType = "", bool Rate = false, float value = 0);
+
+    /// <summary>
+    /// 技能施放結束 For AnimationEvent
+    /// </summary>
+    public void SkillEndForAnimation()
+    {
+        SkillEffectEnd();
+    }
+
+    /// <summary>
+    /// 實例化技能特效物件
+    /// </summary>
+    /// <param name="targetReference">生成目標參考</param>
+    protected void InitSkillEffect(string targetReference)
+    {
+        GameObject obj;
+        switch (targetReference)
+        {
+            default:
+            case "Self":
+                obj = Instantiate(effectObj, SkillDisplayAction.Instance.PlayerCharacter.transform);
+                break;
+            case "Target":
+                obj = Instantiate(effectObj, SkillDisplayAction.Instance.TargetUI_Manager.Targetgameobject.transform);
+                break;
+                //case "TargetArea":
+                //case "Team":
+        }
+        obj.transform.localScale = Vector3.one;
+    }
 }

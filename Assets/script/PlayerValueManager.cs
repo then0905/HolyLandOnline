@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 using System.Linq;
+using System;
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/05/18
@@ -28,15 +29,20 @@ public class PlayerValueManager : MonoBehaviour
     #endregion
 
     #region 遊戲物件
-    public Slider HPSlider;         //血條
-    public Slider MPSlider;         //魔力條
-    public Slider ExpSlider;        //經驗條
-    public TMP_Text HPtext;         //血條文字
-    public TMP_Text MPtext;         //魔力文字
-    public TMP_Text LVtext;         //等級文字
+    [Header("血條"), SerializeField] protected Slider hpSlider;
+    [Header("魔力條"), SerializeField] protected Slider mpSlider;
+    [Header("經驗條"), SerializeField] protected Slider expSlider;
+    [Header("血條文字"), SerializeField] protected TMP_Text hptext;
+    [Header("魔力文字"), SerializeField] protected TMP_Text mptext;
+    [Header("等級文字"), SerializeField] protected TMP_Text lvtext;
+    [Header("玩家名稱文字"), SerializeField] protected TMP_Text nametext;
     #endregion
 
     public static int FirstInGame = 1;         //第一次登入遊戲
+
+    public Action UIrefresh;        //刷新玩家UI的事件
+    public Action<int> ChangeHpEvent;        //刷新玩家HP的事件
+    public Action<int> ChangeMpEvent;        //刷新玩家MP的事件
 
     /// <summary>
     /// 初始化
@@ -48,6 +54,11 @@ public class PlayerValueManager : MonoBehaviour
         //呼叫自然恢復魔力與血量
         StartCoroutine(RecoveryHpCoroutine());
         StartCoroutine(RecoveryMpCoroutine());
+
+        UIrefresh += RefreshExpAndLv;
+        UIrefresh += PlayerDataPanelProcessor.Instance.SetPlayerDataContent;
+        ChangeHpEvent += ChangePlayerHp;
+        ChangeMpEvent += ChangePlayerMp;
     }
 
     /// <summary>
@@ -71,12 +82,7 @@ public class PlayerValueManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        if (PlayerData.HP + PlayerData.HP_Recovery > PlayerData.MaxHP)
-            PlayerData.HP = PlayerData.MaxHP;
-        else
-            PlayerData.HP += PlayerData.HP_Recovery;
-
-        RefreshExpAndLv();
+        ChangeHpEvent.Invoke(PlayerData.HP_Recovery);
 
         yield return StartCoroutine(RecoveryHpCoroutine());
     }
@@ -94,12 +100,7 @@ public class PlayerValueManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        if (PlayerData.MP + PlayerData.MP_Recovery > PlayerData.MaxMP)
-            PlayerData.MP = PlayerData.MaxMP;
-        else
-            PlayerData.MP += PlayerData.MP_Recovery;
-
-        RefreshExpAndLv();
+        ChangeMpEvent.Invoke(PlayerData.MP_Recovery);
 
         yield return StartCoroutine(RecoveryMpCoroutine());
     }
@@ -110,19 +111,21 @@ public class PlayerValueManager : MonoBehaviour
     void RefreshExpAndLv()
     {
         //獲取等級
-        LVtext.text = PlayerData.Lv.ToString();
+        lvtext.text = PlayerData.Lv.ToString();
+        //獲取玩家名稱
+        nametext.text = PlayerData.PlayerName;
 
         //獲取最大生命值與魔力
-        HPSlider.maxValue = PlayerData.MaxHP;
-        MPSlider.maxValue = PlayerData.MaxMP;
+        hpSlider.maxValue = PlayerData.MaxHP;
+        mpSlider.maxValue = PlayerData.MaxMP;
 
         //獲取當前生命值與魔力
-        HPSlider.value = PlayerData.HP;
-        MPSlider.value = PlayerData.MP;
+        hpSlider.value = PlayerData.HP;
+        mpSlider.value = PlayerData.MP;
 
         //帶入UI Slider
-        HPtext.text = HPSlider.value + "/" + HPSlider.maxValue;
-        MPtext.text = MPSlider.value + "/" + MPSlider.maxValue;
+        hptext.text = hpSlider.value + "/" + hpSlider.maxValue;
+        mptext.text = mpSlider.value + "/" + mpSlider.maxValue;
 
         LoadPlayerData.SaveUserData();
     }
@@ -132,18 +135,18 @@ public class PlayerValueManager : MonoBehaviour
     public void ExpProcessor()
     {
         //若玩家經驗值>最大經驗值條 為 升級事件
-        if (PlayerData.Exp >= ExpSlider.maxValue)
+        if (PlayerData.Exp >= expSlider.maxValue)
         {
             //呼叫刷新與升等
             LVup();
             //更新經驗值條(扣除當前最大經驗值)
-            PlayerData.Exp -= int.Parse(ExpSlider.maxValue.ToString());
+            PlayerData.Exp -= int.Parse(expSlider.maxValue.ToString());
             PlayerData.Lv++;
         }
 
         //設定經驗值調資料
-        ExpSlider.value = PlayerData.Exp;
-        ExpSlider.maxValue = GameData.ExpAndLvDic.Where(x => x.Key.Contains(PlayerData.Lv.ToString())).Select(x => x.Value).FirstOrDefault().EXP;
+        expSlider.value = PlayerData.Exp;
+        expSlider.maxValue = GameData.ExpAndLvDic.Where(x => x.Key.Contains(PlayerData.Lv.ToString())).Select(x => x.Value).FirstOrDefault().EXP;
     }
 
     /// <summary>
@@ -154,5 +157,48 @@ public class PlayerValueManager : MonoBehaviour
         //回復玩家生命值與魔力
         PlayerData.HP = PlayerData.MaxHP;
         PlayerData.MP = PlayerData.MaxMP;
+    }
+
+    /// <summary>
+    /// 更動玩家血量
+    /// </summary>
+    /// <param name="value">更動值</param>
+    void ChangePlayerHp(int value)
+    {
+        //判斷增加的值是否超出血量Range範圍 設定滿血 或 死亡 或更動數值
+        if (PlayerData.HP + value > PlayerData.MaxHP)
+        {
+            //滿血
+            PlayerData.HP = PlayerData.MaxHP;
+        }
+        if (PlayerData.HP + value < PlayerData.MaxHP)
+        {
+            //死亡 
+            PlayerData.HP = 0;
+            //呼叫死亡事件
+        }
+        else
+            //正常更動
+            PlayerData.HP += value;
+
+        UIrefresh?.Invoke();
+    }
+    /// <summary>
+    /// 更動玩家血量
+    /// </summary>
+    /// <param name="value">更動值</param>
+    void ChangePlayerMp(int value)
+    {
+        //判斷增加的值是否超出血量Range範圍 設定滿血 或 死亡 或更動數值
+        if (PlayerData.MP + value > PlayerData.MaxMP)
+        {
+            //滿血
+            PlayerData.MP = PlayerData.MaxMP;
+        }
+        else
+            //正常更動
+            PlayerData.MP += value;
+
+        UIrefresh?.Invoke();
     }
 }

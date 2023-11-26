@@ -11,7 +11,7 @@ using UnityEngine;
 //==========================================
 public abstract class Skill_Base_Buff : Skill_Base
 {
-    protected new readonly Category category = Category.Buff;
+    protected new readonly SkillEffectCategory category = SkillEffectCategory.Buff;
 
     /// <summary>
     /// Buff型技能啟動

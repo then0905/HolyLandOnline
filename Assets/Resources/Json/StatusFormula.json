@@ -468,9 +468,9 @@
     "DEX": 0,
     "INT": 0,
     "AGI": 0,
-    "VIT": 5,
+    "VIT": 0.5,
     "WIS": 0,
-    "LvCodition": 3
+    "LvCodition": 0.3
   },
   {
     "TargetStatus": "HP_Recovery",
@@ -479,9 +479,9 @@
     "DEX": 0,
     "INT": 0,
     "AGI": 0,
-    "VIT": 3.75,
+    "VIT": 0.375,
     "WIS": 0,
-    "LvCodition": 2.5
+    "LvCodition": 0.25
   },
   {
     "TargetStatus": "HP_Recovery",
@@ -490,9 +490,9 @@
     "DEX": 0,
     "INT": 0,
     "AGI": 0,
-    "VIT": 3,
+    "VIT": 0.3,
     "WIS": 0,
-    "LvCodition": 1
+    "LvCodition": 0.1
   },
   {
     "TargetStatus": "MP_Recovery",
@@ -502,8 +502,8 @@
     "INT": 0,
     "AGI": 0,
     "VIT": 0,
-    "WIS": 1,
-    "LvCodition": 1
+    "WIS": 0.1,
+    "LvCodition": 0.1
   },
   {
     "TargetStatus": "MP_Recovery",
@@ -513,8 +513,8 @@
     "INT": 0,
     "AGI": 0,
     "VIT": 0,
-    "WIS": 3.5,
-    "LvCodition": 2.5
+    "WIS": 0.35,
+    "LvCodition": 0.25
   },
   {
     "TargetStatus": "MP_Recovery",
@@ -524,7 +524,7 @@
     "INT": 0,
     "AGI": 0,
     "VIT": 0,
-    "WIS": 7,
-    "LvCodition": 3
+    "WIS": 0.78,
+    "LvCodition": 0.3
   }
 ]

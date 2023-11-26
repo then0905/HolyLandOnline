@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 5431797205736424388}
   - component: {fileID: 5431797205736424411}
   - component: {fileID: 5431797205736424410}
+  - component: {fileID: 5121147541460245685}
   m_Layer: 9
   m_Name: Coin
   m_TagString: Item
@@ -159,50 +160,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b47041b248e2c744a2d8a6f55ee709b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ItemName: "\u6E2C\u8A66\u7528\u7269\u54C12"
-  ItemClassification: "\u9632\u5177"
-  ItemPart: "\u982D\u90E8"
-  ItemType: "\u91CD\u7532"
-  ItemLV: 1
-  ItemIntro: "\u6E2C\u8A66\u7528\u88DD\u5099"
-  Itemmanger: {fileID: 0}
-  ThisEquipmentImage: {fileID: -327126724, guid: ebf772b856e1d6e4986de6057f59d1dc,
-    type: 3}
-  Weaponvalue:
-    ASPD: 0
-    CATK: 0
-    C_Hit: 0
-    LATK: 0
-    L_Hit: 0
-    MATK: 0
-    M_Hit: 0
-    ShieldDEF: 0
-    ShieldMDEF: 0
-    ShieldAvoid: 0
-    Crit: 0
-    CrtDamage: 0
-    STR: 0
-    DEX: 0
-    INT: 0
-    AGI: 0
-    VIT: 0
-    WIS: 0
-  Armorvalue:
-    DEF: 0
-    Avoid: 0
-    MDEF: 0
-    Speed: 0
-    CritReduction: 0
-    DmgMitigation: 0
-    MaxHp: 0
-    MaxMp: 0
-    Hp_Recovery: 0
-    Mp_Recovery: 0
-    STR: 0
-    DEX: 0
-    INT: 0
-    AGI: 0
-    VIT: 0
-    WIS: 0
-    DMG_Reduction: 0
-    ASR: 0
+  EquipImage: {fileID: 0}
+--- !u!114 &5121147541460245685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161396848974118551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 99fadf7ca135e0e4da852eb201c54288, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ThisEquipmentImage: {fileID: 0}
+  Coins: 0

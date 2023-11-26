@@ -107,6 +107,7 @@ namespace JsonDataModel
         public string InfluenceStatus { get; set; }       // 效果影響的屬性 (Buff)   
         public string AddType { get; set; }               // 加成運算的方式 Rate:乘法、Value:加法   
         public string EffectCategory { get; set; }              // 標籤類型    
+        public string EffectTarget { get; set; }            //特效參考目標
         public string AdditionalEffect { get; set; }      // 額外附加效果標籤
         public string AdditionalEffectValue { get; set; }  // 額外附加效果的值
         public string AdditionalEffectTime { get; set; }   // 額外附加效果持續時間

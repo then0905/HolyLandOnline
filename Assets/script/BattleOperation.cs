@@ -28,58 +28,50 @@ public class BattleOperation : MonoBehaviour
 
     private float hitValue;     //命中值
     private int hitRate;        //命中率
-    /// <summary>
-    /// 選取的怪物目標
-    /// </summary>
-    private GameObject monsterTarget
-    {
-        get { return monsterTarget; }
-
-        set
-        {
-            if (value != null)
-            {
-                HitOrMiss();
-            }
-        }
-    }
 
     /// <summary>
     /// 獲取戰鬥對象
-    /// </summary>
-    public void CatchBattleTarget(GameObject targetObj)
+    /// </summary>    
+    /// <param name="skillBase">攻擊技能資料</param>
+    /// <param name="target">目標</param>
+    public void BattleOperationStart(Skill_Base_Attack skillBase, GameObject target)
     {
-        monsterTarget = targetObj;
+        //檢查空值
+        if (skillBase != null && target != null)
+            HitOrMiss(skillBase, target);
     }
 
     /// <summary>
-    /// 是否命中
+    ///  是否命中
     /// </summary>
-    public void HitOrMiss()
+    /// <param name="skillBase">攻擊技能資料</param>
+    /// <param name="target">目標</param>
+    public void HitOrMiss(Skill_Base_Attack skillBase, GameObject target)
     {
+        MonsterBehaviour monsterBehaviour = null;
         //取得 怪物行為腳本
-        MonsterBehaviour monsterBehaviour = monsterTarget.GetComponent<MonsterBehaviour>();
-        //取得 技能資料
-        SkillUIModel skillData = GameData.SkillsUIDic[SkillDisplayAction.Instance.SkillHotKey[SkillDisplayAction.Instance.KeyIndex].SkillName];
+        if (target.GetComponent<MonsterBehaviour>() != null)
+            monsterBehaviour = target.GetComponent<MonsterBehaviour>();
+        else
+        {
+            //獲取敵方資料
+        }
 
         //判別技能模式
-        switch (skillData.Type)
+        switch (skillBase.EffectCategory)
         {
 
             case "MeleeATK":
-
                 hitValue = PlayerData.MeleeHit * 100 / (PlayerData.MeleeHit + monsterBehaviour.MonsterValue.Avoid);
                 hitRate = (int)Mathf.Round(hitValue);
                 break;
 
             case "RemoteATK":
-
                 hitValue = PlayerData.RemoteHit * 100 / (PlayerData.RemoteHit + monsterBehaviour.MonsterValue.Avoid);
                 hitRate = (int)Mathf.Round(hitValue);
                 break;
 
             case "MageATK":
-
                 hitValue = PlayerData.MageHit * 100 / (PlayerData.MageHit + monsterBehaviour.MonsterValue.Avoid);
                 hitRate = (int)Mathf.Round(hitValue);
                 break;
@@ -89,29 +81,31 @@ public class BattleOperation : MonoBehaviour
 
         // 命中率
         int isHit = Random.Range(0, 101);
+
         // 是否命中
         if (isHit < hitRate)
-            CrtOrNormal(monsterBehaviour, skillData);
+            CrtOrNormal(monsterBehaviour, skillBase);
         else
-            InstanceDmgGUI("Miss", false);
+            InstanceDmgGUI("Miss", false, monsterBehaviour.gameObject);
     }
 
     /// <summary>
     /// 是否暴擊計算
     /// </summary>
     /// <param name="monsterBehaviour">怪物行為腳本</param>
-    public void CrtOrNormal(MonsterBehaviour monsterBehaviour, SkillUIModel skillData)
+    public void CrtOrNormal(MonsterBehaviour monsterBehaviour, Skill_Base_Attack skillBase)
     {
-        float CrtRate;      //
-        //
+        //宣告暴擊率
+        float CrtRate;    
+        //獲取暴擊率(玩家暴擊率*100%/(玩家暴擊+對方暴擊抵抗))
         CrtRate = PlayerData.Crt * 100 / (PlayerData.Crt + monsterBehaviour.MonsterValue.CrtResistance);
-        //
+        
+        //查看是否暴擊
         int isCrt = Random.Range(0, 101);
-        //
         if (isCrt < CrtRate)
-            DmgOperation(true, monsterBehaviour, skillData);
+            DmgOperation(true, monsterBehaviour, skillBase);
         else
-            DmgOperation(false, monsterBehaviour, skillData);
+            DmgOperation(false, monsterBehaviour, skillBase);
     }
     /// <summary>
     /// 格擋計算
@@ -126,56 +120,56 @@ public class BattleOperation : MonoBehaviour
     /// <param name="iscrt">是否暴擊</param>
     /// <param name="monsterBehaviour">怪物行為腳本</param>
     /// <param name="skillData">技能資料</param>
-    public void DmgOperation(bool iscrt, MonsterBehaviour monsterBehaviour, SkillUIModel skillData)
+    public void DmgOperation(bool iscrt, MonsterBehaviour monsterBehaviour, Skill_Base_Attack skillData)
     {
-        float defR;//防禦%
-        float dmg;//總傷害
+        float defRate;//防禦%
+        float damage;//總傷害
 
         //計算出防禦%
-        defR = 0.75f * monsterBehaviour.MonsterValue.DEF / (PlayerData.Lv + 9);
+        defRate = 0.75f * monsterBehaviour.MonsterValue.DEF / (PlayerData.Lv + 9);
 
-        //判別技能模式
-        switch (skillData.Type)
+        //判別技能模式 獲取傷害類別
+        switch (skillData.EffectCategory)
         {
-            case "MeeleATK":
-                dmg = PlayerData.MeleeATK;
+            case "MeleeATK":
+                damage = PlayerData.MeleeATK;
 
                 break;
             case "RemoteATK":
-                dmg = PlayerData.RemoteATK;
+                damage = PlayerData.RemoteATK;
 
                 break;
             case "MageATK":
-                dmg = PlayerData.MageATK;
+                damage = PlayerData.MageATK;
 
                 break;
 
             default:
-                dmg = 0;
+                damage = 0;
                 break;
         }
 
         //是否暴擊
         if (iscrt)
-            dmg = skillData.Damage * (dmg * 1.5f
-                + PlayerData.CrtDamage);
+            damage = skillData.EffectValue[0] * (damage * 1.5f+ PlayerData.CrtDamage);
 
         //目標扣除生命
-        monsterBehaviour.CurrentHp -= (int)Mathf.Round((1 - defR) * dmg);
+        monsterBehaviour.CurrentHp -= (int)Mathf.Round((1 - defRate) * damage);
         //生成傷害數字
-        InstanceDmgGUI(Mathf.Round((1 - defR) * dmg).ToString(), iscrt);
+        InstanceDmgGUI(Mathf.Round((1 - defRate) * damage).ToString(), iscrt, monsterBehaviour.gameObject);
     }
     /// <summary>
     /// 生成傷害數字
     /// </summary>
     /// <param name="dmgVaule">傷害值</param>
     /// <param name="iscrt">是否暴擊</param>
-    public void InstanceDmgGUI(string dmgVaule, bool iscrt)
+    /// <param name="target">生成數字參考對象</param>
+    public void InstanceDmgGUI(string dmgVaule, bool iscrt,GameObject target)
     {
         //載入傷害數字prefab
         GameObject DamageGUI = Resources.Load("DMGtext") as GameObject;
         //取得傷害數字生成位置
-        GameObject head = monsterTarget.transform.GetChild(0).gameObject;
+        GameObject head = target.transform.GetChild(0).gameObject;
 
         //判別 是否命中 是否暴擊 產生不同顏色
         if (dmgVaule == "Miss")
@@ -200,10 +194,10 @@ public class BattleOperation : MonoBehaviour
         Instantiate(DamageGUI, head.transform.position, Quaternion.identity, head.transform);
 
         //還原技能施展防呆
-        SkillDisplayAction.Instance.UsingSkill = false;
+        //SkillDisplayAction.Instance.UsingSkill = false;
         //還原自動導航紀錄
         SkillDisplayAction.Instance.AutoNavToTarget = false;
         //怪物動畫(受傷)
-        monsterTarget.GetComponent<Animator>()?.SetTrigger("Injuried");
+        target.GetComponent<Animator>()?.SetTrigger("Injuried");
     }
 }

@@ -37,6 +37,13 @@ public class SkillDisplayAction : MonoBehaviour
     public Transform CharacterTransform;
     Animator characterAnimator;
 
+    [HideInInspector] public GameObject UsingSkillObj;  //儲存當前施放的技能
+
+    public Animator CharacterAnimator
+    {
+        get { return characterAnimator; }
+    }
+
     //是否再自動接近目標
     public bool AutoNavToTarget = false;
 
@@ -214,6 +221,13 @@ public class SkillDisplayAction : MonoBehaviour
             //取得 該技能UI版資料
             var skillUIData = GameData.SkillsUIDic.Where(x => x.Key.Contains(SkillHotKey[inputNumber].SkillName)).Select(x => x.Value).FirstOrDefault();
 
+            //判斷是否魔力足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
+            if (PlayerData.MP - skillUIData.CastMage < 0 && Skillinformation.CDR[keyIndex] < Skillinformation.CDsec[keyIndex])
+            {
+                CommonFunction.MessageHint("魔力不足...");
+                return;
+            }
+
             switch (skillUIData.Type)
             {
                 //指向技能類型
@@ -375,7 +389,8 @@ public class SkillDisplayAction : MonoBehaviour
             string queryResule =
             GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(skillUIData.Name)).Select(x => x.Value.SkillID).FirstOrDefault();
             GameObject effectObj = CommonFunction.LoadObject<GameObject>("SkillPrefab", "SkillEffect_" + queryResule);
-            //Instantiate(effectObj).GetComponent<Skill_Base>().InitSkillEffectData();
+            UsingSkillObj = Instantiate(effectObj);
+            UsingSkillObj.GetComponent<Skill_Base>().InitSkillEffectData(skillUIData.CastMage);
         }
         else
             CommonFunction.MessageHint("魔力不足...");
@@ -469,9 +484,9 @@ public class SkillDisplayAction : MonoBehaviour
                 PlayerCharacter.transform.LookAt(TargetUI_Manager.Targetgameobject.transform);
                 characterAnimator.SetBool("IsRun", true);
                 Player.transform.position = Vector3.Lerp(Player.transform.position, TargetUI_Manager.Targetgameobject.Povit.position, CharacterMove.MoveSpeed * Time.deltaTime * 0.1f);
-                yield return new WaitForEndOfFrame();           
+                yield return new WaitForEndOfFrame();
             }
-
+            UsingSkill = true;
             characterAnimator.SetBool("IsRun", false);
             CallSkillEffect(skillUIData);
         }
