@@ -14,7 +14,6 @@ public class PickUp : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            print("放開空白建");
             ispickup = false;
         }
     }
@@ -24,10 +23,8 @@ public class PickUp : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                print("按下空白建");
                 if (!ispickup)
                 {
-                    print("撿取到" + other.name);
                     ispickup = true;
                     other.GetComponent<BootysPresent>().BePickUP();
                 }

@@ -49,7 +49,7 @@ public class BootysHandle : MonoBehaviour
     private void GenerateCoin(BootyDataModel bootysData, Transform monsterTransform)
     {
         // 運算金幣量
-        Coin = Random.Range(bootysData.CoinMin, bootysData.CoinMax + 1);
+        Coin = Random.Range(bootysData.MinCoin, bootysData.MaxCoin + 1);
         // 生成物件
         bootyItem = Instantiate(BootyItem, RandomTransform(monsterTransform), transform.rotation).GetComponent<BootysPresent>();
         // 設定金幣量
@@ -65,27 +65,23 @@ public class BootysHandle : MonoBehaviour
     /// <param name="monsterTransform">掉落物位置</param>
     private void GenerateItem(BootyDataModel bootysData, Transform monsterTransform)
     {
+        //分割掉落物機率清單 並轉為小數
+        List<float> chanceList = new List<float>();
+        bootysData.BootysChance.Split(':').ToList().ForEach(x => chanceList.Add(float.Parse(x)));
+
         //分割掉落物清單
-        List<string> chanceList = bootysData.BootysChance.Split(':').ToList();
         List<string> bootyList = bootysData.Bootys.Split(':').ToList();
 
-        foreach (var chance in chanceList)
-        {
-            // 取得隨機值
-            int RandomVaule = Random.Range(1, 101);
-            if (RandomVaule <= int.Parse(chance))//如果骰完小於該戰利品的機率則生成物件
-            {
-                //獲取掉落物資料
-                var booty = bootyList[chanceList.IndexOf(chance)];
-                //生成掉落物
-                bootyItem = Instantiate(BootyItem, RandomTransform(monsterTransform), transform.rotation).GetComponent<BootysPresent>();
-                //從資料庫抓出防具資料 或是空值
-                bootyItem.EquipmentDatas.Armor = GameData.ArmorsDic.Where(x => x.Value.Name.Contains(booty)).FirstOrDefault().Value;
-                //從資料庫抓出武器資料 或是空值
-                bootyItem.EquipmentDatas.Weapon = GameData.WeaponsDic.Where(x => x.Value.Name.Contains(booty)).FirstOrDefault().Value;
-                //從資料庫抓出道具資料 或是空值
-                bootyItem.EquipmentDatas.Item = GameData.ItemsDic.Where(x => x.Value.Name.Contains(booty)).FirstOrDefault().Value;
-            }
-        }
+        //獲取掉落物資料
+        var booty = bootyList[CommonFunction.WeightExtraction(chanceList)];
+        //生成掉落物
+        bootyItem = Instantiate(BootyItem, RandomTransform(monsterTransform), transform.rotation).GetComponent<BootysPresent>();
+        //從資料庫抓出防具資料 或是空值
+        bootyItem.EquipmentDatas.Armor = GameData.ArmorsDic.Where(x => x.Value.Name.Contains(booty)).FirstOrDefault().Value;
+        //從資料庫抓出武器資料 或是空值
+        bootyItem.EquipmentDatas.Weapon = GameData.WeaponsDic.Where(x => x.Value.Name.Contains(booty)).FirstOrDefault().Value;
+        //從資料庫抓出道具資料 或是空值
+        bootyItem.EquipmentDatas.Item = GameData.ItemsDic.Where(x => x.Value.Name.Contains(booty)).FirstOrDefault().Value;
+
     }
 }

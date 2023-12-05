@@ -24,7 +24,7 @@ public class ItemManager : MonoBehaviour
     }
     #endregion 
 
-    public List<EquipData> EquipDataList = new List<EquipData>();       //身上裝備資料
+    public List<Equipment> EquipDataList = new List<Equipment>();       //身上裝備資料
     [HideInInspector] public List<Equipment> BagItems = new List<Equipment>();     //背包格數
     public TextMeshProUGUI CoinText;       //金幣Text
 
@@ -67,6 +67,8 @@ public class ItemManager : MonoBehaviour
                 item.EquipImage.sprite = ItemImage;
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Armor = armorvaule;
+                CommonFunction.MessageHint("獲得" + armorvaule.Name);
+                print("獲得" + armorvaule.Name);
                 return;
             }
             else
@@ -92,6 +94,8 @@ public class ItemManager : MonoBehaviour
                 item.EquipImage.sprite = ItemImage;
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Weapon = weaponvaule;
+                CommonFunction.MessageHint("獲得" + weaponvaule.Name);
+                print("獲得" + weaponvaule.Name);
                 return;
             }
             else
@@ -117,6 +121,8 @@ public class ItemManager : MonoBehaviour
                 item.EquipImage.sprite = ItemImage;
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Item = itemvaule;
+                CommonFunction.MessageHint("獲得" + itemvaule.Name);
+                print("獲得" + itemvaule.Name);
                 return;
             }
             else
@@ -132,5 +138,7 @@ public class ItemManager : MonoBehaviour
     {
         CoinText.text += coin.ToString();
         PlayerData.Coin = int.Parse(CoinText.text);
+        CommonFunction.MessageHint("獲得" + coin.ToString() + "金幣");
+        print("獲得" + coin.ToString() + "金幣");
     }
 }

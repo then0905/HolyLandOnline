@@ -173,5 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99fadf7ca135e0e4da852eb201c54288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThisEquipmentImage: {fileID: 0}
+  ThisEquipmentImage: {fileID: 397960310, guid: 67ebd0f71ce79084da7ad5dde6bb070e,
+    type: 3}
   Coins: 0

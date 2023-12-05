@@ -25,8 +25,8 @@ namespace JsonDataModel
         public string AreaID { get; set; }            //地區ID
         public string Name { get; set; }            //怪物名稱
         public string CodeID { get; set; }          //怪物流水號
-        public int CoinMin { get; set; }            //金幣最小值
-        public int CoinMax { get; set; }            //金幣最大值
+        public int MinCoin { get; set; }            //金幣最小值
+        public int MaxCoin { get; set; }            //金幣最大值
         public string Bootys { get; set; }            //掉落物品清單
         public string BootysChance { get; set; }            //掉落物品機率清單
         public string GetKey { get { return CodeID; } }

@@ -5,6 +5,7 @@ using System.Linq;
 using System;
 using JsonDataModel;
 using Newtonsoft.Json;
+
 //==========================================
 //  創建者:    家豪
 //  創建日期:  2023/05/03
@@ -140,4 +141,29 @@ public static class CommonFunction
         return tempList;
     }
 
+    /// <summary>
+    /// 依權重隨機抽取內容
+    /// </summary>
+    /// <param name="weights">權重清單</param>
+    /// <returns>抽中的內容是清單中的第幾位</returns>
+    public static int WeightExtraction(List<float> weights)
+    {
+        float totalWeight = 0;
+
+        foreach (float weight in weights)
+        {
+            totalWeight += weight;
+        }
+
+        float randomValue = UnityEngine.Random.Range(1, totalWeight + 1);
+
+        float tempWeight = 0;
+        for (int i = 0; i < weights.Count; i++)
+        {
+            tempWeight += weights[i];
+            if (randomValue <= tempWeight)
+                return i;
+        }
+        return weights.Count;
+    }
 }

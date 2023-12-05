@@ -171,7 +171,7 @@ public class PlayerValueManager : MonoBehaviour
             //滿血
             PlayerData.HP = PlayerData.MaxHP;
         }
-        if (PlayerData.HP + value < PlayerData.MaxHP)
+        if (PlayerData.HP + value < 0)
         {
             //死亡 
             PlayerData.HP = 0;

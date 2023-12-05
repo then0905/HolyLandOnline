@@ -38,7 +38,7 @@ public class BagItemEquip : MonoBehaviour
     public void OnClick(BaseEventData baseEventData)
     {
         PointerEventData data = baseEventData as PointerEventData;
-        Bagsitemintro.OnClick(BagWindowTransform.GetComponent<RectTransform>(),data);
+        Bagsitemintro.OnClick(BagWindowTransform.GetComponent<RectTransform>(), data);
     }
 
     /// <summary>
@@ -61,9 +61,12 @@ public class BagItemEquip : MonoBehaviour
                 cloneItem = Instantiate(CloneItem, transform.position, transform.rotation, BagWindowTransform);
                 //設定生成物件的圖片與資料
                 cloneItem.transform.GetComponent<Equipment>().EquipImage.sprite = thisItem.GetComponent<Equipment>().EquipImage.sprite;
-                cloneItem.transform.GetComponent<Equipment>().EquipmentDatas = thisItem.GetComponent<Equipment>().EquipmentDatas;
-                //背包原位的格子圖片設定為空背包圖
+                cloneItem.transform.GetComponent<Equipment>().EquipmentDatas = thisItem.GetComponent<Equipment>().EquipmentDatas.Clone();
+                //背包原位的格子圖片設定為空背包圖 並取消raycast
                 thisItem.GetComponent<Equipment>().EquipImage.sprite = BagItemOriginImage;
+                OriginItemSeat.transform.GetComponent<Image>().raycastTarget = false;
+                //print("拖曳裝備的 裝備格的資料:" + "武器:"+thisItem.GetComponent<Equipment>().EquipmentDatas.Weapon+ 
+                //    "防具:" + thisItem.GetComponent<Equipment>().EquipmentDatas.Armor+ "道具:" + thisItem.GetComponent<Equipment>().EquipmentDatas.Item);
             }
         }
         //關閉物品介紹
@@ -85,7 +88,11 @@ public class BagItemEquip : MonoBehaviour
         Vector2 pos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(BagWindowTransform.GetComponent<RectTransform>(), Input.mousePosition, Camera.main, out pos);
 
-        cloneItem.GetComponent<RectTransform>().anchoredPosition = pos;
+        //因為跟拖曳物品的圖片會造成Z軸超遠偏移(不知明原因) 所以背包物品拖曳的版本多寫了Z軸的控制
+        cloneItem.GetComponent<RectTransform>().localPosition = new Vector3(pos.x, pos.y, BagWindowTransform.GetComponent<RectTransform>().position.z);
+
+        //因為跟拖曳物品的圖片會造成旋轉(不知明原因) 所以背包物品拖曳的版本多了旋轉軸歸零
+        cloneItem.transform.localRotation = Quaternion.identity;
 
         //關閉物件raycast
         if (cloneItem.transform.GetComponent<Image>().raycastTarget)
@@ -93,28 +100,43 @@ public class BagItemEquip : MonoBehaviour
 
         //獲取複製物件的裝備資料
         Equipment cloneObjEquipment = cloneItem.transform.GetComponent<Equipment>();
-        //獲取裝備欄腳本
-        EquipData equipData = MovingItem.transform.GetComponent<EquipData>();
 
-        //檢查空值
-        if (MovingItem.tag == "Equip" && MovingItem != null)//拖曳物品到裝備欄時
+
+        //檢查空值 拖曳物品到背包的任一欄位時
+        if (MovingItem != null)
         {
-            if (cloneObjEquipment.EquipmentDatas.Item == null)//檢查物品是否為道具類
-                return;
-            //檢查是否正確位置
-            if (equipData.PartID.Contains(cloneItem.transform.GetComponent<Equipment>().EquipmentDatas.Weapon.TackHandID) && equipData != null)
-                //顯示裝備欄綠色提示
-                HintMethod(equipData.Hint, true, Color.green);
-            else if (MovingItem.transform.GetComponent<EquipData>().PartID.Contains(cloneItem.transform.GetComponent<Equipment>().EquipmentDatas.Armor.WearPartID))
-                //顯示裝備欄綠色提示
-                HintMethod(equipData.Hint, true, Color.green);
-            else
-                //顯示裝備欄紅色提示
-                HintMethod(equipData.Hint, false, Color.red);
+            if (MovingItem.tag == "Equip")  //檢查滑鼠接觸的欄位是否為裝備欄
+            {
+                //獲取裝備欄腳本
+                EquipData equipData = MovingItem.transform.GetComponent<EquipData>();
+
+                //if (cloneObjEquipment.EquipmentDatas.Item != null)//檢查物品是否為道具類
+                //    return;
+
+                /*檢查滑鼠偵測到的欄位是否為正確穿著位置*/
+                //檢查武器欄
+                if (cloneObjEquipment.EquipmentDatas.Weapon != null)
+                {
+                    if (equipData.PartID.Contains(cloneObjEquipment.EquipmentDatas.Weapon.TackHandID))
+                        HintMethod(equipData.Hint, true, Color.green);
+                    else
+                        HintMethod(equipData.Hint, true, Color.red);
+                }
+                //檢查裝備欄
+                else if (cloneObjEquipment.EquipmentDatas.Armor != null)
+                {
+                    if (equipData.PartID.Contains(cloneObjEquipment.EquipmentDatas.Armor.WearPartID))
+                        HintMethod(equipData.Hint, true, Color.green);
+                    else
+                        HintMethod(equipData.Hint, true, Color.red);
+                }
+                else
+                    HintMethod(equipData.Hint, true, Color.red);
+            }
         }
         else
             //離開裝備欄 隱藏裝備欄提示物件
-            HintMethod(equipData.Hint, false, Color.red);
+            HintMethod(null, false, Color.red);
     }
 
     /// <summary>
@@ -130,38 +152,128 @@ public class BagItemEquip : MonoBehaviour
         //檢查空值
         if (MovingItem == null)
         {
-            //還原 原本位置的圖片
-            OriginItemSeat.GetComponent<Equipment>().EquipImage.sprite = cloneItem.GetComponent<Equipment>().EquipImage.sprite;
-            OriginItemSeat.GetComponent<Equipment>().EquipmentDatas = cloneItem.GetComponent<Equipment>().EquipmentDatas;
-            ReductionDrag();
+            print("空值return");
+            ReverseDragObj();
             return;
         }
-
-        //若是裝備格
-        if (MovingItem.tag == "Equip")
-        {
-            if (MovingItem.GetComponent<EquipData>().PartID.Contains(cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon.TackHandID))
-            {
-                print("裝備武器");
-                PutOnEquip(MovingItem);
-            }
-            else if (MovingItem.GetComponent<EquipData>().PartID.Contains(cloneItem.GetComponent<Equipment>().EquipmentDatas.Armor.WearPartID))
-            {
-                print("裝備防具");
-                PutOnEquip(MovingItem);
-            }
-        }
-        //若是背包格
-        else if (MovingItem.tag == "BagItem")
-        {
-            ChangeSeat(MovingItem);
-        }
-        //都不是則回原位子
         else
         {
-            OriginItemSeat.GetComponent<Image>().sprite = cloneItem.GetComponent<Image>().sprite;
-            ReductionDrag();
+            //若是裝備格
+            if (MovingItem.tag == "Equip")
+            {
+                //檢查武器欄
+                if (cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon != null)
+                {
+                    if (MovingItem.GetComponent<EquipData>().PartID.Contains(cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon.TackHandID))
+                    {
+                        print("裝備武器");
+                        PutOnEquip(MovingItem);
+                    }
+                    else
+                    {
+                        print("雖然是武器 但穿戴部位錯誤return");
+                        ReverseDragObj();
+                        return;
+                    }
+                }
+                //檢查裝備欄
+                else if (cloneItem.GetComponent<Equipment>().EquipmentDatas.Armor != null)
+                {
+
+                    if (MovingItem.GetComponent<EquipData>().PartID.Contains(cloneItem.GetComponent<Equipment>().EquipmentDatas.Armor.WearPartID))
+                    {
+                        print("裝備防具");
+                        PutOnEquip(MovingItem);
+                    }
+                    else
+                    {
+                        print("雖然是裝備 但穿戴部位錯誤return");
+                        ReverseDragObj();
+                        return;
+                    }
+                }
+                else
+                {
+                    print("拖曳物品不是武器也不是裝備 是道具 所以也return");
+                    ReverseDragObj();
+                    return;
+                }
+            }
+            //若是背包格       
+            else if (MovingItem.tag == "BagItem")
+            {
+                //若開始拖曳的欄位是裝備欄 則是脫裝 脫裝要檢查 若放開拖曳的格子有資料的話 判斷是否可以更換裝備
+                if (OriginItemSeat.tag == "Equip")
+                {
+                    //若是空格的情況 直接更換
+                    if (MovingItem.GetComponent<Equipment>().EquipmentDatas.Armor == null&&
+                        MovingItem.GetComponent<Equipment>().EquipmentDatas.Weapon == null&&
+                        MovingItem.GetComponent<Equipment>().EquipmentDatas.Item == null)
+                    {
+                        MovingItem.GetComponent<Equipment>().EquipImage.sprite = cloneItem.GetComponent<Equipment>().EquipImage.sprite;
+                        MovingItem.GetComponent<Equipment>().EquipmentDatas = cloneItem.GetComponent<Equipment>().EquipmentDatas.Clone();
+                        ReductionDrag();
+                        OriginItemSeat.GetComponent<Equipment>().EquipImage.sprite = BagItemOriginImage;
+                        OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Armor = null;
+                        OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Weapon = null;
+                        OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Item = null;
+                        print("將裝備脫到背包內空的格子上");
+                    }
+                    //檢查該格 是否有武器資料
+                    else if (MovingItem.GetComponent<Equipment>().EquipmentDatas.Weapon != null)
+                    {
+                        if (MovingItem.GetComponent<EquipData>().PartID.Contains(cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon.TackHandID))
+                        {
+                            print("從裝備欄脫下武器跟背包的武器交換 更換武器");
+                            PutOnEquip(MovingItem);
+                        }
+                        else
+                        {
+                            print("錯的武器類型 return");
+                            ReverseDragObj();
+                            return;
+                        }
+                    }
+                    //檢查該格 是否有裝備資料
+                    else if (MovingItem.GetComponent<Equipment>().EquipmentDatas.Armor != null)
+                    {
+                        if (MovingItem.GetComponent<EquipData>().PartID.Contains(cloneItem.GetComponent<Equipment>().EquipmentDatas.Armor.WearPartID))
+                        {
+                            print("從裝備欄脫下防具跟背包的防具交換 更換防具");
+                            PutOnEquip(MovingItem);
+                        }
+                        else
+                        {
+                            print("錯的防具類型 return");
+                            ReverseDragObj();
+                            return;
+                        }
+                    }
+                    //若該格是道具 不可更換穿戴
+                    else if (MovingItem.GetComponent<Equipment>().EquipmentDatas.Item != null)
+                    {
+                        print("若該格是道具 不可更換穿戴 return");
+                        ReverseDragObj();
+                        return;
+                    }
+                }
+                else if (OriginItemSeat.tag == "BagItem")
+                {
+                    //若是背包格的話則是換位置
+                    print("背包格的內交換位置 return");
+                    ChangeSeat(MovingItem);
+                    return;
+                }
+            }
+            //都不是則回原位子
+            else
+            {
+                print("不是背包也不是裝備(也不知道會不會有這情形) return");
+                ReverseDragObj();
+            }
         }
+        //刷新能力值數據
+        StatusOperation.Instance.StatusMethod();
     }
     #endregion
 
@@ -173,8 +285,20 @@ public class BagItemEquip : MonoBehaviour
     /// <param name="color">顏色</param>
     public void HintMethod(GameObject hint, bool isEnable, Color color)
     {
-        hint.SetActive(isEnable);
-        hint.GetComponent<Image>().color = color;
+        if (hint != null)
+        {
+            hint.SetActive(isEnable);
+            hint.GetComponent<Image>().color = color;
+        }
+        else
+        {
+            for (int i = 0; i < SetHints.Length; i++)
+            {
+                SetHints[i].gameObject.SetActive(false);
+            }
+            //ItemManager.Instance.EquipDataList.ForEach(x => x.Hint.SetActive(isEnable));
+            //ItemManager.Instance.EquipDataList.ForEach(x => x.Hint.GetComponent<Image>().color = color);
+        }
     }
 
     /// <summary>
@@ -184,15 +308,14 @@ public class BagItemEquip : MonoBehaviour
     public void ChangeSeat(GameObject BagSeat)
     {
         //原位置的物品資料與目標物品資料交換
-        CommonFunction.ChangeSameComponent(OriginItemSeat.GetComponent<Equipment>().EquipImage.sprite, BagSeat.GetComponent<Equipment>().EquipImage.sprite);
-        CommonFunction.ChangeSameComponent(OriginItemSeat.GetComponent<Equipment>().EquipmentDatas, BagSeat.GetComponent<Equipment>().EquipmentDatas);
-        //OriginItemSeat.GetComponent<Image>().sprite = BagSeat.GetComponent<Image>().sprite;
-        //OriginItemSeat.GetComponent<Equipment>().EquipImage = OriginItemSeat.GetComponent<Image>();
-        //OriginItemSeat.GetComponent<Equipment>().EquipmentDatas = BagSeat.GetComponent<Equipment>().EquipmentDatas;
+        //CommonFunction.ChangeSameComponent(OriginItemSeat.GetComponent<Equipment>().EquipImage.sprite, BagSeat.GetComponent<Equipment>().EquipImage.sprite);
+        //CommonFunction.ChangeSameComponent(OriginItemSeat.GetComponent<Equipment>().EquipmentDatas, BagSeat.GetComponent<Equipment>().EquipmentDatas);
+        OriginItemSeat.GetComponent<Equipment>().EquipImage.sprite = BagSeat.GetComponent<Equipment>().EquipImage.sprite;
+        OriginItemSeat.GetComponent<Equipment>().EquipmentDatas = BagSeat.GetComponent<Equipment>().EquipmentDatas.Clone();
 
-        //BagSeat.GetComponent<Image>().sprite = cloneItem.transform.GetChild(0).GetComponent<Image>().sprite;
-        //BagSeat.GetComponent<Equipment>().EquipImage = BagSeat.GetComponent<Image>();
-        //BagSeat.GetComponent<Equipment>().EquipmentDatas = cloneItem.transform.GetChild(0).GetComponent<Equipment>().EquipmentDatas;
+        BagSeat.GetComponent<Equipment>().EquipImage.sprite = cloneItem.GetComponent<Equipment>().EquipImage.sprite;
+        BagSeat.GetComponent<Equipment>().EquipmentDatas = cloneItem.GetComponent<Equipment>().EquipmentDatas.Clone();
+        print("物品交換");
         ReductionDrag();
     }
 
@@ -203,7 +326,7 @@ public class BagItemEquip : MonoBehaviour
     public void PutOnEquip(GameObject Equip)
     {
         //檢測目標格子是否已有穿戴物件(武器或防具)
-        if (Equip.GetComponent<Equipment>().EquipmentDatas != null)
+        if (Equip.GetComponent<Equipment>().EquipmentDatas.Armor != null || Equip.GetComponent<Equipment>().EquipmentDatas.Weapon != null)
         {
             print("已有裝備武器進行更換");
             CommonFunction.ChangeSameComponent(OriginItemSeat.GetComponent<Equipment>().EquipmentDatas, Equip.GetComponent<Equipment>().EquipmentDatas);
@@ -219,21 +342,24 @@ public class BagItemEquip : MonoBehaviour
         //若沒有裝備 直接穿上
         else
         {
-            print("無裝備");
+            print("無裝備 穿上裝備");
             //設定裝備資料
-            Equip.GetComponent<Equipment>().EquipmentDatas = cloneItem.GetComponent<Equipment>().EquipmentDatas;
-
+            Equip.GetComponent<Equipment>().EquipmentDatas = new Equipment.EquipmentData
+            {
+                Weapon = cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon,
+                Armor = cloneItem.GetComponent<Equipment>().EquipmentDatas.Armor,
+                Item = cloneItem.GetComponent<Equipment>().EquipmentDatas.Item
+            };
+            
             //OriginItemSeat.GetComponent<Image>().sprite = BagItemOriginImage;
-            //還原原始格子
-            OriginItemSeat.GetComponent<Equipment>().EquipImage.sprite = BagItemOriginImage;
-            OriginItemSeat.GetComponent<Equipment>().EquipmentDatas = null;
-
             //設定目標裝備欄圖片
             Equip.GetComponent<Equipment>().EquipImage.sprite = cloneItem.GetComponent<Equipment>().EquipImage.sprite;
-
+            //還原原始格子
+            OriginItemSeat.GetComponent<Equipment>().EquipImage.sprite = BagItemOriginImage;
+            OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Armor = null;
+            OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Weapon = null;
+            OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Item = null;
         }
-        //刷新能力值數據
-        StatusOperation.Instance.StatusMethod();
         ReductionDrag();
     }
 
@@ -250,5 +376,18 @@ public class BagItemEquip : MonoBehaviour
         Destroy(cloneItem);
         //還原防呆
         cloneItemImage = false;
+        //還原raycast
+        OriginItemSeat.transform.GetComponent<Image>().raycastTarget = true;
+    }
+
+    /// <summary>
+    /// 還原拖曳的物品(裝錯裝備欄 不是放到裝備欄 快捷鍵上的時候使用)
+    /// </summary>
+    public void ReverseDragObj()
+    {
+        //還原 原本位置的圖片
+        OriginItemSeat.GetComponent<Equipment>().EquipImage.sprite = cloneItem.GetComponent<Equipment>().EquipImage.sprite;
+        OriginItemSeat.GetComponent<Equipment>().EquipmentDatas = cloneItem.GetComponent<Equipment>().EquipmentDatas.Clone();
+        ReductionDrag();
     }
 }

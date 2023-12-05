@@ -7,11 +7,7 @@ using UnityEngine;
 //  創建用途:  裝備部位資料
 //==========================================
 public class EquipData :MonoBehaviour
-{
-    //裝備後數據記載
-    public ArmorDataModel ArmorData;
-    public WeaponDataModel WeaponData;
-
+{ 
     //裝備部位ID
     public List<string> PartID = new List<string>();
 

@@ -18,7 +18,7 @@ public class MonsterBehaviour : MonoBehaviour
         get {return currentHp; }
         set
         {
-            if (value < 0) 
+            if (value <= 0) 
             {
                 value = 0;
                 StartCoroutine(DeadBehaviourAsync());
@@ -53,6 +53,7 @@ public class MonsterBehaviour : MonoBehaviour
     {
         monsterValue = GameData.MonstersDic?[MonsterName];
         currentHp = monsterValue.HP;
+        StartCoroutine(MonsterTest());
     }
     /// <summary>
     /// 怪物死亡後執行方法
@@ -74,6 +75,16 @@ public class MonsterBehaviour : MonoBehaviour
         SelectTarget_.CatchTarget = false;
         Destroy(this.gameObject);
 
+    }
+
+    /// <summary>
+    /// 測試使用(開始執行後怪物立即死亡)
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator MonsterTest()
+    {
+        yield return new WaitForSeconds(0.5f);
+        CurrentHp = 0;
     }
     private void Update()
     { 

@@ -184,7 +184,7 @@ public abstract class Skill_Base : MonoBehaviour
             default:
             //裝備指定類型道具
             case "Equip":
-                return ItemManager.Instance.EquipDataList.Any(x => x.WeaponData.TypeID.Contains(value) || x.ArmorData.TypeID.Contains(value));
+                return ItemManager.Instance.EquipDataList.Any(x => x.EquipmentDatas.Weapon.TypeID.Contains(value) || x.EquipmentDatas.Armor.TypeID.Contains(value));
             //在戰鬥狀態中
             case "InCombatStatus":
                 //缺少戰鬥狀態判斷
