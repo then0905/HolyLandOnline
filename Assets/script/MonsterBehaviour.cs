@@ -53,7 +53,9 @@ public class MonsterBehaviour : MonoBehaviour
     {
         monsterValue = GameData.MonstersDic?[MonsterName];
         currentHp = monsterValue.HP;
-        StartCoroutine(MonsterTest());
+
+        //測試用 執行後秒殺怪物
+        //StartCoroutine(MonsterTest());
     }
     /// <summary>
     /// 怪物死亡後執行方法

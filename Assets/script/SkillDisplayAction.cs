@@ -213,7 +213,8 @@ public class SkillDisplayAction : MonoBehaviour
     /// <param name="inputNumber">技能快捷鍵</param>
     public void SkillUse(int inputNumber)
     {
-        if (!UsingSkill)
+        //判斷 技能是否有在使用中 或是 快捷鍵的資料是否為空值
+        if (!UsingSkill&& !string.IsNullOrEmpty(SkillHotKey[inputNumber].SkillName))
         {
             //紀錄輸入的鍵位
             keyIndex = inputNumber;
@@ -224,7 +225,7 @@ public class SkillDisplayAction : MonoBehaviour
             //判斷是否魔力足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
             if (PlayerData.MP - skillUIData.CastMage < 0 && Skillinformation.CDR[keyIndex] < Skillinformation.CDsec[keyIndex])
             {
-                CommonFunction.MessageHint("魔力不足...");
+                Instantiate(CommonFunction.MessageHint("魔力不足...",HintType.Warning));
                 return;
             }
 
@@ -393,7 +394,7 @@ public class SkillDisplayAction : MonoBehaviour
             UsingSkillObj.GetComponent<Skill_Base>().InitSkillEffectData(skillUIData.CastMage);
         }
         else
-            CommonFunction.MessageHint("魔力不足...");
+            Instantiate(CommonFunction.MessageHint("魔力不足...", HintType.Warning));
 
 
         //if (PlayerData.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])

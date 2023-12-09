@@ -49,6 +49,7 @@ public class ItemManager : MonoBehaviour
         }
 
     }
+
     /// <summary>
     /// 獲取防具
     /// </summary>
@@ -67,7 +68,7 @@ public class ItemManager : MonoBehaviour
                 item.EquipImage.sprite = ItemImage;
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Armor = armorvaule;
-                CommonFunction.MessageHint("獲得" + armorvaule.Name);
+                Instantiate(CommonFunction.MessageHint(("獲得" + armorvaule.Name), HintType.NormalItem));
                 print("獲得" + armorvaule.Name);
                 return;
             }
@@ -94,7 +95,7 @@ public class ItemManager : MonoBehaviour
                 item.EquipImage.sprite = ItemImage;
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Weapon = weaponvaule;
-                CommonFunction.MessageHint("獲得" + weaponvaule.Name);
+                Instantiate(CommonFunction.MessageHint(("獲得" + weaponvaule.Name), HintType.NormalItem));
                 print("獲得" + weaponvaule.Name);
                 return;
             }
@@ -121,7 +122,7 @@ public class ItemManager : MonoBehaviour
                 item.EquipImage.sprite = ItemImage;
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Item = itemvaule;
-                CommonFunction.MessageHint("獲得" + itemvaule.Name);
+                Instantiate(CommonFunction.MessageHint(("獲得" + itemvaule.Name),HintType.NormalItem));
                 print("獲得" + itemvaule.Name);
                 return;
             }
@@ -136,9 +137,9 @@ public class ItemManager : MonoBehaviour
     /// <param name="coin"></param>
     public void PickUp(int coin)
     {
-        CoinText.text += coin.ToString();
-        PlayerData.Coin = int.Parse(CoinText.text);
-        CommonFunction.MessageHint("獲得" + coin.ToString() + "金幣");
+        PlayerData.Coin += int.Parse(coin.ToString());
+        CoinText.text = PlayerData.Coin.ToString();
+        Instantiate(CommonFunction.MessageHint(("獲得" + coin.ToString() + "金幣"), HintType.NormalItem));
         print("獲得" + coin.ToString() + "金幣");
     }
 }

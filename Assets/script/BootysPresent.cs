@@ -24,18 +24,13 @@ public class BootysPresent : MonoBehaviour
     {
         //根據掉落物的資料判斷該掉落物種類
         if (EquipmentDatas.Weapon != null)
-        {
             ItemManager.Instance.PickUp(ThisEquipmentImage, EquipmentDatas.Weapon);
-        }
         else if (EquipmentDatas.Armor != null)
-        {
             ItemManager.Instance.PickUp(ThisEquipmentImage, EquipmentDatas.Armor);
-        }
         else if (EquipmentDatas.Item != null)
-        {
             ItemManager.Instance.PickUp(ThisEquipmentImage, EquipmentDatas.Item);
-        }
-        ItemManager.Instance.PickUp(Coins);
+        else if (!Coins.Equals(0))
+            ItemManager.Instance.PickUp(Coins);
         //撿起物品後清除
         Destroy(this.gameObject);
     }

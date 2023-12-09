@@ -81,10 +81,11 @@ public static class CommonFunction
     /// 呼叫系統訊息
     /// </summary>
     /// <param name="content"></param>
-    public static void MessageHint(string content)
+    public static MessageHintSetting MessageHint(string content,HintType hintType)
     {
-       MessageHintSetting message =  LoadObject<MessageHintSetting>("Hint", "MessageHint").GetComponent<MessageHintSetting>();
-        message.CallHintCanvas(content);
+        MessageHintSetting message = LoadObject<MessageHintSetting>("Hint", "MessageHint").GetComponent<MessageHintSetting>();
+        message.CallHintCanvas(content, hintType);
+        return message;
     }
 
     /// <summary>
