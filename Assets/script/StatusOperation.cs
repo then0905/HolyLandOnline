@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 using TMPro;
+using System.Collections.Generic;
 
 //==========================================
 //  創建者:    家豪
@@ -55,7 +56,6 @@ public class StatusOperation : MonoBehaviour
 
     #endregion
 
-    public ItemManager Itemmanager;
     private static Action refreshStatus;
 
     //暫存基礎能力值
@@ -63,6 +63,10 @@ public class StatusOperation : MonoBehaviour
     //暫存效果影響的能力值
     protected TempBasalStatus tempEffectStatus = new TempBasalStatus();
 
+    //武器資料清單
+    private List<JsonDataModel.WeaponDataModel> weaponList = new List<JsonDataModel.WeaponDataModel>();
+    //防具資料清單
+    private List<JsonDataModel.ArmorDataModel> armorList = new List<JsonDataModel.ArmorDataModel>();
     /// <summary>
     /// 初始化訂閱事件內容
     /// </summary>
@@ -106,16 +110,48 @@ public class StatusOperation : MonoBehaviour
     }
 
     /// <summary>
-    /// 職業基礎加成能力值
+    /// 職業的基礎加成能力值
     /// </summary>
     private void ClassStatus()
     {
-        PlayerData.STR = int.Parse(GameData.JobBonusDic[PlayerData.Job].STR);
-        PlayerData.DEX = int.Parse(GameData.JobBonusDic[PlayerData.Job].DEX);
-        PlayerData.INT = int.Parse(GameData.JobBonusDic[PlayerData.Job].INT);
-        PlayerData.AGI = int.Parse(GameData.JobBonusDic[PlayerData.Job].AGI);
-        PlayerData.WIS = int.Parse(GameData.JobBonusDic[PlayerData.Job].WIS);
-        PlayerData.VIT = int.Parse(GameData.JobBonusDic[PlayerData.Job].VIT);
+        //武器清單
+        weaponList = new List<JsonDataModel.WeaponDataModel>();
+        foreach (var item in ItemManager.Instance.EquipDataList)
+        {
+            if (item.EquipmentDatas.Weapon != null)
+                weaponList.Add(item.EquipmentDatas.Weapon);
+        }
+        //防具清單
+        armorList = new List<JsonDataModel.ArmorDataModel>();
+        foreach (var item in ItemManager.Instance.EquipDataList)
+        {
+            if (item.EquipmentDatas.Armor != null)
+                armorList.Add(item.EquipmentDatas.Armor);
+        }
+
+        //獲取武器資料
+        int weaponDataSTR = weaponList.Sum(x => x.STR);
+        int weaponDataDEX = weaponList.Sum(x => x.DEF);
+        int weaponDataINT = weaponList.Sum(x => x.INT);
+        int weaponDataAGI = weaponList.Sum(x => x.AGI);
+        int weaponDataWIS = weaponList.Sum(x => x.WIS);
+        int weaponDataVIT = weaponList.Sum(x => x.VIT);
+
+        //獲取防具資料
+        int armorDataSTR = armorList.Sum(x => x.STR);
+        int armorDataDEX = armorList.Sum(x => x.DEF);
+        int armorDataINT = armorList.Sum(x => x.INT);
+        int armorDataAGI = armorList.Sum(x => x.AGI);
+        int armorDataWIS = armorList.Sum(x => x.WIS);
+        int armorDataVIT = armorList.Sum(x => x.VIT);
+
+        //獲取職業加成的六維 並加上裝備數據
+        PlayerData.STR = int.Parse(GameData.JobBonusDic[PlayerData.Job].STR) + weaponDataSTR + armorDataSTR;
+        PlayerData.DEX = int.Parse(GameData.JobBonusDic[PlayerData.Job].DEX) + weaponDataDEX + armorDataDEX;
+        PlayerData.INT = int.Parse(GameData.JobBonusDic[PlayerData.Job].INT) + weaponDataINT + armorDataINT;
+        PlayerData.AGI = int.Parse(GameData.JobBonusDic[PlayerData.Job].AGI) + weaponDataAGI + armorDataAGI;
+        PlayerData.WIS = int.Parse(GameData.JobBonusDic[PlayerData.Job].WIS) + weaponDataWIS + armorDataWIS;
+        PlayerData.VIT = int.Parse(GameData.JobBonusDic[PlayerData.Job].VIT) + weaponDataVIT + armorDataVIT;
         PlayerData.MaxHP = int.Parse(GameData.JobBonusDic[PlayerData.Job].HP);
         PlayerData.MaxMP = int.Parse(GameData.JobBonusDic[PlayerData.Job].MP);
     }
@@ -138,254 +174,219 @@ public class StatusOperation : MonoBehaviour
     /// </summary>
     private void MeleeATK()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("MeleeATK_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
+        //獲取裝備能力值數據
+        int weaponData = weaponList.Sum(x => x.MeleeATK);
 
-        //PlayerData.MeleeATK = (int)Mathf.Round(PlayerData.STR * targetStatus.STR +
-        //        PlayerData.Lv * targetStatus.LvCodition);
         tempBasalStatus.MeleeATK = (int)Mathf.Round(PlayerData.STR * targetStatus.STR +
-              PlayerData.Lv * targetStatus.LvCodition);
-
-
-        //裝備效果計算
-        //if (Itemmanager.Weapons[1] != null)
-        //{
-        //    PlayerData.MeleeATK += (int)Mathf.Round((float)(Itemmanager.Weapons[1].GetComponent<Equipment>().Weapon.WeaponCATK * 0.15));
-        //}
-        //if (Itemmanager.Weapons[0] != null)
-        //{
-        //    PlayerData.MeleeATK += Itemmanager.Weapons[0].GetComponent<Equipment>().Weapon.WeaponCATK;
-        //}
+              PlayerData.Lv * targetStatus.LvCodition) + weaponData;
     }
     /// <summary>
     /// 遠距離攻擊加成
     /// </summary>
     private void RemoteATK()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("RemoteATK_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
-        //PlayerData.RemoteATK = (int)Mathf.Round(PlayerData.DEX * targetStatus.DEX +
-        //        PlayerData.Lv * targetStatus.LvCodition);
+        //獲取裝備能力值數據
+        int weaponData = weaponList.Sum(x => x.RemoteATK);
         tempBasalStatus.RemoteATK = (int)Mathf.Round(PlayerData.DEX * targetStatus.DEX +
-                PlayerData.Lv * targetStatus.LvCodition);
-
-        //if (Itemmanager.Weapons[0] != null)
-        //{
-        //    DataBase.Instance.Playerattributes.LATK += Itemmanager.Weapons[0].GetComponent<Equipment>().Weapon.WeaponLATK;
-        //}
+                PlayerData.Lv * targetStatus.LvCodition) + weaponData;
     }
     /// <summary>
     /// 魔法攻擊加成
     /// </summary>
     private void MageATK()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("MageATK_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
-        //PlayerData.MageATK = (int)Mathf.Round(PlayerData.INT * targetStatus.INT +
-        //        PlayerData.Lv * targetStatus.LvCodition);
+        //獲取裝備能力值數據
+        int weaponData = weaponList.Sum(x => x.MageATK);
+
         tempBasalStatus.MageATK = (int)Mathf.Round(PlayerData.INT * targetStatus.INT +
-                PlayerData.Lv * targetStatus.LvCodition);
-        //if (Itemmanager.Weapons[0] != null)
-        //{
-        //    DataBase.Instance.Playerattributes.MATK += Itemmanager.Weapons[0].GetComponent<Equipment>().Weapon.WeaponMATK;
-        //}
+                PlayerData.Lv * targetStatus.LvCodition) + weaponData;
+
     }
     /// <summary>
     /// 最大生命加成
     /// </summary>
     private void MaxHp()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("HP_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
-        //PlayerData.MaxHP = (int)Mathf.Round(PlayerData.VIT * targetStatus.VIT +
-        //        PlayerData.STR * targetStatus.STR +
-        //        PlayerData.Lv * targetStatus.LvCodition);
+        //獲取武器能力值數據
+        int weaponData = weaponList.Sum(x => x.HP);
+        //獲取防具能力值數據
+        int armorData = armorList.Sum(x => x.HP);
+
         tempBasalStatus.MaxHp = (int)Mathf.Round(PlayerData.VIT * targetStatus.VIT +
                 PlayerData.STR * targetStatus.STR +
-                PlayerData.Lv * targetStatus.LvCodition);
-        //for (int i = 0; i < Itemmanager.Equipments.Length; i++)
-        //{
-        //    if (Itemmanager.Equipments[i] != null) DataBase.Instance.Playerattributes.MaxHp += Itemmanager.Equipments[i].GetComponent<Equipment>().Armor.ArmorHp;
-        //}
-        //if (Itemmanager.Weapons[1] != null)
-        //{
-        //    DataBase.Instance.Playerattributes.MaxHp += Itemmanager.Weapons[1].GetComponent<Equipment>().Weapon.ShieldHP;
-        //}
+                PlayerData.Lv * targetStatus.LvCodition) + weaponData + armorData;
     }
     /// <summary>
     /// 最大魔力加成
     /// </summary>
     private void MaxMp()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("MP_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
-        tempBasalStatus.MaxMp = (int)Mathf.Round(PlayerData.INT * targetStatus.INT +
-                PlayerData.Lv * targetStatus.LvCodition);
+        //獲取武器能力值數據
+        int weaponData = weaponList.Sum(x => x.MP);
+        //獲取防具能力值數據
+        int armorData = armorList.Sum(x => x.MP);
 
-        //for (int i = 0; i < Itemmanager.Equipments.Length; i++)
-        //{
-        //    if (Itemmanager.Equipments[i] != null) DataBase.Instance.Playerattributes.MaxMp += Itemmanager.Equipments[i].GetComponent<Equipment>().Armor.ArmorMp;
-        //}
-        //if (Itemmanager.Weapons[1] != null)
-        //{
-        //    DataBase.Instance.Playerattributes.MaxMp += Itemmanager.Weapons[1].GetComponent<Equipment>().Weapon.ShieldMP;
-        //}
+        tempBasalStatus.MaxMp = (int)Mathf.Round(PlayerData.INT * targetStatus.INT +
+                PlayerData.Lv * targetStatus.LvCodition) + weaponData + armorData;
     }
     /// <summary>
     /// 物理防禦加成
     /// </summary>
     private void DEF()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("DEF_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
-        tempBasalStatus.DEF = (int)Mathf.Round(PlayerData.VIT * targetStatus.VIT +
-                PlayerData.Lv * targetStatus.LvCodition);
+        //獲取武器能力值數據
+        int weaponData = weaponList.Sum(x => x.DEF);
+        //獲取防具能力值數據
+        int armorData = armorList.Sum(x => x.DEF);
 
-        //for (int i = 0; i < Itemmanager.Equipments.Length; i++)
-        //{
-        //    if (Itemmanager.Equipments[i] != null) DataBase.Instance.Playerattributes.Defense += Itemmanager.Equipments[i].GetComponent<Equipment>().Armor.ArmorDEF;
-        //}
-        //if (Itemmanager.Weapons[1] != null)
-        //{
-        //    DataBase.Instance.Playerattributes.Defense += Itemmanager.Weapons[1].GetComponent<Equipment>().Weapon.ShieldDEF;
-        //}
+
+        tempBasalStatus.DEF = (int)Mathf.Round(PlayerData.VIT * targetStatus.VIT +
+                PlayerData.Lv * targetStatus.LvCodition) + weaponData + armorData;
+
     }
     /// <summary>
     /// 迴避值加成
     /// </summary>
     private void Avoid()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("Avoid_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
-        tempBasalStatus.Avoid = (int)Mathf.Round(PlayerData.DEX * targetStatus.DEX +
-                PlayerData.AGI * targetStatus.AGI);
+        //獲取武器能力值數據
+        int weaponData = weaponList.Sum(x => x.Avoid);
+        //獲取防具能力值數據
+        int armorData = armorList.Sum(x => x.Avoid);
 
-        //for (int i = 0; i < Itemmanager.Equipments.Length; i++)
-        //{
-        //    if (Itemmanager.Equipments[i] != null) DataBase.Instance.Playerattributes.Avoid += Itemmanager.Equipments[i].GetComponent<Equipment>().Armor.ArmorAvoid;
-        //}
-        //if (Itemmanager.Weapons[1] != null)
-        //{
-        //    DataBase.Instance.Playerattributes.Avoid += Itemmanager.Weapons[1].GetComponent<Equipment>().Weapon.ShieldAvoid;
-        //}
+        tempBasalStatus.Avoid = (int)Mathf.Round(PlayerData.DEX * targetStatus.DEX +
+                PlayerData.AGI * targetStatus.AGI) + weaponData + armorData;
     }
     /// <summary>
     /// 進距離命中加成
     /// </summary>
     private void MeleeHit()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("MeleeHit_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
+        //獲取武器能力值數據
+        int weaponData = weaponList.Sum(x => x.MeleeHit);
+
         tempBasalStatus.MeleeHit = (int)Mathf.Round(PlayerData.STR * targetStatus.STR +
                 PlayerData.AGI * targetStatus.AGI +
-                PlayerData.Lv * targetStatus.LvCodition);
-
-        //if (Itemmanager.Weapons[1] != null)
-        //{
-        //    DataBase.Instance.Playerattributes.C_Hit += Itemmanager.Weapons[1].GetComponent<Equipment>().Weapon.WeaponCHIT;
-        //}
-        //if (Itemmanager.Weapons[0] != null)
-        //{
-        //    DataBase.Instance.Playerattributes.C_Hit += Itemmanager.Weapons[0].GetComponent<Equipment>().Weapon.WeaponCHIT;
-        //}
+                PlayerData.Lv * targetStatus.LvCodition) + weaponData;
     }
     /// <summary>
     /// 遠距離命中加成
     /// </summary>
     private void RemoteHit()
     {
-
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("RemoteHit_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
+        //獲取武器能力值數據
+        int weaponData = weaponList.Sum(x => x.RemoteHit);
+
         tempBasalStatus.RemoteHit = (int)Mathf.Round(PlayerData.DEX * targetStatus.DEX +
                 PlayerData.AGI * targetStatus.AGI +
-                PlayerData.Lv * targetStatus.LvCodition);
-
-        //if (Itemmanager.Weapons[0] != null)
-        //{
-        //    DataBase.Instance.Playerattributes.L_Hit += Itemmanager.Weapons[0].GetComponent<Equipment>().Weapon.WeaponLHIT;
-        //}
+                PlayerData.Lv * targetStatus.LvCodition) + weaponData;
     }
     /// <summary>
     /// 魔法命中加成
     /// </summary>
     private void MageHit()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("MageHit_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
+        //獲取武器能力值數據
+        int weaponData = weaponList.Sum(x => x.MageHit);
+
         tempBasalStatus.MageHit = (int)Mathf.Round(PlayerData.INT * targetStatus.INT +
                 PlayerData.AGI * targetStatus.AGI +
-                PlayerData.Lv * targetStatus.LvCodition);
-
-        //if (Itemmanager.Weapons[0] != null)
-        //{
-        //    DataBase.Instance.Playerattributes.M_Hit += Itemmanager.Weapons[0].GetComponent<Equipment>().Weapon.WeaponMHIT;
-        //}
+                PlayerData.Lv * targetStatus.LvCodition) + weaponData;
     }
     /// <summary>
     /// 魔法防禦值加成
     /// </summary>
     private void MDEF()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("MDEF_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
-        tempBasalStatus.MDEF = (int)Mathf.Round(PlayerData.VIT * targetStatus.VIT +
-                PlayerData.WIS * targetStatus.WIS);
+        //獲取武器能力值數據
+        int weaponData = weaponList.Sum(x => x.MDEF);
+        //獲取防具能力值數據
+        int armorData = armorList.Sum(x => x.MDEF);
 
-        //for (int i = 0; i < Itemmanager.Equipments.Length; i++)
-        //{
-        //    if (Itemmanager.Equipments[i] != null) DataBase.Instance.Playerattributes.M_Defense += Itemmanager.Equipments[i].GetComponent<Equipment>().Armor.ArmorMDEF;
-        //}
-        //if (Itemmanager.Weapons[1] != null)
-        //{
-        //    DataBase.Instance.Playerattributes.M_Defense += Itemmanager.Weapons[1].GetComponent<Equipment>().Weapon.ShieldMDEF;
-        //}
+        tempBasalStatus.MDEF = (int)Mathf.Round(PlayerData.VIT * targetStatus.VIT +
+                PlayerData.WIS * targetStatus.WIS) + weaponData + armorData;
     }
     /// <summary>
     /// 傷害減緩加成
     /// </summary>
     private void DamageReduction()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("DamageReduction_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
-        tempBasalStatus.DamageReduction = (int)Mathf.Round(PlayerData.VIT * targetStatus.VIT);
+        //獲取防具能力值數據
+        int armorData = armorList.Sum(x => x.DamageReduction);
 
-        //for (int i = 0; i < Itemmanager.Equipments.Length; i++)
-        //{
-        //    if (Itemmanager.Equipments[i] != null) DataBase.Instance.Playerattributes.DmgMitigation += Itemmanager.Equipments[i].GetComponent<Equipment>().Armor.ArmorDmgM;
-        //}
+        tempBasalStatus.DamageReduction = (int)Mathf.Round(PlayerData.VIT * targetStatus.VIT) + armorData;
     }
     /// <summary>
     /// 屬性傷害增幅加成
     /// </summary>
     private void ElementDamageIncrease()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("ElementDamageIncrease_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
+
+        //獲取武器能力值數據
+        int weaponData = weaponList.Sum(x => x.ElementDamageIncrease);
 
         tempBasalStatus.ElementDamageIncrease = (int)Mathf.Round(PlayerData.INT * targetStatus.INT);
     }
@@ -394,11 +395,16 @@ public class StatusOperation : MonoBehaviour
     /// </summary>
     private void ElementDamageReduction()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("ElementDamageReduction_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
-        tempBasalStatus.ElementDamageReduction = (int)Mathf.Round(PlayerData.WIS * targetStatus.WIS);
+        //獲取防具能力值數據
+        float armorData = armorList.Sum(x => x.ElementDamageReduction);
+
+
+        tempBasalStatus.ElementDamageReduction = (int)Mathf.Round(PlayerData.WIS * targetStatus.WIS) + armorData;
     }
 
     /// <summary>
@@ -406,13 +412,17 @@ public class StatusOperation : MonoBehaviour
     /// </summary>
     private void HP_RecoveryReduction()
     {
-        var targetStatus =          
+        //獲取種族能力值的成長加成
+        var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("HP_Recovery_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
+        //獲取防具能力值數據
+        int armorData = armorList.Sum(x => x.HpRecovery);
+
         tempBasalStatus.HP_Recovery =
-            (int)Mathf.Round(targetStatus.VIT * PlayerData.VIT + PlayerData.Lv * targetStatus.LvCodition + 
-            GameData.GameSettingDic[PlayerData.Race + "BasalHpRecovery"].GameSettingValue);
+            (int)Mathf.Round(targetStatus.VIT * PlayerData.VIT + PlayerData.Lv * targetStatus.LvCodition +
+            GameData.GameSettingDic[PlayerData.Race + "BasalHpRecovery"].GameSettingValue) + armorData;
     }
 
     /// <summary>
@@ -420,13 +430,17 @@ public class StatusOperation : MonoBehaviour
     /// </summary>
     private void MP_RecoveryReduction()
     {
+        //獲取種族能力值的成長加成
         var targetStatus =
                 GameData.StatusFormulaDic.Where(x => x.Key.Contains("MP_Recovery_" + PlayerData.Race))
                 .Select(x => x.Value).FirstOrDefault();
 
+        //獲取防具能力值數據
+        int armorData = armorList.Sum(x => x.MpRecovery);
+
         tempBasalStatus.MP_Recovery =
            (int)Mathf.Round(targetStatus.WIS * PlayerData.WIS + PlayerData.Lv * targetStatus.LvCodition +
-           GameData.GameSettingDic[PlayerData.Race + "BasalMpRecovery"].GameSettingValue);
+           GameData.GameSettingDic[PlayerData.Race + "BasalMpRecovery"].GameSettingValue) + armorData;
     }
 
     #endregion
@@ -490,51 +504,51 @@ public class StatusOperation : MonoBehaviour
     {
         if (tempEffectStatus != null)
         {
-            PlayerData.MeleeATK += (tempEffectStatus.MeleeATK + tempBasalStatus.MeleeATK);
-            PlayerData.RemoteATK += (tempEffectStatus.RemoteATK + tempBasalStatus.RemoteATK);
-            PlayerData.MageATK += (tempEffectStatus.MageATK + tempBasalStatus.MageATK);
-            PlayerData.MaxHP += (tempEffectStatus.MaxHp + tempBasalStatus.MaxHp);
-            PlayerData.MaxMP += (tempEffectStatus.MaxMp + tempBasalStatus.MaxMp);
-            PlayerData.HP_Recovery += (tempEffectStatus.HP_Recovery + tempBasalStatus.HP_Recovery);
-            PlayerData.MP_Recovery += (tempEffectStatus.MP_Recovery + tempBasalStatus.MP_Recovery);
-            PlayerData.DEF += (tempEffectStatus.DEF + tempBasalStatus.DEF);
-            PlayerData.Avoid += (tempEffectStatus.Avoid + tempBasalStatus.Avoid);
-            PlayerData.MeleeHit += (tempEffectStatus.MeleeHit + tempBasalStatus.MeleeHit);
-            PlayerData.RemoteHit += (tempEffectStatus.RemoteHit + tempBasalStatus.RemoteHit);
-            PlayerData.MageHit += (tempEffectStatus.MageHit + tempBasalStatus.MageHit);
-            PlayerData.MDEF += (tempEffectStatus.MDEF + tempBasalStatus.MDEF);
-            PlayerData.DamageReduction += (tempEffectStatus.DamageReduction + tempBasalStatus.DamageReduction);
-            PlayerData.ElementDamageIncrease += (tempEffectStatus.ElementDamageIncrease + tempBasalStatus.ElementDamageIncrease);
-            PlayerData.ElementDamageReduction += (tempEffectStatus.ElementDamageReduction + tempBasalStatus.ElementDamageReduction);
-            PlayerData.BlockRate += (tempEffectStatus.BlockRate + tempBasalStatus.BlockRate);
-            PlayerData.Speed += (tempEffectStatus.Speed + tempBasalStatus.Speed);
-            PlayerData.Crt += (tempEffectStatus.Crt + tempBasalStatus.Crt);
-            PlayerData.AS += (tempEffectStatus.AS + tempBasalStatus.AS);
-            PlayerData.DisorderResistance += (tempEffectStatus.DisorderResistance + tempBasalStatus.DisorderResistance);
+            PlayerData.MeleeATK = (tempEffectStatus.MeleeATK + tempBasalStatus.MeleeATK);
+            PlayerData.RemoteATK = (tempEffectStatus.RemoteATK + tempBasalStatus.RemoteATK);
+            PlayerData.MageATK = (tempEffectStatus.MageATK + tempBasalStatus.MageATK);
+            PlayerData.MaxHP = (tempEffectStatus.MaxHp + tempBasalStatus.MaxHp);
+            PlayerData.MaxMP = (tempEffectStatus.MaxMp + tempBasalStatus.MaxMp);
+            PlayerData.HP_Recovery = (tempEffectStatus.HP_Recovery + tempBasalStatus.HP_Recovery);
+            PlayerData.MP_Recovery = (tempEffectStatus.MP_Recovery + tempBasalStatus.MP_Recovery);
+            PlayerData.DEF = (tempEffectStatus.DEF + tempBasalStatus.DEF);
+            PlayerData.Avoid = (tempEffectStatus.Avoid + tempBasalStatus.Avoid);
+            PlayerData.MeleeHit = (tempEffectStatus.MeleeHit + tempBasalStatus.MeleeHit);
+            PlayerData.RemoteHit = (tempEffectStatus.RemoteHit + tempBasalStatus.RemoteHit);
+            PlayerData.MageHit = (tempEffectStatus.MageHit + tempBasalStatus.MageHit);
+            PlayerData.MDEF = (tempEffectStatus.MDEF + tempBasalStatus.MDEF);
+            PlayerData.DamageReduction = (tempEffectStatus.DamageReduction + tempBasalStatus.DamageReduction);
+            PlayerData.ElementDamageIncrease = (tempEffectStatus.ElementDamageIncrease + tempBasalStatus.ElementDamageIncrease);
+            PlayerData.ElementDamageReduction = (tempEffectStatus.ElementDamageReduction + tempBasalStatus.ElementDamageReduction);
+            PlayerData.BlockRate = (tempEffectStatus.BlockRate + tempBasalStatus.BlockRate);
+            PlayerData.Speed = (tempEffectStatus.Speed + tempBasalStatus.Speed);
+            PlayerData.Crt = (tempEffectStatus.Crt + tempBasalStatus.Crt);
+            PlayerData.AS = (tempEffectStatus.AS + tempBasalStatus.AS);
+            PlayerData.DisorderResistance = (tempEffectStatus.DisorderResistance + tempBasalStatus.DisorderResistance);
         }
         else
         {
-            PlayerData.MeleeATK += tempBasalStatus.MeleeATK;
-            PlayerData.RemoteATK += tempBasalStatus.RemoteATK;
-            PlayerData.MageATK += tempBasalStatus.MageATK;
-            PlayerData.MaxHP += tempBasalStatus.MaxHp;
-            PlayerData.MaxMP += tempBasalStatus.MaxMp;
-            PlayerData.HP_Recovery += tempBasalStatus.HP_Recovery;
-            PlayerData.MP_Recovery += tempBasalStatus.MP_Recovery;
-            PlayerData.DEF += tempBasalStatus.DEF;
-            PlayerData.Avoid += tempBasalStatus.Avoid;
-            PlayerData.MeleeHit += tempBasalStatus.MeleeHit;
-            PlayerData.RemoteHit += tempBasalStatus.RemoteHit;
-            PlayerData.MageHit += tempBasalStatus.MageHit;
-            PlayerData.MDEF += tempBasalStatus.MDEF;
-            PlayerData.DamageReduction += tempBasalStatus.DamageReduction;
-            PlayerData.ElementDamageIncrease += tempBasalStatus.ElementDamageIncrease;
-            PlayerData.ElementDamageReduction += tempBasalStatus.ElementDamageReduction;
-            PlayerData.BlockRate += tempBasalStatus.BlockRate;
-            PlayerData.Speed += tempBasalStatus.Speed;
-            PlayerData.Crt += tempBasalStatus.Crt;
-            PlayerData.AS += tempBasalStatus.AS;
-            PlayerData.DisorderResistance += tempBasalStatus.DisorderResistance;
+            PlayerData.MeleeATK = tempBasalStatus.MeleeATK;
+            PlayerData.RemoteATK = tempBasalStatus.RemoteATK;
+            PlayerData.MageATK = tempBasalStatus.MageATK;
+            PlayerData.MaxHP = tempBasalStatus.MaxHp;
+            PlayerData.MaxMP = tempBasalStatus.MaxMp;
+            PlayerData.HP_Recovery = tempBasalStatus.HP_Recovery;
+            PlayerData.MP_Recovery = tempBasalStatus.MP_Recovery;
+            PlayerData.DEF = tempBasalStatus.DEF;
+            PlayerData.Avoid = tempBasalStatus.Avoid;
+            PlayerData.MeleeHit = tempBasalStatus.MeleeHit;
+            PlayerData.RemoteHit = tempBasalStatus.RemoteHit;
+            PlayerData.MageHit = tempBasalStatus.MageHit;
+            PlayerData.MDEF = tempBasalStatus.MDEF;
+            PlayerData.DamageReduction = tempBasalStatus.DamageReduction;
+            PlayerData.ElementDamageIncrease = tempBasalStatus.ElementDamageIncrease;
+            PlayerData.ElementDamageReduction = tempBasalStatus.ElementDamageReduction;
+            PlayerData.BlockRate = tempBasalStatus.BlockRate;
+            PlayerData.Speed = tempBasalStatus.Speed;
+            PlayerData.Crt = tempBasalStatus.Crt;
+            PlayerData.AS = tempBasalStatus.AS;
+            PlayerData.DisorderResistance = tempBasalStatus.DisorderResistance;
         }
 
         //刷新數據呈現

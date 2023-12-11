@@ -160,6 +160,7 @@ namespace JsonDataModel
         public int AGI { get; set; }            // 武器AGI
         public int VIT { get; set; }            // 武器VIT
         public int WIS { get; set; }            // 武器WIS
+        public int ElementDamageIncrease { get; set; }            // 武器屬性傷害增幅
         public string GetKey { get { return CodeID; } }
     }
     /// <summary>
