@@ -92,7 +92,7 @@ public class DragSkill : MonoBehaviour
 
             return;
         }
-        SetSkillHotKey(go.GetComponent<SkillHotKey>(),
+        SetSkillHotKey(go.GetComponent<HotKeyData>(),
             skillCloneIns.GetComponent<Image>().sprite, GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(skillName)).
             Select(x => x.Key).FirstOrDefault());
         go.GetComponent<Image>().raycastTarget = true;
@@ -103,10 +103,10 @@ public class DragSkill : MonoBehaviour
     /// </summary>
     /// <param name="skillhotkey"></param>
     /// <param name="skillIcon"></param>
-    /// <param name="skillname"></param>
-    public void SetSkillHotKey(SkillHotKey skillhotkey, Sprite skillIcon, string skillname)
+    /// <param name="skillID"></param>
+    public void SetSkillHotKey(HotKeyData skillhotkey, Sprite skillIcon, string skillID)
     {
-        skillhotkey.SetSkill(skillIcon, skillname);
+        skillhotkey.SetSkill(skillIcon, skillID);
         EndDragMethod(skillCloneIns);
     }
 

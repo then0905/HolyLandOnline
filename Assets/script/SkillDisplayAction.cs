@@ -28,7 +28,6 @@ public class SkillDisplayAction : MonoBehaviour
     }
     #endregion
 
-
     [Header("角色相關參考")]
     public GameObject Player;                   //角色父級           
     public GameObject PlayerCharacter;          //角色本體(動畫 面相等等)
@@ -76,7 +75,7 @@ public class SkillDisplayAction : MonoBehaviour
     public SkillInformation Skillinformation;
 
     [Header("技能相關參考")]
-    public SkillHotKey[] SkillHotKey = new SkillHotKey[10];
+    public HotKeyData[] SkillHotKey = new HotKeyData[10];
 
     [Header("選取目標參考")]
     public SelectTarget TargetUI_Manager;
@@ -214,18 +213,18 @@ public class SkillDisplayAction : MonoBehaviour
     public void SkillUse(int inputNumber)
     {
         //判斷 技能是否有在使用中 或是 快捷鍵的資料是否為空值
-        if (!UsingSkill&& !string.IsNullOrEmpty(SkillHotKey[inputNumber].SkillName))
+        if (!UsingSkill && !string.IsNullOrEmpty(SkillHotKey[inputNumber].HotKeyDataID))
         {
             //紀錄輸入的鍵位
             keyIndex = inputNumber;
             //var skillData = GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(SkillHotKey[inputNumber].SkillName)).Select(x => x.Value).FirstOrDefault();
             //取得 該技能UI版資料
-            var skillUIData = GameData.SkillsUIDic.Where(x => x.Key.Contains(SkillHotKey[inputNumber].SkillName)).Select(x => x.Value).FirstOrDefault();
+            var skillUIData = GameData.SkillsUIDic.Where(x => x.Key.Contains(SkillHotKey[inputNumber].HotKeyDataID)).Select(x => x.Value).FirstOrDefault();
 
             //判斷是否魔力足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
             if (PlayerData.MP - skillUIData.CastMage < 0 && Skillinformation.CDR[keyIndex] < Skillinformation.CDsec[keyIndex])
             {
-                Instantiate(CommonFunction.MessageHint("魔力不足...",HintType.Warning));
+                Instantiate(CommonFunction.MessageHint("魔力不足...", HintType.Warning));
                 return;
             }
 
@@ -384,19 +383,13 @@ public class SkillDisplayAction : MonoBehaviour
     /// <param name="skillData">鍵入的技能資料</param>
     public void CallSkillEffect(SkillUIModel skillUIData)
     {
-        //判斷是否魔力足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
-        if (PlayerData.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
-        {
-            string queryResule =
-            GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(skillUIData.Name)).Select(x => x.Value.SkillID).FirstOrDefault();
-            GameObject effectObj = CommonFunction.LoadObject<GameObject>("SkillPrefab", "SkillEffect_" + queryResule);
-            UsingSkillObj = Instantiate(effectObj);
-            UsingSkillObj.GetComponent<Skill_Base>().InitSkillEffectData(skillUIData.CastMage);
-        }
-        else
-            Instantiate(CommonFunction.MessageHint("魔力不足...", HintType.Warning));
-
-
+        string queryResule =
+        GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(skillUIData.Name)).Select(x => x.Value.SkillID).FirstOrDefault();
+        GameObject effectObj = CommonFunction.LoadObject<GameObject>("SkillPrefab", "SkillEffect_" + queryResule);
+        UsingSkillObj = Instantiate(effectObj);
+        UsingSkillObj.GetComponent<Skill_Base>().InitSkillEffectData(skillUIData.CastMage);
+        //技能進入冷卻 併計時
+        StartCoroutine(ProcessorSkillCoolDown(skillUIData));
         //if (PlayerData.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
         //{
         //    //關閉所有畫布
@@ -444,7 +437,7 @@ public class SkillDisplayAction : MonoBehaviour
     //}
 
     /// <summary>
-    /// 設定快捷鍵上的技能冷卻(裝上技能時呼叫)
+    /// 設定快捷鍵上的技能冷卻與資料(裝上技能時呼叫)
     /// </summary>
     /// <param name="indexKey">快捷鍵鍵位</param>
     public void CoolDownRecord(int indexKey)
@@ -454,17 +447,21 @@ public class SkillDisplayAction : MonoBehaviour
     }
 
     /// <summary>
-    /// 技能冷卻讀秒
+    /// 處理技能冷卻讀秒
     /// </summary>
     /// <param name="indexKey">快捷鍵鍵位</param>
-    public void SkillCD(int indexKey)
+    public IEnumerator ProcessorSkillCoolDown(SkillUIModel skillUIData)
     {
-        for (int i = 0; i < Skillinformation.CDR.Count; i++)
+        //取得快捷鍵上 有此技能資料的鍵位
+        var tempHotKey = SkillHotKey.Where(x => x.HotKeyDataID.Contains(skillUIData.SkillID)).Select(x => x.Keyindex).FirstOrDefault();
+        //設定清單索引目標 若輸入不是0鍵則-1 若是0則設定為9(最大索引值)
+        int getIndexKey = tempHotKey.Equals(0) ? (tempHotKey + 9) : (tempHotKey - 1);
+        Skillinformation.CDR[getIndexKey] = 0;
+        while (Skillinformation.CDR[getIndexKey] < Skillinformation.CDsec[getIndexKey])
         {
-            while (Skillinformation.CDR[i] >= Skillinformation.CDsec[i])
-            {
-                Skillinformation.CDR[i] += Time.deltaTime;
-            }
+            Skillinformation.CDR[getIndexKey] += 0.1f;
+            Skillinformation.SkillSlider[getIndexKey].value = Skillinformation.CDR[getIndexKey];
+            yield return new WaitForSeconds(0.1f);
         }
     }
 
@@ -474,9 +471,10 @@ public class SkillDisplayAction : MonoBehaviour
     public IEnumerator SkillDistanceCheck(SkillUIModel skillUIData)
     {
         DistanceWithTarget();
-
-        if (!UsingSkill)
+        //是否有在使用的技能 是否魔力足夠 以及 該技能冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能) 
+        if (!UsingSkill && PlayerData.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
         {
+            UsingSkill = true;
             AutoNavToTarget = true;
             //若還沒進入施放距離則移動玩家
             while (dis > skillUIData.Distance)
@@ -487,9 +485,12 @@ public class SkillDisplayAction : MonoBehaviour
                 Player.transform.position = Vector3.Lerp(Player.transform.position, TargetUI_Manager.Targetgameobject.Povit.position, CharacterMove.MoveSpeed * Time.deltaTime * 0.1f);
                 yield return new WaitForEndOfFrame();
             }
-            UsingSkill = true;
             characterAnimator.SetBool("IsRun", false);
             CallSkillEffect(skillUIData);
+        }
+        else
+        {
+            Instantiate(CommonFunction.MessageHint("魔力不足...", HintType.Warning));
         }
     }
 }

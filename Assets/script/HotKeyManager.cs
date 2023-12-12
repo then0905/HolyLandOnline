@@ -12,10 +12,25 @@ using System.Linq;
 
 public class HotKeyManager : MonoBehaviour
 {
-    //技能欄底圖
-    public Image[] SkillsHotKeyBackground;
-    //技能欄CD計時圖
-    public Image[] SkillsHotKeyFill;
+    #region 靜態變數
+    private static HotKeyManager instance;
+    public static HotKeyManager Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = FindObjectOfType<HotKeyManager>();
+            return instance;
+        }
+    }
+    #endregion 
+
+    //快捷鍵底圖Img
+    public Image[] HotKeyBackgroundArray;
+    //快捷鍵計時圖Img
+    public Image[] HotKeyFillArray;
+    //快捷鍵底圖原圖
+    public Sprite HotKeyBackgroundSprite;
     //面板管理器
     private PanelManager panelManager;
     private void Start()
@@ -38,7 +53,7 @@ public class HotKeyManager : MonoBehaviour
         }
         for (int i = 0; i < 10; i++)
         {
-            SkillsHotKeyFill[i].sprite = SkillsHotKeyBackground[i].sprite;
+            HotKeyFillArray[i].sprite = HotKeyBackgroundArray[i].sprite;
         }
     }
     /// <summary>
