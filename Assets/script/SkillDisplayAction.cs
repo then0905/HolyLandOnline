@@ -62,6 +62,7 @@ public class SkillDisplayAction : MonoBehaviour
 
     [Header("冷卻時間紀錄")]
     private int keyIndex;                        //紀錄當前鍵位
+
     /// <summary>
     /// 外部取得當前鍵位索引值
     /// </summary>
@@ -128,40 +129,40 @@ public class SkillDisplayAction : MonoBehaviour
 
     void Update()
     {
-        //刷新hit
-        RaycastHit hit;
-        Ray ray = CharacterCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
+        ////刷新hit
+        //RaycastHit hit;
+        //Ray ray = CharacterCamera.GetComponent<Camera>().ScreenPointToRay(Input.mousePosition);
 
-        //指向技顯示 並跟隨滑鼠
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-        {
-            Postion = new Vector3(hit.point.x, hit.point.y, hit.point.z);
-        }
+        ////指向技顯示 並跟隨滑鼠
+        //if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        //{
+        //    Postion = new Vector3(hit.point.x, hit.point.y, hit.point.z);
+        //}
 
-        //範圍技顯示
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity))
-        {
-            if (hit.collider.gameObject != this.gameObject)
-            {
-                PosUp = new Vector3(hit.point.x, 10f, hit.point.z);
-                Postion = hit.point;
-            }
-        }
+        ////範圍技顯示
+        //if (Physics.Raycast(ray, out hit, Mathf.Infinity))
+        //{
+        //    if (hit.collider.gameObject != this.gameObject)
+        //    {
+        //        PosUp = new Vector3(hit.point.x, 10f, hit.point.z);
+        //        Postion = hit.point;
+        //    }
+        //}
 
-        //指向技&扇形技作用
-        Quaternion transRot = Quaternion.LookRotation(Postion - CharacterTransform.position);
-        transRot.eulerAngles = new Vector3(0, transRot.eulerAngles.y, transRot.eulerAngles.z);
-        SkillArrowCanvas.transform.rotation = Quaternion.Lerp(transRot, SkillArrowCanvas.transform.rotation, 0);
-        SkillConeCanvas.transform.rotation = Quaternion.Lerp(transRot, SkillConeCanvas.transform.rotation, 0);
+        ////指向技&扇形技作用
+        //Quaternion transRot = Quaternion.LookRotation(Postion - CharacterTransform.position);
+        //transRot.eulerAngles = new Vector3(0, transRot.eulerAngles.y, transRot.eulerAngles.z);
+        //SkillArrowCanvas.transform.rotation = Quaternion.Lerp(transRot, SkillArrowCanvas.transform.rotation, 0);
+        //SkillConeCanvas.transform.rotation = Quaternion.Lerp(transRot, SkillConeCanvas.transform.rotation, 0);
 
-        //範圍技作用
-        var hitPosDir = (hit.point - CharacterTransform.transform.position).normalized;
-        float distance = Vector3.Distance(hit.point, CharacterTransform.transform.position);
-        maxSkillTargetDistance = SkillTargetCircle.GetComponent<RectTransform>().rect.width;
-        distance = Mathf.Min(distance, maxSkillTargetDistance);
+        ////範圍技作用
+        //var hitPosDir = (hit.point - CharacterTransform.transform.position).normalized;
+        //float distance = Vector3.Distance(hit.point, CharacterTransform.transform.position);
+        //maxSkillTargetDistance = SkillTargetCircle.GetComponent<RectTransform>().rect.width;
+        //distance = Mathf.Min(distance, maxSkillTargetDistance);
 
-        var newHitPos = CharacterTransform.transform.position + hitPosDir * distance;
-        SkillTargetCanvas.transform.position = newHitPos;
+        //var newHitPos = CharacterTransform.transform.position + hitPosDir * distance;
+        //SkillTargetCanvas.transform.position = newHitPos;
 
         //按下快捷鍵
         if (Input.GetKeyDown("1"))
@@ -213,7 +214,7 @@ public class SkillDisplayAction : MonoBehaviour
     public void SkillUse(int inputNumber)
     {
         //判斷 技能是否有在使用中 或是 快捷鍵的資料是否為空值
-        if (!UsingSkill && !string.IsNullOrEmpty(SkillHotKey[inputNumber].HotKeyDataID))
+        if (!string.IsNullOrEmpty(SkillHotKey[inputNumber].HotKeyDataID))
         {
             //紀錄輸入的鍵位
             keyIndex = inputNumber;
@@ -222,9 +223,20 @@ public class SkillDisplayAction : MonoBehaviour
             var skillUIData = GameData.SkillsUIDic.Where(x => x.Key.Contains(SkillHotKey[inputNumber].HotKeyDataID)).Select(x => x.Value).FirstOrDefault();
 
             //判斷是否魔力足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
-            if (PlayerData.MP - skillUIData.CastMage < 0 && Skillinformation.CDR[keyIndex] < Skillinformation.CDsec[keyIndex])
+
+            if (PlayerData.MP - skillUIData.CastMage < 0)
             {
                 Instantiate(CommonFunction.MessageHint("魔力不足...", HintType.Warning));
+                return;
+            }
+            if (Skillinformation.CDR[keyIndex] < Skillinformation.CDsec[keyIndex])
+            {
+                Instantiate(CommonFunction.MessageHint("該技能冷卻時間未完成!", HintType.Warning));
+                return;
+            }
+            if (UsingSkill)
+            {
+                Instantiate(CommonFunction.MessageHint("當前有技能正在使用中!", HintType.Warning));
                 return;
             }
 
@@ -409,6 +421,7 @@ public class SkillDisplayAction : MonoBehaviour
         //    characterAnimator.SetTrigger(skillUIData.AnimaTrigger);
         //}
     }
+
     ///// <summary>
     ///// 施放技能扣除魔力
     ///// </summary>
@@ -461,6 +474,7 @@ public class SkillDisplayAction : MonoBehaviour
         {
             Skillinformation.CDR[getIndexKey] += 0.1f;
             Skillinformation.SkillSlider[getIndexKey].value = Skillinformation.CDR[getIndexKey];
+            //print(skillUIData.Name + "當前冷卻:" + Skillinformation.CDR[getIndexKey] + "總時間:" + Skillinformation.CDsec[getIndexKey]);
             yield return new WaitForSeconds(0.1f);
         }
     }
@@ -490,7 +504,26 @@ public class SkillDisplayAction : MonoBehaviour
         }
         else
         {
-            Instantiate(CommonFunction.MessageHint("魔力不足...", HintType.Warning));
+            if (PlayerData.MP - skillUIData.CastMage < 0)
+                Instantiate(CommonFunction.MessageHint("魔力不足...", HintType.Warning));
+            else if (Skillinformation.CDR[keyIndex] < Skillinformation.CDsec[keyIndex])
+                Instantiate(CommonFunction.MessageHint("該技能冷卻時間未完成!", HintType.Warning));
+
         }
+    }
+
+    /// <summary>
+    /// 還原技能範圍碰撞器與圖片
+    /// </summary>
+    public void SkillDistanceReverse()
+    {
+        SkillArrowImage.GetComponent<Image>().enabled = false;
+        SkillTargetCircle.GetComponent<Image>().enabled = false;
+        SkillPlayerCricle.GetComponent<Image>().enabled = false;
+        SkillConeImage.GetComponent<Image>().enabled = false;
+        SkillArrowImage.GetComponent<BoxCollider>().enabled = false;
+        SkillTargetCircle.GetComponent<SphereCollider>().enabled = false;
+        SkillPlayerCricle.GetComponent<SphereCollider>().enabled = false;
+        SkillConeImage.GetComponent<SphereCollider>().enabled = false;
     }
 }

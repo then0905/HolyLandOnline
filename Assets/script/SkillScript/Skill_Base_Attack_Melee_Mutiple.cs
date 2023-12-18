@@ -4,10 +4,10 @@ using UnityEngine;
 
 //==========================================
 //  創建者:家豪
-//  創建日期:2023/11/20
-//  創建用途: 近距離攻擊型單體技能基底(無須額外效果)
+//  創建日期:2023/12/16
+//  創建用途: 近距離攻擊型群體技能基底(無額外效果)
 //==========================================
-public class Skill_Base_Attack_Melee : Skill_Base_Attack
+public class Skill_Base_Attack_Melee_Mutiple : Skill_Base_Attack
 {
     /// <summary>
     /// 攻擊標籤
@@ -16,11 +16,13 @@ public class Skill_Base_Attack_Melee : Skill_Base_Attack
 
     protected override void SkillEffectStart()
     {
-        CheckGetAnyTarget(AttackType);
+        //CheckGetAnyTarget(AttackType);
+        SkillDisplayAction.Instance.SkillArrowImage.GetComponent<ArrowHit>().SetSkillSize(this, skillName);
+        SkillDisplayAction.Instance.CharacterAnimator.SetTrigger(skillName);
     }
     protected override void SkillEffectEnd(string statusType = "", bool Rate = false, float value = 0)
     {
+        SkillDisplayAction.Instance.SkillDistanceReverse();
         Destroy(gameObject);
     }
-
 }

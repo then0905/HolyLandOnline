@@ -42,8 +42,8 @@
   "TargetCount": 3,
   "AdditionMode": "MeleeATK",
   "Distance": 3,
-  "Width": 3,
-  "Height": 2,
+  "Width": 10,
+  "Height": 5,
   "CircleDistance": 0,
   "Column22": "對前方區域內三名敵對目標使用範圍型的攻擊"
  },
