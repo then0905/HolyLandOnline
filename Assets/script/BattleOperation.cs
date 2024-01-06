@@ -148,11 +148,13 @@ public class BattleOperation : MonoBehaviour
                 damage = 0;
                 break;
         }
+        print("技能倍率:" + skillData.EffectValue[0]);
 
         //是否暴擊
         if (iscrt)
-            damage = skillData.EffectValue[0] * (damage * 1.5f+ PlayerData.CrtDamage);
-
+            damage = damage* skillData.EffectValue[0] * (damage * 1.5f + PlayerData.CrtDamage);
+        else
+            damage = damage* skillData.EffectValue[0];
         //目標扣除生命
         monsterBehaviour.CurrentHp -= (int)Mathf.Round((1 - defRate) * damage);
         //生成傷害數字

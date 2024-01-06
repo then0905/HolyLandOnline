@@ -41,10 +41,10 @@ public abstract class Skill_Base : MonoBehaviour
     protected List<string> influenceStatus;       // 效果影響的屬性 (Buff)   
     protected List<string> addType;               // 加成運算的方式 Rate:乘法、Value:加法   
     protected string effectCategory;              // 標籤類型    
-    protected List<string> additionalEffect;      // 額外附加效果標籤
-    protected List<float> additionalEffectValue;  // 額外附加效果的值
-    protected List<float> additionalEffectTime;   // 額外附加效果持續時間
-    protected Dictionary<string, string> condition;             // 執行技能所需條件
+    protected List<string> additionalEffect = new List<string>();      // 額外附加效果標籤
+    protected List<float> additionalEffectValue = new List<float>();  // 額外附加效果的值
+    protected List<float> additionalEffectTime = new List<float>();   // 額外附加效果持續時間
+    protected Dictionary<string, string> condition = new Dictionary<string, string>();             // 執行技能所需條件
 
     protected int effectRecive;
     protected int targetCount;                    // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
@@ -85,20 +85,26 @@ public abstract class Skill_Base : MonoBehaviour
 
     #endregion
 
+    public string SkillName { get { return skillName; } }
+
     [Header("技能ID 用來從GameData找資料輸入"), SerializeField] protected string skillName;
 
     [Header("生成的動畫特效物件"), SerializeField] protected GameObject effectObj;
 
     protected SkillEffectCategory category;//技能類別標籤
 
+    protected bool skillBeUpgrade = false;      //技能是否被升級
+
     /// <summary>
     /// 初始化技能資料
     /// </summary>
     /// <param name="costMaga">消耗魔力</param>
-    public void InitSkillEffectData(int costMaga)
+    public void InitSkillEffectData(int costMaga, bool skillUpgrade = false)
     {
+        skillBeUpgrade = skillUpgrade;
         //獲取GameData技能資料
         var effectData = GameData.SkillsDataDic[skillName];
+
         //轉換List
         TranslateListData(effectData);
         //設定其他資料
@@ -115,10 +121,13 @@ public abstract class Skill_Base : MonoBehaviour
         height = effectData.Height;
         circleDistance = effectData.CircleDistance;
 
+
         //扣除消耗魔力
         PlayerValueManager.Instance.ChangeMpEvent?.Invoke(costMaga * -1);
 
-        SkillEffectStart();
+        //如果技能被升級 初始化技能時不執行 等待升級資訊後才執行
+        if (!skillUpgrade)
+            SkillEffectStart();
         //設定生成特效參考
         if (effectObj != null) InitSkillEffect(effectData.EffectTarget);
     }
@@ -148,7 +157,7 @@ public abstract class Skill_Base : MonoBehaviour
         List<string> tempData = conditionID.SetStringList();
         foreach (string item in tempData)
         {
-            var splitData = item.Split();
+            var splitData = item.Split('_');
             condition.TrySetValue(splitData[0], splitData[1]);
         }
     }
@@ -179,31 +188,32 @@ public abstract class Skill_Base : MonoBehaviour
     /// <returns></returns>
     protected bool DetailConditionProcess(string key, string value)
     {
-        switch (key)
-        {
-            default:
-            //裝備指定類型道具
-            case "Equip":
-                return ItemManager.Instance.EquipDataList.Any(x => x.EquipmentDatas.Weapon.TypeID.Contains(value) || x.EquipmentDatas.Armor.TypeID.Contains(value));
-            //在戰鬥狀態中
-            case "InCombatStatus":
-                //缺少戰鬥狀態判斷
-                return false;
-            //HP低於指定百分比
-            case "HpLess":
-                float conditionHP = PlayerData.MaxHP * float.Parse(value);
-                return conditionHP < PlayerData.HP;
-            //HP低於指定百分比
-            case "HpMore":
-                conditionHP = PlayerData.MaxHP * float.Parse(value);
-                return conditionHP > PlayerData.HP;
-            case "Close":
-                //建立靠近單位的判斷(朝單位移動? 雙方距離縮短? 單位判斷與距離多少?)
-                return false;
-            case "Random":
-                //缺乏隨機條件(目前有的資料 禁衛軍的"回擊好禮")
-                return false;
-        }
+        return false;
+        //switch (key)
+        //{
+        //    default:
+        //    //裝備指定類型道具
+        //    case "Equip":
+        //        return ItemManager.Instance.EquipDataList.Any(x => x.EquipmentDatas.Clone().Weapon.TypeID.Contains(value) || x.EquipmentDatas.Clone().Armor.TypeID.Contains(value));
+        //    //在戰鬥狀態中
+        //    case "InCombatStatus":
+        //        //缺少戰鬥狀態判斷
+        //        return false;
+        //    //HP低於指定百分比
+        //    case "HpLess":
+        //        float conditionHP = PlayerData.MaxHP * float.Parse(value);
+        //        return conditionHP < PlayerData.HP;
+        //    //HP低於指定百分比
+        //    case "HpMore":
+        //        conditionHP = PlayerData.MaxHP * float.Parse(value);
+        //        return conditionHP > PlayerData.HP;
+        //    case "Close":
+        //        //建立靠近單位的判斷(朝單位移動? 雙方距離縮短? 單位判斷與距離多少?)
+        //        return false;
+        //    case "Random":
+        //        //缺乏隨機條件(目前有的資料 禁衛軍的"回擊好禮")
+        //        return false;
+        //}
     }
 
     /// <summary>
@@ -243,5 +253,33 @@ public abstract class Skill_Base : MonoBehaviour
                 //case "Team":
         }
         obj.transform.localScale = Vector3.one;
+    }
+
+    /// <summary>
+    /// 從被動獲得技能升級效果 刷新技能內容
+    /// </summary>
+    /// <param name="skillUpgrade"></param>
+    public void GetSkillUpgradeEffect(string skillUpgradeID)
+    {
+        //獲取GameData技能資料
+        var effectData = GameData.SkillsDataDic[skillUpgradeID];
+        //轉換List
+        TranslateListData(effectData);
+        //設定其他資料
+        //characteristic = effectData.Characteristic;
+        multipleValue = effectData.MultipleValue;
+        //effectCategory = effectData.EffectCategory;
+        effectRecive = effectData.EffectRecive;
+        targetCount = effectData.TargetCount;
+        effectDurationTime = effectData.EffectDurationTime;
+        chantTime = effectData.ChantTime;
+        additionMode = effectData.AdditionMode;
+        distance = effectData.Distance;
+        width = effectData.Width;
+        height = effectData.Height;
+        circleDistance = effectData.CircleDistance;
+        //升級資訊完成 執行程式
+        skillBeUpgrade = false;
+        SkillEffectStart();
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1292497249034310898}
   - component: {fileID: 1292497249034310897}
   - component: {fileID: 425868977264538909}
+  - component: {fileID: 8776022906284725439}
   m_Layer: 5
   m_Name: SkillClone
   m_TagString: HotKey
@@ -103,3 +104,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 100, y: 100}
   m_EdgeRadius: 0
+--- !u!114 &8776022906284725439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1292497249034310911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f54f5bb5b2f44624189cd08ffaedf183, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SkillName: {fileID: 0}
+  SkillCostMage: {fileID: 0}
+  SkillCD: {fileID: 0}
+  SkillIntro: {fileID: 0}
+  SkillIcon: {fileID: 0}
+  Number: 0
+  Characteristic: 0
+  SkillBeUpgrade: 0
+  SkillUpgradeID: 
+  SkillUpgradeIcon: {fileID: 0}

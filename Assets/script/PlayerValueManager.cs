@@ -67,6 +67,7 @@ public class PlayerValueManager : MonoBehaviour
     public void exptest()
     {
         PlayerData.Exp += 10;
+        ExpProcessor();
     }
 
     /// <summary>
@@ -137,11 +138,11 @@ public class PlayerValueManager : MonoBehaviour
         //若玩家經驗值>最大經驗值條 為 升級事件
         if (PlayerData.Exp >= expSlider.maxValue)
         {
-            //呼叫刷新與升等
-            LVup();
             //更新經驗值條(扣除當前最大經驗值)
             PlayerData.Exp -= int.Parse(expSlider.maxValue.ToString());
             PlayerData.Lv++;
+            //呼叫刷新與升等
+            LVup();
         }
 
         //設定經驗值調資料
@@ -154,9 +155,13 @@ public class PlayerValueManager : MonoBehaviour
     /// </summary>
     void LVup()
     {
+        StatusOperation.Instance.StatusMethod();//使用者資料刷新
+        RefreshExpAndLv();
         //回復玩家生命值與魔力
         PlayerData.HP = PlayerData.MaxHP;
         PlayerData.MP = PlayerData.MaxMP;
+        //更新技能 暫時寫在這 以後不確定會不會再學技能這塊增加NPC或什麼道具學習
+        ClassAndSkill.Instance.Init();
     }
 
     /// <summary>

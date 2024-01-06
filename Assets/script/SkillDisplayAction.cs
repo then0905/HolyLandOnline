@@ -246,34 +246,34 @@ public class SkillDisplayAction : MonoBehaviour
                 case "Arrow":
                     //若已選取目標 接近目標到可施放範圍
                     if (TargetUI_Manager.CatchTarget)
-                        StartCoroutine(SkillDistanceCheck(skillUIData));
+                        StartCoroutine(SkillDistanceCheck(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID));
                     else
                         //若未選取 顯示該技能範圍
-                        SkillArrow(skillUIData);
+                        SkillArrow(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID);
                     break;
 
                 //指定技能類型
                 case "Target":
                     if (TargetUI_Manager.CatchTarget)
-                        StartCoroutine(SkillDistanceCheck(skillUIData));
+                        StartCoroutine(SkillDistanceCheck(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID));
                     else
-                        SkillTarget(skillUIData);
+                        SkillTarget(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID);
                     break;
 
                 //圓圈型範圍技能類型
                 case "Circle":
                     if (TargetUI_Manager.CatchTarget)
-                        StartCoroutine(SkillDistanceCheck(skillUIData));
+                        StartCoroutine(SkillDistanceCheck(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID));
                     else
-                        SkillCircle(skillUIData);
+                        SkillCircle(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID);
                     break;
 
                 //扇型範圍技能類型
                 case "Cone":
                     if (TargetUI_Manager.CatchTarget)
-                        StartCoroutine(SkillDistanceCheck(skillUIData));
+                        StartCoroutine(SkillDistanceCheck(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID));
                     else
-                        SkillCone(skillUIData);
+                        SkillCone(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID);
                     break;
             }
         }
@@ -296,7 +296,7 @@ public class SkillDisplayAction : MonoBehaviour
     /// 顯示 指向技 相關設定
     /// </summary>
     /// <param name="skillData">技能資料</param>
-    public void SkillArrow(SkillUIModel skillUIData)
+    public void SkillArrow(SkillUIModel skillUIData, string UpgradeSkillID = "")
     {
         //設定範圍圖示長寬
         SkillArrowImage.GetComponent<RectTransform>().sizeDelta = new Vector2(skillUIData.Width, skillUIData.Height);
@@ -311,7 +311,7 @@ public class SkillDisplayAction : MonoBehaviour
         if (SkillArrowImage.GetComponent<Image>().enabled && Input.GetMouseButton(0))
         {
             UsingSkill = true;
-            CallSkillEffect(skillUIData);
+            CallSkillEffect(skillUIData, UpgradeSkillID);
         }
     }
 
@@ -319,7 +319,7 @@ public class SkillDisplayAction : MonoBehaviour
     /// 顯示 扇型技 相關設定
     /// </summary>
     /// <param name="skillData">技能資料</param>
-    public void SkillCone(SkillUIModel skillUIData)
+    public void SkillCone(SkillUIModel skillUIData, string UpgradeSkillID = "")
     {
         //SkillConeImage.GetComponent<RectTransform>().sizeDelta = new Vector2(DataBase.Instance.SkillDB.Skill[SkillDBindex].SkillAmbitWidth, DataBase.Instance.SkillDB.Skill[SkillDBindex].SkillAmbitHeight);
 
@@ -333,7 +333,7 @@ public class SkillDisplayAction : MonoBehaviour
         if (SkillConeImage.GetComponent<Image>().enabled && Input.GetMouseButton(0))
         {
             UsingSkill = true;
-            CallSkillEffect(skillUIData);
+            CallSkillEffect(skillUIData, UpgradeSkillID);
         }
     }
 
@@ -341,7 +341,7 @@ public class SkillDisplayAction : MonoBehaviour
     /// 顯示 圓形技 相關設定
     /// </summary>
     /// <param name="skillData">技能資料</param>
-    public void SkillCircle(SkillUIModel skillUIData)
+    public void SkillCircle(SkillUIModel skillUIData, string UpgradeSkillID = "")
     {
         //設定範圍圖示半徑
         SkillPlayerCricle.GetComponent<RectTransform>().sizeDelta = new Vector2(skillUIData.Distance, skillUIData.Distance);
@@ -358,7 +358,7 @@ public class SkillDisplayAction : MonoBehaviour
         if (SkillTargetCircle.GetComponent<Image>().enabled && Input.GetMouseButton(0))
         {
             UsingSkill = true;
-            CallSkillEffect(skillUIData);
+            CallSkillEffect(skillUIData, UpgradeSkillID);
         }
     }
 
@@ -366,7 +366,7 @@ public class SkillDisplayAction : MonoBehaviour
     /// 顯示 指向技 相關設定
     /// </summary>
     /// <param name="skillData">技能資料</param>
-    public void SkillTarget(SkillUIModel skillUIData)
+    public void SkillTarget(SkillUIModel skillUIData, string UpgradeSkillID = "")
     {
         //設定範圍圖示半徑
         SkillPlayerCricle.GetComponent<RectTransform>().sizeDelta = new Vector2(skillUIData.Distance, skillUIData.Distance);
@@ -383,7 +383,7 @@ public class SkillDisplayAction : MonoBehaviour
             if (TargetUI_Manager.Targetgameobject != null)
             {
                 UsingSkill = true;
-                CallSkillEffect(skillUIData);
+                CallSkillEffect(skillUIData, UpgradeSkillID);
             }
             else
                 return;
@@ -393,13 +393,18 @@ public class SkillDisplayAction : MonoBehaviour
     /// 呼叫技能特效物件
     /// </summary>
     /// <param name="skillData">鍵入的技能資料</param>
-    public void CallSkillEffect(SkillUIModel skillUIData)
+    public void CallSkillEffect(SkillUIModel skillUIData, string UpgradeSkillID = "")
     {
         string queryResule =
         GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(skillUIData.Name)).Select(x => x.Value.SkillID).FirstOrDefault();
         GameObject effectObj = CommonFunction.LoadObject<GameObject>("SkillPrefab", "SkillEffect_" + queryResule);
+        //生成技能效果物件
         UsingSkillObj = Instantiate(effectObj);
-        UsingSkillObj.GetComponent<Skill_Base>().InitSkillEffectData(skillUIData.CastMage);
+        //初始化技能效果物件
+        UsingSkillObj.GetComponent<Skill_Base>().InitSkillEffectData(skillUIData.CastMage, UpgradeSkillID != "");
+        //若技能效果為升級版 執行升級效果
+        if (UpgradeSkillID != "")
+            UsingSkillObj.GetComponent<Skill_Base>().GetSkillUpgradeEffect(UpgradeSkillID);
         //技能進入冷卻 併計時
         StartCoroutine(ProcessorSkillCoolDown(skillUIData));
         //if (PlayerData.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
@@ -482,7 +487,7 @@ public class SkillDisplayAction : MonoBehaviour
     /// <summary>
     /// 確認玩家是否進入可施放範圍
     /// </summary>
-    public IEnumerator SkillDistanceCheck(SkillUIModel skillUIData)
+    public IEnumerator SkillDistanceCheck(SkillUIModel skillUIData, string UpgradeSkillID = "")
     {
         DistanceWithTarget();
         //是否有在使用的技能 是否魔力足夠 以及 該技能冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能) 
@@ -500,7 +505,7 @@ public class SkillDisplayAction : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
             characterAnimator.SetBool("IsRun", false);
-            CallSkillEffect(skillUIData);
+            CallSkillEffect(skillUIData, UpgradeSkillID);
         }
         else
         {

@@ -24,9 +24,18 @@ public class SkillUI : MonoBehaviour
     public int Number;
     //是否主動技
     public bool Characteristic;
-    
+
+    /*技能升級內容*/
+
+    //技能是否被升級
+     public bool SkillBeUpgrade = false;
+    //技能升級提示(增加在技能介紹) EX:已升級為...
+     public string SkillUpgradeID="";
+    //技能升級後的Icon更新
+    public Sprite SkillUpgradeIcon;
+
     void Start()
-    {        
+    {
         //SkillName.text = DataBase.Instance.SkillDB.Skill[Number].SkillName;
         //SkillCD.text = DataBase.Instance.SkillDB.Skill[Number].SkillCoolDown.ToString();
         //SkillCostMage.text = DataBase.Instance.SkillDB.Skill[Number].CostMana.ToString();

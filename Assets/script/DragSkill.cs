@@ -48,11 +48,21 @@ public class DragSkill : MonoBehaviour
                 CloneDrag = true;
                 skillCloneIns = Instantiate(SkillClone, transform.position, transform.rotation, SkillHotKey);
                 skillCloneIns.transform.localScale = Vector3.one;
-
+                skillCloneIns.GetComponent<SkillUI>().SkillUpgradeID = data.pointerCurrentRaycast.gameObject.GetComponent<SkillUI>().SkillUpgradeID;
+                skillCloneIns.GetComponent<Image>().sprite = (data.pointerCurrentRaycast.gameObject.GetComponent<SkillUI>().SkillBeUpgrade ?
+                data.pointerCurrentRaycast.gameObject.GetComponent<SkillUI>().SkillUpgradeIcon
+                : data.pointerCurrentRaycast.gameObject.GetComponent<Image>().sprite);
             }
             //PointerEventData _ = data as PointerEventData;
+
             skillName = data.pointerCurrentRaycast.gameObject.GetComponent<SkillUI>().SkillName.text;
-            skillCloneIns.GetComponent<Image>().sprite = data.pointerCurrentRaycast.gameObject.GetComponent<Image>().sprite;
+
+            //若技能升級  更改拖曳的技能圖鑑
+            skillCloneIns.GetComponent<Image>().sprite =
+                (data.pointerCurrentRaycast.gameObject.GetComponent<SkillUI>().SkillBeUpgrade ?
+                data.pointerCurrentRaycast.gameObject.GetComponent<SkillUI>().SkillUpgradeIcon
+                : data.pointerCurrentRaycast.gameObject.GetComponent<Image>().sprite);
+
             if (skillCloneIns.transform.parent == TopOfUnit) return;
             beginDragtrans = skillCloneIns.transform.parent;
             skillCloneIns.transform.SetParent(TopOfUnit);
@@ -83,7 +93,7 @@ public class DragSkill : MonoBehaviour
     public void EndDrag(BaseEventData baseEventData)
     {
         PointerEventData data = baseEventData as PointerEventData;
-        if (data == null|| !CloneDrag) return;
+        if (data == null || !CloneDrag) return;
 
         GameObject go = data.pointerCurrentRaycast.gameObject;
         if (go == null || go.tag != "HotKey")
@@ -94,7 +104,8 @@ public class DragSkill : MonoBehaviour
         }
         SetSkillHotKey(go.GetComponent<HotKeyData>(),
             skillCloneIns.GetComponent<Image>().sprite, GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(skillName)).
-            Select(x => x.Key).FirstOrDefault());
+            Select(x => x.Key).FirstOrDefault(), skillCloneIns.GetComponent<SkillUI>().SkillUpgradeID);
+
         go.GetComponent<Image>().raycastTarget = true;
     }
 
@@ -104,9 +115,9 @@ public class DragSkill : MonoBehaviour
     /// <param name="skillhotkey"></param>
     /// <param name="skillIcon"></param>
     /// <param name="skillID"></param>
-    public void SetSkillHotKey(HotKeyData skillhotkey, Sprite skillIcon, string skillID)
+    public void SetSkillHotKey(HotKeyData skillhotkey, Sprite skillIcon, string skillID, string upgradeSkillID = "")
     {
-        skillhotkey.SetSkill(skillIcon, skillID);
+        skillhotkey.SetSkill(skillIcon, skillID, upgradeSkillID);
         EndDragMethod(skillCloneIns);
     }
 

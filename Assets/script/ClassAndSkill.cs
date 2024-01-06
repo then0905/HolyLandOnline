@@ -29,9 +29,9 @@ public class ClassAndSkill : MonoBehaviour
     #endregion
 
     //玩家職業
-    [HideInInspector]public string Job;
+    [HideInInspector] public string Job;
     //玩家等級
-    [HideInInspector]public int LV;
+    [HideInInspector] public int LV;
     //需生成物件
     public GameObject SkillChild;
     //生成技能物件的父級
@@ -53,6 +53,9 @@ public class ClassAndSkill : MonoBehaviour
     /// </summary>
     public void Init()
     {
+        skillDataModelList = new List<SkillUIModel>();
+        skillUIList.ForEach(x => Destroy(x.gameObject));
+        skillUIList.Clear();
         Job = PlayerData.Job;
         LV = PlayerData.Lv;
 
@@ -81,9 +84,9 @@ public class ClassAndSkill : MonoBehaviour
             skillUIobj.SkillName.text = item.Name;
             skillUIobj.SkillCostMage.text = item.CastMage.ToString();
             skillUIobj.SkillCD.text = item.CD.ToString();
-            skillUIobj.SkillIntro.text = item.Intro;
+            skillUIobj.SkillIntro.text = string.IsNullOrEmpty(skillUIobj.SkillUpgradeID) ? item.Intro : item.Intro + "\n" + skillUIobj.SkillUpgradeID;
             skillUIobj.Characteristic = item.Characteristic;
-            skillUIobj.SkillIcon.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon+"/"+PlayerData.Job,item.SkillID);
+            skillUIobj.SkillIcon.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerData.Job, item.SkillID);
 
             skillUIobj.GetComponent<DragSkill>().TopOfUnit = topOfUnit;
             skillUIobj.GetComponent<DragSkill>().SkillHotKey = skillHotKeyTrans;
@@ -91,5 +94,6 @@ public class ClassAndSkill : MonoBehaviour
             //將資料添加於List
             skillUIList.Add(skillUIobj);
         }
+        PassiveSkillManager.Instance.InitAllPassiveSkill(skillUIList);     //初始化被動技能
     }
 }

@@ -16,13 +16,14 @@ public class HotKeyData : MonoBehaviour
     public Image Background;
     //放入的資料ID 供外部呼叫參考
     public string HotKeyDataID;
-
+    //放入升級後的技能ID 供外部呼叫
+    public string UpgradeSkillID;
     /// <summary>
     /// 設定快捷鍵
     /// </summary>
     /// <param name="skillIcon">技能圖示</param>
     /// <param name="skillID">技能名稱</param>
-    public void SetSkill(Sprite skillIcon, string skillID)
+    public void SetSkill(Sprite skillIcon, string skillID, string upgradeSkillID = "")
     {
         //先檢查快捷鍵上是否已有此技能資料 有的話清除
         bool queryResult = SkillDisplayAction.Instance.SkillHotKey.Any(x => x.HotKeyDataID.Contains(skillID));
@@ -34,9 +35,10 @@ public class HotKeyData : MonoBehaviour
         }
 
 
-        //設定 技能圖片 與 技能名稱
+        //設定 技能圖片 與 技能名稱 與升級後的技能ID
         Background.sprite = skillIcon;
         HotKeyDataID = skillID;
+        UpgradeSkillID = upgradeSkillID;
         //從Game取得該技能資料
         var getSkillData = GameData.SkillsUIDic[HotKeyDataID];
         //判斷空值
