@@ -12,6 +12,7 @@ public  class Skill_Base_Buff_Passive : Skill_Base_Buff
     protected override void SkillEffectStart()
     {
         SkillBuffEffectStart();
+        print("施放的被動技能效果:"+skillName);
         if (gameObject != null)
             gameObject.transform.parent = PassiveSkillManager.Instance.transform;
     }

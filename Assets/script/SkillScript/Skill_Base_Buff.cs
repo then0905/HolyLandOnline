@@ -24,6 +24,7 @@ public abstract class Skill_Base_Buff : Skill_Base
         {
             if (!CheckCondition())
             {
+                print("技能ID:"+skillName+"  條件未達成 取消執行");
                 Destroy(this.gameObject);
                 return;
             }
@@ -35,7 +36,7 @@ public abstract class Skill_Base_Buff : Skill_Base
             {
                 StatusOperation.Instance.SkillEffectStatusOperation(influenceStatus[i], addType[i].Contains("Rate"), effectValue[i]);
                 //若技能為主動 開始計時
-                if (!characteristic) SkillEffectTime(influenceStatus[i], addType[i].Contains("Rate"), effectValue[i] * -1);
+                if (characteristic) SkillEffectTime(influenceStatus[i], addType[i].Contains("Rate"), effectValue[i] * -1);
             }
         }
     }

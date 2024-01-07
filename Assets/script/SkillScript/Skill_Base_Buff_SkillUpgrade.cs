@@ -30,7 +30,6 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
             var getSkillUIListOnScene = findSkillUIResult.Where(x => x.SkillName.text.Contains(upgragdeSkillName)).ToList();
             foreach (var skillUIData in getSkillUIListOnScene)
             {
-                print(skillUIData.SkillName.text);
                 skillUIData.SkillBeUpgrade = true;
                 skillUIData.SkillUpgradeID = skillName;
                 skillUIData.SkillUpgradeIcon = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerData.Job, skillName);
@@ -50,7 +49,8 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
             item.Background.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerData.Job, skillName);
             item.UpgradeSkillID = skillName;
         }
-
+        if (gameObject != null)
+            gameObject.transform.parent = PassiveSkillManager.Instance.transform;
     }
 
 }
