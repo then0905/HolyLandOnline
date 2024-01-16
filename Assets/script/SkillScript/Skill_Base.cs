@@ -44,7 +44,7 @@ public abstract class Skill_Base : MonoBehaviour
     protected List<string> additionalEffect = new List<string>();      // 額外附加效果標籤
     protected List<float> additionalEffectValue = new List<float>();  // 額外附加效果的值
     protected List<float> additionalEffectTime = new List<float>();   // 額外附加效果持續時間
-    protected Dictionary<string, string> condition = new Dictionary<string, string>();             // 執行技能所需條件
+    protected Dictionary<string, List<string>> condition = new Dictionary<string, List<string>>();             // 執行技能所需條件
 
     protected int effectRecive;
     protected int targetCount;                    // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
@@ -70,7 +70,7 @@ public abstract class Skill_Base : MonoBehaviour
     public List<string> AdditionalEffect { get { return additionalEffect; } }      // 額外附加效果標籤
     public List<float> AdditionalEffectValue { get { return additionalEffectValue; } }  // 額外附加效果的值
     public List<float> AdditionalEffectTime { get { return additionalEffectTime; } }   // 額外附加效果持續時間
-    public Dictionary<string, string> Condition { get { return condition; } }              // 執行技能所需條件
+    public Dictionary<string, List<string>> Condition { get { return condition; } }              // 執行技能所需條件
 
     public int EffectRecive { get { return EffectRecive; } }
     public int TargetCount { get { return TargetCount; } }                        // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
@@ -155,10 +155,20 @@ public abstract class Skill_Base : MonoBehaviour
     {
         if (string.IsNullOrEmpty(conditionID)) return;
         List<string> tempData = conditionID.SetStringList();
+        List<string> tempValue = new List<string>();
+        string tempKey = "";
         foreach (string item in tempData)
         {
+            //分割出條件(key)與判斷值(value)
             var splitData = item.Split('_');
-            condition.TrySetValue(splitData[0], splitData[1]);
+            
+            //判斷key值是否一樣 不一樣清空value
+            if (tempKey != splitData[0])
+                tempValue = new List<string>();
+
+            tempKey = splitData[0];
+            tempValue.Add(splitData[1]);
+            condition.TrySetValue(tempKey, tempValue);
         }
     }
 
@@ -186,7 +196,7 @@ public abstract class Skill_Base : MonoBehaviour
     /// <param name="key">條件名稱</param>
     /// <param name="value">條件判斷值</param>
     /// <returns></returns>
-    protected bool DetailConditionProcess(string key, string value)
+    protected bool DetailConditionProcess(string key, List<string> value)
     {
         switch (key)
         {
@@ -197,12 +207,12 @@ public abstract class Skill_Base : MonoBehaviour
                 {
                     if (itemData.EquipmentDatas.Weapon != null)
                     {
-                        if (itemData.EquipmentDatas.Weapon.TypeID.Contains(value))
+                        if (value.Any(x => x.Contains(itemData.EquipmentDatas.Weapon.TypeID)))
                             return true;
                     }
                     else if (itemData.EquipmentDatas.Armor != null)
                     {
-                        if (itemData.EquipmentDatas.Armor.TypeID.Contains(value))
+                        if (value.Any(x => x.Contains(itemData.EquipmentDatas.Armor.TypeID)))
                             return true;
                     }
                 }
@@ -212,13 +222,13 @@ public abstract class Skill_Base : MonoBehaviour
                 //缺少戰鬥狀態判斷
                 return false;
             //HP低於指定百分比
-            case "HpLess":
-                float conditionHP = PlayerData.MaxHP * float.Parse(value);
-                return conditionHP < PlayerData.HP;
+            //case "HpLess":
+            //    float conditionHP = PlayerData.MaxHP * float.Parse(value);
+            //    return conditionHP < PlayerData.HP;
             //HP低於指定百分比
-            case "HpMore":
-                conditionHP = PlayerData.MaxHP * float.Parse(value);
-                return conditionHP > PlayerData.HP;
+            //case "HpMore":
+            //    conditionHP = PlayerData.MaxHP * float.Parse(value);
+            //    return conditionHP > PlayerData.HP;
             case "Close":
                 //建立靠近單位的判斷(朝單位移動? 雙方距離縮短? 單位判斷與距離多少?)
                 return false;

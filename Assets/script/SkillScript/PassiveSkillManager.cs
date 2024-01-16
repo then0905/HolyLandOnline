@@ -35,7 +35,7 @@ public class PassiveSkillManager : MonoBehaviour
     public void InitAllPassiveSkill(List<SkillUI> skillUIList)
     {
         //清空已生成的被動技能
-        transform.GetComponentsInChildren<Skill_Base>().ToList().ForEach(x => x.SkillEndForAnimation());
+        transform.GetComponentsInChildren<Skill_Base>().ToList().ForEach(x => Destroy(x.gameObject));
 
         //由於要初始化所有被動技能 之前生產過的需要清空
         if (SkillBuffList.Count > 1)

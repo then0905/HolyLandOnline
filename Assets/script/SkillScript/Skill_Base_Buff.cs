@@ -28,6 +28,17 @@ public abstract class Skill_Base_Buff : Skill_Base
                 Destroy(this.gameObject);
                 return;
             }
+            else
+            {
+                for (int i = 0; i < influenceStatus.Count; i++)
+                {
+                    StatusOperation.Instance.SkillEffectStatusOperation(influenceStatus[i], addType[i].Contains("Rate"), effectValue[i]);
+                    //若技能為主動 開始計時
+                    if (characteristic) SkillEffectTime(influenceStatus[i], addType[i].Contains("Rate"), effectValue[i] * -1);
+                    //紀錄技能啟動狀態
+                    buffIsRun = true;
+                }
+            }
         }
         //若沒條件資料 或 達成條件 執行
         else if ((condition == null && condition.Count < 1) || CheckCondition())
