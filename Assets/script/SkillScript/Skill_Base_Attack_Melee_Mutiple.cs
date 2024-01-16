@@ -20,7 +20,7 @@ public class Skill_Base_Attack_Melee_Mutiple : Skill_Base_Attack
         SkillDisplayAction.Instance.SkillArrowImage.GetComponent<ArrowHit>().SetSkillSize(this, skillName);
         SkillDisplayAction.Instance.CharacterAnimator.SetTrigger(skillName);
     }
-    protected override void SkillEffectEnd(string statusType = "", bool Rate = false, float value = 0)
+    protected override void SkillEffectEnd()
     {
         SkillDisplayAction.Instance.SkillDistanceReverse();
         Destroy(gameObject);

@@ -18,9 +18,10 @@ public class Skill_Base_Attack_Melee : Skill_Base_Attack
     {
         CheckGetAnyTarget(AttackType);
     }
-    protected override void SkillEffectEnd(string statusType = "", bool Rate = false, float value = 0)
+    protected override void SkillEffectEnd()
     {
-        Destroy(gameObject);
+        if (gameObject)
+            Destroy(gameObject);
     }
 
 }

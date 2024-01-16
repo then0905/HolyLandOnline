@@ -12,7 +12,7 @@ using UnityEngine;
 public abstract class Skill_Base_Buff : Skill_Base
 {
     protected new readonly SkillEffectCategory category = SkillEffectCategory.Buff;
-
+    protected bool buffIsRun = false;
     /// <summary>
     /// Buff型技能啟動
     /// <para> 先檢查有無條件資料 有資料卻沒達成return </para>
@@ -24,7 +24,7 @@ public abstract class Skill_Base_Buff : Skill_Base
         {
             if (!CheckCondition())
             {
-                print("技能ID:"+skillName+"  條件未達成 取消執行");
+                print("技能ID:" + skillName + "  條件未達成 取消執行");
                 Destroy(this.gameObject);
                 return;
             }
@@ -37,6 +37,8 @@ public abstract class Skill_Base_Buff : Skill_Base
                 StatusOperation.Instance.SkillEffectStatusOperation(influenceStatus[i], addType[i].Contains("Rate"), effectValue[i]);
                 //若技能為主動 開始計時
                 if (characteristic) SkillEffectTime(influenceStatus[i], addType[i].Contains("Rate"), effectValue[i] * -1);
+                //紀錄技能啟動狀態
+                buffIsRun = true;
             }
         }
     }
@@ -52,14 +54,28 @@ public abstract class Skill_Base_Buff : Skill_Base
     /// <summary>
     /// 技能效果結束
     /// </summary>
-    protected override void SkillEffectEnd(string statusType, bool Rate, float value)
+    protected override void SkillEffectEnd()
     {
-        //還原加成效果
-        StatusOperation.Instance.SkillEffectStatusOperation(statusType, Rate, value);
-        //效果時間結束刪除自己
-        Destroy(this.gameObject);
+        if (buffIsRun)
+            for (int i = 0; i < influenceStatus.Count; i++)
+            {
+                //還原加成效果
+                StatusOperation.Instance.SkillEffectStatusOperation(influenceStatus[i], addType[i].Contains("Rate"), -1 * effectValue[i]);
+                //紀錄技能啟動狀態
+                buffIsRun = false;
+            }
+        //刪除自己
+        if (this.gameObject)
+            Destroy(this.gameObject);
     }
 
+    /// <summary>
+    /// 技能時間計時協程
+    /// </summary>
+    /// <param name="statusType"></param>
+    /// <param name="Rate"></param>
+    /// <param name="value"></param>
+    /// <returns></returns>
     private IEnumerator EffectTimer(string statusType, bool Rate, float value)
     {
         //取得持續時間
@@ -69,8 +85,8 @@ public abstract class Skill_Base_Buff : Skill_Base
         while (time > 0)
         {
             time -= Time.deltaTime;
+            yield return null;
         }
-        SkillEffectEnd(statusType, Rate, value);
-        yield return null;
+        SkillEffectEnd();
     }
 }

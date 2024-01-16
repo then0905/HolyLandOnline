@@ -188,32 +188,44 @@ public abstract class Skill_Base : MonoBehaviour
     /// <returns></returns>
     protected bool DetailConditionProcess(string key, string value)
     {
-        return false;
-        //switch (key)
-        //{
-        //    default:
-        //    //裝備指定類型道具
-        //    case "Equip":
-        //        return ItemManager.Instance.EquipDataList.Any(x => x.EquipmentDatas.Clone().Weapon.TypeID.Contains(value) || x.EquipmentDatas.Clone().Armor.TypeID.Contains(value));
-        //    //在戰鬥狀態中
-        //    case "InCombatStatus":
-        //        //缺少戰鬥狀態判斷
-        //        return false;
-        //    //HP低於指定百分比
-        //    case "HpLess":
-        //        float conditionHP = PlayerData.MaxHP * float.Parse(value);
-        //        return conditionHP < PlayerData.HP;
-        //    //HP低於指定百分比
-        //    case "HpMore":
-        //        conditionHP = PlayerData.MaxHP * float.Parse(value);
-        //        return conditionHP > PlayerData.HP;
-        //    case "Close":
-        //        //建立靠近單位的判斷(朝單位移動? 雙方距離縮短? 單位判斷與距離多少?)
-        //        return false;
-        //    case "Random":
-        //        //缺乏隨機條件(目前有的資料 禁衛軍的"回擊好禮")
-        //        return false;
-        //}
+        switch (key)
+        {
+            default:
+            //裝備指定類型道具
+            case "Equip":
+                foreach (var itemData in ItemManager.Instance.EquipDataList)
+                {
+                    if (itemData.EquipmentDatas.Weapon != null)
+                    {
+                        if (itemData.EquipmentDatas.Weapon.TypeID.Contains(value))
+                            return true;
+                    }
+                    else if (itemData.EquipmentDatas.Armor != null)
+                    {
+                        if (itemData.EquipmentDatas.Armor.TypeID.Contains(value))
+                            return true;
+                    }
+                }
+                return false;
+            //在戰鬥狀態中
+            case "InCombatStatus":
+                //缺少戰鬥狀態判斷
+                return false;
+            //HP低於指定百分比
+            case "HpLess":
+                float conditionHP = PlayerData.MaxHP * float.Parse(value);
+                return conditionHP < PlayerData.HP;
+            //HP低於指定百分比
+            case "HpMore":
+                conditionHP = PlayerData.MaxHP * float.Parse(value);
+                return conditionHP > PlayerData.HP;
+            case "Close":
+                //建立靠近單位的判斷(朝單位移動? 雙方距離縮短? 單位判斷與距離多少?)
+                return false;
+            case "Random":
+                //缺乏隨機條件(目前有的資料 禁衛軍的"回擊好禮")
+                return false;
+        }
     }
 
     /// <summary>
@@ -223,7 +235,7 @@ public abstract class Skill_Base : MonoBehaviour
     /// <summary>
     /// 技能施放結束
     /// </summary>
-    protected abstract void SkillEffectEnd(string statusType = "", bool Rate = false, float value = 0);
+    protected abstract void SkillEffectEnd();
 
     /// <summary>
     /// 技能施放結束 For AnimationEvent

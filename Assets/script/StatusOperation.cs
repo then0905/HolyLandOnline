@@ -161,10 +161,11 @@ public class StatusOperation : MonoBehaviour
     /// </summary>
     public void StatusMethod()
     {
-        InitSub();
-        ClassStatus();
-        refreshStatus.Invoke();
-        PlayerDataStatusOperation();
+        InitSub();          //重新訂閱
+        ClassStatus();      //基礎加成
+        refreshStatus.Invoke(); //刷新加成後的數值
+        PlayerDataStatusOperation();    //將刷新後加成的值算入角色屬性
+        ClassAndSkill.Instance.Init();      //初始化職業技能(需要生成被動技能)
     }
 
     #region 能力值加成

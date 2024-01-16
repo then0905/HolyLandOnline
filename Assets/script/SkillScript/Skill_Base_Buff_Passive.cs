@@ -16,4 +16,9 @@ public  class Skill_Base_Buff_Passive : Skill_Base_Buff
         if (gameObject != null)
             gameObject.transform.parent = PassiveSkillManager.Instance.transform;
     }
+
+    private void OnDestroy()
+    {
+        SkillEffectEnd();
+    }
 }

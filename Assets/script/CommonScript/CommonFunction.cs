@@ -143,7 +143,7 @@ public static class CommonFunction
     }
 
     /// <summary>
-    /// 依權重隨機抽取內容
+    /// 依權重隨機抽取內容(必出一個結果)
     /// </summary>
     /// <param name="weights">權重清單</param>
     /// <returns>抽中的內容是清單中的第幾位</returns>
