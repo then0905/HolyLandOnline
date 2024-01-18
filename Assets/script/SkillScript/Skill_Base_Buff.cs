@@ -20,7 +20,7 @@ public abstract class Skill_Base_Buff : Skill_Base
     protected void SkillBuffEffectStart()
     {
         //若有條件資料 卻沒達成 return
-        if (condition != null && condition.Count > 0)
+        if (condition != null && condition.Count > 0 && gameObject)
         {
             if (!CheckCondition())
             {
@@ -41,7 +41,8 @@ public abstract class Skill_Base_Buff : Skill_Base
             }
         }
         //若沒條件資料 或 達成條件 執行
-        else if ((condition == null && condition.Count < 1) || CheckCondition())
+        //因為升級
+        else if ((condition == null && condition.Count < 1) || CheckCondition() && gameObject )
         {
             for (int i = 0; i < influenceStatus.Count; i++)
             {
@@ -75,9 +76,14 @@ public abstract class Skill_Base_Buff : Skill_Base
                 //紀錄技能啟動狀態
                 buffIsRun = false;
             }
+        print("移除的被動技能:" + skillName);
         //刪除自己
         if (this.gameObject)
+        {
+            if (this is Skill_Base_Buff_Passive)
+                PassiveSkillManager.Instance.SkillPassiveBuffList.Remove(GetComponent<Skill_Base_Buff_Passive>());
             Destroy(this.gameObject);
+        }
     }
 
     /// <summary>

@@ -165,7 +165,7 @@ public class StatusOperation : MonoBehaviour
         ClassStatus();      //基礎加成
         refreshStatus.Invoke(); //刷新加成後的數值
         PlayerDataStatusOperation();    //將刷新後加成的值算入角色屬性
-        ClassAndSkill.Instance.Init();      //初始化職業技能(需要生成被動技能)
+        PassiveSkillManager.Instance.RestartPassiveSkill();      //重新啟動被動技能 
     }
 
     #region 能力值加成
@@ -457,42 +457,42 @@ public class StatusOperation : MonoBehaviour
         {
             default:
             case "MeleeATK":
-                tempEffectStatus.MeleeATK += Rate ? (int)(tempBasalStatus.MeleeATK * value) : (int)value;
+                tempEffectStatus.MeleeATK +=( Rate ? (int)(tempBasalStatus.MeleeATK * value) : (int)value);
                 break;
             case "MaxHP":
-                tempEffectStatus.MaxHp += Rate ? (int)(tempBasalStatus.MaxHp * value) : (int)value;
+                tempEffectStatus.MaxHp +=( Rate ? (int)(tempBasalStatus.MaxHp * value) : (int)value);
                 break;
             case "DEF":
-                tempEffectStatus.DEF += Rate ? (int)(tempBasalStatus.DEF * value) : (int)value;
+                tempEffectStatus.DEF += (Rate ? (int)(tempBasalStatus.DEF * value) : (int)value);
                 break;
             case "MeleeHit":
-                tempEffectStatus.MeleeHit += Rate ? (int)(tempBasalStatus.MeleeHit * value) : (int)value;
+                tempEffectStatus.MeleeHit += (Rate ? (int)(tempBasalStatus.MeleeHit * value) : (int)value);
                 break;
             case "HP_Recovery":
-                tempEffectStatus.HP_Recovery += Rate ? (int)(tempBasalStatus.HP_Recovery * value) : (int)value;
+                tempEffectStatus.HP_Recovery += (Rate ? (int)(tempBasalStatus.HP_Recovery * value) : (int)value);
                 break;
             case "MP_Recovery":
-                tempEffectStatus.MP_Recovery += Rate ? (int)(tempBasalStatus.MP_Recovery * value) : (int)value;
+                tempEffectStatus.MP_Recovery += (Rate ? (int)(tempBasalStatus.MP_Recovery * value) : (int)value);
                 break;
             case "ATK":
-                tempEffectStatus.MeleeATK += Rate ? (int)(tempBasalStatus.MeleeATK * value) : (int)value;
-                tempEffectStatus.RemoteATK += Rate ? (int)(tempBasalStatus.RemoteATK * value) : (int)value;
-                tempEffectStatus.MageATK += Rate ? (int)(tempBasalStatus.MageATK * value) : (int)value;
+                tempEffectStatus.MeleeATK += (Rate ? (int)(tempBasalStatus.MeleeATK * value) : (int)value);
+                tempEffectStatus.RemoteATK += (Rate ? (int)(tempBasalStatus.RemoteATK * value) : (int)value);
+                tempEffectStatus.MageATK += (Rate ? (int)(tempBasalStatus.MageATK * value) : (int)value);
                 break;
             case "BlockRate":
-                tempEffectStatus.BlockRate += Rate ? (int)(tempBasalStatus.BlockRate * value) : (int)value;
+                tempEffectStatus.BlockRate += (Rate ? (int)(tempBasalStatus.BlockRate * value) : (int)value);
                 break;
             case "Speed":
-                tempEffectStatus.Speed += Rate ? (int)(tempBasalStatus.Speed * value) : (int)value;
+                tempEffectStatus.Speed += (Rate ? (int)(tempBasalStatus.Speed * value) : (int)value);
                 break;
             case "Crt":
-                tempEffectStatus.Crt += Rate ? (int)(tempBasalStatus.Crt * value) : (int)value;
+                tempEffectStatus.Crt += (Rate ? (int)(tempBasalStatus.Crt * value) : (int)value);
                 break;
             case "AS":
-                tempEffectStatus.AS += Rate ? (int)(tempBasalStatus.AS * value) : (int)value;
+                tempEffectStatus.AS += (Rate ? (int)(tempBasalStatus.AS * value) : (int)value);
                 break;
             case "DisorderResistance":
-                tempEffectStatus.DisorderResistance += Rate ? (int)(tempBasalStatus.DisorderResistance * value) : (int)value;
+                tempEffectStatus.DisorderResistance += (Rate ? (int)(tempBasalStatus.DisorderResistance * value) : (int)value);
                 break;
         }
         PlayerDataStatusOperation();

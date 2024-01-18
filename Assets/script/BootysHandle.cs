@@ -73,15 +73,18 @@ public class BootysHandle : MonoBehaviour
         List<string> bootyList = bootysData.Bootys.Split(':').ToList();
 
         //獲取掉落物資料
-        var booty = bootyList[CommonFunction.WeightExtraction(chanceList)];
-        //生成掉落物
-        bootyItem = Instantiate(BootyItem, RandomTransform(monsterTransform), transform.rotation).GetComponent<BootysPresent>();
-        //從資料庫抓出防具資料 或是空值
-        bootyItem.EquipmentDatas.Armor = GameData.ArmorsDic.Where(x => x.Value.Name.Contains(booty)).FirstOrDefault().Value;
-        //從資料庫抓出武器資料 或是空值
-        bootyItem.EquipmentDatas.Weapon = GameData.WeaponsDic.Where(x => x.Value.Name.Contains(booty)).FirstOrDefault().Value;
-        //從資料庫抓出道具資料 或是空值
-        bootyItem.EquipmentDatas.Item = GameData.ItemsDic.Where(x => x.Value.Name.Contains(booty)).FirstOrDefault().Value;
+        var bootys = CommonFunction.BootyRandomDrop(chanceList);
 
+        foreach (var booty in bootys)
+        {
+            //生成掉落物
+            bootyItem = Instantiate(BootyItem, RandomTransform(monsterTransform), transform.rotation).GetComponent<BootysPresent>();
+            //從資料庫抓出防具資料 或是空值
+            bootyItem.EquipmentDatas.Armor = GameData.ArmorsDic.Where(x => x.Value.Name.Contains(bootyList[booty])).FirstOrDefault().Value;
+            //從資料庫抓出武器資料 或是空值
+            bootyItem.EquipmentDatas.Weapon = GameData.WeaponsDic.Where(x => x.Value.Name.Contains(bootyList[booty])).FirstOrDefault().Value;
+            //從資料庫抓出道具資料 或是空值
+            bootyItem.EquipmentDatas.Item = GameData.ItemsDic.Where(x => x.Value.Name.Contains(bootyList[booty])).FirstOrDefault().Value;
+        }
     }
 }

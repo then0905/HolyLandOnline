@@ -26,8 +26,11 @@ public class PassiveSkillManager : MonoBehaviour
 
     #endregion
 
-    //儲存所有被動技能
-    public List<SkillUI> SkillBuffList = new List<SkillUI>();
+    //儲存所有技能UI版
+    public List<SkillUI> SkillUIList = new List<SkillUI>();
+
+    //儲存生成的被動技能
+    public List<Skill_Base_Buff_Passive> SkillPassiveBuffList = new List<Skill_Base_Buff_Passive>();
 
     /// <summary>
     /// 初始化所有被動技能
@@ -35,26 +38,41 @@ public class PassiveSkillManager : MonoBehaviour
     public void InitAllPassiveSkill(List<SkillUI> skillUIList)
     {
         //清空已生成的被動技能
-        transform.GetComponentsInChildren<Skill_Base>().ToList().ForEach(x => Destroy(x.gameObject));
+        if (SkillPassiveBuffList.Count > 1)
+            SkillPassiveBuffList.ForEach(x => Destroy(x.gameObject));
+        SkillPassiveBuffList.Clear();
 
         //由於要初始化所有被動技能 之前生產過的需要清空
-        if (SkillBuffList.Count > 1)
-            SkillBuffList.ForEach(x => Destroy(x.gameObject));
-        SkillBuffList.Clear();
+        if (SkillUIList.Count > 1)
+            SkillUIList.ForEach(x => Destroy(x.gameObject));
+        SkillUIList.Clear();
 
         //找尋輸入的技能內 為被動技能的部分
         var getAllPassiveSkill = skillUIList.Where(x => x.Characteristic == false).ToList();
-        SkillBuffList.AddRange(skillUIList);
+        SkillUIList.AddRange(skillUIList);
 
-        //執行被動技能效果
-        getAllPassiveSkill.ForEach(passiveSkill =>
-        {
-            string queryResule =
-                GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(passiveSkill.SkillName.text)).Select(x => x.Value.SkillID).FirstOrDefault();
-            GameObject effectObj = CommonFunction.LoadObject<GameObject>("SkillPrefab", "SkillEffect_" + queryResule);
-            GameObject skillEffectObj = Instantiate(effectObj);
-            print("生成的被動技能效果物件:" + skillEffectObj);
-            skillEffectObj.GetComponent<Skill_Base>().InitSkillEffectData(0);
-        });
+        if (SkillPassiveBuffList.Count == 0)
+            //執行被動技能效果
+            getAllPassiveSkill.ForEach(passiveSkill =>
+            {
+                string queryResule =
+                    GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(passiveSkill.SkillName.text)).Select(x => x.Value.SkillID).FirstOrDefault();
+                GameObject effectObj = CommonFunction.LoadObject<GameObject>("SkillPrefab", "SkillEffect_" + queryResule);
+                GameObject skillEffectObj = Instantiate(effectObj);
+
+                //儲存生成的被動技能
+                SkillPassiveBuffList.Add(skillEffectObj.GetComponent<Skill_Base_Buff_Passive>());
+                print("生成的被動技能效果物件:" + skillEffectObj);
+                skillEffectObj.GetComponent<Skill_Base>().InitSkillEffectData(0);
+            });
+    }
+
+    /// <summary>
+    /// 重新啟動被動技能 (目前在穿裝脫裝時使用)
+    /// </summary>
+    public void RestartPassiveSkill()
+    {
+        if (SkillPassiveBuffList.Count < 1) return;
+        SkillPassiveBuffList.ForEach(x => x.RestartSkillEffect());
     }
 }

@@ -13,7 +13,7 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
     protected override void SkillEffectStart()
     {
         //尋找場景上所有SkillUI
-        var findSkillUIResult = PassiveSkillManager.Instance.SkillBuffList;
+        var findSkillUIResult = PassiveSkillManager.Instance.SkillUIList;
         if (findSkillUIResult.Count > 0 && findSkillUIResult != null)
         {
             string upgragdeSkillName = GameData.SkillsDataDic[upgradeSkillID].Name;
@@ -46,7 +46,7 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
     protected override void SkillEffectEnd()
     {
         //尋找場景上所有SkillUI
-        var findSkillUIResult = PassiveSkillManager.Instance.SkillBuffList;
+        var findSkillUIResult = PassiveSkillManager.Instance.SkillUIList;
         if (findSkillUIResult.Count > 0 && findSkillUIResult != null)
         {
             string upgragdeSkillName = GameData.SkillsDataDic[upgradeSkillID].Name;
@@ -72,6 +72,15 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
             item.Background.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerData.Job, upgradeSkillID);
             item.UpgradeSkillID = "";
         }
+    }
+
+    /// <summary>
+    /// 重新啟動技能效果 用來穿脫裝時 重新計算數值
+    /// </summary>
+    public override void RestartSkillEffect()
+    {
+        SkillEffectEnd();
+        SkillEffectStart();
     }
 
     private void OnDestroy()

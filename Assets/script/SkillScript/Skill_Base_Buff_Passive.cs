@@ -21,4 +21,21 @@ public  class Skill_Base_Buff_Passive : Skill_Base_Buff
     {
         SkillEffectEnd();
     }
+
+    /// <summary>
+    /// 重新啟動技能效果 用來穿脫裝時 重新計算數值
+    /// </summary>
+    public virtual void RestartSkillEffect()
+    {
+        if (buffIsRun)
+            for (int i = 0; i < influenceStatus.Count; i++)
+            {
+                //還原加成效果
+                StatusOperation.Instance.SkillEffectStatusOperation(influenceStatus[i], addType[i].Contains("Rate"), -1 * effectValue[i]);
+                //紀錄技能啟動狀態
+                buffIsRun = false;
+            }
+
+        SkillBuffEffectStart();
+    }
 }

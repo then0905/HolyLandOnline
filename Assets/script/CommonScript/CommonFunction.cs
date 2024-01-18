@@ -81,7 +81,7 @@ public static class CommonFunction
     /// 呼叫系統訊息
     /// </summary>
     /// <param name="content"></param>
-    public static MessageHintSetting MessageHint(string content,HintType hintType)
+    public static MessageHintSetting MessageHint(string content, HintType hintType)
     {
         MessageHintSetting message = LoadObject<MessageHintSetting>("Hint", "MessageHint").GetComponent<MessageHintSetting>();
         message.CallHintCanvas(content, hintType);
@@ -102,8 +102,11 @@ public static class CommonFunction
         {
             tempList.Add(float.Parse(value));
         }
-        var valueList = value.Split(',').ToList();
-        valueList.ForEach(x => tempList.Add(float.Parse(x)));
+        else
+        {
+            var valueList = value.Split(',').ToList();
+            valueList.ForEach(x => tempList.Add(float.Parse(x)));
+        }
         return tempList;
     }
     /// <summary>
@@ -120,8 +123,11 @@ public static class CommonFunction
         {
             tempList.Add(int.Parse(value));
         }
-        var valueList = value.Split(',').ToList();
-        valueList.ForEach(x => tempList.Add(int.Parse(x)));
+        else
+        {
+            var valueList = value.Split(',').ToList();
+            valueList.ForEach(x => tempList.Add(int.Parse(x)));
+        }
         return tempList;
     }
     /// <summary>
@@ -138,7 +144,10 @@ public static class CommonFunction
         {
             tempList.Add(value);
         }
-        tempList = value.Split(',').ToList();
+        else
+        {
+            tempList = value.Split(',').ToList();
+        }
         return tempList;
     }
 
@@ -166,5 +175,22 @@ public static class CommonFunction
                 return i;
         }
         return weights.Count;
+    }
+
+    /// <summary>
+    /// 依照物品掉落率計算隨機值
+    /// </summary>
+    /// <param name="weights">權重機率列表</param>
+    /// <returns>回傳抽中的結果</returns>
+    public static List<int> BootyRandomDrop(List<float> weights)
+    {
+        List<int> result = new List<int>();
+        for (int i = 0; i < weights.Count; i++)
+        {
+            float randomValue = UnityEngine.Random.Range(0f, 100f);
+            if (weights[i] >= randomValue)
+                result.Add(i);
+        }
+        return result;
     }
 }
