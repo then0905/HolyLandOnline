@@ -157,15 +157,31 @@ public class StatusOperation : MonoBehaviour
     }
 
     /// <summary>
-    /// 刷新能力值 (升等、初始化、穿脫裝備等等)
+    ///  刷新能力值 (升等、初始化、穿脫裝備等等)
+    /// <para> 技能效果處理 :</para>
+    /// <para> False => 技能效果正常啟動順序 基礎加成>穿裝>技能效果 </para>
+    /// <para> True => 技能效果優先啟動 以脫裝前的數據來關閉技能效果 </para>
     /// </summary>
-    public void StatusMethod()
+    /// <param name="skillEffectProcessor">技能效果處理</param>
+    public void StatusMethod(bool skillEffectProcessor = false)
     {
-        InitSub();          //重新訂閱
-        ClassStatus();      //基礎加成
-        refreshStatus.Invoke(); //刷新加成後的數值
-        PlayerDataStatusOperation();    //將刷新後加成的值算入角色屬性
-        PassiveSkillManager.Instance.RestartPassiveSkill();      //重新啟動被動技能 
+        if (refreshStatus == null)
+            InitSub();          //重新訂閱
+
+        if (!skillEffectProcessor)
+        {
+            ClassStatus();      //基礎加成
+            refreshStatus.Invoke(); //刷新加成後的數值
+            PlayerDataStatusOperation();    //將刷新後加成的值算入角色屬性
+            PassiveSkillManager.Instance.RestartPassiveSkill();      //重新啟動被動技能  
+        }
+        else
+        {
+            PassiveSkillManager.Instance.RestartPassiveSkill();      //重新啟動被動技能  
+            ClassStatus();      //基礎加成
+            refreshStatus.Invoke(); //刷新加成後的數值
+            PlayerDataStatusOperation();    //將刷新後加成的值算入角色屬性
+        }
     }
 
     #region 能力值加成
@@ -234,7 +250,7 @@ public class StatusOperation : MonoBehaviour
 
         tempBasalStatus.MaxHp = (int)Mathf.Round(PlayerData.VIT * targetStatus.VIT +
                 PlayerData.STR * targetStatus.STR +
-                PlayerData.Lv * targetStatus.LvCodition) + weaponData + armorData;
+                PlayerData.Lv * targetStatus.LvCodition) + weaponData + armorData + PlayerData.MaxHP;
     }
     /// <summary>
     /// 最大魔力加成
@@ -252,7 +268,7 @@ public class StatusOperation : MonoBehaviour
         int armorData = armorList.Sum(x => x.MP);
 
         tempBasalStatus.MaxMp = (int)Mathf.Round(PlayerData.INT * targetStatus.INT +
-                PlayerData.Lv * targetStatus.LvCodition) + weaponData + armorData;
+                PlayerData.Lv * targetStatus.LvCodition) + weaponData + armorData + PlayerData.MaxMP;
     }
     /// <summary>
     /// 物理防禦加成
@@ -457,10 +473,10 @@ public class StatusOperation : MonoBehaviour
         {
             default:
             case "MeleeATK":
-                tempEffectStatus.MeleeATK +=( Rate ? (int)(tempBasalStatus.MeleeATK * value) : (int)value);
+                tempEffectStatus.MeleeATK += (Rate ? (int)(tempBasalStatus.MeleeATK * value) : (int)value);
                 break;
             case "MaxHP":
-                tempEffectStatus.MaxHp +=( Rate ? (int)(tempBasalStatus.MaxHp * value) : (int)value);
+                tempEffectStatus.MaxHp += (Rate ? (int)(tempBasalStatus.MaxHp * value) : (int)value);
                 break;
             case "DEF":
                 tempEffectStatus.DEF += (Rate ? (int)(tempBasalStatus.DEF * value) : (int)value);

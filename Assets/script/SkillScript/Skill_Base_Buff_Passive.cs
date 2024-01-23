@@ -27,6 +27,16 @@ public  class Skill_Base_Buff_Passive : Skill_Base_Buff
     /// </summary>
     public virtual void RestartSkillEffect()
     {
+        SkillEffectEnd();
+
+        SkillBuffEffectStart();
+    }
+
+    /// <summary>
+    /// 技能效果結束
+    /// </summary>
+    protected override void SkillEffectEnd()
+    {
         if (buffIsRun)
             for (int i = 0; i < influenceStatus.Count; i++)
             {
@@ -35,7 +45,6 @@ public  class Skill_Base_Buff_Passive : Skill_Base_Buff
                 //紀錄技能啟動狀態
                 buffIsRun = false;
             }
-
-        SkillBuffEffectStart();
+        print("關閉的被動技能:" + skillName);
     }
 }

@@ -69,7 +69,6 @@ public class ItemManager : MonoBehaviour
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Armor = armorvaule;
                 Instantiate(CommonFunction.MessageHint(("獲得" + armorvaule.Name), HintType.NormalItem));
-                print("獲得" + armorvaule.Name);
                 return;
             }
             else
@@ -96,7 +95,6 @@ public class ItemManager : MonoBehaviour
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Weapon = weaponvaule;
                 Instantiate(CommonFunction.MessageHint(("獲得" + weaponvaule.Name), HintType.NormalItem));
-                print("獲得" + weaponvaule.Name);
                 return;
             }
             else
@@ -123,7 +121,6 @@ public class ItemManager : MonoBehaviour
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Item = itemvaule;
                 Instantiate(CommonFunction.MessageHint(("獲得" + itemvaule.Name),HintType.NormalItem));
-                print("獲得" + itemvaule.Name);
                 return;
             }
             else
@@ -140,6 +137,5 @@ public class ItemManager : MonoBehaviour
         PlayerData.Coin += int.Parse(coin.ToString());
         CoinText.text = PlayerData.Coin.ToString();
         Instantiate(CommonFunction.MessageHint(("獲得" + coin.ToString() + "金幣"), HintType.NormalItem));
-        print("獲得" + coin.ToString() + "金幣");
     }
 }

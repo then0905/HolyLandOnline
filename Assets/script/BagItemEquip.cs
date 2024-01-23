@@ -217,6 +217,9 @@ public class BagItemEquip : MonoBehaviour
                         OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Armor = null;
                         OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Weapon = null;
                         OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Item = null;
+
+                        //刷新能力值數據(脫裝)
+                        StatusOperation.Instance.StatusMethod(true);
                         print("將裝備脫到背包內空的格子上");
                     }
                     //檢查該格 是否有武器資料
@@ -272,8 +275,6 @@ public class BagItemEquip : MonoBehaviour
                 ReverseDragObj();
             }
         }
-        //刷新能力值數據
-        StatusOperation.Instance.StatusMethod();
     }
     #endregion
 
@@ -328,10 +329,15 @@ public class BagItemEquip : MonoBehaviour
         //檢測目標格子是否已有穿戴物件(武器或防具)
         if (Equip.GetComponent<Equipment>().EquipmentDatas.Armor != null || Equip.GetComponent<Equipment>().EquipmentDatas.Weapon != null)
         {
+            //刷新能力值數據(脫裝) 更換武器先把技能加成部分以原數據清除
+            StatusOperation.Instance.StatusMethod(false);
+
             print("已有裝備武器進行更換");
             CommonFunction.ChangeSameComponent(OriginItemSeat.GetComponent<Equipment>().EquipmentDatas, Equip.GetComponent<Equipment>().EquipmentDatas);
             CommonFunction.ChangeSameComponent(OriginItemSeat.GetComponent<Equipment>().EquipImage.sprite, Equip.GetComponent<Equipment>().EquipImage.sprite);
 
+            //刷新能力值數據(穿裝) 再以新穿的武器計算裝備數據與技能加成
+            StatusOperation.Instance.StatusMethod();
             //OriginItemSeat.GetComponent<Equipment>().EquipmentDatas = Equip.GetComponent<Equipment>().EquipmentDatas;
             //Equip.GetComponent<Equipment>().EquipmentDatas = cloneItem.GetComponent<Equipment>().EquipmentDatas;
             //OriginItemSeat.GetComponent<Image>().sprite = Equip.GetComponent<Image>().sprite;
@@ -359,6 +365,9 @@ public class BagItemEquip : MonoBehaviour
             OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Armor = null;
             OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Weapon = null;
             OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Item = null;
+
+            //刷新能力值數據(穿裝)
+            StatusOperation.Instance.StatusMethod();
         }
         ReductionDrag();
     }

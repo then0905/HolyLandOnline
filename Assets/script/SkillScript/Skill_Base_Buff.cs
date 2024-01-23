@@ -25,7 +25,7 @@ public abstract class Skill_Base_Buff : Skill_Base
             if (!CheckCondition())
             {
                 print("技能ID:" + skillName + "  條件未達成 取消執行");
-                Destroy(this.gameObject);
+                SkillEffectEnd();
                 return;
             }
             else
