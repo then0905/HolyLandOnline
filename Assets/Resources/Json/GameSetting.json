@@ -30,5 +30,25 @@
   {
     "GameSettingID": "DruidBasalＭpRecovery",
     "GameSettingValue": 3
+  },
+  {
+    "GameSettingID": "AttackSpeedHighFast",
+    "GameSettingValue": 0.9
+  },
+  {
+    "GameSettingID": "AttackSpeedFast",
+    "GameSettingValue": 0.8
+  },
+  {
+    "GameSettingID": "AttackSpeedMedium",
+    "GameSettingValue": 0.7
+  },
+  {
+    "GameSettingID": "AttackSpeedSlow",
+    "GameSettingValue": 0.6
+  },
+  {
+    "GameSettingID": "AttackSppedHighSlow",
+    "GameSettingValue": 0.5
   }
 ]
