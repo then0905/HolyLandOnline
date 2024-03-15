@@ -18,7 +18,7 @@ public class Skill_Base_Attack_Melee_Mutiple : Skill_Base_Attack
     {
         //CheckGetAnyTarget(AttackType);
         SkillDisplayAction.Instance.SkillArrowImage.GetComponent<ArrowHit>().SetSkillSize(this, skillName);
-        SkillDisplayAction.Instance.CharacterAnimator.SetTrigger(skillName);
+        Character_move.Instance.CharacterAnimator.SetTrigger(skillName);
     }
     protected override void SkillEffectEnd()
     {

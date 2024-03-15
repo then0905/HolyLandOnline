@@ -41,10 +41,10 @@ public abstract class Skill_Base_Attack : Skill_Base
     /// <param name="attackType">傷害類型</param>
     protected void CheckGetAnyTarget(AttackCategory attackType)
     {
-        if (SelectTarget.Instance.Monsterbehavior != null&& !SkillBeUpgrade)
+        if (SelectTarget.Instance.Targetgameobject != null&& !SkillBeUpgrade)
         {
-            BattleOperation.Instance.BattleOperationStart(this, SelectTarget.Instance.Monsterbehavior.gameObject);
-            SkillDisplayAction.Instance.CharacterAnimator.SetTrigger(skillName);
+            BattleOperation.Instance.SkillAttackEvent?.Invoke(this, SelectTarget.Instance.Targetgameobject.gameObject);
+            Character_move.Instance.CharacterAnimator.SetTrigger(skillName);
         }
         else
         {

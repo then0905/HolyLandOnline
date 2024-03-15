@@ -140,6 +140,7 @@ namespace JsonDataModel
         public string TypeID { get; set; }            // 武器類型ID
         public string Intro { get; set; }            // 武器介紹
         public string AS { get; set; }            // 武器攻擊速度
+        public string ASID { get; set; }            // 武器攻擊速度(編碼用)
         public int MeleeATK { get; set; }            // 武器近距離攻擊
         public int MeleeHit { get; set; }            // 武器近距離命中
         public int RemoteATK { get; set; }            // 武器遠距離攻擊

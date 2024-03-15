@@ -2556,9 +2556,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88f1444fa2a8a6a41b1cd97d924ff785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterFather: {fileID: 5503294863921377026}
-  Character: {fileID: 4656379331475770091}
-  CharacterCamera: {fileID: 5503294864338163908}
+  characterFather: {fileID: 5503294863921377026}
+  character: {fileID: 4656379331475770091}
+  characterCamera: {fileID: 5503294864338163908}
+  characterAnimator: {fileID: 5503294864222636025}
   RotateSpeed: 5
   MoveSpeed: 10
 --- !u!114 &5503294863921377025

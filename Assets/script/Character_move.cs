@@ -11,20 +11,97 @@ using TMPro;
 //==========================================
 public class Character_move : MonoBehaviour
 {
-    public GameObject CharacterFather;
-    public GameObject Character;
-    public GameObject CharacterCamera;
-    Animator CharacterAnimator;
-    public int RotateSpeed;
-    public float MoveSpeed;
+    #region 全域靜態變數
 
-    void Start()
+    private static Character_move instance;
+    public static Character_move Instance
     {
-        CharacterAnimator = Character.GetComponent<Animator>();
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<Character_move>();
+            }
+            return instance;
+        }
     }
+
+    #endregion
+
+    [SerializeField] private GameObject characterFather;
+    /// <summary>
+    /// 角色父級
+    /// </summary>
+    public GameObject CharacterFather
+    {
+        get
+        {
+            return characterFather;
+        }
+    }
+    [SerializeField] private GameObject character;
+    /// <summary>
+    /// 角色本體(動畫 面相等等)
+    /// </summary>
+    public GameObject Character
+    {
+        get
+        {
+            return character;
+        }
+    }
+    [SerializeField] private GameObject characterCamera;
+    /// <summary>
+    /// 角色攝影機
+    /// </summary>
+    public GameObject CharacterCamera
+    {
+        get
+        {
+            return characterCamera;
+        }
+    }
+    [SerializeField] private Animator characterAnimator;
+    /// <summary>
+    /// 角色動畫控制器
+    /// </summary>
+    public Animator CharacterAnimator
+    {
+        get
+        {
+            return characterAnimator;
+        }
+    }
+    //旋轉速度
+    public int RotateSpeed;
+    //移動速度
+    public float MoveSpeed;
+    //是否再自動接近目標
+    public bool AutoNavToTarget = false;
+    //操作玩家事件
+    public Action ControlCharacterEvent;
+    //控制動畫速度事件
+    public Action<float, string> ControCharacterAnimationEvent;
+
+    private void OnEnable()
+    {
+        ControCharacterAnimationEvent += CallCharacterAnimationSpeed;
+    }
+
+    private void OnDisable()
+    {
+        ControCharacterAnimationEvent -= CallCharacterAnimationSpeed;
+    }
+
     void Update()
     {
         MovePlayerRelativeToCamera(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
+        if (Input.GetKeyDown(KeyCode.Space) && SelectTarget.Instance.Targetgameobject != null)
+        {
+            NormalAttackSystem.Instance.StartNormalAttack(
+                CharacterFather,
+               SelectTarget.Instance.Targetgameobject.gameObject);
+        }
     }
 
     /// <summary>
@@ -33,8 +110,8 @@ public class Character_move : MonoBehaviour
     public void MovePlayerRelativeToCamera(Vector2 inputToMove)
     {
         //取得角色向量
-        Vector3 forward = CharacterCamera.transform.forward;
-        Vector3 right = CharacterCamera.transform.right;
+        Vector3 forward = characterCamera.transform.forward;
+        Vector3 right = characterCamera.transform.right;
         forward.y = 0;
         right.y = 0;
         forward = forward.normalized;
@@ -43,7 +120,7 @@ public class Character_move : MonoBehaviour
         Vector3 forwardRelativeVerticalInput = inputToMove.y * forward;
         Vector3 forwardRelativeHorizontalInput = inputToMove.x * right;
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + forwardRelativeHorizontalInput;
-        CharacterFather.transform.Translate(cameraRelativeMovement * MoveSpeed * Time.deltaTime, Space.World);
+        characterFather.transform.Translate(cameraRelativeMovement * MoveSpeed * Time.deltaTime, Space.World);
         RunAnimation(inputToMove);
         RotateToMove(forwardRelativeVerticalInput + forwardRelativeHorizontalInput);
     }
@@ -53,9 +130,13 @@ public class Character_move : MonoBehaviour
     /// </summary>
     public void RunAnimation(Vector2 inputToMove)
     {
-        if (SkillDisplayAction.Instance.AutoNavToTarget) return;
-
-        CharacterAnimator.SetBool("IsRun", inputToMove != Vector2.zero);
+        if (AutoNavToTarget && inputToMove == Vector2.zero) return;
+        else if(AutoNavToTarget)
+        {
+            AutoNavToTarget = false;
+            ControlCharacterEvent?.Invoke();
+        }
+            CharacterAnimator.SetBool("IsRun", inputToMove != Vector2.zero);
     }
 
     /// <summary>
@@ -67,6 +148,37 @@ public class Character_move : MonoBehaviour
         if (direction == Vector3.zero) return;
 
         Quaternion rotation = Quaternion.LookRotation(direction);
-        Character.transform.rotation = Quaternion.Slerp(Character.transform.rotation, rotation, Time.deltaTime * RotateSpeed);
+        character.transform.rotation = Quaternion.Slerp(character.transform.rotation, rotation, Time.deltaTime * RotateSpeed);
+    }
+
+    /// <summary>
+    /// 設定動畫控制器時間
+    /// </summary>
+    /// <param name="speed"></param>
+    /// <param name="animationTrigger"></param>
+    private void CallCharacterAnimationSpeed(float speed, string animationTrigger)
+    {
+        StartCoroutine(ControCharacterAnimationSpeed(speed, animationTrigger));
+    }
+
+    /// <summary>
+    /// 修改動畫控制器時間協程
+    /// </summary>
+    /// <param name="speed"></param>
+    /// <param name="animationTrigger"></param>
+    /// <returns></returns>
+    public IEnumerator ControCharacterAnimationSpeed(float speed, string animationTrigger)
+    {
+        characterAnimator.SetTrigger(animationTrigger);
+        //暫存動畫片段
+        AnimatorStateInfo stateInfo = characterAnimator.GetCurrentAnimatorStateInfo(0);
+        //暫存原始動畫速度
+        float tempAnimatorSpeed = characterAnimator.speed;
+        characterAnimator.speed = speed;
+        while (stateInfo.IsName(animationTrigger))
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        characterAnimator.speed = tempAnimatorSpeed;
     }
 }

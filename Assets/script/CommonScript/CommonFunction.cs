@@ -5,6 +5,9 @@ using System.Linq;
 using System;
 using JsonDataModel;
 using Newtonsoft.Json;
+using System.Threading;
+using UnityEditor.PackageManager;
+using System.Runtime.InteropServices;
 
 //==========================================
 //  創建者:    家豪
@@ -192,5 +195,84 @@ public static class CommonFunction
                 result.Add(i);
         }
         return result;
+    }
+
+    /// <summary>
+    /// 通用計時器
+    /// </summary>
+    /// <param name="time">輸入秒數</param>
+    /// <param name="realtimeAct">進度更新時的事件</param>
+    /// <param name="finishAct">完成計時的事件</param>
+    /// <returns></returns>
+    public static IEnumerator Timer(float time, Action realtimeAct = null, Action finishAct = null)
+    {
+        float tempTime = time;
+        while (time > 0)
+        {
+            time -= Time.deltaTime;
+            realtimeAct?.Invoke();
+            yield return null;
+        }
+        finishAct?.Invoke();
+    }
+
+    /// <summary>
+    ///  偵測到達指定範圍後做指定的事
+    /// </summary>
+    /// <param name="tempDistance">輸入的範圍</param>
+    /// <param name="distance">達成範圍</param>
+    /// <param name="updateProgress">未達成範圍執行的事情</param>
+    /// <param name="finishAct">完成後執行的事情</param>
+    /// <returns></returns>
+    public static IEnumerator DetectionRangeMethod(float tempDistance, float distance, Action updateProgress, Action finishAct)
+    {
+        while (tempDistance > distance)
+        {
+            updateProgress?.Invoke();
+            Debug.Log("當前相差距離:" + tempDistance + " 目標距離: " + distance);
+            yield return new WaitForEndOfFrame();
+        }
+        finishAct?.Invoke();
+    }
+
+    /// <summary>
+    ///  偵測到達指定範圍後做指定的事
+    /// </summary>
+    /// <param name="tempDistance">輸入的範圍</param>
+    /// <param name="distance">達成範圍</param>
+    /// <param name="updateProgress">未達成範圍執行的事情</param>
+    /// <param name="finishAct">完成後執行的事情</param>
+    /// <returns></returns>
+    public static IEnumerator DetectionRangeMethod(Vector3 selfV3, Vector3 targetV3, float distance, Action updateProgress, Action finishAct)
+    {
+        float tempDistance = Vector3.Distance(selfV3, targetV3);
+        while (tempDistance > distance)
+        {
+            tempDistance = Vector3.Distance(selfV3, targetV3);
+            updateProgress?.Invoke();
+            Debug.Log("當前相差距離:" + tempDistance + " 目標距離: " + distance);
+            yield return new WaitForEndOfFrame();
+        }
+        finishAct?.Invoke();
+    }
+
+    /// <summary>
+    ///  偵測到達指定範圍後做指定的事
+    /// </summary>
+    /// <param name="tempDistance">輸入的範圍</param>
+    /// <param name="distance">達成範圍</param>
+    /// <param name="updateProgress">未達成範圍執行的事情</param>
+    /// <param name="finishAct">完成後執行的事情</param>
+    /// <returns></returns>
+    public static IEnumerator DetectionRangeMethod(GameObject selfObj, GameObject targetObj, float distance, Action updateProgress, Action finishAct)
+    {
+        float tempDis = Vector3.Distance(selfObj.transform.position, targetObj.transform.position);
+        while (tempDis > distance)
+        {
+            tempDis = Vector3.Distance(selfObj.transform.position, targetObj.transform.position);
+            updateProgress?.Invoke();
+            yield return new WaitForEndOfFrame();
+        }
+        finishAct?.Invoke();
     }
 }

@@ -64,8 +64,7 @@ public class PlayerDataPanelProcessor : MonoBehaviour
             "暴擊抵抗:" + PlayerData.CrtResistance + "\n" +
             "暴擊傷害:" + PlayerData.CrtDamage + "\n" +
             "移動速度:" + PlayerData.Speed + "\n" +
-            "力量:" + PlayerData.Speed + "\n" +
-            "近距離命中值:" + PlayerData.STR + "\n" +
+            "力量:" + PlayerData.STR + "\n" +
             "敏捷:" + PlayerData.DEX + "\n" +
             "智慧:" + PlayerData.INT + "\n" +
             "靈巧:" + PlayerData.AGI + "\n" +

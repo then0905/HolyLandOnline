@@ -63,7 +63,7 @@ public class ArrowHit : MonoBehaviour
             {
 
                 //戰鬥計算
-                BattleOperation.Instance.BattleOperationStart(skillAttackData, obj);
+                BattleOperation.Instance.SkillAttackEvent?.Invoke(skillAttackData, obj);
             }
         }
     }

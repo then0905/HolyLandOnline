@@ -28,23 +28,7 @@ public class SkillDisplayAction : MonoBehaviour
     }
     #endregion
 
-    [Header("角色相關參考")]
-    public GameObject Player;                   //角色父級           
-    public GameObject PlayerCharacter;          //角色本體(動畫 面相等等)
-    public Character_move CharacterMove;        //角色移動腳本
-    public GameObject CharacterCamera;          //角色身上攝影機   
-    public Transform CharacterTransform;
-    Animator characterAnimator;
-
     [HideInInspector] public GameObject UsingSkillObj;  //儲存當前施放的技能
-
-    public Animator CharacterAnimator
-    {
-        get { return characterAnimator; }
-    }
-
-    //是否再自動接近目標
-    public bool AutoNavToTarget = false;
 
     //防止動畫未結束播放，因鍵入下一個技能施放指令而中斷動畫或是產生BUG的防呆
     private bool usingSkill = false;
@@ -78,9 +62,6 @@ public class SkillDisplayAction : MonoBehaviour
     [Header("技能相關參考")]
     public HotKeyData[] SkillHotKey = new HotKeyData[10];
 
-    [Header("選取目標參考")]
-    public SelectTarget TargetUI_Manager;
-
     [Header("指向技攻擊範圍")]
     public Canvas SkillArrowCanvas;             //指向技畫布
     public Image SkillArrowImage;               //指向技圖示
@@ -95,7 +76,7 @@ public class SkillDisplayAction : MonoBehaviour
     [Header("扇形攻擊範圍")]
     public Canvas SkillConeCanvas;              //扇形範圍技畫布
     public Image SkillConeImage;                //扇形範圍技圖示
-    Vector3 Postion;
+
     float dis;
 
     //[Header("攻擊範圍判定")]
@@ -114,11 +95,12 @@ public class SkillDisplayAction : MonoBehaviour
         public List<float> CDR = new List<float>();             //冷卻CD
         public List<Slider> SkillSlider = new List<Slider>();   //Slider
     }
+
+    //記錄追擊協程
+    public Coroutine SkillChasingCoroutine;
+
     private void Start()
     {
-        //抓取角色動畫
-        characterAnimator = PlayerCharacter.GetComponent<Animator>();
-
         //關閉所有範圍圖示
         SkillArrowImage.GetComponent<Image>().enabled = false;
         SkillTargetCircle.GetComponent<Image>().enabled = false;
@@ -126,6 +108,16 @@ public class SkillDisplayAction : MonoBehaviour
         SkillConeImage.GetComponent<Image>().enabled = false;
     }
 
+    private void OnEnable()
+    {
+        Character_move.Instance.ControlCharacterEvent += StopSkillChasingTarge;
+    }
+
+    private void OnDisable()
+    {
+        Character_move.Instance.ControlCharacterEvent -= StopSkillChasingTarge;
+
+    }
 
     void Update()
     {
@@ -245,8 +237,8 @@ public class SkillDisplayAction : MonoBehaviour
                 //指向技能類型
                 case "Arrow":
                     //若已選取目標 接近目標到可施放範圍
-                    if (TargetUI_Manager.CatchTarget)
-                        StartCoroutine(SkillDistanceCheck(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID));
+                    if (SelectTarget.Instance.CatchTarget)
+                        SkillChasingCoroutine = StartCoroutine(SkillDistanceCheck(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID));
                     else
                         //若未選取 顯示該技能範圍
                         SkillArrow(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID);
@@ -254,24 +246,24 @@ public class SkillDisplayAction : MonoBehaviour
 
                 //指定技能類型
                 case "Target":
-                    if (TargetUI_Manager.CatchTarget)
-                        StartCoroutine(SkillDistanceCheck(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID));
+                    if (SelectTarget.Instance.CatchTarget)
+                        SkillChasingCoroutine = StartCoroutine(SkillDistanceCheck(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID));
                     else
                         SkillTarget(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID);
                     break;
 
                 //圓圈型範圍技能類型
                 case "Circle":
-                    if (TargetUI_Manager.CatchTarget)
-                        StartCoroutine(SkillDistanceCheck(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID));
+                    if (SelectTarget.Instance.CatchTarget)
+                        SkillChasingCoroutine = StartCoroutine(SkillDistanceCheck(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID));
                     else
                         SkillCircle(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID);
                     break;
 
                 //扇型範圍技能類型
                 case "Cone":
-                    if (TargetUI_Manager.CatchTarget)
-                        StartCoroutine(SkillDistanceCheck(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID));
+                    if (SelectTarget.Instance.CatchTarget)
+                        SkillChasingCoroutine = StartCoroutine(SkillDistanceCheck(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID));
                     else
                         SkillCone(skillUIData, SkillHotKey[inputNumber].UpgradeSkillID);
                     break;
@@ -285,8 +277,8 @@ public class SkillDisplayAction : MonoBehaviour
     /// <returns></returns>
     private float DistanceWithTarget()
     {
-        if (TargetUI_Manager.CatchTarget)
-            dis = Vector3.Distance(TargetUI_Manager.Targetgameobject.Povit.position, Player.transform.position);
+        if (SelectTarget.Instance.CatchTarget)
+            dis = Vector3.Distance(SelectTarget.Instance.Targetgameobject.Povit.position, Character_move.Instance.CharacterFather.transform.position);
         else
             return 0;
         return dis;
@@ -380,7 +372,7 @@ public class SkillDisplayAction : MonoBehaviour
         //點擊左鍵對指定範圍施放技能
         if (SkillTargetCircle.GetComponent<Image>().enabled && Input.GetMouseButton(0))
             //若選取到目標執行
-            if (TargetUI_Manager.Targetgameobject != null)
+            if (SelectTarget.Instance.Targetgameobject != null)
             {
                 UsingSkill = true;
                 CallSkillEffect(skillUIData, UpgradeSkillID);
@@ -494,17 +486,22 @@ public class SkillDisplayAction : MonoBehaviour
         if (!UsingSkill && PlayerData.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
         {
             UsingSkill = true;
-            AutoNavToTarget = true;
+            Character_move.Instance.AutoNavToTarget = true;
             //若還沒進入施放距離則移動玩家
             while (dis > skillUIData.Distance)
             {
                 DistanceWithTarget();
-                PlayerCharacter.transform.LookAt(TargetUI_Manager.Targetgameobject.transform);
-                characterAnimator.SetBool("IsRun", true);
-                Player.transform.position = Vector3.Lerp(Player.transform.position, TargetUI_Manager.Targetgameobject.Povit.position, CharacterMove.MoveSpeed * Time.deltaTime * 0.1f);
+                Character_move.Instance.Character.transform.LookAt(SelectTarget.Instance.Targetgameobject.transform);
+                Character_move.Instance.CharacterAnimator.SetBool("IsRun", true);
+
+                Character_move.Instance.CharacterFather.transform.position =
+                    Vector3.Lerp(Character_move.Instance.CharacterFather.transform.position,
+                    SelectTarget.Instance.Targetgameobject.Povit.position,
+                    Character_move.Instance.MoveSpeed * Time.deltaTime * 0.1f);
+
                 yield return new WaitForEndOfFrame();
             }
-            characterAnimator.SetBool("IsRun", false);
+            Character_move.Instance.CharacterAnimator.SetBool("IsRun", false);
             CallSkillEffect(skillUIData, UpgradeSkillID);
         }
         else
@@ -530,5 +527,19 @@ public class SkillDisplayAction : MonoBehaviour
         SkillTargetCircle.GetComponent<SphereCollider>().enabled = false;
         SkillPlayerCricle.GetComponent<SphereCollider>().enabled = false;
         SkillConeImage.GetComponent<SphereCollider>().enabled = false;
+    }
+
+    /// <summary>
+    /// 停止技能攻擊追擊目標
+    /// </summary>
+    public void StopSkillChasingTarge()
+    {
+        if (SkillChasingCoroutine != null)
+        {
+            StopCoroutine(SkillChasingCoroutine);
+            SkillChasingCoroutine = null;
+            Instantiate(CommonFunction.MessageHint("正在取消攻擊目標", HintType.Warning));
+        }
+        Character_move.Instance.AutoNavToTarget = false;
     }
 }

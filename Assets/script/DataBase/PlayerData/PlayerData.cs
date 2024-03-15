@@ -7,7 +7,7 @@ using UnityEngine;
 //==========================================
 
 [Serializable]
-public static class PlayerData
+public static partial class PlayerData
 {
     [Header("玩家名稱")]
     public static string PlayerName;

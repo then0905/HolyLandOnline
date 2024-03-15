@@ -1423,6 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d3c3943a9dd29b4fb1b784e030f63e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  povit: {fileID: 798079451505782669}
   MonsterAnimator: {fileID: 3515289243531032699}
   MonsterNameUI: {fileID: 798079451597014674}
   BootysHandling: {fileID: 0}

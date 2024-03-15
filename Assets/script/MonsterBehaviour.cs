@@ -3,16 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using JsonDataModel;
 using System.Threading.Tasks;
+using System.Threading;
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/05/20
 //  創建用途:  怪物行為設定呈現
 //==========================================
-public class MonsterBehaviour : MonoBehaviour
+
+public class MonsterBehaviour : ActivityCharacterBase
 {
     //取得動畫
     [SerializeField]private Animator MonsterAnimator;
+
     public GameObject MonsterNameUI;
+
     protected int currentHp;
     public int CurrentHp {
         get {return currentHp; }
@@ -24,6 +28,12 @@ public class MonsterBehaviour : MonoBehaviour
                 StartCoroutine(DeadBehaviourAsync());
             }
                 currentHp = value;
+
+            //若當前選擇的目標是此怪物 更新狀態
+            if(SelectTarget.Instance.Targetgameobject == this)
+            {
+                SetTargetInformation(this);
+            }
         }
     }
     public BootysHandle BootysHandling;

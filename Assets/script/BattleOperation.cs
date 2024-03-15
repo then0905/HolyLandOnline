@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using JsonDataModel;
+using System;
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/05/10
@@ -29,6 +30,34 @@ public class BattleOperation : MonoBehaviour
     private float hitValue;     //命中值
     private int hitRate;        //命中率
 
+    //技能攻擊
+    public Action<Skill_Base_Attack, GameObject> SkillAttackEvent;
+    //普通攻擊
+    public Action<GameObject> NormalAttackEvent;
+
+    private void OnEnable()
+    {
+        SkillAttackEvent += BattleOperationStart;
+        NormalAttackEvent += BattleOperationStart;
+    }
+
+    private void OnDisable()
+    {
+        SkillAttackEvent -= BattleOperationStart;
+        NormalAttackEvent -= BattleOperationStart;
+    }
+
+    /// <summary>
+    /// 獲取戰鬥對象
+    /// </summary>    
+    /// <param name="skillBase">攻擊技能資料</param>
+    /// <param name="target">目標</param>
+    private void BattleOperationStart(GameObject target)
+    {
+        if (target != null)
+            HitOrMiss(target);
+    }
+
     /// <summary>
     /// 獲取戰鬥對象
     /// </summary>    
@@ -38,7 +67,7 @@ public class BattleOperation : MonoBehaviour
     {
         //檢查空值
         if (skillBase != null && target != null)
-            HitOrMiss(skillBase, target);
+            HitOrMiss(target, skillBase);
     }
 
     /// <summary>
@@ -46,7 +75,7 @@ public class BattleOperation : MonoBehaviour
     /// </summary>
     /// <param name="skillBase">攻擊技能資料</param>
     /// <param name="target">目標</param>
-    public void HitOrMiss(Skill_Base_Attack skillBase, GameObject target)
+    public void HitOrMiss(GameObject target, Skill_Base_Attack skillBase = null)
     {
         MonsterBehaviour monsterBehaviour = null;
         //取得 怪物行為腳本
@@ -57,30 +86,44 @@ public class BattleOperation : MonoBehaviour
             //獲取敵方資料
         }
 
-        //判別技能模式
-        switch (skillBase.EffectCategory)
+        if (skillBase != null)
         {
+            //判別技能模式
+            switch (skillBase.EffectCategory)
+            {
+                case "MeleeATK":
+                    hitValue = PlayerData.MeleeHit * 100 / (PlayerData.MeleeHit + monsterBehaviour.MonsterValue.Avoid);
+                    hitRate = (int)Mathf.Round(hitValue);
+                    break;
 
-            case "MeleeATK":
-                hitValue = PlayerData.MeleeHit * 100 / (PlayerData.MeleeHit + monsterBehaviour.MonsterValue.Avoid);
-                hitRate = (int)Mathf.Round(hitValue);
-                break;
+                case "RemoteATK":
+                    hitValue = PlayerData.RemoteHit * 100 / (PlayerData.RemoteHit + monsterBehaviour.MonsterValue.Avoid);
+                    hitRate = (int)Mathf.Round(hitValue);
+                    break;
 
-            case "RemoteATK":
+                case "MageATK":
+                    hitValue = PlayerData.MageHit * 100 / (PlayerData.MageHit + monsterBehaviour.MonsterValue.Avoid);
+                    hitRate = (int)Mathf.Round(hitValue);
+                    break;
+                default:
+                    break;
+            }
+        }
+        else
+        {
+            if (PlayerData.NormalAttackRange >= 3)
+            {
                 hitValue = PlayerData.RemoteHit * 100 / (PlayerData.RemoteHit + monsterBehaviour.MonsterValue.Avoid);
                 hitRate = (int)Mathf.Round(hitValue);
-                break;
-
-            case "MageATK":
-                hitValue = PlayerData.MageHit * 100 / (PlayerData.MageHit + monsterBehaviour.MonsterValue.Avoid);
+            }
+            else
+            {
+                hitValue = PlayerData.MeleeHit * 100 / (PlayerData.MeleeHit + monsterBehaviour.MonsterValue.Avoid);
                 hitRate = (int)Mathf.Round(hitValue);
-                break;
-            default:
-                break;
+            }
         }
-
         // 命中率
-        int isHit = Random.Range(0, 101);
+        int isHit = UnityEngine.Random.Range(0, 101);
 
         // 是否命中
         if (isHit < hitRate)
@@ -93,19 +136,16 @@ public class BattleOperation : MonoBehaviour
     /// 是否暴擊計算
     /// </summary>
     /// <param name="monsterBehaviour">怪物行為腳本</param>
-    public void CrtOrNormal(MonsterBehaviour monsterBehaviour, Skill_Base_Attack skillBase)
+    public void CrtOrNormal(MonsterBehaviour monsterBehaviour, Skill_Base_Attack skillBase = null)
     {
         //宣告暴擊率
-        float CrtRate;    
+        float CrtRate;
         //獲取暴擊率(玩家暴擊率*100%/(玩家暴擊+對方暴擊抵抗))
         CrtRate = PlayerData.Crt * 100 / (PlayerData.Crt + monsterBehaviour.MonsterValue.CrtResistance);
-        
+
         //查看是否暴擊
-        int isCrt = Random.Range(0, 101);
-        if (isCrt < CrtRate)
-            DmgOperation(true, monsterBehaviour, skillBase);
-        else
-            DmgOperation(false, monsterBehaviour, skillBase);
+        int isCrt = UnityEngine.Random.Range(0, 101);
+        DmgOperation(isCrt < CrtRate, monsterBehaviour, skillBase);
     }
     /// <summary>
     /// 格擋計算
@@ -120,7 +160,7 @@ public class BattleOperation : MonoBehaviour
     /// <param name="iscrt">是否暴擊</param>
     /// <param name="monsterBehaviour">怪物行為腳本</param>
     /// <param name="skillData">技能資料</param>
-    public void DmgOperation(bool iscrt, MonsterBehaviour monsterBehaviour, Skill_Base_Attack skillData)
+    public void DmgOperation(bool iscrt, MonsterBehaviour monsterBehaviour, Skill_Base_Attack skillData = null)
     {
         float defRate;//防禦%
         float damage;//總傷害
@@ -128,45 +168,51 @@ public class BattleOperation : MonoBehaviour
         //計算出防禦%
         defRate = 0.75f * monsterBehaviour.MonsterValue.DEF / (PlayerData.Lv + 9);
 
-        //判別技能模式 獲取傷害類別
-        switch (skillData.EffectCategory)
+        if (skillData != null)
         {
-            case "MeleeATK":
-                damage = PlayerData.MeleeATK;
+            //判別技能模式 獲取傷害類別
+            switch (skillData.EffectCategory)
+            {
+                case "MeleeATK":
+                    damage = PlayerData.MeleeATK;
 
-                break;
-            case "RemoteATK":
-                damage = PlayerData.RemoteATK;
+                    break;
+                case "RemoteATK":
+                    damage = PlayerData.RemoteATK;
 
-                break;
-            case "MageATK":
-                damage = PlayerData.MageATK;
+                    break;
+                case "MageATK":
+                    damage = PlayerData.MageATK;
 
-                break;
+                    break;
 
-            default:
-                damage = 0;
-                break;
+                default:
+                    damage = 0;
+                    break;
+            }
+            print("技能倍率:" + skillData.EffectValue[0]);
         }
-        print("技能倍率:" + skillData.EffectValue[0]);
+        else
+            damage = (PlayerData.NormalAttackRange >= 3) ? PlayerData.RemoteATK : PlayerData.MeleeATK;
 
         //是否暴擊
         if (iscrt)
-            damage = damage* skillData.EffectValue[0] * (damage * 1.5f + PlayerData.CrtDamage);
+            damage = (skillData != null) ? damage * skillData.EffectValue[0] * (damage * 1.5f + PlayerData.CrtDamage) : damage * (damage * 1.5f + PlayerData.CrtDamage);
         else
-            damage = damage* skillData.EffectValue[0];
+            damage = (skillData != null) ? damage * skillData.EffectValue[0]: damage;
         //目標扣除生命
         monsterBehaviour.CurrentHp -= (int)Mathf.Round((1 - defRate) * damage);
         //生成傷害數字
         InstanceDmgGUI(Mathf.Round((1 - defRate) * damage).ToString(), iscrt, monsterBehaviour.gameObject);
     }
+
     /// <summary>
     /// 生成傷害數字
     /// </summary>
     /// <param name="dmgVaule">傷害值</param>
     /// <param name="iscrt">是否暴擊</param>
     /// <param name="target">生成數字參考對象</param>
-    public void InstanceDmgGUI(string dmgVaule, bool iscrt,GameObject target)
+    public void InstanceDmgGUI(string dmgVaule, bool iscrt, GameObject target)
     {
         //載入傷害數字prefab
         GameObject DamageGUI = Resources.Load("DMGtext") as GameObject;
@@ -198,7 +244,7 @@ public class BattleOperation : MonoBehaviour
         //還原技能施展防呆
         //SkillDisplayAction.Instance.UsingSkill = false;
         //還原自動導航紀錄
-        SkillDisplayAction.Instance.AutoNavToTarget = false;
+        Character_move.Instance.AutoNavToTarget = false;
         //怪物動畫(受傷)
         target.GetComponent<Animator>()?.SetTrigger("Injuried");
     }

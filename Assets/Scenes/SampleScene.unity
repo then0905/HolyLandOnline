@@ -834,30 +834,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1484072266718246914, guid: 760a7d852ef94c14a8996a7aa09b2540, type: 3}
---- !u!1 &109452680 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5503294863921377026, guid: 23c79f75713559545bf207cb4b80c905,
-    type: 3}
-  m_PrefabInstance: {fileID: 5503294863963452042}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &109452684 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5503294863921377030, guid: 23c79f75713559545bf207cb4b80c905,
-    type: 3}
-  m_PrefabInstance: {fileID: 5503294863963452042}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 109452680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88f1444fa2a8a6a41b1cd97d924ff785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &109452685 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5503294863921377031, guid: 23c79f75713559545bf207cb4b80c905,
-    type: 3}
-  m_PrefabInstance: {fileID: 5503294863963452042}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &110818574 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3418120743736922889, guid: e60a8514cff59414388a2827cac00b4c,
@@ -3218,6 +3194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 318171136}
   - component: {fileID: 318171135}
+  - component: {fileID: 318171137}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -3252,6 +3229,18 @@ Transform:
   m_Father: {fileID: 1630786219}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &318171137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 318171134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c1b60a9c2c0941438c75ea2b51fc9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &318213330 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2770280820029534108, guid: e60a8514cff59414388a2827cac00b4c,
@@ -5894,12 +5883,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7140979877600750247, guid: 79328b17f83ba744dae91dfa0d95e4cb, type: 3}
---- !u!1 &534669902 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5503294864338163908, guid: 23c79f75713559545bf207cb4b80c905,
-    type: 3}
-  m_PrefabInstance: {fileID: 5503294863963452042}
-  m_PrefabAsset: {fileID: 0}
 --- !u!20 &534669904 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 5503294864338163930, guid: 23c79f75713559545bf207cb4b80c905,
@@ -15156,13 +15139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9c53789c2d2fad4f9b14214aea948c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 109452680}
-  PlayerCharacter: {fileID: 919132148497152097}
-  CharacterMove: {fileID: 109452684}
-  CharacterCamera: {fileID: 534669902}
-  CharacterTransform: {fileID: 109452685}
   UsingSkillObj: {fileID: 0}
-  AutoNavToTarget: 0
   Skillinformation:
     CDsec:
     - 0
@@ -15208,7 +15185,6 @@ MonoBehaviour:
   - {fileID: 1821150256}
   - {fileID: 946328920}
   - {fileID: 635953876}
-  TargetUI_Manager: {fileID: 1888635746}
   SkillArrowCanvas: {fileID: 1850829898}
   SkillArrowImage: {fileID: 660128715}
   SkillTargetCircle: {fileID: 602718205}
@@ -15249,7 +15225,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f774a77e11592f48ae0bad22197225d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillBuffList: []
+  SkillUIList: []
+  SkillPassiveBuffList: []
 --- !u!1 &1364215215 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -3951041948841360328, guid: 79328b17f83ba744dae91dfa0d95e4cb,
@@ -20242,8 +20219,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4214caf5f244ef84cab45265f14b4d45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterCamera: {fileID: 534669902}
-  CatchTarget: 0
   TargetInformation: {fileID: 1766024047}
   TargetName: {fileID: 690773165}
   TargetHP: {fileID: 101711807}
@@ -20252,7 +20227,6 @@ MonoBehaviour:
   TargetClass: {fileID: 447258341}
   Targetgameobject: {fileID: 0}
   Monsterbehavior: {fileID: 0}
-  HotKeyManager: {fileID: 879271285}
 --- !u!4 &1888635747
 Transform:
   m_ObjectHideFlags: 0
@@ -22883,12 +22857,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 895dc7eefbd071d47a05976c77c9e16b, type: 3}
---- !u!1 &919132148497152097 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4656379331475770091, guid: 23c79f75713559545bf207cb4b80c905,
-    type: 3}
-  m_PrefabInstance: {fileID: 5503294863963452042}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3939805124091482619
 PrefabInstance:
   m_ObjectHideFlags: 0

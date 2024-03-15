@@ -266,10 +266,10 @@ public abstract class Skill_Base : MonoBehaviour
         {
             default:
             case "Self":
-                obj = Instantiate(effectObj, SkillDisplayAction.Instance.PlayerCharacter.transform);
+                obj = Instantiate(effectObj, Character_move.Instance.Character.transform);
                 break;
             case "Target":
-                obj = Instantiate(effectObj, SkillDisplayAction.Instance.TargetUI_Manager.Targetgameobject.transform);
+                obj = Instantiate(effectObj, SelectTarget.Instance.Targetgameobject.transform);
                 break;
                 //case "TargetArea":
                 //case "Team":

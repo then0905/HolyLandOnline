@@ -21,7 +21,8 @@ public class PickUp : MonoBehaviour
     {
         if (other.tag == "Item")
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            //確認當前未選擇到任何目標
+            if (Input.GetKeyDown(KeyCode.Space) && !SelectTarget.Instance.CatchTarget)
             {
                 if (!ispickup)
                 {

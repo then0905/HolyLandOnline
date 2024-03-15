@@ -50,5 +50,9 @@
   {
     "GameSettingID": "AttackSppedHighSlow",
     "GameSettingValue": 0.5
+  },
+  {
+    "GameSettingID": "MeleeAttackRange",
+    "GameSettingValue": 3
   }
 ]

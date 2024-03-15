@@ -56,7 +56,10 @@ public class StatusOperation : MonoBehaviour
 
     #endregion
 
+    //基礎能力值加成事件
     private static Action refreshStatus;
+    //能力值加成完成後須執行的事件
+    private static Action refreshAfterStatus;
 
     //暫存基礎能力值
     protected TempBasalStatus tempBasalStatus = new TempBasalStatus();
@@ -83,11 +86,14 @@ public class StatusOperation : MonoBehaviour
         refreshStatus += RemoteHit;
         refreshStatus += MageHit;
         refreshStatus += MDEF;
+        refreshStatus += AS;
         refreshStatus += DamageReduction;
         refreshStatus += ElementDamageIncrease;
         refreshStatus += ElementDamageReduction;
         refreshStatus += HP_RecoveryReduction;
         refreshStatus += MP_RecoveryReduction;
+        refreshStatus += AttackRange;
+        refreshAfterStatus += AttackSpeedTimer;
     }
     private void OnDisable()
     {
@@ -102,11 +108,14 @@ public class StatusOperation : MonoBehaviour
         refreshStatus -= RemoteHit;
         refreshStatus -= MageHit;
         refreshStatus -= MDEF;
+        refreshStatus -= AS;
         refreshStatus -= DamageReduction;
         refreshStatus -= ElementDamageIncrease;
         refreshStatus -= ElementDamageReduction;
         refreshStatus -= HP_RecoveryReduction;
         refreshStatus -= MP_RecoveryReduction;
+        refreshStatus -= AttackRange;
+        refreshAfterStatus -= AttackSpeedTimer;
     }
 
     /// <summary>
@@ -377,6 +386,17 @@ public class StatusOperation : MonoBehaviour
         tempBasalStatus.MDEF = (int)Mathf.Round(PlayerData.VIT * targetStatus.VIT +
                 PlayerData.WIS * targetStatus.WIS) + weaponData + armorData;
     }
+
+    /// <summary>
+    /// 攻擊速度值加成
+    /// </summary>
+    private void AS()
+    {
+        //獲取武器能力值數據
+        float weaponAS = weaponList.Select(x => GameData.GameSettingDic[x.ASID].GameSettingValue).FirstOrDefault();
+
+        tempBasalStatus.AS = weaponAS.Equals(0) ? 1 : weaponAS;
+    }
     /// <summary>
     /// 傷害減緩加成
     /// </summary>
@@ -458,6 +478,40 @@ public class StatusOperation : MonoBehaviour
         tempBasalStatus.MP_Recovery =
            (int)Mathf.Round(targetStatus.WIS * PlayerData.WIS + PlayerData.Lv * targetStatus.LvCodition +
            GameData.GameSettingDic[PlayerData.Race + "BasalMpRecovery"].GameSettingValue) + armorData;
+    }
+
+    #endregion
+
+    #region 能力值加成完成後需要計算的機制
+
+    /// <summary>
+    /// 計算攻擊速度
+    /// </summary>
+    public void AttackSpeedTimer()
+    {
+        //每當攻擊速度重新設定 計算攻擊速度區間
+        NormalAttackSystem.AttackSpeedTimer = 1 / PlayerData.AS;
+    }
+
+    /// <summary>
+    /// 取得裝備武器的攻擊範圍
+    /// </summary>
+    public void AttackRange()
+    {
+        /*腳本下中斷點 經過  weaponType = "MeleeAttackRange"; 後 後面都不會執行 帶查驗修正*/
+
+        string weaponType = "";
+        //若沒有武器則為空手 視同近戰
+        if (weaponList.Count == 0)
+        {
+            weaponType = "MeleeAttackRange";
+        }
+        else
+            //若有武器 檢查是否有物理攻擊資料 判斷是近距離型武器或是遠距離
+            weaponType = (weaponList.Any(x => x.MeleeATK != 0) ? "MeleeAttackRange" : "RemoteAttackRange");
+
+        //取得攻擊範圍值
+        PlayerData.NormalAttackRange = (int)GameData.GameSettingDic[weaponType].GameSettingValue;
     }
 
     #endregion
@@ -567,7 +621,6 @@ public class StatusOperation : MonoBehaviour
             PlayerData.AS = tempBasalStatus.AS;
             PlayerData.DisorderResistance = tempBasalStatus.DisorderResistance;
         }
-
         //刷新數據呈現
         PlayerDataPanelProcessor.Instance.SetPlayerDataContent();
     }
