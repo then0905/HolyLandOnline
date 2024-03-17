@@ -58,7 +58,7 @@ public class StatusOperation : MonoBehaviour
 
     //基礎能力值加成事件
     private static Action refreshStatus;
-    //能力值加成完成後須執行的事件
+    //需等待基礎數值計算完後才計算的部分
     private static Action refreshAfterStatus;
 
     //暫存基礎能力值
@@ -182,6 +182,7 @@ public class StatusOperation : MonoBehaviour
             ClassStatus();      //基礎加成
             refreshStatus.Invoke(); //刷新加成後的數值
             PlayerDataStatusOperation();    //將刷新後加成的值算入角色屬性
+            refreshAfterStatus.Invoke();//需等待基礎數值計算完後才計算的部分
             PassiveSkillManager.Instance.RestartPassiveSkill();      //重新啟動被動技能  
         }
         else
@@ -190,6 +191,7 @@ public class StatusOperation : MonoBehaviour
             ClassStatus();      //基礎加成
             refreshStatus.Invoke(); //刷新加成後的數值
             PlayerDataStatusOperation();    //將刷新後加成的值算入角色屬性
+            refreshAfterStatus.Invoke();//需等待基礎數值計算完後才計算的部分
         }
     }
 
