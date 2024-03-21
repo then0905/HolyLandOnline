@@ -74,8 +74,6 @@ public class Character_move : MonoBehaviour
     }
     //旋轉速度
     public int RotateSpeed;
-    //移動速度
-    public float MoveSpeed;
     //是否再自動接近目標
     public bool AutoNavToTarget = false;
     //操作玩家事件
@@ -83,6 +81,16 @@ public class Character_move : MonoBehaviour
     //控制動畫速度事件
     public Action<float, string> ControCharacterAnimationEvent;
 
+    //取得玩家速度值
+    public float MoveSpeed
+    {
+        get
+        {
+            //設定玩家速度值 (移動速度基準值+裝備效果+技能效果)*(1- (2.71828^ −0.2))
+            float speed = PlayerData.Speed * (float)(1 - Math.Pow(2.71828, -0.2));
+            return speed;
+        }
+    }
     private void OnEnable()
     {
         ControCharacterAnimationEvent += CallCharacterAnimationSpeed;
@@ -109,6 +117,12 @@ public class Character_move : MonoBehaviour
     /// </summary>
     public void MovePlayerRelativeToCamera(Vector2 inputToMove)
     {
+        if (AutoNavToTarget && inputToMove == Vector2.zero) return;
+        else if (AutoNavToTarget)
+        {
+            AutoNavToTarget = false;
+            ControlCharacterEvent?.Invoke();
+        }
         //取得角色向量
         Vector3 forward = characterCamera.transform.forward;
         Vector3 right = characterCamera.transform.right;
@@ -120,9 +134,10 @@ public class Character_move : MonoBehaviour
         Vector3 forwardRelativeVerticalInput = inputToMove.y * forward;
         Vector3 forwardRelativeHorizontalInput = inputToMove.x * right;
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + forwardRelativeHorizontalInput;
-        characterFather.transform.Translate(cameraRelativeMovement * MoveSpeed * Time.deltaTime, Space.World);
+        characterFather.transform.Translate(cameraRelativeMovement * MoveSpeed, Space.World);
         RunAnimation(inputToMove);
         RotateToMove(forwardRelativeVerticalInput + forwardRelativeHorizontalInput);
+
     }
 
     /// <summary>
@@ -130,13 +145,9 @@ public class Character_move : MonoBehaviour
     /// </summary>
     public void RunAnimation(Vector2 inputToMove)
     {
-        if (AutoNavToTarget && inputToMove == Vector2.zero) return;
-        else if(AutoNavToTarget)
-        {
-            AutoNavToTarget = false;
-            ControlCharacterEvent?.Invoke();
-        }
-            CharacterAnimator.SetBool("IsRun", inputToMove != Vector2.zero);
+        AutoNavToTarget = false;
+        ControlCharacterEvent?.Invoke();
+        CharacterAnimator.SetBool("IsRun", inputToMove != Vector2.zero);
     }
 
     /// <summary>

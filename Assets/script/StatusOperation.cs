@@ -93,6 +93,7 @@ public class StatusOperation : MonoBehaviour
         refreshStatus += HP_RecoveryReduction;
         refreshStatus += MP_RecoveryReduction;
         refreshStatus += AttackRange;
+        refreshStatus += Speed;
         refreshAfterStatus += AttackSpeedTimer;
     }
     private void OnDisable()
@@ -115,6 +116,7 @@ public class StatusOperation : MonoBehaviour
         refreshStatus -= HP_RecoveryReduction;
         refreshStatus -= MP_RecoveryReduction;
         refreshStatus -= AttackRange;
+        refreshStatus -= Speed;
         refreshAfterStatus -= AttackSpeedTimer;
     }
 
@@ -390,6 +392,17 @@ public class StatusOperation : MonoBehaviour
     }
 
     /// <summary>
+    /// 移動速度
+    /// </summary>
+    private void Speed()
+    {
+        //獲取防具能力值數據
+        float armorData = armorList.Sum(x => x.Speed);
+
+        tempBasalStatus.Speed = armorData.Equals(0) ? 1 : 1 + armorData;
+    }
+
+    /// <summary>
     /// 攻擊速度值加成
     /// </summary>
     private void AS()
@@ -555,7 +568,8 @@ public class StatusOperation : MonoBehaviour
                 tempEffectStatus.BlockRate += (Rate ? (int)(tempBasalStatus.BlockRate * value) : (int)value);
                 break;
             case "Speed":
-                tempEffectStatus.Speed += (Rate ? (int)(tempBasalStatus.Speed * value) : (int)value);
+                //倍率的話以速度基準值來計算 不會用穿上裝備的加總
+                tempEffectStatus.Speed += (Rate ? (int)(1 * value) : (int)value);
                 break;
             case "Crt":
                 tempEffectStatus.Crt += (Rate ? (int)(tempBasalStatus.Crt * value) : (int)value);

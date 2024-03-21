@@ -243,8 +243,6 @@ public class BattleOperation : MonoBehaviour
 
         //還原技能施展防呆
         //SkillDisplayAction.Instance.UsingSkill = false;
-        //還原自動導航紀錄
-        Character_move.Instance.AutoNavToTarget = false;
         //怪物動畫(受傷)
         target.GetComponent<Animator>()?.SetTrigger("Injuried");
     }

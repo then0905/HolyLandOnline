@@ -497,7 +497,7 @@ public class SkillDisplayAction : MonoBehaviour
                 Character_move.Instance.CharacterFather.transform.position =
                     Vector3.Lerp(Character_move.Instance.CharacterFather.transform.position,
                     SelectTarget.Instance.Targetgameobject.Povit.position,
-                    Character_move.Instance.MoveSpeed * Time.deltaTime * 0.1f);
+                    Character_move.Instance.MoveSpeed * 0.1f);
 
                 yield return new WaitForEndOfFrame();
             }
