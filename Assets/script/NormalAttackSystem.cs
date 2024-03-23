@@ -63,7 +63,7 @@ public class NormalAttackSystem : MonoBehaviour
     /// </summary>
     public void RunAttack()
     {
-        Character_move.Instance.CharacterAnimator.SetBool("IsRun", false);
+        Character_move.Instance.RunAnimation(false);
         AttackAllow = true;
         //依照攻擊速度調整動畫播放速度
         Character_move.Instance.ControCharacterAnimationEvent.Invoke(AttackSpeedTimer, "NormalAttack");
@@ -81,12 +81,12 @@ public class NormalAttackSystem : MonoBehaviour
         Character_move.Instance.AutoNavToTarget = true;
 
         Character_move.Instance.Character.transform.LookAt(SelectTarget.Instance.Targetgameobject.transform);
-        Character_move.Instance.CharacterAnimator.SetBool("IsRun", true);
+        Character_move.Instance.RunAnimation(true);
 
         Character_move.Instance.CharacterFather.transform.position =
-            Vector3.Lerp(Character_move.Instance.CharacterFather.transform.position,
+            Vector3.MoveTowards(Character_move.Instance.CharacterFather.transform.position,
             SelectTarget.Instance.Targetgameobject.Povit.position,
-            Character_move.Instance.MoveSpeed * 0.1f);
+            Character_move.Instance.MoveSpeed);
     }
 
     /// <summary>

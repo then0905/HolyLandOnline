@@ -103,7 +103,22 @@ public class Character_move : MonoBehaviour
 
     void Update()
     {
-        MovePlayerRelativeToCamera(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
+        //取得玩家控制角色移動的輸出訊息(上下左右 wasd 搖桿等等)
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
+
+        //當有任何移動方向的輸出訊息
+        if (horizontalInput != 0 || verticalInput != 0)
+        {
+            Vector2 inputToMove = new Vector2(horizontalInput, verticalInput);
+            MovePlayerRelativeToCamera(inputToMove);
+        }
+        //這邊 若玩家沒有輸出訊息 且並沒有追擊目標的情況下 才關閉跑步動畫
+        else if (!AutoNavToTarget)
+            RunAnimation(false);
+
+        //MovePlayerRelativeToCamera(new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")));
+
         if (Input.GetKeyDown(KeyCode.Space) && SelectTarget.Instance.Targetgameobject != null)
         {
             NormalAttackSystem.Instance.StartNormalAttack(
@@ -117,7 +132,12 @@ public class Character_move : MonoBehaviour
     /// </summary>
     public void MovePlayerRelativeToCamera(Vector2 inputToMove)
     {
-        if (AutoNavToTarget && inputToMove == Vector2.zero) return;
+        //暫存動畫片段
+        AnimatorStateInfo stateInfo = characterAnimator.GetCurrentAnimatorStateInfo(0);
+        
+        //若玩家在導航 或是 正在進行非跑步 站立 的其他動畫時 不執行移動
+        if (AutoNavToTarget && inputToMove == Vector2.zero || (!stateInfo.IsName("Running") && !stateInfo.IsName("Idle"))) return;
+        //打斷導航 恢復為 玩家控制移動
         else if (AutoNavToTarget)
         {
             AutoNavToTarget = false;
@@ -134,27 +154,31 @@ public class Character_move : MonoBehaviour
         Vector3 forwardRelativeVerticalInput = inputToMove.y * forward;
         Vector3 forwardRelativeHorizontalInput = inputToMove.x * right;
         Vector3 cameraRelativeMovement = forwardRelativeVerticalInput + forwardRelativeHorizontalInput;
+
         characterFather.transform.Translate(cameraRelativeMovement * MoveSpeed, Space.World);
-        RunAnimation(inputToMove);
+
+        RunAnimation(inputToMove != Vector2.zero);
         RotateToMove(forwardRelativeVerticalInput + forwardRelativeHorizontalInput);
 
     }
 
+
     /// <summary>
-    /// 設定跑步動畫
+    ///  設定跑步動畫
     /// </summary>
-    public void RunAnimation(Vector2 inputToMove)
+    /// <param name="runStatus">設定跑步狀態</param>
+    public void RunAnimation(bool runStatus)
     {
-        AutoNavToTarget = false;
-        ControlCharacterEvent?.Invoke();
-        CharacterAnimator.SetBool("IsRun", inputToMove != Vector2.zero);
+        CharacterAnimator.SetBool("IsRun", runStatus);
+        if (runStatus)
+            ControCharacterAnimationEvent.Invoke(MoveSpeed * 5.5f, "Running");
     }
 
     /// <summary>
     /// 依照攝影機方向校正移動
     /// </summary>
     /// <param name="direction"></param>
-    void RotateToMove(Vector3 direction)
+    private void RotateToMove(Vector3 direction)
     {
         if (direction == Vector3.zero) return;
 
