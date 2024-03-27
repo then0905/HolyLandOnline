@@ -2,7 +2,7 @@
   {
     "Lv": 1,
     "Name": "小型生命藥劑",
-    "CodeID": "Potion_Hp_001",
+    "CodeID": "Potion_Hp_01",
     "TakeHand": "無",
     "TakeHandID": "None",
     "Classification": "道具",
@@ -10,7 +10,10 @@
     "Type": "藥劑",
     "TypeID": "Potion",
     "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復少許的生命值",
-    "Volume": 100,
+    "Stackability": true,
+    "Volume": [
+      "100"
+    ],
     "CD": 1.5,
     "ActionTime": 0,
     "Price": 10,
@@ -19,7 +22,7 @@
   {
     "Lv": 1,
     "Name": "小型魔力藥劑",
-    "CodeID": "Potion_Hp_02",
+    "CodeID": "Potion_Mp_01",
     "TakeHand": "無",
     "TakeHandID": "None",
     "Classification": "道具",
@@ -27,7 +30,10 @@
     "Type": "藥劑",
     "TypeID": "Potion",
     "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復少許的魔力值",
-    "Volume": 55,
+    "Stackability": true,
+    "Volume": [
+      "55"
+    ],
     "CD": 3,
     "ActionTime": 0,
     "Price": 10,
@@ -36,7 +42,7 @@
   {
     "Lv": 10,
     "Name": "中型生命藥劑",
-    "CodeID": "Potion_Hp_03",
+    "CodeID": "Potion_Hp_02",
     "TakeHand": "無",
     "TakeHandID": "None",
     "Classification": "道具",
@@ -44,7 +50,10 @@
     "Type": "藥劑",
     "TypeID": "Potion",
     "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復一些的生命值",
-    "Volume": 300,
+    "Stackability": true,
+    "Volume": [
+      "300"
+    ],
     "CD": 2.5,
     "ActionTime": 0,
     "Price": 100,
@@ -53,7 +62,7 @@
   {
     "Lv": 10,
     "Name": "中型魔力藥劑",
-    "CodeID": "Potion_Hp_04",
+    "CodeID": "Potion_Mp_02",
     "TakeHand": "無",
     "TakeHandID": "None",
     "Classification": "道具",
@@ -61,7 +70,10 @@
     "Type": "藥劑",
     "TypeID": "Potion",
     "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復一些的魔力值",
-    "Volume": 150,
+    "Stackability": true,
+    "Volume": [
+      "150"
+    ],
     "CD": 5,
     "ActionTime": 0,
     "Price": 100,
@@ -70,7 +82,7 @@
   {
     "Lv": 25,
     "Name": "大型生命藥劑",
-    "CodeID": "Potion_Hp_05",
+    "CodeID": "Potion_Hp_03",
     "TakeHand": "無",
     "TakeHandID": "None",
     "Classification": "道具",
@@ -78,7 +90,10 @@
     "Type": "藥劑",
     "TypeID": "Potion",
     "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復大量的生命值",
-    "Volume": 1000,
+    "Stackability": true,
+    "Volume": [
+      "1000"
+    ],
     "CD": 3.5,
     "ActionTime": 0,
     "Price": 1000,
@@ -87,7 +102,7 @@
   {
     "Lv": 25,
     "Name": "大型魔力藥劑",
-    "CodeID": "Potion_Hp_06",
+    "CodeID": "Potion_Mp_03",
     "TakeHand": "無",
     "TakeHandID": "None",
     "Classification": "道具",
@@ -95,7 +110,10 @@
     "Type": "藥劑",
     "TypeID": "Potion",
     "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復大量的魔力值",
-    "Volume": 400,
+    "Stackability": true,
+    "Volume": [
+      "400"
+    ],
     "CD": 7,
     "ActionTime": 0,
     "Price": 1000,
@@ -104,7 +122,7 @@
   {
     "Lv": 40,
     "Name": "巨型生命藥劑",
-    "CodeID": "Potion_Hp_07",
+    "CodeID": "Potion_Hp_04",
     "TakeHand": "無",
     "TakeHandID": "None",
     "Classification": "道具",
@@ -112,7 +130,10 @@
     "Type": "藥劑",
     "TypeID": "Potion",
     "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復超大量的生命值",
-    "Volume": 3000,
+    "Stackability": true,
+    "Volume": [
+      "3000"
+    ],
     "CD": 4.5,
     "ActionTime": 0,
     "Price": 10000,
@@ -121,7 +142,7 @@
   {
     "Lv": 40,
     "Name": "巨型魔力藥劑",
-    "CodeID": "Potion_Hp_08",
+    "CodeID": "Potion_Mp_04",
     "TakeHand": "無",
     "TakeHandID": "None",
     "Classification": "道具",
@@ -129,7 +150,10 @@
     "Type": "藥劑",
     "TypeID": "Potion",
     "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復超大量的魔力值",
-    "Volume": 1000,
+    "Stackability": true,
+    "Volume": [
+      "1000"
+    ],
     "CD": 9,
     "ActionTime": 0,
     "Price": 10000,
@@ -146,7 +170,10 @@
     "Type": "藥劑",
     "TypeID": "Potion",
     "Intro": "玻璃罐罐裝起來的藥劑罐，食用後可以解除中毒的狀態",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 1.5,
     "ActionTime": 0,
     "Price": 150,
@@ -163,7 +190,10 @@
     "Type": "卷軸",
     "TypeID": "Potion",
     "Intro": "將法術封存於羊皮製的卷軸內，使用後在一定時間內獲得增加防禦力的祝福魔法",
-    "Volume": 3,
+    "Stackability": true,
+    "Volume": [
+      "3"
+    ],
     "CD": 600,
     "ActionTime": 600,
     "Price": 500,
@@ -180,7 +210,10 @@
     "Type": "卷軸",
     "TypeID": "Potion",
     "Intro": "將法術封存於羊皮製的卷軸內，使用後在一定時間內獲得增加攻擊力的祝福魔法",
-    "Volume": 3,
+    "Stackability": true,
+    "Volume": [
+      "3"
+    ],
     "CD": 600,
     "ActionTime": 600,
     "Price": 500,
@@ -197,7 +230,10 @@
     "Type": "藥劑",
     "TypeID": "Potion",
     "Intro": "玻璃罐罐裝起來的藥劑罐，食用後在一定時間內攻擊速度上升",
-    "Volume": 10,
+    "Stackability": true,
+    "Volume": [
+      "10"
+    ],
     "CD": 300,
     "ActionTime": 300,
     "Price": 1200,
@@ -214,7 +250,10 @@
     "Type": "卷軸",
     "TypeID": "Reel",
     "Intro": "將法術封存於羊皮製的卷軸內，使用後回到最近的城鎮內",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 1,
     "ActionTime": 0,
     "Price": 50,
@@ -231,7 +270,29 @@
     "Type": "強化道具",
     "TypeID": "EnhanceItem",
     "Intro": "內含神秘力量的石頭，雜質量過高，可以用來強化裝備與武器",
-    "Volume": "100:100:100:100:100:100:50:33:15:5;100:100:100:100:75:50:25:15:7.5:3",
+    "Stackability": true,
+    "Volume": [
+      "100",
+      "100",
+      "100",
+      "100",
+      "100",
+      "100",
+      "50",
+      "33",
+      "15",
+      "5",
+      "100",
+      "100",
+      "100",
+      "100",
+      "75",
+      "50",
+      "25",
+      "15",
+      "7.5",
+      "3"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -248,7 +309,29 @@
     "Type": "強化道具",
     "TypeID": "EnhanceItem",
     "Intro": "內含神秘力量的石頭，雜質量較低，用來強化裝備與武器時成功率較高",
-    "Volume": "100:100:100:100:100:100:75:50:22.5:10;100:100:100:100:90:75:50:30:15:7.5",
+    "Stackability": true,
+    "Volume": [
+      "100",
+      "100",
+      "100",
+      "100",
+      "100",
+      "100",
+      "75",
+      "50",
+      "22.5",
+      "10",
+      "100",
+      "100",
+      "100",
+      "100",
+      "90",
+      "75",
+      "50",
+      "30",
+      "15",
+      "7.5"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -265,7 +348,29 @@
     "Type": "強化道具",
     "TypeID": "EnhanceItem",
     "Intro": "內含祝福力量的石頭，雜質量較高，可以用來強化裝備與武器，失敗時不會使裝備被破壞",
-    "Volume": "100:100:100:100:100:100:50:33:15:5;100:100:100:100:75:50:25:15:7.5:3",
+    "Stackability": true,
+    "Volume": [
+      "100",
+      "100",
+      "100",
+      "100",
+      "100",
+      "100",
+      "50",
+      "33",
+      "15",
+      "5",
+      "100",
+      "100",
+      "100",
+      "100",
+      "75",
+      "50",
+      "25",
+      "15",
+      "7.5",
+      "3"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -282,7 +387,10 @@
     "Type": "強化道具",
     "TypeID": "EnhanceItem",
     "Intro": "內含詛咒力量的石頭，雜質量較高，使用後將裝備或武器的強化等級下降",
-    "Volume": "100:100:100:100:100:100:100:100:100:100;100:100:100:100:100:100:100:100:100:100",
+    "Stackability": true,
+    "Volume": [
+      "1.001001001001E+59"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -299,7 +407,10 @@
     "Type": "戰利品",
     "TypeID": "Booty",
     "Intro": "從野獸身上獲得的戰利品，可以販賣給商人換取金幣",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -316,7 +427,10 @@
     "Type": "戰利品",
     "TypeID": "Booty",
     "Intro": "從野獸身上獲得的戰利品，可以販賣給商人換取金幣",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -333,7 +447,10 @@
     "Type": "戰利品",
     "TypeID": "Booty",
     "Intro": "從魔法生物身上獲得的戰利品，可以販賣給商人換取金幣",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -350,7 +467,10 @@
     "Type": "戰利品",
     "TypeID": "Booty",
     "Intro": "從魔法生物身上獲得的戰利品，可以販賣給商人換取金幣",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -367,7 +487,10 @@
     "Type": "戰利品",
     "TypeID": "Booty",
     "Intro": "從哥布林身上獲得的戰利品，可以販賣給商人換取金幣",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -384,7 +507,10 @@
     "Type": "戰利品",
     "TypeID": "Booty",
     "Intro": "從哥布林身上獲得的戰利品，可以販賣給商人換取金幣",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -401,7 +527,10 @@
     "Type": "戰利品",
     "TypeID": "Booty",
     "Intro": "從人形生物身上獲得的戰利品，可以販賣給商人換取金幣",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -418,7 +547,10 @@
     "Type": "戰利品",
     "TypeID": "Booty",
     "Intro": "從人形生物身上獲得的戰利品，可以販賣給商人換取金幣",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -435,7 +567,10 @@
     "Type": "戰利品",
     "TypeID": "Booty",
     "Intro": "從植物類生物獲得的戰利品，可以販賣給商人換取金幣",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -452,7 +587,10 @@
     "Type": "戰利品",
     "TypeID": "Booty",
     "Intro": "從植物類生物獲得的戰利品，可以販賣給商人換取金幣",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -469,7 +607,10 @@
     "Type": "戰利品",
     "TypeID": "Booty",
     "Intro": "從爬蟲類生物獲得的戰利品，可以販賣給商人換取金幣",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -486,7 +627,10 @@
     "Type": "戰利品",
     "TypeID": "Booty",
     "Intro": "從爬蟲類生物獲得的戰利品，可以販賣給商人換取金幣",
-    "Volume": 0,
+    "Stackability": true,
+    "Volume": [
+      "0"
+    ],
     "CD": 0,
     "ActionTime": 0,
     "Price": 0,
@@ -503,7 +647,10 @@
     "Type": "藥劑",
     "TypeID": "Potion",
     "Intro": "玻璃罐裝起來的藥劑罐，食用後在一定時間內獲得經驗量提升",
-    "Volume": 50,
+    "Stackability": true,
+    "Volume": [
+      "50"
+    ],
     "CD": 1,
     "ActionTime": 1800,
     "Price": 0,

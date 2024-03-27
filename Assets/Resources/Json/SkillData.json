@@ -4,7 +4,9 @@
     "SkillID": "Sword_1",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.1,
+    "EffectValue": [
+      "1.1"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
     "EffectRecive": -1,
@@ -20,7 +22,9 @@
     "SkillID": "Sword_2",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": 1.3,
+    "EffectValue": [
+      "1.3"
+    ],
     "EffectCategory": "SkillBuff",
     "EffectRecive": -1,
     "TargetCount": 1,
@@ -35,7 +39,9 @@
     "SkillID": "Sword_3",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.1,
+    "EffectValue": [
+      "1.1"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
     "EffectRecive": -1,
@@ -51,11 +57,20 @@
     "SkillID": "Sword_4",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": 0.1,
-    "InfluenceStatus": "MeleeATK",
-    "AddType": "Rate",
+    "EffectValue": [
+      "0.1"
+    ],
+    "InfluenceStatus": [
+      "MeleeATK"
+    ],
+    "AddType": [
+      "Rate"
+    ],
     "EffectCategory": "Buff",
-    "Condition": "Equip_OneHandedSword,Equip_TwoHandedSword",
+    "Condition": [
+      "Equip_OneHandedSword",
+      "Equip_TwoHandedSword"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -69,9 +84,15 @@
     "SkillID": "Sword_5",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": 0.25,
-    "InfluenceStatus": "MaxHP",
-    "AddType": "Rate",
+    "EffectValue": [
+      "0.25"
+    ],
+    "InfluenceStatus": [
+      "MaxHP"
+    ],
+    "AddType": [
+      "Rate"
+    ],
     "EffectCategory": "Buff",
     "EffectRecive": 0,
     "TargetCount": 0,
@@ -86,11 +107,17 @@
     "SkillID": "Warrior_1",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.5,
+    "EffectValue": [
+      "1.5"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
-    "AdditionalEffect": "Stun",
-    "AdditionalEffectTime": 1,
+    "AdditionalEffect": [
+      "Stun"
+    ],
+    "AdditionalEffectTime": [
+      "1"
+    ],
     "EffectRecive": -1,
     "TargetCount": 1,
     "AdditionMode": "MeleeATK",
@@ -104,7 +131,9 @@
     "SkillID": "Warrior_2",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.1,
+    "EffectValue": [
+      "1.1"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "TargetArea",
     "EffectRecive": -1,
@@ -120,7 +149,9 @@
     "SkillID": "Warrior_3",
     "Characteristic": true,
     "MultipleValue": 3,
-    "EffectValue": 1.25,
+    "EffectValue": [
+      "1.25"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
     "EffectRecive": -1,
@@ -136,9 +167,15 @@
     "SkillID": "Warrior_4",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 6,
-    "InfluenceStatus": "MeleeATK",
-    "AddType": "Value",
+    "EffectValue": [
+      "6"
+    ],
+    "InfluenceStatus": [
+      "MeleeATK"
+    ],
+    "AddType": [
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Self",
     "EffectRecive": 0,
@@ -155,9 +192,18 @@
     "SkillID": "Warrior_5",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": "3,30",
-    "InfluenceStatus": "DEF,MaxHP",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "3",
+      "30"
+    ],
+    "InfluenceStatus": [
+      "DEF",
+      "MaxHP"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Self",
     "EffectRecive": 0,
@@ -174,11 +220,24 @@
     "SkillID": "Warrior_6",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "0.2,8",
-    "InfluenceStatus": "MeleeATK,MeleeHit",
-    "AddType": "Rate,Value",
+    "EffectValue": [
+      "0.2",
+      "8"
+    ],
+    "InfluenceStatus": [
+      "MeleeATK",
+      "MeleeHit"
+    ],
+    "AddType": [
+      "Rate",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "Condition": "Equip_TwoHandedSword,Equip_Axe,Equip_GiantMallet",
+    "Condition": [
+      "Equip_TwoHandedSword",
+      "Equip_Axe",
+      "Equip_GiantMallet"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -192,9 +251,18 @@
     "SkillID": "Warrior_7",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "3,20",
-    "InfluenceStatus": "DEF,MaxHP",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "3",
+      "20"
+    ],
+    "InfluenceStatus": [
+      "DEF",
+      "MaxHP"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectRecive": 0,
     "TargetCount": 0,
@@ -209,7 +277,9 @@
     "SkillID": "Knight_1",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.2,
+    "EffectValue": [
+      "1.2"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
     "EffectRecive": -1,
@@ -225,12 +295,20 @@
     "SkillID": "Knight_2",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "EffectCategory": "DeBuff",
     "EffectTarget": "Target",
-    "AdditionalEffect": "Taunt",
-    "AdditionalEffectTime": 2,
-    "Condition": "Equip_Shield",
+    "AdditionalEffect": [
+      "Taunt"
+    ],
+    "AdditionalEffectTime": [
+      "2"
+    ],
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": -1,
     "TargetCount": 1,
     "AdditionMode": "None",
@@ -244,9 +322,18 @@
     "SkillID": "Knight_3",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": "5,5",
-    "InfluenceStatus": "ATK,DEF",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "5",
+      "5"
+    ],
+    "InfluenceStatus": [
+      "ATK",
+      "DEF"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Team",
     "EffectRecive": -3,
@@ -263,12 +350,23 @@
     "SkillID": "Knight_4",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": "50,0.8",
-    "InfluenceStatus": "MaxHP,HP_Recovery",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "50",
+      "0.8"
+    ],
+    "InfluenceStatus": [
+      "MaxHP",
+      "HP_Recovery"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Team",
-    "Condition": "Equip_Shield",
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": -3,
     "TargetCount": -1,
     "EffectDurationTime": 180,
@@ -283,11 +381,17 @@
     "SkillID": "Knight_5",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.13,
+    "EffectValue": [
+      "1.13"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
-    "AdditionalEffect": "Stun",
-    "Condition": "Equip_Shield",
+    "AdditionalEffect": [
+      "Stun"
+    ],
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": -1,
     "TargetCount": 1,
     "AdditionMode": "MeleeATK",
@@ -301,11 +405,23 @@
     "SkillID": "Knight_6",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "0.1,5",
-    "InfluenceStatus": "MeleeATK,MeleeHit",
-    "AddType": "Rate,Value",
+    "EffectValue": [
+      "0.1",
+      "5"
+    ],
+    "InfluenceStatus": [
+      "MeleeATK",
+      "MeleeHit"
+    ],
+    "AddType": [
+      "Rate",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "Condition": "Equip_OneHandedSword,Equip_Hammer",
+    "Condition": [
+      "Equip_OneHandedSword",
+      "Equip_Hammer"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -319,11 +435,22 @@
     "SkillID": "Knight_7",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "10,0.15",
-    "InfluenceStatus": "DEF,BlockRate",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "10",
+      "0.15"
+    ],
+    "InfluenceStatus": [
+      "DEF",
+      "BlockRate"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "Condition": "Equip_Shield",
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -337,11 +464,22 @@
     "SkillID": "Knight_8",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "12,-0.25",
-    "InfluenceStatus": "DFF,Speed",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "12",
+      "-0.25"
+    ],
+    "InfluenceStatus": [
+      "DFF",
+      "Speed"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "ModifyValue",
-    "Condition": "Equip_HeavyArmor",
+    "Condition": [
+      "Equip_HeavyArmor"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -355,11 +493,17 @@
     "SkillID": "Berserker_1",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.8,
+    "EffectValue": [
+      "1.8"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
-    "AdditionalEffect": "Stun",
-    "AdditionalEffectTime": 2,
+    "AdditionalEffect": [
+      "Stun"
+    ],
+    "AdditionalEffectTime": [
+      "2"
+    ],
     "EffectRecive": -1,
     "TargetCount": 1,
     "AdditionMode": "MeleeATK",
@@ -373,13 +517,23 @@
     "SkillID": "Berserker_2",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 0.35,
-    "AddType": "Rate",
+    "EffectValue": [
+      "0.35"
+    ],
+    "AddType": [
+      "Rate"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "TargetArea",
-    "AdditionalEffect": "SpeedSlow",
-    "AdditionalEffectValue": 0.15,
-    "AdditionalEffectTime": 2.5,
+    "AdditionalEffect": [
+      "SpeedSlow"
+    ],
+    "AdditionalEffectValue": [
+      "0.15"
+    ],
+    "AdditionalEffectTime": [
+      "2.5"
+    ],
     "EffectRecive": -1,
     "TargetCount": 5,
     "AdditionMode": "MeleeATK",
@@ -393,7 +547,9 @@
     "SkillID": "Berserker_3",
     "Characteristic": true,
     "MultipleValue": 3,
-    "EffectValue": 1.55,
+    "EffectValue": [
+      "1.55"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
     "EffectRecive": -1,
@@ -409,9 +565,21 @@
     "SkillID": "Berserker_4",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": "12,8,0.2",
-    "InfluenceStatus": "MeleeATK,MeleeHit,Crt",
-    "AddType": "Value,Value,Value",
+    "EffectValue": [
+      "12",
+      "8",
+      "0.2"
+    ],
+    "InfluenceStatus": [
+      "MeleeATK",
+      "MeleeHit",
+      "Crt"
+    ],
+    "AddType": [
+      "Value",
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Self",
     "EffectRecive": 0,
@@ -427,12 +595,23 @@
     "SkillID": "Berserker_5",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 0,
-    "AddType": "Rate,Rate",
+    "EffectValue": [
+      "0"
+    ],
+    "AddType": [
+      "Rate",
+      "Rate"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Self",
-    "AdditionalEffect": "IncreaseDmg,RecoveryDmg",
-    "AdditionalEffectValue": "1.8,0.2",
+    "AdditionalEffect": [
+      "IncreaseDmg",
+      "RecoveryDmg"
+    ],
+    "AdditionalEffectValue": [
+      "1.8",
+      "0.2"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -446,11 +625,22 @@
     "SkillID": "Berserker_6",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": 0,
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "0"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "AdditionalEffect": "IncreaseMeleeATK,Damage",
-    "AdditionalEffectValue": "0.2,0.02",
+    "AdditionalEffect": [
+      "IncreaseMeleeATK",
+      "Damage"
+    ],
+    "AdditionalEffectValue": [
+      "0.2",
+      "0.02"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 5,
@@ -465,11 +655,24 @@
     "SkillID": "Berserker_7",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "15,0.05",
-    "InfluenceStatus": "MeleeATK,AS",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "15",
+      "0.05"
+    ],
+    "InfluenceStatus": [
+      "MeleeATK",
+      "AS"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "Condition": "Equip_TwoHandedSword,Equip_Axe,Equip_GiantMallet",
+    "Condition": [
+      "Equip_TwoHandedSword",
+      "Equip_Axe",
+      "Equip_GiantMallet"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -483,13 +686,27 @@
     "SkillID": "Berserker_8",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": 10120,
-    "InfluenceStatus": "DEF,MaxHP",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "10120"
+    ],
+    "InfluenceStatus": [
+      "DEF",
+      "MaxHP"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "AdditionalEffect": "InCombatStatusRate",
-    "AdditionalEffectValue": 1.5,
-    "Condition": "InCombatStatus",
+    "AdditionalEffect": [
+      "InCombatStatusRate"
+    ],
+    "AdditionalEffectValue": [
+      "1.5"
+    ],
+    "Condition": [
+      "InCombatStatus"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -503,9 +720,18 @@
     "SkillID": "Berserker_9",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": "0.5,-1",
-    "InfluenceStatus": "MeleeATK,DEF",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "0.5",
+      "-1"
+    ],
+    "InfluenceStatus": [
+      "MeleeATK",
+      "DEF"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Self",
     "EffectRecive": 0,
@@ -522,11 +748,22 @@
     "SkillID": "Berserker_10",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": "25,1",
-    "InfluenceStatus": "MeleeATK,AS",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "25",
+      "1"
+    ],
+    "InfluenceStatus": [
+      "MeleeATK",
+      "AS"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "Condition": "Hp_0.35",
+    "Condition": [
+      "Hp_0.35"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 5,
@@ -541,7 +778,9 @@
     "SkillID": "Berserker_11",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.3,
+    "EffectValue": [
+      "1.3"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Self",
     "EffectRecive": -1,
@@ -557,11 +796,17 @@
     "SkillID": "Berserker_12",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.4,
+    "EffectValue": [
+      "1.4"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Self",
-    "AdditionalEffect": "Repulse",
-    "AdditionalEffectValue": 1.5,
+    "AdditionalEffect": [
+      "Repulse"
+    ],
+    "AdditionalEffectValue": [
+      "1.5"
+    ],
     "EffectRecive": 1,
     "TargetCount": 1,
     "AdditionMode": "MeleeATK",
@@ -575,12 +820,20 @@
     "SkillID": "Berserker_13",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.5,
-    "InfluenceStatus": "Speed",
-    "AddType": "Value",
+    "EffectValue": [
+      "1.5"
+    ],
+    "InfluenceStatus": [
+      "Speed"
+    ],
+    "AddType": [
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Self",
-    "Condition": "Close_Enemy",
+    "Condition": [
+      "Close_Enemy"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -594,10 +847,14 @@
     "SkillID": "Berserker_14",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Self",
-    "AdditionalEffect": "RemoveCC",
+    "AdditionalEffect": [
+      "RemoveCC"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 10,
@@ -612,7 +869,9 @@
     "SkillID": "Berserker_15",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 2.5,
+    "EffectValue": [
+      "2.5"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
     "EffectRecive": -1,
@@ -628,11 +887,22 @@
     "SkillID": "Berserker_16",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "10,0.8",
-    "InfluenceStatus": "MeleeATK,AS",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "10",
+      "0.8"
+    ],
+    "InfluenceStatus": [
+      "MeleeATK",
+      "AS"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "Condition": "InCombatStatus",
+    "Condition": [
+      "InCombatStatus"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 1.5,
@@ -647,7 +917,9 @@
     "SkillID": "Paladin_1",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.35,
+    "EffectValue": [
+      "1.35"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
     "EffectRecive": -1,
@@ -663,14 +935,28 @@
     "SkillID": "Paladin_2",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 0,
-    "AddType": "Rate",
+    "EffectValue": [
+      "0"
+    ],
+    "AddType": [
+      "Rate"
+    ],
     "EffectCategory": "DeBuff",
     "EffectTarget": "Target",
-    "AdditionalEffect": "Taunt,ReduceDmg",
-    "AdditionalEffectValue": "0,0.3",
-    "AdditionalEffectTime": 2,
-    "Condition": "Equip_Shield",
+    "AdditionalEffect": [
+      "Taunt",
+      "ReduceDmg"
+    ],
+    "AdditionalEffectValue": [
+      "0",
+      "0.3"
+    ],
+    "AdditionalEffectTime": [
+      "2"
+    ],
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": -1,
     "TargetCount": 1,
     "EffectDurationTime": 2,
@@ -685,9 +971,24 @@
     "SkillID": "Paladin_3",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": "8,8,80,0.75",
-    "InfluenceStatus": "ATK,DEF,MaxHP,Recovery_HP",
-    "AddType": "Value,Value,Value,Value",
+    "EffectValue": [
+      "8",
+      "8",
+      "80",
+      "0.75"
+    ],
+    "InfluenceStatus": [
+      "ATK",
+      "DEF",
+      "MaxHP",
+      "Recovery_HP"
+    ],
+    "AddType": [
+      "Value",
+      "Value",
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Team",
     "EffectRecive": -3,
@@ -704,9 +1005,22 @@
     "SkillID": "Paladin_4",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": "15,0.25,1.5",
-    "InfluenceStatus": "Avoid,AS,Speed",
-    "AddType": "Value,Value,Value,Value",
+    "EffectValue": [
+      "15",
+      "0.25",
+      "1.5"
+    ],
+    "InfluenceStatus": [
+      "Avoid",
+      "AS",
+      "Speed"
+    ],
+    "AddType": [
+      "Value",
+      "Value",
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Team",
     "EffectRecive": -3,
@@ -723,11 +1037,17 @@
     "SkillID": "Paladin_5",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Team",
-    "AdditionalEffect": "TransferDmg",
-    "AdditionalEffectValue": 0.25,
+    "AdditionalEffect": [
+      "TransferDmg"
+    ],
+    "AdditionalEffectValue": [
+      "0.25"
+    ],
     "EffectRecive": -3,
     "TargetCount": -1,
     "EffectDurationTime": 180,
@@ -742,10 +1062,14 @@
     "SkillID": "Paladin_6",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.3,
+    "EffectValue": [
+      "1.3"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
-    "Condition": "Equip_Shield",
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": -1,
     "TargetCount": 1,
     "AdditionMode": "MeleeATK",
@@ -759,8 +1083,12 @@
     "SkillID": "Paladin_7",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 2,
-    "AddType": "Rate",
+    "EffectValue": [
+      "2"
+    ],
+    "AddType": [
+      "Rate"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
     "EffectRecive": -2,
@@ -776,9 +1104,15 @@
     "SkillID": "Paladin_8",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 3,
-    "InfluenceStatus": "HolyDamage",
-    "AddType": "Value",
+    "EffectValue": [
+      "3"
+    ],
+    "InfluenceStatus": [
+      "HolyDamage"
+    ],
+    "AddType": [
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Self",
     "EffectRecive": 0,
@@ -795,12 +1129,20 @@
     "SkillID": "Paladin_9",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.15,
+    "EffectValue": [
+      "1.15"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "TargetArea",
-    "AdditionalEffect": "Stun",
-    "AdditionalEffectTime": 1,
-    "Condition": "Equip_Shield",
+    "AdditionalEffect": [
+      "Stun"
+    ],
+    "AdditionalEffectTime": [
+      "1"
+    ],
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": -1,
     "TargetCount": -2,
     "AdditionMode": "MeleeATK",
@@ -814,9 +1156,18 @@
     "SkillID": "Paladin_10",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "5,5",
-    "InfluenceStatus": "MeleeATK,MeleeHit",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "5",
+      "5"
+    ],
+    "InfluenceStatus": [
+      "MeleeATK",
+      "MeleeHit"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectRecive": 0,
     "TargetCount": 0,
@@ -831,11 +1182,25 @@
     "SkillID": "Paladin_11",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "8,0.2,-0.2",
-    "InfluenceStatus": "DEF,BlockRate,AS",
-    "AddType": "Value,Value,Value",
+    "EffectValue": [
+      "8",
+      "0.2",
+      "-0.2"
+    ],
+    "InfluenceStatus": [
+      "DEF",
+      "BlockRate",
+      "AS"
+    ],
+    "AddType": [
+      "Value",
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "Condition": "Equip_Shield",
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -849,11 +1214,22 @@
     "SkillID": "Paladin_12",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "15,-0.8",
-    "InfluenceStatus": "DEF,Speed",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "15",
+      "-0.8"
+    ],
+    "InfluenceStatus": [
+      "DEF",
+      "Speed"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "Condition": "Equip_HeavyArmor",
+    "Condition": [
+      "Equip_HeavyArmor"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -867,14 +1243,26 @@
     "SkillID": "Paladin_13",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": 0,
-    "AddType": "Value",
+    "EffectValue": [
+      "0"
+    ],
+    "AddType": [
+      "Value"
+    ],
     "EffectCategory": "DeBuff",
     "EffectTarget": "Target",
-    "AdditionalEffect": "BreakDEF",
-    "AdditionalEffectValue": 12,
-    "AdditionalEffectTime": 3,
-    "Condition": "Equip_Shield",
+    "AdditionalEffect": [
+      "BreakDEF"
+    ],
+    "AdditionalEffectValue": [
+      "12"
+    ],
+    "AdditionalEffectTime": [
+      "3"
+    ],
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": -1,
     "TargetCount": 1,
     "AdditionMode": "None",
@@ -888,10 +1276,14 @@
     "SkillID": "Paladin_14",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Target",
-    "AdditionalEffect": "RemoveCC",
+    "AdditionalEffect": [
+      "RemoveCC"
+    ],
     "EffectRecive": -2,
     "TargetCount": 1,
     "AdditionMode": "None",
@@ -905,11 +1297,19 @@
     "SkillID": "Paladin_15",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": 0,
-    "AddType": "Rate",
+    "EffectValue": [
+      "0"
+    ],
+    "AddType": [
+      "Rate"
+    ],
     "EffectCategory": "Buff",
-    "AdditionalEffect": "ReduceDmg",
-    "AdditionalEffectValue": 0.3,
+    "AdditionalEffect": [
+      "ReduceDmg"
+    ],
+    "AdditionalEffectValue": [
+      "0.3"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -923,13 +1323,25 @@
     "SkillID": "Paladin_16",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": 0,
-    "AddType": "Rate",
+    "EffectValue": [
+      "0"
+    ],
+    "AddType": [
+      "Rate"
+    ],
     "EffectCategory": "Buff",
-    "AdditionalEffect": "ReduceCCTime",
-    "AdditionalEffectValue": 0.75,
-    "AdditionalEffectTime": 5,
-    "Condition": "Equip_Shield",
+    "AdditionalEffect": [
+      "ReduceCCTime"
+    ],
+    "AdditionalEffectValue": [
+      "0.75"
+    ],
+    "AdditionalEffectTime": [
+      "5"
+    ],
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 5,
@@ -944,14 +1356,26 @@
     "SkillID": "Paladin_17",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 0,
-    "AddType": "Rate",
+    "EffectValue": [
+      "0"
+    ],
+    "AddType": [
+      "Rate"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Team",
-    "AdditionalEffect": "ReduceDmg",
-    "AdditionalEffectValue": 0,
-    "AdditionalEffectTime": 3,
-    "Condition": "Equip_Shield",
+    "AdditionalEffect": [
+      "ReduceDmg"
+    ],
+    "AdditionalEffectValue": [
+      "0"
+    ],
+    "AdditionalEffectTime": [
+      "3"
+    ],
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": 0,
     "TargetCount": -1,
     "EffectDurationTime": 3,
@@ -967,12 +1391,20 @@
     "SkillID": "Praetorian_1",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.5,
+    "EffectValue": [
+      "1.5"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
-    "AdditionalEffect": "BreakDEF",
-    "AdditionalEffectValue": 8,
-    "AdditionalEffectTime": 2,
+    "AdditionalEffect": [
+      "BreakDEF"
+    ],
+    "AdditionalEffectValue": [
+      "8"
+    ],
+    "AdditionalEffectTime": [
+      "2"
+    ],
     "EffectRecive": -1,
     "TargetCount": 1,
     "AdditionMode": "MeleeATK",
@@ -986,12 +1418,20 @@
     "SkillID": "Praetorian_2",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.4,
+    "EffectValue": [
+      "1.4"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Self",
-    "AdditionalEffect": "Bleed",
-    "AdditionalEffectValue": 5,
-    "AdditionalEffectTime": 5,
+    "AdditionalEffect": [
+      "Bleed"
+    ],
+    "AdditionalEffectValue": [
+      "5"
+    ],
+    "AdditionalEffectTime": [
+      "5"
+    ],
     "EffectRecive": -1,
     "TargetCount": 3,
     "AdditionMode": "MeleeATK",
@@ -1005,12 +1445,20 @@
     "SkillID": "Praetorian_3",
     "Characteristic": true,
     "MultipleValue": 5,
-    "EffectValue": 1.25,
-    "AddType": "Rate",
+    "EffectValue": [
+      "1.25"
+    ],
+    "AddType": [
+      "Rate"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
-    "AdditionalEffect": "IncreaseDmg",
-    "AdditionalEffectValue": 0.15,
+    "AdditionalEffect": [
+      "IncreaseDmg"
+    ],
+    "AdditionalEffectValue": [
+      "0.15"
+    ],
     "EffectRecive": -1,
     "TargetCount": 1,
     "AdditionMode": "MeleeATK",
@@ -1024,9 +1472,21 @@
     "SkillID": "Praetorian_4",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": "1.25,0.23,0.18",
-    "InfluenceStatus": "Speed,AS,Crt",
-    "AddType": "Value,Value,Value",
+    "EffectValue": [
+      "1.25",
+      "0.23",
+      "0.18"
+    ],
+    "InfluenceStatus": [
+      "Speed",
+      "AS",
+      "Crt"
+    ],
+    "AddType": [
+      "Value",
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Self",
     "EffectRecive": 0,
@@ -1043,9 +1503,15 @@
     "SkillID": "Praetorian_5",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 0.7,
-    "InfluenceStatus": "DisorderResistance",
-    "AddType": "Rate",
+    "EffectValue": [
+      "0.7"
+    ],
+    "InfluenceStatus": [
+      "DisorderResistance"
+    ],
+    "AddType": [
+      "Rate"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Self",
     "EffectRecive": 0,
@@ -1062,12 +1528,26 @@
     "SkillID": "Praetorian_6",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": "5,5,0.15",
-    "InfluenceStatus": "MeleeATK,DEF,BlockRate",
-    "AddType": "Value,Value,Value",
+    "EffectValue": [
+      "5",
+      "5",
+      "0.15"
+    ],
+    "InfluenceStatus": [
+      "MeleeATK",
+      "DEF",
+      "BlockRate"
+    ],
+    "AddType": [
+      "Value",
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Self",
-    "Condition": "Equip_Shield",
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 180,
@@ -1082,12 +1562,20 @@
     "SkillID": "Praetorian_7",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.5,
+    "EffectValue": [
+      "1.5"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "TargetArea",
-    "AdditionalEffect": "BreakDEF",
-    "AdditionalEffectValue": 8,
-    "AdditionalEffectTime": 2,
+    "AdditionalEffect": [
+      "BreakDEF"
+    ],
+    "AdditionalEffectValue": [
+      "8"
+    ],
+    "AdditionalEffectTime": [
+      "2"
+    ],
     "EffectRecive": -1,
     "TargetCount": -2,
     "AdditionMode": "MeleeATK",
@@ -1101,11 +1589,22 @@
     "SkillID": "Praetorian_8",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "EffectCategory": "MeleeATK",
-    "AdditionalEffect": "BreakDEF,HitReduceSec",
-    "AdditionalEffectValue": "8,0.5",
-    "AdditionalEffectTime": "2,0",
+    "AdditionalEffect": [
+      "BreakDEF",
+      "HitReduceSec"
+    ],
+    "AdditionalEffectValue": [
+      "8",
+      "0.5"
+    ],
+    "AdditionalEffectTime": [
+      "2",
+      "0"
+    ],
     "EffectRecive": -1,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -1119,11 +1618,22 @@
     "SkillID": "Praetorian_9",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "8,0.35",
-    "InfluenceStatus": "MeleeATK,AS",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "8",
+      "0.35"
+    ],
+    "InfluenceStatus": [
+      "MeleeATK",
+      "AS"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "Condition": "Equip_OneHandedSword",
+    "Condition": [
+      "Equip_OneHandedSword"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -1137,11 +1647,22 @@
     "SkillID": "Praetorian_10",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "5,0.12",
-    "InfluenceStatus": "DEF,BlockRate",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "5",
+      "0.12"
+    ],
+    "InfluenceStatus": [
+      "DEF",
+      "BlockRate"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "Condition": "Equip_Shield",
+    "Condition": [
+      "Equip_Shield"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -1155,11 +1676,23 @@
     "SkillID": "Praetorian_11",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": "7,0.45",
-    "InfluenceStatus": "DEF,Speed",
-    "AddType": "Value,Value",
+    "EffectValue": [
+      "7",
+      "0.45"
+    ],
+    "InfluenceStatus": [
+      "DEF",
+      "Speed"
+    ],
+    "AddType": [
+      "Value",
+      "Value"
+    ],
     "EffectCategory": "Buff",
-    "Condition": "Equip_LightArmor,Equip_ClothArmor",
+    "Condition": [
+      "Equip_LightArmor",
+      "Equip_ClothArmor"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -1173,11 +1706,17 @@
     "SkillID": "Praetorian_12",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "EffectCategory": "Buff",
     "EffectTarget": "Self",
-    "AdditionalEffect": "Praetorian_1",
-    "Condition": "Random_0.35",
+    "AdditionalEffect": [
+      "Praetorian_1"
+    ],
+    "Condition": [
+      "Random_0.35"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -1191,11 +1730,19 @@
     "SkillID": "Praetorian_13",
     "Characteristic": false,
     "MultipleValue": 0,
-    "EffectValue": 1.5,
-    "InfluenceStatus": "Praetorian_1+Distance",
-    "AddType": "Vlaue",
+    "EffectValue": [
+      "1.5"
+    ],
+    "InfluenceStatus": [
+      "Praetorian_1+Distance"
+    ],
+    "AddType": [
+      "Vlaue"
+    ],
     "EffectCategory": "Buff",
-    "AdditionalEffect": "MoveToTarget",
+    "AdditionalEffect": [
+      "MoveToTarget"
+    ],
     "EffectRecive": 0,
     "TargetCount": 0,
     "AdditionMode": "None",
@@ -1209,7 +1756,9 @@
     "SkillID": "Praetorian_14",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.85,
+    "EffectValue": [
+      "1.85"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Self",
     "EffectRecive": -1,
@@ -1227,12 +1776,20 @@
     "SkillID": "Praetorian_15",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.7,
+    "EffectValue": [
+      "1.7"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
-    "AdditionalEffect": "SpeedSlow",
-    "AdditionalEffectValue": 0.3,
-    "AdditionalEffectTime": 3,
+    "AdditionalEffect": [
+      "SpeedSlow"
+    ],
+    "AdditionalEffectValue": [
+      "0.3"
+    ],
+    "AdditionalEffectTime": [
+      "3"
+    ],
     "EffectRecive": -1,
     "TargetCount": 1,
     "AdditionMode": "MeleeATK",
@@ -1246,11 +1803,17 @@
     "SkillID": "Praetorian_16",
     "Characteristic": true,
     "MultipleValue": 8,
-    "EffectValue": 2.3,
+    "EffectValue": [
+      "2.3"
+    ],
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Target",
-    "AdditionalEffect": "Inhibit",
-    "AdditionalEffectTime": 1,
+    "AdditionalEffect": [
+      "Inhibit"
+    ],
+    "AdditionalEffectTime": [
+      "1"
+    ],
     "EffectRecive": 1,
     "TargetCount": 1,
     "ChantTime": 3,
@@ -1265,7 +1828,9 @@
     "SkillID": "Mage_1",
     "Characteristic": true,
     "MultipleValue": 0,
-    "EffectValue": 1.25,
+    "EffectValue": [
+      "1.25"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 8,
     "Width": 0,
@@ -1276,7 +1841,9 @@
     "Name": "水流術",
     "SkillID": "Mage_2",
     "Characteristic": true,
-    "EffectValue": 1.2,
+    "EffectValue": [
+      "1.2"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
@@ -1287,7 +1854,9 @@
     "Name": "土牢術",
     "SkillID": "Mage_3",
     "Characteristic": true,
-    "EffectValue": 1.2,
+    "EffectValue": [
+      "1.2"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
@@ -1298,7 +1867,9 @@
     "Name": "風波術",
     "SkillID": "Mage_4",
     "Characteristic": true,
-    "EffectValue": 1.2,
+    "EffectValue": [
+      "1.2"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 8,
     "Width": 8,
@@ -1309,7 +1880,9 @@
     "Name": "書上的知識",
     "SkillID": "Mage_5",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1320,7 +1893,9 @@
     "Name": "熟練法杖",
     "SkillID": "Mage_6",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1331,7 +1906,9 @@
     "Name": "祭司傳承的治癒術",
     "SkillID": "Monk_1",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 10,
     "Width": 0,
@@ -1342,7 +1919,9 @@
     "Name": "破除迷惑",
     "SkillID": "Monk_2",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 10,
     "Width": 0,
@@ -1353,7 +1932,9 @@
     "Name": "天之箭",
     "SkillID": "Monk_3",
     "Characteristic": true,
-    "EffectValue": 1.1,
+    "EffectValue": [
+      "1.1"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 8,
     "Width": 0,
@@ -1364,7 +1945,9 @@
     "Name": "神聖力量爆破",
     "SkillID": "Monk_4",
     "Characteristic": true,
-    "EffectValue": 1.12,
+    "EffectValue": [
+      "1.12"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 5,
     "Width": 0,
@@ -1375,7 +1958,9 @@
     "Name": "聖所的護身法",
     "SkillID": "Monk_5",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1386,7 +1971,9 @@
     "Name": "祭司傳承的淨化術",
     "SkillID": "Monk_6",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1397,7 +1984,9 @@
     "Name": "精通短法杖",
     "SkillID": "Monk_7",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1408,7 +1997,9 @@
     "Name": "熟練輕型盾牌",
     "SkillID": "Monk_8",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1419,7 +2010,9 @@
     "Name": "隕石術",
     "SkillID": "Wizard_1",
     "Characteristic": true,
-    "EffectValue": 1.4,
+    "EffectValue": [
+      "1.4"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
@@ -1430,7 +2023,9 @@
     "Name": "水龍捲",
     "SkillID": "Wizard_2",
     "Characteristic": true,
-    "EffectValue": 1.35,
+    "EffectValue": [
+      "1.35"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
@@ -1441,7 +2036,9 @@
     "Name": "沙塵暴",
     "SkillID": "Wizard_3",
     "Characteristic": true,
-    "EffectValue": 1.35,
+    "EffectValue": [
+      "1.35"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
@@ -1452,7 +2049,9 @@
     "Name": "振氣一擊",
     "SkillID": "Wizard_4",
     "Characteristic": true,
-    "EffectValue": 1.35,
+    "EffectValue": [
+      "1.35"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 8,
     "Width": 0,
@@ -1463,7 +2062,9 @@
     "Name": "精神昇華",
     "SkillID": "Wizard_5",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1474,7 +2075,9 @@
     "Name": "精通長法杖",
     "SkillID": "Wizard_6",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1485,7 +2088,9 @@
     "Name": "書上的智慧",
     "SkillID": "Wizard_7",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1496,7 +2101,9 @@
     "Name": "自然力加強",
     "SkillID": "Wizard_8",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1507,7 +2114,9 @@
     "Name": "正宗的治癒術",
     "SkillID": "Priest_1",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 10,
     "Width": 0,
@@ -1518,7 +2127,9 @@
     "Name": "集體治癒術",
     "SkillID": "Priest_2",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 10,
     "Width": 0,
@@ -1529,7 +2140,9 @@
     "Name": "解除迷惑",
     "SkillID": "Priest_3",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 10,
     "Width": 0,
@@ -1540,7 +2153,9 @@
     "Name": "神聖之箭",
     "SkillID": "Priest_4",
     "Characteristic": true,
-    "EffectValue": 1.25,
+    "EffectValue": [
+      "1.25"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 8,
     "Width": 0,
@@ -1551,7 +2166,9 @@
     "Name": "神聖力量爆發",
     "SkillID": "Priest_5",
     "Characteristic": true,
-    "EffectValue": 1.35,
+    "EffectValue": [
+      "1.35"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 5,
     "Width": 0,
@@ -1562,7 +2179,9 @@
     "Name": "大祭司護身法",
     "SkillID": "Priest_6",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1573,7 +2192,9 @@
     "Name": "大祭司淨化術",
     "SkillID": "Priest_7",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1584,7 +2205,9 @@
     "Name": "短法杖的奧秘",
     "SkillID": "Priest_8",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1595,7 +2218,9 @@
     "Name": "精通清型盾牌",
     "SkillID": "Priest_9",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1606,7 +2231,9 @@
     "Name": "大祭司聖結界",
     "SkillID": "Priest_10",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1617,7 +2244,9 @@
     "Name": "清算業障",
     "SkillID": "Priest_11",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 10,
     "Width": 0,
@@ -1628,7 +2257,9 @@
     "Name": "來自上天的神諭",
     "SkillID": "Priest_12",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 10,
     "Width": 0,
@@ -1639,7 +2270,9 @@
     "Name": "大祭司加持法",
     "SkillID": "Priest_13",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1650,7 +2283,9 @@
     "Name": "合格的大祭司",
     "SkillID": "Priest_14",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1661,7 +2296,9 @@
     "Name": "輪迴轉生",
     "SkillID": "Priest_15",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 5,
     "Width": 0,
@@ -1672,7 +2309,9 @@
     "Name": "告誡眾生",
     "SkillID": "Priest_16",
     "Characteristic": true,
-    "EffectValue": 0.85,
+    "EffectValue": [
+      "0.85"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 12,
     "Width": 0,
@@ -1683,7 +2322,9 @@
     "Name": "末日隕石",
     "SkillID": "Magister_1",
     "Characteristic": true,
-    "EffectValue": 1.75,
+    "EffectValue": [
+      "1.75"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
@@ -1694,7 +2335,9 @@
     "Name": "大漩渦",
     "SkillID": "Magister_2",
     "Characteristic": true,
-    "EffectValue": 1.6,
+    "EffectValue": [
+      "1.6"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
@@ -1705,7 +2348,9 @@
     "Name": "沙塵湮滅",
     "SkillID": "Magister_3",
     "Characteristic": true,
-    "EffectValue": 1.6,
+    "EffectValue": [
+      "1.6"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
@@ -1716,7 +2361,9 @@
     "Name": "死亡龍捲風",
     "SkillID": "Magister_4",
     "Characteristic": true,
-    "EffectValue": 1.6,
+    "EffectValue": [
+      "1.6"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
@@ -1727,7 +2374,9 @@
     "Name": "自然力毀滅",
     "SkillID": "Magister_5",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1738,7 +2387,9 @@
     "Name": "智慧昇華",
     "SkillID": "Magister_6",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1749,7 +2400,9 @@
     "Name": "長法杖的爆發力",
     "SkillID": "Magister_7",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1760,7 +2413,9 @@
     "Name": "魔法書的加持",
     "SkillID": "Magister_8",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1771,7 +2426,9 @@
     "Name": "寒霜地獄",
     "SkillID": "Magister_9",
     "Characteristic": true,
-    "EffectValue": 1.8,
+    "EffectValue": [
+      "1.8"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
@@ -1782,7 +2439,9 @@
     "Name": "末日烙印",
     "SkillID": "Magister_10",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 10,
     "Width": 0,
@@ -1793,7 +2452,9 @@
     "Name": "悲之詠嘆調",
     "SkillID": "Magister_11",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1804,7 +2465,9 @@
     "Name": "自然元素的加成",
     "SkillID": "Magister_12",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1815,7 +2478,9 @@
     "Name": "大地惡魔的獻祭",
     "SkillID": "Magister_13",
     "Characteristic": true,
-    "EffectValue": 1.85,
+    "EffectValue": [
+      "1.85"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
@@ -1826,7 +2491,9 @@
     "Name": "末日衝擊",
     "SkillID": "Magister_14",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 10,
     "Width": 0,
@@ -1837,7 +2504,9 @@
     "Name": "末日即將來臨",
     "SkillID": "Magister_15",
     "Characteristic": true,
-    "EffectValue": 2.45,
+    "EffectValue": [
+      "2.45"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
@@ -1848,7 +2517,9 @@
     "Name": "熟練的振氣一擊",
     "SkillID": "Prophet_1",
     "Characteristic": true,
-    "EffectValue": 1.35,
+    "EffectValue": [
+      "1.35"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 5,
     "Width": 0,
@@ -1859,7 +2530,9 @@
     "Name": "電球攻擊",
     "SkillID": "Prophet_2",
     "Characteristic": true,
-    "EffectValue": 1.35,
+    "EffectValue": [
+      "1.35"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 8,
     "Width": 0,
@@ -1870,7 +2543,9 @@
     "Name": "洞察",
     "SkillID": "Prophet_3",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1881,7 +2556,9 @@
     "Name": "風之路徑",
     "SkillID": "Prophet_4",
     "Characteristic": true,
-    "EffectValue": 1.4,
+    "EffectValue": [
+      "1.4"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 5,
     "Width": 5,
@@ -1892,7 +2569,9 @@
     "Name": "急救術",
     "SkillID": "Prophet_5",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1903,7 +2582,9 @@
     "Name": "風之祝福",
     "SkillID": "Prophet_6",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1914,7 +2595,9 @@
     "Name": "物換星移",
     "SkillID": "Prophet_7",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 5,
     "Width": 0,
@@ -1925,7 +2608,9 @@
     "Name": "心靈破壞",
     "SkillID": "Prophet_8",
     "Characteristic": true,
-    "EffectValue": 1.65,
+    "EffectValue": [
+      "1.65"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 8,
     "Width": 0,
@@ -1936,7 +2621,9 @@
     "Name": "心靈感知",
     "SkillID": "Prophet_9",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 8,
     "Width": 0,
@@ -1947,7 +2634,9 @@
     "Name": "來自未來",
     "SkillID": "Prophet_10",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1958,7 +2647,9 @@
     "Name": "心靈尖嘯",
     "SkillID": "Prophet_11",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 8,
     "Width": 0,
@@ -1969,7 +2660,9 @@
     "Name": "精通任何法杖",
     "SkillID": "Prophet_12",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -1980,7 +2673,9 @@
     "Name": "心靈毀滅",
     "SkillID": "Prophet_13",
     "Characteristic": true,
-    "EffectValue": 1.45,
+    "EffectValue": [
+      "1.45"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 8,
     "Width": 0,
@@ -1991,7 +2686,9 @@
     "Name": "心靈操縱",
     "SkillID": "Prophet_14",
     "Characteristic": true,
-    "EffectValue": 1.3,
+    "EffectValue": [
+      "1.3"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 8,
     "Width": 0,
@@ -2002,7 +2699,9 @@
     "Name": "心靈入侵",
     "SkillID": "Prophet_15",
     "Characteristic": true,
-    "EffectValue": 1.55,
+    "EffectValue": [
+      "1.55"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 7,
     "Width": 0,
@@ -2013,7 +2712,9 @@
     "Name": "未來炸彈",
     "SkillID": "Prophet_16",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 8,
     "Width": 0,
@@ -2024,7 +2725,9 @@
     "Name": "星塵暴",
     "SkillID": "Prophet_17",
     "Characteristic": true,
-    "EffectValue": 2.3,
+    "EffectValue": [
+      "2.3"
+    ],
     "AdditionMode": "MageATK",
     "Distance": 5,
     "Width": 0,
@@ -2035,7 +2738,9 @@
     "Name": "射箭術",
     "SkillID": "Archer_1",
     "Characteristic": true,
-    "EffectValue": 1.13,
+    "EffectValue": [
+      "1.13"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 10,
     "Width": 0,
@@ -2046,7 +2751,9 @@
     "Name": "連續射擊",
     "SkillID": "Archer_2",
     "Characteristic": true,
-    "EffectValue": 1.15,
+    "EffectValue": [
+      "1.15"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 10,
     "Width": 0,
@@ -2057,7 +2764,9 @@
     "Name": "三箭齊發",
     "SkillID": "Archer_3",
     "Characteristic": true,
-    "EffectValue": 1.18,
+    "EffectValue": [
+      "1.18"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 8,
     "Width": 0,
@@ -2068,7 +2777,9 @@
     "Name": "與弓隨行",
     "SkillID": "Archer_4",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2079,7 +2790,9 @@
     "Name": "輕便的衣服",
     "SkillID": "Archer_5",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2090,7 +2803,9 @@
     "Name": "長遠射擊",
     "SkillID": "Shooter_1",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2101,7 +2816,9 @@
     "Name": "精準的射箭術",
     "SkillID": "Shooter_2",
     "Characteristic": true,
-    "EffectValue": 1.25,
+    "EffectValue": [
+      "1.25"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2112,7 +2829,9 @@
     "Name": "迅速的連續射擊",
     "SkillID": "Shooter_3",
     "Characteristic": true,
-    "EffectValue": 1.3,
+    "EffectValue": [
+      "1.3"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2123,7 +2842,9 @@
     "Name": "貫穿箭",
     "SkillID": "Shooter_4",
     "Characteristic": true,
-    "EffectValue": 1.38,
+    "EffectValue": [
+      "1.38"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 9.6,
     "Width": 9.6,
@@ -2134,7 +2855,9 @@
     "Name": "漂亮的三箭齊發",
     "SkillID": "Shooter_5",
     "Characteristic": true,
-    "EffectValue": 1.3,
+    "EffectValue": [
+      "1.3"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2145,7 +2868,9 @@
     "Name": "精神力集中",
     "SkillID": "Shooter_6",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2156,7 +2881,9 @@
     "Name": "瞄準狙擊",
     "SkillID": "Shooter_7",
     "Characteristic": true,
-    "EffectValue": 1.5,
+    "EffectValue": [
+      "1.5"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2167,7 +2894,9 @@
     "Name": "精通長弓",
     "SkillID": "Shooter_8",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2178,7 +2907,9 @@
     "Name": "精通重弩",
     "SkillID": "Shooter_9",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2189,7 +2920,9 @@
     "Name": "熟練皮甲行動",
     "SkillID": "Shooter_10",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2200,7 +2933,9 @@
     "Name": "信仰法則",
     "SkillID": "Hunter_1",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2211,7 +2946,9 @@
     "Name": "獵豹信仰",
     "SkillID": "Hunter_2",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2222,7 +2959,9 @@
     "Name": "精準的射箭術",
     "SkillID": "Hunter_3",
     "Characteristic": true,
-    "EffectValue": 1.2,
+    "EffectValue": [
+      "1.2"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 10,
     "Width": 0,
@@ -2233,7 +2972,9 @@
     "Name": "狒狒信仰",
     "SkillID": "Hunter_4",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2244,7 +2985,9 @@
     "Name": "絆腳陷阱",
     "SkillID": "Hunter_5",
     "Characteristic": true,
-    "EffectValue": 1.35,
+    "EffectValue": [
+      "1.35"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2255,7 +2998,9 @@
     "Name": "捕獸夾陷阱",
     "SkillID": "Hunter_6",
     "Characteristic": true,
-    "EffectValue": 1.35,
+    "EffectValue": [
+      "1.35"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2266,7 +3011,9 @@
     "Name": "爆裂陷阱",
     "SkillID": "Hunter_7",
     "Characteristic": true,
-    "EffectValue": 1.28,
+    "EffectValue": [
+      "1.28"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2277,7 +3024,9 @@
     "Name": "雄鷹信仰",
     "SkillID": "Hunter_8",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2288,7 +3037,9 @@
     "Name": "地鼠信仰",
     "SkillID": "Hunter_9",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2299,7 +3050,9 @@
     "Name": "毒蛇信仰",
     "SkillID": "Hunter_10",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2310,7 +3063,9 @@
     "Name": "掉落陷阱",
     "SkillID": "Hunter_11",
     "Characteristic": true,
-    "EffectValue": 1.35,
+    "EffectValue": [
+      "1.35"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2321,7 +3076,9 @@
     "Name": "熟練與弓隨行",
     "SkillID": "Hunter_12",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2332,7 +3089,9 @@
     "Name": "熟練皮甲",
     "SkillID": "Hunter_13",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2343,7 +3102,9 @@
     "Name": "陷阱安裝技術",
     "SkillID": "Hunter_14",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2354,7 +3115,9 @@
     "Name": "陷阱拆除技術",
     "SkillID": "Hunter_15",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 5,
     "Width": 0,
@@ -2365,7 +3128,9 @@
     "Name": "精準彈道",
     "SkillID": "Marksman_1",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2376,7 +3141,9 @@
     "Name": "虛無的射箭術",
     "SkillID": "Marksman_2",
     "Characteristic": true,
-    "EffectValue": 1.45,
+    "EffectValue": [
+      "1.45"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
@@ -2387,7 +3154,9 @@
     "Name": "暴風雨般的連續射擊",
     "SkillID": "Marksman_3",
     "Characteristic": true,
-    "EffectValue": 1.58,
+    "EffectValue": [
+      "1.58"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
@@ -2398,7 +3167,9 @@
     "Name": "爆裂箭矢",
     "SkillID": "Marksman_4",
     "Characteristic": true,
-    "EffectValue": 1.66,
+    "EffectValue": [
+      "1.66"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 15,
@@ -2409,7 +3180,9 @@
     "Name": "箭雨",
     "SkillID": "Marksman_5",
     "Characteristic": true,
-    "EffectValue": 1.62,
+    "EffectValue": [
+      "1.62"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2420,7 +3193,9 @@
     "Name": "專注射擊",
     "SkillID": "Marksman_6",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2431,7 +3206,9 @@
     "Name": "高火力狙擊",
     "SkillID": "Marksman_7",
     "Characteristic": true,
-    "EffectValue": 1.72,
+    "EffectValue": [
+      "1.72"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
@@ -2442,7 +3219,9 @@
     "Name": "駕馭長弓之人",
     "SkillID": "Marksman_8",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2453,7 +3232,9 @@
     "Name": "駕馭重弩之人",
     "SkillID": "Marksman_9",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2464,7 +3245,9 @@
     "Name": "精通皮甲行動",
     "SkillID": "Marksman_10",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2475,7 +3258,9 @@
     "Name": "破甲箭",
     "SkillID": "Marksman_11",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2486,7 +3271,9 @@
     "Name": "弱點破擊",
     "SkillID": "Marksman_12",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2497,7 +3284,9 @@
     "Name": "屏氣凝神",
     "SkillID": "Marksman_13",
     "Characteristic": true,
-    "EffectValue": 1.75,
+    "EffectValue": [
+      "1.75"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
@@ -2508,7 +3297,9 @@
     "Name": "逃脫射擊",
     "SkillID": "Marksman_14",
     "Characteristic": true,
-    "EffectValue": 1.35,
+    "EffectValue": [
+      "1.35"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 8,
     "Width": 0,
@@ -2519,7 +3310,9 @@
     "Name": "弓弩交錯",
     "SkillID": "Marksman_15",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2530,7 +3323,9 @@
     "Name": "纏繞箭矢",
     "SkillID": "Marksman_16",
     "Characteristic": true,
-    "EffectValue": 1.8,
+    "EffectValue": [
+      "1.8"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
@@ -2541,7 +3336,9 @@
     "Name": "武力鎮壓",
     "SkillID": "Marksman_17",
     "Characteristic": true,
-    "EffectValue": 1.82,
+    "EffectValue": [
+      "1.82"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
@@ -2552,7 +3349,9 @@
     "Name": "箭神壓迫力",
     "SkillID": "Marksman_18",
     "Characteristic": true,
-    "EffectValue": 2,
+    "EffectValue": [
+      "2"
+    ],
     "AdditionMode": "None",
     "Distance": 15,
     "Width": 0,
@@ -2563,7 +3362,9 @@
     "Name": "箭神制裁力",
     "SkillID": "Marksman_19",
     "Characteristic": true,
-    "EffectValue": 2.2,
+    "EffectValue": [
+      "2.2"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
@@ -2574,7 +3375,9 @@
     "Name": "虔誠的信仰",
     "SkillID": "Chaser_1",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2585,7 +3388,9 @@
     "Name": "獵豹神信仰",
     "SkillID": "Chaser_2",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2596,7 +3401,9 @@
     "Name": "完美的射箭術",
     "SkillID": "Chaser_3",
     "Characteristic": true,
-    "EffectValue": 1.33,
+    "EffectValue": [
+      "1.33"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 10,
     "Width": 0,
@@ -2607,7 +3414,9 @@
     "Name": "狒狒王信仰",
     "SkillID": "Chaser_4",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2618,7 +3427,9 @@
     "Name": "陰險的絆腳陷阱",
     "SkillID": "Chaser_5",
     "Characteristic": true,
-    "EffectValue": 1.55,
+    "EffectValue": [
+      "1.55"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2629,7 +3440,9 @@
     "Name": "痛苦的捕獸夾陷阱",
     "SkillID": "Chaser_6",
     "Characteristic": true,
-    "EffectValue": 1.55,
+    "EffectValue": [
+      "1.55"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2640,7 +3453,9 @@
     "Name": "藝術的爆裂陷阱",
     "SkillID": "Chaser_7",
     "Characteristic": true,
-    "EffectValue": 1.4,
+    "EffectValue": [
+      "1.4"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2651,7 +3466,9 @@
     "Name": "大雄鷹信仰",
     "SkillID": "Chaser_8",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2662,7 +3479,9 @@
     "Name": "地鼠主信仰",
     "SkillID": "Chaser_9",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2673,7 +3492,9 @@
     "Name": "毒蛇魔信仰",
     "SkillID": "Chaser_10",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2684,7 +3505,9 @@
     "Name": "恐懼的掉落陷阱",
     "SkillID": "Chaser_11",
     "Characteristic": true,
-    "EffectValue": 1.58,
+    "EffectValue": [
+      "1.58"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2695,7 +3518,9 @@
     "Name": "煙霧陷阱",
     "SkillID": "Chaser_12",
     "Characteristic": true,
-    "EffectValue": 1.58,
+    "EffectValue": [
+      "1.58"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2706,7 +3531,9 @@
     "Name": "劇毒陷阱",
     "SkillID": "Chaser_13",
     "Characteristic": true,
-    "EffectValue": 1.58,
+    "EffectValue": [
+      "1.58"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2717,7 +3544,9 @@
     "Name": "連鎖反應",
     "SkillID": "Chaser_14",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 8,
     "Width": 0,
@@ -2728,7 +3557,9 @@
     "Name": "山豬神信仰",
     "SkillID": "Chaser_15",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2739,7 +3570,9 @@
     "Name": "犯罪陷阱",
     "SkillID": "Chaser_16",
     "Characteristic": true,
-    "EffectValue": 1.63,
+    "EffectValue": [
+      "1.63"
+    ],
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
@@ -2750,7 +3583,9 @@
     "Name": "虎山靈信仰",
     "SkillID": "Chaser_17",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2761,7 +3596,9 @@
     "Name": "完美的信仰者",
     "SkillID": "Chaser_18",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2772,7 +3609,9 @@
     "Name": "精通與弓隨行",
     "SkillID": "Chaser_19",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2783,7 +3622,9 @@
     "Name": "精通皮甲",
     "SkillID": "Chaser_20",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2794,7 +3635,9 @@
     "Name": "高深的陷阱安裝技術",
     "SkillID": "Chaser_21",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2805,7 +3648,9 @@
     "Name": "陷阱拆除技術",
     "SkillID": "Chaser_22",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 5,
     "Width": 0,
@@ -2816,7 +3661,9 @@
     "Name": "突刺",
     "SkillID": "Rogue_1",
     "Characteristic": true,
-    "EffectValue": 1.18,
+    "EffectValue": [
+      "1.18"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -2827,7 +3674,9 @@
     "Name": "背刺",
     "SkillID": "Rogue_2",
     "Characteristic": true,
-    "EffectValue": 1.25,
+    "EffectValue": [
+      "1.25"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -2838,7 +3687,9 @@
     "Name": "暴擊之刺",
     "SkillID": "Rogue_3",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2849,7 +3700,9 @@
     "Name": "熟練匕首",
     "SkillID": "Rogue_4",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2860,7 +3713,9 @@
     "Name": "熟練皮甲",
     "SkillID": "Rogue_5",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2871,7 +3726,9 @@
     "Name": "精通單手劍",
     "SkillID": "Ranger_1",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2882,7 +3739,9 @@
     "Name": "精通皮甲",
     "SkillID": "Ranger_2",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2893,7 +3752,9 @@
     "Name": "半月斬",
     "SkillID": "Ranger_3",
     "Characteristic": true,
-    "EffectValue": 1.35,
+    "EffectValue": [
+      "1.35"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -2904,7 +3765,9 @@
     "Name": "翻身斬",
     "SkillID": "Ranger_4",
     "Characteristic": true,
-    "EffectValue": 1.46,
+    "EffectValue": [
+      "1.46"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -2915,7 +3778,9 @@
     "Name": "圓月斬",
     "SkillID": "Ranger_5",
     "Characteristic": true,
-    "EffectValue": 1.26,
+    "EffectValue": [
+      "1.26"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
@@ -2926,7 +3791,9 @@
     "Name": "劍舞",
     "SkillID": "Ranger_6",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2937,7 +3804,9 @@
     "Name": "雙劍和壁",
     "SkillID": "Ranger_7",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2948,7 +3817,9 @@
     "Name": "螺旋斬",
     "SkillID": "Ranger_8",
     "Characteristic": true,
-    "EffectValue": 1.3,
+    "EffectValue": [
+      "1.3"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 5,
@@ -2959,7 +3830,9 @@
     "Name": "雙劍劈斬",
     "SkillID": "Ranger_9",
     "Characteristic": true,
-    "EffectValue": 1.5,
+    "EffectValue": [
+      "1.5"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -2970,7 +3843,9 @@
     "Name": "精通輕武器",
     "SkillID": "Thieves_1",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2981,7 +3856,9 @@
     "Name": "精通皮甲",
     "SkillID": "Thieves_2",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -2992,7 +3869,9 @@
     "Name": "無情背刺",
     "SkillID": "Thieves_3",
     "Characteristic": true,
-    "EffectValue": 1.4,
+    "EffectValue": [
+      "1.4"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
@@ -3003,7 +3882,9 @@
     "Name": "盜賊之道",
     "SkillID": "Thieves_4",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3014,7 +3895,9 @@
     "Name": "要害突刺",
     "SkillID": "Thieves_5",
     "Characteristic": true,
-    "EffectValue": 1.6,
+    "EffectValue": [
+      "1.6"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3025,7 +3908,9 @@
     "Name": "要害點破",
     "SkillID": "Thieves_6",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3036,7 +3921,9 @@
     "Name": "弱點刺擊",
     "SkillID": "Thieves_7",
     "Characteristic": true,
-    "EffectValue": 1.58,
+    "EffectValue": [
+      "1.58"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3047,7 +3934,9 @@
     "Name": "致命一擊",
     "SkillID": "Thieves_8",
     "Characteristic": true,
-    "EffectValue": 1.65,
+    "EffectValue": [
+      "1.65"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3058,7 +3947,9 @@
     "Name": "毒藥",
     "SkillID": "Thieves_9",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3069,7 +3960,9 @@
     "Name": "單手劍之舞",
     "SkillID": "Swashbuckler_1",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3080,7 +3973,9 @@
     "Name": "皮甲的好處",
     "SkillID": "Swashbuckler_2",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3091,7 +3986,9 @@
     "Name": "完美的半月斬",
     "SkillID": "Swashbuckler_3",
     "Characteristic": true,
-    "EffectValue": 1.4,
+    "EffectValue": [
+      "1.4"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3102,7 +3999,9 @@
     "Name": "嫻熟的翻身斬",
     "SkillID": "Swashbuckler_4",
     "Characteristic": true,
-    "EffectValue": 1.5,
+    "EffectValue": [
+      "1.5"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3113,7 +4012,9 @@
     "Name": "完美的圓月斬",
     "SkillID": "Swashbuckler_5",
     "Characteristic": true,
-    "EffectValue": 1.58,
+    "EffectValue": [
+      "1.58"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
@@ -3124,7 +4025,9 @@
     "Name": "刀光劍舞",
     "SkillID": "Swashbuckler_6",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3135,7 +4038,9 @@
     "Name": "雙劍和壁II",
     "SkillID": "Swashbuckler_7",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3146,7 +4051,9 @@
     "Name": "輕巧的螺旋斬",
     "SkillID": "Swashbuckler_8",
     "Characteristic": true,
-    "EffectValue": 1.42,
+    "EffectValue": [
+      "1.42"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 5,
@@ -3157,7 +4064,9 @@
     "Name": "無情的雙劍劈斬",
     "SkillID": "Swashbuckler_9",
     "Characteristic": true,
-    "EffectValue": 1.65,
+    "EffectValue": [
+      "1.65"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3168,7 +4077,9 @@
     "Name": "和諧劍舞",
     "SkillID": "Swashbuckler_10",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3179,7 +4090,9 @@
     "Name": "疾風劍舞",
     "SkillID": "Swashbuckler_11",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3190,7 +4103,9 @@
     "Name": "連擊",
     "SkillID": "Swashbuckler_12",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3201,7 +4116,9 @@
     "Name": "雙刀劍舞",
     "SkillID": "Swashbuckler_13",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3212,7 +4129,9 @@
     "Name": "烈日斬",
     "SkillID": "Swashbuckler_14",
     "Characteristic": true,
-    "EffectValue": 1.72,
+    "EffectValue": [
+      "1.72"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3223,7 +4142,9 @@
     "Name": "破虛斬",
     "SkillID": "Swashbuckler_15",
     "Characteristic": true,
-    "EffectValue": 1.8,
+    "EffectValue": [
+      "1.8"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3234,7 +4155,9 @@
     "Name": "始拓斬",
     "SkillID": "Swashbuckler_16",
     "Characteristic": true,
-    "EffectValue": 1.93,
+    "EffectValue": [
+      "1.93"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3245,7 +4168,9 @@
     "Name": "阿修羅劍景",
     "SkillID": "Swashbuckler_17",
     "Characteristic": true,
-    "EffectValue": 2.05,
+    "EffectValue": [
+      "2.05"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 8,
     "Width": 0,
@@ -3256,7 +4181,9 @@
     "Name": "輕武器支配者",
     "SkillID": "Assassin_1",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3267,7 +4194,9 @@
     "Name": "皮甲的好處",
     "SkillID": "Assassin_2",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3278,7 +4207,9 @@
     "Name": "殘酷背刺",
     "SkillID": "Assassin_3",
     "Characteristic": true,
-    "EffectValue": 1.62,
+    "EffectValue": [
+      "1.62"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
@@ -3289,7 +4220,9 @@
     "Name": "刺客之道",
     "SkillID": "Assassin_4",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3300,7 +4233,9 @@
     "Name": "殘忍行刑",
     "SkillID": "Assassin_5",
     "Characteristic": true,
-    "EffectValue": 1.78,
+    "EffectValue": [
+      "1.78"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3311,7 +4246,9 @@
     "Name": "精準的要害點破",
     "SkillID": "Assassin_6",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3322,7 +4259,9 @@
     "Name": "陰險的弱點刺擊",
     "SkillID": "Assassin_7",
     "Characteristic": true,
-    "EffectValue": 1.85,
+    "EffectValue": [
+      "1.85"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3333,7 +4272,9 @@
     "Name": "致命吐息",
     "SkillID": "Assassin_8",
     "Characteristic": true,
-    "EffectValue": 1.82,
+    "EffectValue": [
+      "1.82"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3344,7 +4285,9 @@
     "Name": "致命毒藥",
     "SkillID": "Assassin_9",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
@@ -3355,7 +4298,9 @@
     "Name": "噴濺鮮血",
     "SkillID": "Assassin_10",
     "Characteristic": true,
-    "EffectValue": 1.66,
+    "EffectValue": [
+      "1.66"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3366,7 +4311,9 @@
     "Name": "破壞器官",
     "SkillID": "Assassin_11",
     "Characteristic": true,
-    "EffectValue": 1.48,
+    "EffectValue": [
+      "1.48"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3377,7 +4324,9 @@
     "Name": "割喉打擊",
     "SkillID": "Assassin_12",
     "Characteristic": true,
-    "EffectValue": 1.9,
+    "EffectValue": [
+      "1.9"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
@@ -3388,7 +4337,9 @@
     "Name": "劇毒擴散",
     "SkillID": "Assassin_13",
     "Characteristic": true,
-    "EffectValue": 2.02,
+    "EffectValue": [
+      "2.02"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3399,7 +4350,9 @@
     "Name": "割斷動脈",
     "SkillID": "Assassin_14",
     "Characteristic": true,
-    "EffectValue": 2.08,
+    "EffectValue": [
+      "2.08"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
@@ -3410,7 +4363,9 @@
     "Name": "死亡印記",
     "SkillID": "Assassin_15",
     "Characteristic": true,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 5,
     "Width": 0,
@@ -3421,7 +4376,9 @@
     "Name": "割斷筋骨",
     "SkillID": "Assassin_16",
     "Characteristic": true,
-    "EffectValue": 2.1,
+    "EffectValue": [
+      "2.1"
+    ],
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
@@ -3432,7 +4389,9 @@
     "Name": "連殺",
     "SkillID": "Assassin_17",
     "Characteristic": false,
-    "EffectValue": 0,
+    "EffectValue": [
+      "0"
+    ],
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,

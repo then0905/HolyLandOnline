@@ -61,7 +61,7 @@ public class MonsterBehaviour : ActivityCharacterBase
     /// </summary>
     public void Init()
     {
-        monsterValue = GameData.MonstersDic?[MonsterName];
+        monsterValue = GameData.MonstersDataDic?[MonsterName];
         currentHp = monsterValue.HP;
 
         //測試用 執行後秒殺怪物
@@ -76,7 +76,7 @@ public class MonsterBehaviour : ActivityCharacterBase
         MonsterAnimator.SetBool("IsDead", true);
 
         //經驗值與掉落物處理
-        BootysHandling.GetBootysData(monsterValue.CodeID, transform);
+        BootysHandling.GetBootysData(monsterValue.MonsterCodeID, transform);
 
         PlayerData.Exp += monsterValue.EXP;
 

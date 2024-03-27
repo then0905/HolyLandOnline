@@ -10,8 +10,8 @@ using UnityEngine;
 public partial class GameData : MonoBehaviour
 {
     #region 資料結構
-    //掉落物字典
-    public static Dictionary<string, BootyDataModel> BootysDic = new Dictionary<string, BootyDataModel>();
+    //怪物的掉落物字典
+    public static Dictionary<string, MonsterBootyDataModel> MonsterBootysDic = new Dictionary<string, MonsterBootyDataModel>();
     //防具字典
     public static Dictionary<string, ArmorDataModel> ArmorsDic = new Dictionary<string, ArmorDataModel>();
     //技能UI版字典
@@ -22,8 +22,8 @@ public partial class GameData : MonoBehaviour
     public static Dictionary<string, WeaponDataModel> WeaponsDic = new Dictionary<string, WeaponDataModel>();
     //道具字典
     public static Dictionary<string, ItemDataModel> ItemsDic = new Dictionary<string, ItemDataModel>();
-    //怪物字典
-    public static Dictionary<string, MonsterDataModel> MonstersDic = new Dictionary<string, MonsterDataModel>();
+    //怪物資料字典
+    public static Dictionary<string, MonsterDataModel> MonstersDataDic = new Dictionary<string, MonsterDataModel>();
     //職業加成字典
     public static Dictionary<string, JobBonusDataModel> JobBonusDic = new Dictionary<string, JobBonusDataModel>();
     //種族能力值字典
@@ -39,13 +39,13 @@ public partial class GameData : MonoBehaviour
     /// </summary>
     public static void Init()
     {
-        CommonFunction.InitData(BootysDic, "Bootys", "Json");
+        CommonFunction.InitData(MonsterBootysDic, "Bootys", "Json");
         CommonFunction.InitData(ArmorsDic, "Armor", "Json");
         CommonFunction.InitData(SkillsUIDic, "SkillIntro", "Json");
         CommonFunction.InitData(SkillsDataDic, "SkillData", "Json");
         CommonFunction.InitData(WeaponsDic, "Weapon", "Json");
         CommonFunction.InitData(ItemsDic, "Item", "Json");
-        CommonFunction.InitData(MonstersDic, "Monster", "Json");
+        CommonFunction.InitData(MonstersDataDic, "Monster", "Json");
         CommonFunction.InitData(JobBonusDic, "JobBonus", "Json");
         CommonFunction.InitData(StatusFormulaDic, "StatusFormula", "Json");
         CommonFunction.InitData(ExpAndLvDic, "LvAndExp", "Json");

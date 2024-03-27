@@ -17,19 +17,28 @@ namespace JsonDataModel
 
     #region 資料結構
     /// <summary>
-    /// 掉落物資料
+    /// 怪物掉落物資料
     /// </summary>結構
-    public class BootyDataModel : IDictionaryData<string>
+    public class MonsterBootyDataModel : IDictionaryData<string>
     {
         public string Area { get; set; }            //地區
         public string AreaID { get; set; }            //地區ID
         public string Name { get; set; }            //怪物名稱
-        public string CodeID { get; set; }          //怪物流水號
+        public string MonsterCodeID { get; set; }          //怪物流水號
         public int MinCoin { get; set; }            //金幣最小值
         public int MaxCoin { get; set; }            //金幣最大值
-        public string Bootys { get; set; }            //掉落物品清單
-        public string BootysChance { get; set; }            //掉落物品機率清單
-        public string GetKey { get { return CodeID; } }
+        public List<BootyDataList> BootyList { get; set; }     //怪物所有掉落物資料
+        public string GetKey { get { return MonsterCodeID; } }
+    }
+
+    /// <summary>
+    /// 掉落物詳情資料
+    /// </summary>
+    public class BootyDataList
+    {
+        public string MonsterCodeID { get; set; }            //怪物ID
+        public string BootyID { get; set; }            //掉落物ID
+        public float DropProbability { get; set; }            //機率 小數
     }
     /// <summary>
     /// 防具資料結構
@@ -46,6 +55,7 @@ namespace JsonDataModel
         public string Type { get; set; }            // 防具類型
         public string TypeID { get; set; }            // 防具類型ID      
         public string Intro { get; set; }            // 防具介紹
+        public bool Stackability { get; set; }            // 可堆疊性
         public int DEF { get; set; }            // 防具物理防禦值
         public int Avoid { get; set; }            // 防具迴避值
         public int MDEF { get; set; }            // 防具魔法防禦值
@@ -103,15 +113,15 @@ namespace JsonDataModel
         public bool Characteristic { get; set; }                // True:主動、False:被動
         public int MultipleValue { get; set; }                  // 多段傷害的次數 次數大於1需要填
 
-        public string EffectValue { get; set; }            // 效果值 
-        public string InfluenceStatus { get; set; }       // 效果影響的屬性 (Buff)   
-        public string AddType { get; set; }               // 加成運算的方式 Rate:乘法、Value:加法   
+        public List<float> EffectValue { get; set; }            // 效果值 
+        public List<string> InfluenceStatus { get; set; }       // 效果影響的屬性 (Buff)   
+        public List<string> AddType { get; set; }               // 加成運算的方式 Rate:乘法、Value:加法   
         public string EffectCategory { get; set; }              // 標籤類型    
         public string EffectTarget { get; set; }            //特效參考目標
-        public string AdditionalEffect { get; set; }      // 額外附加效果標籤
-        public string AdditionalEffectValue { get; set; }  // 額外附加效果的值
-        public string AdditionalEffectTime { get; set; }   // 額外附加效果持續時間
-        public string Condition { get; set; }             // 執行技能需要的條件 不需要不用填 
+        public List<string> AdditionalEffect { get; set; }      // 額外附加效果標籤
+        public List<float> AdditionalEffectValue { get; set; }  // 額外附加效果的值
+        public List<float> AdditionalEffectTime { get; set; }   // 額外附加效果持續時間
+        public List<string> Condition { get; set; }             // 執行技能需要的條件 不需要不用填 
         public int EffectRecive { get; set; }
         public int TargetCount { get; set; }                    // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
         public float EffectDurationTime { get; set; }           // 效果持續時間
@@ -139,6 +149,7 @@ namespace JsonDataModel
         public string Type { get; set; }            // 武器類型
         public string TypeID { get; set; }            // 武器類型ID
         public string Intro { get; set; }            // 武器介紹
+        public bool Stackability { get; set; }            // 可堆疊性
         public string AS { get; set; }            // 武器攻擊速度
         public string ASID { get; set; }            // 武器攻擊速度(編碼用)
         public int MeleeATK { get; set; }            // 武器近距離攻擊
@@ -179,7 +190,8 @@ namespace JsonDataModel
         public string Type { get; set; }            // 道具類型
         public string TypeID { get; set; }            // 道具類型ID
         public string Intro { get; set; }            // 道具介紹
-        public string Volume { get; set; }            // 道具作用值
+        public bool Stackability { get; set; }            // 可堆疊性
+        public List<float> Volume { get; set; }            // 道具作用值
         public float CD { get; set; }            // 道具冷卻時間
         public int ActionTime { get; set; }            // 道具持續時間
         public int Price { get; set; }            // 道具在商店販賣的價格
@@ -194,7 +206,7 @@ namespace JsonDataModel
         public string Area { get; set; }            // 所在區域
         public string AreaID { get; set; }            // 所在區域
         public string Name { get; set; }            // 怪物名稱
-        public string CodeID { get; set; }            // 怪物ID
+        public string MonsterCodeID { get; set; }            // 怪物ID
         public int Lv { get; set; }            // 怪物等級
         public string Class { get; set; }            // 怪物階級
         public string ClassID { get; set; }            // 怪物階級ID
@@ -210,9 +222,9 @@ namespace JsonDataModel
         public string Habit { get; set; }            // 怪物是否被動
         public string UseSkill { get; set; }            // 怪物是否使用技能
         public string SkillEffect { get; set; }            // 怪物技能效果
-        public string SkilType { get; set; }            // 怪物技能類型
-        public string SkillVolume { get; set; }            // 怪物技能數值
-        public string SklillCD { get; set; }            // 怪物技能冷卻時間
+        public List<string> SkilType { get; set; }            // 怪物技能類型
+        public List<float> SkillVolume { get; set; }            // 怪物技能數值
+        public List<float> SklillCD { get; set; }            // 怪物技能冷卻時間
         public int ATK { get; set; }            // 怪物攻擊力
         public int DEF { get; set; }            // 怪物防禦力
         public int Crt { get; set; }            // 怪物暴擊率
@@ -220,7 +232,7 @@ namespace JsonDataModel
         public int Avoid { get; set; }            // 怪物迴避值
         public int Hit { get; set; }            // 怪物命中值
         public float AtkSpeed { get; set; }            // 怪物攻擊速度
-        public string GetKey { get { return CodeID; } }
+        public string GetKey { get { return MonsterCodeID; } }
     }
     /// <summary>
     /// 職業能力值加成

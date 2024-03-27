@@ -1,252 +1,3990 @@
 [
   {
-    "Area": "開發測試",
-    "AreaID": "Development",
+    "MonsterCodeID": "Monster_Test_0",
     "Name": "測試用巨人",
-    "CodeID": "Monster_Test_0",
+    "AreaID": "Development",
+    "Area": "開發測試",
     "MinCoin": 5,
     "MaxCoin": 10,
-    "Bootys": "訓練用單手劍:訓練用雙手劍:訓練用長杖:訓練用長弓:訓練用匕首:訓練用金屬頭盔:訓練用金屬護甲:訓練用金屬護腿:訓練用金屬護手:訓練用金屬長靴:訓練用輕便頭盔:訓練用輕便護甲:訓練用輕便護腿:訓練用輕便護手:訓練用輕便短靴:訓練用布料頭箍:訓練用布料護甲:訓練用布料護腿:訓練用布料護手:訓練用布料靴:小型生命藥劑:小型魔力藥劑:回城卷軸:皮革:不明布料",
-    "BootysChance": "5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:15:15:15:25:10"
+    "BootyList": [
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Sword_Right_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Sword_Both_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Mage_Both_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Bow_Both_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Dagger_Single_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Heavy_Head_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Heavy_Body_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Heavy_Leg_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Heavy_Arm_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Heavy_Foot_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Light_Head_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Light_Body_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Light_Leg_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Light_Arm_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Light_Foot_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Cloth_Head_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Cloth_Body_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Cloth_Leg_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Cloth_Arm_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Cloth_Foot_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Booty_007",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Test_0",
+        "BootyID": "Booty_008",
+        "DropProbability": 10
+      }
+    ]
   },
   {
-    "Area": "初始之村",
-    "AreaID": "OriginalVillage",
+    "MonsterCodeID": "Monster_Origin_0",
     "Name": "野豬",
-    "CodeID": "Monster_Origin_0",
+    "AreaID": "OriginalVillage",
+    "Area": "初始之村",
     "MinCoin": 5,
     "MaxCoin": 10,
-    "Bootys": "訓練用單手劍:訓練用雙手劍:訓練用長杖:訓練用長弓:訓練用匕首:訓練用金屬頭盔:訓練用金屬護甲:訓練用金屬護腿:訓練用金屬護手:訓練用金屬長靴:訓練用輕便頭盔:訓練用輕便護甲:訓練用輕便護腿:訓練用輕便護手:訓練用輕便短靴:訓練用布料頭箍:訓練用布料護甲:訓練用布料護腿:訓練用布料護手:訓練用布料靴:小型生命藥劑:小型魔力藥劑:回城卷軸:獸皮:獸骨",
-    "BootysChance": "5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Sword_Both_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Mage_Both_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Bow_Both_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Dagger_Single_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Heavy_Head_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Heavy_Body_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Heavy_Leg_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Heavy_Arm_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Heavy_Foot_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Light_Head_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Light_Body_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Light_Leg_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Light_Arm_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Light_Foot_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Cloth_Head_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Cloth_Body_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Cloth_Leg_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Cloth_Arm_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Cloth_Foot_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Booty_001",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Origin_0",
+        "BootyID": "Booty_002",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "初始之村",
-    "AreaID": "OriginalVillage",
+    "MonsterCodeID": "Monster_Origin_1",
     "Name": "史萊姆",
-    "CodeID": "Monster_Origin_1",
+    "AreaID": "OriginalVillage",
+    "Area": "初始之村",
     "MinCoin": 5,
     "MaxCoin": 10,
-    "Bootys": "訓練用單手劍:訓練用雙手劍:訓練用長杖:訓練用長弓:訓練用匕首:訓練用金屬頭盔:訓練用金屬護甲:訓練用金屬護腿:訓練用金屬護手:訓練用金屬長靴:訓練用輕便頭盔:訓練用輕便護甲:訓練用輕便護腿:訓練用輕便護手:訓練用輕便短靴:訓練用布料頭箍:訓練用布料護甲:訓練用布料護腿:訓練用布料護手:訓練用布料靴:小型生命藥劑:小型魔力藥劑:回城卷軸:不明黏液:魔法碎塊",
-    "BootysChance": "5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Sword_Right_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Sword_Both_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Mage_Both_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Bow_Both_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Dagger_Single_001",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Heavy_Head_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Heavy_Body_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Heavy_Leg_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Heavy_Arm_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Heavy_Foot_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Light_Head_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Light_Body_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Light_Leg_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Light_Arm_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Light_Foot_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Cloth_Head_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Cloth_Body_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Cloth_Leg_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Cloth_Arm_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Cloth_Foot_01",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Booty_003",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Origin_1",
+        "BootyID": "Booty_004",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "初始之村",
-    "AreaID": "OriginalVillage",
+    "MonsterCodeID": "Monster_Origin_2",
     "Name": "小牛怪",
-    "CodeID": "Monster_Origin_2",
+    "AreaID": "OriginalVillage",
+    "Area": "初始之村",
     "MinCoin": 5,
-    "MaxCoin": 10,
-    "Bootys": "初心者單手劍:初心者雙手劍:初心者長法杖:初心者長弓:初心者匕首:小型生命藥劑:小型魔力藥劑:回城卷軸:獸皮:獸骨",
-    "BootysChance": "5:5:5:5:5:15:15:15:25:7.5"
+    "MaxCoin": 10
   },
   {
-    "Area": "初始之村",
-    "AreaID": "OriginalVillage",
+    "MonsterCodeID": "Monster_Origin_3",
     "Name": "狼犬",
-    "CodeID": "Monster_Origin_3",
+    "AreaID": "OriginalVillage",
+    "Area": "初始之村",
     "MinCoin": 8,
     "MaxCoin": 12,
-    "Bootys": "重金屬頭盔:重金屬護甲:重金屬護腿:重金屬護手:重金屬長靴:野獸皮頭盔:野獸皮護甲:野獸皮護腿:野獸皮護手:野獸皮短靴:高質布頭盔:高質布外衣:高質布護腿:高質布護手:高質布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:獸皮:獸骨",
-    "BootysChance": "5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Heavy_Head_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Heavy_Body_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Heavy_Leg_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Heavy_Arm_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Heavy_Foot_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Light_Head_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Light_Body_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Light_Leg_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Light_Arm_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Light_Foot_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Cloth_Head_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Cloth_Body_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Cloth_Leg_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Cloth_Arm_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Cloth_Foot_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Booty_001",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Origin_3",
+        "BootyID": "Booty_002",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "初始之村",
-    "AreaID": "OriginalVillage",
+    "MonsterCodeID": "Monster_Origin_4",
     "Name": "巨型史萊姆",
-    "CodeID": "Monster_Origin_4",
+    "AreaID": "OriginalVillage",
+    "Area": "初始之村",
     "MinCoin": 50,
     "MaxCoin": 120,
-    "Bootys": "精製單手劍:精製雙手劍:精製長法杖:精製長弓:精製匕首:小型生命藥劑:小型魔力藥劑:回城卷軸:不明黏液:魔法碎塊:強化石",
-    "BootysChance": "5:5:5:5:5:15:15:15:25:7.5:0.1"
+    "BootyList": [
+      {
+        "CodeID": "Monster_Origin_4",
+        "BootyID": "Sword_Right_004",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_4",
+        "BootyID": "Sword_Both_004",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_4",
+        "BootyID": "Mage_Both_004",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_4",
+        "BootyID": "Bow_Both_004",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_4",
+        "BootyID": "Dagger_Single_004",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Origin_4",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Origin_4",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Origin_4",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Origin_4",
+        "BootyID": "Booty_003",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Origin_4",
+        "BootyID": "Booty_004",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_Origin_4",
+        "BootyID": "Enhance_01",
+        "DropProbability": 0.1
+      }
+    ]
   },
   {
-    "Area": "初始之村",
-    "AreaID": "OutskirtsOfGunnCity",
+    "MonsterCodeID": "Monster_Gunn_0",
     "Name": "小哥布林",
-    "CodeID": "Monster_Gunn_0",
+    "AreaID": "OutskirtsOfGunnCity",
+    "Area": "初始之村",
     "MinCoin": 10,
     "MaxCoin": 15,
-    "Bootys": "原始單手劍:原始雙手劍:原始長法杖:原始長弓:原始匕首:重金屬頭盔:重金屬護甲:重金屬護腿重金屬護手:重金屬長靴:野獸皮頭盔:野獸皮護甲:野獸皮護腿:野獸皮護手:野獸皮短靴:高質布頭盔:高質布外衣:高質布護腿:高質布護手:高質布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Sword_Right_003",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Sword_Both_003",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Mage_Both_003",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Bow_Both_003",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Dagger_Single_003",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Heavy_Head_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Heavy_Body_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Heavy_Leg_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Heavy_Arm_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Heavy_Foot_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Light_Head_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Light_Body_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Light_Leg_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Light_Arm_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Light_Foot_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Cloth_Head_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Cloth_Body_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Cloth_Leg_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Cloth_Arm_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Cloth_Foot_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Gunn_0",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "葛恩城郊外",
-    "AreaID": "OutskirtsOfGunnCity",
+    "MonsterCodeID": "Monster_Gunn_1",
     "Name": "牛怪",
-    "CodeID": "Monster_Gunn_1",
+    "AreaID": "OutskirtsOfGunnCity",
+    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 15,
-    "Bootys": "精製單手劍:精製雙手劍:精製長法杖:精製長弓:精製匕首:重金屬頭盔:重金屬護甲:重金屬護腿重金屬護手:重金屬長靴:野獸皮頭盔:野獸皮護甲:野獸皮護腿:野獸皮護手:野獸皮短靴:高質布頭盔:高質布外衣:高質布護腿:高質布護手:高質布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:獸皮:獸骨",
-    "BootysChance": "5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Sword_Right_003",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Sword_Both_003",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Mage_Both_003",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Bow_Both_003",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Dagger_Single_003",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Heavy_Head_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Heavy_Body_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Heavy_Leg_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Heavy_Arm_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Heavy_Foot_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Light_Head_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Light_Body_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Light_Leg_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Light_Arm_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Light_Foot_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Cloth_Head_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Cloth_Body_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Cloth_Leg_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Cloth_Arm_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Cloth_Foot_02",
+        "DropProbability": 5
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Booty_001",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Gunn_1",
+        "BootyID": "Booty_002",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "葛恩城郊外",
-    "AreaID": "OutskirtsOfGunnCity",
+    "MonsterCodeID": "Monster_Gunn_2",
     "Name": "哥布林戰士",
-    "CodeID": "Monster_Gunn_2",
+    "AreaID": "OutskirtsOfGunnCity",
+    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 20,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Gunn_2",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "葛恩城郊外",
-    "AreaID": "OutskirtsOfGunnCity",
+    "MonsterCodeID": "Monster_Gunn_3",
     "Name": "哥布林偵查兵",
-    "CodeID": "Monster_Gunn_3",
+    "AreaID": "OutskirtsOfGunnCity",
+    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 20,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Gunn_3",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "葛恩城郊外",
-    "AreaID": "OutskirtsOfGunnCity",
+    "MonsterCodeID": "Monster_Gunn_4",
     "Name": "哥布林薩滿",
-    "CodeID": "Monster_Gunn_4",
+    "AreaID": "OutskirtsOfGunnCity",
+    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 20,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Gunn_4",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "葛恩城郊外",
-    "AreaID": "OutskirtsOfGunnCity",
+    "MonsterCodeID": "Monster_Gunn_5",
     "Name": "哥布林信使",
-    "CodeID": "Monster_Gunn_5",
+    "AreaID": "OutskirtsOfGunnCity",
+    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 20,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Gunn_5",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "葛恩城郊外",
-    "AreaID": "OutskirtsOfGunnCity",
+    "MonsterCodeID": "Monster_Gunn_6",
     "Name": "哥布林狂熱者",
-    "CodeID": "Monster_Gunn_6",
-    "MinCoin": 10,
-    "MaxCoin": 20,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
-  },
-  {
-    "Area": "葛恩城郊外",
     "AreaID": "OutskirtsOfGunnCity",
-    "Name": "哥布林守護兵",
-    "CodeID": "Monster_Gunn_7",
+    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 20,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Gunn_6",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
+    "MonsterCodeID": "Monster_Gunn_7",
+    "Name": "哥布林守護兵",
+    "AreaID": "OutskirtsOfGunnCity",
     "Area": "葛恩城郊外",
-    "AreaID": "HardLaborMine",
+    "MinCoin": 10,
+    "MaxCoin": 20,
+    "BootyList": [
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_Gunn_7",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
+  },
+  {
+    "MonsterCodeID": "Monster_HardLabor_0",
     "Name": "哥布林戰士(礦洞幹部)",
-    "CodeID": "Monster_HardLabor_0",
+    "AreaID": "HardLaborMine",
+    "Area": "葛恩城郊外",
     "MinCoin": 55,
     "MaxCoin": 125,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_HardLabor_0",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "苦役礦洞",
-    "AreaID": "HardLaborMine",
+    "MonsterCodeID": "Monster_HardLabor_1",
     "Name": "哥布林偵查兵(礦洞幹部)",
-    "CodeID": "Monster_HardLabor_1",
+    "AreaID": "HardLaborMine",
+    "Area": "苦役礦洞",
     "MinCoin": 55,
     "MaxCoin": 125,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_HardLabor_1",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "苦役礦洞",
-    "AreaID": "HardLaborMine",
+    "MonsterCodeID": "Monster_HardLabor_2",
     "Name": "哥布林薩滿(礦洞幹部)",
-    "CodeID": "Monster_HardLabor_2",
+    "AreaID": "HardLaborMine",
+    "Area": "苦役礦洞",
     "MinCoin": 55,
     "MaxCoin": 125,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_HardLabor_2",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "苦役礦洞",
-    "AreaID": "HardLaborMine",
+    "MonsterCodeID": "Monster_HardLabor_3",
     "Name": "哥布林信使(礦洞幹部)",
-    "CodeID": "Monster_HardLabor_3",
+    "AreaID": "HardLaborMine",
+    "Area": "苦役礦洞",
     "MinCoin": 55,
     "MaxCoin": 125,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_HardLabor_3",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "苦役礦洞",
-    "AreaID": "HardLaborMine",
+    "MonsterCodeID": "Monster_HardLabor_4",
     "Name": "哥布林狂熱者(礦洞幹部)",
-    "CodeID": "Monster_HardLabor_4",
+    "AreaID": "HardLaborMine",
+    "Area": "苦役礦洞",
     "MinCoin": 55,
     "MaxCoin": 125,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_HardLabor_4",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "苦役礦洞",
-    "AreaID": "HardLaborMine",
+    "MonsterCodeID": "Monster_HardLabor_5",
     "Name": "哥布林守護兵(礦洞幹部)",
-    "CodeID": "Monster_HardLabor_5",
+    "AreaID": "HardLaborMine",
+    "Area": "苦役礦洞",
     "MinCoin": 55,
     "MaxCoin": 125,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_HardLabor_5",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "苦役礦洞",
-    "AreaID": "HardLaborMine",
+    "MonsterCodeID": "Monster_HardLabor_6",
     "Name": "哥布林監工(礦洞幹部)",
-    "CodeID": "Monster_HardLabor_6",
+    "AreaID": "HardLaborMine",
+    "Area": "苦役礦洞",
     "MinCoin": 70,
     "MaxCoin": 150,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_HardLabor_6",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "苦役礦洞",
-    "AreaID": "HardLaborMine",
+    "MonsterCodeID": "Monster_HardLabor_7",
     "Name": "哥布林警戒兵(礦洞幹部)",
-    "CodeID": "Monster_HardLabor_7",
+    "AreaID": "HardLaborMine",
+    "Area": "苦役礦洞",
     "MinCoin": 70,
     "MaxCoin": 150,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_HardLabor_7",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "苦役礦洞",
-    "AreaID": "HardLaborMine",
+    "MonsterCodeID": "Monster_HardLabor_8",
     "Name": "哥布林督察(礦洞幹部)",
-    "CodeID": "Monster_HardLabor_8",
+    "AreaID": "HardLaborMine",
+    "Area": "苦役礦洞",
     "MinCoin": 70,
     "MaxCoin": 150,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_HardLabor_8",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "苦役礦洞",
-    "AreaID": "HardLaborMine",
+    "MonsterCodeID": "Monster_HardLabor_9",
     "Name": "哥布林礦洞衛兵(礦洞幹部)",
-    "CodeID": "Monster_HardLabor_9",
+    "AreaID": "HardLaborMine",
+    "Area": "苦役礦洞",
     "MinCoin": 70,
     "MaxCoin": 150,
-    "Bootys": "哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲",
-    "BootysChance": "3:3:3:3:3:3:3:3:3:3:3:3:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:2.5:15:15:15:25:7.5"
+    "BootyList": [
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 3
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 2.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_HardLabor_9",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      }
+    ]
   },
   {
-    "Area": "苦役礦洞",
-    "AreaID": "HardLaborMine",
+    "MonsterCodeID": "Monster_HardLabor_10",
     "Name": "哥布林大隊長\n崔西斯(礦洞幹部)",
-    "CodeID": "Monster_HardLabor_10",
+    "AreaID": "HardLaborMine",
+    "Area": "苦役礦洞",
     "MinCoin": 300,
     "MaxCoin": 500,
-    "Bootys": "伊卡洛黃金頭盔:伊卡洛黃金鎧甲:伊卡洛黃金護腿:伊卡洛黃金護手:伊卡洛黃金長靴:崔西斯合金頭盔:崔西斯合金鎧甲:崔西斯合金護腿:崔西斯合金護手:崔西斯合金長靴:卡倫迪歐琥珀頭盔:卡倫迪歐琥珀鎧甲:卡倫迪歐琥珀護腿:卡倫迪歐琥珀護手:卡倫迪歐琥珀長靴:西拉爾疾風頭盔:西拉爾疾風護甲:西拉爾疾風脛甲:西拉爾疾風護手:西拉爾疾風跑鞋:崔西斯苦痛頭盔:崔西斯苦痛護甲:崔西斯苦痛脛甲:崔西斯苦痛護手:崔西斯苦痛短靴:洛哥尼野性頭盔:洛哥尼野性脛甲:洛哥尼野性護腿:洛哥尼野性護手:洛哥尼野性短靴:莉娜魯多奉獻頭箍:莉娜魯多奉獻外衣:莉娜魯多奉獻護腿:莉娜魯多奉獻護手:莉娜魯多奉獻長靴:崔西斯惡語頭箍:崔西斯惡語外衣:崔西斯惡語護腿:崔西斯惡語手套:崔西斯惡語長靴:卡歐斯混亂頭箍:卡歐斯混亂長袍:卡歐斯混亂長襪:卡歐斯混亂手套:卡歐斯混亂長靴:哥布林細劍:哥布林大劍:哥布林長木杖:哥布林木弓:哥布林小刀:哥布林大斧:哥布林弩弓:哥布林小木杖:哥布林木槌:哥布林巨槌:哥布林魔書:哥布林木盾:青銅頭盔:青銅護甲:青銅護腿:青銅護手:青銅長靴:精皮革頭盔:精皮革護甲:精皮革護腿:精皮革護手:精皮革短靴:蠶絲布頭箍:蠶絲布護甲:蠶絲布護腿:蠶絲布護手:蠶絲布靴:小型生命藥劑:小型魔力藥劑:回城卷軸:哥布林項鍊:哥布林指甲:強化石:高純度的強化石:高純度的祝福石:高純度的詛咒石",
-    "BootysChance": "1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:1.5:10:10:10:10:10:10:10:10:10:10:10:10:7.5:7.5:7.5:7.5:7.5:7.5:7.5:7.5:7.5:7.5:7.5:7.5:7.5:7.5:7.5:15:15:15:25:7.5:10:1:0.01:1"
+    "BootyList": [
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Head_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Body_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Leg_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Arm_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Foot_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Head_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Body_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Leg_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Arm_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Foot_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Head_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Body_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Leg_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Arm_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Foot_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Head_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Body_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Leg_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Arm_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Foot_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Head_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Body_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Leg_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Arm_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Foot_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Head_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Body_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Leg_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Arm_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Foot_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Head_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Body_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Leg_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Arm_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Foot_04",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Head_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Body_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Leg_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Arm_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Foot_05",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Head_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Body_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Leg_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Arm_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Foot_06",
+        "DropProbability": 1.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Sword_Right_005",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Sword_Both_005",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Mage_Both_005",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Bow_Both_005",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Dagger_Single_005",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Axe_Both_005",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Crossbow_Both_005",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Stick_Right_005",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Hammer_Right_005",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "GiantMallet_Both_005",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Book_Left_005",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Shield_Left_005",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Head_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Body_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Leg_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Arm_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Heavy_Foot_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Head_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Body_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Leg_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Arm_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Light_Foot_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Head_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Body_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Leg_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Arm_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Cloth_Foot_03",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Booty_005",
+        "DropProbability": 25
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Booty_006",
+        "DropProbability": 7.5
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Enhance_01",
+        "DropProbability": 10
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Enhance_02",
+        "DropProbability": 1
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Enhance_03",
+        "DropProbability": 0.01
+      },
+      {
+        "CodeID": "Monster_HardLabor_10",
+        "BootyID": "Enhance_04",
+        "DropProbability": 1
+      }
+    ]
   }
 ]

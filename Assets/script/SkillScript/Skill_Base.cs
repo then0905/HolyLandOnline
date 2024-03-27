@@ -106,7 +106,7 @@ public abstract class Skill_Base : MonoBehaviour
         var effectData = GameData.SkillsDataDic[skillName];
 
         //轉換List
-        TranslateListData(effectData);
+        //TranslateListData(effectData);
         //設定其他資料
         characteristic = effectData.Characteristic;
         multipleValue = effectData.MultipleValue;
@@ -120,8 +120,12 @@ public abstract class Skill_Base : MonoBehaviour
         width = effectData.Width;
         height = effectData.Height;
         circleDistance = effectData.CircleDistance;
-
-
+        effectValue = effectData.EffectValue;
+        addType = effectData.AddType;
+        influenceStatus = effectData.InfluenceStatus;
+        additionalEffect = effectData.AdditionalEffect;
+        additionalEffectValue = effectData.AdditionalEffectValue;
+        additionalEffectTime = effectData.AdditionalEffectTime;
         //扣除消耗魔力
         PlayerValueManager.Instance.ChangeMpEvent?.Invoke(costMaga * -1);
 
@@ -131,33 +135,17 @@ public abstract class Skill_Base : MonoBehaviour
         //設定生成特效參考
         if (effectObj != null) InitSkillEffect(effectData.EffectTarget);
     }
-    /// <summary>
-    /// 轉換資料 To List
-    /// </summary>
-    /// <param name="skillData"></param>
-    protected void TranslateListData(JsonDataModel.SkillDataModel skillData)
-    {
-        effectValue = skillData.EffectValue.SetFloatList();
-        addType = skillData.AddType.SetStringList();
-        influenceStatus = skillData.InfluenceStatus.SetStringList();
-        additionalEffect = skillData.AdditionalEffect.SetStringList();
-        additionalEffectValue = skillData.AdditionalEffectValue.SetFloatList();
-        additionalEffectTime = skillData.AdditionalEffectTime.SetFloatList();
-        //condition = skillData.Condition.SetStringList();
-        SplitConditionData(skillData.Condition);
-    }
 
     /// <summary>
     /// 分割並輸入條件資料
     /// </summary>
     /// <param name="conditionID"></param>
-    private void SplitConditionData(string conditionID)
+    private void SplitConditionData(List<string> conditionID)
     {
-        if (string.IsNullOrEmpty(conditionID)) return;
-        List<string> tempData = conditionID.SetStringList();
+        if (conditionID == null) return;
         List<string> tempValue = new List<string>();
         string tempKey = "";
-        foreach (string item in tempData)
+        foreach (string item in conditionID)
         {
             //分割出條件(key)與判斷值(value)
             var splitData = item.Split('_');
@@ -285,8 +273,6 @@ public abstract class Skill_Base : MonoBehaviour
     {
         //獲取GameData技能資料
         var effectData = GameData.SkillsDataDic[skillUpgradeID];
-        //轉換List
-        TranslateListData(effectData);
         //設定其他資料
         //characteristic = effectData.Characteristic;
         multipleValue = effectData.MultipleValue;
@@ -300,6 +286,12 @@ public abstract class Skill_Base : MonoBehaviour
         width = effectData.Width;
         height = effectData.Height;
         circleDistance = effectData.CircleDistance;
+        effectValue = effectData.EffectValue;
+        addType = effectData.AddType;
+        influenceStatus = effectData.InfluenceStatus;
+        additionalEffect = effectData.AdditionalEffect;
+        additionalEffectValue = effectData.AdditionalEffectValue;
+        additionalEffectTime = effectData.AdditionalEffectTime;
         //升級資訊完成 執行程式
         skillBeUpgrade = false;
         SkillEffectStart();
