@@ -39,6 +39,9 @@ namespace JsonDataModel
         public string MonsterCodeID { get; set; }            //怪物ID
         public string BootyID { get; set; }            //掉落物ID
         public float DropProbability { get; set; }            //機率 小數
+
+        public int DropCountMax { get; set; }       //掉落數量最大值
+        public int DropCountMin { get; set; }       //掉落數量最小值
     }
     /// <summary>
     /// 防具資料結構
@@ -196,7 +199,7 @@ namespace JsonDataModel
         public int ActionTime { get; set; }            // 道具持續時間
         public int Price { get; set; }            // 道具在商店販賣的價格
         public int Redeem { get; set; }            // 道具賣給商店的價格
-        public string GetKey { get { return Name; } }
+        public string GetKey { get { return CodeId; } }
     }
     /// <summary>
     /// 怪物資料

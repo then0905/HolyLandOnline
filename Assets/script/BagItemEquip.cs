@@ -39,6 +39,7 @@ public class BagItemEquip : MonoBehaviour
     {
         PointerEventData data = baseEventData as PointerEventData;
         Bagsitemintro.OnClick(BagWindowTransform.GetComponent<RectTransform>(), data);
+        //Bagsitemintro.BagItemOnClickEvent.Invoke(this, data);
     }
 
     /// <summary>
@@ -206,8 +207,8 @@ public class BagItemEquip : MonoBehaviour
                 if (OriginItemSeat.tag == "Equip")
                 {
                     //若是空格的情況 直接更換
-                    if (MovingItem.GetComponent<Equipment>().EquipmentDatas.Armor == null&&
-                        MovingItem.GetComponent<Equipment>().EquipmentDatas.Weapon == null&&
+                    if (MovingItem.GetComponent<Equipment>().EquipmentDatas.Armor == null &&
+                        MovingItem.GetComponent<Equipment>().EquipmentDatas.Weapon == null &&
                         MovingItem.GetComponent<Equipment>().EquipmentDatas.Item == null)
                     {
                         MovingItem.GetComponent<Equipment>().EquipImage.sprite = cloneItem.GetComponent<Equipment>().EquipImage.sprite;
@@ -356,7 +357,7 @@ public class BagItemEquip : MonoBehaviour
                 Armor = cloneItem.GetComponent<Equipment>().EquipmentDatas.Armor,
                 Item = cloneItem.GetComponent<Equipment>().EquipmentDatas.Item
             };
-            
+
             //OriginItemSeat.GetComponent<Image>().sprite = BagItemOriginImage;
             //設定目標裝備欄圖片
             Equip.GetComponent<Equipment>().EquipImage.sprite = cloneItem.GetComponent<Equipment>().EquipImage.sprite;

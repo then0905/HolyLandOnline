@@ -13,41 +13,40 @@ using System.Threading;
 public class MonsterBehaviour : ActivityCharacterBase
 {
     //取得動畫
-    [SerializeField]private Animator MonsterAnimator;
+    [SerializeField] private Animator MonsterAnimator;
 
     public GameObject MonsterNameUI;
 
     protected int currentHp;
-    public int CurrentHp {
-        get {return currentHp; }
+    public int CurrentHp
+    {
+        get { return currentHp; }
         set
         {
-            if (value <= 0) 
+            if (value <= 0)
             {
                 value = 0;
                 StartCoroutine(DeadBehaviourAsync());
             }
-                currentHp = value;
+            currentHp = value;
 
             //若當前選擇的目標是此怪物 更新狀態
-            if(SelectTarget.Instance.Targetgameobject == this)
+            if (SelectTarget.Instance.Targetgameobject == this)
             {
                 SetTargetInformation(this);
             }
         }
     }
-    public BootysHandle BootysHandling;
-    public SelectTarget SelectTarget_;
 
     //
     public string MonsterName;
     //
     private MonsterDataModel monsterValue;
-    public MonsterDataModel MonsterValue 
+    public MonsterDataModel MonsterValue
     {
         get
         {
-                return monsterValue;
+            return monsterValue;
         }
     }
 
@@ -76,7 +75,7 @@ public class MonsterBehaviour : ActivityCharacterBase
         MonsterAnimator.SetBool("IsDead", true);
 
         //經驗值與掉落物處理
-        BootysHandling.GetBootysData(monsterValue.MonsterCodeID, transform);
+        BootysHandle.Instance.GetBootysData(monsterValue.MonsterCodeID, transform);
 
         PlayerData.Exp += monsterValue.EXP;
 
@@ -84,9 +83,10 @@ public class MonsterBehaviour : ActivityCharacterBase
         yield return new WaitForSeconds(3);
 
         //清除物件 清除鎖定目標避免空UI
-        SelectTarget_.CatchTarget = false;
-        Destroy(this.gameObject);
+        SelectTarget.Instance.CatchTarget = false;
 
+        if (this.gameObject != null)
+            Destroy(this.gameObject);
     }
 
     /// <summary>
@@ -98,8 +98,9 @@ public class MonsterBehaviour : ActivityCharacterBase
         yield return new WaitForSeconds(0.5f);
         CurrentHp = 0;
     }
+
     private void Update()
-    { 
+    {
         //每幀刷新 讓怪物身上的UI面對玩家
         MonsterNameUI.transform.LookAt(MonsterNameUI.transform.position + Camera.main.transform.rotation * Vector3.forward,
 Camera.main.transform.rotation * Vector3.up);

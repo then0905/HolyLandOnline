@@ -12,10 +12,26 @@ using JsonDataModel;
 
 public class BootysHandle : MonoBehaviour
 {
+    #region 全域靜態變數
+
+    private static BootysHandle instance;
+    public static BootysHandle Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<BootysHandle>();
+            }
+            return instance;
+        }
+    }
+
+    #endregion
     protected int Coin;            //金幣量
     public GameObject BootyCoin;        //金幣物件
     public GameObject BootyItem;        //掉落物物件
-    BootysPresent bootyItem;        //紀錄生成的掉落物
+    private BootysPresent bootyItem;        //紀錄生成的掉落物
 
     /// <summary>
     /// 取得掉落物資料
@@ -73,14 +89,17 @@ public class BootysHandle : MonoBehaviour
 
         foreach (var booty in bootys)
         {
+            var tempBootyListData = bootysData.BootyList[booty];
             //生成掉落物
             bootyItem = Instantiate(BootyItem, RandomTransform(monsterTransform), transform.rotation).GetComponent<BootysPresent>();
             //從資料庫抓出防具資料 或是空值
-            bootyItem.EquipmentDatas.Armor = GameData.ArmorsDic.Where(x => x.Key.Contains(bootysData.BootyList[booty].BootyID)).FirstOrDefault().Value;
+            bootyItem.EquipmentDatas.Armor = GameData.ArmorsDic.Where(x => x.Key.Contains(tempBootyListData.BootyID)).FirstOrDefault().Value;
             //從資料庫抓出武器資料 或是空值
-            bootyItem.EquipmentDatas.Weapon = GameData.WeaponsDic.Where(x => x.Key.Contains(bootysData.BootyList[booty].BootyID)).FirstOrDefault().Value;
+            bootyItem.EquipmentDatas.Weapon = GameData.WeaponsDic.Where(x => x.Key.Contains(tempBootyListData.BootyID)).FirstOrDefault().Value;
             //從資料庫抓出道具資料 或是空值
-            bootyItem.EquipmentDatas.Item = GameData.ItemsDic.Where(x => x.Key.Contains(bootysData.BootyList[booty].BootyID)).FirstOrDefault().Value;
+            bootyItem.EquipmentDatas.Item = GameData.ItemsDic.Where(x => x.Key.Contains(tempBootyListData.BootyID)).FirstOrDefault().Value;
+            //取得掉落數量
+            bootyItem.Qty = UnityEngine.Random.Range(tempBootyListData.DropCountMin,tempBootyListData.DropCountMax);
         }
     }
 }

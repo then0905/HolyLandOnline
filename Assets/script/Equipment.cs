@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using JsonDataModel;
 using System;
+using TMPro;
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/06/07
@@ -11,6 +12,27 @@ public class Equipment : MonoBehaviour
 {
     [Header("需更換的圖片UI")]
     public Image EquipImage;
+
+    [Header("物品數量")]
+    //文字UI
+    [SerializeField] private TextMeshProUGUI equipQty;
+    /// <summary>
+    /// 紀錄物品數量資料
+    /// </summary>
+    public int Qty
+    {
+        get
+        {
+            return int.Parse(equipQty.text);
+        }
+        set
+        {
+            equipQty.text = value.ToString();
+            equipQty.gameObject.SetActive(!value.Equals(0));
+            equipQty.raycastTarget = false;
+        }
+    }
+
     [Header("物品資料"), SerializeField]
     public EquipmentData EquipmentDatas;
 

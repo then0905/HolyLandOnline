@@ -10,4 +10,5 @@ using UnityEngine;
 public static class GameConfig
 {
    public const string SkillIcon = "Skill/Icon";
+   public const string Monster = "Monster";
 }

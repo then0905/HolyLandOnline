@@ -94,7 +94,6 @@ GameObject:
   - component: {fileID: 5542567450074965037}
   - component: {fileID: 5431797205736424388}
   - component: {fileID: 5431797205736424411}
-  - component: {fileID: 5431797205736424410}
   - component: {fileID: -4594004164901412532}
   m_Layer: 9
   m_Name: Item
@@ -148,19 +147,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5431797205736424410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5161396848974118551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b47041b248e2c744a2d8a6f55ee709b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EquipImage: {fileID: 0}
 --- !u!114 &-4594004164901412532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,4 +161,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisEquipmentImage: {fileID: 397960310, guid: 67ebd0f71ce79084da7ad5dde6bb070e,
     type: 3}
+  Qty: 0
   Coins: 0

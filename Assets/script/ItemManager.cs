@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using JsonDataModel;
+using System.Linq;
+using System.Net.Http.Headers;
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/06/07
@@ -68,6 +70,8 @@ public class ItemManager : MonoBehaviour
                 item.EquipImage.sprite = ItemImage;
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Armor = armorvaule;
+                //設定堆疊數量資料
+                item.Qty = 0;
                 Instantiate(CommonFunction.MessageHint(("獲得" + armorvaule.Name), HintType.NormalItem));
                 return;
             }
@@ -94,6 +98,8 @@ public class ItemManager : MonoBehaviour
                 item.EquipImage.sprite = ItemImage;
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Weapon = weaponvaule;
+                //設定物品堆疊資料
+                item.Qty = 0;
                 Instantiate(CommonFunction.MessageHint(("獲得" + weaponvaule.Name), HintType.NormalItem));
                 return;
             }
@@ -107,8 +113,19 @@ public class ItemManager : MonoBehaviour
     /// </summary>
     /// <param name="ItemImage">物品圖片</param>
     /// <param name="itemvaule">道具資料</param>
-    public void PickUp(Sprite ItemImage, ItemDataModel itemvaule)
+    public void PickUp(Sprite ItemImage, ItemDataModel itemvaule, int qty = 1)
     {
+        //檢查包包是否有物品與撿起物品一樣並且可以堆疊
+        if (itemvaule.Stackability)
+        {
+             var getSameData = BagItems.Where(x => x.EquipmentDatas.Item?.CodeId == itemvaule.CodeId).FirstOrDefault();
+            if (getSameData != null)
+            {
+                getSameData.Qty += qty;
+                return;
+            }
+        }
+
         foreach (var item in BagItems)
         {
             //檢查該格是否有空位
@@ -120,8 +137,13 @@ public class ItemManager : MonoBehaviour
                 item.EquipImage.sprite = ItemImage;
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Item = itemvaule;
-                Instantiate(CommonFunction.MessageHint(("獲得" + itemvaule.Name),HintType.NormalItem));
+                item.Qty = qty;
+                Instantiate(CommonFunction.MessageHint(("獲得" + itemvaule.Name), HintType.NormalItem));
                 return;
+            }
+            else if (item.EquipmentDatas.Item?.CodeId == itemvaule.CodeId)
+            {
+                item.Qty += qty;
             }
             else
                 continue;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static Equipment;
 
@@ -12,8 +13,12 @@ public class BootysPresent : MonoBehaviour
 {
     [Header("物品圖片")]
     public Sprite ThisEquipmentImage;
+    [Header("物品數量")]
+    //紀錄物品數量
+    public int Qty;
     [Header("物品資料"), SerializeField]
     public EquipmentData EquipmentDatas;
+
     [Header("金幣量")]
     public int Coins;
 
@@ -28,7 +33,7 @@ public class BootysPresent : MonoBehaviour
         else if (EquipmentDatas.Armor != null)
             ItemManager.Instance.PickUp(ThisEquipmentImage, EquipmentDatas.Armor);
         else if (EquipmentDatas.Item != null)
-            ItemManager.Instance.PickUp(ThisEquipmentImage, EquipmentDatas.Item);
+            ItemManager.Instance.PickUp(ThisEquipmentImage, EquipmentDatas.Item, Qty);
         else if (!Coins.Equals(0))
             ItemManager.Instance.PickUp(Coins);
         //撿起物品後清除

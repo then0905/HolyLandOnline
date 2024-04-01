@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 using System;
+using System.ComponentModel;
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/06/10
@@ -12,6 +13,8 @@ using System;
 //==========================================
 public class BagsItemIntro : MonoBehaviour
 {
+    public EventHandler<PointerEventData> BagItemOnClickEvent;
+
     //顯示資料
     protected IntroData IntroDataClass;
 
@@ -247,9 +250,10 @@ public class BagsItemIntro : MonoBehaviour
     /// </summary>
     private void AddItemVaule()
     {
-        Value.text = "作用值:" + introItem.EquipmentDatas.Item.Volume + "\n"
-               + "冷卻時間:" + introItem.EquipmentDatas.Item.CD + "\n"
-               + "持續時間:" + introItem.EquipmentDatas.Item.ActionTime + "\n";
+        var itemData = introItem.EquipmentDatas.Item;
+        Value.text = "作用值:" + (itemData.Volume.Count > 0 ? itemData.Volume[0] + "~" + itemData.Volume[itemData.Volume.Count - 1] : itemData.Volume[0]) + "\n"
+               + "冷卻時間:" + itemData.CD + "\n"
+               + "持續時間:" + itemData.ActionTime + "\n";
     }
     #endregion
 }
