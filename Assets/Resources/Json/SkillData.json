@@ -802,7 +802,7 @@
     "EffectCategory": "MeleeATK",
     "EffectTarget": "Self",
     "AdditionalEffect": [
-      "Repulse"
+      "Repel "
     ],
     "AdditionalEffectValue": [
       "1.5"

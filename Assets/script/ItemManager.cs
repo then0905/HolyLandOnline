@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using JsonDataModel;
 using System.Linq;
-using System.Net.Http.Headers;
+
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/06/07

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
-using JsonDataModel;
+
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/05/10
 //  創建用途:  技能視窗生成技能
 //==========================================
+
 public class ClassAndSkill : MonoBehaviour
 {
 

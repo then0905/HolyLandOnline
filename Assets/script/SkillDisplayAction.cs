@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using System;
-using JsonDataModel;
 
 //==========================================
 //  創建者:    家豪

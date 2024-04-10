@@ -67,9 +67,9 @@ public class StatusOperation : MonoBehaviour
     protected TempBasalStatus tempEffectStatus = new TempBasalStatus();
 
     //武器資料清單
-    private List<JsonDataModel.WeaponDataModel> weaponList = new List<JsonDataModel.WeaponDataModel>();
+    private List<WeaponDataModel> weaponList = new List<WeaponDataModel>();
     //防具資料清單
-    private List<JsonDataModel.ArmorDataModel> armorList = new List<JsonDataModel.ArmorDataModel>();
+    private List<ArmorDataModel> armorList = new List<ArmorDataModel>();
     /// <summary>
     /// 初始化訂閱事件內容
     /// </summary>
@@ -126,14 +126,14 @@ public class StatusOperation : MonoBehaviour
     private void ClassStatus()
     {
         //武器清單
-        weaponList = new List<JsonDataModel.WeaponDataModel>();
+        weaponList = new List<WeaponDataModel>();
         foreach (var item in ItemManager.Instance.EquipDataList)
         {
             if (item.EquipmentDatas.Weapon != null)
                 weaponList.Add(item.EquipmentDatas.Weapon);
         }
         //防具清單
-        armorList = new List<JsonDataModel.ArmorDataModel>();
+        armorList = new List<ArmorDataModel>();
         foreach (var item in ItemManager.Instance.EquipDataList)
         {
             if (item.EquipmentDatas.Armor != null)

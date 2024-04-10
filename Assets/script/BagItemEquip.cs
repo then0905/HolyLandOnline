@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using JsonDataModel;
+
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/06/07
 //  創建用途:  背包物品的 裝備與拖曳
 //==========================================
+
 public class BagItemEquip : MonoBehaviour
 {
     //生成預製物

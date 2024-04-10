@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using JsonDataModel;
 using System;
+
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/05/10
 //  創建用途:  戰鬥計算
 //==========================================
+
 public class BattleOperation : MonoBehaviour
 {
 
