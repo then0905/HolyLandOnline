@@ -17,7 +17,7 @@ public class MonsterManager : MonoBehaviour
     public void TestMethod_AddMonster(string monsterName)
     {
         GameObject monsterObj = CommonFunction.LoadObject<GameObject>(GameConfig.Monster, monsterName);
-        Vector3 targetPos = new Vector3(Character_move.Instance.transform.position.x + 5, 3f, Character_move.Instance.transform.position.z + 5);
+        Vector3 targetPos = new Vector3(PlayerDataOverView.Instance.CharacterMove.transform.position.x + 5, 3f, PlayerDataOverView.Instance.CharacterMove.transform.position.z + 5);
         Instantiate(monsterObj, targetPos, monsterObj.transform.rotation);
     }
 }

@@ -71,7 +71,7 @@ public class ItemManager : MonoBehaviour
                 item.GetComponent<Equipment>().EquipmentDatas.Armor = armorvaule;
                 //設定堆疊數量資料
                 item.Qty = 0;
-                Instantiate(CommonFunction.MessageHint(("獲得" + armorvaule.Name), HintType.NormalItem));
+                CommonFunction.MessageHint(("獲得" + armorvaule.Name), HintType.NormalItem);
                 return;
             }
             else
@@ -99,7 +99,7 @@ public class ItemManager : MonoBehaviour
                 item.GetComponent<Equipment>().EquipmentDatas.Weapon = weaponvaule;
                 //設定物品堆疊資料
                 item.Qty = 0;
-                Instantiate(CommonFunction.MessageHint(("獲得" + weaponvaule.Name), HintType.NormalItem));
+                CommonFunction.MessageHint(("獲得" + weaponvaule.Name), HintType.NormalItem);
                 return;
             }
             else
@@ -137,7 +137,7 @@ public class ItemManager : MonoBehaviour
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Item = itemvaule;
                 item.Qty = qty;
-                Instantiate(CommonFunction.MessageHint(("獲得" + itemvaule.Name), HintType.NormalItem));
+                CommonFunction.MessageHint(("獲得" + itemvaule.Name), HintType.NormalItem);
                 return;
             }
             else if (item.EquipmentDatas.Item?.CodeId == itemvaule.CodeId)
@@ -155,8 +155,8 @@ public class ItemManager : MonoBehaviour
     /// <param name="coin"></param>
     public void PickUp(int coin)
     {
-        PlayerData.Coin += int.Parse(coin.ToString());
-        CoinText.text = PlayerData.Coin.ToString();
-        Instantiate(CommonFunction.MessageHint(("獲得" + coin.ToString() + "金幣"), HintType.NormalItem));
+        PlayerDataOverView.Instance.PlayerData_.Coin += int.Parse(coin.ToString());
+        CoinText.text = PlayerDataOverView.Instance.PlayerData_.Coin.ToString();
+        CommonFunction.MessageHint(("獲得" + coin.ToString() + "金幣"), HintType.NormalItem);
     }
 }

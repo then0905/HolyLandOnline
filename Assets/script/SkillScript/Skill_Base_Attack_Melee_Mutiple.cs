@@ -14,11 +14,11 @@ public class Skill_Base_Attack_Melee_Mutiple : Skill_Base_Attack
     /// </summary>
     public readonly AttackCategory AttackType = AttackCategory.MeleeATK;
 
-    protected override void SkillEffectStart()
+    protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defenfer = null)
     {
         //CheckGetAnyTarget(AttackType);
         SkillDisplayAction.Instance.SkillArrowImage.GetComponent<ArrowHit>().SetSkillSize(this, skillName);
-        Character_move.Instance.CharacterAnimator.SetTrigger(skillName);
+        PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetTrigger(skillName);
     }
     protected override void SkillEffectEnd()
     {

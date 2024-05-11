@@ -109,12 +109,12 @@ public class SkillDisplayAction : MonoBehaviour
 
     private void OnEnable()
     {
-        Character_move.Instance.ControlCharacterEvent += StopSkillChasingTarge;
+        PlayerDataOverView.Instance.CharacterMove.ControlCharacterEvent += StopSkillChasingTarge;
     }
 
     private void OnDisable()
     {
-        Character_move.Instance.ControlCharacterEvent -= StopSkillChasingTarge;
+        PlayerDataOverView.Instance.CharacterMove.ControlCharacterEvent -= StopSkillChasingTarge;
 
     }
 
@@ -215,19 +215,19 @@ public class SkillDisplayAction : MonoBehaviour
 
             //判斷是否魔力足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
 
-            if (PlayerData.MP - skillUIData.CastMage < 0)
+            if (PlayerDataOverView.Instance.PlayerData_.MP - skillUIData.CastMage < 0)
             {
-                Instantiate(CommonFunction.MessageHint("魔力不足...", HintType.Warning));
+                CommonFunction.MessageHint("魔力不足...", HintType.Warning);
                 return;
             }
             if (Skillinformation.CDR[keyIndex] < Skillinformation.CDsec[keyIndex])
             {
-                Instantiate(CommonFunction.MessageHint("該技能冷卻時間未完成!", HintType.Warning));
+                CommonFunction.MessageHint("該技能冷卻時間未完成!", HintType.Warning);
                 return;
             }
             if (UsingSkill)
             {
-                Instantiate(CommonFunction.MessageHint("當前有技能正在使用中!", HintType.Warning));
+                CommonFunction.MessageHint("當前有技能正在使用中!", HintType.Warning);
                 return;
             }
 
@@ -277,7 +277,7 @@ public class SkillDisplayAction : MonoBehaviour
     private float DistanceWithTarget()
     {
         if (SelectTarget.Instance.CatchTarget)
-            dis = Vector3.Distance(SelectTarget.Instance.Targetgameobject.Povit.position, Character_move.Instance.CharacterFather.transform.position);
+            dis = Vector3.Distance(SelectTarget.Instance.Targetgameobject.Povit.position, PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position);
         else
             return 0;
         return dis;
@@ -389,16 +389,19 @@ public class SkillDisplayAction : MonoBehaviour
         string queryResule =
         GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(skillUIData.Name)).Select(x => x.Value.SkillID).FirstOrDefault();
         GameObject effectObj = CommonFunction.LoadObject<GameObject>("SkillPrefab", "SkillEffect_" + queryResule);
+
         //生成技能效果物件
         UsingSkillObj = Instantiate(effectObj);
         //初始化技能效果物件
-        UsingSkillObj.GetComponent<Skill_Base>().InitSkillEffectData(skillUIData.CastMage, UpgradeSkillID != "");
+        UsingSkillObj.GetComponent<Skill_Base>().InitSkillEffectData(skillUIData.CastMage, UpgradeSkillID != "",
+            PlayerDataOverView.Instance, SelectTarget.Instance.TargetInformation.GetComponent<ICombatant>());
+
         //若技能效果為升級版 執行升級效果
         if (UpgradeSkillID != "")
-            UsingSkillObj.GetComponent<Skill_Base>().GetSkillUpgradeEffect(UpgradeSkillID);
+            UsingSkillObj.GetComponent<Skill_Base>().GetSkillUpgradeEffect(UpgradeSkillID, PlayerDataOverView.Instance, SelectTarget.Instance.TargetInformation.GetComponent<ICombatant>());
         //技能進入冷卻 併計時
         StartCoroutine(ProcessorSkillCoolDown(skillUIData));
-        //if (PlayerData.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
+        //if (PlayerDataOverView.Instance.PlayerData_.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
         //{
         //    //關閉所有畫布
         //    SkillArrowImage.GetComponent<Image>().enabled = false;
@@ -407,7 +410,7 @@ public class SkillDisplayAction : MonoBehaviour
         //    SkillConeImage.GetComponent<Image>().enabled = false;
 
         //    //扣除魔力
-        //    PlayerData.MP -= skillUIData.CastMage;
+        //    PlayerDataOverView.Instance.PlayerData_.MP -= skillUIData.CastMage;
         //    //技能進入冷卻並執行讀秒
         //    Skillinformation.CDR[keyIndex] = 0;
         //    SkillCD(keyIndex);
@@ -425,7 +428,7 @@ public class SkillDisplayAction : MonoBehaviour
     //public void ManaCost(SkillDataModel skillData, SkillUIModel skillUIData)
     //{
     //    //判斷是否魔力足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
-    //    if (PlayerData.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
+    //    if (PlayerDataOverView.Instance.PlayerData_.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
     //    {
     //        //關閉所有畫布
     //        SkillArrowImage.GetComponent<Image>().enabled = false;
@@ -434,7 +437,7 @@ public class SkillDisplayAction : MonoBehaviour
     //        SkillConeImage.GetComponent<Image>().enabled = false;
 
     //        //扣除魔力
-    //        PlayerData.MP -= skillUIData.CastMage;
+    //        PlayerDataOverView.Instance.PlayerData_.MP -= skillUIData.CastMage;
     //        //技能進入冷卻並執行讀秒
     //        Skillinformation.CDR[keyIndex] = 0;
     //        SkillCD(keyIndex);
@@ -482,33 +485,33 @@ public class SkillDisplayAction : MonoBehaviour
     {
         DistanceWithTarget();
         //是否有在使用的技能 是否魔力足夠 以及 該技能冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能) 
-        if (!UsingSkill && PlayerData.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
+        if (!UsingSkill && PlayerDataOverView.Instance.PlayerData_.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
         {
             UsingSkill = true;
-            Character_move.Instance.AutoNavToTarget = true;
+            PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = true;
             //若還沒進入施放距離則移動玩家
             while (dis > skillUIData.Distance)
             {
                 DistanceWithTarget();
-                Character_move.Instance.Character.transform.LookAt(SelectTarget.Instance.Targetgameobject.transform);
-                Character_move.Instance.RunAnimation(true);
+                PlayerDataOverView.Instance.CharacterMove.Character.transform.LookAt(SelectTarget.Instance.Targetgameobject.transform);
+                PlayerDataOverView.Instance.CharacterMove.RunAnimation(true);
 
-                Character_move.Instance.CharacterFather.transform.position =
-                    Vector3.MoveTowards(Character_move.Instance.CharacterFather.transform.position,
+                PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position =
+                    Vector3.MoveTowards(PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position,
                     SelectTarget.Instance.Targetgameobject.Povit.position,
-                    Character_move.Instance.MoveSpeed);
+                    PlayerDataOverView.Instance.CharacterMove.MoveSpeed);
 
                 yield return new WaitForEndOfFrame();
             }
-            Character_move.Instance.RunAnimation(false);
+            PlayerDataOverView.Instance.CharacterMove.RunAnimation(false);
             CallSkillEffect(skillUIData, UpgradeSkillID);
         }
         else
         {
-            if (PlayerData.MP - skillUIData.CastMage < 0)
-                Instantiate(CommonFunction.MessageHint("魔力不足...", HintType.Warning));
+            if (PlayerDataOverView.Instance.PlayerData_.MP - skillUIData.CastMage < 0)
+                CommonFunction.MessageHint("魔力不足...", HintType.Warning);
             else if (Skillinformation.CDR[keyIndex] < Skillinformation.CDsec[keyIndex])
-                Instantiate(CommonFunction.MessageHint("該技能冷卻時間未完成!", HintType.Warning));
+                CommonFunction.MessageHint("該技能冷卻時間未完成!", HintType.Warning);
 
         }
     }
@@ -537,8 +540,8 @@ public class SkillDisplayAction : MonoBehaviour
         {
             StopCoroutine(SkillChasingCoroutine);
             SkillChasingCoroutine = null;
-            Instantiate(CommonFunction.MessageHint("正在取消攻擊目標", HintType.Warning));
+            CommonFunction.MessageHint("正在取消攻擊目標", HintType.Warning);
         }
-        Character_move.Instance.AutoNavToTarget = false;
+        PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = false;
     }
 }

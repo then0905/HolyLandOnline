@@ -39,12 +39,12 @@ public abstract class Skill_Base_Attack : Skill_Base
     /// 確認是否有選擇到目標
     /// </summary>
     /// <param name="attackType">傷害類型</param>
-    protected void CheckGetAnyTarget(AttackCategory attackType)
+    protected void CheckGetAnyTarget(AttackCategory attackType, ICombatant attacker = null, ICombatant defender = null)
     {
-        if (SelectTarget.Instance.Targetgameobject != null&& !SkillBeUpgrade)
+        if (SelectTarget.Instance.Targetgameobject != null && !SkillBeUpgrade)
         {
-            BattleOperation.Instance.SkillAttackEvent?.Invoke(this, SelectTarget.Instance.Targetgameobject.gameObject);
-            Character_move.Instance.CharacterAnimator.SetTrigger(skillName);
+            BattleOperation.Instance.SkillAttackEvent?.Invoke(this, attacker, defender);
+            PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetTrigger(skillName);
         }
         else
         {

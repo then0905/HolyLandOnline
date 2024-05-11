@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//==========================================
+//  創建者:家豪
+//  創建日期:太久不可考
+//  創建用途: 旋轉攝影機視角與縮放
+//==========================================
 public class CameraRotation : MonoBehaviour
 {
     public GameObject CharacterCamera;
@@ -20,7 +25,7 @@ public class CameraRotation : MonoBehaviour
     }
     void Update()
     {
-        CameraFOV();//�ƹ��u���Y�����
+        CameraFOV();//滑鼠滾輪縮放視角
         float _mouseX = Input.GetAxis("Mouse X");
         float _mouseY = Input.GetAxis("Mouse Y");
         CameraRotate(_mouseX, _mouseY);

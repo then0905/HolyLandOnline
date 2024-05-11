@@ -20,7 +20,7 @@ public class InitSequenceManager : MonoBehaviour
         //避免本地紀錄可能儲存buff之後的血量 大於沒有buff技能下的血量)
 
         LoadPlayerData.LoadUserUiData(); //再帶入本地紀錄的血量魔力 
-        PlayerValueManager.Instance.Init();//玩家UI屬性上的更新 血量 魔力 經驗值 等級
+        PlayerDataOverView.Instance.Init();//玩家UI屬性上的更新 血量 魔力 經驗值 等級
 
 
         PlayerDataPanelProcessor.Instance.Init();   //角色介面資料初始

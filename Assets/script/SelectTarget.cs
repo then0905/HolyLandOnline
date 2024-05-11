@@ -40,7 +40,6 @@ public class SelectTarget : MonoBehaviour
             if (Targetgameobject != null)
             {
                 Targetgameobject.BeenSelected();
-                TargetInformation.SetActive(value);
             }
 
         }
@@ -66,7 +65,7 @@ public class SelectTarget : MonoBehaviour
 
     private void Start()
     {
-        characterCamera = Character_move.Instance.CharacterCamera.GetComponent<Camera>();
+        characterCamera = PlayerDataOverView.Instance.CharacterMove.CharacterCamera.GetComponent<Camera>();
     }
     void Update()
     {

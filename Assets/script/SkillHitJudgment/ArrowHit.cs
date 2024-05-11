@@ -20,7 +20,7 @@ public class ArrowHit : MonoBehaviour
     //存取技能基底
     private Skill_Base_Attack skillAttackData;
     //獲取範圍內其他目標
-    private List<GameObject> otherObjList = new List<GameObject>();
+    private List<ICombatant> otherObjList = new List<ICombatant>();
     //重新設定範圍(從ArrowCollider碰撞上校正x旋轉為0後的範圍)
     private Vector3 correctTriggerRange = new Vector3();
 
@@ -34,7 +34,7 @@ public class ArrowHit : MonoBehaviour
         //ArrowCollider.size = new Vector3(SKillArrow.GetComponent<RectTransform>().sizeDelta.x, SKillArrow.GetComponent<RectTransform>().sizeDelta.y, 1);
 
         //初始化目標清單
-        otherObjList = new List<GameObject>();
+        otherObjList = new List<ICombatant>();
         //獲取當前技能資料
         skillData = GameData.SkillsDataDic[skillID];
         //設定碰撞範圍
@@ -50,7 +50,7 @@ public class ArrowHit : MonoBehaviour
     /// <summary>
     /// 獲取範圍內目標清單
     /// </summary>
-    public void CatchTarget(GameObject otherObj)
+    public void CatchTarget(ICombatant otherObj)
     {
         //存取可攻擊對象
         otherObjList.Add(otherObj);
@@ -58,11 +58,10 @@ public class ArrowHit : MonoBehaviour
         //當可攻擊對象達到目標數量後進行傷害
         if (otherObjList.Count == skillData.TargetCount)
         {
-            foreach (GameObject obj in otherObjList)
+            foreach (ICombatant obj in otherObjList)
             {
-
                 //戰鬥計算
-                BattleOperation.Instance.SkillAttackEvent?.Invoke(skillAttackData, obj);
+                BattleOperation.Instance.SkillAttackEvent?.Invoke(skillAttackData, PlayerDataOverView.Instance, obj);
             }
         }
     }
@@ -77,9 +76,9 @@ public class ArrowHit : MonoBehaviour
                 {
                     print("偵測到的目標:" + coll.name);
                     //獲取可攻擊目標(怪物行為腳本或是其他)
-                    if (coll.GetComponent<MonsterBehaviour>() != null)
+                    if (coll.GetComponent<ICombatant>() != null&& coll.GetComponent<ActivityCharacterBase>().CanBeChoose)
                     {
-                        CatchTarget(coll.gameObject);
+                        CatchTarget(coll.GetComponent<ICombatant>());
                     }
 
                 }

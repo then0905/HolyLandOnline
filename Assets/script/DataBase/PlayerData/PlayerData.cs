@@ -7,84 +7,84 @@ using UnityEngine;
 //==========================================
 
 [Serializable]
-public static partial class PlayerData
+public partial class PlayerData
 {
     [Header("玩家名稱")]
-    public static string PlayerName;
+    public string PlayerName;
     [Header("等級")]
-    public static int Lv;
+    public int Lv;
     [Header("最大血量")]
-    public static int MaxHP;
+    public int MaxHP;
     [Header("當前血量")]
-    public static int HP;
+    public int HP;
     [Header("血量回復")]
-    public static int HP_Recovery;
+    public int HP_Recovery;
     [Header("最大魔力")]
-    public static int MaxMP;
+    public int MaxMP;
     [Header("當前魔力")]
-    public static int MP;
+    public int MP;
     [Header("魔力回復")]
-    public static int MP_Recovery;
+    public int MP_Recovery;
     [Header("經驗量")]
-    public static int Exp;
+    public int Exp;
     [Header("最大經驗值")]
-    public static int MaxExp;
+    public int MaxExp;
     [Header("近距離攻擊力")]
-    public static int MeleeATK;
+    public int MeleeATK;
     [Header("遠距離攻擊力")]
-    public static int RemoteATK;
+    public int RemoteATK;
     [Header("魔法攻擊力")]
-    public static int MageATK;
+    public int MageATK;
     [Header("總防禦值")]
-    public static int DEF;
+    public int DEF;
     [Header("總魔法防禦值")]
-    public static int MDEF;
+    public int MDEF;
     [Header("傷害減緩")]
-    public static int DamageReduction;
+    public int DamageReduction;
     [Header("總迴避值")]
-    public static int Avoid;
+    public int Avoid;
     [Header("近距離命中值")]
-    public static int MeleeHit;
+    public int MeleeHit;
     [Header("遠距離命中值")]
-    public static int RemoteHit;
+    public int RemoteHit;
     [Header("魔法命中值")]
-    public static int MageHit;
+    public int MageHit;
     [Header("暴擊率")]
-    public static float Crt;
+    public float Crt;
     [Header("暴擊抵抗")]
-    public static float CrtResistance;
+    public float CrtResistance;
     [Header("暴擊傷害")]
-    public static int CrtDamage;
+    public int CrtDamage;
     [Header("移動速度")]
-    public static float Speed;
+    public float Speed;
     [Header("職業")]
-    public static string Job;
+    public string Job;
     [Header("種族")]
-    public static string Race;
+    public string Race;
     [Header("力量")]
-    public static int STR;
+    public int STR;
     [Header("敏捷")]
-    public static int DEX;
+    public int DEX;
     [Header("智慧")]
-    public static int INT;
+    public int INT;
     [Header("靈巧")]
-    public static int AGI;
+    public int AGI;
     [Header("體力")]
-    public static int VIT;
+    public int VIT;
     [Header("感知")]
-    public static int WIS;
+    public int WIS;
     [Header("攻擊速度")]
-    public static float AS;
+    public float AS;
     [Header("詠唱速度")]
-    public static float CS;
+    public float CS;
     [Header("屬性傷害增幅")]
-    public static float ElementDamageIncrease;
+    public float ElementDamageIncrease;
     [Header("屬性傷害抗性")]
-    public static float ElementDamageReduction;
+    public float ElementDamageReduction;
     [Header("異常狀態抗性")]
-    public static float DisorderResistance;
+    public float DisorderResistance;
     [Header("格檔率")]
-    public static float BlockRate;
+    public float BlockRate;
     [Header("玩家金幣量")]
-    public static int Coin;
+    public int Coin;
 }

@@ -2515,6 +2515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5503294863921377031}
+  - component: {fileID: 6346384704744032745}
   - component: {fileID: 5503294863921377030}
   - component: {fileID: 5503294863921377025}
   - component: {fileID: 5503294863921377024}
@@ -2544,6 +2545,70 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6346384704744032745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5503294863921377026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ec30f03adefea40b8933ea6266157c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  povit: {fileID: 5503294863956764654}
+  headTrans: {fileID: 5503294864278941392}
+  canBeChoose: 0
+  CharacterMove: {fileID: 5503294863921377030}
+  hpSlider: {fileID: 0}
+  mpSlider: {fileID: 0}
+  expSlider: {fileID: 0}
+  hptext: {fileID: 0}
+  mptext: {fileID: 0}
+  lvtext: {fileID: 0}
+  nametext: {fileID: 0}
+  PlayerData_:
+    PlayerName: 
+    Lv: 0
+    MaxHP: 0
+    HP: 0
+    HP_Recovery: 0
+    MaxMP: 0
+    MP: 0
+    MP_Recovery: 0
+    Exp: 0
+    MaxExp: 0
+    MeleeATK: 0
+    RemoteATK: 0
+    MageATK: 0
+    DEF: 0
+    MDEF: 0
+    DamageReduction: 0
+    Avoid: 0
+    MeleeHit: 0
+    RemoteHit: 0
+    MageHit: 0
+    Crt: 0
+    CrtResistance: 0
+    CrtDamage: 0
+    Speed: 0
+    Job: 
+    Race: 
+    STR: 0
+    DEX: 0
+    INT: 0
+    AGI: 0
+    VIT: 0
+    WIS: 0
+    AS: 0
+    CS: 0
+    ElementDamageIncrease: 0
+    ElementDamageReduction: 0
+    DisorderResistance: 0
+    BlockRate: 0
+    Coin: 0
+    NormalAttackRange: 0
 --- !u!114 &5503294863921377030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2561,7 +2626,7 @@ MonoBehaviour:
   characterCamera: {fileID: 5503294864338163908}
   characterAnimator: {fileID: 5503294864222636025}
   RotateSpeed: 5
-  MoveSpeed: 10
+  AutoNavToTarget: 0
 --- !u!114 &5503294863921377025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2700,8 +2765,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5503294864278941395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 7.86, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
+  m_LocalScale: {x: 8, y: 8, z: 8}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5503294863921377031}

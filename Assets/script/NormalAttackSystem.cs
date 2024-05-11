@@ -1,4 +1,5 @@
 
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -16,11 +17,11 @@ public class NormalAttackSystem : MonoBehaviour
 
     private void OnEnable()
     {
-        Character_move.Instance.ControlCharacterEvent += StopNormalAttack;
+        PlayerDataOverView.Instance.CharacterMove.ControlCharacterEvent += StopNormalAttack;
     }
     private void OnDisable()
     {
-        Character_move.Instance.ControlCharacterEvent -= StopNormalAttack;
+        PlayerDataOverView.Instance.CharacterMove.ControlCharacterEvent -= StopNormalAttack;
     }
 
     /// <summary>
@@ -52,24 +53,26 @@ public class NormalAttackSystem : MonoBehaviour
     {
         if (!AttackAllow)
             //需要進行判斷距離
-            NormalAttackCoroutine = StartCoroutine(CommonFunction.DetectionRangeMethod(player, target, PlayerData.NormalAttackRange, ChasingTarget, RunAttack));
+            NormalAttackCoroutine = StartCoroutine(CommonFunction.DetectionRangeMethod(player, target,
+                PlayerDataOverView.Instance.PlayerData_.NormalAttackRange, ChasingTarget,
+                () => { RunAttack(PlayerDataOverView.Instance, target.GetComponent<ICombatant>()); }));
         else
             //正在攻擊或是不可普通攻擊狀態
-            Instantiate(CommonFunction.MessageHint("正在攻擊或是不可普通攻擊狀態", HintType.Warning));
+            CommonFunction.MessageHint("正在攻擊或是不可普通攻擊狀態", HintType.Warning);
     }
 
     /// <summary>
     /// 執行普通攻擊
     /// </summary>
-    public void RunAttack()
+    public void RunAttack(ICombatant attacker = null, ICombatant defender = null)
     {
-        Character_move.Instance.RunAnimation(false);
+        PlayerDataOverView.Instance.CharacterMove.RunAnimation(false);
         AttackAllow = true;
         //依照攻擊速度調整動畫播放速度
-        Character_move.Instance.ControCharacterAnimationEvent.Invoke(AttackSpeedTimer, "NormalAttack");
-        StartCoroutine(CommonFunction.Timer(AttackSpeedTimer, null, (() => { AttackAllow = false; Character_move.Instance.AutoNavToTarget = false; })));
+        PlayerDataOverView.Instance.CharacterMove.ControCharacterAnimationEvent.Invoke(AttackSpeedTimer, "NormalAttack");
+        StartCoroutine(CommonFunction.Timer(AttackSpeedTimer, null, (() => { AttackAllow = false; PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = false; })));
         //執行攻擊運算
-        BattleOperation.Instance.NormalAttackEvent(SelectTarget.Instance.Targetgameobject.gameObject);
+        BattleOperation.Instance.NormalAttackEvent.Invoke(attacker, defender);
     }
 
     /// <summary>
@@ -78,15 +81,15 @@ public class NormalAttackSystem : MonoBehaviour
     public void ChasingTarget()
     {
         //開啟自動尋路
-        Character_move.Instance.AutoNavToTarget = true;
+        PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = true;
 
-        Character_move.Instance.Character.transform.LookAt(SelectTarget.Instance.Targetgameobject.transform);
-        Character_move.Instance.RunAnimation(true);
+        PlayerDataOverView.Instance.CharacterMove.Character.transform.LookAt(SelectTarget.Instance.Targetgameobject.transform);
+        PlayerDataOverView.Instance.CharacterMove.RunAnimation(true);
 
-        Character_move.Instance.CharacterFather.transform.position =
-            Vector3.MoveTowards(Character_move.Instance.CharacterFather.transform.position,
+        PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position =
+            Vector3.MoveTowards(PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position,
             SelectTarget.Instance.Targetgameobject.Povit.position,
-            Character_move.Instance.MoveSpeed);
+            PlayerDataOverView.Instance.CharacterMove.MoveSpeed);
     }
 
     /// <summary>
@@ -94,11 +97,12 @@ public class NormalAttackSystem : MonoBehaviour
     /// </summary>
     public void StopNormalAttack()
     {
-        if (NormalAttackCoroutine != null) {
+        if (NormalAttackCoroutine != null)
+        {
             StopCoroutine(NormalAttackCoroutine);
-            NormalAttackCoroutine= null;
-            Instantiate(CommonFunction.MessageHint("正在取消攻擊目標", HintType.Warning));
+            NormalAttackCoroutine = null;
+            CommonFunction.MessageHint("正在取消攻擊目標", HintType.Warning);
         }
-        Character_move.Instance.AutoNavToTarget = false;
+        PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = false;
     }
 }

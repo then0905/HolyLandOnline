@@ -6,7 +6,7 @@
 //==========================================
 public class Skill_Base_Buff_Continuance : Skill_Base_Buff
 {
-    protected override void SkillEffectStart()
+    protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defenfer = null)
     {
         SkillBuffEffectStart();
         //if (gameObject != null)

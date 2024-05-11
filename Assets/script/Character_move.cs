@@ -11,23 +11,6 @@ using TMPro;
 //==========================================
 public class Character_move : MonoBehaviour
 {
-    #region 全域靜態變數
-
-    private static Character_move instance;
-    public static Character_move Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<Character_move>();
-            }
-            return instance;
-        }
-    }
-
-    #endregion
-
     [SerializeField] private GameObject characterFather;
     /// <summary>
     /// 角色父級
@@ -87,7 +70,7 @@ public class Character_move : MonoBehaviour
         get
         {
             //設定玩家速度值 (移動速度基準值+裝備效果+技能效果)*(1- (2.71828^ −0.2))
-            float speed = PlayerData.Speed * (float)(1 - Math.Pow(2.71828, -0.2));
+            float speed = PlayerDataOverView.Instance.PlayerData_.Speed * (float)(1 - Math.Pow(2.71828, -0.2));
             return speed;
         }
     }

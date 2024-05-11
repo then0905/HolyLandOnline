@@ -57,8 +57,8 @@ public class ClassAndSkill : MonoBehaviour
         skillDataModelList = new List<SkillUIModel>();
         skillUIList.ForEach(x => Destroy(x.gameObject));
         skillUIList.Clear();
-        Job = PlayerData.Job;
-        LV = PlayerData.Lv;
+        Job = PlayerDataOverView.Instance.PlayerData_.Job;
+        LV = PlayerDataOverView.Instance.PlayerData_.Lv;
 
         //玩家職業可以取得的技能
         var jobSkillList = GameData.SkillsUIDic.Values.Where(x => x.Job.Contains(Job) && x.NeedLv <= LV).OrderBy(y => y.NeedLv).ToList();
@@ -87,7 +87,7 @@ public class ClassAndSkill : MonoBehaviour
             skillUIobj.SkillCD.text = item.CD.ToString();
             skillUIobj.SkillIntro.text = string.IsNullOrEmpty(skillUIobj.SkillUpgradeID) ? item.Intro : item.Intro + "\n" + skillUIobj.SkillUpgradeID;
             skillUIobj.Characteristic = item.Characteristic;
-            skillUIobj.SkillIcon.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerData.Job, item.SkillID);
+            skillUIobj.SkillIcon.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerDataOverView.Instance.PlayerData_.Job, item.SkillID);
 
             skillUIobj.GetComponent<DragSkill>().TopOfUnit = topOfUnit;
             skillUIobj.GetComponent<DragSkill>().SkillHotKey = skillHotKeyTrans;

@@ -1,8 +1,6 @@
-
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using UnityEngine;
+
 //==========================================
 //  創建者:    家豪
 //  創建日期:  2023/05/03
@@ -17,7 +15,43 @@ public class GameDataModel
 
 }
 
-#region 資料結構
+/// <summary>
+/// 基本屬性資料結構
+/// </summary>
+public class BasalAttributesDataModel
+{
+    public int HP { get; set; }            // HP加成
+    public int MP { get; set; }            // MP加成
+    public int HpRecovery { get; set; }            // HP自然回復
+    public int MpRecovery { get; set; }            // MP自然回復
+    public int MeleeATK { get; set; }            // 近距離攻擊
+    public int MeleeHit { get; set; }            // 近距離命中
+    public int RemoteATK { get; set; }            // 遠距離攻擊
+    public int RemoteHit { get; set; }            // 遠距離命中
+    public int MageATK { get; set; }            // 魔法攻擊力
+    public int MageHit { get; set; }            // 魔法命中
+    public int Avoid { get; set; }            // 迴避值
+    public int DEF { get; set; }            // 物理防禦值
+    public int MDEF { get; set; }            // 魔法防禦值
+    public int DamageReduction { get; set; }            // 傷害減緩
+    public float Speed { get; set; }            // 移動速度影響
+    public float Crt { get; set; }            // 暴擊率
+    public int CrtDamage { get; set; }            // 暴擊傷害
+    public float CrtResistance { get; set; }            // 暴擊抵抗
+    public float BlockRate { get; set; }            // 盾牌格檔率
+    public float DisorderResistance { get; set; }            // 異常狀態抗性
+    public float ElementDamageReduction { get; set; }            // 屬性傷害抵抗
+    public float ElementDamageIncrease { get; set; }            // 屬性傷害增幅
+    public int STR { get; set; }            // STR加成
+    public int DEX { get; set; }            // DEX加成
+    public int INT { get; set; }            // INT加成
+    public int AGI { get; set; }            // AGI加成
+    public int VIT { get; set; }            // VIT加成
+    public int WIS { get; set; }            // WIS加成
+}
+
+#region Json資料結構
+
 /// <summary>
 /// 怪物掉落物資料
 /// </summary>結構
@@ -49,7 +83,7 @@ public class BootyDataList
 /// <summary>
 /// 防具資料結構
 /// </summary>
-public class ArmorDataModel : IDictionaryData<string>
+public class ArmorDataModel : BasalAttributesDataModel, IDictionaryData<string>
 {
     public int NeedLv { get; set; }            // 所需等級
     public string Name { get; set; }            // 防具名稱
@@ -62,29 +96,12 @@ public class ArmorDataModel : IDictionaryData<string>
     public string TypeID { get; set; }            // 防具類型ID      
     public string Intro { get; set; }            // 防具介紹
     public bool Stackability { get; set; }            // 可堆疊性
-    public int DEF { get; set; }            // 防具物理防禦值
-    public int Avoid { get; set; }            // 防具迴避值
-    public int MDEF { get; set; }            // 防具魔法防禦值
-    public float Speed { get; set; }            // 防具移動速度影響
-    public float CrtResistance { get; set; }            // 防具暴擊抵抗
-    public int DamageReduction { get; set; }            // 防具傷害減緩
-    public int HP { get; set; }            // 防具HP加成
-    public int MP { get; set; }            // 防具MP加成
-    public int HpRecovery { get; set; }            // 防具HP自然回復
-    public int MpRecovery { get; set; }            // 防具MP自然回復
-    public int STR { get; set; }            // 防具STR加成
-    public int DEX { get; set; }            // 防具DEX加成
-    public int INT { get; set; }            // 防具INT加成
-    public int AGI { get; set; }            // 防具AGI加成
-    public int VIT { get; set; }            // 防具VIT加成
-    public int WIS { get; set; }            // 防具WIS加成
-    public float ElementDamageReduction { get; set; }            // 防具屬性傷害抵抗
-    public float DisorderResistance { get; set; }            // 防具異常狀態抗性
     public string GetKey
     {
         get { return CodeID; }
     }
 }
+
 /// <summary>
 /// 技能頁面上的資料結構
 /// </summary>
@@ -144,7 +161,7 @@ public class SkillDataModel : IDictionaryData<string>
 /// <summary>
 /// 武器資料
 /// </summary>結構
-public class WeaponDataModel : IDictionaryData<string>
+public class WeaponDataModel : BasalAttributesDataModel, IDictionaryData<string>
 {
     public int LV { get; set; }            // 所需等級
     public string Name { get; set; }            // 武器名稱
@@ -158,35 +175,14 @@ public class WeaponDataModel : IDictionaryData<string>
     public string Intro { get; set; }            // 武器介紹
     public bool Stackability { get; set; }            // 可堆疊性
     public string AS { get; set; }            // 武器攻擊速度
-    public string ASID { get; set; }            // 武器攻擊速度(編碼用)
-    public int MeleeATK { get; set; }            // 武器近距離攻擊
-    public int MeleeHit { get; set; }            // 武器近距離命中
-    public int RemoteATK { get; set; }            // 武器遠距離攻擊
-    public int RemoteHit { get; set; }            // 武器遠距離命中
-    public int MageATK { get; set; }            // 武器魔法攻擊力
-    public int MageHit { get; set; }            // 武器魔法命中
-    public int DEF { get; set; }            // 盾牌物理防禦值
-    public int MDEF { get; set; }            // 盾牌魔法防禦值
-    public int Avoid { get; set; }            // 盾牌迴避值
-    public int HP { get; set; }            // 盾牌最大生命值
-    public int MP { get; set; }            // 盾牌最大魔法值
-    public int BlockRate { get; set; }            // 盾牌格檔率
-    public float Crt { get; set; }            // 武器暴擊率
-    public int CrtDamage { get; set; }            // 武器暴擊傷害
-    public int STR { get; set; }            // 武器STR
-    public int DEX { get; set; }            // 武器DEX
-    public int INT { get; set; }            // 武器INT
-    public int AGI { get; set; }            // 武器AGI
-    public int VIT { get; set; }            // 武器VIT
-    public int WIS { get; set; }            // 武器WIS
-    public int ElementDamageIncrease { get; set; }            // 武器屬性傷害增幅
+    public string ASID { get; set; }            // 武器攻擊速度(編碼用)    
     public string GetKey { get { return CodeID; } }
 }
 
 /// <summary>
 /// 道具資料
 /// </summary>
-public class ItemDataModel : IDictionaryData<string>
+public class ItemDataModel : BasalAttributesDataModel, IDictionaryData<string>
 {
     public int LV { get; set; }            // 所需等級
     public string Name { get; set; }            // 道具名稱
@@ -210,7 +206,7 @@ public class ItemDataModel : IDictionaryData<string>
 /// <summary>
 /// 怪物資料
 /// </summary>
-public class MonsterDataModel : IDictionaryData<string>
+public class MonsterDataModel : BasalAttributesDataModel, IDictionaryData<string>
 {
     public string MonsterCodeID { get; set; }            // 怪物ID
     public string Name { get; set; }            // 怪物名稱
@@ -225,20 +221,18 @@ public class MonsterDataModel : IDictionaryData<string>
     public string SpawnPos { get; set; }            // 怪物生成座標
     public int RebirthCD { get; set; }            // 怪物重生時間
     public int EXP { get; set; }            // 怪物經驗值
-    public int HP { get; set; }            // 怪物血量
-    public int MP { get; set; }            // 怪物魔力
     public string AttackMode { get; set; }            // 怪物攻擊模式
     public bool Habit { get; set; }            // 怪物是否被動
+    public float ActivityScope { get; set; }            // 怪物可活動範圍的半徑
     public float DetectionScope { get; set; }            // 怪物若為主動 所偵測的範圍
     public bool UseSkill { get; set; }            // 怪物是否使用技能
     public int ATK { get; set; }            // 怪物攻擊力
-    public int DEF { get; set; }            // 怪物防禦力
-    public int Crt { get; set; }            // 怪物暴擊率
-    public int CrtResistance { get; set; }            // 怪物暴擊抵抗
-    public int Avoid { get; set; }            // 怪物迴避值
     public int Hit { get; set; }            // 怪物命中值
     public float AtkSpeed { get; set; }            // 怪物攻擊速度
     public float AttackRange { get; set; }            // 怪物攻擊距離
+    public float PursueRange { get; set; }            // 怪物最遠可追級距離距離
+    public float WalkSpeed { get; set; }            // 怪物走路速度
+    public float RunSpeed { get; set; }            // 怪物跑步速度
     public List<MonsterSpwanDataModel> MonsterSpawnPosList { get; set; }     //怪物生成資料
     public List<MonsterSkillDataModel> MonsterSkillList { get; set; }     //怪物技能資料
     public string GetKey { get { return MonsterCodeID; } }
@@ -346,4 +340,5 @@ public class GameSettingDataModel : IDictionaryData<string>
         get { return GameSettingID; }
     }
 }
+
 #endregion

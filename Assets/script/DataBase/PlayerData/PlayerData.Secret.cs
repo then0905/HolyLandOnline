@@ -6,8 +6,8 @@ using UnityEngine;
 //  創建日期:2024/03/06
 //  創建用途:角色基礎資訊(隱藏機制)
 //==========================================
-public static partial class PlayerData
+public partial class PlayerData
 {
     [Header("普通攻擊範圍")]
-    public static int NormalAttackRange;
+    public int NormalAttackRange;
 }

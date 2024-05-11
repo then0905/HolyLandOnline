@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 //==========================================
 //  創建者:家豪
@@ -10,15 +7,23 @@ using static UnityEngine.GraphicsBuffer;
 //==========================================
 public class ActivityCharacterBase : MonoBehaviour
 {
-    //角色中心點
-    [SerializeField] protected Transform povit;
+    [Header("角色中心點"), SerializeField] protected Transform povit;
     public Transform Povit
     {
         get { return povit; }
     }
+    [Header("角色頭部 傷害數字參考"), SerializeField] protected Transform headTrans;
+    public Transform HeadTrans
+    {
+        get { return headTrans; }
+    }
+    [Header("可否被選取"), SerializeField]
+    protected bool canBeChoose;
+    public bool CanBeChoose => canBeChoose;
 
     public void BeenSelected()
     {
+        if (!canBeChoose) return;
         MonsterBehaviour monsterBehaviour = this as MonsterBehaviour;
         if (monsterBehaviour != null)
         {
@@ -33,7 +38,8 @@ public class ActivityCharacterBase : MonoBehaviour
     {
         if (this is MonoBehaviour)
         {
-            SelectTarget.Instance.TargetHP.value = monster.CurrentHp;
+            SelectTarget.Instance.TargetInformation.SetActive(true);
+            SelectTarget.Instance.TargetHP.value = monster.HP;
             SelectTarget.Instance.TargetName.text = monster.MonsterValue.Name;
             SelectTarget.Instance.TargetHP.maxValue = monster.MonsterValue.HP;
             SelectTarget.Instance.TargetLV.text = monster.MonsterValue.Lv.ToString();
@@ -47,7 +53,7 @@ public class ActivityCharacterBase : MonoBehaviour
         if (SelectTarget.Instance.Targetgameobject == this)
         {
             NormalAttackSystem.Instance.StartNormalAttack(
-               Character_move.Instance.CharacterFather,
+               PlayerDataOverView.Instance.CharacterMove.CharacterFather,
                gameObject);
         }
     }

@@ -9,7 +9,7 @@ public  class Skill_Base_Buff_Passive : Skill_Base_Buff
     /*
      被動型技能幾乎為buff屬性(加強玩家)
      */
-    protected override void SkillEffectStart()
+    protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defenfer = null)
     {
         SkillBuffEffectStart();
         print("施放的被動技能效果:"+skillName);
@@ -45,6 +45,6 @@ public  class Skill_Base_Buff_Passive : Skill_Base_Buff
                 //紀錄技能啟動狀態
                 buffIsRun = false;
             }
-        print("關閉的被動技能:" + skillName);
+        //print("關閉的被動技能:" + skillName);
     }
 }

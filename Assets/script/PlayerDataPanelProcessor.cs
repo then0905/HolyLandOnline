@@ -29,7 +29,7 @@ public class PlayerDataPanelProcessor : MonoBehaviour
     /// </summary>
     public void Init()
     {
-        playerID.text += PlayerData.PlayerName; 
+        playerID.text += PlayerDataOverView.Instance.PlayerData_.PlayerName; 
         SetPlayerDataContent();
     }
 
@@ -39,43 +39,43 @@ public class PlayerDataPanelProcessor : MonoBehaviour
     public void SetPlayerDataContent()
     {
         playerDataContent.text =
-            "玩家等級:" + PlayerData.Lv + "\n" +
-            "種族:" + PlayerData.Race + "\n" +
-            "職業:" + PlayerData.Job + "\n" +
-            "最大血量:" + PlayerData.MaxHP + "\n" +
-            "當前血量:" + PlayerData.HP + "\n" +
-            "血量回復:" + PlayerData.HP_Recovery + "\n" +
-            "最大魔力:" + PlayerData.MaxMP + "\n" +
-            "當前魔力:" + PlayerData.MP + "\n" +
-            "魔力回復:" + PlayerData.MP_Recovery + "\n" +
-            "經驗量:" + PlayerData.Exp + "\n" +
-            "最大經驗值:" + PlayerData.MaxExp + "\n" +
-            "近距離攻擊力:" + PlayerData.MeleeATK + "\n" +
-            "遠距離攻擊力:" + PlayerData.RemoteATK + "\n" +
-            "魔法攻擊力:" + PlayerData.MageATK + "\n" +
-            "近距離命中值:" + PlayerData.MeleeHit + "\n" +
-            "遠距離命中值:" + PlayerData.RemoteHit + "\n" +
-            "魔法命中值:" + PlayerData.MageHit + "\n" +
-            "總防禦值:" + PlayerData.DEF + "\n" +
-            "總魔法防禦值:" + PlayerData.MDEF + "\n" +
-            "傷害減緩:" + PlayerData.DamageReduction + "\n" +
-            "總迴避值:" + PlayerData.Avoid + "\n" +
-            "暴擊率:" + PlayerData.Crt + "\n" +
-            "暴擊抵抗:" + PlayerData.CrtResistance + "\n" +
-            "暴擊傷害:" + PlayerData.CrtDamage + "\n" +
-            "移動速度:" + PlayerData.Speed + "\n" +
-            "力量:" + PlayerData.STR + "\n" +
-            "敏捷:" + PlayerData.DEX + "\n" +
-            "智慧:" + PlayerData.INT + "\n" +
-            "靈巧:" + PlayerData.AGI + "\n" +
-            "體力:" + PlayerData.VIT + "\n" +
-            "感知:" + PlayerData.WIS + "\n" +
-            "攻擊速度:" + PlayerData.AS + "\n" +
-            "詠唱速度:" + PlayerData.CS + "\n" +
-            "屬性傷害增幅:" + PlayerData.ElementDamageIncrease + "\n" +
-            "屬性傷害抗性:" + PlayerData.ElementDamageReduction + "\n" +
-            "異常狀態抗性:" + PlayerData.DisorderResistance + "\n" +
-            "格檔率:" + PlayerData.BlockRate + "\n" +
-            "玩家金幣量:" + PlayerData.Coin + "\n";
+            "玩家等級:" + PlayerDataOverView.Instance.PlayerData_.Lv + "\n" +
+            "種族:" + PlayerDataOverView.Instance.PlayerData_.Race + "\n" +
+            "職業:" + PlayerDataOverView.Instance.PlayerData_.Job + "\n" +
+            "最大血量:" + PlayerDataOverView.Instance.PlayerData_.MaxHP + "\n" +
+            "當前血量:" + PlayerDataOverView.Instance.PlayerData_.HP + "\n" +
+            "血量回復:" + PlayerDataOverView.Instance.PlayerData_.HP_Recovery + "\n" +
+            "最大魔力:" + PlayerDataOverView.Instance.PlayerData_.MaxMP + "\n" +
+            "當前魔力:" + PlayerDataOverView.Instance.PlayerData_.MP + "\n" +
+            "魔力回復:" + PlayerDataOverView.Instance.PlayerData_.MP_Recovery + "\n" +
+            "經驗量:" + PlayerDataOverView.Instance.PlayerData_.Exp + "\n" +
+            "最大經驗值:" + PlayerDataOverView.Instance.PlayerData_.MaxExp + "\n" +
+            "近距離攻擊力:" + PlayerDataOverView.Instance.PlayerData_.MeleeATK + "\n" +
+            "遠距離攻擊力:" + PlayerDataOverView.Instance.PlayerData_.RemoteATK + "\n" +
+            "魔法攻擊力:" + PlayerDataOverView.Instance.PlayerData_.MageATK + "\n" +
+            "近距離命中值:" + PlayerDataOverView.Instance.PlayerData_.MeleeHit + "\n" +
+            "遠距離命中值:" + PlayerDataOverView.Instance.PlayerData_.RemoteHit + "\n" +
+            "魔法命中值:" + PlayerDataOverView.Instance.PlayerData_.MageHit + "\n" +
+            "總防禦值:" + PlayerDataOverView.Instance.PlayerData_.DEF + "\n" +
+            "總魔法防禦值:" + PlayerDataOverView.Instance.PlayerData_.MDEF + "\n" +
+            "傷害減緩:" + PlayerDataOverView.Instance.PlayerData_.DamageReduction + "\n" +
+            "總迴避值:" + PlayerDataOverView.Instance.PlayerData_.Avoid + "\n" +
+            "暴擊率:" + PlayerDataOverView.Instance.PlayerData_.Crt + "\n" +
+            "暴擊抵抗:" + PlayerDataOverView.Instance.PlayerData_.CrtResistance + "\n" +
+            "暴擊傷害:" + PlayerDataOverView.Instance.PlayerData_.CrtDamage + "\n" +
+            "移動速度:" + PlayerDataOverView.Instance.PlayerData_.Speed + "\n" +
+            "力量:" + PlayerDataOverView.Instance.PlayerData_.STR + "\n" +
+            "敏捷:" + PlayerDataOverView.Instance.PlayerData_.DEX + "\n" +
+            "智慧:" + PlayerDataOverView.Instance.PlayerData_.INT + "\n" +
+            "靈巧:" + PlayerDataOverView.Instance.PlayerData_.AGI + "\n" +
+            "體力:" + PlayerDataOverView.Instance.PlayerData_.VIT + "\n" +
+            "感知:" + PlayerDataOverView.Instance.PlayerData_.WIS + "\n" +
+            "攻擊速度:" + PlayerDataOverView.Instance.PlayerData_.AS + "\n" +
+            "詠唱速度:" + PlayerDataOverView.Instance.PlayerData_.CS + "\n" +
+            "屬性傷害增幅:" + PlayerDataOverView.Instance.PlayerData_.ElementDamageIncrease + "\n" +
+            "屬性傷害抗性:" + PlayerDataOverView.Instance.PlayerData_.ElementDamageReduction + "\n" +
+            "異常狀態抗性:" + PlayerDataOverView.Instance.PlayerData_.DisorderResistance + "\n" +
+            "格檔率:" + PlayerDataOverView.Instance.PlayerData_.BlockRate + "\n" +
+            "玩家金幣量:" + PlayerDataOverView.Instance.PlayerData_.Coin + "\n";
     }
 }

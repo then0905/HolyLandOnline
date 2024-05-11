@@ -10,7 +10,7 @@ using System.Linq;
 public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
 {
     [Header("升級的指定技能"), SerializeField] protected string upgradeSkillID;
-    protected override void SkillEffectStart()
+    protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defenfer = null)
     {
         //尋找場景上所有SkillUI
         var findSkillUIResult = PassiveSkillManager.Instance.SkillUIList;
@@ -22,7 +22,7 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
             {
                 skillUIData.SkillBeUpgrade = true;
                 skillUIData.SkillUpgradeID = skillName;
-                skillUIData.SkillUpgradeIcon = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerData.Job, skillName);
+                skillUIData.SkillUpgradeIcon = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerDataOverView.Instance.PlayerData_.Job, skillName);
 
             }
         }
@@ -36,7 +36,7 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
         if (item != null)
         {
             //更換圖片與更新升級技能ID資訊
-            item.Background.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerData.Job, skillName);
+            item.Background.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerDataOverView.Instance.PlayerData_.Job, skillName);
             item.UpgradeSkillID = skillName;
         }
         if (gameObject != null)
@@ -55,7 +55,7 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
             {
                 skillUIData.SkillBeUpgrade = false;
                 skillUIData.SkillUpgradeID = "";
-                skillUIData.SkillUpgradeIcon = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerData.Job, upgradeSkillID);
+                skillUIData.SkillUpgradeIcon = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerDataOverView.Instance.PlayerData_.Job, upgradeSkillID);
 
             }
         }
@@ -69,7 +69,7 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
         if (item != null)
         {
             //更換圖片與更新升級技能ID資訊
-            item.Background.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerData.Job, upgradeSkillID);
+            item.Background.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerDataOverView.Instance.PlayerData_.Job, upgradeSkillID);
             item.UpgradeSkillID = "";
         }
     }

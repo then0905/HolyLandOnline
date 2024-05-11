@@ -45,11 +45,11 @@ public class LoadPlayerData : MonoBehaviour
             accountPlayerData = JsonUtility.FromJson<AccountPlayerData>(sjon);
 
             //讀取資料完 先讀取玩家基本資料
-            PlayerData.PlayerName = accountPlayerData.PlayerName;
-            PlayerData.Job = accountPlayerData.Job;
-            PlayerData.Race = accountPlayerData.Race;
-            PlayerData.Exp = accountPlayerData.Exp;
-            PlayerData.Lv = accountPlayerData.Lv;
+            PlayerDataOverView.Instance.PlayerData_.PlayerName = accountPlayerData.PlayerName;
+            PlayerDataOverView.Instance.PlayerData_.Job = accountPlayerData.Job;
+            PlayerDataOverView.Instance.PlayerData_.Race = accountPlayerData.Race;
+            PlayerDataOverView.Instance.PlayerData_.Exp = accountPlayerData.Exp;
+            PlayerDataOverView.Instance.PlayerData_.Lv = accountPlayerData.Lv;
         }
         //若沒有檔案 生成
         else
@@ -66,13 +66,13 @@ public class LoadPlayerData : MonoBehaviour
         accountPlayerData = new AccountPlayerData()
         {
             UID = "",
-            PlayerName = PlayerData.PlayerName,
-            Job = PlayerData.Job,
-            Race = PlayerData.Race,
-            Hp = PlayerData.HP,
-            Mp = PlayerData.MP,
-            Exp = PlayerData.Exp,
-            Lv = PlayerData.Lv,
+            PlayerName = PlayerDataOverView.Instance.PlayerData_.PlayerName,
+            Job = PlayerDataOverView.Instance.PlayerData_.Job,
+            Race = PlayerDataOverView.Instance.PlayerData_.Race,
+            Hp = PlayerDataOverView.Instance.PlayerData_.HP,
+            Mp = PlayerDataOverView.Instance.PlayerData_.MP,
+            Exp = PlayerDataOverView.Instance.PlayerData_.Exp,
+            Lv = PlayerDataOverView.Instance.PlayerData_.Lv,
         };
         string usersave = JsonUtility.ToJson(accountPlayerData);
         FileStream fs = new FileStream(Application.persistentDataPath + "/Usersave.txt", FileMode.Create);
@@ -86,7 +86,7 @@ public class LoadPlayerData : MonoBehaviour
     /// </summary>
     public static void LoadUserUiData()
     {
-        PlayerData.HP = accountPlayerData.Hp;
-        PlayerData.MP = accountPlayerData.Mp;
+        PlayerDataOverView.Instance.PlayerData_.HP = accountPlayerData.Hp;
+        PlayerDataOverView.Instance.PlayerData_.MP = accountPlayerData.Mp;
     }
 }

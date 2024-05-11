@@ -99,7 +99,10 @@ public abstract class Skill_Base : MonoBehaviour
     /// 初始化技能資料
     /// </summary>
     /// <param name="costMaga">消耗魔力</param>
-    public void InitSkillEffectData(int costMaga, bool skillUpgrade = false)
+    /// <param name="skillUpgrade">是否升級技能</param>
+    /// <param name="caster">施放者</param>
+    /// <param name="receiver">接收者</param>
+    public void InitSkillEffectData(int costMaga, bool skillUpgrade = false, ICombatant caster = null, ICombatant receiver = null)
     {
         skillBeUpgrade = skillUpgrade;
         //獲取GameData技能資料
@@ -127,11 +130,11 @@ public abstract class Skill_Base : MonoBehaviour
         additionalEffectValue = effectData.AdditionalEffectValue;
         additionalEffectTime = effectData.AdditionalEffectTime;
         //扣除消耗魔力
-        PlayerValueManager.Instance.ChangeMpEvent?.Invoke(costMaga * -1);
+        PlayerDataOverView.Instance.ChangeMpEvent?.Invoke(costMaga * -1);
 
         //如果技能被升級 初始化技能時不執行 等待升級資訊後才執行
         if (!skillUpgrade)
-            SkillEffectStart();
+            SkillEffectStart(caster, receiver);
         //設定生成特效參考
         if (effectObj != null) InitSkillEffect(effectData.EffectTarget);
     }
@@ -149,7 +152,7 @@ public abstract class Skill_Base : MonoBehaviour
         {
             //分割出條件(key)與判斷值(value)
             var splitData = item.Split('_');
-            
+
             //判斷key值是否一樣 不一樣清空value
             if (tempKey != splitData[0])
                 tempValue = new List<string>();
@@ -173,7 +176,6 @@ public abstract class Skill_Base : MonoBehaviour
             checkResult[i] = DetailConditionProcess(item.Key, item.Value);
             i++;
         }
-
 
         return checkResult.All(x => x == true);
     }
@@ -229,7 +231,9 @@ public abstract class Skill_Base : MonoBehaviour
     /// <summary>
     /// 技能施放開始
     /// </summary>
-    protected abstract void SkillEffectStart();
+    /// <param name="caster">施放者</param>
+    /// <param name="receiver">被施放者</param>
+    protected abstract void SkillEffectStart(ICombatant caster = null, ICombatant receiver = null);
     /// <summary>
     /// 技能施放結束
     /// </summary>
@@ -254,7 +258,7 @@ public abstract class Skill_Base : MonoBehaviour
         {
             default:
             case "Self":
-                obj = Instantiate(effectObj, Character_move.Instance.Character.transform);
+                obj = Instantiate(effectObj, PlayerDataOverView.Instance.CharacterMove.Character.transform);
                 break;
             case "Target":
                 obj = Instantiate(effectObj, SelectTarget.Instance.Targetgameobject.transform);
@@ -268,8 +272,8 @@ public abstract class Skill_Base : MonoBehaviour
     /// <summary>
     /// 從被動獲得技能升級效果 刷新技能內容
     /// </summary>
-    /// <param name="skillUpgrade"></param>
-    public void GetSkillUpgradeEffect(string skillUpgradeID)
+    /// <param name="skillUpgradeID">技能升級目標ID</param>
+    public void GetSkillUpgradeEffect(string skillUpgradeID, ICombatant caster = null, ICombatant receiver = null)
     {
         //獲取GameData技能資料
         var effectData = GameData.SkillsDataDic[skillUpgradeID];
@@ -294,6 +298,6 @@ public abstract class Skill_Base : MonoBehaviour
         additionalEffectTime = effectData.AdditionalEffectTime;
         //升級資訊完成 執行程式
         skillBeUpgrade = false;
-        SkillEffectStart();
+        SkillEffectStart(caster, receiver);
     }
 }

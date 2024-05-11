@@ -286,7 +286,7 @@ RectTransform:
   m_GameObject: {fileID: 798079450172880751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.125, y: 0.125, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 798079451597014673}
@@ -294,7 +294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 15.88}
+  m_AnchoredPosition: {x: 0, y: 1.85}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &798079450172880748
@@ -438,6 +438,7 @@ GameObject:
   - component: {fileID: 798079451597014678}
   - component: {fileID: 798079451597014679}
   - component: {fileID: 798079451597014672}
+  - component: {fileID: 7069742687098790843}
   m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
@@ -454,7 +455,7 @@ RectTransform:
   m_GameObject: {fileID: 798079451597014674}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.125, y: 0.125, z: 0.05555556}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 798079450172880750}
@@ -527,6 +528,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1183024399 &7069742687098790843
+LookAtConstraint:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798079451597014674}
+  m_Enabled: 1
+  m_Weight: 1
+  m_RotationAtRest: {x: 0, y: 0, z: 0}
+  m_RotationOffset: {x: 0, y: 0, z: 0}
+  m_Roll: 0
+  m_WorldUpObject: {fileID: 0}
+  m_UseUpObject: 0
+  m_IsContraintActive: 1
+  m_IsLocked: 0
+  m_Sources: []
 --- !u!1 &798079451872827997
 GameObject:
   m_ObjectHideFlags: 0
@@ -1424,11 +1442,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   povit: {fileID: 798079451505782669}
+  headTrans: {fileID: 798079451872827996}
+  canBeChoose: 1
   MonsterAnimator: {fileID: 3515289243531032699}
-  MonsterNameUI: {fileID: 798079451597014674}
-  BootysHandling: {fileID: 0}
-  SelectTarget_: {fileID: 0}
-  MonsterName: Monster_Test_0
+  MonsterNameCanvas: {fileID: 798079451597014678}
+  MonsterNameText: {fileID: 798079450172880751}
+  MonsterID: Monster_Test_0
 --- !u!1 &3632108953604598864
 GameObject:
   m_ObjectHideFlags: 0

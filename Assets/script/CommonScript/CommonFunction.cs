@@ -83,11 +83,11 @@ public static class CommonFunction
     /// 呼叫系統訊息
     /// </summary>
     /// <param name="content"></param>
-    public static MessageHintSetting MessageHint(string content, HintType hintType)
+    public static void MessageHint(string content, HintType hintType)
     {
         MessageHintSetting message = LoadObject<MessageHintSetting>("Hint", "MessageHint").GetComponent<MessageHintSetting>();
-        message.CallHintCanvas(content, hintType);
-        return message;
+        MessageHintSetting instanceMessage = UnityEngine.Object.Instantiate(message);
+        instanceMessage.CallHintCanvas(content, hintType);
     }
 
     /// <summary>
