@@ -11,4 +11,5 @@ public static class GameConfig
 {
    public const string SkillIcon = "Skill/Icon";
    public const string Monster = "Monster";
+   public const string AvatarNpc = "Avatar/NPC";
 }

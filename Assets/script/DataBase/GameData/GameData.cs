@@ -11,6 +11,7 @@ using UnityEngine;
 public partial class GameData : MonoBehaviour
 {
     #region 資料結構
+
     //怪物的掉落物字典
     public static Dictionary<string, MonsterBootyDataModel> MonsterBootysDic = new Dictionary<string, MonsterBootyDataModel>();
     //防具字典
@@ -33,6 +34,11 @@ public partial class GameData : MonoBehaviour
     public static Dictionary<string, LvAndExpDataModel> ExpAndLvDic = new Dictionary<string, LvAndExpDataModel>();
     //遊戲設定的數值
     public static Dictionary<string, GameSettingDataModel> GameSettingDic = new Dictionary<string, GameSettingDataModel>();
+    //Npc資料字典
+    public static Dictionary<string, NpcDataModel> NpcDataDic = new Dictionary<string, NpcDataModel>();
+    //任務資料字典
+    public static Dictionary<string, QuestDataModel> QuestDataDic = new Dictionary<string, QuestDataModel>();
+
     #endregion
 
     /// <summary>
@@ -51,5 +57,7 @@ public partial class GameData : MonoBehaviour
         CommonFunction.InitData(StatusFormulaDic, "StatusFormula", "Json");
         CommonFunction.InitData(ExpAndLvDic, "LvAndExp", "Json");
         CommonFunction.InitData(GameSettingDic, "GameSetting", "Json");
+        CommonFunction.InitData(NpcDataDic, "NpcData", "Json");
+        CommonFunction.InitData(QuestDataDic, "Quest", "Json");
     }
 }

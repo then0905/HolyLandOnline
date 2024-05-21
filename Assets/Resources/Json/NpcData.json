@@ -1,0 +1,69 @@
+[
+  {
+    "NpcID": "Npc01",
+    "AreaID": "OriginalVillage",
+    "NpcName": "村長\n奧利柏",
+    "NpcAvatarPath": "Avatar/NPC",
+    "NpcAvatarName": "Villagehead",
+    "NpcPosX": 24.4,
+    "NpcPosZ": -38.5,
+    "NpcChatContent": [
+      "歡迎來到初始之村，我是這裡的村長你好!"
+    ],
+    "QuestIDList": [
+      "QuestID_01"
+    ],
+    "HP": 100,
+    "MP": 0,
+    "ATK": 1,
+    "DEF": 1,
+    "Crt": 0,
+    "CrtResistance": 0,
+    "Avoid": 0,
+    "Hit": 10,
+    "AtkSpeed": 0.7,
+    "WalkSpeed": 0.08,
+    "RunSpeed": 0.15,
+    "AttackRange": 4,
+    "PursueRange": 100,
+    "NpcButtonFuncList": [
+      {
+        "NpcID": "Npc01",
+        "ButtonActionID": "Exit",
+        "ButtonName": "離開"
+      }
+    ]
+  },
+  {
+    "NpcID": "Npc02",
+    "AreaID": "OriginalVillage",
+    "NpcName": "達蘭妲",
+    "NpcAvatarPath": "Avatar/NPC",
+    "NpcAvatarName": "Girl",
+    "NpcPosX": 24.4,
+    "NpcPosZ": -38.5,
+    "NpcChatContent": [
+      "今天天氣很好，對吧?"
+    ],
+    "HP": 100,
+    "MP": 0,
+    "ATK": 1,
+    "DEF": 1,
+    "Crt": 0,
+    "CrtResistance": 0,
+    "Avoid": 0,
+    "Hit": 10,
+    "AtkSpeed": 0.7,
+    "WalkSpeed": 0.08,
+    "RunSpeed": 0.15,
+    "AttackRange": 4,
+    "PursueRange": 100,
+    "NpcButtonFuncList": [
+      {
+        "NpcID": "Npc02",
+        "ButtonActionID": "Exit",
+        "ButtonName": "離開"
+      }
+    ]
+  }
+]
