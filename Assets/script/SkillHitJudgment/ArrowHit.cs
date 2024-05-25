@@ -50,38 +50,45 @@ public class ArrowHit : MonoBehaviour
     /// <summary>
     /// 獲取範圍內目標清單
     /// </summary>
-    public void CatchTarget(ICombatant otherObj)
+    public void CatchTarget(List<ICombatant> otherObj)
     {
         //存取可攻擊對象
-        otherObjList.Add(otherObj);
+        otherObjList.AddRange(otherObj);
+        if (otherObjList.Count > skillData.TargetCount)
+        {
+            otherObjList = otherObjList.Take(skillData.TargetCount).ToList();
+        }
 
         //當可攻擊對象達到目標數量後進行傷害
-        if (otherObjList.Count == skillData.TargetCount)
+        //if (otherObjList.Count == skillData.TargetCount)
+        //{
+        foreach (ICombatant obj in otherObjList)
         {
-            foreach (ICombatant obj in otherObjList)
-            {
-                //戰鬥計算
-                BattleOperation.Instance.SkillAttackEvent?.Invoke(skillAttackData, PlayerDataOverView.Instance, obj);
-            }
+            //戰鬥計算
+            BattleOperation.Instance.SkillAttackEvent?.Invoke(skillAttackData, PlayerDataOverView.Instance, obj);
         }
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Monster")
+        if (other.GetComponent<ICombatant>() != null)
         {
             if (SkillDisplayAction.Instance.UsingSkill)
             {
-                foreach (Collider coll in Physics.OverlapBox(gameObject.transform.position, correctTriggerRange, Quaternion.identity, LayerMask.GetMask("Monster")))
+                List<Collider> targetList = Physics.OverlapBox(gameObject.transform.position, correctTriggerRange, Quaternion.identity).ToList();
+                List<ICombatant> combatantList = new List<ICombatant>();
+                foreach (Collider coll in targetList)
                 {
                     print("偵測到的目標:" + coll.name);
                     //獲取可攻擊目標(怪物行為腳本或是其他)
-                    if (coll.GetComponent<ICombatant>() != null&& coll.GetComponent<ActivityCharacterBase>().CanBeChoose)
+                    if (coll.GetComponent<ICombatant>() != null && coll.GetComponent<ActivityCharacterBase>().CanBeChoose)
                     {
-                        CatchTarget(coll.GetComponent<ICombatant>());
+                        combatantList.Add(coll.GetComponent<ICombatant>());
                     }
 
                 }
+                CatchTarget(combatantList);
             }
         }
     }

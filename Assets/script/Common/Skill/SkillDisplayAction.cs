@@ -398,7 +398,7 @@ public class SkillDisplayAction : MonoBehaviour
 
         //若技能效果為升級版 執行升級效果
         if (UpgradeSkillID != "")
-            UsingSkillObj.GetComponent<Skill_Base>().GetSkillUpgradeEffect(UpgradeSkillID, PlayerDataOverView.Instance, SelectTarget.Instance.TargetInformation.GetComponent<ICombatant>());
+            UsingSkillObj.GetComponent<Skill_Base>().GetSkillUpgradeEffect(UpgradeSkillID, PlayerDataOverView.Instance, SelectTarget.Instance.Targetgameobject.GetComponent<ICombatant>());
         //技能進入冷卻 併計時
         StartCoroutine(ProcessorSkillCoolDown(skillUIData));
         //if (PlayerDataOverView.Instance.PlayerData_.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
