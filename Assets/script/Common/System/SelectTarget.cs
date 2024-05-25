@@ -37,11 +37,12 @@ public class SelectTarget : MonoBehaviour
         set
         {
             _catchTarget = value;
-            if (Targetgameobject != null)
+            if (!value)
             {
-                Targetgameobject.BeenSelected();
+                TargetInformation.SetActive(false);
+                Targetgameobject = null;
             }
-
+            Targetgameobject?.BeenSelected();
         }
     }
     private bool _catchTarget;
@@ -69,30 +70,51 @@ public class SelectTarget : MonoBehaviour
     }
     void Update()
     {
-        //檢查是否有視窗開啟
+        // 檢查是否有視窗開啟
         if (PanelManager.Instance.CheckPanelStatus())
         {
-            if (Input.GetMouseButtonDown(0))
+            HandleMouseClick();
+        }
+
+        // 檢查是否按下Escape鍵來取消選取
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            CatchTarget = false;
+            Targetgameobject = null;
+        }
+    }
+    /// <summary>
+    /// 點擊處理
+    /// </summary>
+    private void HandleMouseClick()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = characterCamera.ScreenPointToRay(Input.mousePosition);
+            if (Physics.Raycast(ray, out RaycastHit hit))
             {
-                Ray ray = characterCamera.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit))
+                ActivityCharacterBase selectedObject = hit.collider.GetComponent<ActivityCharacterBase>();
+
+                if (selectedObject != null)
                 {
-                    ActivityCharacterBase selectedObject = hit.collider.GetComponent<ActivityCharacterBase>();
-                    if (selectedObject != null && selectedObject != Targetgameobject)
+                    // 確保選取到的新目標與當前目標不同
+                    if (selectedObject != Targetgameobject)
                     {
                         Targetgameobject = selectedObject;
                         CatchTarget = true;
                     }
-                    else
-                    {
-                        CatchTarget = false;
-                    }
+                }
+                else
+                {
+                    // 沒有選取到有效目標
+                    CatchTarget = false;
                 }
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            CatchTarget = false;
+            else
+            {
+                // Raycast沒有擊中任何物體
+                CatchTarget = false;
+            }
         }
     }
 }

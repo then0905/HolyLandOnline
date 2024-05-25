@@ -394,7 +394,7 @@ public class SkillDisplayAction : MonoBehaviour
         UsingSkillObj = Instantiate(effectObj);
         //初始化技能效果物件
         UsingSkillObj.GetComponent<Skill_Base>().InitSkillEffectData(skillUIData.CastMage, UpgradeSkillID != "",
-            PlayerDataOverView.Instance, SelectTarget.Instance.TargetInformation.GetComponent<ICombatant>());
+            PlayerDataOverView.Instance, SelectTarget.Instance.Targetgameobject.GetComponent<ICombatant>());
 
         //若技能效果為升級版 執行升級效果
         if (UpgradeSkillID != "")

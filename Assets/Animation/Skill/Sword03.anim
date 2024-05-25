@@ -58231,7 +58231,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 1.2
+  - time: 1.1666666
     functionName: ReverseUsingSkill
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: d462b6439dc02a446b566c01331f3d09,
