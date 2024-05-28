@@ -5,18 +5,18 @@
     "NeedLv": 1,
     "QuestChatContent": [
       "你好，冒險家，歡迎來到初始之村，我是村長，奧利伯",
-      "\n我想拜託你幫忙狩獵附近的魔物\"測試用巨人\"，3隻",
-      "\n若你完成了我會給予你豐厚的獎勵!"
+      "我想拜託你幫忙狩獵附近的魔物\"測試用巨人\"，3隻",
+      "若你完成了我會給予你豐厚的獎勵!"
     ],
     "StartNpcID": "Npc01",
     "EndNpcID": "Npc01",
     "QuestType": "Main",
     "Exp": 100,
     "Coin": 100,
-    "ConditionType": [
+    "QuestConditionList": [
       {
         "QuestID": "QuestID_01",
-        "ConditionType": "hunting",
+        "ConditionType": "Hunting",
         "ConditionID": "Monster_Test_0",
         "ConditionCount": 3
       }

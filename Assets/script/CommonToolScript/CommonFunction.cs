@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.Threading;
 using UnityEditor.PackageManager;
 using System.Runtime.InteropServices;
+using System.IO;
 
 //==========================================
 //  創建者:    家豪
@@ -44,6 +45,15 @@ public static class CommonFunction
 
 
         return jsonString;
+    }
+
+    public static void SaveLocalData<T> (string path,string name, T item)
+    {
+        string usersave = JsonUtility.ToJson(item);
+        FileStream fs = new FileStream(path + name, FileMode.Create);
+        StreamWriter sw = new StreamWriter(fs);
+        sw.Write(usersave);
+        sw.Close();
     }
 
     /// <summary>

@@ -51,6 +51,10 @@ public class HotKeyManager : MonoBehaviour
         {
             PlayerDataPanelPage();
         }
+        if (Input.GetKeyDown("q"))
+        {
+            MissionPanelPage();
+        }
         for (int i = 0; i < 10; i++)
         {
             HotKeyFillArray[i].sprite = HotKeyBackgroundArray[i].sprite;
@@ -100,6 +104,21 @@ public class HotKeyManager : MonoBehaviour
         else
         {
             panelManager.SetPanelClose("PlayerDataPanel");
+        }
+    }
+    /// <summary>
+    /// 開關任務視窗
+    /// </summary>
+    public void MissionPanelPage()
+    {
+        PanelData playerDataPanel = panelManager.PanelLsit.Where(x => x.PanelName.Contains("MissionPanel")).FirstOrDefault();
+        if (!playerDataPanel.PanelObj.activeSelf)
+        {
+            panelManager.SetPanelOpen("MissionPanel");
+        }
+        else
+        {
+            panelManager.SetPanelClose("MissionPanel");
         }
     }
 }

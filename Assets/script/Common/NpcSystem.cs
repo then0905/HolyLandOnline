@@ -93,8 +93,6 @@ public class NpcSystem : MonoBehaviour
         }
     }
 
-
-
     /// <summary>
     /// 任務資料初始化
     /// </summary>
@@ -197,6 +195,7 @@ public class NpcSystem : MonoBehaviour
     /// </summary>
     public void AcceptQuest()
     {
+        MissionManager.Instance.AcceptMisstion(tempQuestData.QuestID, tempQuestData.QuestConditionList);
         Exit();
         Debug.Log("接受任務:" + tempQuestData);
     }

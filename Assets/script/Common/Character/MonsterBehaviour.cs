@@ -157,6 +157,8 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
     /// </summary>
     public IEnumerator DeadBehaviourAsync()
     {
+        //檢查是否有任務需要狩獵該怪物
+        MissionManager.Instance.MissionScheduleCheck.Invoke(null, MonsterID);
         //設定動畫
         MonsterAnimator.SetBool("IsDead", true);
 
@@ -350,7 +352,7 @@ Camera.main.transform.rotation * Vector3.up);//讓傷害數字面對玩家
             var getTarget = BattleTargetDic.FirstOrDefault().Key;
 
             //調整面向
-           transform.LookAt(getTarget.Obj.transform);
+            transform.LookAt(getTarget.Obj.transform);
             //Quaternion targetRotation = Quaternion.LookRotation(getTarget.Obj.transform.position); // 計算目標旋轉
             //float targetYRotation = targetRotation.eulerAngles.y; // 取得目標旋轉的 Y 軸旋轉值
             //transform.rotation = Quaternion.Euler(0, targetYRotation, 0); // 直接旋轉到目標角度

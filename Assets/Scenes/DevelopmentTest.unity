@@ -2856,6 +2856,8 @@ MonoBehaviour:
     PanelObj: {fileID: 600161771}
   - PanelName: PlayerDataPanel
     PanelObj: {fileID: 264299951}
+  - PanelName: MissionPanel
+    PanelObj: {fileID: 1431915315438860284}
 --- !u!1 &289626255 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7015909621041706922, guid: e60a8514cff59414388a2827cac00b4c,
@@ -21560,6 +21562,12 @@ PrefabInstance:
       objectReference: {fileID: 216303635}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a998fef5049e7e84cb923ef83b486cab, type: 3}
+--- !u!1 &1431915315438860284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 174773568901871299, guid: a998fef5049e7e84cb923ef83b486cab,
+    type: 3}
+  m_PrefabInstance: {fileID: 1275579474287083839}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4059470285618065098 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 398157081697973114, guid: a998fef5049e7e84cb923ef83b486cab,

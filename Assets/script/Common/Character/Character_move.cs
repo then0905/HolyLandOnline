@@ -117,7 +117,7 @@ public class Character_move : MonoBehaviour
     {
         //暫存動畫片段
         AnimatorStateInfo stateInfo = characterAnimator.GetCurrentAnimatorStateInfo(0);
-        
+
         //若玩家在導航 或是 正在進行非跑步 站立 的其他動畫時 不執行移動
         if (AutoNavToTarget && inputToMove == Vector2.zero || (!stateInfo.IsName("Running") && !stateInfo.IsName("Idle"))) return;
         //打斷導航 恢復為 玩家控制移動
@@ -154,7 +154,7 @@ public class Character_move : MonoBehaviour
     {
         CharacterAnimator.SetBool("IsRun", runStatus);
         if (runStatus)
-            ControCharacterAnimationEvent.Invoke(MoveSpeed * 5.5f, "Running");
+            ControCharacterAnimationEvent.Invoke(MoveSpeed * 5.5f, "");
     }
 
     /// <summary>
@@ -187,7 +187,8 @@ public class Character_move : MonoBehaviour
     /// <returns></returns>
     public IEnumerator ControCharacterAnimationSpeed(float speed, string animationTrigger)
     {
-        characterAnimator.SetTrigger(animationTrigger);
+        if (!string.IsNullOrEmpty(animationTrigger))
+            characterAnimator.SetTrigger(animationTrigger);
         //暫存動畫片段
         AnimatorStateInfo stateInfo = characterAnimator.GetCurrentAnimatorStateInfo(0);
         //暫存原始動畫速度

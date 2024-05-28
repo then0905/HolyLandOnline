@@ -13,6 +13,7 @@ public class InitSequenceManager : MonoBehaviour
     {
         GameData.Init();//GameData資料優先
         LoadPlayerData.LoadUserData();//帶入使用者資料 先帶入血量魔力以外的資料 
+        MissionManager.Instance.Init();//接取任務的紀錄
         StatusOperation.Instance.StatusMethod();//使用者資料刷新
         ClassAndSkill.Instance.Init();//技能視窗初始化 需要玩家的等級與職業資料 以及gamedata
 
