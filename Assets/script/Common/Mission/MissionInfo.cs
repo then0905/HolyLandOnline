@@ -20,8 +20,12 @@ public class MissionInfo : MonoBehaviour
     [SerializeField] private TextMeshProUGUI missionSchedule;       //任務進度資料
 
     private string tempMissionID;
-    public string TempMIssinoID { get { return tempMissionID; } }
+    public string TempMissinoID { get { return tempMissionID; } }
 
+    /// <summary>
+    /// 任務詳細資訊呈現設定
+    /// </summary>
+    /// <param name="missionitem"></param>
     public void MissionInfoSetting(MissionItem missionitem)
     {
         gameObject.SetActive(true);

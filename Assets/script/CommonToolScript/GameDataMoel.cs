@@ -403,6 +403,7 @@ public class QuestDataModel : IDictionaryData<string>
     public List<QuestConditionData> QuestConditionList { get; set; }      //任務條件清單
     public List<QuestRewardData> QuestRewardList { get; set; }      //任務條件清單
     public List<PrerequisiteData> PrerequisiteList { get; set; }      //前置條件清單
+    public List<FinishQuestData> QuestFinishList { get; set; }      //任務完成的對話清單
     public int Exp { get; set; }        //經驗值
     public int Coin { get; set; }      //金幣
 
@@ -441,5 +442,15 @@ public class PrerequisiteData
     public string QuestID { get; set; }         //任務ID
     public string PrerequisiteType { get; set; }         //前置類型 (須達成指定任務ID,須獲得成就,需求道具等等)
     public string PrerequisiteQty { get; set; }         //前置任務數量(道具向)
+}
+
+/// <summary>
+/// 完成任務資料
+/// </summary>
+public class FinishQuestData
+
+{
+    public string QuestID { get; set; }         //任務ID
+    public List<string> QuestChatContent { get; set; }         //完成任務對話
 }
 #endregion

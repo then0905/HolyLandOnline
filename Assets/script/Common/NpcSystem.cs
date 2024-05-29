@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Xml.Linq;
+using System.ComponentModel;
+using System.Drawing;
+using System.Linq;
 using TMPro;
-using UnityEditor.Build.Content;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
@@ -27,6 +26,14 @@ public struct ButtonFunction
     public UnityEvent ButtonAct;
 }
 
+[Serializable]
+public struct RewardImage
+{
+    public GameObject Obj;
+    public Image Sprite;
+    public TextMeshProUGUI Text;
+}
+
 public class NpcSystem : MonoBehaviour
 {
     #region 靜態變數
@@ -45,15 +52,21 @@ public class NpcSystem : MonoBehaviour
     [Header("遊戲物件")]
     [SerializeField] private TextMeshProUGUI chatContent;        //對話框內容
     [SerializeField] private Image avatar;      //NPC頭像
+    [SerializeField] private RewardImage rewardImage;      //獎勵道具物件
     [SerializeField] private TextMeshProUGUI characterName;      //NPC名稱
     [SerializeField] private Button buttonObj;      //按鈕參考
     [SerializeField] private TextMeshProUGUI buttonText;      //按鈕文字
     [SerializeField] private Transform buttonParent;      //生成父級 按鈕參考
+    [SerializeField] private TextMeshProUGUI coinReward;      //獎勵文字:金幣
+    [SerializeField] private TextMeshProUGUI expReward;      //獎勵文字:經驗
+    [SerializeField] private Transform itemRewardParent;      //獎勵道具生成參考
+    [SerializeField] private RectTransform rewardArea;      //獎勵區RectTransform參考
 
 
     [Header("遊戲資料"), SerializeField]
     public List<ButtonFunction> ButtonFunctionList = new List<ButtonFunction>();        //按鈕功能清單
     private List<Button> buttonRecordList = new List<Button>();     //紀錄已生成的按鈕清單
+    private List<GameObject> tempRewardItemList = new List<GameObject>();     //紀錄已生成的獎勵圖片清單
     private List<QuestDataModel> questDataList = new List<QuestDataModel>();     //NPC所有任務清單
     private QuestDataModel tempQuestData = null;       //暫存此次任務資料
     private int questStep;      //紀錄任務總步驟
@@ -72,7 +85,15 @@ public class NpcSystem : MonoBehaviour
         ButtonFunctionSetting(npcData.NpcButtonFuncList);
         gameObject.SetActive(true);
         if (npcData.QuestIDList != null && npcData.QuestIDList.Count > 0)
-            QuestInit(npcData.QuestIDList.ToArray());
+        {
+            //查詢階段1 排除玩家接取的任務
+            var queryResult1 = npcData.QuestIDList.Where(x => !MissionManager.Instance.AlllMission.Any(y => y.QuestData.QuestID == x)).ToList();
+            //查詢階段2 排除玩家完成的任務
+            var queryResult2 = queryResult1.Where(x => !MissionManager.Instance.FinishedMissionList.Any(y => y == x)).ToList();
+            QuestInit(queryResult2.ToArray());
+            //檢查玩家是否身上有已完成的任務
+            FinishedQuestInit();
+        }
     }
 
     /// <summary>
@@ -115,6 +136,29 @@ public class NpcSystem : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 完成任務的初始化
+    /// </summary>
+    public void FinishedQuestInit()
+    {
+        //查詢玩家以接取的資料
+        var queryResult = MissionManager.Instance.AlllMission.Where(x => x.GetMissionFinishStatus).ToList();
+
+        if (queryResult.Count > 0)
+        {
+            foreach (var quest in queryResult)
+            {
+                buttonText.text = quest.QuestData.QuestName;
+                Button btn = Instantiate(buttonObj, buttonParent);
+                Action act = () => FinishedQuest(quest.QuestData);
+                btn.onClick.AddListener(() => act.Invoke());
+                btn.gameObject.SetActive(true);
+                buttonRecordList.Add(btn);
+            }
+        }
+    }
+
+
     #region 按鈕功能
 
     /// <summary>
@@ -138,56 +182,133 @@ public class NpcSystem : MonoBehaviour
         questStep = questData.QuestChatContent.Count;
         tempQuestData = questData;
         ClearTempData();
-        QuestStepFunction();
+        QuestStepFunction(true);
+    }
+
+    /// <summary>
+    /// 完成任務
+    /// </summary>
+    /// <param name="questData"></param>
+    public void FinishedQuest(QuestDataModel questData)
+    {
+        questStep = 0;
+        questStep = questData.QuestFinishList.Count;
+        tempQuestData = questData;
+        ClearTempData();
+        QuestStepFunction(false);
     }
 
     /// <summary>
     /// 任務步驟執行
     /// </summary>
-    public void QuestStepFunction()
+    /// <param name="missionStatus">任務狀態 True:接取 False:完成</param>
+    public void QuestStepFunction(bool missionStatus)
     {
-        if (tempStep < tempQuestData.QuestChatContent.Count - 1)
+        if (missionStatus)
         {
-            chatContent.text = tempQuestData.QuestChatContent[tempStep];
-            ClearTempData();
-            ButtonFunction buttonFunction1 = ButtonFunctionList.Find(x => x.ButtonID == "QuestContinue");
-            buttonText.text = "繼續";
-            Button btn1 = Instantiate(buttonObj, buttonParent);
-            Action act1 = () => buttonFunction1.ButtonAct.Invoke();
-            btn1.onClick.AddListener(() => act1.Invoke());
-            btn1.gameObject.SetActive(true);
-            buttonRecordList.Add(btn1);
+            //若任務還有繼續的交談
+            if (tempStep < tempQuestData.QuestChatContent.Count - 1)
+            {
+                chatContent.text = tempQuestData.QuestChatContent[tempStep];
+                ClearTempData();
+                //ButtonFunction buttonFunction1 = ButtonFunctionList.Find(x => x.ButtonID == "QuestContinue");
+                buttonText.text = "繼續";
+                Button btn1 = Instantiate(buttonObj, buttonParent);
+                Action act1 = () => ContinusQuest(missionStatus);
+                btn1.onClick.AddListener(() => act1.Invoke());
+                btn1.gameObject.SetActive(true);
+                buttonRecordList.Add(btn1);
 
-        } //若任務還有繼續的交談
+            }
+            else
+            {
+                chatContent.text = tempQuestData.QuestChatContent[tempStep];
+                ClearTempData();
+                ButtonFunction buttonFunction1 = ButtonFunctionList.Find(x => x.ButtonID == "QuestAccept");
+                buttonText.text = "接受";
+                Button btn1 = Instantiate(buttonObj, buttonParent);
+                Action act1 = () => buttonFunction1.ButtonAct.Invoke();
+                btn1.onClick.AddListener(() => act1.Invoke());
+                btn1.gameObject.SetActive(true);
+                buttonRecordList.Add(btn1);
+                ButtonFunction buttonFunction2 = ButtonFunctionList.Find(x => x.ButtonID == "QuestReject");
+                buttonText.text = "拒絕";
+                Button btn2 = Instantiate(buttonObj, buttonParent);
+                Action act2 = () => buttonFunction2.ButtonAct.Invoke();
+                btn2.onClick.AddListener(() => act2.Invoke());
+                btn2.gameObject.SetActive(true);
+                buttonRecordList.Add(btn2);
+            }
+        }
         else
         {
-            chatContent.text = tempQuestData.QuestChatContent[tempStep];
-            ClearTempData();
-            ButtonFunction buttonFunction1 = ButtonFunctionList.Find(x => x.ButtonID == "QuestAccept");
-            buttonText.text = "接受";
-            Button btn1 = Instantiate(buttonObj, buttonParent);
-            Action act1 = () => buttonFunction1.ButtonAct.Invoke();
-            btn1.onClick.AddListener(() => act1.Invoke());
-            btn1.gameObject.SetActive(true);
-            buttonRecordList.Add(btn1);
-            ButtonFunction buttonFunction2 = ButtonFunctionList.Find(x => x.ButtonID == "QuestReject");
-            buttonText.text = "拒絕";
-            Button btn2 = Instantiate(buttonObj, buttonParent);
-            Action act2 = () => buttonFunction2.ButtonAct.Invoke();
-            btn2.onClick.AddListener(() => act2.Invoke());
-            btn2.gameObject.SetActive(true);
-            buttonRecordList.Add(btn2);
+            var getFinishData = tempQuestData.QuestFinishList[0];
+            if (tempStep < getFinishData.QuestChatContent.Count - 1)
+            {
+                chatContent.text = getFinishData.QuestChatContent[tempStep];
+                ClearTempData();
+                //ButtonFunction buttonFunction1 = ButtonFunctionList.Find(x => x.ButtonID == "QuestContinue");
+                buttonText.text = "繼續";
+                Button btn1 = Instantiate(buttonObj, buttonParent);
+                Action act1 = () => ContinusQuest(missionStatus);
+                btn1.onClick.AddListener(() => act1.Invoke());
+                btn1.gameObject.SetActive(true);
+                buttonRecordList.Add(btn1);
 
+            }
+            else
+            {
+                chatContent.text = getFinishData.QuestChatContent[tempStep];
+                //設定金幣文字
+                coinReward.enabled = true;
+                coinReward.text = "金幣:" + tempQuestData.Coin.ToString();
+                //設定經驗文字
+                expReward.enabled = true;
+                expReward.text = "經驗:" + tempQuestData.Exp.ToString();
+
+                //若有獎勵資料 設定獎勵物件
+                if (tempQuestData.QuestRewardList != null && tempQuestData.QuestRewardList.Count > 0)
+                {
+                    foreach (var item in tempQuestData.QuestRewardList)
+                    {
+                        var itemData = GameData.ItemsDic.Where(x => x.Key == item.RewardID).Select(x => x.Value).FirstOrDefault();
+                        var weaponData = GameData.WeaponsDic.Where(x => x.Key == item.RewardID).Select(x => x.Value).FirstOrDefault();
+                        var armorData = GameData.ArmorsDic.Where(x => x.Key == item.RewardID).Select(x => x.Value).FirstOrDefault();
+                        if (itemData != null)
+                            rewardImage.Sprite.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SpriteItem, item.RewardID);
+                        if (weaponData != null)
+                            rewardImage.Sprite.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SpriteWeapon, weaponData.CodeID);
+                        if (armorData != null)
+                            rewardImage.Sprite.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SpriteArmor, armorData.CodeID);
+                        rewardImage.Text.text = item.RewardQty.ToString();
+                        GameObject obj = Instantiate(rewardImage.Obj, itemRewardParent);
+                        obj.SetActive(true);
+                        tempRewardItemList.Add(obj);
+
+                    }
+                }
+                //強迫重新布局
+                LayoutRebuilder.ForceRebuildLayoutImmediate(itemRewardParent.GetComponent<RectTransform>());
+                LayoutRebuilder.ForceRebuildLayoutImmediate(rewardArea);
+
+                ClearTempData();
+                buttonText.text = "領取獎勵";
+                Button btn2 = Instantiate(buttonObj, buttonParent);
+                btn2.onClick.AddListener(() => GetMissionReward(tempQuestData));
+                btn2.gameObject.SetActive(true);
+                buttonRecordList.Add(btn2);
+            }
         }
     }
 
     /// <summary>
     /// 繼續任務對話
     /// </summary>
-    public void ContinusQuest()
+    /// <param name="missionStatus">帶入任務狀態 True:接取 False:完成</param>
+    public void ContinusQuest(bool missionStatus)
     {
         tempStep += 1;
-        QuestStepFunction();
+        QuestStepFunction(missionStatus);
     }
 
     /// <summary>
@@ -207,6 +328,46 @@ public class NpcSystem : MonoBehaviour
     {
         Exit();
         Debug.Log("拒絕任務:" + tempQuestData);
+    }
+
+    /// <summary>
+    /// 任務完成領取獎勵處理
+    /// </summary>
+    /// <param name="questData"></param>
+    public void GetMissionReward(QuestDataModel questData)
+    {
+        //經驗值獎勵
+        PlayerDataOverView.Instance.PlayerData_.Exp += questData.Exp;
+        PlayerDataOverView.Instance.ExpProcessor();
+        //金幣獎勵
+        ItemManager.Instance.PickUp(questData.Coin);
+        //道具獎勵
+        if (questData.QuestRewardList != null && questData.QuestRewardList.Count > 0)
+        {
+            foreach (var item in questData.QuestRewardList)
+            {
+                var itemData = GameData.ItemsDic.Where(x => x.Key == item.RewardID).Select(x => x.Value).FirstOrDefault();
+                var weaponData = GameData.WeaponsDic.Where(x => x.Key == item.RewardID).Select(x => x.Value).FirstOrDefault();
+                var armorData = GameData.ArmorsDic.Where(x => x.Key == item.RewardID).Select(x => x.Value).FirstOrDefault();
+                if (itemData != null)
+                    ItemManager.Instance.PickUp(CommonFunction.LoadObject<Sprite>(GameConfig.SpriteItem, itemData.CodeId), itemData);
+                if (weaponData != null)
+                    ItemManager.Instance.PickUp(CommonFunction.LoadObject<Sprite>(GameConfig.SpriteWeapon, weaponData.CodeID), weaponData);
+                if (armorData != null)
+                    ItemManager.Instance.PickUp(CommonFunction.LoadObject<Sprite>(GameConfig.SpriteArmor, armorData.CodeID), armorData);
+            }
+        }
+        //清除任務獎勵圖示
+        if (tempRewardItemList.Count > 0)
+        {
+            tempRewardItemList.ForEach(x => Destroy(x));
+            tempRewardItemList = new List<GameObject>();
+        }
+        coinReward.enabled = false;
+        expReward.enabled = false;
+        //紀錄完成任務ID
+        MissionManager.Instance.FinishedMisstion(questData);
+        Exit();
     }
 
     /// <summary>

@@ -39,7 +39,15 @@ public class MissionManager : MonoBehaviour
     private List<MissionItem> tempMainMission = new List<MissionItem>();        //暫存接取的主線任務資料
     private List<MissionItem> tempSideMission = new List<MissionItem>();        //暫存接取的支線任務資料
     private List<MissionItem> tempDailyMission = new List<MissionItem>();        //暫存接取的每日任務資料
-    public List<MissionData> MissionList = new List<MissionData>();
+    public List<MissionItem> AlllMission
+    {
+        get
+        {
+            var totalMission = tempMainMission.Concat(tempSideMission).Concat(tempDailyMission).ToList();
+            return totalMission;
+        }
+    }
+    public List<MissionData> MissionList = new List<MissionData>();     //本地紀錄使用 紀錄已接取的任務進度
     public List<string> FinishedMissionList = new List<string>();       //紀錄已完成的任務清單
 
     //事件區 
@@ -83,6 +91,7 @@ public class MissionManager : MonoBehaviour
         switch (missionData.QuestType)
         {
             case "Main":
+
                 tempMission = Instantiate(missionItem, missionItemMainOffset);
                 tempMainMission.Add(tempMission);
                 break;
@@ -125,21 +134,36 @@ public class MissionManager : MonoBehaviour
                 MissionSchedule = 0,
             });
         }
+        //任務進度刷新 本地紀錄資料刷新點
+        LoadPlayerData.SaveUserData();
         Init();
     }
 
-    public void FinishedMisstion(string id)
+    /// <summary>
+    /// 完成任務處理
+    /// </summary>
+    /// <param name="missionData"></param>
+    public void FinishedMisstion(QuestDataModel missionData)
     {
+        // 主線 支線 每日 任務清除
+        var main = tempMainMission.Where(x => x.QuestData == missionData).FirstOrDefault();
+        if (main?.gameObject != null) Destroy(main.gameObject);
+        tempMainMission.Remove(main);
+        var side = tempSideMission.Where(x => x.QuestData == missionData).FirstOrDefault();
+        if (side?.gameObject != null) Destroy(side.gameObject);
+        tempSideMission.Remove(side);
+        var daily = tempDailyMission.Where(x => x.QuestData == missionData).FirstOrDefault();
+        if (daily?.gameObject != null) Destroy(daily.gameObject);
+        tempDailyMission.Remove(daily);
 
-        //    if (tempMainMission.Count > 0)
-        //        tempMainMission.ForEach(x => Destroy(x.gameObject));
-        //tempMainMission.Clear();
-        //if (tempSideMission.Count > 0)
-        //    tempSideMission.ForEach(x => Destroy(x.gameObject));
-        //tempSideMission.Clear();
-        //if (tempDailyMission.Count > 0)
-        //    tempDailyMission.ForEach(x => Destroy(x.gameObject));
-        //tempDailyMission.Clear();
+        //清除玩家身上接取任務的資料
+        MissionList = MissionList.Where(x => x.MissionID != missionData.QuestID).ToList();
+        //關閉任務詳細資訊物件
+        missioninfo.gameObject.SetActive(false);
+        //寫入任務完成紀錄清單
+        FinishedMissionList.Add(missionData.QuestID);
+        //任務完成 本地紀錄資料刷新點
+        LoadPlayerData.SaveUserData();
     }
 
 
@@ -211,6 +235,8 @@ public class MissionManager : MonoBehaviour
                 }
             }
         }
+        //任務進度刷新 本地紀錄資料刷新點
+        LoadPlayerData.SaveUserData();
     }
 
     /// <summary>

@@ -90,6 +90,7 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
             if (value <= 0)
             {
                 value = 0;
+                IsDead = true;
                 BreakAnyCoroutine();
                 StartCoroutine(DeadBehaviourAsync());
             }
@@ -130,6 +131,7 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
     public float ElementDamageReduction { get => monsterValue.ElementDamageReduction; }
     public GameObject Obj { get => gameObject; }
 
+    public bool IsDead { get; set; }
 
     public void Start()
     {
@@ -148,8 +150,8 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
         HP = monsterValue.HP;
         originpos = transform.position;
         monsterAttackTimer = 1f / monsterValue.AtkSpeed;       //寫入普通攻擊間隔
-        //測試用 執行後秒殺怪物
-        //StartCoroutine(MonsterTest());
+                                                               //測試用 執行後秒殺怪物
+                                                               //StartCoroutine(MonsterTest());
     }
 
     /// <summary>
@@ -164,14 +166,15 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
 
         //經驗值與掉落物處理
         BootysHandle.Instance.GetBootysData(monsterValue.MonsterCodeID, transform);
-
         PlayerDataOverView.Instance.PlayerData_.Exp += monsterValue.EXP;
+        PlayerDataOverView.Instance.ExpProcessor();
+
+        //清除物件 清除鎖定目標避免空UI
+        SelectTarget.Instance.CatchTarget = false;
 
         //等待秒數 執行清除物件工作
         yield return new WaitForSeconds(3);
 
-        //清除物件 清除鎖定目標避免空UI
-        SelectTarget.Instance.CatchTarget = false;
 
         if (this.gameObject != null)
             Destroy(this.gameObject);
@@ -195,10 +198,10 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
         //MonsterNameText.GetComponent<RectTransform>().LookAt(Camera.main.transform);
         //MonsterNameText.GetComponent<RectTransform>().Rotate(new Vector3(0, 180, 0));
         MonsterNameText.transform.LookAt(MonsterNameText.transform.position + Camera.main.transform.rotation * Vector3.forward,
-Camera.main.transform.rotation * Vector3.up);//讓傷害數字面對玩家
-        //Vector3 lookDir = MonsterNameText.transform.position - Camera.main.transform.position;
-        //lookDir.y = 0;
-        //MonsterNameText.transform.rotation = Quaternion.LookRotation(lookDir);
+    Camera.main.transform.rotation * Vector3.up);//讓傷害數字面對玩家
+                                                 //Vector3 lookDir = MonsterNameText.transform.position - Camera.main.transform.position;
+                                                 //lookDir.y = 0;
+                                                 //MonsterNameText.transform.rotation = Quaternion.LookRotation(lookDir);
     }
 
     /// <summary>

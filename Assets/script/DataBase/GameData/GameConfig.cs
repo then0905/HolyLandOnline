@@ -12,4 +12,7 @@ public static class GameConfig
    public const string SkillIcon = "Skill/Icon";
    public const string Monster = "Monster";
    public const string AvatarNpc = "Avatar/NPC";
+   public const string SpriteItem = "CommonSprite/Item";
+   public const string SpriteWeapon = "CommonSprite/Weapon";
+   public const string SpriteArmor = "CommonSprite/Armor";
 }

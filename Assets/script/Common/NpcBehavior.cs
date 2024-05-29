@@ -63,6 +63,7 @@ public class NpcBehavior : ActivityCharacterBase, ICombatant
 
     public GameObject Obj => gameObject;
 
+    public bool IsDead { get; set; }
     private void Start()
     {
         npcSystem = NpcSystem.Instance;
@@ -90,6 +91,5 @@ Camera.main.transform.rotation * Vector3.up);//讓傷害數字面對玩家
 
     public void DealingWithInjuriesMethod(ICombatant attackerData, int damage)
     {
-        throw new System.NotImplementedException();
     }
 }

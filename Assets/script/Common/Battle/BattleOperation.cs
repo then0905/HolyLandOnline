@@ -48,6 +48,8 @@ public interface ICombatant
     public float ElementDamageReduction { get; }
     /// <summary>GameObject參考</summary>
     public GameObject Obj { get; }
+    /// <summary>物體是否為死亡狀態</summary>
+    public bool IsDead { get; set; }
     /// <summary>
     /// 受到攻擊處理
     /// </summary>

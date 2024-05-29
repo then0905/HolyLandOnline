@@ -57,6 +57,14 @@ public class MissionItem : MonoBehaviour
     public string MissionScheduleText => missionTarget.text;
     public Button MissionBtn => missionBtn;
 
+    public bool GetMissionFinishStatus
+    {
+        get
+        {
+            return MissionData.All(x => x.MissionDataModel.All(z => QuestData.QuestConditionList.All(y => y.ConditionID == z.MissionTarget && y.ConditionCount == z.MissionSchedule)));
+        }
+    }
+
     /// <summary>
     /// GameData任務資料
     /// </summary>

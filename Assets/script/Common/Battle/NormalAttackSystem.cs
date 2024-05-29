@@ -66,6 +66,7 @@ public class NormalAttackSystem : MonoBehaviour
     /// </summary>
     public void RunAttack(ICombatant attacker = null, ICombatant defender = null)
     {
+        if (defender.IsDead) return;
         PlayerDataOverView.Instance.CharacterMove.RunAnimation(false);
         AttackAllow = true;
         //依照攻擊速度調整動畫播放速度

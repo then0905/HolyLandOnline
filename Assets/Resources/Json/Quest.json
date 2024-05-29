@@ -5,6 +5,7 @@
     "NeedLv": 1,
     "QuestChatContent": [
       "你好，冒險家，歡迎來到初始之村，我是村長，奧利伯",
+      "最近村莊周圍多很多的魔物讓我們很困擾!",
       "我想拜託你幫忙狩獵附近的魔物\"測試用巨人\"，3隻",
       "若你完成了我會給予你豐厚的獎勵!"
     ],
@@ -13,6 +14,15 @@
     "QuestType": "Main",
     "Exp": 100,
     "Coin": 100,
+    "QuestFinishList": [
+      {
+        "QuestID": "QuestID_01",
+        "QuestChatContent": [
+          "感謝你為我們村莊的付出",
+          "這些是你的獎勵"
+        ]
+      }
+    ],
     "QuestConditionList": [
       {
         "QuestID": "QuestID_01",

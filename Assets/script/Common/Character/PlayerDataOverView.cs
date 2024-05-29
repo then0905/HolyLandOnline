@@ -58,6 +58,7 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
                 //死亡 
                 value = 0;
                 //呼叫死亡事件
+                IsDead = true;
             }
             PlayerData_.HP = value;
         }
@@ -116,6 +117,7 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
     public float ElementDamageIncrease { get => PlayerData_.ElementDamageIncrease; }
     public float ElementDamageReduction { get => PlayerData_.ElementDamageReduction; }
     public GameObject Obj { get => gameObject; }
+    public bool IsDead { get; set; }
 
     [Header("事件區")]
     public Action UIrefresh;        //刷新玩家UI的事件
@@ -129,7 +131,6 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
     public void Init()
     {
         RefreshExpAndLv();
-
         //呼叫自然恢復魔力與血量
         StartCoroutine(RecoveryHpCoroutine());
         StartCoroutine(RecoveryMpCoroutine());
@@ -138,6 +139,7 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
         UIrefresh += PlayerDataPanelProcessor.Instance.SetPlayerDataContent;
         ChangeHpEvent += ChangePlayerHp;
         ChangeMpEvent += ChangePlayerMp;
+        ExpProcessor();
     }
 
     /// <summary>
@@ -214,6 +216,9 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
     /// </summary>
     public void ExpProcessor()
     {
+        //設定經驗值條資料
+        expSlider.value = PlayerData_.Exp;
+        expSlider.maxValue = GameData.ExpAndLvDic.Where(x => x.Key.Contains(PlayerData_.Lv.ToString())).Select(x => x.Value).FirstOrDefault().EXP;
         //若玩家經驗值>最大經驗值條 為 升級事件
         if (PlayerData_.Exp >= expSlider.maxValue)
         {
@@ -223,10 +228,6 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
             //呼叫刷新與升等
             LVup();
         }
-
-        //設定經驗值調資料
-        expSlider.value = PlayerData_.Exp;
-        expSlider.maxValue = GameData.ExpAndLvDic.Where(x => x.Key.Contains(PlayerData_.Lv.ToString())).Select(x => x.Value).FirstOrDefault().EXP;
     }
 
     /// <summary>
