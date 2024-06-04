@@ -10,9 +10,6 @@
     "NpcChatContent": [
       "歡迎來到初始之村，我是這裡的村長你好!"
     ],
-    "QuestIDList": [
-      "QuestID_01"
-    ],
     "HP": 100,
     "MP": 0,
     "ATK": 1,

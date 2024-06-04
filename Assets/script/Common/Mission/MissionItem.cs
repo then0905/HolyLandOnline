@@ -61,7 +61,7 @@ public class MissionItem : MonoBehaviour
     {
         get
         {
-            return MissionData.All(x => x.MissionDataModel.All(z => QuestData.QuestConditionList.All(y => y.ConditionID == z.MissionTarget && y.ConditionCount == z.MissionSchedule)));
+            return MissionData.MissionDataModel.All(z => QuestData.QuestConditionList.All(y => (y.ConditionID == z.MissionTarget && y.ConditionCount == z.MissionSchedule) || y.ConditionType == "Relay"));
         }
     }
 
@@ -73,7 +73,7 @@ public class MissionItem : MonoBehaviour
     /// <summary>
     /// 任務進行進度記錄資料
     /// </summary>
-    public List<MissionData> MissionData { get; set; } = new List<MissionData>();
+    public MissionData MissionData { get; set; } 
 
     /// <summary>
     /// 設定任務內容
@@ -102,7 +102,7 @@ public class MissionItem : MonoBehaviour
 
         for (int i = 0; i < conditionDataList.Count; i++)
         {
-            var getMissionQueryResult = MissionData.Where(x => x.MissionID == conditionDataList[i].QuestID).Select(x => x.MissionDataModel).FirstOrDefault();
+            var getMissionQueryResult = MissionData.MissionDataModel;
             switch (conditionDataList[i].ConditionType)
             {
                 //狩獵類型
@@ -126,7 +126,7 @@ public class MissionItem : MonoBehaviour
                 //代話類型
                 case "Relay":
                     actionString = (i > 0) ? "\n傳話給 " : "傳話給 ";
-                    targetString = GameData.ItemsDic[conditionDataList[i].ConditionID].Name;
+                    targetString = GameData.NpcDataDic[conditionDataList[i].ConditionID].NpcName;
                     scheduleString = " (" + getMissionQueryResult.Find(x => x.MissionTarget == conditionDataList[i].ConditionID).MissionSchedule.ToString() + "/" + conditionDataList[i].ConditionCount + ")";
                     break;
             }

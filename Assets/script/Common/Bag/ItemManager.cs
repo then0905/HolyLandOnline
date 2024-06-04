@@ -117,7 +117,7 @@ public class ItemManager : MonoBehaviour
         //檢查包包是否有物品與撿起物品一樣並且可以堆疊
         if (itemvaule.Stackability)
         {
-             var getSameData = BagItems.Where(x => x.EquipmentDatas.Item?.CodeId == itemvaule.CodeId).FirstOrDefault();
+            var getSameData = BagItems.Where(x => x.EquipmentDatas.Item?.CodeId == itemvaule.CodeId).FirstOrDefault();
             if (getSameData != null)
             {
                 getSameData.Qty += qty;
@@ -155,6 +155,7 @@ public class ItemManager : MonoBehaviour
     /// <param name="coin"></param>
     public void PickUp(int coin)
     {
+        if (coin.Equals(0)) return;
         PlayerDataOverView.Instance.PlayerData_.Coin += int.Parse(coin.ToString());
         CoinText.text = PlayerDataOverView.Instance.PlayerData_.Coin.ToString();
         CommonFunction.MessageHint(("獲得" + coin.ToString() + "金幣"), HintType.NormalItem);

@@ -96,18 +96,18 @@ public class MissionManager : MonoBehaviour
                 tempMainMission.Add(tempMission);
                 break;
             case "Side":
-                tempMission = Instantiate(missionItem, missionItemMainOffset);
+                tempMission = Instantiate(missionItem, missionItemSideOffset);
                 tempSideMission.Add(tempMission);
                 break;
             case "Daily":
-                tempMission = Instantiate(missionItem, missionItemMainOffset);
+                tempMission = Instantiate(missionItem, missionItemDailyOffset);
                 tempDailyMission.Add(tempMission);
                 break;
             default:
                 break;
         }
         tempMission.QuestData = missionData;
-        tempMission.MissionData.Add(missionRecordData);
+        tempMission.MissionData = (missionRecordData);
         tempMission.SetItem();
     }
 
@@ -166,6 +166,30 @@ public class MissionManager : MonoBehaviour
         LoadPlayerData.SaveUserData();
     }
 
+    /// <summary>
+    /// 刪除當前預覽的任務
+    /// </summary>
+    public void DeleteMission()
+    {
+        QuestDataModel missionData = GameData.QuestDataDic[missioninfo.TempMissinoonID];
+        // 主線 支線 每日 任務清除
+        var main = tempMainMission.Where(x => x.QuestData == missionData).FirstOrDefault();
+        if (main?.gameObject != null) Destroy(main.gameObject);
+        tempMainMission.Remove(main);
+        var side = tempSideMission.Where(x => x.QuestData == missionData).FirstOrDefault();
+        if (side?.gameObject != null) Destroy(side.gameObject);
+        tempSideMission.Remove(side);
+        var daily = tempDailyMission.Where(x => x.QuestData == missionData).FirstOrDefault();
+        if (daily?.gameObject != null) Destroy(daily.gameObject);
+        tempDailyMission.Remove(daily);
+        //清除玩家身上接取任務的資料
+        MissionList = MissionList.Where(x => x.MissionID != missionData.QuestID).ToList();
+        //關閉任務詳細資訊物件
+        missioninfo.gameObject.SetActive(false);
+        //刪除任務 本地紀錄資料刷新點
+        LoadPlayerData.SaveUserData();
+    }
+
 
     public void SetMissionInfo(object o, MissionItem missionitem)
     {
@@ -182,18 +206,15 @@ public class MissionManager : MonoBehaviour
         //主線檢查
         foreach (var item in tempMainMission)
         {
-            foreach (var missionData in item.MissionData)
+            foreach (var missionData in item.MissionData.MissionDataModel)
             {
-                foreach (var conditaionData in missionData.MissionDataModel)
+                if (conditionID == missionData.MissionTarget)
                 {
-                    if (conditionID == conditaionData.MissionTarget)
-                    {
-                        conditaionData.MissionSchedule = conditaionData.MissionSchedule + 1 >= item.QuestData.QuestConditionList.Find(x => x.ConditionID == conditionID).ConditionCount ?
-                            item.QuestData.QuestConditionList.Find(x => x.ConditionID == conditionID).ConditionCount : conditaionData.MissionSchedule + 1;
-                        //刷新任務詳細介面的資料
-                        item.SetItem();
-                        item.MissionBtn.onClick.Invoke();
-                    }
+                    missionData.MissionSchedule = missionData.MissionSchedule + 1 >= item.QuestData.QuestConditionList.Find(x => x.ConditionID == conditionID).ConditionCount ?
+                            item.QuestData.QuestConditionList.Find(x => x.ConditionID == conditionID).ConditionCount : missionData.MissionSchedule + 1;
+                    //刷新任務詳細介面的資料
+                    item.SetItem();
+                    item.MissionBtn.onClick.Invoke();
                 }
             }
         }
@@ -201,18 +222,15 @@ public class MissionManager : MonoBehaviour
         //支線檢查
         foreach (var item in tempSideMission)
         {
-            foreach (var missionData in item.MissionData)
+            foreach (var missionData in item.MissionData.MissionDataModel)
             {
-                foreach (var conditaionData in missionData.MissionDataModel)
+                if (conditionID == missionData.MissionTarget)
                 {
-                    if (conditionID == conditaionData.MissionTarget)
-                    {
-                        conditaionData.MissionSchedule = conditaionData.MissionSchedule + 1 >= item.QuestData.QuestConditionList.Find(x => x.ConditionID == conditionID).ConditionCount ?
-                            item.QuestData.QuestConditionList.Find(x => x.ConditionID == conditionID).ConditionCount : conditaionData.MissionSchedule + 1;
-                        //刷新任務詳細介面的資料
-                        item.SetItem();
-                        item.MissionBtn.onClick.Invoke();
-                    }
+                    missionData.MissionSchedule = missionData.MissionSchedule + 1 >= item.QuestData.QuestConditionList.Find(x => x.ConditionID == conditionID).ConditionCount ?
+                            item.QuestData.QuestConditionList.Find(x => x.ConditionID == conditionID).ConditionCount : missionData.MissionSchedule + 1;
+                    //刷新任務詳細介面的資料
+                    item.SetItem();
+                    item.MissionBtn.onClick.Invoke();
                 }
             }
         }
@@ -220,25 +238,24 @@ public class MissionManager : MonoBehaviour
         //每日檢查
         foreach (var item in tempDailyMission)
         {
-            foreach (var missionData in item.MissionData)
+            foreach (var missionData in item.MissionData.MissionDataModel)
             {
-                foreach (var conditaionData in missionData.MissionDataModel)
                 {
-                    if (conditionID == conditaionData.MissionTarget)
+                    if (conditionID == missionData.MissionTarget)
                     {
-                        conditaionData.MissionSchedule = conditaionData.MissionSchedule + 1 >= item.QuestData.QuestConditionList.Find(x => x.ConditionID == conditionID).ConditionCount ?
-                            item.QuestData.QuestConditionList.Find(x => x.ConditionID == conditionID).ConditionCount : conditaionData.MissionSchedule + 1;
+                        missionData.MissionSchedule = missionData.MissionSchedule + 1 >= item.QuestData.QuestConditionList.Find(x => x.ConditionID == conditionID).ConditionCount ?
+                            item.QuestData.QuestConditionList.Find(x => x.ConditionID == conditionID).ConditionCount : missionData.MissionSchedule + 1;
                         //刷新任務詳細介面的資料
                         item.SetItem();
                         item.MissionBtn.onClick.Invoke();
                     }
+
                 }
             }
+            //任務進度刷新 本地紀錄資料刷新點
+            LoadPlayerData.SaveUserData();
         }
-        //任務進度刷新 本地紀錄資料刷新點
-        LoadPlayerData.SaveUserData();
     }
-
     /// <summary>
     /// 重製任務資料
     /// </summary>

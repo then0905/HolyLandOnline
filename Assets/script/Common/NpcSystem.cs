@@ -71,7 +71,6 @@ public class NpcSystem : MonoBehaviour
     private QuestDataModel tempQuestData = null;       //暫存此次任務資料
     private int questStep;      //紀錄任務總步驟
     private int tempStep = 0;      //紀錄任務當前步驟
-
     /// <summary>
     /// 初始化 NPC 互動頁面
     /// </summary>
@@ -84,15 +83,16 @@ public class NpcSystem : MonoBehaviour
         characterName.text = npcData.NpcName;
         ButtonFunctionSetting(npcData.NpcButtonFuncList);
         gameObject.SetActive(true);
-        if (npcData.QuestIDList != null && npcData.QuestIDList.Count > 0)
+        var getNpcQuest = GameData.QuestDataDic.Values.Where(x => x.StartNpcID == npcData.NpcID).ToList();
+        if (getNpcQuest != null && getNpcQuest.Count > 0)
         {
             //查詢階段1 排除玩家接取的任務
-            var queryResult1 = npcData.QuestIDList.Where(x => !MissionManager.Instance.AlllMission.Any(y => y.QuestData.QuestID == x)).ToList();
+            var queryResult1 = getNpcQuest.Where(x => !MissionManager.Instance.AlllMission.Any(y => y.QuestData.QuestID == x.QuestID)).ToList();
             //查詢階段2 排除玩家完成的任務
-            var queryResult2 = queryResult1.Where(x => !MissionManager.Instance.FinishedMissionList.Any(y => y == x)).ToList();
+            var queryResult2 = queryResult1.Where(x => !MissionManager.Instance.FinishedMissionList.Any(y => y == x.QuestID)).Select(x => x.QuestID).ToList();
             QuestInit(queryResult2.ToArray());
             //檢查玩家是否身上有已完成的任務
-            FinishedQuestInit();
+            FinishedQuestInit(npcData);
         }
     }
 
@@ -139,12 +139,12 @@ public class NpcSystem : MonoBehaviour
     /// <summary>
     /// 完成任務的初始化
     /// </summary>
-    public void FinishedQuestInit()
+    public void FinishedQuestInit(NpcDataModel npcData)
     {
         //查詢玩家以接取的資料
-        var queryResult = MissionManager.Instance.AlllMission.Where(x => x.GetMissionFinishStatus).ToList();
+        var queryResult = MissionManager.Instance.AlllMission.Where(x => x.GetMissionFinishStatus && x.QuestData.EndNpcID == npcData.NpcID).ToList();
 
-        if (queryResult.Count > 0)
+        if (queryResult != null && queryResult.Count > 0)
         {
             foreach (var quest in queryResult)
             {

@@ -31,5 +31,37 @@
         "ConditionCount": 3
       }
     ]
+  },
+  {
+    "QuestID": "QuestID_02",
+    "QuestName": "與達蘭妲談話",
+    "NeedLv": 1,
+    "QuestChatContent": [
+      "你好，冒險家，我是初始之村的村民達蘭妲",
+      "你需要熟悉一下村莊的環境嗎?",
+      "我想你可以去找村長「奧利伯」了解一下環境!"
+    ],
+    "StartNpcID": "Npc02",
+    "EndNpcID": "Npc01",
+    "QuestType": "Side",
+    "Exp": 25,
+    "Coin": 0,
+    "QuestFinishList": [
+      {
+        "QuestID": "QuestID_02",
+        "QuestChatContent": [
+          "是達蘭妲請你來找我的嗎?",
+          "好的我來跟你講一下村莊周遭環境"
+        ]
+      }
+    ],
+    "QuestConditionList": [
+      {
+        "QuestID": "QuestID_02",
+        "ConditionType": "Relay",
+        "ConditionID": "Npc01",
+        "ConditionCount": 1
+      }
+    ]
   }
 ]
