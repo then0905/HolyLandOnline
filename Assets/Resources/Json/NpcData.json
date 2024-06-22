@@ -62,5 +62,62 @@
         "ButtonName": "離開"
       }
     ]
+  },
+  {
+    "NpcID": "Npc03",
+    "AreaID": "OriginalVillage",
+    "NpcName": "道具商人\n克雷德",
+    "NpcAvatarPath": "Avatar/NPC",
+    "NpcAvatarName": "Villagehead",
+    "NpcPosX": 24.4,
+    "NpcPosZ": -38.5,
+    "NpcChatContent": [
+      "歡迎光臨我的小舖，來參考看看呀!"
+    ],
+    "HP": 100,
+    "MP": 0,
+    "ATK": 1,
+    "DEF": 1,
+    "Crt": 0,
+    "CrtResistance": 0,
+    "Avoid": 0,
+    "Hit": 10,
+    "AtkSpeed": 0.7,
+    "WalkSpeed": 0.08,
+    "RunSpeed": 0.15,
+    "AttackRange": 4,
+    "PursueRange": 100,
+    "ShopInventoryList": [
+      {
+        "NpcID": "Npc03",
+        "ItemID": "Potion_Hp_01",
+        "LimitQty": -1
+      },
+      {
+        "NpcID": "Npc03",
+        "ItemID": "Potion_Mp_01",
+        "LimitQty": -1
+      },
+      {
+        "NpcID": "Npc03",
+        "ItemID": "Potion_Detoxification_01",
+        "LimitQty": -1
+      },
+      {
+        "NpcID": "Npc03",
+        "ItemID": "DEF_Reel_01",
+        "LimitQty": -1
+      },
+      {
+        "NpcID": "Npc03",
+        "ItemID": "ATK_Reel_01",
+        "LimitQty": -1
+      },
+      {
+        "NpcID": "Npc03",
+        "ItemID": "Record_Reel_01",
+        "LimitQty": -1
+      }
+    ]
   }
 ]

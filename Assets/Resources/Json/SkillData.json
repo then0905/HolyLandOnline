@@ -352,7 +352,7 @@
     "MultipleValue": 0,
     "EffectValue": [
       "50",
-      "0.8"
+      "0.25"
     ],
     "InfluenceStatus": [
       "MaxHP",
@@ -973,15 +973,13 @@
     "MultipleValue": 0,
     "EffectValue": [
       "8",
-      "8",
-      "80",
-      "0.75"
+      "0.25",
+      "1.5"
     ],
     "InfluenceStatus": [
       "ATK",
-      "DEF",
-      "MaxHP",
-      "Recovery_HP"
+      "AS",
+      "Speed"
     ],
     "AddType": [
       "Value",
@@ -1006,14 +1004,16 @@
     "Characteristic": true,
     "MultipleValue": 0,
     "EffectValue": [
+      "8",
       "15",
-      "0.25",
-      "1.5"
+      "80",
+      "0.35"
     ],
     "InfluenceStatus": [
+      "DEF",
       "Avoid",
-      "AS",
-      "Speed"
+      "MaxHP",
+      "Recovery_HP"
     ],
     "AddType": [
       "Value",
@@ -1061,7 +1061,6 @@
     "Name": "神聖的盾擊",
     "SkillID": "Paladin_6",
     "Characteristic": true,
-    "MultipleValue": 0,
     "EffectValue": [
       "1.3"
     ],

@@ -33,7 +33,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 20
   },
   {
     "Lv": 1,
@@ -69,7 +70,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 20
   },
   {
     "Lv": 1,
@@ -105,7 +107,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 20
   },
   {
     "Lv": 1,
@@ -141,7 +144,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 20
   },
   {
     "Lv": 1,
@@ -177,7 +181,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 20
   },
   {
     "Lv": 3,
@@ -213,7 +218,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 50
   },
   {
     "Lv": 3,
@@ -249,7 +255,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 50
   },
   {
     "Lv": 3,
@@ -285,7 +292,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 50
   },
   {
     "Lv": 3,
@@ -321,7 +329,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 50
   },
   {
     "Lv": 3,
@@ -357,7 +366,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 50
   },
   {
     "Lv": 5,
@@ -393,7 +403,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 80
   },
   {
     "Lv": 5,
@@ -429,7 +440,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 80
   },
   {
     "Lv": 5,
@@ -465,7 +477,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 80
   },
   {
     "Lv": 5,
@@ -501,7 +514,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 80
   },
   {
     "Lv": 5,
@@ -537,7 +551,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 80
   },
   {
     "Lv": 7,
@@ -573,7 +588,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 80
   },
   {
     "Lv": 7,
@@ -609,7 +625,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 80
   },
   {
     "Lv": 7,
@@ -645,7 +662,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 80
   },
   {
     "Lv": 7,
@@ -681,7 +699,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 80
   },
   {
     "Lv": 7,
@@ -717,7 +736,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 80
   },
   {
     "Lv": 10,
@@ -753,7 +773,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 100
   },
   {
     "Lv": 10,
@@ -789,7 +810,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 100
   },
   {
     "Lv": 10,
@@ -825,7 +847,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 100
   },
   {
     "Lv": 10,
@@ -861,7 +884,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 100
   },
   {
     "Lv": 10,
@@ -897,7 +921,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 100
   },
   {
     "Lv": 10,
@@ -933,7 +958,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 100
   },
   {
     "Lv": 10,
@@ -969,7 +995,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 100
   },
   {
     "Lv": 10,
@@ -1005,7 +1032,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 100
   },
   {
     "Lv": 10,
@@ -1041,7 +1069,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 100
   },
   {
     "Lv": 10,
@@ -1077,7 +1106,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 100
   },
   {
     "Lv": 10,
@@ -1113,7 +1143,8 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 100
   },
   {
     "Lv": 10,
@@ -1149,6 +1180,7 @@
     "AGI": 0,
     "VIT": 0,
     "WIS": 0,
-    "ElementDamageIncrease": 0
+    "ElementDamageIncrease": 0,
+    "Redeem": 100
   }
 ]

@@ -97,6 +97,7 @@ public class ArmorDataModel : BasalAttributesDataModel, IDictionaryData<string>
     public string TypeID { get; set; }            // 防具類型ID      
     public string Intro { get; set; }            // 防具介紹
     public bool Stackability { get; set; }            // 可堆疊性
+    public int Redeem { get; set; }            // 販售價格
     public string GetKey
     {
         get { return CodeID; }
@@ -177,6 +178,7 @@ public class WeaponDataModel : BasalAttributesDataModel, IDictionaryData<string>
     public bool Stackability { get; set; }            // 可堆疊性
     public string AS { get; set; }            // 武器攻擊速度
     public string ASID { get; set; }            // 武器攻擊速度(編碼用)    
+    public int Redeem { get; set; }            // 販售價格
     public string GetKey { get { return CodeID; } }
 }
 
@@ -383,8 +385,6 @@ public class ShopInventoryData
 {
     public string NpcID { get; set; }           //NPC ID
     public string ItemID { get; set; }           //道具 ID
-    public int Price { get; set; }           //販賣價格
-    public int Redeem { get; set; }           //贖回價格
     public int LimitQty { get; set; }           //限制販賣數量(0為不限制)
 }
 

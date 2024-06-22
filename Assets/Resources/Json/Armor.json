@@ -28,7 +28,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -59,7 +60,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -90,7 +92,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -121,7 +124,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -152,7 +156,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -183,7 +188,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -214,7 +220,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -245,7 +252,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -276,7 +284,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -307,7 +316,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -338,7 +348,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -369,7 +380,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -400,7 +412,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -431,7 +444,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 1,
@@ -462,7 +476,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 25
   },
   {
     "NeedLv": 5,
@@ -493,7 +508,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -524,7 +540,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -555,7 +572,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -586,7 +604,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -617,7 +636,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -648,7 +668,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -679,7 +700,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -710,7 +732,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -741,7 +764,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -772,7 +796,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -803,7 +828,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -834,7 +860,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -865,7 +892,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -896,7 +924,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 5,
@@ -927,7 +956,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 75
   },
   {
     "NeedLv": 10,
@@ -958,7 +988,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -989,7 +1020,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1020,7 +1052,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1051,7 +1084,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1082,7 +1116,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1113,7 +1148,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1144,7 +1180,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1175,7 +1212,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1206,7 +1244,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1237,7 +1276,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1268,7 +1308,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1299,7 +1340,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1330,7 +1372,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1361,7 +1404,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 10,
@@ -1392,7 +1436,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 150
   },
   {
     "NeedLv": 15,
@@ -1423,7 +1468,8 @@
     "VIT": 1,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 1
+    "DisorderResistance": 1,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1454,7 +1500,8 @@
     "VIT": 3,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 1
+    "DisorderResistance": 1,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1485,7 +1532,8 @@
     "VIT": 1,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 1
+    "DisorderResistance": 1,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1516,7 +1564,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 1
+    "DisorderResistance": 1,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1547,7 +1596,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 1
+    "DisorderResistance": 1,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1578,7 +1628,8 @@
     "VIT": 1,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1609,7 +1660,8 @@
     "VIT": 1,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1640,7 +1692,8 @@
     "VIT": 1,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1671,7 +1724,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1702,7 +1756,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1733,7 +1788,8 @@
     "VIT": 1,
     "WIS": 1,
     "ElementDamageReduction": 1,
-    "DisorderResistance": 2
+    "DisorderResistance": 2,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1764,7 +1820,8 @@
     "VIT": 1,
     "WIS": 1,
     "ElementDamageReduction": 2,
-    "DisorderResistance": 3
+    "DisorderResistance": 3,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1795,7 +1852,8 @@
     "VIT": 1,
     "WIS": 1,
     "ElementDamageReduction": 1,
-    "DisorderResistance": 2
+    "DisorderResistance": 2,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1826,7 +1884,8 @@
     "VIT": 1,
     "WIS": 1,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 1
+    "DisorderResistance": 1,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1857,7 +1916,8 @@
     "VIT": 1,
     "WIS": 1,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1888,7 +1948,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1919,7 +1980,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1950,7 +2012,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -1981,7 +2044,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2012,7 +2076,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2043,7 +2108,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2074,7 +2140,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2105,7 +2172,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2136,7 +2204,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2167,7 +2236,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2198,7 +2268,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2229,7 +2300,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2260,7 +2332,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2291,7 +2364,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2322,7 +2396,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2353,7 +2428,8 @@
     "VIT": 0,
     "WIS": 3,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2384,7 +2460,8 @@
     "VIT": 0,
     "WIS": 2,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2415,7 +2492,8 @@
     "VIT": 0,
     "WIS": 2,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2446,7 +2524,8 @@
     "VIT": 0,
     "WIS": 1,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2477,7 +2556,8 @@
     "VIT": 0,
     "WIS": 1,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2508,7 +2588,8 @@
     "VIT": 0,
     "WIS": 2,
     "ElementDamageReduction": 1,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2539,7 +2620,8 @@
     "VIT": 0,
     "WIS": 1,
     "ElementDamageReduction": 2,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2570,7 +2652,8 @@
     "VIT": 0,
     "WIS": 2,
     "ElementDamageReduction": 3,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2601,7 +2684,8 @@
     "VIT": 0,
     "WIS": 1,
     "ElementDamageReduction": 1,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2632,7 +2716,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 0,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2663,7 +2748,8 @@
     "VIT": 0,
     "WIS": 1,
     "ElementDamageReduction": 2,
-    "DisorderResistance": 1
+    "DisorderResistance": 1,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2694,7 +2780,8 @@
     "VIT": 0,
     "WIS": 1,
     "ElementDamageReduction": 3,
-    "DisorderResistance": 2
+    "DisorderResistance": 2,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2725,7 +2812,8 @@
     "VIT": 0,
     "WIS": 1,
     "ElementDamageReduction": 2,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2756,7 +2844,8 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 1,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   },
   {
     "NeedLv": 15,
@@ -2787,6 +2876,7 @@
     "VIT": 0,
     "WIS": 0,
     "ElementDamageReduction": 1,
-    "DisorderResistance": 0
+    "DisorderResistance": 0,
+    "Redeem": 250
   }
 ]
