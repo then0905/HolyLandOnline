@@ -68,6 +68,7 @@ public class NpcSystem : MonoBehaviour
     private List<Button> buttonRecordList = new List<Button>();     //紀錄已生成的按鈕清單
     private List<GameObject> tempRewardItemList = new List<GameObject>();     //紀錄已生成的獎勵圖片清單
     private List<QuestDataModel> questDataList = new List<QuestDataModel>();     //NPC所有任務清單
+    private List<ShopInventoryData> npcTradeItemList = new List<ShopInventoryData>();     //NPC所有商品清單
     private QuestDataModel tempQuestData = null;       //暫存此次任務資料
     private int questStep;      //紀錄任務總步驟
     private int tempStep = 0;      //紀錄任務當前步驟
@@ -82,6 +83,7 @@ public class NpcSystem : MonoBehaviour
         avatar.sprite = CommonFunction.LoadObject<Sprite>(npcData.NpcAvatarPath, npcData.NpcAvatarName);
         characterName.text = npcData.NpcName;
         ButtonFunctionSetting(npcData.NpcButtonFuncList);
+        npcTradeItemList = npcData.ShopInventoryList ?? npcData.ShopInventoryList;
         gameObject.SetActive(true);
         var getNpcQuest = GameData.QuestDataDic.Values.Where(x => x.StartNpcID == npcData.NpcID).ToList();
         if (getNpcQuest != null && getNpcQuest.Count > 0)
@@ -350,7 +352,7 @@ public class NpcSystem : MonoBehaviour
                 var weaponData = GameData.WeaponsDic.Where(x => x.Key == item.RewardID).Select(x => x.Value).FirstOrDefault();
                 var armorData = GameData.ArmorsDic.Where(x => x.Key == item.RewardID).Select(x => x.Value).FirstOrDefault();
                 if (itemData != null)
-                    ItemManager.Instance.PickUp(CommonFunction.LoadObject<Sprite>(GameConfig.SpriteItem, itemData.CodeId), itemData);
+                    ItemManager.Instance.PickUp(CommonFunction.LoadObject<Sprite>(GameConfig.SpriteItem, itemData.CodeID), itemData);
                 if (weaponData != null)
                     ItemManager.Instance.PickUp(CommonFunction.LoadObject<Sprite>(GameConfig.SpriteWeapon, weaponData.CodeID), weaponData);
                 if (armorData != null)
@@ -368,6 +370,14 @@ public class NpcSystem : MonoBehaviour
         //紀錄完成任務ID
         MissionManager.Instance.FinishedMisstion(questData);
         Exit();
+    }
+
+    /// <summary>
+    /// 呼叫交易介面
+    /// </summary>
+    public void CallTradePanel()
+    {
+        TradeManager.Instance.Init(npcTradeItemList.Select(x => x.ProductID).ToList(), ItemManager.Instance.BagItems);
     }
 
     /// <summary>

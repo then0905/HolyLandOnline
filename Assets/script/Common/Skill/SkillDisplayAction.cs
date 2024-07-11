@@ -114,7 +114,8 @@ public class SkillDisplayAction : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerDataOverView.Instance.CharacterMove.ControlCharacterEvent -= StopSkillChasingTarge;
+        if (PlayerDataOverView.Instance)
+            PlayerDataOverView.Instance.CharacterMove.ControlCharacterEvent -= StopSkillChasingTarge;
 
     }
 

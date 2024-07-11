@@ -4,10 +4,8 @@ using UnityEngine;
 using System.Linq;
 using System;
 using Newtonsoft.Json;
-using System.Threading;
-using UnityEditor.PackageManager;
-using System.Runtime.InteropServices;
 using System.IO;
+using static Equipment;
 
 //==========================================
 //  創建者:    家豪
@@ -47,7 +45,7 @@ public static class CommonFunction
         return jsonString;
     }
 
-    public static void SaveLocalData<T> (string path,string name, T item)
+    public static void SaveLocalData<T>(string path, string name, T item)
     {
         string usersave = JsonUtility.ToJson(item);
         FileStream fs = new FileStream(path + name, FileMode.Create);
@@ -74,6 +72,24 @@ public static class CommonFunction
             var t = list[i];
             dictionary.TrySetValue(t.GetKey, t);
         }
+    }
+
+    /// <summary>
+    /// 依物品資料獲取圖片資源
+    /// </summary>
+    /// <param name="path">圖片路徑</param>
+    /// <param name="name">圖片檔名</param>
+    /// <returns></returns>
+    public static Sprite GetItemSprite(EquipmentData tempData)
+    {
+        Sprite sprite = null;
+        if (tempData.Weapon != null)
+            sprite = LoadObject<Sprite>(tempData.Weapon.Path, tempData.Weapon.FileName);
+        if (tempData.Armor != null)
+            sprite = LoadObject<Sprite>(tempData.Armor.Path, tempData.Armor.FileName);
+        if (tempData.Item != null)
+            sprite = LoadObject<Sprite>(tempData.Item.Path, tempData.Item.FileName);
+        return sprite;
     }
 
     /// <summary>

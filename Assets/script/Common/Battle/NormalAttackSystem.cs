@@ -21,7 +21,8 @@ public class NormalAttackSystem : MonoBehaviour
     }
     private void OnDisable()
     {
-        PlayerDataOverView.Instance.CharacterMove.ControlCharacterEvent -= StopNormalAttack;
+        if (PlayerDataOverView.Instance)
+            PlayerDataOverView.Instance.CharacterMove.ControlCharacterEvent -= StopNormalAttack;
     }
 
     /// <summary>

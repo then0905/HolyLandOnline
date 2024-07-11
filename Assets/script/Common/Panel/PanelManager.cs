@@ -60,6 +60,7 @@ public class PanelManager : MonoBehaviour
         if (func != null)
             func.Invoke();
     }
+
     /// <summary>
     /// 關閉所有面板
     /// </summary>

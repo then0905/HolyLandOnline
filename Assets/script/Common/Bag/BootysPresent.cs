@@ -36,6 +36,8 @@ public class BootysPresent : MonoBehaviour
             ItemManager.Instance.PickUp(ThisEquipmentImage, EquipmentDatas.Item, Qty);
         else if (!Coins.Equals(0))
             ItemManager.Instance.PickUp(Coins);
+        //撿起物品 本地紀錄資料刷新點
+        LoadPlayerData.SaveUserData();
         //撿起物品後清除
         Destroy(this.gameObject);
     }

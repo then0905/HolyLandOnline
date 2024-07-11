@@ -11,6 +11,21 @@ public interface IDictionaryData<T> where T : IConvertible
 {
     T GetKey { get; }
 }
+
+/// <summary>
+/// 物品基本屬性介面
+/// </summary>
+public interface IItemBasal
+{
+    public string Name { get; set; }
+    public string CodeID { get; set; }            // 道具ID
+    public string Path { get; set; }            //圖片路徑
+    public string FileName { get; set; }            //圖片檔名
+    public bool Stackability { get; set; }            // 可堆疊性
+    public int Price { get; set; }            // 道具在商店販賣的價格
+    public int Redeem { get; set; }            // 道具賣給商店的價格
+}
+
 public class GameDataModel
 {
 
@@ -68,27 +83,18 @@ public class MonsterBootyDataModel : IDictionaryData<string>
     public string GetKey { get { return MonsterCodeID; } }
 }
 
-/// <summary>
-/// 掉落物詳情資料
-/// </summary>
-public class BootyDataList
-{
-    public string MonsterCodeID { get; set; }            //怪物ID
-    public string BootyID { get; set; }            //掉落物ID
-    public float DropProbability { get; set; }            //機率 小數
-
-    public int DropCountMax { get; set; }       //掉落數量最大值
-    public int DropCountMin { get; set; }       //掉落數量最小值
-}
+#region 物品
 
 /// <summary>
 /// 防具資料結構
 /// </summary>
-public class ArmorDataModel : BasalAttributesDataModel, IDictionaryData<string>
+public class ArmorDataModel : BasalAttributesDataModel, IDictionaryData<string>, IItemBasal
 {
     public int NeedLv { get; set; }            // 所需等級
     public string Name { get; set; }            // 防具名稱
     public string CodeID { get; set; }            // 防具ID
+    public string Path { get; set; }            //圖片路徑
+    public string FileName { get; set; }            //圖片檔名
     public string Classification { get; set; }            // 道具分類
     public string ClassificationID { get; set; }            // 道具分類ID
     public string WearPart { get; set; }            // 穿戴部位
@@ -98,11 +104,67 @@ public class ArmorDataModel : BasalAttributesDataModel, IDictionaryData<string>
     public string Intro { get; set; }            // 防具介紹
     public bool Stackability { get; set; }            // 可堆疊性
     public int Redeem { get; set; }            // 販售價格
+    public int Price { get; set; }          //商店購買價格
     public string GetKey
     {
         get { return CodeID; }
     }
 }
+
+/// <summary>
+/// 武器資料
+/// </summary>結構
+public class WeaponDataModel : BasalAttributesDataModel, IDictionaryData<string>, IItemBasal
+{
+    public int LV { get; set; }            // 所需等級
+    public string Name { get; set; }            // 武器名稱
+    public string CodeID { get; set; }            // 武器ID
+    public string Path { get; set; }            //圖片路徑
+    public string FileName { get; set; }            //圖片檔名
+    public string Classification { get; set; }            // 道具分類
+    public string ClassificationID { get; set; }            // 道具分類ID
+    public string TackHand { get; set; }            // 拿取部位
+    public string TackHandID { get; set; }            // 拿取部位ID
+    public string Type { get; set; }            // 武器類型
+    public string TypeID { get; set; }            // 武器類型ID
+    public string Intro { get; set; }            // 武器介紹
+    public bool Stackability { get; set; }            // 可堆疊性
+    public string AS { get; set; }            // 武器攻擊速度
+    public string ASID { get; set; }            // 武器攻擊速度(編碼用)    
+    public int Redeem { get; set; }            // 販售價格
+    public int Price { get; set; }          //商店購買價格
+    public string GetKey { get { return CodeID; } }
+}
+
+/// <summary>
+/// 道具資料
+/// </summary>
+public class ItemDataModel : BasalAttributesDataModel, IDictionaryData<string>, IItemBasal
+{
+    public int LV { get; set; }            // 所需等級
+    public string Name { get; set; }            // 道具名稱
+    public string CodeID { get; set; }            // 道具ID
+    public string Path { get; set; }            //圖片路徑
+    public string FileName { get; set; }            //圖片檔名
+    public string TakeHand { get; set; }            // 拿取部位
+    public string TakeHandID { get; set; }            // 拿取部位ID
+    public string Classification { get; set; }            // 道具分類
+    public string ClassificationID { get; set; }            // 道具分類ID
+    public string Type { get; set; }            // 道具類型
+    public string TypeID { get; set; }            // 道具類型ID
+    public string Intro { get; set; }            // 道具介紹
+    public bool Stackability { get; set; }            // 可堆疊性
+    public List<float> Volume { get; set; }            // 道具作用值
+    public float CD { get; set; }            // 道具冷卻時間
+    public int ActionTime { get; set; }            // 道具持續時間
+    public int Price { get; set; }            // 道具在商店販賣的價格
+    public int Redeem { get; set; }            // 道具賣給商店的價格
+    public string GetKey { get { return CodeID; } }
+}
+
+#endregion
+
+#region 技能
 
 /// <summary>
 /// 技能頁面上的資料結構
@@ -160,51 +222,9 @@ public class SkillDataModel : IDictionaryData<string>
     public string GetKey { get { return SkillID; } }
 }
 
-/// <summary>
-/// 武器資料
-/// </summary>結構
-public class WeaponDataModel : BasalAttributesDataModel, IDictionaryData<string>
-{
-    public int LV { get; set; }            // 所需等級
-    public string Name { get; set; }            // 武器名稱
-    public string CodeID { get; set; }            // 武器ID
-    public string Classification { get; set; }            // 道具分類
-    public string ClassificationID { get; set; }            // 道具分類ID
-    public string TackHand { get; set; }            // 拿取部位
-    public string TackHandID { get; set; }            // 拿取部位ID
-    public string Type { get; set; }            // 武器類型
-    public string TypeID { get; set; }            // 武器類型ID
-    public string Intro { get; set; }            // 武器介紹
-    public bool Stackability { get; set; }            // 可堆疊性
-    public string AS { get; set; }            // 武器攻擊速度
-    public string ASID { get; set; }            // 武器攻擊速度(編碼用)    
-    public int Redeem { get; set; }            // 販售價格
-    public string GetKey { get { return CodeID; } }
-}
+#endregion
 
-/// <summary>
-/// 道具資料
-/// </summary>
-public class ItemDataModel : BasalAttributesDataModel, IDictionaryData<string>
-{
-    public int LV { get; set; }            // 所需等級
-    public string Name { get; set; }            // 道具名稱
-    public string CodeId { get; set; }            // 道具ID
-    public string TakeHand { get; set; }            // 拿取部位
-    public string TakeHandID { get; set; }            // 拿取部位ID
-    public string Classification { get; set; }            // 道具分類
-    public string ClassificationID { get; set; }            // 道具分類ID
-    public string Type { get; set; }            // 道具類型
-    public string TypeID { get; set; }            // 道具類型ID
-    public string Intro { get; set; }            // 道具介紹
-    public bool Stackability { get; set; }            // 可堆疊性
-    public List<float> Volume { get; set; }            // 道具作用值
-    public float CD { get; set; }            // 道具冷卻時間
-    public int ActionTime { get; set; }            // 道具持續時間
-    public int Price { get; set; }            // 道具在商店販賣的價格
-    public int Redeem { get; set; }            // 道具賣給商店的價格
-    public string GetKey { get { return CodeId; } }
-}
+#region 怪物
 
 /// <summary>
 /// 怪物資料
@@ -274,6 +294,21 @@ public class MonsterSkillDataModel
     public float Height { get; set; }            // 技能施放面積 矩形長度
     public float CircleDistance { get; set; }            // 技能施放面積 圓形
 }
+
+/// <summary>
+/// 掉落物詳情資料
+/// </summary>
+public class BootyDataList
+{
+    public string MonsterCodeID { get; set; }            //怪物ID
+    public string BootyID { get; set; }            //掉落物ID
+    public float DropProbability { get; set; }            //機率 小數
+
+    public int DropCountMax { get; set; }       //掉落數量最大值
+    public int DropCountMin { get; set; }       //掉落數量最小值
+}
+
+#endregion
 
 /// <summary>
 /// 職業能力值加成
@@ -384,7 +419,7 @@ public class NpcButtonFunc
 public class ShopInventoryData
 {
     public string NpcID { get; set; }           //NPC ID
-    public string ItemID { get; set; }           //道具 ID
+    public string ProductID { get; set; }           //道具 ID
     public int LimitQty { get; set; }           //限制販賣數量(0為不限制)
 }
 

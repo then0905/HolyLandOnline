@@ -55,6 +55,11 @@ public class HotKeyManager : MonoBehaviour
         {
             MissionPanelPage();
         }
+        // 未選取任何目標 按下esc時 關閉所有面板
+        if (Input.GetKeyDown(KeyCode.Escape)&& !SelectTarget.Instance.CatchTarget)
+        {
+            panelManager.CloseAllPanel();
+        }
         for (int i = 0; i < 10; i++)
         {
             HotKeyFillArray[i].sprite = HotKeyBackgroundArray[i].sprite;

@@ -87,35 +87,47 @@
     "RunSpeed": 0.15,
     "AttackRange": 4,
     "PursueRange": 100,
+    "NpcButtonFuncList": [
+      {
+        "NpcID": "Npc03",
+        "ButtonActionID": "Trade",
+        "ButtonName": "交易"
+      },
+      {
+        "NpcID": "Npc03",
+        "ButtonActionID": "Exit",
+        "ButtonName": "離開"
+      }
+    ],
     "ShopInventoryList": [
       {
         "NpcID": "Npc03",
-        "ItemID": "Potion_Hp_01",
+        "ProductID": "Potion_Hp_01",
         "LimitQty": -1
       },
       {
         "NpcID": "Npc03",
-        "ItemID": "Potion_Mp_01",
+        "ProductID": "Potion_Mp_01",
         "LimitQty": -1
       },
       {
         "NpcID": "Npc03",
-        "ItemID": "Potion_Detoxification_01",
+        "ProductID": "Potion_Detoxification_01",
         "LimitQty": -1
       },
       {
         "NpcID": "Npc03",
-        "ItemID": "DEF_Reel_01",
+        "ProductID": "DEF_Reel_01",
         "LimitQty": -1
       },
       {
         "NpcID": "Npc03",
-        "ItemID": "ATK_Reel_01",
+        "ProductID": "ATK_Reel_01",
         "LimitQty": -1
       },
       {
         "NpcID": "Npc03",
-        "ItemID": "Record_Reel_01",
+        "ProductID": "Record_Reel_01",
         "LimitQty": -1
       }
     ]

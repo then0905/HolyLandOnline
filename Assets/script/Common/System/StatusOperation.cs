@@ -589,7 +589,7 @@ public class StatusOperation : MonoBehaviour
     /// </summary>
     public void PlayerDataStatusOperation()
     {
-        if (tempEffectStatus != null)
+        if (PlayerDataOverView.Instance && tempEffectStatus != null)
         {
             PlayerDataOverView.Instance.PlayerData_.MeleeATK = (tempEffectStatus.MeleeATK + tempBasalStatus.MeleeATK);
             PlayerDataOverView.Instance.PlayerData_.RemoteATK = (tempEffectStatus.RemoteATK + tempBasalStatus.RemoteATK);
@@ -613,7 +613,7 @@ public class StatusOperation : MonoBehaviour
             PlayerDataOverView.Instance.PlayerData_.AS = (tempEffectStatus.AS + tempBasalStatus.AS);
             PlayerDataOverView.Instance.PlayerData_.DisorderResistance = (tempEffectStatus.DisorderResistance + tempBasalStatus.DisorderResistance);
         }
-        else
+        else if (PlayerDataOverView.Instance)
         {
             PlayerDataOverView.Instance.PlayerData_.MeleeATK = tempBasalStatus.MeleeATK;
             PlayerDataOverView.Instance.PlayerData_.RemoteATK = tempBasalStatus.RemoteATK;

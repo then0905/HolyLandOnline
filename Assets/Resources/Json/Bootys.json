@@ -194,6 +194,13 @@
     "BootyList": [
       {
         "CodeID": "Monster_Origin_0",
+        "BootyID": "Sword_Right_001",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Origin_0",
         "BootyID": "Sword_Both_001",
         "DropProbability": 5,
         "DropCountMIn": 1,
@@ -553,7 +560,79 @@
     "AreaID": "OriginalVillage",
     "Area": "初始之村",
     "MinCoin": 5,
-    "MaxCoin": 10
+    "MaxCoin": 10,
+    "BootyList": [
+      {
+        "CodeID": "Monster_Origin_2",
+        "BootyID": "Sword_Right_002",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Origin_2",
+        "BootyID": "Sword_Both_002",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Origin_2",
+        "BootyID": "Mage_Both_002",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Origin_2",
+        "BootyID": "Bow_Both_002",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Origin_2",
+        "BootyID": "Dagger_Single_002",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Origin_2",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Origin_2",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Origin_2",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Origin_2",
+        "BootyID": "Booty_001",
+        "DropProbability": 25,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Origin_2",
+        "BootyID": "Booty_002",
+        "DropProbability": 7.5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      }
+    ]
   },
   {
     "MonsterCodeID": "Monster_Origin_3",
