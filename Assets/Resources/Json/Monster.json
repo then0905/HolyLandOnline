@@ -32,11 +32,21 @@
     "MonsterSpawnPosList": [
       {
         "MonsterCodeID": "Monster_Test_0",
-        "SpawnPos": "0.0 0.0 0.0"
+        "SpawnPosX": -14.2,
+        "SpawnPosY": 0.14,
+        "SpawnPosZ": 0
       },
       {
         "MonsterCodeID": "Monster_Test_0",
-        "SpawnPos": "5.0 1.0 5.0"
+        "SpawnPosX": 28.64,
+        "SpawnPosY": 0.14,
+        "SpawnPosZ": 0
+      },
+      {
+        "MonsterCodeID": "Monster_Test_0",
+        "SpawnPosX": -56.5,
+        "SpawnPosY": 0.14,
+        "SpawnPosZ": -35.6
       }
     ]
   },

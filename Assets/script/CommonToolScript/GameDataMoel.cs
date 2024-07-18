@@ -267,7 +267,10 @@ public class MonsterDataModel : BasalAttributesDataModel, IDictionaryData<string
 public class MonsterSpwanDataModel
 {
     public string MonsterCodeID { get; set; }            // 怪物ID
-    public string SpawnPos { get; set; }            // 怪物生成座標
+    public float SpawnPosX { get; set; }            // 怪物生成座標X
+    public float SpawnPosY { get; set; }            // 怪物生成座標Y
+    public float SpawnPosZ { get; set; }            // 怪物生成座標Z
+    
 }
 
 /// <summary>
