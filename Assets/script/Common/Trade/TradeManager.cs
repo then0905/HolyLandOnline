@@ -362,7 +362,7 @@ public class TradeManager : MonoBehaviour
         //if (tempSelectItem.EquipmentDatas.Armor != null)
         //    ItemManager.Instance.RemoveItem(tempSelectItem.EquipmentDatas.Armor.CodeID);
         //if (tempSelectItem.EquipmentDatas.Item != null)
-        itemManager.RemoveItem(tempSelectItemBasalData.CodeID, tempSelectItemBasalData.Stackability ? int.Parse(finalTradeQtyText.text) : 0);
+        itemManager.RemoveItem(tempSelectItemBasalData.CodeID, tempSelectItemBasalData.Stackability ? int.Parse(finalTradeQtyText.text) : 1);
 
         itemManager.PickUp((int.Parse(fincalTradePriceText.text)), true);
 

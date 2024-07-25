@@ -21,9 +21,8 @@ public class Equipment : MonoBehaviour
     [SerializeField] private TextMeshProUGUI equipQty;
 
     [Header("設定物品資料 NPC、Player")] public string EquipmentType = "Player";
-    /// <summary>
-    /// 紀錄物品數量資料
-    /// </summary>
+
+    /// <summary>紀錄物品數量資料 </summary>
     public int Qty
     {
         get
@@ -34,7 +33,7 @@ public class Equipment : MonoBehaviour
         {
             EquipmentDatas.Qty = value;
             equipQty.text = value.ToString();
-            equipQty.gameObject.SetActive(!value.Equals(0));
+            equipQty.gameObject.SetActive(EquipmentDatas.ItemCommonData.Stackability);
             equipQty.raycastTarget = false;
         }
     }

@@ -131,7 +131,7 @@ public class ItemManager : MonoBehaviour
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Armor = armorvaule;
                 //設定堆疊數量資料
-                item.Qty = 0;
+                item.Qty = 1;
                 CommonFunction.MessageHint(("獲得" + armorvaule.Name), HintType.NormalItem);
                 return;
             }
@@ -159,7 +159,7 @@ public class ItemManager : MonoBehaviour
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Weapon = weaponvaule;
                 //設定物品堆疊資料
-                item.Qty = 0;
+                item.Qty = 1;
                 CommonFunction.MessageHint(("獲得" + weaponvaule.Name), HintType.NormalItem);
                 return;
             }
@@ -249,6 +249,7 @@ public class ItemManager : MonoBehaviour
         if (coin.Equals(0)) return;
         PlayerDataOverView.Instance.PlayerData_.Coin += int.Parse(coin.ToString());
         CoinText.text = PlayerDataOverView.Instance.PlayerData_.Coin.ToString();
+        //非初始化的方式更新金幣資料 呼叫系統訊息
         if (!isInit)
             CommonFunction.MessageHint(("獲得" + coin.ToString() + "金幣"), HintType.NormalItem);
     }
