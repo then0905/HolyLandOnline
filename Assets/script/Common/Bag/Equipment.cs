@@ -33,7 +33,7 @@ public class Equipment : MonoBehaviour
         {
             EquipmentDatas.Qty = value;
             equipQty.text = value.ToString();
-            equipQty.gameObject.SetActive(EquipmentDatas.ItemCommonData.Stackability);
+            equipQty.gameObject.SetActive(EquipmentDatas.ItemCommonData != null ? EquipmentDatas.ItemCommonData.Stackability: false);
             equipQty.raycastTarget = false;
         }
     }

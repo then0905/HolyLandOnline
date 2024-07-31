@@ -2521,7 +2521,7 @@ GameObject:
   - component: {fileID: 5503294863921377024}
   - component: {fileID: 5503294863921377027}
   m_Layer: 3
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2623,8 +2623,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterFather: {fileID: 5503294863921377026}
   character: {fileID: 4656379331475770091}
-  characterCamera: {fileID: 5503294864338163908}
+  characterCamera: {fileID: 5503294864338163930}
   characterAnimator: {fileID: 5503294864222636025}
+  SkillArrowImage: {fileID: 5503294863407132993}
+  SkillTargetCircle: {fileID: 5503294863466646903}
+  SkillPlayerCricle: {fileID: 5503294863502013335}
+  SkillConeImage: {fileID: 5503294863391599583}
   RotateSpeed: 5
   AutoNavToTarget: 0
 --- !u!114 &5503294863921377025

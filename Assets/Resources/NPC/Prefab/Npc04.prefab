@@ -1420,7 +1420,7 @@ GameObject:
   - component: {fileID: 3893748855933571628}
   - component: {fileID: 3728125739569152814}
   m_Layer: 0
-  m_Name: Villagehead
+  m_Name: Npc04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1504,7 +1504,7 @@ MonoBehaviour:
   canBeChoose: 1
   NameCanvas: {fileID: 6799786157769184748}
   NameText: {fileID: 6799786157033792533}
-  NpcID: Npc01
+  NpcID: Npc04
 --- !u!1 &7552199920602526128
 GameObject:
   m_ObjectHideFlags: 0

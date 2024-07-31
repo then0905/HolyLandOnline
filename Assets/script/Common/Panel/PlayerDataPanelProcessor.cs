@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 //==========================================
 //  創建者:家豪
 //  創建日期:2023/11/26
@@ -23,13 +24,32 @@ public class PlayerDataPanelProcessor : MonoBehaviour
     #endregion 
     [SerializeField] private TextMeshProUGUI playerID;
     [SerializeField] private TextMeshProUGUI playerDataContent;
-
+    [Header("血條"), SerializeField] protected Slider hpSlider;
+    [Header("魔力條"), SerializeField] protected Slider mpSlider;
+    [Header("經驗條"), SerializeField] protected Slider expSlider;
+    [Header("血條文字"), SerializeField] protected TMP_Text hptext;
+    [Header("魔力文字"), SerializeField] protected TMP_Text mptext;
+    [Header("等級文字"), SerializeField] protected TMP_Text lvtext;
+    [Header("玩家名稱文字"), SerializeField] protected TMP_Text nametext;
     /// <summary>
     /// 初始化角色介面資料
     /// </summary>
     public void Init()
     {
-        playerID.text += PlayerDataOverView.Instance.PlayerData_.PlayerName; 
+        //設定玩家ID
+        playerID.text += PlayerDataOverView.Instance.PlayerData_.PlayerName;
+
+        //設定玩家屬性介面
+        var playerDataOverView = PlayerDataOverView.Instance;
+
+        playerDataOverView.HpSlider = hpSlider;
+        playerDataOverView.MpSlider = mpSlider;
+        playerDataOverView.ExpSlider = expSlider;
+        playerDataOverView.HpText = hptext;
+        playerDataOverView.MpText = mptext;
+        playerDataOverView.LvText = lvtext;
+        playerDataOverView.NameText = nametext;
+
         SetPlayerDataContent();
     }
 

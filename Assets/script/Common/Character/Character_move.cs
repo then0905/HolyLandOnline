@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 //==========================================
 //  創建者:    家豪
@@ -33,11 +34,11 @@ public class Character_move : MonoBehaviour
             return character;
         }
     }
-    [SerializeField] private GameObject characterCamera;
+    [SerializeField] private Camera characterCamera;
     /// <summary>
     /// 角色攝影機
     /// </summary>
-    public GameObject CharacterCamera
+    public Camera CharacterCamera
     {
         get
         {
@@ -55,6 +56,15 @@ public class Character_move : MonoBehaviour
             return characterAnimator;
         }
     }
+
+    [Header("指向技攻擊範圍")]
+    public Image SkillArrowImage;               //指向技圖示
+    [Header("攻擊範圍與圓圈形範圍技")]
+    public Image SkillTargetCircle;             //圓圈型範圍技圖示
+    public Image SkillPlayerCricle;             //攻擊範圍技圖示
+    [Header("扇形攻擊範圍")]
+    public Image SkillConeImage;                //扇形範圍技圖示
+
     //旋轉速度
     public int RotateSpeed;
     //是否再自動接近目標
@@ -77,6 +87,16 @@ public class Character_move : MonoBehaviour
     private void OnEnable()
     {
         ControCharacterAnimationEvent += CallCharacterAnimationSpeed;
+
+        //設定攻擊範圍圖示引導狀態
+        SkillArrowImage.GetComponent<Image>().enabled = false;
+        SkillTargetCircle.GetComponent<Image>().enabled = false;
+        SkillPlayerCricle.GetComponent<Image>().enabled = false;
+        SkillConeImage.GetComponent<Image>().enabled = false;
+        SkillDisplayAction.Instance.SkillArrowImage = SkillArrowImage;
+        SkillDisplayAction.Instance.SkillTargetCircle = SkillTargetCircle;
+        SkillDisplayAction.Instance.SkillPlayerCricle = SkillPlayerCricle;
+        SkillDisplayAction.Instance.SkillConeImage = SkillConeImage;
     }
 
     private void OnDisable()

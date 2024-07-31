@@ -61,20 +61,10 @@ public class SkillDisplayAction : MonoBehaviour
     [Header("技能相關參考")]
     public HotKeyData[] SkillHotKey = new HotKeyData[10];
 
-    [Header("指向技攻擊範圍")]
-    public Canvas SkillArrowCanvas;             //指向技畫布
-    public Image SkillArrowImage;               //指向技圖示
-
-    [Header("攻擊範圍與圓圈形範圍技")]
-    public Image SkillTargetCircle;             //圓圈型範圍技圖示
-    public Image SkillPlayerCricle;             //攻擊範圍技圖示
-    public Canvas SkillTargetCanvas;            //圓圈型範圍技畫布
-    public Vector3 PosUp;
-    public float maxSkillTargetDistance;        //技能最大範圍
-
-    [Header("扇形攻擊範圍")]
-    public Canvas SkillConeCanvas;              //扇形範圍技畫布
-    public Image SkillConeImage;                //扇形範圍技圖示
+    [HideInInspector]public Image SkillArrowImage;               //指向技圖示
+    [HideInInspector] public Image SkillTargetCircle;             //圓圈型範圍技圖示
+    [HideInInspector] public Image SkillPlayerCricle;             //攻擊範圍技圖示
+    [HideInInspector] public Image SkillConeImage;                //扇形範圍技圖示
 
     float dis;
 
@@ -97,27 +87,6 @@ public class SkillDisplayAction : MonoBehaviour
 
     //記錄追擊協程
     public Coroutine SkillChasingCoroutine;
-
-    private void Start()
-    {
-        //關閉所有範圍圖示
-        SkillArrowImage.GetComponent<Image>().enabled = false;
-        SkillTargetCircle.GetComponent<Image>().enabled = false;
-        SkillPlayerCricle.GetComponent<Image>().enabled = false;
-        SkillConeImage.GetComponent<Image>().enabled = false;
-    }
-
-    private void OnEnable()
-    {
-        PlayerDataOverView.Instance.CharacterMove.ControlCharacterEvent += StopSkillChasingTarge;
-    }
-
-    private void OnDisable()
-    {
-        if (PlayerDataOverView.Instance)
-            PlayerDataOverView.Instance.CharacterMove.ControlCharacterEvent -= StopSkillChasingTarge;
-
-    }
 
     void Update()
     {

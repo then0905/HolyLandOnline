@@ -52,7 +52,7 @@ public class BootysHandle : MonoBehaviour
     protected Vector3 RandomTransform(Transform monsterTransform)
     {
         return new Vector3(Random.Range(monsterTransform.position.x - 3, monsterTransform.position.x + 3)
-            , monsterTransform.position.y
+            , 0
             , (Random.Range(monsterTransform.position.z - 3, monsterTransform.position.z + 3)));
     }
 

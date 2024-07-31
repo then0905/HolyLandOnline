@@ -15,16 +15,6 @@ public class NormalAttackSystem : MonoBehaviour
     //攻擊速度區間 每秒AttackSpeedTimer攻擊1下
     public static float AttackSpeedTimer;
 
-    private void OnEnable()
-    {
-        PlayerDataOverView.Instance.CharacterMove.ControlCharacterEvent += StopNormalAttack;
-    }
-    private void OnDisable()
-    {
-        if (PlayerDataOverView.Instance)
-            PlayerDataOverView.Instance.CharacterMove.ControlCharacterEvent -= StopNormalAttack;
-    }
-
     /// <summary>
     /// 普通攻擊允許
     /// </summary>

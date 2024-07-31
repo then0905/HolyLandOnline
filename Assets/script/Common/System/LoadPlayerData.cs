@@ -35,7 +35,8 @@ public class LoadPlayerData : MonoBehaviour
     /// <summary>
     /// 讀取使用者資料
     /// </summary>
-    public static void LoadUserData()
+    /// <param name="isinit">是否為第一次登入遊戲讀取</param>
+    public static void LoadUserData(bool isinit = true)
     {
         //存取路徑
         string SaveData = Application.persistentDataPath + "/Usersave.txt";
@@ -55,10 +56,13 @@ public class LoadPlayerData : MonoBehaviour
             PlayerDataOverView.Instance.PlayerData_.Race = accountPlayerData.Race;
             PlayerDataOverView.Instance.PlayerData_.Exp = accountPlayerData.Exp;
             PlayerDataOverView.Instance.PlayerData_.Lv = accountPlayerData.Lv;
-            ItemManager.Instance.PickUp(accountPlayerData.Coin,true);       //不從PlayerData裡帶入值是因為這個方法可以更新玩家資料及背包UI文字
-            ItemManager.Instance.Init(accountPlayerData.BagItemList);       //背包物品資料
-            MissionManager.Instance.MissionList = accountPlayerData.missionDataList;
-            MissionManager.Instance.FinishedMissionList = accountPlayerData.finishedMissionDataList;
+            if (isinit)
+            {
+                ItemManager.Instance.PickUp(accountPlayerData.Coin, true);       //不從PlayerData裡帶入值是因為這個方法可以更新玩家資料及背包UI文字
+                ItemManager.Instance.Init(accountPlayerData.BagItemList);       //背包物品資料
+                MissionManager.Instance.MissionList = accountPlayerData.missionDataList;
+                MissionManager.Instance.FinishedMissionList = accountPlayerData.finishedMissionDataList;
+            }
         }
         //若沒有檔案 生成
         else

@@ -1,0 +1,125 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+//==========================================
+//  創建者:家豪
+//  創建日期:2024/07/22
+//  創建用途: 地圖管理器
+//==========================================
+public class MapManager : MonoBehaviour
+{
+    #region 靜態變數
+
+    private static MapManager instance;
+    public static MapManager Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = FindObjectOfType<MapManager>(true);
+            return instance;
+        }
+    }
+
+    /// <summary> 記錄地圖名稱(輸入 要前往的下一個地圖) </summary>
+    public static string MapName;
+    /// <summary> 記錄地圖名稱(當前地圖) </summary>
+    private static string mapName;
+    #endregion
+
+    [Header("Loading")]
+    [SerializeField] private Loading loading;
+
+    /// <summary>
+    /// 登入時取得地圖名稱初始化
+    /// </summary>
+    public IEnumerator Init()
+    {
+        //取得當前場景名稱
+        mapName = SceneManager.GetActiveScene().name;
+        yield return StartCoroutine(LoadMapAsync(mapName));
+    }
+
+
+    /// <summary>
+    /// 切換下個地圖
+    /// </summary>
+    /// <param name="mapName">場景名稱</param>
+    public void NextMap(string mapName_)
+    {        
+        //切換場景 本地紀錄資料刷新點
+        LoadPlayerData.SaveUserData();
+        StartCoroutine(LoadMapAsync(mapName_, false));
+    }
+
+    /// <summary>
+    /// 非同步加載場景處理
+    /// </summary>
+    /// <param name="mapName_">地圖名稱</param>
+    /// <param name="isInit">是否為第一次進入遊戲的初始化</param>
+    /// <returns></returns>
+    private IEnumerator LoadMapAsync(string mapName_, bool isInit = true)
+    {
+        //檢查是否相同場景
+        if (mapName_ != mapName)
+        {
+            //更新場景名稱
+            mapName = mapName_;
+
+            //Loading遮罩開啟
+            loading.Show();
+
+            AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(mapName_, LoadSceneMode.Single);
+            // 允許場景立即激活
+            asyncLoad.allowSceneActivation = true; 
+
+            //非同步加載場景處理
+            while (!asyncLoad.isDone)
+            {
+                float progress = asyncLoad.progress;
+                loading.UpdateProgress(progress);
+                yield return null;
+            }
+
+            yield return StartCoroutine(PerformAdditionalTasks(isInit));
+
+        }
+        else
+        {
+            yield return StartCoroutine(PerformAdditionalTasks(isInit));
+            //loading.Hide();
+        }
+    }
+
+    /// <summary>
+    /// 在這裡執行額外的加載任務，如預加載資源、初始化系統等
+    /// </summary>
+    /// <param name="isInit">是否為第一次進入遊戲的初始化</param>
+    /// <returns></returns>
+    private IEnumerator PerformAdditionalTasks(bool isInit)
+    {
+        //生成玩家
+        Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.Player, "Player"));
+        // 地圖需生成的NPC物件
+        NpcManager.Instance.InitNpcManger(mapName);
+        // 地圖需生成的怪物物件(單機 未進行伺服器同步地圖資料)
+        MonsterManager.Instance.InitMonsterManger(mapName);
+
+        if (!isInit)
+            InitSequenceManager.Instance.SceneSwitchInit();
+
+        //為場景上的 Canvas相機控制腳本設定相機
+        List<CanvasCameraControll> cameraList = FindObjectsOfType<CanvasCameraControll>().ToList();
+        if (cameraList != null && cameraList.Count > 0)
+            cameraList.ForEach(x => x.SetCamera());
+
+        //一秒延遲
+        yield return new WaitForSeconds(1f);
+
+        //關閉Loading遮罩
+        loading.Hide();
+    }
+}

@@ -44,11 +44,14 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - UI_Final
   m_SortingLayers:
   - name: Default
     uniqueID: 0
     locked: 0
   - name: UI
     uniqueID: 3116037263
+    locked: 0
+  - name: UI_Final
+    uniqueID: 330658023
     locked: 0

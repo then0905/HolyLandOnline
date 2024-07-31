@@ -135,7 +135,7 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
 
     public void Start()
     {
-        Init();
+        //Init();
         //MonsterNameCanvas.worldCamera = Camera.main;
     }
 
@@ -151,7 +151,7 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
         originpos = transform.position;
         monsterAttackTimer = 1f / monsterValue.AtkSpeed;       //寫入普通攻擊間隔
                                                                //測試用 執行後秒殺怪物
-                                                               //StartCoroutine(MonsterTest());
+        //StartCoroutine(MonsterTest());
     }
 
     /// <summary>

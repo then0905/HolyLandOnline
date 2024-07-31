@@ -2311,7 +2311,7 @@ GameObject:
   - component: {fileID: 1178930053634242152}
   - component: {fileID: 1178930053634242155}
   m_Layer: 5
-  m_Name: Mission Canvas
+  m_Name: Info_Mission
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

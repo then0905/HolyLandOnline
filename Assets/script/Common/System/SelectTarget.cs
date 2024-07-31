@@ -28,7 +28,7 @@ public class SelectTarget : MonoBehaviour
     #endregion
 
     //玩家攝影機
-    private Camera characterCamera;
+    public Camera CharacterCamera { get; set; }
     // 是否抓取到目標
     public bool CatchTarget
     {
@@ -66,7 +66,7 @@ public class SelectTarget : MonoBehaviour
 
     private void Start()
     {
-        characterCamera = PlayerDataOverView.Instance.CharacterMove.CharacterCamera.GetComponent<Camera>();
+        CharacterCamera = PlayerDataOverView.Instance.CharacterMove.CharacterCamera;
     }
     void Update()
     {
@@ -90,7 +90,7 @@ public class SelectTarget : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            Ray ray = characterCamera.ScreenPointToRay(Input.mousePosition);
+            Ray ray = CharacterCamera.ScreenPointToRay(Input.mousePosition);
             if (Physics.Raycast(ray, out RaycastHit hit))
             {
                 ActivityCharacterBase selectedObject = hit.collider.GetComponent<ActivityCharacterBase>();

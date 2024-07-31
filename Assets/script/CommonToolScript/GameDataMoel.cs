@@ -393,6 +393,7 @@ public class NpcDataModel : BasalAttributesDataModel, IDictionaryData<string>
     public string NpcAvatarPath { get; set; }           //NPC 頭像路徑
     public string NpcAvatarName { get; set; }           //NPC 頭像檔案名稱
     public float NpcPosX { get; set; }           //NPC 座標X
+    public float NpcPosY { get; set; }           //NPC 座標Y
     public float NpcPosZ { get; set; }           //NPC 座標Z
     public int ATK { get; set; }            // NPC 攻擊力
     public int Hit { get; set; }            // NPC 命中

@@ -3,7 +3,7 @@
     "MonsterCodeID": "Monster_Test_0",
     "Name": "測試用巨人",
     "Area": "開發測試",
-    "AreaID": "Development",
+    "AreaID": "DevelopmentTest",
     "Lv": 1,
     "Class": "中型",
     "ClassID": "Medium",
@@ -44,6 +44,57 @@
       },
       {
         "MonsterCodeID": "Monster_Test_0",
+        "SpawnPosX": -56.5,
+        "SpawnPosY": 0.14,
+        "SpawnPosZ": -35.6
+      }
+    ]
+  },
+  {
+    "MonsterCodeID": "Monster_Test_1",
+    "Name": "測試用巨人2",
+    "Area": "開發測試2",
+    "AreaID": "DevelopmentTest2",
+    "Lv": 2,
+    "Class": "中型",
+    "ClassID": "Medium",
+    "Type": "人型",
+    "TypeID": "Human",
+    "SpawnAmount": 10,
+    "RebirthCD": 5,
+    "EXP": 15,
+    "HP": 200,
+    "MP": 0,
+    "AttackMode": "MeeleATK",
+    "Habit": false,
+    "ActivityScope": 5,
+    "UseSkill": false,
+    "ATK": 8,
+    "DEF": 8,
+    "Crt": 10,
+    "CrtResistance": 10,
+    "Avoid": 0,
+    "Hit": 20,
+    "AtkSpeed": 1,
+    "WalkSpeed": 0.05,
+    "RunSpeed": 0.05,
+    "AttackRange": 4,
+    "PursueRange": 100,
+    "MonsterSpawnPosList": [
+      {
+        "MonsterCodeID": "Monster_Test_1",
+        "SpawnPosX": -14.2,
+        "SpawnPosY": 0.14,
+        "SpawnPosZ": 0
+      },
+      {
+        "MonsterCodeID": "Monster_Test_1",
+        "SpawnPosX": 28.64,
+        "SpawnPosY": 0.14,
+        "SpawnPosZ": 0
+      },
+      {
+        "MonsterCodeID": "Monster_Test_1",
         "SpawnPosX": -56.5,
         "SpawnPosY": 0.14,
         "SpawnPosZ": -35.6

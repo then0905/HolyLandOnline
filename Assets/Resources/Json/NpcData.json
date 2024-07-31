@@ -1,11 +1,12 @@
 [
   {
     "NpcID": "Npc01",
-    "AreaID": "OriginalVillage",
+    "AreaID": "DevelopmentTest",
     "NpcName": "村長\n奧利柏",
-    "NpcAvatarPath": "Avatar/NPC",
+    "NpcAvatarPath": "NPC/Avatar",
     "NpcAvatarName": "Villagehead",
     "NpcPosX": 24.4,
+    "NpcPosY": 0.65,
     "NpcPosZ": -38.5,
     "NpcChatContent": [
       "歡迎來到初始之村，我是這裡的村長你好!"
@@ -33,12 +34,13 @@
   },
   {
     "NpcID": "Npc02",
-    "AreaID": "OriginalVillage",
+    "AreaID": "DevelopmentTest",
     "NpcName": "達蘭妲",
-    "NpcAvatarPath": "Avatar/NPC",
+    "NpcAvatarPath": "NPC/Avatar",
     "NpcAvatarName": "Girl",
-    "NpcPosX": 24.4,
-    "NpcPosZ": -38.5,
+    "NpcPosX": 0,
+    "NpcPosY": 0,
+    "NpcPosZ": -38.8,
     "NpcChatContent": [
       "今天天氣很好，對吧?"
     ],
@@ -65,12 +67,13 @@
   },
   {
     "NpcID": "Npc03",
-    "AreaID": "OriginalVillage",
+    "AreaID": "DevelopmentTest",
     "NpcName": "道具商人\n克雷德",
-    "NpcAvatarPath": "Avatar/NPC",
+    "NpcAvatarPath": "NPC/Avatar",
     "NpcAvatarName": "Villagehead",
-    "NpcPosX": 24.4,
-    "NpcPosZ": -38.5,
+    "NpcPosX": -23,
+    "NpcPosY": 0.65,
+    "NpcPosZ": -29.69,
     "NpcChatContent": [
       "歡迎光臨我的小舖，來參考看看呀!"
     ],
@@ -129,6 +132,72 @@
         "NpcID": "Npc03",
         "ProductID": "Record_Reel_01",
         "LimitQty": -1
+      }
+    ]
+  },
+  {
+    "NpcID": "Npc04",
+    "AreaID": "DevelopmentTest2",
+    "NpcName": "測試NPC1",
+    "NpcAvatarPath": "NPC/Avatar",
+    "NpcAvatarName": "Villagehead",
+    "NpcPosX": 24.4,
+    "NpcPosY": 0.65,
+    "NpcPosZ": -38.5,
+    "NpcChatContent": [
+      "第二張測試地圖 我是NPC1"
+    ],
+    "HP": 100,
+    "MP": 0,
+    "ATK": 1,
+    "DEF": 1,
+    "Crt": 0,
+    "CrtResistance": 0,
+    "Avoid": 0,
+    "Hit": 10,
+    "AtkSpeed": 0.7,
+    "WalkSpeed": 0.08,
+    "RunSpeed": 0.15,
+    "AttackRange": 4,
+    "PursueRange": 100,
+    "NpcButtonFuncList": [
+      {
+        "NpcID": "Npc04",
+        "ButtonActionID": "Exit",
+        "ButtonName": "離開"
+      }
+    ]
+  },
+  {
+    "NpcID": "Npc05",
+    "AreaID": "DevelopmentTest2",
+    "NpcName": "測試NPC2",
+    "NpcAvatarPath": "NPC/Avatar",
+    "NpcAvatarName": "Girl",
+    "NpcPosX": 0,
+    "NpcPosY": 0,
+    "NpcPosZ": -38.8,
+    "NpcChatContent": [
+      "第二張測試地圖 我是NPC2"
+    ],
+    "HP": 100,
+    "MP": 0,
+    "ATK": 1,
+    "DEF": 1,
+    "Crt": 0,
+    "CrtResistance": 0,
+    "Avoid": 0,
+    "Hit": 10,
+    "AtkSpeed": 0.7,
+    "WalkSpeed": 0.08,
+    "RunSpeed": 0.15,
+    "AttackRange": 4,
+    "PursueRange": 100,
+    "NpcButtonFuncList": [
+      {
+        "NpcID": "Npc05",
+        "ButtonActionID": "Exit",
+        "ButtonName": "離開"
       }
     ]
   }

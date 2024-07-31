@@ -27,20 +27,29 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
         }
     }
 
-    public static int FirstInGame = 1;         //第一次登入遊戲
     #endregion
 
     [Header("遊戲物件")]
     public Character_move CharacterMove;
-    [Header("血條"), SerializeField] protected Slider hpSlider;
-    [Header("魔力條"), SerializeField] protected Slider mpSlider;
-    [Header("經驗條"), SerializeField] protected Slider expSlider;
-    [Header("血條文字"), SerializeField] protected TMP_Text hptext;
-    [Header("魔力文字"), SerializeField] protected TMP_Text mptext;
-    [Header("等級文字"), SerializeField] protected TMP_Text lvtext;
-    [Header("玩家名稱文字"), SerializeField] protected TMP_Text nametext;
+
+    //血條
+    [HideInInspector] public Slider HpSlider;
+    //魔力條
+    [HideInInspector] public Slider MpSlider;
+    //經驗條
+    [HideInInspector] public Slider ExpSlider;
+    //血條文字
+    [HideInInspector] public TMP_Text HpText;
+    //魔力文字
+    [HideInInspector] public TMP_Text MpText;
+    //等級文字
+    [HideInInspector] public TMP_Text LvText;
+    //玩家名稱文字
+    [HideInInspector] public TMP_Text NameText;
+
     [Header("遊戲資料")]
     public PlayerData PlayerData_ = new PlayerData();
+
     public string GetAttackMode { get; set; }
     public int HP
     {
@@ -124,6 +133,17 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
     public Action<int> ChangeHpEvent;        //刷新玩家HP的事件
     public Action<int> ChangeMpEvent;        //刷新玩家MP的事件
 
+    private void OnEnable()
+    {
+        CharacterMove.ControlCharacterEvent += NormalAttackSystem.Instance.StopNormalAttack;
+        CharacterMove.ControlCharacterEvent += SkillDisplayAction.Instance.StopSkillChasingTarge;
+        SelectTarget.Instance.CharacterCamera = CharacterMove.CharacterCamera;
+    }
+    private void OnDisable()
+    {
+        CharacterMove.ControlCharacterEvent -= NormalAttackSystem.Instance.StopNormalAttack;
+        CharacterMove.ControlCharacterEvent -= SkillDisplayAction.Instance.StopSkillChasingTarge;
+    }
 
     /// <summary>
     /// 初始化
@@ -190,24 +210,24 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
     /// <summary>
     /// 設定UI資料 血量 魔力 經驗值?
     /// </summary>
-    void RefreshExpAndLv()
+    private void RefreshExpAndLv()
     {
         //獲取等級
-        lvtext.text = PlayerData_.Lv.ToString();
+        LvText.text = PlayerData_.Lv.ToString();
         //獲取玩家名稱
-        nametext.text = PlayerData_.PlayerName;
+        NameText.text = PlayerData_.PlayerName;
 
         //獲取最大生命值與魔力
-        hpSlider.maxValue = PlayerData_.MaxHP;
-        mpSlider.maxValue = PlayerData_.MaxMP;
+        HpSlider.maxValue = PlayerData_.MaxHP;
+        MpSlider.maxValue = PlayerData_.MaxMP;
 
         //獲取當前生命值與魔力
-        hpSlider.value = HP;
-        mpSlider.value = MP;
+        HpSlider.value = HP;
+        MpSlider.value = MP;
 
         //帶入UI Slider
-        hptext.text = hpSlider.value + "/" + hpSlider.maxValue;
-        mptext.text = mpSlider.value + "/" + mpSlider.maxValue;
+        HpText.text = HpSlider.value + "/" + HpSlider.maxValue;
+        MpText.text = MpSlider.value + "/" + MpSlider.maxValue;
 
         LoadPlayerData.SaveUserData();
     }
@@ -217,13 +237,13 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
     public void ExpProcessor()
     {
         //設定經驗值條資料
-        expSlider.value = PlayerData_.Exp;
-        expSlider.maxValue = GameData.ExpAndLvDic.Where(x => x.Key.Contains(PlayerData_.Lv.ToString())).Select(x => x.Value).FirstOrDefault().EXP;
+        ExpSlider.value = PlayerData_.Exp;
+        ExpSlider.maxValue = GameData.ExpAndLvDic.Where(x => x.Key.Contains(PlayerData_.Lv.ToString())).Select(x => x.Value).FirstOrDefault().EXP;
         //若玩家經驗值>最大經驗值條 為 升級事件
-        if (PlayerData_.Exp >= expSlider.maxValue)
+        if (PlayerData_.Exp >= ExpSlider.maxValue)
         {
             //更新經驗值條(扣除當前最大經驗值)
-            PlayerData_.Exp -= int.Parse(expSlider.maxValue.ToString());
+            PlayerData_.Exp -= int.Parse(ExpSlider.maxValue.ToString());
             PlayerData_.Lv++;
             //呼叫刷新與升等
             LVup();
@@ -233,7 +253,7 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
     /// <summary>
     /// 升級處理
     /// </summary>
-    void LVup()
+    private void LVup()
     {
         StatusOperation.Instance.StatusMethod();//使用者資料刷新
         RefreshExpAndLv();
@@ -248,7 +268,7 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
     /// 更動玩家血量
     /// </summary>
     /// <param name="value">更動值</param>
-    void ChangePlayerHp(int value)
+    private void ChangePlayerHp(int value)
     {
         HP = value + HP;
         UIrefresh?.Invoke();
@@ -257,7 +277,7 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
     /// 更動玩家魔力
     /// </summary>
     /// <param name="value">更動值</param>
-    void ChangePlayerMp(int value)
+    private void ChangePlayerMp(int value)
     {
         MP = value + MP;
         UIrefresh?.Invoke();

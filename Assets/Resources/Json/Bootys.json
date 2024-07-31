@@ -185,6 +185,191 @@
     ]
   },
   {
+    "MonsterCodeID": "Monster_Test_1",
+    "Name": "測試用巨人2",
+    "AreaID": "DevelopmentTest2",
+    "Area": "開發測試2",
+    "MinCoin": 10,
+    "MaxCoin": 20,
+    "BootyList": [
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Sword_Right_001",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Sword_Both_001",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Mage_Both_001",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Bow_Both_001",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Dagger_Single_001",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Heavy_Head_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Heavy_Body_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Heavy_Leg_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Heavy_Arm_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Heavy_Foot_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Light_Head_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Light_Body_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Light_Leg_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Light_Arm_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Light_Foot_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Cloth_Head_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Cloth_Body_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Cloth_Leg_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Cloth_Arm_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Cloth_Foot_01",
+        "DropProbability": 5,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Potion_Hp_01",
+        "DropProbability": 15,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Potion_Mp_01",
+        "DropProbability": 15,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Record_Reel_01",
+        "DropProbability": 15,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Booty_007",
+        "DropProbability": 25,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      },
+      {
+        "CodeID": "Monster_Test_1",
+        "BootyID": "Booty_008",
+        "DropProbability": 10,
+        "DropCountMIn": 1,
+        "DropCOuntMax": 1
+      }
+    ]
+  },
+  {
     "MonsterCodeID": "Monster_Origin_0",
     "Name": "野豬",
     "AreaID": "OriginalVillage",
