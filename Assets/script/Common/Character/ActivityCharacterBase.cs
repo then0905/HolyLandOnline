@@ -45,9 +45,9 @@ public class ActivityCharacterBase : MonoBehaviour
         if (this is MonoBehaviour)
         {
             SelectTarget.Instance.TargetInformation.SetActive(true);
+            SelectTarget.Instance.TargetHP.maxValue = npcBehavior.HP;
             SelectTarget.Instance.TargetHP.value = npcBehavior.HP;
             SelectTarget.Instance.TargetName.text = npcBehavior.Name;
-            SelectTarget.Instance.TargetHP.maxValue = npcBehavior.HP;
             SelectTarget.Instance.TargetLV.text = 1.ToString();
             SelectTarget.Instance.TargetClass.text = "NPC";
             SelectTarget.Instance.TargetHP_MinAndMax.text = SelectTarget.Instance.TargetHP.value.ToString() + "/" + SelectTarget.Instance.TargetHP.maxValue.ToString();
@@ -62,9 +62,9 @@ public class ActivityCharacterBase : MonoBehaviour
         if (this is MonoBehaviour)
         {
             SelectTarget.Instance.TargetInformation.SetActive(true);
+            SelectTarget.Instance.TargetHP.maxValue = monster.MonsterValue.HP;
             SelectTarget.Instance.TargetHP.value = monster.HP;
             SelectTarget.Instance.TargetName.text = monster.MonsterValue.Name;
-            SelectTarget.Instance.TargetHP.maxValue = monster.MonsterValue.HP;
             SelectTarget.Instance.TargetLV.text = monster.MonsterValue.Lv.ToString();
             SelectTarget.Instance.TargetClass.text = monster.MonsterValue.Class;
             SelectTarget.Instance.TargetHP_MinAndMax.text = SelectTarget.Instance.TargetHP.value.ToString() + "/" + SelectTarget.Instance.TargetHP.maxValue.ToString();
