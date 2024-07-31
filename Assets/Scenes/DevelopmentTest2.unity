@@ -349,6 +349,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3940594333738170973, guid: 00d082d9a5a6c4b4a9cc9d1589cfdaa1,
+        type: 3}
+      propertyPath: teleportMapName
+      value: DevelopmentTest1
+      objectReference: {fileID: 0}
     - target: {fileID: 3940594333738170974, guid: 00d082d9a5a6c4b4a9cc9d1589cfdaa1,
         type: 3}
       propertyPath: m_Name
