@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using static UnityEditor.Progress;
 using static UnityEngine.GraphicsBuffer;
 using Random = UnityEngine.Random;
 
@@ -142,16 +143,16 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
     /// <summary>
     /// 初始化 設定怪物數值與當前血量
     /// </summary>
-    public void Init()
+    public void Init(Vector3 originPos)
     {
+        originpos = originPos;
         monsterValue = GameData.MonstersDataDic?[MonsterID];
         monsterActivityIntervalMin = (int)GameData.GameSettingDic["MonsterActivityIntervalMin"].GameSettingValue;
         monsterActivityIntervalMax = (int)GameData.GameSettingDic["MonsterActivityIntervalMax"].GameSettingValue;
         HP = monsterValue.HP;
-        originpos = transform.position;
         monsterAttackTimer = 1f / monsterValue.AtkSpeed;       //寫入普通攻擊間隔
                                                                //測試用 執行後秒殺怪物
-        //StartCoroutine(MonsterTest());
+                                                               //StartCoroutine(MonsterTest());
     }
 
     /// <summary>
@@ -175,9 +176,12 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
         //等待秒數 執行清除物件工作
         yield return new WaitForSeconds(3);
 
+        //設定怪物重生
+        MonsterManager.Instance.SetMonsterRebirth(originpos, this);
 
         if (this.gameObject != null)
             Destroy(this.gameObject);
+
     }
 
     /// <summary>
@@ -315,16 +319,18 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
                         MonsterAnimator.SetBool("IsWalking", false);
                         BreakAnyCoroutine();
                         StopCoroutine(CommonPursueCoroutine);
-                        //超出怪物可追擊範圍 怪物重生設計
+
+                        //超出怪物可追擊範圍 設定怪物重生
+                        MonsterManager.Instance.SetMonsterRebirth(originpos, this, false);
+
+                        if (this.gameObject != null)
+                            Destroy(this.gameObject);
                     }
                     else
                     {
                         //Debug.Log("怪物:" + name + " 當前狀態 :" + "追擊" + " 當前距離 :" + pursueDistance);
                         MonsterAnimator.SetBool("IsWalking", true);
 
-                        //Quaternion targetRotation = Quaternion.LookRotation(targetObj.transform.position); // 計算目標旋轉
-                        //float targetYRotation = targetRotation.eulerAngles.y; // 取得目標旋轉的 Y 軸旋轉值
-                        //transform.rotation = Quaternion.Euler(0, targetYRotation, 0); // 直接旋轉到目標角度
                         //調整面向
                         transform.LookAt(targetObj.transform);
 
