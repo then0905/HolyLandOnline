@@ -8,6 +8,8 @@ using UnityEngine;
 //==========================================
 public class PickUp : MonoBehaviour
 {
+    [Header("玩家總覽腳本"), SerializeField] private PlayerDataOverView playerDAtaOverView;
+
     //是否撿取的防呆
     public bool ispickup;
     private void Update()
@@ -27,7 +29,7 @@ public class PickUp : MonoBehaviour
                 if (!ispickup)
                 {
                     ispickup = true;
-                    other.GetComponent<BootysPresent>().BePickUP();
+                    other.GetComponent<BootysPresent>().BePickUP(playerDAtaOverView);
                 }
             }
         }

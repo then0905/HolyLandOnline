@@ -244,6 +244,16 @@ public class MonsterDataModel : BasalAttributesDataModel, IDictionaryData<string
     public string SpawnPos { get; set; }            // 怪物生成座標
     public int RebirthCD { get; set; }            // 怪物重生時間
     public int EXP { get; set; }            // 怪物經驗值
+    public bool ExpSplit { get; set; }            // 經驗值處理 True:造成傷害者依照比例分割、False: 造成傷害者都一樣
+
+    /// <summary>
+    /// 掉落物開放權限
+    /// 0:無權限 任何玩家皆可撿取
+    /// 1:第一階段權限 傷害第一人
+    /// 2:第二階段權限 戰鬥資料裡的所有玩家
+    /// </summary>
+    public int BootysLockSetting { get; set; }            
+
     public string AttackMode { get; set; }            // 怪物攻擊模式
     public bool Habit { get; set; }            // 怪物是否被動
     public float ActivityScope { get; set; }            // 怪物可活動範圍的半徑
@@ -270,7 +280,7 @@ public class MonsterSpwanDataModel
     public float SpawnPosX { get; set; }            // 怪物生成座標X
     public float SpawnPosY { get; set; }            // 怪物生成座標Y
     public float SpawnPosZ { get; set; }            // 怪物生成座標Z
-    
+
 }
 
 /// <summary>

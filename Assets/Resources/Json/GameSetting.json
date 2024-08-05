@@ -62,5 +62,13 @@
   {
     "GameSettingID": "MonsterActivityIntervalMax",
     "GameSettingValue": 8
+  },
+  {
+    "GameSettingID": "FirstPhaseBootysLockTime",
+    "GameSettingValue": 15
+  },
+  {
+    "GameSettingID": "SecondPhaseBootysLockTime",
+    "GameSettingValue": 30
   }
 ]

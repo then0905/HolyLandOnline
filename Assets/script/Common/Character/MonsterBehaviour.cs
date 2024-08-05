@@ -2,18 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static UnityEditor.Progress;
-using static UnityEngine.GraphicsBuffer;
 using Random = UnityEngine.Random;
 
-//==========================================
-//  創建者:    家豪
-//  翻修日期:  2023/05/20
-//  創建用途:  怪物行為設定呈現
-//==========================================
-
+/// <summary>
+/// 怪物行為Enum
+/// </summary>
 public enum MonserBehaviorEnum
 {
     Attack,     //正在攻擊(戰鬥中)
@@ -21,16 +15,11 @@ public enum MonserBehaviorEnum
     Patrol      //偵查(在範圍內巡邏 隨機走動)
 }
 
-/// <summary>
-/// 戰鬥目標資料
-/// </summary>
-public class BattleTargetData
-{
-    public GameObject Target;       //目標物件
-    public PlayerData TargetData;       //目標資料
-    public int Damage;      //傷害量 用於仇恨值計算
-}
-
+//==========================================
+//  創建者:    家豪
+//  翻修日期:  2023/05/20
+//  創建用途:  怪物行為設定呈現
+//==========================================
 public class MonsterBehaviour : ActivityCharacterBase, ICombatant
 {
     //取得動畫
@@ -151,8 +140,8 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
         monsterActivityIntervalMax = (int)GameData.GameSettingDic["MonsterActivityIntervalMax"].GameSettingValue;
         HP = monsterValue.HP;
         monsterAttackTimer = 1f / monsterValue.AtkSpeed;       //寫入普通攻擊間隔
-                                                               //測試用 執行後秒殺怪物
-                                                               //StartCoroutine(MonsterTest());
+        //測試用 執行後秒殺怪物
+        //StartCoroutine(MonsterTest());
     }
 
     /// <summary>
@@ -165,10 +154,12 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
         //設定動畫
         MonsterAnimator.SetBool("IsDead", true);
 
-        //經驗值與掉落物處理
-        BootysHandle.Instance.GetBootysData(monsterValue.MonsterCodeID, transform);
-        PlayerDataOverView.Instance.PlayerData_.Exp += monsterValue.EXP;
-        PlayerDataOverView.Instance.ExpProcessor();
+        //依照傷害量 降冪排序 所有造成傷害的玩家資料
+        List<ICombatant> combatants = BattleTargetDic.OrderByDescending(x => x.Value).Select(x => x.Key).ToList();
+        //掉落物處理
+        BootysHandle.Instance.GetBootysData(monsterValue.MonsterCodeID, transform, combatants);
+        //經驗值處理
+        ExpProcessor(monsterValue.ExpSplit);
 
         //清除物件 清除鎖定目標避免空UI
         SelectTarget.Instance.CatchTarget = false;
@@ -394,15 +385,24 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
 
     public void DealingWithInjuriesMethod(ICombatant battleData, int damage)
     {
-        StartCoroutine(test(battleData, damage));
+        StartCoroutine(DealingWithInjuriesCoroutine(battleData, damage));
     }
 
-    public IEnumerator test(ICombatant battleData, int damage)
+    /// <summary>
+    /// 怪物受到攻擊後執行的協程
+    /// </summary>
+    /// <param name="battleData"></param>
+    /// <param name="damage"></param>
+    /// <returns></returns>
+    public IEnumerator DealingWithInjuriesCoroutine(ICombatant battleData, int damage)
     {
+        //檢查此次傷害造成者是否已經在紀錄中
         if (!BattleTargetDic.ContainsKey(battleData))
             BattleTargetDic.Add(battleData, damage);
         else
             BattleTargetDic[battleData] = damage;
+
+        //血量扣除
         HP -= damage;
         //怪物動畫(受傷)
         MonsterAnimator.SetTrigger("Injuried");
@@ -417,5 +417,31 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
         BattleTargetDic = BattleTargetDic.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, y => y.Value);
         //BreakAnyCoroutine();
         MonsterSetting(MonserBehaviorEnum.Pursue);
+    }
+
+    /// <summary>
+    /// 經驗值處理
+    /// </summary>
+    /// <param name="setSplit">True : 造成傷害者依照比例分割 False: 有傷害者同樣的Exp</param>
+    private void ExpProcessor(bool setSplit)
+    {
+        if (setSplit)
+        {
+            foreach (var item in BattleTargetDic)
+            {
+                //將經驗值依照傷害比例 分割給玩家
+                int tempExp = (int)MathF.Round((float)monsterValue.HP / (float)item.Value, 1);
+                item.Key.Obj.GetComponent<PlayerDataOverView>().PlayerData_.Exp += tempExp;
+                item.Key.Obj.GetComponent<PlayerDataOverView>().ExpProcessor();
+            }
+        }
+        else
+        {
+            foreach (var item in BattleTargetDic)
+            {
+                item.Key.Obj.GetComponent<PlayerDataOverView>().PlayerData_.Exp += monsterValue.EXP;
+                item.Key.Obj.GetComponent<PlayerDataOverView>().ExpProcessor();
+            }
+        }
     }
 }

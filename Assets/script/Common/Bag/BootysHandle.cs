@@ -1,7 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 
 //==========================================
 //  創建者:    家豪
@@ -35,13 +34,17 @@ public class BootysHandle : MonoBehaviour
     /// <summary>
     /// 取得掉落物資料
     /// </summary>
-    /// <param name="MonsterID"></param>
-    /// <param name="MonsterTransform"></param>
-    public void GetBootysData(string MonsterID, Transform monsterTransform)
+    /// <param name="MonsterID">怪物ID</param>
+    /// <param name="monsterTransform">怪物Trans</param>
+    /// <param name="battleTargetList">戰鬥資料清單</param>
+    public void GetBootysData(string MonsterID, Transform monsterTransform, List<ICombatant> battleTargetList)
     {
+        //獲取該怪物的所有掉落物資料
         var bootysData = GameData.MonsterBootysDic.Where(x => x.Key.Contains(MonsterID)).Select(x => x.Value).FirstOrDefault();
-        GenerateCoin(bootysData, monsterTransform);
-        GenerateItem(bootysData, monsterTransform);
+        //獲取該怪物的掉落物設定權限
+        int bootysLockSetting = GameData.MonstersDataDic[MonsterID].BootysLockSetting;
+        GenerateCoin(bootysData, monsterTransform, battleTargetList, bootysLockSetting);
+        GenerateItem(bootysData, monsterTransform, battleTargetList, bootysLockSetting);
     }
 
     /// <summary>
@@ -61,12 +64,15 @@ public class BootysHandle : MonoBehaviour
     /// </summary>
     /// <param name="bootysData">掉落物資料</param>
     /// <param name="monsterTransform">生成父級</param>
-    private void GenerateCoin(MonsterBootyDataModel bootysData, Transform monsterTransform)
+    /// <param name="battleTargetList">戰鬥資料清單</param>
+    private void GenerateCoin(MonsterBootyDataModel bootysData, Transform monsterTransform, List<ICombatant> battleTargetList,int bootysLockSetting)
     {
         // 運算金幣量
         Coin = Random.Range(bootysData.MinCoin, bootysData.MaxCoin + 1);
         // 生成物件
         bootyItem = Instantiate(BootyItem, RandomTransform(monsterTransform), transform.rotation).GetComponent<BootysPresent>();
+        //掉落物初始化設定
+        bootyItem.Init(bootysLockSetting,battleTargetList);
         // 設定金幣量
         bootyItem.Coins = Coin;
         //bootyItem.Item.Type = "金幣";
@@ -78,7 +84,8 @@ public class BootysHandle : MonoBehaviour
     /// </summary>
     /// <param name="bootysData">掉落物資料</param>
     /// <param name="monsterTransform">掉落物位置</param>
-    private void GenerateItem(MonsterBootyDataModel bootysData, Transform monsterTransform)
+    /// <param name="battleTargetList">戰鬥資料清單</param>
+    private void GenerateItem(MonsterBootyDataModel bootysData, Transform monsterTransform, List<ICombatant> battleTargetList, int bootysLockSetting)
     {
         //該怪物的掉落物清單
         var bootyList = bootysData.BootyList.Select(x => x.DropProbability).ToList();
@@ -91,6 +98,8 @@ public class BootysHandle : MonoBehaviour
             var tempBootyListData = bootysData.BootyList[booty];
             //生成掉落物
             bootyItem = Instantiate(BootyItem, RandomTransform(monsterTransform), transform.rotation).GetComponent<BootysPresent>();
+            //掉落物初始化設定
+            bootyItem.Init(bootysLockSetting, battleTargetList);
             //從資料庫抓出防具資料 或是空值
             bootyItem.EquipmentDatas.Armor = GameData.ArmorsDic.Where(x => x.Key.Contains(tempBootyListData.BootyID)).FirstOrDefault().Value;
             //從資料庫抓出武器資料 或是空值

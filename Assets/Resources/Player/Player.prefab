@@ -2561,13 +2561,13 @@ MonoBehaviour:
   headTrans: {fileID: 5503294864278941392}
   canBeChoose: 0
   CharacterMove: {fileID: 5503294863921377030}
-  hpSlider: {fileID: 0}
-  mpSlider: {fileID: 0}
-  expSlider: {fileID: 0}
-  hptext: {fileID: 0}
-  mptext: {fileID: 0}
-  lvtext: {fileID: 0}
-  nametext: {fileID: 0}
+  HpSlider: {fileID: 0}
+  MpSlider: {fileID: 0}
+  ExpSlider: {fileID: 0}
+  HpText: {fileID: 0}
+  MpText: {fileID: 0}
+  LvText: {fileID: 0}
+  NameText: {fileID: 0}
   PlayerData_:
     PlayerName: 
     Lv: 0
@@ -2744,6 +2744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67f02cdb5272f6d449ab555cf9a58ad4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerDAtaOverView: {fileID: 6346384704744032745}
   ispickup: 0
 --- !u!1 &5503294864278941395
 GameObject:
