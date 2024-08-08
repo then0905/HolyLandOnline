@@ -33,6 +33,9 @@ public class MapManager : MonoBehaviour
     [Header("Loading")]
     [SerializeField] private Loading loading;
 
+    [Header("轉移出現在畫面上文字的畫布"), SerializeField] private Canvas canvasMapText;
+    public Canvas CanvasMapText => canvasMapText;
+
     /// <summary>
     /// 登入時取得地圖名稱初始化
     /// </summary>

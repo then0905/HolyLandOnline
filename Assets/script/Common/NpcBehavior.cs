@@ -13,7 +13,8 @@ public class NpcBehavior : ActivityCharacterBase, ICombatant
     //Npc UI
     public Canvas NameCanvas;
     public GameObject NameText;
-
+    //頭頂位置參考
+    public Transform HeadTrans;
     [Header("遊戲資料")]
     private NpcSystem npcSystem;
     //Npc ID
@@ -66,17 +67,35 @@ public class NpcBehavior : ActivityCharacterBase, ICombatant
     public bool IsDead { get; set; }
     private void Start()
     {
+        //獲得NPC系統實例
         npcSystem = NpcSystem.Instance;
+        //獲得此NPC資料
         npcDataModel = GameData.NpcDataDic?[NpcID];
+        //設定此NPC名稱
         NameText.GetComponent<TextMeshProUGUI>().text = npcDataModel.NpcName;
+        //將名稱文字的父級 轉移到 文字畫布
+        NameText.transform.SetParent(MapManager.Instance.CanvasMapText.transform);
     }
 
 
     private void LateUpdate()
     {
         //每幀刷新 讓怪物身上的UI面對玩家
-        NameText.transform.LookAt(NameText.transform.position + Camera.main.transform.rotation * Vector3.forward,
-Camera.main.transform.rotation * Vector3.up);//讓傷害數字面對玩家
+//        NameText.transform.LookAt(NameText.transform.position + Camera.main.transform.rotation * Vector3.forward,
+//Camera.main.transform.rotation * Vector3.up);//讓傷害數字面對玩家
+
+        //獲取世界轉換成螢幕的座標
+        Vector3 screenPosition = PlayerDataOverView.Instance.CharacterMove.CharacterCamera.WorldToScreenPoint(HeadTrans.position);
+        //計算怪物物件與攝影機的距離
+        float distance = Vector3.Distance(HeadTrans.position, PlayerDataOverView.Instance.CharacterMove.CharacterCamera.transform.position);
+        //計算縮放距離
+        float scale = Mathf.Clamp(1.0f - (distance * 0.1f), 0.5f, 2.0f);
+        //若在玩家身後則不顯示
+        NameText.gameObject.SetActive(screenPosition.z > 0);
+        //設定文字座標
+        NameText.transform.position = new Vector2(screenPosition.x, screenPosition.y);
+        // 設定文字大小
+        NameText.transform.localScale = new Vector3(scale, scale, scale);
     }
 
     public void NpcInit()

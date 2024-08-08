@@ -29,6 +29,8 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
     //怪物UI
     public Canvas MonsterNameCanvas;
     public GameObject MonsterNameText;
+    //頭頂位置參考
+    public Transform MonsterHeadTrans;
 
     [Header("遊戲資料")]
     //怪物ID
@@ -125,8 +127,7 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
 
     public void Start()
     {
-        //Init();
-        //MonsterNameCanvas.worldCamera = Camera.main;
+        MonsterNameText.transform.SetParent(MapManager.Instance.CanvasMapText.transform);
     }
 
     /// <summary>
@@ -188,15 +189,22 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
     private void LateUpdate()
     {
         //每幀刷新 讓怪物身上的UI面對玩家
-        //MonsterNameText.GetComponent<RectTransform>().LookAt(MonsterNameText.transform.position + Camera.main.transform.rotation * Vector3.forward,
+        //    MonsterNameText.transform.LookAt(MonsterNameText.transform.position + Camera.main.transform.rotation * Vector3.forward,
         //Camera.main.transform.rotation * Vector3.up);
-        //MonsterNameText.GetComponent<RectTransform>().LookAt(Camera.main.transform);
-        //MonsterNameText.GetComponent<RectTransform>().Rotate(new Vector3(0, 180, 0));
-        MonsterNameText.transform.LookAt(MonsterNameText.transform.position + Camera.main.transform.rotation * Vector3.forward,
-    Camera.main.transform.rotation * Vector3.up);//讓傷害數字面對玩家
-                                                 //Vector3 lookDir = MonsterNameText.transform.position - Camera.main.transform.position;
-                                                 //lookDir.y = 0;
-                                                 //MonsterNameText.transform.rotation = Quaternion.LookRotation(lookDir);
+
+        //獲取世界轉換成螢幕的座標
+        Vector3 screenPosition = PlayerDataOverView.Instance.CharacterMove.CharacterCamera.WorldToScreenPoint(MonsterHeadTrans.position);
+        //計算怪物物件與攝影機的距離
+        float distance = Vector3.Distance(MonsterHeadTrans.position, PlayerDataOverView.Instance.CharacterMove.CharacterCamera.transform.position);
+        //計算縮放距離
+        float scale = Mathf.Clamp(1.0f - (distance * 0.1f), 0.5f, 2.0f);
+        //若在玩家身後則不顯示
+        MonsterNameText.gameObject.SetActive(screenPosition.z > 0);
+        //設定文字座標
+        MonsterNameText.transform.position = new Vector2(screenPosition.x, screenPosition.y);
+        // 設定文字大小
+        MonsterNameText.transform.localScale = new Vector3(scale, scale, scale);
+
     }
 
     /// <summary>
