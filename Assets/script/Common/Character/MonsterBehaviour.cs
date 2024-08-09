@@ -196,12 +196,20 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
         Vector3 screenPosition = PlayerDataOverView.Instance.CharacterMove.CharacterCamera.WorldToScreenPoint(MonsterHeadTrans.position);
         //計算怪物物件與攝影機的距離
         float distance = Vector3.Distance(MonsterHeadTrans.position, PlayerDataOverView.Instance.CharacterMove.CharacterCamera.transform.position);
+        // 將屏幕坐標轉換為Canvas中的本地坐標
+        RectTransformUtility.ScreenPointToLocalPointInRectangle(
+            MapManager.Instance.CanvasMapText.GetComponent<RectTransform>(),
+            screenPosition,
+            MapManager.Instance.CanvasMapText.worldCamera,
+            out Vector2 localPoint);
+
         //計算縮放距離
         float scale = Mathf.Clamp(1.0f - (distance * 0.1f), 0.5f, 2.0f);
         //若在玩家身後則不顯示
         MonsterNameText.gameObject.SetActive(screenPosition.z > 0);
         //設定文字座標
-        MonsterNameText.transform.position = new Vector2(screenPosition.x, screenPosition.y);
+        MonsterNameText.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(localPoint.x, localPoint.y, 0);
+        //MonsterNameText.transform.position = new Vector2(screenPosition.x, screenPosition.y);
         // 設定文字大小
         MonsterNameText.transform.localScale = new Vector3(scale, scale, scale);
 
