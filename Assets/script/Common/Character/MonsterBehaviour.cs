@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -186,7 +187,7 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
         HP = 0;
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         //每幀刷新 讓怪物身上的UI面對玩家
         //    MonsterNameText.transform.LookAt(MonsterNameText.transform.position + Camera.main.transform.rotation * Vector3.forward,
@@ -204,11 +205,15 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
             out Vector2 localPoint);
 
         //計算縮放距離
-        float scale = Mathf.Clamp(1.0f - (distance * 0.1f), 0.5f, 2.0f);
+        float scale = Mathf.Clamp(2.0f - (distance * 0.02f), 0.5f, 2.0f);
         //若在玩家身後則不顯示
         MonsterNameText.gameObject.SetActive(screenPosition.z > 0);
         //設定文字座標
         MonsterNameText.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(localPoint.x, localPoint.y, 0);
+        //  MonsterNameText.GetComponent<RectTransform>().anchoredPosition3D = Vector3.Lerp(
+        //MonsterNameText.GetComponent<RectTransform>().anchoredPosition3D,
+        // new Vector3(localPoint.x, localPoint.y, 0),
+        //Time.deltaTime * 10f);  // 10f 是平滑係數，可以調整
         //MonsterNameText.transform.position = new Vector2(screenPosition.x, screenPosition.y);
         // 設定文字大小
         MonsterNameText.transform.localScale = new Vector3(scale, scale, scale);

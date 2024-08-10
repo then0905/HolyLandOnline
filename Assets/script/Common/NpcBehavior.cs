@@ -78,7 +78,7 @@ public class NpcBehavior : ActivityCharacterBase, ICombatant
     }
 
 
-    private void LateUpdate()
+    private void Update()
     {
         //每幀刷新 讓怪物身上的UI面對玩家
         //        NameText.transform.LookAt(NameText.transform.position + Camera.main.transform.rotation * Vector3.forward,
@@ -97,12 +97,16 @@ public class NpcBehavior : ActivityCharacterBase, ICombatant
             out Vector2 localPoint);
 
         //計算縮放距離
-        float scale = Mathf.Clamp(1.0f - (distance * 0.1f), 0.5f, 2.0f);
+        float scale = Mathf.Clamp(1.0f - (distance * 0.02f), 0.5f, 2.0f);
         //若在玩家身後則不顯示
         NameText.gameObject.SetActive(screenPosition.z > 0);
         //設定文字座標
         //NameText.transform.position = new Vector2(screenPosition.x, screenPosition.y);
         NameText.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(localPoint.x, localPoint.y, 0);
+        //   NameText.GetComponent<RectTransform>().anchoredPosition3D = Vector3.Lerp(
+        //NameText.GetComponent<RectTransform>().anchoredPosition3D,
+        // new Vector3(localPoint.x, localPoint.y, 0),
+        //Time.deltaTime * 10f);  // 10f 是平滑係數，可以調整
         // 設定文字大小
         NameText.transform.localScale = new Vector3(scale, scale, scale);
     }

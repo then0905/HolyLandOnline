@@ -104,7 +104,7 @@ public class Character_move : MonoBehaviour
         ControCharacterAnimationEvent -= CallCharacterAnimationSpeed;
     }
 
-    void Update()
+    void LateUpdate()
     {
         //取得玩家控制角色移動的輸出訊息(上下左右 wasd 搖桿等等)
         float horizontalInput = Input.GetAxisRaw("Horizontal");

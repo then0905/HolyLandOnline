@@ -17,13 +17,13 @@ public class CameraRotation : MonoBehaviour
     public float rotateSpeed;
     public float maxRotAngle;
     public float minRotAngle;
-    
+
     public Vector3 offset;
     private void Start()
     {
         //offset = CharacterCamera.transform.position - Character.transform.position;
     }
-    void Update()
+    void LateUpdate()
     {
         CameraFOV();//滑鼠滾輪縮放視角
         float _mouseX = Input.GetAxis("Mouse X");
@@ -31,17 +31,17 @@ public class CameraRotation : MonoBehaviour
         CameraRotate(_mouseX, _mouseY);
     }
     public void CameraFOV()
-    {     
+    {
         float distance = Vector3.Distance(CharacterCamera.transform.position, Character.transform.position);
         wheel = Input.GetAxis("Mouse ScrollWheel") * ScrollSpeed;
-        if(distance >= 45)
+        if (distance >= 45)
         {
             if (wheel < 0)
             {
                 wheel = 0;
             }
         }
-        if(distance <= 10)
+        if (distance <= 10)
         {
             if (wheel > 0)
             {
@@ -68,7 +68,7 @@ public class CameraRotation : MonoBehaviour
                 return;
             }
             CharacterCamera.transform.RotateAround(Character.transform.position, CharacterCamera.transform.right, _mouseY * rotateSpeed);
-           // offset = CharacterCamera.transform.position - Character.transform.position;
+            // offset = CharacterCamera.transform.position - Character.transform.position;
         }
 
     }
