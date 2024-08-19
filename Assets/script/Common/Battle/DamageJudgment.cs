@@ -21,7 +21,7 @@ public class DamageJudgment : MonoBehaviour
         if (other.gameObject.tag == "Monster"/*other.gameObject.tag == "Weapon" || other.gameObject.tag == "SkillEffect"*/)
         {
            //檢測是否在使用中
-            if (SkillDisplayAction.Instance.UsingSkill)
+            if (SkillController.Instance.UsingSkill)
             {
                 //傳送命中s資料
                // BattleOperation.Instance.CatchBattleTarget(other.gameObject);

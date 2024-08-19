@@ -14,11 +14,11 @@ public class SkillReverseForAnim : MonoBehaviour
     /// </summary>
     public void ReverseUsingSkill()
     {
-        SkillDisplayAction.Instance.UsingSkill = false;
+        SkillController.Instance.UsingSkill = false;
         PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = false;
-        if (SkillDisplayAction.Instance.UsingSkillObj.GetComponent<Skill_Base>() is Skill_Base_Attack)
+        if (SkillController.Instance.UsingSkillObj.GetComponent<Skill_Base>() is Skill_Base_Attack)
         {
-            SkillDisplayAction.Instance.UsingSkillObj.GetComponent<Skill_Base>().SkillEndForAnimation();
+            SkillController.Instance.UsingSkillObj.GetComponent<Skill_Base>().SkillEndForAnimation();
         }
     }
 }

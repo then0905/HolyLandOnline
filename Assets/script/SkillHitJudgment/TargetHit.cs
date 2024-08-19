@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class TargetHit : MonoBehaviour
 {
-    public SkillDisplayAction Skillrange;
+    public SkillController Skillrange;
     public GameObject SkillPlayerCircle;
     public SphereCollider PlayerCircleCollider;
     //private void Update()

@@ -30,7 +30,7 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
         //更新快捷鍵上的技能圖片
 
         //獲取快捷鍵資料
-        var hotKeyDataList = SkillDisplayAction.Instance.SkillHotKey.ToList();
+        var hotKeyDataList = SkillController.Instance.SkillHotKey.ToList();
         //收尋快捷鍵上資料ID 找尋升級的指定技能ID
         var item = hotKeyDataList.Where(x => x.HotKeyDataID.Contains(upgradeSkillID)).FirstOrDefault();
         if (item != null)
@@ -63,7 +63,7 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
         //更新快捷鍵上的技能圖片
 
         //獲取快捷鍵資料
-        var hotKeyDataList = SkillDisplayAction.Instance.SkillHotKey.ToList();
+        var hotKeyDataList = SkillController.Instance.SkillHotKey.ToList();
         //收尋快捷鍵上資料ID 將升級的技能還原
         var item = hotKeyDataList.Where(x => x.HotKeyDataID.Contains(upgradeSkillID)).FirstOrDefault();
         if (item != null)

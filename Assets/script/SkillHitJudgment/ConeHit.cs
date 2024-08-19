@@ -8,7 +8,7 @@ public class ConeHit : MonoBehaviour
 
     public GameObject SkillConeCanvas;
     public GameObject SkillCone;
-    public SkillDisplayAction Skillrange;
+    public SkillController Skillrange;
     public SphereCollider ConeCollider;
     private void Update()
     {

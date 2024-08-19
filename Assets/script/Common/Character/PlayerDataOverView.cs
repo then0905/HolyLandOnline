@@ -136,13 +136,13 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
     private void OnEnable()
     {
         CharacterMove.ControlCharacterEvent += NormalAttackSystem.Instance.StopNormalAttack;
-        CharacterMove.ControlCharacterEvent += SkillDisplayAction.Instance.StopSkillChasingTarge;
+        CharacterMove.ControlCharacterEvent += SkillController.Instance.StopSkillChasingTarge;
         SelectTarget.Instance.CharacterCamera = CharacterMove.CharacterCamera;
     }
     private void OnDisable()
     {
         CharacterMove.ControlCharacterEvent -= NormalAttackSystem.Instance.StopNormalAttack;
-        CharacterMove.ControlCharacterEvent -= SkillDisplayAction.Instance.StopSkillChasingTarge;
+        CharacterMove.ControlCharacterEvent -= SkillController.Instance.StopSkillChasingTarge;
     }
 
     /// <summary>

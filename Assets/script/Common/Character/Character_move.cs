@@ -93,10 +93,10 @@ public class Character_move : MonoBehaviour
         SkillTargetCircle.GetComponent<Image>().enabled = false;
         SkillPlayerCricle.GetComponent<Image>().enabled = false;
         SkillConeImage.GetComponent<Image>().enabled = false;
-        SkillDisplayAction.Instance.SkillArrowImage = SkillArrowImage;
-        SkillDisplayAction.Instance.SkillTargetCircle = SkillTargetCircle;
-        SkillDisplayAction.Instance.SkillPlayerCricle = SkillPlayerCricle;
-        SkillDisplayAction.Instance.SkillConeImage = SkillConeImage;
+        SkillController.Instance.SkillArrowImage = SkillArrowImage;
+        SkillController.Instance.SkillTargetCircle = SkillTargetCircle;
+        SkillController.Instance.SkillPlayerCricle = SkillPlayerCricle;
+        SkillController.Instance.SkillConeImage = SkillConeImage;
     }
 
     private void OnDisable()

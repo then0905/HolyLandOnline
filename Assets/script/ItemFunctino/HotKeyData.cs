@@ -26,11 +26,11 @@ public class HotKeyData : MonoBehaviour
     public void SetSkill(Sprite skillIcon, string skillID, string upgradeSkillID = "")
     {
         //先檢查快捷鍵上是否已有此技能資料 有的話清除
-        bool queryResult = SkillDisplayAction.Instance.SkillHotKey.Any(x => x.HotKeyDataID.Contains(skillID));
+        bool queryResult = SkillController.Instance.SkillHotKey.Any(x => x.HotKeyDataID.Contains(skillID));
 
         if (queryResult)
         {
-            var targetQueryResult = SkillDisplayAction.Instance.SkillHotKey.Where(x => x.HotKeyDataID.Contains(skillID)).ToList();
+            var targetQueryResult = SkillController.Instance.SkillHotKey.Where(x => x.HotKeyDataID.Contains(skillID)).ToList();
             targetQueryResult.ForEach(x => x.ClearHotKeyData());
         }
 
@@ -47,9 +47,9 @@ public class HotKeyData : MonoBehaviour
             //設定清單索引目標 若輸入不是0鍵則-1 若是0則設定為9(最大索引值)
             int getIndexKey = Keyindex.Equals(0) ? (Keyindex + 9) : (Keyindex - 1);
             //寫入CD紀錄
-            SkillDisplayAction.Instance.Skillinformation.CDsec[getIndexKey] = getSkillData.CD;
-            SkillDisplayAction.Instance.Skillinformation.CDR[getIndexKey] = getSkillData.CD;
-            SkillDisplayAction.Instance.CoolDownRecord(getIndexKey);
+            SkillController.Instance.Skillinformation.CDsec[getIndexKey] = getSkillData.CD;
+            SkillController.Instance.Skillinformation.CDR[getIndexKey] = getSkillData.CD;
+            SkillController.Instance.CoolDownRecord(getIndexKey);
         }
     }
 
@@ -63,9 +63,9 @@ public class HotKeyData : MonoBehaviour
         //放入的技能資料
         HotKeyDataID = string.Empty;
 
-        SkillDisplayAction.Instance.Skillinformation.CDsec[Keyindex] = 0;
-        SkillDisplayAction.Instance.Skillinformation.CDR[Keyindex] = 0;
-        SkillDisplayAction.Instance.CoolDownRecord(Keyindex);
+        SkillController.Instance.Skillinformation.CDsec[Keyindex] = 0;
+        SkillController.Instance.Skillinformation.CDR[Keyindex] = 0;
+        SkillController.Instance.CoolDownRecord(Keyindex);
     }
 }
 

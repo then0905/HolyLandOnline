@@ -74,7 +74,7 @@ public class ArrowHit : MonoBehaviour
     {
         if (other.GetComponent<ICombatant>() != null)
         {
-            if (SkillDisplayAction.Instance.UsingSkill)
+            if (SkillController.Instance.UsingSkill)
             {
                 List<Collider> targetList = Physics.OverlapBox(gameObject.transform.position, correctTriggerRange, Quaternion.identity).ToList();
                 List<ICombatant> combatantList = new List<ICombatant>();

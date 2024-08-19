@@ -149,6 +149,7 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
     /// <summary>
     /// 怪物死亡後執行方法
     /// </summary>
+    /// <returns></returns>
     public IEnumerator DeadBehaviourAsync()
     {
         //檢查是否有任務需要狩獵該怪物
@@ -172,9 +173,10 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
         //設定怪物重生
         MonsterManager.Instance.SetMonsterRebirth(originpos, this);
 
+        if (MonsterNameText.gameObject != null)
+            Destroy(MonsterNameText.gameObject);
         if (this.gameObject != null)
             Destroy(this.gameObject);
-
     }
 
     /// <summary>

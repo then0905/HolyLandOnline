@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CircleHit : MonoBehaviour
 {
-    public SkillDisplayAction Skillrange;
+    public SkillController Skillrange;
     public GameObject SkillTargetCircle;
     public SphereCollider CircleCollider;
     //private void Update()

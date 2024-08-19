@@ -8,19 +8,19 @@ using System;
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/05/10
-//  創建用途:  技能施放前置工作
+//  創建用途:  技能施放控制器
 //==========================================
-public class SkillDisplayAction : MonoBehaviour
+public class SkillController : MonoBehaviour
 {
     #region 靜態變數
-    private static SkillDisplayAction instance;
-    public static SkillDisplayAction Instance
+    private static SkillController instance;
+    public static SkillController Instance
     {
         get
         {
             if (instance == null)
             {
-                instance = FindObjectOfType<SkillDisplayAction>();
+                instance = FindObjectOfType<SkillController>();
             }
             return instance;
         }
@@ -61,7 +61,7 @@ public class SkillDisplayAction : MonoBehaviour
     [Header("技能相關參考")]
     public HotKeyData[] SkillHotKey = new HotKeyData[10];
 
-    [HideInInspector]public Image SkillArrowImage;               //指向技圖示
+    [HideInInspector] public Image SkillArrowImage;               //指向技圖示
     [HideInInspector] public Image SkillTargetCircle;             //圓圈型範圍技圖示
     [HideInInspector] public Image SkillPlayerCricle;             //攻擊範圍技圖示
     [HideInInspector] public Image SkillConeImage;                //扇形範圍技圖示
@@ -463,9 +463,17 @@ public class SkillDisplayAction : MonoBehaviour
             while (dis > skillUIData.Distance)
             {
                 DistanceWithTarget();
-                PlayerDataOverView.Instance.CharacterMove.Character.transform.LookAt(SelectTarget.Instance.Targetgameobject.transform);
-                PlayerDataOverView.Instance.CharacterMove.RunAnimation(true);
+                //PlayerDataOverView.Instance.CharacterMove.Character.transform.LookAt(SelectTarget.Instance.Targetgameobject.transform);
 
+                // 取得角色面相目標的方向
+                Vector3 direction = SelectTarget.Instance.Targetgameobject.transform.position - PlayerDataOverView.Instance.CharacterMove.Character.transform.position;
+                // 鎖定y軸的旋轉 避免角色在x軸和z軸上傾斜
+                direction.y = 0;
+                // 如果 direction 的長度不為零，設定角色的朝向
+                if (direction != Vector3.zero)
+                    PlayerDataOverView.Instance.CharacterMove.Character.transform.rotation = Quaternion.LookRotation(direction);
+
+                PlayerDataOverView.Instance.CharacterMove.RunAnimation(true);
                 PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position =
                     Vector3.MoveTowards(PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position,
                     SelectTarget.Instance.Targetgameobject.Povit.position,
