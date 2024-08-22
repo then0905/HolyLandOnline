@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 9062499104029004556}
   - component: {fileID: 9062499104029004557}
   - component: {fileID: 9062499104029004559}
+  - component: {fileID: 6579817208478829241}
   m_Layer: 0
   m_Name: MapManager
   m_TagString: Untagged
@@ -185,6 +186,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de3abbdea52c5164a8764a24867c007f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6579817208478829241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9062499104029004555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9041907493fbd4195c0835fad347af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BootyCoin: {fileID: 5161396848974118551, guid: 679577c7a824aea41b00ebb7a2bd68da,
+    type: 3}
+  BootyItem: {fileID: 5161396848974118551, guid: aeb6a9d76f5ddf2409b3ac0b51f93d66,
+    type: 3}
 --- !u!1 &9062499104215160280
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,7 +784,6 @@ GameObject:
   - component: {fileID: 9062499105900369577}
   - component: {fileID: 9062499105900369576}
   - component: {fileID: 9062499105900369578}
-  - component: {fileID: 9062499105900369582}
   m_Layer: 0
   m_Name: ItemManager
   m_TagString: Untagged
@@ -843,22 +859,6 @@ MonoBehaviour:
   - {fileID: 9062499104832021560}
   - {fileID: 9062499105169794533}
   Bagsitemintro: {fileID: 2502560159141480671}
---- !u!114 &9062499105900369582
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9062499105900369588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de9041907493fbd4195c0835fad347af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BootyCoin: {fileID: 5161396848974118551, guid: 679577c7a824aea41b00ebb7a2bd68da,
-    type: 3}
-  BootyItem: {fileID: 5161396848974118551, guid: aeb6a9d76f5ddf2409b3ac0b51f93d66,
-    type: 3}
 --- !u!1001 &7815911588882374534
 PrefabInstance:
   m_ObjectHideFlags: 0
