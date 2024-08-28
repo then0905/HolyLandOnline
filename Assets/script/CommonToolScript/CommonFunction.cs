@@ -45,6 +45,13 @@ public static class CommonFunction
         return jsonString;
     }
 
+    /// <summary>
+    /// 儲存本地資料
+    /// </summary>
+    /// <typeparam name="T">帶入資料結構</typeparam>
+    /// <param name="path">路徑</param>
+    /// <param name="name">檔案名稱</param>
+    /// <param name="item">資料結構</param>
     public static void SaveLocalData<T>(string path, string name, T item)
     {
         string usersave = JsonUtility.ToJson(item);

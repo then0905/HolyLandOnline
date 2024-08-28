@@ -128,6 +128,7 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
 
     public void Start()
     {
+        //設定怪物頭上文字轉移到 渲染文字的畫布
         MonsterNameText.transform.SetParent(MapManager.Instance.CanvasMapText.transform);
     }
 

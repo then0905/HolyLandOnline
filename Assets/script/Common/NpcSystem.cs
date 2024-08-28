@@ -78,13 +78,23 @@ public class NpcSystem : MonoBehaviour
     /// <param name="npcData"></param>
     public void InitNpcSystem(NpcDataModel npcData)
     {
+        //若視窗已經是顯示狀態 Return
         if (gameObject.activeSelf) return;
+
+        //設定NPC預設對話
         chatContent.text = npcData.NpcChatContent[0];
+        //設定NPC頭像
         avatar.sprite = CommonFunction.LoadObject<Sprite>(npcData.NpcAvatarPath, npcData.NpcAvatarName);
+        //設定NPC名稱
         characterName.text = npcData.NpcName;
+        //設定按鈕事件
         ButtonFunctionSetting(npcData.NpcButtonFuncList);
+        //設定NPC販賣項目清單
         npcTradeItemList = npcData.ShopInventoryList ?? npcData.ShopInventoryList;
+        //顯示視窗
         gameObject.SetActive(true);
+        
+        //取得NPC任務資料
         var getNpcQuest = GameData.QuestDataDic.Values.Where(x => x.StartNpcID == npcData.NpcID).ToList();
         if (getNpcQuest != null && getNpcQuest.Count > 0)
         {

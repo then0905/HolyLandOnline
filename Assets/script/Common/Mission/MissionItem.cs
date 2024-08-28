@@ -57,6 +57,7 @@ public class MissionItem : MonoBehaviour
     public string MissionScheduleText => missionTarget.text;
     public Button MissionBtn => missionBtn;
 
+    /// <summary> 取得任務是否 是完成的bool </summary>
     public bool GetMissionFinishStatus
     {
         get
@@ -84,6 +85,7 @@ public class MissionItem : MonoBehaviour
         SetItemTargetText(QuestData.QuestConditionList);
         missionBtn.onClick.AddListener(() =>
         {
+            //設定任務按鈕內容 點擊後 執行任務詳細內容介紹
             MissionManager.Instance.MissionItemInfo?.Invoke(null, this);
         });
         gameObject.SetActive(true);

@@ -60,7 +60,7 @@ public class NpcManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 清空生成的怪物物件
+    /// 清空生成的NPC物件
     /// </summary>
     public void ClearNpcObj()
     {

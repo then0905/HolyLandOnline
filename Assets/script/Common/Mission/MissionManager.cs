@@ -33,9 +33,9 @@ public class MissionManager : MonoBehaviour
     [SerializeField] private Transform missionItemSideOffset;       //支線任務物件生成的參考
     [SerializeField] private Transform missionItemDailyOffset;       //每日任務物件生成的參考
     [SerializeField] private MissionInfo missioninfo;       //任務詳細資料介面
+    [SerializeField] private MissionItem missionItem;       //任務物件參考
 
     [Header("遊戲資料")]
-    [SerializeField] private MissionItem missionItem;       //任務物件參考
     private List<MissionItem> tempMainMission = new List<MissionItem>();        //暫存接取的主線任務資料
     private List<MissionItem> tempSideMission = new List<MissionItem>();        //暫存接取的支線任務資料
     private List<MissionItem> tempDailyMission = new List<MissionItem>();        //暫存接取的每日任務資料
