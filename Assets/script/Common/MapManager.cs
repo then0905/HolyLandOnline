@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 //==========================================
@@ -35,6 +37,9 @@ public class MapManager : MonoBehaviour
 
     [Header("轉移出現在畫面上文字的畫布"), SerializeField] private Canvas canvasMapText;
     public Canvas CanvasMapText => canvasMapText;
+
+    [Header("進入遊戲場景須執行的事件")]
+    [SerializeField] private UnityEvent onGameSceneLoad;
 
     /// <summary>
     /// 登入時取得地圖名稱初始化
@@ -124,5 +129,8 @@ public class MapManager : MonoBehaviour
 
         //關閉Loading遮罩
         loading.Hide();
+
+        //載入遊戲場景讀取完 執行事件
+        onGameSceneLoad?.Invoke();
     }
 }

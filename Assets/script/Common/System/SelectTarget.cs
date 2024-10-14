@@ -66,8 +66,15 @@ public class SelectTarget : MonoBehaviour
 
     private void Start()
     {
+        StartCoroutine(Init());
+    }
+
+    private IEnumerator Init()
+    {
+        yield return new WaitForSeconds(0.1f);
         CharacterCamera = PlayerDataOverView.Instance.CharacterMove.CharacterCamera;
     }
+
     void Update()
     {
         // 檢查是否有視窗開啟

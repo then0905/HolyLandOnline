@@ -252,7 +252,7 @@ public class MonsterDataModel : BasalAttributesDataModel, IDictionaryData<string
     /// 1:第一階段權限 傷害第一人
     /// 2:第二階段權限 戰鬥資料裡的所有玩家
     /// </summary>
-    public int BootysLockSetting { get; set; }            
+    public int BootysLockSetting { get; set; }
 
     public string AttackMode { get; set; }            // 怪物攻擊模式
     public bool Habit { get; set; }            // 怪物是否被動
@@ -497,9 +497,68 @@ public class PrerequisiteData
 /// 完成任務資料
 /// </summary>
 public class FinishQuestData
-
 {
     public string QuestID { get; set; }         //任務ID
     public List<string> QuestChatContent { get; set; }         //完成任務對話
 }
+
+/// <summary>
+/// 教學系統資料
+/// </summary>
+public class TutorialSystemData : IDictionaryData<string>
+{
+    public string TutorialID { get; set; }          //教學ID
+    public string SaveTutorialID { get; set; }      //教學完成儲存使用的ID
+    public string NextTutorialID { get; set; }      //接著執行的教學ID
+    public List<TutorialBasalSettingData> TutorialBasalSettingList { get; set; }         //教學基礎設定清單
+    public List<TutorialIDData> TutorialIDList { get; set; }         //教學ID判斷組合
+    public List<TutorialActorData> TutorialActorList { get; set; }         //教學ID演出物件清單
+
+    public string GetKey
+    {
+        get { return TutorialID; }
+    }
+}
+
+/// <summary>
+/// 教學基礎設定資料
+/// </summary>
+public class TutorialBasalSettingData
+{
+    public string TutorialDialog { get; set; }         //對話框內容
+    public List<string> TutorialDialogFormat { get; set; }         //對話框需合併的文字內容
+    public float DiaologPosX { get; set; }      //對話框生成X座標
+    public float DiaologPosY { get; set; }      //對話框生成Y座標
+    public bool ApertureEnable { get; set; }      //是否啟用光圈
+    public bool ApertureIsSquare { get; set; }      //光圈是否為正方形 True:方形 False:圓形
+    public bool ClickLock { get; set; }      //是否鎖定點擊範圍
+    public float ClickRadio { get; set; }      //設定點擊範圍(半徑)
+    public bool TimeScaleStop { get; set; }      //是否需要暫停時間
+}
+
+/// <summary>
+/// 教學演出物件生成資料
+/// </summary>
+public class TutorialActorData
+{
+    public string TutorialID { get; set; }          //教學ID
+    public string Path { get; set; }          //生成路徑
+    public string Name { get; set; }          //生成檔名
+    public float PosX { get; set; }      //生成座標X
+    public float PosY { get; set; }      //生成座標Y
+    public string LayoutName { get; set; }      //物件圖層名稱
+    public int LayoutOrder { get; set; }      //物件圖層值
+    public int TutorialIndex { get; set; }      //此物件是該教學的第幾段內容做使用(使用數字為清單索引)
+}
+
+/// <summary>
+/// 教學ID檢查資料
+/// </summary>
+public class TutorialIDData
+{
+    public string TutorialID { get; set; }          //教學ID
+    public List<string> NotIncludedID { get; set; }          //此教學必須不包含的ID清單
+    public List<string> IncludedID { get; set; }          //此教學必須包含的ID清單
+}
+
 #endregion
