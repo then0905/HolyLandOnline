@@ -88,12 +88,12 @@ public class BagsItemIntro : MonoBehaviour
                     //設定基本資訊
                     SetItemIntro(new IntroData
                     {
-                        Name = introItem.EquipmentDatas.Weapon.Name,
+                        Name = introItem.EquipmentDatas.Weapon.Name.GetText(),
                         Classification = introItem.EquipmentDatas.Weapon.Classification,
                         Part = introItem.EquipmentDatas.Weapon.TackHand,
                         Type = introItem.EquipmentDatas.Weapon.Type,
                         Lv = introItem.EquipmentDatas.Weapon.LV.ToString(),
-                        Content = introItem.EquipmentDatas.Weapon.Intro,
+                        Content = introItem.EquipmentDatas.Weapon.Intro.GetText(),
                         Icon = introItem.EquipImage.sprite
                     });
 
@@ -112,12 +112,12 @@ public class BagsItemIntro : MonoBehaviour
                     //設定基本資訊
                     SetItemIntro(new IntroData
                     {
-                        Name = introItem.EquipmentDatas.Armor.Name,
+                        Name = introItem.EquipmentDatas.Armor.Name.GetText(),
                         Classification = introItem.EquipmentDatas.Armor.Classification,
                         Part = introItem.EquipmentDatas.Armor.WearPart,
                         Type = introItem.EquipmentDatas.Armor.Type,
                         Lv = introItem.EquipmentDatas.Armor.NeedLv.ToString(),
-                        Content = introItem.EquipmentDatas.Armor.Intro,
+                        Content = introItem.EquipmentDatas.Armor.Intro.GetText(),
                         Icon = introItem.EquipImage.sprite
                     });
                     //設定防具數據
@@ -131,12 +131,12 @@ public class BagsItemIntro : MonoBehaviour
                     //設定基本資訊
                     SetItemIntro(new IntroData
                     {
-                        Name = introItem.EquipmentDatas.Item.Name,
+                        Name = introItem.EquipmentDatas.Item.Name.GetText(),
                         Classification = introItem.EquipmentDatas.Item.Classification,
                         Part = introItem.EquipmentDatas.Item.TakeHand,
                         Type = introItem.EquipmentDatas.Item.Type,
                         Lv = introItem.EquipmentDatas.Item.LV.ToString(),
-                        Content = introItem.EquipmentDatas.Item.Intro,
+                        Content = introItem.EquipmentDatas.Item.Intro.GetText(),
                         Icon = introItem.EquipImage.sprite
                     });
                     //設定物品資訊
@@ -203,7 +203,7 @@ public class BagsItemIntro : MonoBehaviour
                + "武器暴擊傷害:" + introItem.EquipmentDatas.Weapon.CrtDamage + "\n"
                + "STR:" + introItem.EquipmentDatas.Weapon.STR + "\n"
                + "DEX:" + introItem.EquipmentDatas.Weapon.DEX + "\n"
-               + "INT:" + introItem.EquipmentDatas.Weapon.Intro + "\n"
+               + "INT:" + introItem.EquipmentDatas.Weapon.INT + "\n"
                + "AGI:" + introItem.EquipmentDatas.Weapon.AGI + "\n"
                + "VIT:" + introItem.EquipmentDatas.Weapon.VIT + "\n"
                + "WIS:" + introItem.EquipmentDatas.Weapon.WIS + "\n";

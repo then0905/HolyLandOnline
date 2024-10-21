@@ -2,14 +2,14 @@
   {
     "NpcID": "Npc01",
     "AreaID": "DevelopmentTest",
-    "NpcName": "村長\n奧利柏",
+    "NpcName": "TM_Npc01_Name",
     "NpcAvatarPath": "NPC/Avatar",
     "NpcAvatarName": "Villagehead",
     "NpcPosX": 24.4,
     "NpcPosY": 0.65,
     "NpcPosZ": -38.5,
     "NpcChatContent": [
-      "歡迎來到初始之村，我是這裡的村長你好!"
+      "TM_Npc01_ChatContent_1"
     ],
     "HP": 100,
     "MP": 0,
@@ -28,21 +28,21 @@
       {
         "NpcID": "Npc01",
         "ButtonActionID": "Exit",
-        "ButtonName": "離開"
+        "ButtonName": "TM_Leave"
       }
     ]
   },
   {
     "NpcID": "Npc02",
     "AreaID": "DevelopmentTest",
-    "NpcName": "達蘭妲",
+    "NpcName": "TM_Npc02_Name",
     "NpcAvatarPath": "NPC/Avatar",
     "NpcAvatarName": "Girl",
     "NpcPosX": 0,
     "NpcPosY": 0,
     "NpcPosZ": -38.8,
     "NpcChatContent": [
-      "今天天氣很好，對吧?"
+      "TM_Npc02_ChatContent_1"
     ],
     "HP": 100,
     "MP": 0,
@@ -61,21 +61,21 @@
       {
         "NpcID": "Npc02",
         "ButtonActionID": "Exit",
-        "ButtonName": "離開"
+        "ButtonName": "TM_Leave"
       }
     ]
   },
   {
     "NpcID": "Npc03",
     "AreaID": "DevelopmentTest",
-    "NpcName": "道具商人\n克雷德",
+    "NpcName": "TM_Npc03_Name",
     "NpcAvatarPath": "NPC/Avatar",
     "NpcAvatarName": "Villagehead",
     "NpcPosX": -23,
     "NpcPosY": 0.65,
     "NpcPosZ": -29.69,
     "NpcChatContent": [
-      "歡迎光臨我的小舖，來參考看看呀!"
+      "TM_Npc03_ChatContent_1"
     ],
     "HP": 100,
     "MP": 0,
@@ -94,12 +94,12 @@
       {
         "NpcID": "Npc03",
         "ButtonActionID": "Trade",
-        "ButtonName": "交易"
+        "ButtonName": "TM_Trade"
       },
       {
         "NpcID": "Npc03",
         "ButtonActionID": "Exit",
-        "ButtonName": "離開"
+        "ButtonName": "TM_Leave"
       }
     ],
     "ShopInventoryList": [
@@ -138,14 +138,14 @@
   {
     "NpcID": "Npc04",
     "AreaID": "DevelopmentTest2",
-    "NpcName": "測試NPC1",
+    "NpcName": "TM_Npc04_Name",
     "NpcAvatarPath": "NPC/Avatar",
     "NpcAvatarName": "Villagehead",
     "NpcPosX": 24.4,
     "NpcPosY": 0.65,
     "NpcPosZ": -38.5,
     "NpcChatContent": [
-      "第二張測試地圖 我是NPC1"
+      "TM_Npc04_ChatContent_1"
     ],
     "HP": 100,
     "MP": 0,
@@ -164,21 +164,21 @@
       {
         "NpcID": "Npc04",
         "ButtonActionID": "Exit",
-        "ButtonName": "離開"
+        "ButtonName": "TM_Leave"
       }
     ]
   },
   {
     "NpcID": "Npc05",
     "AreaID": "DevelopmentTest2",
-    "NpcName": "測試NPC2",
+    "NpcName": "TM_Npc05_Name",
     "NpcAvatarPath": "NPC/Avatar",
     "NpcAvatarName": "Girl",
     "NpcPosX": 0,
     "NpcPosY": 0,
     "NpcPosZ": -38.8,
     "NpcChatContent": [
-      "第二張測試地圖 我是NPC2"
+      "TM_Npc05_ChatContent_1"
     ],
     "HP": 100,
     "MP": 0,
@@ -197,7 +197,7 @@
       {
         "NpcID": "Npc05",
         "ButtonActionID": "Exit",
-        "ButtonName": "離開"
+        "ButtonName": "TM_Leave"
       }
     ]
   }

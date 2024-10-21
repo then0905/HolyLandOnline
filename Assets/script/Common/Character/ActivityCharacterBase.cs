@@ -104,7 +104,7 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
             SelectTarget.Instance.TargetInformation.SetActive(true);
             SelectTarget.Instance.TargetHP.maxValue = monster.MonsterValue.HP;
             SelectTarget.Instance.TargetHP.value = monster.HP;
-            SelectTarget.Instance.TargetName.text = monster.MonsterValue.Name;
+            SelectTarget.Instance.TargetName.text = monster.MonsterValue.Name.GetText();
             SelectTarget.Instance.TargetLV.text = monster.MonsterValue.Lv.ToString();
             SelectTarget.Instance.TargetClass.text = monster.MonsterValue.Class;
             SelectTarget.Instance.TargetHP_MinAndMax.text = SelectTarget.Instance.TargetHP.value.ToString() + "/" + SelectTarget.Instance.TargetHP.maxValue.ToString();

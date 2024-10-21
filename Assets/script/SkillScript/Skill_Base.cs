@@ -332,9 +332,9 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     public bool SkillCanUse(float tempMana)
     {
         if (tempMana - CastMage <= 0)
-            CommonFunction.MessageHint(string.Format("技能：{0}  所需消耗魔力不足...", SkillName), HintType.Warning);
+            CommonFunction.MessageHint(string.Format("TM_SkillCastMageError".GetText(), SkillName), HintType.Warning);
         else if (TempCooldownTime > 0)
-            CommonFunction.MessageHint(string.Format("技能：{0}  正在冷卻時間中...", SkillName), HintType.Warning);
+            CommonFunction.MessageHint(string.Format("TM_SkillCoolDownError".GetText(), SkillName), HintType.Warning);
 
         return (tempMana - CastMage >= 0) && (TempCooldownTime <= 0);
     }
@@ -393,8 +393,8 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         CastMage = effectData.CastMage;
         Type = effectData.Type;
 
-        SkillName = effectData.Name;
-        SkillIntro = effectData.Intro;
+        SkillName = effectData.Name.GetText();
+        SkillIntro = effectData.Intro.GetText();
 
         //如果技能被升級 初始化技能時不執行 等待升級資訊後才執行
         //if (!skillUpgrade)

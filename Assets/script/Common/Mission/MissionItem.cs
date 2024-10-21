@@ -81,7 +81,7 @@ public class MissionItem : MonoBehaviour
     /// </summary>
     public void SetItem()
     {
-        missionTitle.text = QuestData.QuestName;
+        missionTitle.text = QuestData.QuestName.GetText();
         SetItemTargetText(QuestData.QuestConditionList);
         missionBtn.onClick.AddListener(() =>
         {
@@ -110,25 +110,25 @@ public class MissionItem : MonoBehaviour
                 //狩獵類型
                 case "Hunting":
                     actionString = (i > 0) ? "\n狩獵 " : "狩獵 ";
-                    targetString = GameData.MonstersDataDic[conditionDataList[i].ConditionID].Name;
+                    targetString = GameData.MonstersDataDic[conditionDataList[i].ConditionID].Name.GetText();
                     scheduleString = " (" + getMissionQueryResult.Find(x => x.MissionTarget == conditionDataList[i].ConditionID).MissionSchedule.ToString() + "/" + conditionDataList[i].ConditionCount + ")";
                     break;
                 //收集類型
                 case "Collect":
                     actionString = (i > 0) ? "\n收集 " : "收集 ";
-                    targetString = GameData.ItemsDic[conditionDataList[i].ConditionID].Name;
+                    targetString = GameData.ItemsDic[conditionDataList[i].ConditionID].Name.GetText();
                     scheduleString = " (" + getMissionQueryResult.Find(x => x.MissionTarget == conditionDataList[i].ConditionID).MissionSchedule.ToString() + "/" + conditionDataList[i].ConditionCount + ")";
                     break;
                 //交付類型
                 case "Items":
                     actionString = (i > 0) ? "\n交付 " : "交付 ";
-                    targetString = GameData.ItemsDic[conditionDataList[i].ConditionID].Name + " 給";
+                    targetString = GameData.ItemsDic[conditionDataList[i].ConditionID].Name.GetText() + " 給";
                     scheduleString = " (" + getMissionQueryResult.Find(x => x.MissionTarget == conditionDataList[i].ConditionID).MissionSchedule.ToString() + "/" + conditionDataList[i].ConditionCount + ")";
                     break;
                 //代話類型
                 case "Relay":
                     actionString = (i > 0) ? "\n傳話給 " : "傳話給 ";
-                    targetString = GameData.NpcDataDic[conditionDataList[i].ConditionID].NpcName;
+                    targetString = GameData.NpcDataDic[conditionDataList[i].ConditionID].NpcName.GetText();
                     scheduleString = " (" + getMissionQueryResult.Find(x => x.MissionTarget == conditionDataList[i].ConditionID).MissionSchedule.ToString() + "/" + conditionDataList[i].ConditionCount + ")";
                     break;
             }

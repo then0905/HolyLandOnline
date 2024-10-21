@@ -1,7 +1,7 @@
 [
   {
     "Lv": 1,
-    "Name": "小型生命藥劑",
+    "Name": "TM_Potion_Hp_01_Name",
     "CodeID": "Potion_Hp_01",
     "Path": "UI/Item",
     "FileName": "Potion_Hp_01",
@@ -11,7 +11,7 @@
     "ClassificationID": "Item",
     "Type": "藥劑",
     "TypeID": "Potion",
-    "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復少許的生命值",
+    "Intro": "TM_Potion_Hp_01_Intro",
     "Stackability": true,
     "Volume": [
       "100"
@@ -23,7 +23,7 @@
   },
   {
     "Lv": 1,
-    "Name": "小型魔力藥劑",
+    "Name": "TM_Potion_Mp_01_Name",
     "CodeID": "Potion_Mp_01",
     "Path": "UI/Item",
     "FileName": "Potion_Mp_01",
@@ -33,7 +33,7 @@
     "ClassificationID": "Item",
     "Type": "藥劑",
     "TypeID": "Potion",
-    "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復少許的魔力值",
+    "Intro": "TM_Potion_Mp_01_Intro",
     "Stackability": true,
     "Volume": [
       "55"
@@ -45,7 +45,7 @@
   },
   {
     "Lv": 10,
-    "Name": "中型生命藥劑",
+    "Name": "TM_Potion_Hp_02_Name",
     "CodeID": "Potion_Hp_02",
     "Path": "UI/Item",
     "FileName": "Potion_Hp_02",
@@ -55,7 +55,7 @@
     "ClassificationID": "Item",
     "Type": "藥劑",
     "TypeID": "Potion",
-    "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復一些的生命值",
+    "Intro": "TM_Potion_Hp_02_Intro",
     "Stackability": true,
     "Volume": [
       "300"
@@ -67,7 +67,7 @@
   },
   {
     "Lv": 10,
-    "Name": "中型魔力藥劑",
+    "Name": "TM_Potion_Mp_02_Name",
     "CodeID": "Potion_Mp_02",
     "Path": "UI/Item",
     "FileName": "Potion_Mp_02",
@@ -77,7 +77,7 @@
     "ClassificationID": "Item",
     "Type": "藥劑",
     "TypeID": "Potion",
-    "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復一些的魔力值",
+    "Intro": "TM_Potion_Mp_02_Intro",
     "Stackability": true,
     "Volume": [
       "150"
@@ -89,7 +89,7 @@
   },
   {
     "Lv": 25,
-    "Name": "大型生命藥劑",
+    "Name": "TM_Potion_Hp_03_Name",
     "CodeID": "Potion_Hp_03",
     "Path": "UI/Item",
     "FileName": "Potion_Hp_03",
@@ -99,7 +99,7 @@
     "ClassificationID": "Item",
     "Type": "藥劑",
     "TypeID": "Potion",
-    "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復大量的生命值",
+    "Intro": "TM_Potion_Hp_03_Intro",
     "Stackability": true,
     "Volume": [
       "1000"
@@ -111,7 +111,7 @@
   },
   {
     "Lv": 25,
-    "Name": "大型魔力藥劑",
+    "Name": "TM_Potion_Mp_03_Name",
     "CodeID": "Potion_Mp_03",
     "Path": "UI/Item",
     "FileName": "Potion_Mp_03",
@@ -121,7 +121,7 @@
     "ClassificationID": "Item",
     "Type": "藥劑",
     "TypeID": "Potion",
-    "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復大量的魔力值",
+    "Intro": "TM_Potion_Mp_03_Intro",
     "Stackability": true,
     "Volume": [
       "400"
@@ -133,7 +133,7 @@
   },
   {
     "Lv": 40,
-    "Name": "巨型生命藥劑",
+    "Name": "TM_Potion_Hp_04_Name",
     "CodeID": "Potion_Hp_04",
     "Path": "UI/Item",
     "FileName": "Potion_Hp_04",
@@ -143,7 +143,7 @@
     "ClassificationID": "Item",
     "Type": "藥劑",
     "TypeID": "Potion",
-    "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復超大量的生命值",
+    "Intro": "TM_Potion_Hp_04_Intro",
     "Stackability": true,
     "Volume": [
       "3000"
@@ -155,7 +155,7 @@
   },
   {
     "Lv": 40,
-    "Name": "巨型魔力藥劑",
+    "Name": "TM_Potion_Mp_04_Name",
     "CodeID": "Potion_Mp_04",
     "Path": "UI/Item",
     "FileName": "Potion_Mp_04",
@@ -165,7 +165,7 @@
     "ClassificationID": "Item",
     "Type": "藥劑",
     "TypeID": "Potion",
-    "Intro": "玻璃罐罐裝起來的藥劑罐，食用後回復超大量的魔力值",
+    "Intro": "TM_Potion_Mp_04_Intro",
     "Stackability": true,
     "Volume": [
       "1000"
@@ -177,7 +177,7 @@
   },
   {
     "Lv": 1,
-    "Name": "解毒劑",
+    "Name": "TM_Potion_Detoxification_01_Name",
     "CodeID": "Potion_Detoxification_01",
     "Path": "UI/Item",
     "FileName": "Potion_Detoxification_01",
@@ -187,7 +187,7 @@
     "ClassificationID": "Item",
     "Type": "藥劑",
     "TypeID": "Potion",
-    "Intro": "玻璃罐罐裝起來的藥劑罐，食用後可以解除中毒的狀態",
+    "Intro": "TM_Potion_Detoxification_01_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -199,7 +199,7 @@
   },
   {
     "Lv": 1,
-    "Name": "防禦魔法卷軸",
+    "Name": "TM_DEF_Reel_01_Name",
     "CodeID": "DEF_Reel_01",
     "Path": "UI/Item",
     "FileName": "DEF_Reel_01",
@@ -209,7 +209,7 @@
     "ClassificationID": "Item",
     "Type": "卷軸",
     "TypeID": "Potion",
-    "Intro": "將法術封存於羊皮製的卷軸內，使用後在一定時間內獲得增加防禦力的祝福魔法",
+    "Intro": "TM_DEF_Reel_01_Intro",
     "Stackability": true,
     "Volume": [
       "3"
@@ -221,7 +221,7 @@
   },
   {
     "Lv": 1,
-    "Name": "攻擊魔法卷軸",
+    "Name": "TM_ATK_Reel_01_Name",
     "CodeID": "ATK_Reel_01",
     "Path": "UI/Item",
     "FileName": "ATK_Reel_01",
@@ -231,7 +231,7 @@
     "ClassificationID": "Item",
     "Type": "卷軸",
     "TypeID": "Potion",
-    "Intro": "將法術封存於羊皮製的卷軸內，使用後在一定時間內獲得增加攻擊力的祝福魔法",
+    "Intro": "TM_ATK_Reel_01_Intro",
     "Stackability": true,
     "Volume": [
       "3"
@@ -243,7 +243,7 @@
   },
   {
     "Lv": 10,
-    "Name": "攻速藥水",
+    "Name": "TM_Potion_AS_01_Name",
     "CodeID": "Potion_AS_01",
     "Path": "UI/Item",
     "FileName": "Potion_AS_01",
@@ -253,7 +253,7 @@
     "ClassificationID": "Item",
     "Type": "藥劑",
     "TypeID": "Potion",
-    "Intro": "玻璃罐罐裝起來的藥劑罐，食用後在一定時間內攻擊速度上升",
+    "Intro": "TM_Potion_AS_01_Intro",
     "Stackability": true,
     "Volume": [
       "10"
@@ -265,7 +265,7 @@
   },
   {
     "Lv": 1,
-    "Name": "回城卷軸",
+    "Name": "TM_Record_Reel_01_Name",
     "CodeID": "Record_Reel_01",
     "Path": "UI/Item",
     "FileName": "Record_Reel_01",
@@ -275,7 +275,7 @@
     "ClassificationID": "Item",
     "Type": "卷軸",
     "TypeID": "Reel",
-    "Intro": "將法術封存於羊皮製的卷軸內，使用後回到最近的城鎮內",
+    "Intro": "TM_Record_Reel_01_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -287,7 +287,7 @@
   },
   {
     "Lv": 1,
-    "Name": "強化石",
+    "Name": "TM_Enhance_01_Name",
     "CodeID": "Enhance_01",
     "Path": "UI/Item",
     "FileName": "Enhance_01",
@@ -297,7 +297,7 @@
     "ClassificationID": "Item",
     "Type": "強化道具",
     "TypeID": "EnhanceItem",
-    "Intro": "內含神秘力量的石頭，雜質量過高，可以用來強化裝備與武器",
+    "Intro": "TM_Enhance_01_Intro",
     "Stackability": true,
     "Volume": [
       "100",
@@ -328,7 +328,7 @@
   },
   {
     "Lv": 1,
-    "Name": "高純度的強化石",
+    "Name": "TM_Enhance_02_Name",
     "CodeID": "Enhance_02",
     "Path": "UI/Item",
     "FileName": "Enhance_02",
@@ -338,7 +338,7 @@
     "ClassificationID": "Item",
     "Type": "強化道具",
     "TypeID": "EnhanceItem",
-    "Intro": "內含神秘力量的石頭，雜質量較低，用來強化裝備與武器時成功率較高",
+    "Intro": "TM_Enhance_02_Intro",
     "Stackability": true,
     "Volume": [
       "100",
@@ -369,7 +369,7 @@
   },
   {
     "Lv": 1,
-    "Name": "高純度的祝福石",
+    "Name": "TM_Enhance_03_Name",
     "CodeID": "Enhance_03",
     "Path": "UI/Item",
     "FileName": "Enhance_03",
@@ -379,7 +379,7 @@
     "ClassificationID": "Item",
     "Type": "強化道具",
     "TypeID": "EnhanceItem",
-    "Intro": "內含祝福力量的石頭，雜質量較高，可以用來強化裝備與武器，失敗時不會使裝備被破壞",
+    "Intro": "TM_Enhance_03_Intro",
     "Stackability": true,
     "Volume": [
       "100",
@@ -410,7 +410,7 @@
   },
   {
     "Lv": 1,
-    "Name": "高純度的詛咒石",
+    "Name": "TM_Enhance_04_Name",
     "CodeID": "Enhance_04",
     "Path": "UI/Item",
     "FileName": "Enhance_04",
@@ -420,7 +420,7 @@
     "ClassificationID": "Item",
     "Type": "強化道具",
     "TypeID": "EnhanceItem",
-    "Intro": "內含詛咒力量的石頭，雜質量較高，使用後將裝備或武器的強化等級下降",
+    "Intro": "TM_Enhance_04_Intro",
     "Stackability": true,
     "Volume": [
       "100",
@@ -451,7 +451,7 @@
   },
   {
     "Lv": 0,
-    "Name": "獸皮",
+    "Name": "TM_Booty_001_Name",
     "CodeID": "Booty_001",
     "Path": "UI/Item",
     "FileName": "Booty_001",
@@ -461,7 +461,7 @@
     "ClassificationID": "Item",
     "Type": "戰利品",
     "TypeID": "Booty",
-    "Intro": "從野獸身上獲得的戰利品，可以販賣給商人換取金幣",
+    "Intro": "TM_Booty_001_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -473,7 +473,7 @@
   },
   {
     "Lv": 0,
-    "Name": "獸骨",
+    "Name": "TM_Booty_002_Name",
     "CodeID": "Booty_002",
     "Path": "UI/Item",
     "FileName": "Booty_002",
@@ -483,7 +483,7 @@
     "ClassificationID": "Item",
     "Type": "戰利品",
     "TypeID": "Booty",
-    "Intro": "從野獸身上獲得的戰利品，可以販賣給商人換取金幣",
+    "Intro": "TM_Booty_002_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -495,7 +495,7 @@
   },
   {
     "Lv": 0,
-    "Name": "不明黏液",
+    "Name": "TM_Booty_003_Name",
     "CodeID": "Booty_003",
     "Path": "UI/Item",
     "FileName": "Booty_003",
@@ -505,7 +505,7 @@
     "ClassificationID": "Item",
     "Type": "戰利品",
     "TypeID": "Booty",
-    "Intro": "從魔法生物身上獲得的戰利品，可以販賣給商人換取金幣",
+    "Intro": "TM_Booty_003_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -517,7 +517,7 @@
   },
   {
     "Lv": 0,
-    "Name": "魔法碎塊",
+    "Name": "TM_Booty_004_Name",
     "CodeID": "Booty_004",
     "Path": "UI/Item",
     "FileName": "Booty_004",
@@ -527,7 +527,7 @@
     "ClassificationID": "Item",
     "Type": "戰利品",
     "TypeID": "Booty",
-    "Intro": "從魔法生物身上獲得的戰利品，可以販賣給商人換取金幣",
+    "Intro": "TM_Booty_004_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -539,7 +539,7 @@
   },
   {
     "Lv": 0,
-    "Name": "哥布林項鍊",
+    "Name": "TM_Booty_005_Name",
     "CodeID": "Booty_005",
     "Path": "UI/Item",
     "FileName": "Booty_005",
@@ -549,7 +549,7 @@
     "ClassificationID": "Item",
     "Type": "戰利品",
     "TypeID": "Booty",
-    "Intro": "從哥布林身上獲得的戰利品，可以販賣給商人換取金幣",
+    "Intro": "TM_Booty_005_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -561,7 +561,7 @@
   },
   {
     "Lv": 0,
-    "Name": "哥布林指甲",
+    "Name": "TM_Booty_006_Name",
     "CodeID": "Booty_006",
     "Path": "UI/Item",
     "FileName": "Booty_006",
@@ -571,7 +571,7 @@
     "ClassificationID": "Item",
     "Type": "戰利品",
     "TypeID": "Booty",
-    "Intro": "從哥布林身上獲得的戰利品，可以販賣給商人換取金幣",
+    "Intro": "TM_Booty_006_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -583,7 +583,7 @@
   },
   {
     "Lv": 0,
-    "Name": "皮革",
+    "Name": "TM_Booty_007_Name",
     "CodeID": "Booty_007",
     "Path": "UI/Item",
     "FileName": "Booty_007",
@@ -593,7 +593,7 @@
     "ClassificationID": "Item",
     "Type": "戰利品",
     "TypeID": "Booty",
-    "Intro": "從人形生物身上獲得的戰利品，可以販賣給商人換取金幣",
+    "Intro": "TM_Booty_007_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -605,7 +605,7 @@
   },
   {
     "Lv": 0,
-    "Name": "不明布料",
+    "Name": "TM_Booty_008_Name",
     "CodeID": "Booty_008",
     "Path": "UI/Item",
     "FileName": "Booty_008",
@@ -615,7 +615,7 @@
     "ClassificationID": "Item",
     "Type": "戰利品",
     "TypeID": "Booty",
-    "Intro": "從人形生物身上獲得的戰利品，可以販賣給商人換取金幣",
+    "Intro": "TM_Booty_008_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -627,7 +627,7 @@
   },
   {
     "Lv": 0,
-    "Name": "木塊",
+    "Name": "TM_Booty_009_Name",
     "CodeID": "Booty_009",
     "Path": "UI/Item",
     "FileName": "Booty_009",
@@ -637,7 +637,7 @@
     "ClassificationID": "Item",
     "Type": "戰利品",
     "TypeID": "Booty",
-    "Intro": "從植物類生物獲得的戰利品，可以販賣給商人換取金幣",
+    "Intro": "TM_Booty_009_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -649,7 +649,7 @@
   },
   {
     "Lv": 0,
-    "Name": "完整木頭",
+    "Name": "TM_Booty_010_Name",
     "CodeID": "Booty_010",
     "Path": "UI/Item",
     "FileName": "Booty_010",
@@ -659,7 +659,7 @@
     "ClassificationID": "Item",
     "Type": "戰利品",
     "TypeID": "Booty",
-    "Intro": "從植物類生物獲得的戰利品，可以販賣給商人換取金幣",
+    "Intro": "TM_Booty_010_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -671,7 +671,7 @@
   },
   {
     "Lv": 0,
-    "Name": "破碎的肢體",
+    "Name": "TM_Booty_011_Name",
     "CodeID": "Booty_011",
     "Path": "UI/Item",
     "FileName": "Booty_011",
@@ -681,7 +681,7 @@
     "ClassificationID": "Item",
     "Type": "戰利品",
     "TypeID": "Booty",
-    "Intro": "從爬蟲類生物獲得的戰利品，可以販賣給商人換取金幣",
+    "Intro": "TM_Booty_011_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -693,7 +693,7 @@
   },
   {
     "Lv": 0,
-    "Name": "破碎的翅膀",
+    "Name": "TM_Booty_012_Name",
     "CodeID": "Booty_012",
     "Path": "UI/Item",
     "FileName": "Booty_012",
@@ -703,7 +703,7 @@
     "ClassificationID": "Item",
     "Type": "戰利品",
     "TypeID": "Booty",
-    "Intro": "從爬蟲類生物獲得的戰利品，可以販賣給商人換取金幣",
+    "Intro": "TM_Booty_012_Intro",
     "Stackability": true,
     "Volume": [
       "0"
@@ -715,7 +715,7 @@
   },
   {
     "Lv": 1,
-    "Name": "經驗加倍藥水",
+    "Name": "TM_Potion_EXP_01_Name",
     "CodeID": "Potion_EXP_01",
     "Path": "UI/Item",
     "FileName": "Potion_EXP_01",
@@ -725,7 +725,7 @@
     "ClassificationID": "Item",
     "Type": "藥劑",
     "TypeID": "Potion",
-    "Intro": "玻璃罐裝起來的藥劑罐，食用後在一定時間內獲得經驗量提升",
+    "Intro": "TM_Potion_EXP_01_Intro",
     "Stackability": true,
     "Volume": [
       "50"

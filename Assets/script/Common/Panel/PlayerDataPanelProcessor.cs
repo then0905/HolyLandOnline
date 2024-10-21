@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using System.Diagnostics;
 //==========================================
 //  創建者:家豪
 //  創建日期:2023/11/26
@@ -60,43 +61,43 @@ public class PlayerDataPanelProcessor : MonoBehaviour
     {
         var playerData = PlayerDataOverView.Instance.PlayerData_;
         playerDataContent.text =
-            "玩家等級:" + playerData.Lv + "\n" +
-            "種族:" + playerData.Race + "\n" +
-            "職業:" + playerData.Job + "\n" +
-            "最大血量:" + playerData.MaxHP + "\n" +
-            "當前血量:" + playerData.HP + "\n" +
-            "血量回復:" + playerData.HP_Recovery + "\n" +
-            "最大魔力:" + playerData.MaxMP + "\n" +
-            "當前魔力:" + playerData.MP + "\n" +
-            "魔力回復:" + playerData.MP_Recovery + "\n" +
-            "經驗量:" + playerData.Exp + "\n" +
-            "最大經驗值:" + playerData.MaxExp + "\n" +
-            "近距離攻擊力:" + playerData.MeleeATK + "\n" +
-            "遠距離攻擊力:" + playerData.RemoteATK + "\n" +
-            "魔法攻擊力:" + playerData.MageATK + "\n" +
-            "近距離命中值:" + playerData.MeleeHit + "\n" +
-            "遠距離命中值:" + playerData.RemoteHit + "\n" +
-            "魔法命中值:" + playerData.MageHit + "\n" +
-            "總防禦值:" + playerData.DEF + "\n" +
-            "總魔法防禦值:" + playerData.MDEF + "\n" +
-            "傷害減緩:" + playerData.DamageReduction + "\n" +
-            "總迴避值:" + playerData.Avoid + "\n" +
-            "暴擊率:" + playerData.Crt + "\n" +
-            "暴擊抵抗:" + playerData.CrtResistance + "\n" +
-            "暴擊傷害:" + playerData.CrtDamage + "\n" +
-            "移動速度:" + playerData.Speed + "\n" +
-            "力量:" + playerData.STR + "\n" +
-            "敏捷:" + playerData.DEX + "\n" +
-            "智慧:" + playerData.INT + "\n" +
-            "靈巧:" + playerData.AGI + "\n" +
-            "體力:" + playerData.VIT + "\n" +
-            "感知:" + playerData.WIS + "\n" +
-            "攻擊速度:" + playerData.AS + "\n" +
-            "詠唱速度:" + playerData.CS + "\n" +
-            "屬性傷害增幅:" + playerData.ElementDamageIncrease + "\n" +
-            "屬性傷害抗性:" + playerData.ElementDamageReduction + "\n" +
-            "異常狀態抗性:" + playerData.DisorderResistance + "\n" +
-            "格檔率:" + playerData.BlockRate + "\n" +
-            "玩家金幣量:" + playerData.Coin + "\n";
+            "TM_PlayerLv".GetText() + ": " + playerData.Lv + "\n" +
+           "TM_Race".GetText() + ": " + ("TM_" + playerData.Race).GetText() + "\n" +
+            "TM_Race".GetText() + ": " + ("TM_" + playerData.Job).GetText() + "\n" +
+             "TM_MaxHP".GetText() + ": " + playerData.MaxHP + "\n" +
+            "TM_HP".GetText() + ": " + playerData.HP + "\n" +
+             "TM_HP_Recovery".GetText() + ": " + playerData.HP_Recovery + "\n" +
+             "TM_MaxMP".GetText() + ": " + playerData.MaxMP + "\n" +
+            "TM_MP".GetText() + ": " + playerData.MP + "\n" +
+             "TM_MP_Recovery".GetText() + ": " + playerData.MP_Recovery + "\n" +
+            "TM_Exp".GetText() + ": " + playerData.Exp + "\n" +
+            "TM_MaxExp".GetText() + ": " + playerData.MaxExp + "\n" +
+             "TM_MeleeATK".GetText() + ": " + playerData.MeleeATK + "\n" +
+             "TM_RemoteATK".GetText() + ": " + playerData.RemoteATK + "\n" +
+             "TM_MageATK".GetText() + ": " + playerData.MageATK + "\n" +
+             "TM_MeleeHit".GetText() + ": " + playerData.MeleeHit + "\n" +
+             "TM_RemoteHit".GetText() + ": " + playerData.RemoteHit + "\n" +
+             "TM_MageHit".GetText() + ": " + playerData.MageHit + "\n" +
+             "TM_DEF".GetText() + ": " + playerData.DEF + "\n" +
+             "TM_MDEF".GetText() + ": " + playerData.MDEF + "\n" +
+            "TM_DamageReduction".GetText() + ": " + playerData.DamageReduction + "\n" +
+             "TM_Avoid".GetText() + ": " + playerData.Avoid + "\n" +
+            "TM_Crt".GetText() + ": " + playerData.Crt + "\n" +
+             "TM_CrtResistance".GetText() + ": " + playerData.CrtResistance + "\n" +
+             "TM_CrtDamage".GetText() + ": " + playerData.CrtDamage + "\n" +
+             "TM_Speed".GetText() + ": " + playerData.Speed + "\n" +
+            "TM_STR".GetText() + ": " + playerData.STR + "\n" +
+            "TM_DEX".GetText() + ": " + playerData.DEX + "\n" +
+             "TM_INT".GetText() + ": " + playerData.INT + "\n" +
+             "TM_AGI".GetText() + ": " + playerData.AGI + "\n" +
+             "TM_VIT".GetText() + ": " + playerData.VIT + "\n" +
+             "TM_WIS".GetText() + ": " + playerData.WIS + "\n" +
+            "TM_AS".GetText() + ": " + playerData.AS + "\n" +
+            "TM_CS".GetText() + ": " + playerData.CS + "\n" +
+             "TM_ElementDamageIncrease".GetText() + ": " + playerData.ElementDamageIncrease + "\n" +
+             "TM_ElementDamageReduction".GetText() + ": " + playerData.ElementDamageReduction + "\n" +
+             "TM_DisorderResistance".GetText() + ": " + playerData.DisorderResistance + "\n" +
+             "TM_BlockRate".GetText() + ": " + playerData.BlockRate + "\n" +
+            "TM_PlayerCoin".GetText() + ": " + playerData.Coin + "\n";
     }
 }

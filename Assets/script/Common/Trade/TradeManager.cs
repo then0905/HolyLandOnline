@@ -212,7 +212,7 @@ public class TradeManager : MonoBehaviour
 
         finalTradePanel.SetActive(true);
         fincalTradePriceText.text = tempSelectItemBasalData.Price.ToString();
-        finalTradeItemNameText.text = tempSelectItemBasalData.Name;
+        finalTradeItemNameText.text = tempSelectItemBasalData.Name.GetText();
         finalTradeQtyArea.SetActive(tempSelectItemBasalData.Stackability);
 
         checkTradeBtn.onClick.RemoveAllListeners();

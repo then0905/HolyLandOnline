@@ -17,7 +17,7 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
         var findSkillUIResult = PassiveSkillManager.Instance.SkillUIList;
         if (findSkillUIResult.Count > 0 && findSkillUIResult != null)
         {
-            string upgragdeSkillName = GameData.SkillsDataDic[upgradeSkillID].Name;
+            string upgragdeSkillName = GameData.SkillsDataDic[upgradeSkillID].Name.GetText();
             var getSkillUIListOnScene = findSkillUIResult.Where(x => x.SkillName.Contains(upgragdeSkillName)).ToList();
             foreach (var skillUIData in getSkillUIListOnScene)
             {
@@ -52,7 +52,7 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
         var findSkillUIResult = PassiveSkillManager.Instance.SkillUIList;
         if (findSkillUIResult.Count > 0 && findSkillUIResult != null)
         {
-            string upgragdeSkillName = GameData.SkillsDataDic[upgradeSkillID].Name;
+            string upgragdeSkillName = GameData.SkillsDataDic[upgradeSkillID].Name.GetText();
             var getSkillUIListOnScene = findSkillUIResult.Where(x => x.SkillName.Contains(upgragdeSkillName)).ToList();
             foreach (var skillUIData in getSkillUIListOnScene)
             {

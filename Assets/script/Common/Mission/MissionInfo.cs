@@ -29,9 +29,9 @@ public class MissionInfo : MonoBehaviour
     public void MissionInfoSetting(MissionItem missionitem)
     {
         gameObject.SetActive(true);
-        misssionTitle.text = missionitem.QuestData.QuestName;
+        misssionTitle.text = missionitem.QuestData.QuestName.GetText();
         missionInfoText.text = "";
-        missionitem.QuestData.QuestChatContent.ForEach(x => missionInfoText.text += x);
+        missionitem.QuestData.QuestChatContent.ForEach(x => missionInfoText.text += x.GetText());
         missionSchedule.text = missionitem.MissionScheduleText;
         missionExp.text = "經驗值: " + missionitem.QuestData.Exp.ToString();
         missionCoin.text = "金幣: " + missionitem.QuestData.Coin.ToString();

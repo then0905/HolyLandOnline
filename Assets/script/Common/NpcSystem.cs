@@ -82,11 +82,11 @@ public class NpcSystem : MonoBehaviour
         if (gameObject.activeSelf) return;
 
         //設定NPC預設對話
-        chatContent.text = npcData.NpcChatContent[0];
+        chatContent.text = npcData.NpcChatContent[0].GetText();
         //設定NPC頭像
         avatar.sprite = CommonFunction.LoadObject<Sprite>(npcData.NpcAvatarPath, npcData.NpcAvatarName);
         //設定NPC名稱
-        characterName.text = npcData.NpcName;
+        characterName.text = npcData.NpcName.GetText();
         //設定按鈕事件
         ButtonFunctionSetting(npcData.NpcButtonFuncList);
         //設定NPC販賣項目清單
@@ -117,7 +117,7 @@ public class NpcSystem : MonoBehaviour
         for (int i = 0; i < btnList.Count; i++)
         {
             ButtonFunction buttonFunction = ButtonFunctionList.Find(x => x.ButtonID == btnList[i].ButtonActionID);
-            buttonText.text = btnList[i].ButtonName;
+            buttonText.text = btnList[i].ButtonName.GetText();
             Button btn = Instantiate(buttonObj, buttonParent);
             Action act = () => buttonFunction.ButtonAct.Invoke();
             btn.onClick.AddListener(() => act.Invoke());
@@ -139,7 +139,7 @@ public class NpcSystem : MonoBehaviour
         }
         foreach (var quest in questDataList)
         {
-            buttonText.text = quest.QuestName;
+            buttonText.text = quest.QuestName.GetText();
             Button btn = Instantiate(buttonObj, buttonParent);
             Action act = () => RunQuest(quest);
             btn.onClick.AddListener(() => act.Invoke());
@@ -160,7 +160,7 @@ public class NpcSystem : MonoBehaviour
         {
             foreach (var quest in queryResult)
             {
-                buttonText.text = quest.QuestData.QuestName;
+                buttonText.text = quest.QuestData.QuestName.GetText();
                 Button btn = Instantiate(buttonObj, buttonParent);
                 Action act = () => FinishedQuest(quest.QuestData);
                 btn.onClick.AddListener(() => act.Invoke());
@@ -221,7 +221,7 @@ public class NpcSystem : MonoBehaviour
             //若任務還有繼續的交談
             if (tempStep < tempQuestData.QuestChatContent.Count - 1)
             {
-                chatContent.text = tempQuestData.QuestChatContent[tempStep];
+                chatContent.text = tempQuestData.QuestChatContent[tempStep].GetText();
                 ClearTempData();
                 //ButtonFunction buttonFunction1 = ButtonFunctionList.Find(x => x.ButtonID == "QuestContinue");
                 buttonText.text = "繼續";
@@ -234,7 +234,7 @@ public class NpcSystem : MonoBehaviour
             }
             else
             {
-                chatContent.text = tempQuestData.QuestChatContent[tempStep];
+                chatContent.text = tempQuestData.QuestChatContent[tempStep].GetText();
                 ClearTempData();
                 ButtonFunction buttonFunction1 = ButtonFunctionList.Find(x => x.ButtonID == "QuestAccept");
                 buttonText.text = "接受";
@@ -257,7 +257,7 @@ public class NpcSystem : MonoBehaviour
             var getFinishData = tempQuestData.QuestFinishList[0];
             if (tempStep < getFinishData.QuestChatContent.Count - 1)
             {
-                chatContent.text = getFinishData.QuestChatContent[tempStep];
+                chatContent.text = getFinishData.QuestChatContent[tempStep].GetText();
                 ClearTempData();
                 //ButtonFunction buttonFunction1 = ButtonFunctionList.Find(x => x.ButtonID == "QuestContinue");
                 buttonText.text = "繼續";
@@ -270,7 +270,7 @@ public class NpcSystem : MonoBehaviour
             }
             else
             {
-                chatContent.text = getFinishData.QuestChatContent[tempStep];
+                chatContent.text = getFinishData.QuestChatContent[tempStep].GetText();
                 //設定金幣文字
                 coinReward.enabled = true;
                 coinReward.text = "金幣:" + tempQuestData.Coin.ToString();

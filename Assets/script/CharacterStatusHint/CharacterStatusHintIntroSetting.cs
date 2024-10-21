@@ -43,7 +43,7 @@ public class CharacterStatusHintIntroSetting : MonoBehaviour
         buffIntroIcon.sprite = CommonFunction.LoadSkillIcon(characterStatus.CharacterStatusID);
         buffNameText.text = characterStatus.CharacterStatusName;
         buffIntroText.text = characterStatus.CharacterStatusIntro;
-        buffTimerText.text = string.Format("剩餘時間: {0}", characterStatus.CharacterStatusDuration.ToString()); ;
+        buffTimerText.text = string.Format("TM_TimeLeft".GetText(), (characterStatus.CharacterStatusType == "TM_Passive".GetText()) ? "--" : characterStatus.CharacterStatusDuration.ToString());
         buffTypeText.text = characterStatus.CharacterStatusType.ToString();
 
         //訂閱事件處理
@@ -73,7 +73,7 @@ public class CharacterStatusHintIntroSetting : MonoBehaviour
     /// <param name="timer"></param>
     private void TimeSetting(object o, float timer)
     {
-        buffTimerText.text = string.Format("剩餘時間: {0}", timer.ToString()); ;
+        buffTimerText.text = string.Format("TM_TimeLeft".GetText(), timer.ToString()); ;
     }
 
     public void DestroyGameObject()

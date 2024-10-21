@@ -5,7 +5,7 @@
     "TutorialBasalSettingList": [
       {
         "TutorialID": "FirstEnterGame",
-        "TutorialDialog": "你好{0}，歡迎來到聖地Online，我是新手指導員",
+        "TutorialDialog": "TM_FirstEnterGame_Dialog1",
         "TutorialDialogFormat": [
           "PlayerName"
         ],
@@ -19,7 +19,7 @@
       },
       {
         "TutorialID": "FirstEnterGame",
-        "TutorialDialog": "請讓我來帶領你熟悉一下這個世界吧！",
+        "TutorialDialog": "TM_FirstEnterGame_Dialog2",
         "DiaologPosX": 0,
         "DiaologPosY": 0,
         "ApertureEnable": true,

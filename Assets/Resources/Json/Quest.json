@@ -1,13 +1,13 @@
 [
   {
     "QuestID": "QuestID_01",
-    "QuestName": "奧利伯的委託",
+    "QuestName": "TM_Quest01_Name",
     "NeedLv": 1,
     "QuestChatContent": [
-      "你好，冒險家，歡迎來到初始之村，我是村長，奧利伯",
-      "最近村莊周圍多很多的魔物讓我們很困擾!",
-      "我想拜託你幫忙狩獵附近的魔物\"測試用巨人\"，3隻",
-      "若你完成了我會給予你豐厚的獎勵!"
+      "TM_Quest01_ChatContent1",
+      "TM_Quest01_ChatContent2",
+      "TM_Quest01_ChatContent3",
+      "TM_Quest01_ChatContent4"
     ],
     "StartNpcID": "Npc01",
     "EndNpcID": "Npc01",
@@ -18,8 +18,8 @@
       {
         "QuestID": "QuestID_01",
         "QuestChatContent": [
-          "感謝你為我們村莊的付出",
-          "這些是你的獎勵"
+          "TM_Quest01_FinishContent1",
+          "TM_Quest01_FinishContent2"
         ]
       }
     ],
@@ -34,12 +34,11 @@
   },
   {
     "QuestID": "QuestID_02",
-    "QuestName": "與達蘭妲談話",
+    "QuestName": "TM_Quest02_Name",
     "NeedLv": 1,
     "QuestChatContent": [
-      "你好，冒險家，我是初始之村的村民達蘭妲",
-      "你需要熟悉一下村莊的環境嗎?",
-      "我想你可以去找村長「奧利伯」了解一下環境!"
+      "TM_Quest02_ChatContent1",
+      "TM_Quest02_ChatContent2"
     ],
     "StartNpcID": "Npc02",
     "EndNpcID": "Npc01",
@@ -50,8 +49,8 @@
       {
         "QuestID": "QuestID_02",
         "QuestChatContent": [
-          "是達蘭妲請你來找我的嗎?",
-          "好的我來跟你講一下村莊周遭環境"
+          "TM_Quest02_FinishContent1",
+          "TM_Quest02_FinishContent2"
         ]
       }
     ],

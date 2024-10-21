@@ -122,7 +122,7 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
         CharacterStatusID = skillBase_Buff.SkillID;
         CharacterStatusDuration = skillBase_Buff.EffectDurationTime;
         CharacterStatusIntro = skillBase_Buff.SkillIntro;
-        CharacterStatusType = skillBase_Buff.CharacterStatusType.ToString();
+        CharacterStatusType = ("TM_"+skillBase_Buff.CharacterStatusType.ToString()).GetText();
         buffIcon.sprite = CommonFunction.LoadSkillIcon(CharacterStatusID);
         skill_Base_Buff = skillBase_Buff;
 
@@ -130,7 +130,7 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
         CharacterStatusManager.Instance.CharacterSatusRemoveEvent += RemoveCharacterStatusHint;
 
         //設定狀態提示物件父級 與 大小 位置
-        gameObject.transform.parent = CharacterStatusManager.Instance.ReturnCharacterStatusArea(CharacterStatusType);
+        gameObject.transform.parent = CharacterStatusManager.Instance.ReturnCharacterStatusArea(skillBase_Buff.CharacterStatusType.ToString());
         gameObject.transform.localScale = Vector3.one;
         gameObject.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
 

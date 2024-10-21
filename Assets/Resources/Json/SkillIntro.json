@@ -1,7 +1,7 @@
 [
   {
     "Job": "Sword",
-    "Name": "砍擊",
+    "Name": "TM_Sword_1_Name",
     "SkillID": "Sword_1",
     "NeedLv": 1,
     "Characteristic": true,
@@ -15,11 +15,11 @@
     "CircleDistance": 0,
     "Damage": 1.1,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標使用砍擊"
+    "Intro": "TM_Sword_1_Intro"
   },
   {
     "Job": "Sword",
-    "Name": "重擊",
+    "Name": "TM_Sword_2_Name",
     "SkillID": "Sword_2",
     "NeedLv": 5,
     "Characteristic": false,
@@ -33,11 +33,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MeleeATK",
-    "Intro": "升級砍擊，對一個敵對目標使用傷害較高的砍擊"
+    "Intro": "TM_Sword_2_Intro"
   },
   {
     "Job": "Sword",
-    "Name": "劈擊",
+    "Name": "TM_Sword_3_Name",
     "SkillID": "Sword_3",
     "NeedLv": 5,
     "Characteristic": true,
@@ -51,11 +51,11 @@
     "CircleDistance": 0,
     "Damage": 1.1,
     "AdditionMode": "MeleeATK",
-    "Intro": "對前方區域內三名敵對目標使用範圍型的攻擊"
+    "Intro": "TM_Sword_3_Intro"
   },
   {
     "Job": "Sword",
-    "Name": "劍術之途",
+    "Name": "TM_Sword_4_Name",
     "SkillID": "Sword_4",
     "NeedLv": 3,
     "Characteristic": false,
@@ -69,11 +69,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備劍類武器時，稍微提升攻擊力"
+    "Intro": "TM_Sword_4_Intro"
   },
   {
     "Job": "Sword",
-    "Name": "修練之途",
+    "Name": "TM_Sword_5_Name",
     "SkillID": "Sword_5",
     "NeedLv": 4,
     "Characteristic": false,
@@ -87,11 +87,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "稍微提升最大生命值"
+    "Intro": "TM_Sword_5_Intro"
   },
   {
     "Job": "Warrior",
-    "Name": "破擊",
+    "Name": "TM_Warrior_1_Name",
     "SkillID": "Warrior_1",
     "NeedLv": 10,
     "Characteristic": true,
@@ -105,11 +105,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標造成較高的傷害，並附帶1秒暈眩"
+    "Intro": "TM_Warrior_1_Intro"
   },
   {
     "Job": "Warrior",
-    "Name": "躍擊",
+    "Name": "TM_Warrior_2_Name",
     "SkillID": "Warrior_2",
     "NeedLv": 10,
     "Characteristic": true,
@@ -123,11 +123,11 @@
     "CircleDistance": 4,
     "Damage": 1.1,
     "AdditionMode": "MeleeATK",
-    "Intro": "跳躍到指定地點，並對地點內最多三名敵對目標造成較高的傷害"
+    "Intro": "TM_Warrior_2_Intro"
   },
   {
     "Job": "Warrior",
-    "Name": "多重打擊",
+    "Name": "TM_Warrior_3_Name",
     "SkillID": "Warrior_3",
     "NeedLv": 18,
     "Characteristic": true,
@@ -141,11 +141,11 @@
     "CircleDistance": 0,
     "Damage": 1.25,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標揮出多次打擊，每次造成傷害，最多3次"
+    "Intro": "TM_Warrior_3_Intro"
   },
   {
     "Job": "Warrior",
-    "Name": "戰鬥意志",
+    "Name": "TM_Warrior_4_Name",
     "SkillID": "Warrior_4",
     "NeedLv": 15,
     "Characteristic": true,
@@ -159,11 +159,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升攻擊力"
+    "Intro": "TM_Warrior_4_Intro"
   },
   {
     "Job": "Warrior",
-    "Name": "粗糙的皮膚",
+    "Name": "TM_Warrior_5_Name",
     "SkillID": "Warrior_5",
     "NeedLv": 18,
     "Characteristic": true,
@@ -177,11 +177,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，稍微提升防禦力以及最大生命值"
+    "Intro": "TM_Warrior_5_Intro"
   },
   {
     "Job": "Warrior",
-    "Name": "熟練的雙手武器",
+    "Name": "TM_Warrior_6_Name",
     "SkillID": "Warrior_6",
     "NeedLv": 10,
     "Characteristic": false,
@@ -195,11 +195,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用雙手武器(劍、斧、槌)時，提升攻擊力以及命中"
+    "Intro": "TM_Warrior_6_Intro"
   },
   {
     "Job": "Warrior",
-    "Name": "精通戰鬥的人",
+    "Name": "TM_Warrior_7_Name",
     "SkillID": "Warrior_7",
     "NeedLv": 13,
     "Characteristic": false,
@@ -213,11 +213,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "稍微提升防禦力及最大生命值"
+    "Intro": "TM_Warrior_7_Intro"
   },
   {
     "Job": "Knight",
-    "Name": "騎士的砍擊",
+    "Name": "TM_Knight_1_Name",
     "SkillID": "Knight_1",
     "NeedLv": 10,
     "Characteristic": true,
@@ -231,11 +231,11 @@
     "CircleDistance": 0,
     "Damage": 1.2,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標使用傷害較高砍擊"
+    "Intro": "TM_Knight_1_Intro"
   },
   {
     "Job": "Knight",
-    "Name": "嘲諷",
+    "Name": "TM_Knight_2_Name",
     "SkillID": "Knight_2",
     "NeedLv": 15,
     "Characteristic": true,
@@ -249,11 +249,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "對一個敵對目標使用嘲諷，使其攻擊自己，持續2秒，若目標為怪物提高仇恨值"
+    "Intro": "TM_Knight_2_Intro"
   },
   {
     "Job": "Knight",
-    "Name": "保護同伴",
+    "Name": "TM_Knight_3_Name",
     "SkillID": "Knight_3",
     "NeedLv": 10,
     "Characteristic": true,
@@ -267,11 +267,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升隊友及自身的攻擊力、防禦力"
+    "Intro": "TM_Knight_3_Intro"
   },
   {
     "Job": "Knight",
-    "Name": "團隊的盾牌",
+    "Name": "TM_Knight_4_Name",
     "SkillID": "Knight_4",
     "NeedLv": 15,
     "Characteristic": true,
@@ -285,11 +285,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升隊友及自身的最大生命值及生命回復量"
+    "Intro": "TM_Knight_4_Intro"
   },
   {
     "Job": "Knight",
-    "Name": "用力的盾擊",
+    "Name": "TM_Knight_5_Name",
     "SkillID": "Knight_5",
     "NeedLv": 18,
     "Characteristic": true,
@@ -303,11 +303,11 @@
     "CircleDistance": 0,
     "Damage": 1.13,
     "AdditionMode": "MeleeATK",
-    "Intro": "使用盾牌砸向一個敵對目標，使目標受到傷害並暈眩1秒"
+    "Intro": "TM_Knight_5_Intro"
   },
   {
     "Job": "Knight",
-    "Name": "單手武器的熟練",
+    "Name": "TM_Knight_6_Name",
     "SkillID": "Knight_6",
     "NeedLv": 10,
     "Characteristic": false,
@@ -321,11 +321,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用單手武器時提升攻擊力及命中"
+    "Intro": "TM_Knight_6_Intro"
   },
   {
     "Job": "Knight",
-    "Name": "握起盾牌的覺悟",
+    "Name": "TM_Knight_7_Name",
     "SkillID": "Knight_7",
     "NeedLv": 10,
     "Characteristic": false,
@@ -339,11 +339,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備盾牌時提昇大量防禦力及些許的格擋，降低攻擊速度"
+    "Intro": "TM_Knight_7_Intro"
   },
   {
     "Job": "Knight",
-    "Name": "重甲的好處與壞處",
+    "Name": "TM_Knight_8_Name",
     "SkillID": "Knight_8",
     "NeedLv": 10,
     "Characteristic": false,
@@ -357,11 +357,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備重型鎧甲的裝備時，提升大量防禦力，下降移動速度"
+    "Intro": "TM_Knight_8_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "狂戰士的破擊",
+    "Name": "TM_Berserker_1_Name",
     "SkillID": "Berserker_1",
     "NeedLv": 30,
     "Characteristic": true,
@@ -375,11 +375,11 @@
     "CircleDistance": 0,
     "Damage": 1.8,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標造成大量的傷害，並附帶2秒暈眩"
+    "Intro": "TM_Berserker_1_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "狂戰士的躍擊",
+    "Name": "TM_Berserker_2_Name",
     "SkillID": "Berserker_2",
     "NeedLv": 33,
     "Characteristic": true,
@@ -393,11 +393,11 @@
     "CircleDistance": 8,
     "Damage": 1.35,
     "AdditionMode": "MeleeATK",
-    "Intro": "跳躍至指定地點，並對地點內最多五名敵對目標造成大量的傷害，並緩速命中目標移動速度15%，持續2.5秒"
+    "Intro": "TM_Berserker_2_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "致殘打擊",
+    "Name": "TM_Berserker_3_Name",
     "SkillID": "Berserker_3",
     "NeedLv": 38,
     "Characteristic": true,
@@ -411,11 +411,11 @@
     "CircleDistance": 0,
     "Damage": 1.55,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標揮出多次打擊，每次造成傷害，最多3次，並附帶出血"
+    "Intro": "TM_Berserker_3_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "狂戰精神",
+    "Name": "TM_Berserker_4_Name",
     "SkillID": "Berserker_4",
     "NeedLv": 35,
     "Characteristic": true,
@@ -429,11 +429,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升大量攻擊力、命中以及暴擊"
+    "Intro": "TM_Berserker_4_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "嗜血的神經病",
+    "Name": "TM_Berserker_5_Name",
     "SkillID": "Berserker_5",
     "NeedLv": 40,
     "Characteristic": true,
@@ -447,11 +447,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，獲得攻擊血量小於最大值一半的目標，有更多傷害以及吸血的增益狀態"
+    "Intro": "TM_Berserker_5_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "怒氣",
+    "Name": "TM_Berserker_6_Name",
     "SkillID": "Berserker_6",
     "NeedLv": 30,
     "Characteristic": false,
@@ -465,11 +465,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "受攻擊或攻擊時(戰鬥狀態中)持續增加 數值越高傷害範圍越高，最高值100，持續5秒"
+    "Intro": "TM_Berserker_6_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "雙手武器的堅持",
+    "Name": "TM_Berserker_7_Name",
     "SkillID": "Berserker_7",
     "NeedLv": 30,
     "Characteristic": false,
@@ -483,11 +483,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備雙手武器(劍、斧、槌)時，獲得大量攻擊力，以及提高些微攻擊速度"
+    "Intro": "TM_Berserker_7_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "身經百戰的熟練戰士",
+    "Name": "TM_Berserker_8_Name",
     "SkillID": "Berserker_8",
     "NeedLv": 35,
     "Characteristic": false,
@@ -501,11 +501,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "稍微提升防禦力以及最大生命值，戰鬥狀態中再稍微提升"
+    "Intro": "TM_Berserker_8_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "來自狂戰士的怒吼",
+    "Name": "TM_Berserker_9_Name",
     "SkillID": "Berserker_9",
     "NeedLv": 42,
     "Characteristic": true,
@@ -519,11 +519,11 @@
     "CircleDistance": 0,
     "Damage": 1.8,
     "AdditionMode": "MeleeATK",
-    "Intro": "消耗所有怒氣，每1點怒氣大量提高攻擊力以及降低防禦力，持續3秒"
+    "Intro": "TM_Berserker_9_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "我要打翻身仗",
+    "Name": "TM_Berserker_10_Name",
     "SkillID": "Berserker_10",
     "NeedLv": 45,
     "Characteristic": true,
@@ -537,11 +537,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "當生命值低於35%時可以使用，使用時提高大量攻擊力以及攻擊速度，持續5秒"
+    "Intro": "TM_Berserker_10_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "迴旋烈斬",
+    "Name": "TM_Berserker_11_Name",
     "SkillID": "Berserker_11",
     "NeedLv": 40,
     "Characteristic": true,
@@ -555,11 +555,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MeleeATK",
-    "Intro": "持續對周圍敵對目標，最多五名造成傷害，每揮中一次造成一次傷害(按住按鍵持續施放)"
+    "Intro": "TM_Berserker_11_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "打不過的敵人",
+    "Name": "TM_Berserker_12_Name",
     "SkillID": "Berserker_12",
     "NeedLv": 43,
     "Characteristic": true,
@@ -573,11 +573,11 @@
     "CircleDistance": 0,
     "Damage": 1.4,
     "AdditionMode": "MeleeATK",
-    "Intro": "揮出武器，對一名敵對目標造成傷害並擊退目標"
+    "Intro": "TM_Berserker_12_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "嘿嘿嘿我要來囉",
+    "Name": "TM_Berserker_13_Name",
     "SkillID": "Berserker_13",
     "NeedLv": 40,
     "Characteristic": true,
@@ -591,11 +591,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "10秒內向敵方目標(玩家)移動時提升移動速度"
+    "Intro": "TM_Berserker_13_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "不要阻止我！",
+    "Name": "TM_Berserker_14_Name",
     "SkillID": "Berserker_14",
     "NeedLv": 44,
     "Characteristic": true,
@@ -609,11 +609,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "解除所有控制狀態"
+    "Intro": "TM_Berserker_14_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "狂戰士斷頭台",
+    "Name": "TM_Berserker_15_Name",
     "SkillID": "Berserker_15",
     "NeedLv": 48,
     "Characteristic": true,
@@ -627,11 +627,11 @@
     "CircleDistance": 0,
     "Damage": 2.5,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標造成極大量的傷害"
+    "Intro": "TM_Berserker_15_Intro"
   },
   {
     "Job": "Berserker",
-    "Name": "狂戰士之路",
+    "Name": "TM_Berserker_16_Name",
     "SkillID": "Berserker_16",
     "NeedLv": 45,
     "Characteristic": false,
@@ -645,11 +645,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "持續戰鬥狀態中，每秒提高攻擊力及攻擊速度，脫離戰鬥狀態後維持1.5秒"
+    "Intro": "TM_Berserker_16_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "聖騎士的砍擊",
+    "Name": "TM_Paladin_1_Name",
     "SkillID": "Paladin_1",
     "NeedLv": 30,
     "Characteristic": true,
@@ -663,11 +663,11 @@
     "CircleDistance": 0,
     "Damage": 1.35,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標使用傷害較高並附帶神聖屬性的砍擊"
+    "Intro": "TM_Paladin_1_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "無情嘲諷",
+    "Name": "TM_Paladin_2_Name",
     "SkillID": "Paladin_2",
     "NeedLv": 30,
     "Characteristic": true,
@@ -681,11 +681,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "對一個敵對目標使用嘲諷，使其攻擊自己，持續2秒，並降低來自目標的傷害，若目標為怪物提高大量仇恨值"
+    "Intro": "TM_Paladin_2_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "神聖之力的祝福",
+    "Name": "TM_Paladin_3_Name",
     "SkillID": "Paladin_3",
     "NeedLv": 33,
     "Characteristic": true,
@@ -699,11 +699,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升隊友與自身的攻擊力、攻擊速度、移動速度"
+    "Intro": "TM_Paladin_3_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "神聖之力的保護",
+    "Name": "TM_Paladin_4_Name",
     "SkillID": "Paladin_4",
     "NeedLv": 35,
     "Characteristic": true,
@@ -717,11 +717,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升隊友與自身的防禦力、迴避值、最大生命值、生命回復量"
+    "Intro": "TM_Paladin_4_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "神聖之力的奉獻",
+    "Name": "TM_Paladin_5_Name",
     "SkillID": "Paladin_5",
     "NeedLv": 38,
     "Characteristic": true,
@@ -735,11 +735,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，若隊友受到的傷害，轉移小量傷害改由自身承受"
+    "Intro": "TM_Paladin_5_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "神聖的盾擊",
+    "Name": "TM_Paladin_6_Name",
     "SkillID": "Paladin_6",
     "NeedLv": 36,
     "Characteristic": true,
@@ -753,11 +753,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MeleeATK",
-    "Intro": "使用盾牌敲向一個敵對目標，並附帶神聖屬性傷害，使目標受到傷害並暈眩1.5秒"
+    "Intro": "TM_Paladin_6_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "祭司授權的治癒術",
+    "Name": "TM_Paladin_7_Name",
     "SkillID": "Paladin_7",
     "NeedLv": 35,
     "Characteristic": true,
@@ -771,11 +771,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "回復一個友方目標的小量生命值"
+    "Intro": "TM_Paladin_7_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "神聖之力是什麼",
+    "Name": "TM_Paladin_8_Name",
     "SkillID": "Paladin_8",
     "NeedLv": 40,
     "Characteristic": true,
@@ -789,11 +789,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，自身所有傷害附帶神聖屬性"
+    "Intro": "TM_Paladin_8_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "聖騎士無所畏懼",
+    "Name": "TM_Paladin_9_Name",
     "SkillID": "Paladin_9",
     "NeedLv": 43,
     "Characteristic": true,
@@ -807,11 +807,11 @@
     "CircleDistance": 0,
     "Damage": 1.15,
     "AdditionMode": "MeleeATK",
-    "Intro": "拿起盾牌衝向指定方向，路徑上所有敵對目標受到小量傷害並暈眩1秒"
+    "Intro": "TM_Paladin_9_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "拿好久的單手武器",
+    "Name": "TM_Paladin_10_Name",
     "SkillID": "Paladin_10",
     "NeedLv": 30,
     "Characteristic": false,
@@ -825,11 +825,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備單手武器(槌、劍)時，些微提升攻擊力以及命中"
+    "Intro": "TM_Paladin_10_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "拿好久的盾牌",
+    "Name": "TM_Paladin_11_Name",
     "SkillID": "Paladin_11",
     "NeedLv": 30,
     "Characteristic": false,
@@ -843,11 +843,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備盾牌時提升大量防禦力及格擋，些微降低攻擊速度"
+    "Intro": "TM_Paladin_11_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "穿好久的重甲",
+    "Name": "TM_Paladin_12_Name",
     "SkillID": "Paladin_12",
     "NeedLv": 30,
     "Characteristic": false,
@@ -861,11 +861,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備重型鎧甲時，提升大量防禦力，些微下降移動速度"
+    "Intro": "TM_Paladin_12_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "聖騎士的權力",
+    "Name": "TM_Paladin_13_Name",
     "SkillID": "Paladin_13",
     "NeedLv": 38,
     "Characteristic": false,
@@ -879,11 +879,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "對嘲諷的目標附加破甲狀態，持續2秒"
+    "Intro": "TM_Paladin_13_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "聖光啊！",
+    "Name": "TM_Paladin_14_Name",
     "SkillID": "Paladin_14",
     "NeedLv": 42,
     "Characteristic": false,
@@ -897,11 +897,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "祭司授權的治癒術可以解除目標受到的負面狀態"
+    "Intro": "TM_Paladin_14_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "神聖之力的庇佑",
+    "Name": "TM_Paladin_15_Name",
     "SkillID": "Paladin_15",
     "NeedLv": 45,
     "Characteristic": false,
@@ -915,11 +915,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "以一定百分比降低所受傷害"
+    "Intro": "TM_Paladin_15_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "擊潰資本主義的高牆",
+    "Name": "TM_Paladin_16_Name",
     "SkillID": "Paladin_16",
     "NeedLv": 46,
     "Characteristic": false,
@@ -933,11 +933,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "若短時間內(意指5秒內)，遭受暈眩、緩速、禁錮、擊退等控制狀態時，降低接下來受到會造成控制狀態效果"
+    "Intro": "TM_Paladin_16_Intro"
   },
   {
     "Job": "Paladin",
-    "Name": "聖主保佑",
+    "Name": "TM_Paladin_17_Name",
     "SkillID": "Paladin_17",
     "NeedLv": 48,
     "Characteristic": true,
@@ -951,11 +951,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "詠唱1.5秒後，3秒內隊友及自身不受到任何傷害，但無法免疫控制狀態"
+    "Intro": "TM_Paladin_17_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "刺擊",
+    "Name": "TM_Praetorian_1_Name",
     "SkillID": "Praetorian_1",
     "NeedLv": 30,
     "Characteristic": true,
@@ -969,11 +969,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "MeleeATK",
-    "Intro": "對敵方目標造成物理傷害，並破甲15%2秒"
+    "Intro": "TM_Praetorian_1_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "迴旋刺擊",
+    "Name": "TM_Praetorian_2_Name",
     "SkillID": "Praetorian_2",
     "NeedLv": 30,
     "Characteristic": true,
@@ -987,11 +987,11 @@
     "CircleDistance": 0,
     "Damage": 1.4,
     "AdditionMode": "MeleeATK",
-    "Intro": "對周圍敵方目標，最多三人造成刺擊，並使目標出血5秒"
+    "Intro": "TM_Praetorian_2_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "連續刺砍",
+    "Name": "TM_Praetorian_3_Name",
     "SkillID": "Praetorian_3",
     "NeedLv": 33,
     "Characteristic": true,
@@ -1005,11 +1005,11 @@
     "CircleDistance": 0,
     "Damage": 1.6,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一名敵方目標造成多次傷害，最多5次，每一段傷害增加上一次的傷害15%"
+    "Intro": "TM_Praetorian_3_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "聽候差遣",
+    "Name": "TM_Praetorian_4_Name",
     "SkillID": "Praetorian_4",
     "NeedLv": 33,
     "Characteristic": true,
@@ -1023,11 +1023,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升移動速度，攻擊速度，暴擊率"
+    "Intro": "TM_Praetorian_4_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "縱橫沙場",
+    "Name": "TM_Praetorian_5_Name",
     "SkillID": "Praetorian_5",
     "NeedLv": 35,
     "Characteristic": true,
@@ -1041,11 +1041,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，對任何控制狀態，緩速狀態減少30%效果及持續時間"
+    "Intro": "TM_Praetorian_5_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "捍衛國家之心",
+    "Name": "TM_Praetorian_6_Name",
     "SkillID": "Praetorian_6",
     "NeedLv": 38,
     "Characteristic": true,
@@ -1059,11 +1059,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升些許攻擊力、防禦力、格檔"
+    "Intro": "TM_Praetorian_6_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "衝鋒刺擊",
+    "Name": "TM_Praetorian_7_Name",
     "SkillID": "Praetorian_7",
     "NeedLv": 40,
     "Characteristic": true,
@@ -1077,11 +1077,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "MeleeATK",
-    "Intro": "向指定方向移動，並對路徑上所有敵人使用刺擊的傷害及效果"
+    "Intro": "TM_Praetorian_7_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "重點刺擊",
+    "Name": "TM_Praetorian_8_Name",
     "SkillID": "Praetorian_8",
     "NeedLv": 40,
     "Characteristic": false,
@@ -1095,11 +1095,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "提升刺擊的傷害，若使用衝鋒刺擊，每擊中1名目標減少0.5秒冷卻時間，最多5秒"
+    "Intro": "TM_Praetorian_8_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "單手武器的精通",
+    "Name": "TM_Praetorian_9_Name",
     "SkillID": "Praetorian_9",
     "NeedLv": 30,
     "Characteristic": false,
@@ -1113,11 +1113,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備單手武器時(單手劍)，提升攻擊力與攻擊速度"
+    "Intro": "TM_Praetorian_9_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "還是得搭配盾牌",
+    "Name": "TM_Praetorian_10_Name",
     "SkillID": "Praetorian_10",
     "NeedLv": 30,
     "Characteristic": false,
@@ -1131,11 +1131,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備盾牌時，提升些許防禦、格檔"
+    "Intro": "TM_Praetorian_10_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "輕便的穿搭",
+    "Name": "TM_Praetorian_11_Name",
     "SkillID": "Praetorian_11",
     "NeedLv": 30,
     "Characteristic": false,
@@ -1149,11 +1149,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "非裝備重型鎧甲的防具，可以提升些許防禦、移動速度"
+    "Intro": "TM_Praetorian_11_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "回擊好禮",
+    "Name": "TM_Praetorian_12_Name",
     "SkillID": "Praetorian_12",
     "NeedLv": 35,
     "Characteristic": false,
@@ -1167,11 +1167,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "當格檔時，有35%機率直接造成一次刺擊"
+    "Intro": "TM_Praetorian_12_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "穿梭戰場的刺刺",
+    "Name": "TM_Praetorian_13_Name",
     "SkillID": "Praetorian_13",
     "NeedLv": 42,
     "Characteristic": false,
@@ -1185,11 +1185,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "提升刺擊的距離，擊中後移動到擊中目標旁"
+    "Intro": "TM_Praetorian_13_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "刺擊絕對領域",
+    "Name": "TM_Praetorian_14_Name",
     "SkillID": "Praetorian_14",
     "NeedLv": 45,
     "Characteristic": true,
@@ -1203,11 +1203,11 @@
     "CircleDistance": 0,
     "Damage": 1.85,
     "AdditionMode": "MeleeATK",
-    "Intro": "詠唱1秒，對周圍所有敵方目標造成傷害，依照攻擊速度給予攻擊頻率，持續5秒"
+    "Intro": "TM_Praetorian_14_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "飛天御刺",
+    "Name": "TM_Praetorian_15_Name",
     "SkillID": "Praetorian_15",
     "NeedLv": 43,
     "Characteristic": true,
@@ -1221,11 +1221,11 @@
     "CircleDistance": 0,
     "Damage": 1.7,
     "AdditionMode": "MeleeATK",
-    "Intro": "投擲單手劍擊向指定方向的一名敵方目標，並附加緩速30%，持續3秒"
+    "Intro": "TM_Praetorian_15_Intro"
   },
   {
     "Job": "Praetorian",
-    "Name": "禁衛軍！集合！",
+    "Name": "TM_Praetorian_16_Name",
     "SkillID": "Praetorian_16",
     "NeedLv": 48,
     "Characteristic": true,
@@ -1239,11 +1239,11 @@
     "CircleDistance": 0,
     "Damage": 2.3,
     "AdditionMode": "MeleeATK",
-    "Intro": "詠唱3秒，召喚兩名自己的分身，壓制住敵方目標1秒，並給予八次傷害。"
+    "Intro": "TM_Praetorian_16_Intro"
   },
   {
     "Job": "Mage",
-    "Name": "火球術",
+    "Name": "TM_Mage_1_Name",
     "SkillID": "Mage_1",
     "NeedLv": 1,
     "Characteristic": true,
@@ -1257,11 +1257,11 @@
     "CircleDistance": 0,
     "Damage": 1.25,
     "AdditionMode": "MeleeATK",
-    "Intro": "使用火球對一名敵對目標造成火屬性傷害"
+    "Intro": "TM_Mage_1_Intro"
   },
   {
     "Job": "Mage",
-    "Name": "水流術",
+    "Name": "TM_Mage_2_Name",
     "SkillID": "Mage_2",
     "NeedLv": 3,
     "Characteristic": true,
@@ -1275,11 +1275,11 @@
     "CircleDistance": 4,
     "Damage": 1.2,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱1秒，使用水流對指定區域內最多三名敵對目標造成水屬性傷害"
+    "Intro": "TM_Mage_2_Intro"
   },
   {
     "Job": "Mage",
-    "Name": "土牢術",
+    "Name": "TM_Mage_3_Name",
     "SkillID": "Mage_3",
     "NeedLv": 5,
     "Characteristic": true,
@@ -1293,11 +1293,11 @@
     "CircleDistance": 4,
     "Damage": 1.2,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱2秒，指定區域內最多三名敵對目標受到地屬性傷害，並因指定區域的地板下陷，敵對目標同時遭到2秒禁錮"
+    "Intro": "TM_Mage_3_Intro"
   },
   {
     "Job": "Mage",
-    "Name": "風波術",
+    "Name": "TM_Mage_4_Name",
     "SkillID": "Mage_4",
     "NeedLv": 7,
     "Characteristic": true,
@@ -1311,11 +1311,11 @@
     "CircleDistance": 0,
     "Damage": 1.2,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱2秒，對指定方向使用風聚集的衝擊，對路徑上最多五名敵對目標造成風屬性傷害，並擊退一小段距離"
+    "Intro": "TM_Mage_4_Intro"
   },
   {
     "Job": "Mage",
-    "Name": "書上的知識",
+    "Name": "TM_Mage_5_Name",
     "SkillID": "Mage_5",
     "NeedLv": 1,
     "Characteristic": false,
@@ -1329,11 +1329,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "稍微提升魔法攻擊力以及魔力最大值"
+    "Intro": "TM_Mage_5_Intro"
   },
   {
     "Job": "Mage",
-    "Name": "熟練法杖",
+    "Name": "TM_Mage_6_Name",
     "SkillID": "Mage_6",
     "NeedLv": 1,
     "Characteristic": false,
@@ -1347,11 +1347,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備單手或雙手的法杖時提高魔法攻擊力"
+    "Intro": "TM_Mage_6_Intro"
   },
   {
     "Job": "Monk",
-    "Name": "祭司傳承的治癒術",
+    "Name": "TM_Monk_1_Name",
     "SkillID": "Monk_1",
     "NeedLv": 10,
     "Characteristic": true,
@@ -1365,11 +1365,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "回復一名友軍的小量生命值，小量提升怪物的仇恨值"
+    "Intro": "TM_Monk_1_Intro"
   },
   {
     "Job": "Monk",
-    "Name": "破除迷惑",
+    "Name": "TM_Monk_2_Name",
     "SkillID": "Monk_2",
     "NeedLv": 12,
     "Characteristic": true,
@@ -1383,11 +1383,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "解除一名友軍的所有負面狀態"
+    "Intro": "TM_Monk_2_Intro"
   },
   {
     "Job": "Monk",
-    "Name": "天之箭",
+    "Name": "TM_Monk_3_Name",
     "SkillID": "Monk_3",
     "NeedLv": 10,
     "Characteristic": true,
@@ -1401,11 +1401,11 @@
     "CircleDistance": 0,
     "Damage": 1.1,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱1秒，對一名敵方目標造成神聖屬性的魔法攻擊"
+    "Intro": "TM_Monk_3_Intro"
   },
   {
     "Job": "Monk",
-    "Name": "神聖力量爆破",
+    "Name": "TM_Monk_4_Name",
     "SkillID": "Monk_4",
     "NeedLv": 15,
     "Characteristic": true,
@@ -1419,11 +1419,11 @@
     "CircleDistance": 0,
     "Damage": 1.12,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱2秒，對周圍敵方目標造成神聖屬性的魔法攻擊，最多三名"
+    "Intro": "TM_Monk_4_Intro"
   },
   {
     "Job": "Monk",
-    "Name": "聖所的護身法",
+    "Name": "TM_Monk_5_Name",
     "SkillID": "Monk_5",
     "NeedLv": 15,
     "Characteristic": true,
@@ -1437,11 +1437,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升隊友與自身的些微防禦力、生命回復量、魔力回復量"
+    "Intro": "TM_Monk_5_Intro"
   },
   {
     "Job": "Monk",
-    "Name": "祭司傳承的淨化術",
+    "Name": "TM_Monk_6_Name",
     "SkillID": "Monk_6",
     "NeedLv": 23,
     "Characteristic": true,
@@ -1455,11 +1455,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升隊友與自身的命中值、迴避值"
+    "Intro": "TM_Monk_6_Intro"
   },
   {
     "Job": "Monk",
-    "Name": "精通短法杖",
+    "Name": "TM_Monk_7_Name",
     "SkillID": "Monk_7",
     "NeedLv": 10,
     "Characteristic": false,
@@ -1473,11 +1473,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備單手法杖時，些微提升魔法攻擊力，以及吟唱速度"
+    "Intro": "TM_Monk_7_Intro"
   },
   {
     "Job": "Monk",
-    "Name": "熟練輕型盾牌",
+    "Name": "TM_Monk_8_Name",
     "SkillID": "Monk_8",
     "NeedLv": 10,
     "Characteristic": false,
@@ -1491,11 +1491,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備非重型盾牌時，些微提升防禦力"
+    "Intro": "TM_Monk_8_Intro"
   },
   {
     "Job": "Wizard",
-    "Name": "隕石術",
+    "Name": "TM_Wizard_1_Name",
     "SkillID": "Wizard_1",
     "NeedLv": 10,
     "Characteristic": true,
@@ -1509,11 +1509,11 @@
     "CircleDistance": 5,
     "Damage": 1.4,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱1秒，對指定範圍內敵方單位造成火屬性傷害，最多三名，並有15%機率附帶灼傷"
+    "Intro": "TM_Wizard_1_Intro"
   },
   {
     "Job": "Wizard",
-    "Name": "水龍捲",
+    "Name": "TM_Wizard_2_Name",
     "SkillID": "Wizard_2",
     "NeedLv": 13,
     "Characteristic": true,
@@ -1527,11 +1527,11 @@
     "CircleDistance": 5,
     "Damage": 1.35,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱1.5秒，對指定範圍內敵方單位造成水屬性傷害，最多三名，並附帶擊飛"
+    "Intro": "TM_Wizard_2_Intro"
   },
   {
     "Job": "Wizard",
-    "Name": "沙塵暴",
+    "Name": "TM_Wizard_3_Name",
     "SkillID": "Wizard_3",
     "NeedLv": 19,
     "Characteristic": true,
@@ -1545,11 +1545,11 @@
     "CircleDistance": 5,
     "Damage": 1.35,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱3秒，對指定範圍內敵方單位造成地屬性傷害，最多三名，並附帶致盲"
+    "Intro": "TM_Wizard_3_Intro"
   },
   {
     "Job": "Wizard",
-    "Name": "振氣一擊",
+    "Name": "TM_Wizard_4_Name",
     "SkillID": "Wizard_4",
     "NeedLv": 23,
     "Characteristic": true,
@@ -1563,11 +1563,11 @@
     "CircleDistance": 0,
     "Damage": 1.35,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱3秒，對周圍敵方單位造成風屬性傷害，最多五名，並附帶擊退"
+    "Intro": "TM_Wizard_4_Intro"
   },
   {
     "Job": "Wizard",
-    "Name": "精神昇華",
+    "Name": "TM_Wizard_5_Name",
     "SkillID": "Wizard_5",
     "NeedLv": 20,
     "Characteristic": true,
@@ -1581,11 +1581,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升自己的魔法攻擊力，暴擊率"
+    "Intro": "TM_Wizard_5_Intro"
   },
   {
     "Job": "Wizard",
-    "Name": "精通長法杖",
+    "Name": "TM_Wizard_6_Name",
     "SkillID": "Wizard_6",
     "NeedLv": 10,
     "Characteristic": false,
@@ -1599,11 +1599,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備雙手法杖時，提升魔法攻擊力，吟唱速度"
+    "Intro": "TM_Wizard_6_Intro"
   },
   {
     "Job": "Wizard",
-    "Name": "書上的智慧",
+    "Name": "TM_Wizard_7_Name",
     "SkillID": "Wizard_7",
     "NeedLv": 20,
     "Characteristic": false,
@@ -1617,11 +1617,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備魔法書時，提升智慧10%"
+    "Intro": "TM_Wizard_7_Intro"
   },
   {
     "Job": "Wizard",
-    "Name": "自然力加強",
+    "Name": "TM_Wizard_8_Name",
     "SkillID": "Wizard_8",
     "NeedLv": 18,
     "Characteristic": true,
@@ -1635,11 +1635,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升自己的魔法屬性傷害"
+    "Intro": "TM_Wizard_8_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "正宗的治癒術",
+    "Name": "TM_Priest_1_Name",
     "SkillID": "Priest_1",
     "NeedLv": 30,
     "Characteristic": true,
@@ -1653,11 +1653,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "回復一名友軍的生命值，小量提升怪物的仇恨值"
+    "Intro": "TM_Priest_1_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "集體治癒術",
+    "Name": "TM_Priest_2_Name",
     "SkillID": "Priest_2",
     "NeedLv": 32,
     "Characteristic": true,
@@ -1671,11 +1671,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "回復自身及隊友的生命值，大量提升怪物的仇恨值"
+    "Intro": "TM_Priest_2_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "解除迷惑",
+    "Name": "TM_Priest_3_Name",
     "SkillID": "Priest_3",
     "NeedLv": 34,
     "Characteristic": true,
@@ -1689,11 +1689,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "解除一名友軍的所有負面狀態，並賦予2秒內降低接下來受到的負面狀態效果"
+    "Intro": "TM_Priest_3_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "神聖之箭",
+    "Name": "TM_Priest_4_Name",
     "SkillID": "Priest_4",
     "NeedLv": 30,
     "Characteristic": true,
@@ -1707,11 +1707,11 @@
     "CircleDistance": 0,
     "Damage": 1.25,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱1秒，對一名敵方目標造成大量神聖屬性的魔法攻擊"
+    "Intro": "TM_Priest_4_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "神聖力量爆發",
+    "Name": "TM_Priest_5_Name",
     "SkillID": "Priest_5",
     "NeedLv": 35,
     "Characteristic": true,
@@ -1725,11 +1725,11 @@
     "CircleDistance": 0,
     "Damage": 1.35,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱2秒，對周圍敵方目標造成大量神聖屬性的魔法攻擊，最多三名，並降低接下來2秒內自身從擊中目標受到的傷害。"
+    "Intro": "TM_Priest_5_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "大祭司護身法",
+    "Name": "TM_Priest_6_Name",
     "SkillID": "Priest_6",
     "NeedLv": 33,
     "Characteristic": true,
@@ -1743,11 +1743,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升隊友與自身的防禦力、魔法防禦、傷害減緩、些微降低受到的負面狀態效果。"
+    "Intro": "TM_Priest_6_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "大祭司淨化術",
+    "Name": "TM_Priest_7_Name",
     "SkillID": "Priest_7",
     "NeedLv": 33,
     "Characteristic": true,
@@ -1761,11 +1761,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升隊友與自身的命中值、移動速度。"
+    "Intro": "TM_Priest_7_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "短法杖的奧秘",
+    "Name": "TM_Priest_8_Name",
     "SkillID": "Priest_8",
     "NeedLv": 30,
     "Characteristic": false,
@@ -1779,11 +1779,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備單手法杖時，提升魔法攻擊力，以及些微吟唱速度、小量提升治癒術的回復量"
+    "Intro": "TM_Priest_8_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "精通清型盾牌",
+    "Name": "TM_Priest_9_Name",
     "SkillID": "Priest_9",
     "NeedLv": 30,
     "Characteristic": false,
@@ -1797,11 +1797,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備非種型盾牌時，提升防禦力"
+    "Intro": "TM_Priest_9_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "大祭司聖結界",
+    "Name": "TM_Priest_10_Name",
     "SkillID": "Priest_10",
     "NeedLv": 40,
     "Characteristic": true,
@@ -1815,11 +1815,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "25秒內，降低自身與隊友受到的30%所有傷害"
+    "Intro": "TM_Priest_10_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "清算業障",
+    "Name": "TM_Priest_11_Name",
     "SkillID": "Priest_11",
     "NeedLv": 42,
     "Characteristic": true,
@@ -1833,11 +1833,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "對一名敵方目標施放負面狀態，目標被視為死亡生物，目標提高受到的聖屬性傷害降低受到的闇屬性傷害，並無法受到任何回復血量效果，持續10秒。"
+    "Intro": "TM_Priest_11_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "來自上天的神諭",
+    "Name": "TM_Priest_12_Name",
     "SkillID": "Priest_12",
     "NeedLv": 43,
     "Characteristic": true,
@@ -1851,11 +1851,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "立即回復自身及隊友的大量生命值，解除所有負面狀態"
+    "Intro": "TM_Priest_12_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "大祭司加持法",
+    "Name": "TM_Priest_13_Name",
     "SkillID": "Priest_13",
     "NeedLv": 45,
     "Characteristic": true,
@@ -1869,11 +1869,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升隊友與自身的最大生命值，最大魔力值"
+    "Intro": "TM_Priest_13_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "合格的大祭司",
+    "Name": "TM_Priest_14_Name",
     "SkillID": "Priest_14",
     "NeedLv": 45,
     "Characteristic": false,
@@ -1887,11 +1887,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "提升神聖屬性的魔法傷害，提升治癒術的回復量"
+    "Intro": "TM_Priest_14_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "輪迴轉生",
+    "Name": "TM_Priest_15_Name",
     "SkillID": "Priest_15",
     "NeedLv": 46,
     "Characteristic": true,
@@ -1905,11 +1905,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "將一名死亡的友軍復活，並回復其30%最大生命值的生命量"
+    "Intro": "TM_Priest_15_Intro"
   },
   {
     "Job": "Priest",
-    "Name": "告誡眾生",
+    "Name": "TM_Priest_16_Name",
     "SkillID": "Priest_16",
     "NeedLv": 48,
     "Characteristic": true,
@@ -1923,11 +1923,11 @@
     "CircleDistance": 5,
     "Damage": 0.85,
     "AdditionMode": "MageATK",
-    "Intro": "指定區域範圍內的所有友軍獲得持續性回復血量的增益效果，範圍內所有敵軍獲得持續性減少血量並減少回復量的負面狀態效果，區域持續30秒。"
+    "Intro": "TM_Priest_16_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "末日隕石",
+    "Name": "TM_Magister_1_Name",
     "SkillID": "Magister_1",
     "NeedLv": 30,
     "Characteristic": true,
@@ -1941,11 +1941,11 @@
     "CircleDistance": 8,
     "Damage": 1.75,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱1秒，對指定範圍內敵方單位造成火屬性傷害，最多五名，並有15%機率附帶灼傷"
+    "Intro": "TM_Magister_1_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "大漩渦",
+    "Name": "TM_Magister_2_Name",
     "SkillID": "Magister_2",
     "NeedLv": 33,
     "Characteristic": true,
@@ -1959,11 +1959,11 @@
     "CircleDistance": 8,
     "Damage": 1.6,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱1.5秒，對指定範圍內敵方單位造成水屬性傷害，最多五名，並將所有集中目標拉往區域中心"
+    "Intro": "TM_Magister_2_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "沙塵湮滅",
+    "Name": "TM_Magister_3_Name",
     "SkillID": "Magister_3",
     "NeedLv": 35,
     "Characteristic": true,
@@ -1977,11 +1977,11 @@
     "CircleDistance": 8,
     "Damage": 1.6,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱3秒，對指定範圍內敵方目標造成地屬性傷害，最多七名，並附帶致盲"
+    "Intro": "TM_Magister_3_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "死亡龍捲風",
+    "Name": "TM_Magister_4_Name",
     "SkillID": "Magister_4",
     "NeedLv": 37,
     "Characteristic": true,
@@ -1995,11 +1995,11 @@
     "CircleDistance": 8,
     "Damage": 1.6,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱3秒，對指定範圍內敵方目標造成風屬性傷害，最多八名，並對擊中目標緩速3秒。"
+    "Intro": "TM_Magister_4_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "自然力毀滅",
+    "Name": "TM_Magister_5_Name",
     "SkillID": "Magister_5",
     "NeedLv": 35,
     "Characteristic": true,
@@ -2013,11 +2013,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，大量提升自己的魔法屬性傷害，以及魔法暴擊率。"
+    "Intro": "TM_Magister_5_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "智慧昇華",
+    "Name": "TM_Magister_6_Name",
     "SkillID": "Magister_6",
     "NeedLv": 33,
     "Characteristic": true,
@@ -2031,11 +2031,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升自己的魔法攻擊力，些微提升吟唱速度、魔法暴擊率。"
+    "Intro": "TM_Magister_6_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "長法杖的爆發力",
+    "Name": "TM_Magister_7_Name",
     "SkillID": "Magister_7",
     "NeedLv": 30,
     "Characteristic": false,
@@ -2049,11 +2049,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備雙手法杖時，提升魔法攻擊力，些微提升吟唱速度、魔法暴擊率。"
+    "Intro": "TM_Magister_7_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "魔法書的加持",
+    "Name": "TM_Magister_8_Name",
     "SkillID": "Magister_8",
     "NeedLv": 30,
     "Characteristic": false,
@@ -2067,11 +2067,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備魔法書時，提升智慧15%，並增加小量吟唱速度"
+    "Intro": "TM_Magister_8_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "寒霜地獄",
+    "Name": "TM_Magister_9_Name",
     "SkillID": "Magister_9",
     "NeedLv": 40,
     "Characteristic": true,
@@ -2085,11 +2085,11 @@
     "CircleDistance": 8,
     "Damage": 1.8,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱3.5秒，對指定範圍內敵方目標持續造成水屬性傷害，最多八名，持續5秒，並有機率使集中目標凍結3秒。"
+    "Intro": "TM_Magister_9_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "末日烙印",
+    "Name": "TM_Magister_10_Name",
     "SkillID": "Magister_10",
     "NeedLv": 40,
     "Characteristic": true,
@@ -2103,11 +2103,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "立即施放，使一名敵方目標接下來3秒內增加受到的魔法傷害。"
+    "Intro": "TM_Magister_10_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "悲之詠嘆調",
+    "Name": "TM_Magister_11_Name",
     "SkillID": "Magister_11",
     "NeedLv": 42,
     "Characteristic": true,
@@ -2121,11 +2121,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "10秒內使用任何技能無須吟唱。"
+    "Intro": "TM_Magister_11_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "自然元素的加成",
+    "Name": "TM_Magister_12_Name",
     "SkillID": "Magister_12",
     "NeedLv": 43,
     "Characteristic": false,
@@ -2139,11 +2139,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用主動的攻擊技能時，若與上個使用過的攻擊技能的屬性不同，提升使用的技能傷害10%，最多疊加3次，持續5秒。"
+    "Intro": "TM_Magister_12_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "大地惡魔的獻祭",
+    "Name": "TM_Magister_13_Name",
     "SkillID": "Magister_13",
     "NeedLv": 45,
     "Characteristic": true,
@@ -2157,11 +2157,11 @@
     "CircleDistance": 8,
     "Damage": 1.85,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱3.5秒，對指定範圍內敵方目標造成大量地屬性傷害，最多十名，使擊中目標禁錮2秒。"
+    "Intro": "TM_Magister_13_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "末日衝擊",
+    "Name": "TM_Magister_14_Name",
     "SkillID": "Magister_14",
     "NeedLv": 46,
     "Characteristic": true,
@@ -2175,11 +2175,11 @@
     "CircleDistance": 8,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "立即施放，使指定範圍內敵方目標受到暈眩3秒，並降低魔法防禦力，最多五名，持續3秒"
+    "Intro": "TM_Magister_14_Intro"
   },
   {
     "Job": "Magister",
-    "Name": "末日即將來臨",
+    "Name": "TM_Magister_15_Name",
     "SkillID": "Magister_15",
     "NeedLv": 48,
     "Characteristic": true,
@@ -2193,11 +2193,11 @@
     "CircleDistance": 8,
     "Damage": 2.45,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱5秒(無法被縮減，也無法被「悲之詠嘆調」減免)，對指定範圍內所有敵軍造成持續性的大量火屬性魔法傷害，若擊中目標的血量低於其最大生命值10%，直接擊殺。"
+    "Intro": "TM_Magister_15_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "熟練的振氣一擊",
+    "Name": "TM_Prophet_1_Name",
     "SkillID": "Prophet_1",
     "NeedLv": 30,
     "Characteristic": true,
@@ -2211,11 +2211,11 @@
     "CircleDistance": 0,
     "Damage": 1.35,
     "AdditionMode": "MageATK",
-    "Intro": "立即施放，對周圍敵方單位造成風屬性傷害，最多五名，並附帶擊退"
+    "Intro": "TM_Prophet_1_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "電球攻擊",
+    "Name": "TM_Prophet_2_Name",
     "SkillID": "Prophet_2",
     "NeedLv": 30,
     "Characteristic": true,
@@ -2229,11 +2229,11 @@
     "CircleDistance": 0,
     "Damage": 1.35,
     "AdditionMode": "MageATK",
-    "Intro": "立即施放，對一名敵方目標造成風屬性傷害"
+    "Intro": "TM_Prophet_2_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "洞察",
+    "Name": "TM_Prophet_3_Name",
     "SkillID": "Prophet_3",
     "NeedLv": 30,
     "Characteristic": false,
@@ -2247,11 +2247,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "提升自身魔法防禦、迴避值，以及小量魔法攻擊"
+    "Intro": "TM_Prophet_3_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "風之路徑",
+    "Name": "TM_Prophet_4_Name",
     "SkillID": "Prophet_4",
     "NeedLv": 33,
     "Characteristic": true,
@@ -2265,11 +2265,11 @@
     "CircleDistance": 0,
     "Damage": 1.4,
     "AdditionMode": "MageATK",
-    "Intro": "立即施放，對指定方向的路徑最多三名敵人造成風屬性傷害，並留下痕跡，路過的友軍在痕跡上增加移動速度"
+    "Intro": "TM_Prophet_4_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "急救術",
+    "Name": "TM_Prophet_5_Name",
     "SkillID": "Prophet_5",
     "NeedLv": 33,
     "Characteristic": true,
@@ -2283,11 +2283,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "立即施放，回復自身小量生命值"
+    "Intro": "TM_Prophet_5_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "風之祝福",
+    "Name": "TM_Prophet_6_Name",
     "SkillID": "Prophet_6",
     "NeedLv": 33,
     "Characteristic": true,
@@ -2301,11 +2301,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升自己的移動速度，小量提升迴避值"
+    "Intro": "TM_Prophet_6_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "物換星移",
+    "Name": "TM_Prophet_7_Name",
     "SkillID": "Prophet_7",
     "NeedLv": 35,
     "Characteristic": true,
@@ -2319,11 +2319,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使一名敵軍與自身的位置交換，降低自己所受的傷害5秒。"
+    "Intro": "TM_Prophet_7_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "心靈破壞",
+    "Name": "TM_Prophet_8_Name",
     "SkillID": "Prophet_8",
     "NeedLv": 37,
     "Characteristic": true,
@@ -2337,11 +2337,11 @@
     "CircleDistance": 0,
     "Damage": 1.65,
     "AdditionMode": "MageATK",
-    "Intro": "對一名敵軍造成大量無屬性魔法傷害，降低其攻擊力、魔法攻擊力3秒。"
+    "Intro": "TM_Prophet_8_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "心靈感知",
+    "Name": "TM_Prophet_9_Name",
     "SkillID": "Prophet_9",
     "NeedLv": 38,
     "Characteristic": true,
@@ -2355,11 +2355,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "60秒內，賦予一個隊友增益效果，在持續效果內，若隊友受到重傷(一個傷害量大於其最大生命值50%的傷害)，位移到自身旁。"
+    "Intro": "TM_Prophet_9_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "來自未來",
+    "Name": "TM_Prophet_10_Name",
     "SkillID": "Prophet_10",
     "NeedLv": 40,
     "Characteristic": true,
@@ -2373,11 +2373,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，若受到傷害有15%機率直接迴避掉，造成的傷害有15%機率必命中。"
+    "Intro": "TM_Prophet_10_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "心靈尖嘯",
+    "Name": "TM_Prophet_11_Name",
     "SkillID": "Prophet_11",
     "NeedLv": 42,
     "Characteristic": true,
@@ -2391,11 +2391,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "沉默一名敵軍3秒，並使其攻擊速度，移動速度降低5秒。"
+    "Intro": "TM_Prophet_11_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "精通任何法杖",
+    "Name": "TM_Prophet_12_Name",
     "SkillID": "Prophet_12",
     "NeedLv": 30,
     "Characteristic": false,
@@ -2409,11 +2409,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備短法杖時，增加魔法攻擊力並提升移動速度，裝備長法杖時，增加魔法攻擊力並提升迴避值"
+    "Intro": "TM_Prophet_12_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "心靈毀滅",
+    "Name": "TM_Prophet_13_Name",
     "SkillID": "Prophet_13",
     "NeedLv": 40,
     "Characteristic": true,
@@ -2427,11 +2427,11 @@
     "CircleDistance": 0,
     "Damage": 1.45,
     "AdditionMode": "MageATK",
-    "Intro": "對一名敵軍造成無屬性傷害，並在3秒內使其持續性受到小量無屬性傷害"
+    "Intro": "TM_Prophet_13_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "心靈操縱",
+    "Name": "TM_Prophet_14_Name",
     "SkillID": "Prophet_14",
     "NeedLv": 43,
     "Characteristic": true,
@@ -2445,11 +2445,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MageATK",
-    "Intro": "對一名敵軍造成小量無屬性傷害，並使其致盲3秒，持續時間內對方只看的見自己"
+    "Intro": "TM_Prophet_14_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "心靈入侵",
+    "Name": "TM_Prophet_15_Name",
     "SkillID": "Prophet_15",
     "NeedLv": 45,
     "Characteristic": true,
@@ -2463,11 +2463,11 @@
     "CircleDistance": 4,
     "Damage": 1.55,
     "AdditionMode": "MageATK",
-    "Intro": "對指定範圍內敵軍造成持續性無屬性傷害，區域持續5秒。"
+    "Intro": "TM_Prophet_15_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "未來炸彈",
+    "Name": "TM_Prophet_16_Name",
     "SkillID": "Prophet_16",
     "NeedLv": 47,
     "Characteristic": true,
@@ -2481,11 +2481,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "對一名敵軍施放一個負面狀態，接下來3秒內承受的傷害累積，3秒後造成35%印記傷害"
+    "Intro": "TM_Prophet_16_Intro"
   },
   {
     "Job": "Prophet",
-    "Name": "星塵暴",
+    "Name": "TM_Prophet_17_Name",
     "SkillID": "Prophet_17",
     "NeedLv": 48,
     "Characteristic": true,
@@ -2499,11 +2499,11 @@
     "CircleDistance": 0,
     "Damage": 2.3,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱5秒，吟唱結束對周圍敵軍最多五名，造成極大量的無屬性傷害。"
+    "Intro": "TM_Prophet_17_Intro"
   },
   {
     "Job": "Archer",
-    "Name": "射箭術",
+    "Name": "TM_Archer_1_Name",
     "SkillID": "Archer_1",
     "NeedLv": 1,
     "Characteristic": true,
@@ -2517,11 +2517,11 @@
     "CircleDistance": 0,
     "Damage": 1.13,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成物理傷害(消耗1支箭)"
+    "Intro": "TM_Archer_1_Intro"
   },
   {
     "Job": "Archer",
-    "Name": "連續射擊",
+    "Name": "TM_Archer_2_Name",
     "SkillID": "Archer_2",
     "NeedLv": 2,
     "Characteristic": true,
@@ -2535,11 +2535,11 @@
     "CircleDistance": 0,
     "Damage": 1.15,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成三次物理傷害(消耗3支箭)"
+    "Intro": "TM_Archer_2_Intro"
   },
   {
     "Job": "Archer",
-    "Name": "三箭齊發",
+    "Name": "TM_Archer_3_Name",
     "SkillID": "Archer_3",
     "NeedLv": 5,
     "Characteristic": true,
@@ -2553,11 +2553,11 @@
     "CircleDistance": 0,
     "Damage": 1.18,
     "AdditionMode": "RemoteATK",
-    "Intro": "對指定方向扇形區域內敵方目標造成物理傷害，最多三名(消耗3支箭)"
+    "Intro": "TM_Archer_3_Intro"
   },
   {
     "Job": "Archer",
-    "Name": "與弓隨行",
+    "Name": "TM_Archer_4_Name",
     "SkillID": "Archer_4",
     "NeedLv": 1,
     "Characteristic": false,
@@ -2571,11 +2571,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備弓時，些微提升攻擊力、命中值"
+    "Intro": "TM_Archer_4_Intro"
   },
   {
     "Job": "Archer",
-    "Name": "輕便的衣服",
+    "Name": "TM_Archer_5_Name",
     "SkillID": "Archer_5",
     "NeedLv": 1,
     "Characteristic": false,
@@ -2589,11 +2589,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，些微提升防禦力、迴避值"
+    "Intro": "TM_Archer_5_Intro"
   },
   {
     "Job": "Shooter",
-    "Name": "長遠射擊",
+    "Name": "TM_Shooter_1_Name",
     "SkillID": "Shooter_1",
     "NeedLv": 10,
     "Characteristic": false,
@@ -2607,11 +2607,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "攻擊範圍增加"
+    "Intro": "TM_Shooter_1_Intro"
   },
   {
     "Job": "Shooter",
-    "Name": "精準的射箭術",
+    "Name": "TM_Shooter_2_Name",
     "SkillID": "Shooter_2",
     "NeedLv": 10,
     "Characteristic": true,
@@ -2625,11 +2625,11 @@
     "CircleDistance": 0,
     "Damage": 1.25,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成比較高的物理傷害(消耗1支箭)"
+    "Intro": "TM_Shooter_2_Intro"
   },
   {
     "Job": "Shooter",
-    "Name": "迅速的連續射擊",
+    "Name": "TM_Shooter_3_Name",
     "SkillID": "Shooter_3",
     "NeedLv": 11,
     "Characteristic": true,
@@ -2643,11 +2643,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成三次物理傷害，攻擊動畫更迅速、並在執行此技能時可以同時移動(消耗3支箭)"
+    "Intro": "TM_Shooter_3_Intro"
   },
   {
     "Job": "Shooter",
-    "Name": "貫穿箭",
+    "Name": "TM_Shooter_4_Name",
     "SkillID": "Shooter_4",
     "NeedLv": 13,
     "Characteristic": true,
@@ -2661,11 +2661,11 @@
     "CircleDistance": 0,
     "Damage": 1.38,
     "AdditionMode": "RemoteATK",
-    "Intro": "對前方路徑射出箭，路徑上的敵人受到物理傷害並擊退到最遠處，最多三名(僅限使用弩)(消耗3支箭)"
+    "Intro": "TM_Shooter_4_Intro"
   },
   {
     "Job": "Shooter",
-    "Name": "漂亮的三箭齊發",
+    "Name": "TM_Shooter_5_Name",
     "SkillID": "Shooter_5",
     "NeedLv": 13,
     "Characteristic": true,
@@ -2679,11 +2679,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "RemoteATK",
-    "Intro": "對指定方向扇形區域內敵方目標造成物理傷害，高機率造成暴擊，最多三名(僅限使用弓)(消耗3支箭)"
+    "Intro": "TM_Shooter_5_Intro"
   },
   {
     "Job": "Shooter",
-    "Name": "精神力集中",
+    "Name": "TM_Shooter_6_Name",
     "SkillID": "Shooter_6",
     "NeedLv": 15,
     "Characteristic": true,
@@ -2697,11 +2697,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升自身的命中值、些微提升暴擊率"
+    "Intro": "TM_Shooter_6_Intro"
   },
   {
     "Job": "Shooter",
-    "Name": "瞄準狙擊",
+    "Name": "TM_Shooter_7_Name",
     "SkillID": "Shooter_7",
     "NeedLv": 12,
     "Characteristic": true,
@@ -2715,11 +2715,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成高傷害的物理傷害，並附帶1.5秒暈眩(僅限使用弩)(消耗3支箭)"
+    "Intro": "TM_Shooter_7_Intro"
   },
   {
     "Job": "Shooter",
-    "Name": "精通長弓",
+    "Name": "TM_Shooter_8_Name",
     "SkillID": "Shooter_8",
     "NeedLv": 10,
     "Characteristic": false,
@@ -2733,11 +2733,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備弓時，提升攻擊力、命中值"
+    "Intro": "TM_Shooter_8_Intro"
   },
   {
     "Job": "Shooter",
-    "Name": "精通重弩",
+    "Name": "TM_Shooter_9_Name",
     "SkillID": "Shooter_9",
     "NeedLv": 10,
     "Characteristic": false,
@@ -2751,11 +2751,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備弩時，提升攻擊力，任何命中的攻擊都會使目標些微的擊退，但會大幅下降攻速"
+    "Intro": "TM_Shooter_9_Intro"
   },
   {
     "Job": "Shooter",
-    "Name": "熟練皮甲行動",
+    "Name": "TM_Shooter_10_Name",
     "SkillID": "Shooter_10",
     "NeedLv": 10,
     "Characteristic": false,
@@ -2769,11 +2769,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力、迴避值，些微提升移動速度"
+    "Intro": "TM_Shooter_10_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "信仰法則",
+    "Name": "TM_Hunter_1_Name",
     "SkillID": "Hunter_1",
     "NeedLv": 10,
     "Characteristic": false,
@@ -2787,11 +2787,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "可以選擇一項信仰技能作使用，並獲得其效果"
+    "Intro": "TM_Hunter_1_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "獵豹信仰",
+    "Name": "TM_Hunter_2_Name",
     "SkillID": "Hunter_2",
     "NeedLv": 13,
     "Characteristic": true,
@@ -2805,11 +2805,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "獲得移動速度、命中值。"
+    "Intro": "TM_Hunter_2_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "精準的射箭術",
+    "Name": "TM_Hunter_3_Name",
     "SkillID": "Hunter_3",
     "NeedLv": 10,
     "Characteristic": true,
@@ -2823,11 +2823,11 @@
     "CircleDistance": 0,
     "Damage": 1.2,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成比較高的物理傷害(消耗1支箭)"
+    "Intro": "TM_Hunter_3_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "狒狒信仰",
+    "Name": "TM_Hunter_4_Name",
     "SkillID": "Hunter_4",
     "NeedLv": 10,
     "Characteristic": true,
@@ -2841,11 +2841,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "獲得攻擊速度、攻擊力。"
+    "Intro": "TM_Hunter_4_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "絆腳陷阱",
+    "Name": "TM_Hunter_5_Name",
     "SkillID": "Hunter_5",
     "NeedLv": 10,
     "Characteristic": true,
@@ -2859,11 +2859,11 @@
     "CircleDistance": 3,
     "Damage": 1.35,
     "AdditionMode": "RemoteATK",
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到物理傷害，並緩速3秒"
+    "Intro": "TM_Hunter_5_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "捕獸夾陷阱",
+    "Name": "TM_Hunter_6_Name",
     "SkillID": "Hunter_6",
     "NeedLv": 13,
     "Characteristic": true,
@@ -2877,11 +2877,11 @@
     "CircleDistance": 3,
     "Damage": 1.35,
     "AdditionMode": "RemoteATK",
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到物理傷害，並禁錮持續1.5秒"
+    "Intro": "TM_Hunter_6_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "爆裂陷阱",
+    "Name": "TM_Hunter_7_Name",
     "SkillID": "Hunter_7",
     "NeedLv": 18,
     "Characteristic": true,
@@ -2895,11 +2895,11 @@
     "CircleDistance": 3,
     "Damage": 1.28,
     "AdditionMode": "RemoteATK",
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到範圍的火焰傷害。"
+    "Intro": "TM_Hunter_7_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "雄鷹信仰",
+    "Name": "TM_Hunter_8_Name",
     "SkillID": "Hunter_8",
     "NeedLv": 18,
     "Characteristic": true,
@@ -2913,11 +2913,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "獲得較遠的攻擊範圍，暴擊率"
+    "Intro": "TM_Hunter_8_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "地鼠信仰",
+    "Name": "TM_Hunter_9_Name",
     "SkillID": "Hunter_9",
     "NeedLv": 20,
     "Characteristic": true,
@@ -2931,11 +2931,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "安裝陷阱的時間縮短"
+    "Intro": "TM_Hunter_9_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "毒蛇信仰",
+    "Name": "TM_Hunter_10_Name",
     "SkillID": "Hunter_10",
     "NeedLv": 23,
     "Characteristic": true,
@@ -2949,11 +2949,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "任何物理攻擊有15%機率附帶中毒"
+    "Intro": "TM_Hunter_10_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "掉落陷阱",
+    "Name": "TM_Hunter_11_Name",
     "SkillID": "Hunter_11",
     "NeedLv": 23,
     "Characteristic": true,
@@ -2967,11 +2967,11 @@
     "CircleDistance": 3,
     "Damage": 1.35,
     "AdditionMode": "RemoteATK",
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到物理傷害，並壓制持續1.5秒"
+    "Intro": "TM_Hunter_11_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "熟練與弓隨行",
+    "Name": "TM_Hunter_12_Name",
     "SkillID": "Hunter_12",
     "NeedLv": 10,
     "Characteristic": false,
@@ -2985,11 +2985,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備弓時，小量提升攻擊力、命中值"
+    "Intro": "TM_Hunter_12_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "熟練皮甲",
+    "Name": "TM_Hunter_13_Name",
     "SkillID": "Hunter_13",
     "NeedLv": 10,
     "Characteristic": false,
@@ -3003,11 +3003,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，小量提升防禦力、迴避值"
+    "Intro": "TM_Hunter_13_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "陷阱安裝技術",
+    "Name": "TM_Hunter_14_Name",
     "SkillID": "Hunter_14",
     "NeedLv": 10,
     "Characteristic": false,
@@ -3021,11 +3021,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "可以安裝持有的陷阱，最多安裝10個"
+    "Intro": "TM_Hunter_14_Intro"
   },
   {
     "Job": "Hunter",
-    "Name": "陷阱拆除技術",
+    "Name": "TM_Hunter_15_Name",
     "SkillID": "Hunter_15",
     "NeedLv": 10,
     "Characteristic": true,
@@ -3039,11 +3039,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "拆除自己安裝並未觸發的陷阱"
+    "Intro": "TM_Hunter_15_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "精準彈道",
+    "Name": "TM_Marksman_1_Name",
     "SkillID": "Marksman_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -3057,11 +3057,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "攻擊範圍大幅提升，並增加暴擊率"
+    "Intro": "TM_Marksman_1_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "虛無的射箭術",
+    "Name": "TM_Marksman_2_Name",
     "SkillID": "Marksman_2",
     "NeedLv": 30,
     "Characteristic": true,
@@ -3075,11 +3075,11 @@
     "CircleDistance": 0,
     "Damage": 1.45,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成高傷害的物理傷害，此攻擊無法被迴避。(消耗1支箭)"
+    "Intro": "TM_Marksman_2_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "暴風雨般的連續射擊",
+    "Name": "TM_Marksman_3_Name",
     "SkillID": "Marksman_3",
     "NeedLv": 31,
     "Characteristic": true,
@@ -3093,11 +3093,11 @@
     "CircleDistance": 0,
     "Damage": 1.58,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成五次物理傷害，攻擊動畫更迅速，並在執行此技能時可以同時移動(消耗5支箭)"
+    "Intro": "TM_Marksman_3_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "爆裂箭矢",
+    "Name": "TM_Marksman_4_Name",
     "SkillID": "Marksman_4",
     "NeedLv": 33,
     "Characteristic": true,
@@ -3111,11 +3111,11 @@
     "CircleDistance": 0,
     "Damage": 1.66,
     "AdditionMode": "RemoteATK",
-    "Intro": "對前方路徑射出箭，路徑上的敵人受到物理傷害並擊退到最遠處，最多五名，最遠處時造成爆炸傷害(僅限使用弩)(消耗5支箭)"
+    "Intro": "TM_Marksman_4_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "箭雨",
+    "Name": "TM_Marksman_5_Name",
     "SkillID": "Marksman_5",
     "NeedLv": 33,
     "Characteristic": true,
@@ -3129,11 +3129,11 @@
     "CircleDistance": 5,
     "Damage": 1.62,
     "AdditionMode": "RemoteATK",
-    "Intro": "對指定區域射出大批的箭矢，造成持續物理傷害，持續5秒，附帶緩速，最多五名(僅限使用弓)(消耗10支箭)"
+    "Intro": "TM_Marksman_5_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "專注射擊",
+    "Name": "TM_Marksman_6_Name",
     "SkillID": "Marksman_6",
     "NeedLv": 35,
     "Characteristic": true,
@@ -3147,11 +3147,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升自身的命中值、暴擊率"
+    "Intro": "TM_Marksman_6_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "高火力狙擊",
+    "Name": "TM_Marksman_7_Name",
     "SkillID": "Marksman_7",
     "NeedLv": 31,
     "Characteristic": true,
@@ -3165,11 +3165,11 @@
     "CircleDistance": 0,
     "Damage": 1.72,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成極高傷害的物理傷害，並附帶2秒暈眩(僅限使用弩)(消耗5支箭)"
+    "Intro": "TM_Marksman_7_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "駕馭長弓之人",
+    "Name": "TM_Marksman_8_Name",
     "SkillID": "Marksman_8",
     "NeedLv": 30,
     "Characteristic": false,
@@ -3183,11 +3183,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備長弓時，更高的提升攻擊力、命中值"
+    "Intro": "TM_Marksman_8_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "駕馭重弩之人",
+    "Name": "TM_Marksman_9_Name",
     "SkillID": "Marksman_9",
     "NeedLv": 30,
     "Characteristic": false,
@@ -3201,11 +3201,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備弩時，更高的提升攻擊力，任何命中的攻擊都會使目標些微的擊退，但會大幅下降攻速"
+    "Intro": "TM_Marksman_9_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "精通皮甲行動",
+    "Name": "TM_Marksman_10_Name",
     "SkillID": "Marksman_10",
     "NeedLv": 30,
     "Characteristic": false,
@@ -3219,11 +3219,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力，大幅度提升迴避值，些微提升移動速度"
+    "Intro": "TM_Marksman_10_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "破甲箭",
+    "Name": "TM_Marksman_11_Name",
     "SkillID": "Marksman_11",
     "NeedLv": 35,
     "Characteristic": true,
@@ -3237,11 +3237,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，裝備弩進行攻擊命中時，會降低對方防禦值3%，最多疊加5次，此負面狀態持續5秒。"
+    "Intro": "TM_Marksman_11_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "弱點破擊",
+    "Name": "TM_Marksman_12_Name",
     "SkillID": "Marksman_12",
     "NeedLv": 38,
     "Characteristic": true,
@@ -3255,11 +3255,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，命中的攻擊有機率使對方降低物理暴擊抵抗30%，此負面狀態持續10秒"
+    "Intro": "TM_Marksman_12_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "屏氣凝神",
+    "Name": "TM_Marksman_13_Name",
     "SkillID": "Marksman_13",
     "NeedLv": 38,
     "Characteristic": true,
@@ -3273,11 +3273,11 @@
     "CircleDistance": 0,
     "Damage": 1.75,
     "AdditionMode": "RemoteATK",
-    "Intro": "吟唱1秒，對一名敵方目標造成極高傷害的物理傷害，此傷害無視目標20%的防禦力。(僅限使用弓)(消耗20支箭)"
+    "Intro": "TM_Marksman_13_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "逃脫射擊",
+    "Name": "TM_Marksman_14_Name",
     "SkillID": "Marksman_14",
     "NeedLv": 40,
     "Characteristic": true,
@@ -3291,11 +3291,11 @@
     "CircleDistance": 0,
     "Damage": 1.35,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成物理傷害，並根據自身與對方的距離向後位移，雙方距離越遠位移的距離越大(消耗10支箭)"
+    "Intro": "TM_Marksman_14_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "弓弩交錯",
+    "Name": "TM_Marksman_15_Name",
     "SkillID": "Marksman_15",
     "NeedLv": 42,
     "Characteristic": false,
@@ -3309,11 +3309,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "切換使用弓及弩時增加切換的動畫速度，切換弓時第一發傷害附帶小量傷害，切換弩時第一發傷害必定暴擊"
+    "Intro": "TM_Marksman_15_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "纏繞箭矢",
+    "Name": "TM_Marksman_16_Name",
     "SkillID": "Marksman_16",
     "NeedLv": 44,
     "Characteristic": true,
@@ -3327,11 +3327,11 @@
     "CircleDistance": 0,
     "Damage": 1.8,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成物理傷害，並禁錮2秒，禁錮期間目標無法接受任何來自其友軍的位移。(消耗25支箭)"
+    "Intro": "TM_Marksman_16_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "武力鎮壓",
+    "Name": "TM_Marksman_17_Name",
     "SkillID": "Marksman_17",
     "NeedLv": 44,
     "Characteristic": true,
@@ -3345,11 +3345,11 @@
     "CircleDistance": 0,
     "Damage": 1.82,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成大量物理傷害，並降低其攻擊力30%，持續2秒(消耗20支箭)"
+    "Intro": "TM_Marksman_17_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "箭神壓迫力",
+    "Name": "TM_Marksman_18_Name",
     "SkillID": "Marksman_18",
     "NeedLv": 48,
     "Characteristic": true,
@@ -3363,11 +3363,11 @@
     "CircleDistance": 0,
     "Damage": 2,
     "AdditionMode": "None",
-    "Intro": "對一名敵方目標造成極高的物理傷害，命中時造成目標3秒內無法進行普通攻擊以及使用攻擊技能。(僅限使用弓)(消耗35支箭)"
+    "Intro": "TM_Marksman_18_Intro"
   },
   {
     "Job": "Marksman",
-    "Name": "箭神制裁力",
+    "Name": "TM_Marksman_19_Name",
     "SkillID": "Marksman_19",
     "NeedLv": 48,
     "Characteristic": true,
@@ -3381,11 +3381,11 @@
     "CircleDistance": 0,
     "Damage": 2.2,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造成極高的物理傷害，命中時造成目標3秒內降低50%任何暴擊抵抗以及暴擊傷害減緩，此傷害無視30%防禦、格檔。(僅限使用弩)(消耗35支箭)"
+    "Intro": "TM_Marksman_19_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "虔誠的信仰",
+    "Name": "TM_Chaser_1_Name",
     "SkillID": "Chaser_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -3399,11 +3399,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "可以選擇一項信仰技能作使用，獲得其效果，並且效果在提升30%"
+    "Intro": "TM_Chaser_1_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "獵豹神信仰",
+    "Name": "TM_Chaser_2_Name",
     "SkillID": "Chaser_2",
     "NeedLv": 33,
     "Characteristic": true,
@@ -3417,11 +3417,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "獲得移動速度、命中值。"
+    "Intro": "TM_Chaser_2_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "完美的射箭術",
+    "Name": "TM_Chaser_3_Name",
     "SkillID": "Chaser_3",
     "NeedLv": 30,
     "Characteristic": true,
@@ -3435,11 +3435,11 @@
     "CircleDistance": 0,
     "Damage": 1.33,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造更高的物理傷害(消耗1支箭)"
+    "Intro": "TM_Chaser_3_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "狒狒王信仰",
+    "Name": "TM_Chaser_4_Name",
     "SkillID": "Chaser_4",
     "NeedLv": 30,
     "Characteristic": true,
@@ -3453,11 +3453,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "獲得攻擊速度、攻擊力。"
+    "Intro": "TM_Chaser_4_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "陰險的絆腳陷阱",
+    "Name": "TM_Chaser_5_Name",
     "SkillID": "Chaser_5",
     "NeedLv": 30,
     "Characteristic": true,
@@ -3471,11 +3471,11 @@
     "CircleDistance": 3,
     "Damage": 1.55,
     "AdditionMode": "RemoteATK",
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並緩速3秒"
+    "Intro": "TM_Chaser_5_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "痛苦的捕獸夾陷阱",
+    "Name": "TM_Chaser_6_Name",
     "SkillID": "Chaser_6",
     "NeedLv": 33,
     "Characteristic": true,
@@ -3489,11 +3489,11 @@
     "CircleDistance": 3,
     "Damage": 1.55,
     "AdditionMode": "RemoteATK",
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並禁錮持續2秒"
+    "Intro": "TM_Chaser_6_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "藝術的爆裂陷阱",
+    "Name": "TM_Chaser_7_Name",
     "SkillID": "Chaser_7",
     "NeedLv": 35,
     "Characteristic": true,
@@ -3507,11 +3507,11 @@
     "CircleDistance": 3,
     "Damage": 1.4,
     "AdditionMode": "RemoteATK",
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到大範圍的火焰傷害，15%機率造成灼傷。"
+    "Intro": "TM_Chaser_7_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "大雄鷹信仰",
+    "Name": "TM_Chaser_8_Name",
     "SkillID": "Chaser_8",
     "NeedLv": 35,
     "Characteristic": true,
@@ -3525,11 +3525,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "獲得較遠的攻擊範圍，暴擊率"
+    "Intro": "TM_Chaser_8_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "地鼠主信仰",
+    "Name": "TM_Chaser_9_Name",
     "SkillID": "Chaser_9",
     "NeedLv": 38,
     "Characteristic": true,
@@ -3543,11 +3543,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "安裝陷阱的時間縮短"
+    "Intro": "TM_Chaser_9_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "毒蛇魔信仰",
+    "Name": "TM_Chaser_10_Name",
     "SkillID": "Chaser_10",
     "NeedLv": 40,
     "Characteristic": true,
@@ -3561,11 +3561,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "任何物理攻擊有15%機率附帶中毒"
+    "Intro": "TM_Chaser_10_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "恐懼的掉落陷阱",
+    "Name": "TM_Chaser_11_Name",
     "SkillID": "Chaser_11",
     "NeedLv": 40,
     "Characteristic": true,
@@ -3579,11 +3579,11 @@
     "CircleDistance": 3,
     "Damage": 1.58,
     "AdditionMode": "RemoteATK",
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並壓制持續1.5秒"
+    "Intro": "TM_Chaser_11_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "煙霧陷阱",
+    "Name": "TM_Chaser_12_Name",
     "SkillID": "Chaser_12",
     "NeedLv": 42,
     "Characteristic": true,
@@ -3597,11 +3597,11 @@
     "CircleDistance": 3,
     "Damage": 1.58,
     "AdditionMode": "RemoteATK",
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有友軍觸發，施放煙霧，降低在煙霧中友軍受到的攻擊命中率"
+    "Intro": "TM_Chaser_12_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "劇毒陷阱",
+    "Name": "TM_Chaser_13_Name",
     "SkillID": "Chaser_13",
     "NeedLv": 42,
     "Characteristic": true,
@@ -3615,11 +3615,11 @@
     "CircleDistance": 3,
     "Damage": 1.58,
     "AdditionMode": "RemoteATK",
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並提升接下來受到的中毒傷害3秒。"
+    "Intro": "TM_Chaser_13_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "連鎖反應",
+    "Name": "TM_Chaser_14_Name",
     "SkillID": "Chaser_14",
     "NeedLv": 44,
     "Characteristic": true,
@@ -3633,11 +3633,11 @@
     "CircleDistance": 6,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "賦予一個陷阱，若其被觸發，在一定範圍內的所有陷阱跟著觸發。"
+    "Intro": "TM_Chaser_14_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "山豬神信仰",
+    "Name": "TM_Chaser_15_Name",
     "SkillID": "Chaser_15",
     "NeedLv": 44,
     "Characteristic": true,
@@ -3651,11 +3651,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "獲得最大生命加成、生命回復量增加"
+    "Intro": "TM_Chaser_15_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "犯罪陷阱",
+    "Name": "TM_Chaser_16_Name",
     "SkillID": "Chaser_16",
     "NeedLv": 46,
     "Characteristic": true,
@@ -3669,11 +3669,11 @@
     "CircleDistance": 3,
     "Damage": 1.63,
     "AdditionMode": "RemoteATK",
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並降低其防禦力15%持續3秒。"
+    "Intro": "TM_Chaser_16_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "虎山靈信仰",
+    "Name": "TM_Chaser_17_Name",
     "SkillID": "Chaser_17",
     "NeedLv": 46,
     "Characteristic": true,
@@ -3687,11 +3687,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "提高迴避值、周圍友軍也會獲得你啟動的信仰技能的增益狀態"
+    "Intro": "TM_Chaser_17_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "完美的信仰者",
+    "Name": "TM_Chaser_18_Name",
     "SkillID": "Chaser_18",
     "NeedLv": 48,
     "Characteristic": false,
@@ -3705,11 +3705,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "獲得所有信仰的增益效果"
+    "Intro": "TM_Chaser_18_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "與弓隨行",
+    "Name": "TM_Chaser_19_Name",
     "SkillID": "Chaser_19",
     "NeedLv": 30,
     "Characteristic": false,
@@ -3723,11 +3723,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備弓時，提升攻擊力、命中值"
+    "Intro": "TM_Chaser_19_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "精通皮甲",
+    "Name": "TM_Chaser_20_Name",
     "SkillID": "Chaser_20",
     "NeedLv": 30,
     "Characteristic": false,
@@ -3741,11 +3741,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力、迴避值"
+    "Intro": "TM_Chaser_20_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "高深的陷阱安裝技術",
+    "Name": "TM_Chaser_21_Name",
     "SkillID": "Chaser_21",
     "NeedLv": 30,
     "Characteristic": false,
@@ -3759,11 +3759,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "可以安裝持有的陷阱，最多安裝20個"
+    "Intro": "TM_Chaser_21_Intro"
   },
   {
     "Job": "Chaser",
-    "Name": "陷阱拆除技術",
+    "Name": "TM_Chaser_22_Name",
     "SkillID": "Chaser_22",
     "NeedLv": 30,
     "Characteristic": true,
@@ -3777,11 +3777,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "拆除自己安裝並未觸發的陷阱"
+    "Intro": "TM_Chaser_22_Intro"
   },
   {
     "Job": "Rogue",
-    "Name": "突刺",
+    "Name": "TM_Rogue_1_Name",
     "SkillID": "Rogue_1",
     "NeedLv": 1,
     "Characteristic": true,
@@ -3795,11 +3795,11 @@
     "CircleDistance": 0,
     "Damage": 1.18,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標使用突刺"
+    "Intro": "TM_Rogue_1_Intro"
   },
   {
     "Job": "Rogue",
-    "Name": "背刺",
+    "Name": "TM_Rogue_2_Name",
     "SkillID": "Rogue_2",
     "NeedLv": 3,
     "Characteristic": true,
@@ -3813,11 +3813,11 @@
     "CircleDistance": 0,
     "Damage": 1.25,
     "AdditionMode": "MeleeATK",
-    "Intro": "升級突刺，對一個敵對目標從背後使用突刺的話會有較高傷害"
+    "Intro": "TM_Rogue_2_Intro"
   },
   {
     "Job": "Rogue",
-    "Name": "暴擊之刺",
+    "Name": "TM_Rogue_3_Name",
     "SkillID": "Rogue_3",
     "NeedLv": 5,
     "Characteristic": false,
@@ -3831,11 +3831,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用突刺時有機率造成更高傷害，若是觸發背刺必定造成更高傷害"
+    "Intro": "TM_Rogue_3_Intro"
   },
   {
     "Job": "Rogue",
-    "Name": "熟練匕首",
+    "Name": "TM_Rogue_4_Name",
     "SkillID": "Rogue_4",
     "NeedLv": 3,
     "Characteristic": false,
@@ -3849,11 +3849,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備匕首時，稍微提升攻擊力"
+    "Intro": "TM_Rogue_4_Intro"
   },
   {
     "Job": "Rogue",
-    "Name": "熟練皮甲",
+    "Name": "TM_Rogue_5_Name",
     "SkillID": "Rogue_5",
     "NeedLv": 4,
     "Characteristic": false,
@@ -3867,11 +3867,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，稍微提升防禦力，提升迴避值"
+    "Intro": "TM_Rogue_5_Intro"
   },
   {
     "Job": "Ranger",
-    "Name": "精通單手劍",
+    "Name": "TM_Ranger_1_Name",
     "SkillID": "Ranger_1",
     "NeedLv": 10,
     "Characteristic": false,
@@ -3885,11 +3885,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備單手劍時提升攻擊力，裝備第二把時獲得其一半的攻擊力"
+    "Intro": "TM_Ranger_1_Intro"
   },
   {
     "Job": "Ranger",
-    "Name": "精通皮甲",
+    "Name": "TM_Ranger_2_Name",
     "SkillID": "Ranger_2",
     "NeedLv": 10,
     "Characteristic": false,
@@ -3903,11 +3903,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力、迴避值"
+    "Intro": "TM_Ranger_2_Intro"
   },
   {
     "Job": "Ranger",
-    "Name": "半月斬",
+    "Name": "TM_Ranger_3_Name",
     "SkillID": "Ranger_3",
     "NeedLv": 10,
     "Characteristic": true,
@@ -3921,11 +3921,11 @@
     "CircleDistance": 0,
     "Damage": 1.35,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標造成物理傷害"
+    "Intro": "TM_Ranger_3_Intro"
   },
   {
     "Job": "Ranger",
-    "Name": "翻身斬",
+    "Name": "TM_Ranger_4_Name",
     "SkillID": "Ranger_4",
     "NeedLv": 12,
     "Characteristic": true,
@@ -3939,11 +3939,11 @@
     "CircleDistance": 0,
     "Damage": 1.46,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標造成兩次物理傷害，並在3秒內提升自己的迴避值"
+    "Intro": "TM_Ranger_4_Intro"
   },
   {
     "Job": "Ranger",
-    "Name": "圓月斬",
+    "Name": "TM_Ranger_5_Name",
     "SkillID": "Ranger_5",
     "NeedLv": 15,
     "Characteristic": true,
@@ -3957,11 +3957,11 @@
     "CircleDistance": 0,
     "Damage": 1.26,
     "AdditionMode": "MeleeATK",
-    "Intro": "對周圍敵對目標造成物理傷害，最多三名"
+    "Intro": "TM_Ranger_5_Intro"
   },
   {
     "Job": "Ranger",
-    "Name": "劍舞",
+    "Name": "TM_Ranger_6_Name",
     "SkillID": "Ranger_6",
     "NeedLv": 15,
     "Characteristic": true,
@@ -3975,11 +3975,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升攻擊力、命中"
+    "Intro": "TM_Ranger_6_Intro"
   },
   {
     "Job": "Ranger",
-    "Name": "雙劍和壁",
+    "Name": "TM_Ranger_7_Name",
     "SkillID": "Ranger_7",
     "NeedLv": 15,
     "Characteristic": false,
@@ -3993,11 +3993,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備兩把單手劍時，有機率格檔傷害"
+    "Intro": "TM_Ranger_7_Intro"
   },
   {
     "Job": "Ranger",
-    "Name": "螺旋斬",
+    "Name": "TM_Ranger_8_Name",
     "SkillID": "Ranger_8",
     "NeedLv": 18,
     "Characteristic": true,
@@ -4011,11 +4011,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MeleeATK",
-    "Intro": "對前方路徑敵人造成物理傷害，最多三名，並位移到最遠距離。"
+    "Intro": "TM_Ranger_8_Intro"
   },
   {
     "Job": "Ranger",
-    "Name": "雙劍劈斬",
+    "Name": "TM_Ranger_9_Name",
     "SkillID": "Ranger_9",
     "NeedLv": 23,
     "Characteristic": true,
@@ -4029,11 +4029,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一名敵對目標造成物理傷害，最多五次。"
+    "Intro": "TM_Ranger_9_Intro"
   },
   {
     "Job": "Thieves",
-    "Name": "精通輕武器",
+    "Name": "TM_Thieves_1_Name",
     "SkillID": "Thieves_1",
     "NeedLv": 10,
     "Characteristic": false,
@@ -4047,11 +4047,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備匕首或小刀時，提升攻擊力，稍微提升暴擊率"
+    "Intro": "TM_Thieves_1_Intro"
   },
   {
     "Job": "Thieves",
-    "Name": "精通皮甲",
+    "Name": "TM_Thieves_2_Name",
     "SkillID": "Thieves_2",
     "NeedLv": 10,
     "Characteristic": false,
@@ -4065,11 +4065,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力、迴避值"
+    "Intro": "TM_Thieves_2_Intro"
   },
   {
     "Job": "Thieves",
-    "Name": "無情背刺",
+    "Name": "TM_Thieves_3_Name",
     "SkillID": "Thieves_3",
     "NeedLv": 10,
     "Characteristic": true,
@@ -4083,11 +4083,11 @@
     "CircleDistance": 0,
     "Damage": 1.4,
     "AdditionMode": "MeleeATK",
-    "Intro": "位移到一個敵人背後，造成物理傷害。"
+    "Intro": "TM_Thieves_3_Intro"
   },
   {
     "Job": "Thieves",
-    "Name": "盜賊之道",
+    "Name": "TM_Thieves_4_Name",
     "SkillID": "Thieves_4",
     "NeedLv": 12,
     "Characteristic": true,
@@ -4101,11 +4101,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升暴擊率、攻擊力"
+    "Intro": "TM_Thieves_4_Intro"
   },
   {
     "Job": "Thieves",
-    "Name": "要害突刺",
+    "Name": "TM_Thieves_5_Name",
     "SkillID": "Thieves_5",
     "NeedLv": 12,
     "Characteristic": true,
@@ -4119,11 +4119,11 @@
     "CircleDistance": 0,
     "Damage": 1.6,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一名敵方目標造成三次物理傷害。"
+    "Intro": "TM_Thieves_5_Intro"
   },
   {
     "Job": "Thieves",
-    "Name": "要害點破",
+    "Name": "TM_Thieves_6_Name",
     "SkillID": "Thieves_6",
     "NeedLv": 15,
     "Characteristic": false,
@@ -4137,11 +4137,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "任何物理攻擊有15%機率造成出血"
+    "Intro": "TM_Thieves_6_Intro"
   },
   {
     "Job": "Thieves",
-    "Name": "弱點刺擊",
+    "Name": "TM_Thieves_7_Name",
     "SkillID": "Thieves_7",
     "NeedLv": 15,
     "Characteristic": true,
@@ -4155,11 +4155,11 @@
     "CircleDistance": 0,
     "Damage": 1.58,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一名敵方目標造成物理傷害，若對方有任何負面狀態的話傷害再提升"
+    "Intro": "TM_Thieves_7_Intro"
   },
   {
     "Job": "Thieves",
-    "Name": "致命一擊",
+    "Name": "TM_Thieves_8_Name",
     "SkillID": "Thieves_8",
     "NeedLv": 18,
     "Characteristic": true,
@@ -4173,11 +4173,11 @@
     "CircleDistance": 0,
     "Damage": 1.65,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一名敵方目標造成物理傷害，此傷害必定暴擊"
+    "Intro": "TM_Thieves_8_Intro"
   },
   {
     "Job": "Thieves",
-    "Name": "毒藥",
+    "Name": "TM_Thieves_9_Name",
     "SkillID": "Thieves_9",
     "NeedLv": 23,
     "Characteristic": false,
@@ -4191,11 +4191,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "任何物理攻擊有15%機率造成中毒"
+    "Intro": "TM_Thieves_9_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "單手劍之舞",
+    "Name": "TM_Swashbuckler_1_Name",
     "SkillID": "Swashbuckler_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -4209,11 +4209,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備單手劍時提升攻擊力，裝備第二把時獲得其一半的攻擊力，並提升攻擊速度"
+    "Intro": "TM_Swashbuckler_1_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "皮甲的好處",
+    "Name": "TM_Swashbuckler_2_Name",
     "SkillID": "Swashbuckler_2",
     "NeedLv": 30,
     "Characteristic": false,
@@ -4227,11 +4227,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力，大量提升迴避值"
+    "Intro": "TM_Swashbuckler_2_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "完美的半月斬",
+    "Name": "TM_Swashbuckler_3_Name",
     "SkillID": "Swashbuckler_3",
     "NeedLv": 30,
     "Characteristic": true,
@@ -4245,11 +4245,11 @@
     "CircleDistance": 0,
     "Damage": 1.4,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標造成較高的物理傷害"
+    "Intro": "TM_Swashbuckler_3_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "嫻熟的翻身斬",
+    "Name": "TM_Swashbuckler_4_Name",
     "SkillID": "Swashbuckler_4",
     "NeedLv": 32,
     "Characteristic": true,
@@ -4263,11 +4263,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標造成兩次較高的物理傷害，並在3秒內提升自己的迴避值"
+    "Intro": "TM_Swashbuckler_4_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "完美的圓月斬",
+    "Name": "TM_Swashbuckler_5_Name",
     "SkillID": "Swashbuckler_5",
     "NeedLv": 35,
     "Characteristic": true,
@@ -4281,11 +4281,11 @@
     "CircleDistance": 0,
     "Damage": 1.58,
     "AdditionMode": "MeleeATK",
-    "Intro": "對周圍敵對目標造成較高的物理傷害，最多三名"
+    "Intro": "TM_Swashbuckler_5_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "刀光劍舞",
+    "Name": "TM_Swashbuckler_6_Name",
     "SkillID": "Swashbuckler_6",
     "NeedLv": 35,
     "Characteristic": true,
@@ -4299,11 +4299,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，大幅提升攻擊力、命中"
+    "Intro": "TM_Swashbuckler_6_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "雙劍和壁II",
+    "Name": "TM_Swashbuckler_7_Name",
     "SkillID": "Swashbuckler_7",
     "NeedLv": 35,
     "Characteristic": false,
@@ -4317,11 +4317,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備兩把單手劍時，有機率格檔傷害，格檔後有機率造成反擊"
+    "Intro": "TM_Swashbuckler_7_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "輕巧的螺旋斬",
+    "Name": "TM_Swashbuckler_8_Name",
     "SkillID": "Swashbuckler_8",
     "NeedLv": 36,
     "Characteristic": true,
@@ -4335,11 +4335,11 @@
     "CircleDistance": 0,
     "Damage": 1.42,
     "AdditionMode": "MeleeATK",
-    "Intro": "對前方路徑敵人造成較高的物理傷害，最多三名，並位移到最遠距離，並有機率造成致盲。"
+    "Intro": "TM_Swashbuckler_8_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "無情的雙劍劈斬",
+    "Name": "TM_Swashbuckler_9_Name",
     "SkillID": "Swashbuckler_9",
     "NeedLv": 38,
     "Characteristic": true,
@@ -4353,11 +4353,11 @@
     "CircleDistance": 0,
     "Damage": 1.65,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一名敵對目標造成物理傷害，最多五次，每次傷害增加15%。"
+    "Intro": "TM_Swashbuckler_9_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "和諧劍舞",
+    "Name": "TM_Swashbuckler_10_Name",
     "SkillID": "Swashbuckler_10",
     "NeedLv": 38,
     "Characteristic": true,
@@ -4371,11 +4371,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升攻擊速度，並加快攻擊技能的動畫"
+    "Intro": "TM_Swashbuckler_10_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "疾風劍舞",
+    "Name": "TM_Swashbuckler_11_Name",
     "SkillID": "Swashbuckler_11",
     "NeedLv": 38,
     "Characteristic": true,
@@ -4389,11 +4389,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升移動速度、迴避值，並對任何魔法傷害有10%的免疫"
+    "Intro": "TM_Swashbuckler_11_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "連擊",
+    "Name": "TM_Swashbuckler_12_Name",
     "SkillID": "Swashbuckler_12",
     "NeedLv": 40,
     "Characteristic": false,
@@ -4407,11 +4407,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用技能會出現指令，在1.5秒內使用指令出現的技能會增加傷害，並回復上一個使用的技能的1秒冷卻時間"
+    "Intro": "TM_Swashbuckler_12_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "雙刀劍舞",
+    "Name": "TM_Swashbuckler_13_Name",
     "SkillID": "Swashbuckler_13",
     "NeedLv": 42,
     "Characteristic": true,
@@ -4425,11 +4425,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，普通攻擊，技能攻擊有15%機率造成兩倍傷害"
+    "Intro": "TM_Swashbuckler_13_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "烈日斬",
+    "Name": "TM_Swashbuckler_14_Name",
     "SkillID": "Swashbuckler_14",
     "NeedLv": 42,
     "Characteristic": true,
@@ -4443,11 +4443,11 @@
     "CircleDistance": 0,
     "Damage": 1.72,
     "AdditionMode": "MeleeATK",
-    "Intro": "用極快的速度揮出雙手的劍，對一個敵方目標造成物理傷害並附帶小量的火焰傷害。"
+    "Intro": "TM_Swashbuckler_14_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "破虛斬",
+    "Name": "TM_Swashbuckler_15_Name",
     "SkillID": "Swashbuckler_15",
     "NeedLv": 44,
     "Characteristic": true,
@@ -4461,11 +4461,11 @@
     "CircleDistance": 0,
     "Damage": 1.8,
     "AdditionMode": "MeleeATK",
-    "Intro": "用極大的力氣揮出劍，對一個敵方目標造成大量物理傷害，並減少其防禦力25%持續2.5秒"
+    "Intro": "TM_Swashbuckler_15_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "始拓斬",
+    "Name": "TM_Swashbuckler_16_Name",
     "SkillID": "Swashbuckler_16",
     "NeedLv": 45,
     "Characteristic": true,
@@ -4479,11 +4479,11 @@
     "CircleDistance": 0,
     "Damage": 1.93,
     "AdditionMode": "MeleeATK",
-    "Intro": "一手刀背擊中對方的頭，另一手刀砍向對方，造成一名敵方目標物理傷害，並使其暈眩2秒"
+    "Intro": "TM_Swashbuckler_16_Intro"
   },
   {
     "Job": "Swashbuckler",
-    "Name": "阿修羅劍景",
+    "Name": "TM_Swashbuckler_17_Name",
     "SkillID": "Swashbuckler_17",
     "NeedLv": 48,
     "Characteristic": true,
@@ -4497,11 +4497,11 @@
     "CircleDistance": 5,
     "Damage": 2.05,
     "AdditionMode": "MeleeATK",
-    "Intro": "從地上刺出劍圍成一個競技場，將自身與一個敵軍包圍在其中，在競技場持續時間內增加對敵軍的傷害15%，持續10秒，競技場形成時，任何單位無法進入"
+    "Intro": "TM_Swashbuckler_17_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "輕武器支配者",
+    "Name": "TM_Assassin_1_Name",
     "SkillID": "Assassin_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -4515,11 +4515,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備匕首或小刀時，提升攻擊力、暴擊率"
+    "Intro": "TM_Assassin_1_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "皮甲的好處",
+    "Name": "TM_Assassin_2_Name",
     "SkillID": "Assassin_2",
     "NeedLv": 30,
     "Characteristic": false,
@@ -4533,11 +4533,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力，大量提升迴避值"
+    "Intro": "TM_Assassin_2_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "殘酷背刺",
+    "Name": "TM_Assassin_3_Name",
     "SkillID": "Assassin_3",
     "NeedLv": 30,
     "Characteristic": true,
@@ -4551,11 +4551,11 @@
     "CircleDistance": 0,
     "Damage": 1.62,
     "AdditionMode": "MeleeATK",
-    "Intro": "位移到一個敵人背後，造成物理傷害，此傷害必定造成出血"
+    "Intro": "TM_Assassin_3_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "刺客之道",
+    "Name": "TM_Assassin_4_Name",
     "SkillID": "Assassin_4",
     "NeedLv": 32,
     "Characteristic": true,
@@ -4569,11 +4569,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，大量提升暴擊率、攻擊力，隊友任何負面狀態的目標造成額外傷害"
+    "Intro": "TM_Assassin_4_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "殘忍行刑",
+    "Name": "TM_Assassin_5_Name",
     "SkillID": "Assassin_5",
     "NeedLv": 32,
     "Characteristic": true,
@@ -4587,11 +4587,11 @@
     "CircleDistance": 0,
     "Damage": 1.78,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一名敵方目標造成三次物理傷害，並降低目標物理暴擊抵抗，持續3秒。"
+    "Intro": "TM_Assassin_5_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "精準的要害點破",
+    "Name": "TM_Assassin_6_Name",
     "SkillID": "Assassin_6",
     "NeedLv": 35,
     "Characteristic": false,
@@ -4605,11 +4605,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "任何物理攻擊有30%機率造成出血，對出血的敵人攻擊時提升暴擊率"
+    "Intro": "TM_Assassin_6_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "陰險的弱點刺擊",
+    "Name": "TM_Assassin_7_Name",
     "SkillID": "Assassin_7",
     "NeedLv": 35,
     "Characteristic": true,
@@ -4623,11 +4623,11 @@
     "CircleDistance": 0,
     "Damage": 1.85,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一名敵方目標造成較高的物理傷害，若對方有任何負面狀態的話傷害再提升，若目標身上有控制狀態，刷新該控制狀態時間"
+    "Intro": "TM_Assassin_7_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "致命吐息",
+    "Name": "TM_Assassin_8_Name",
     "SkillID": "Assassin_8",
     "NeedLv": 36,
     "Characteristic": true,
@@ -4641,11 +4641,11 @@
     "CircleDistance": 0,
     "Damage": 1.82,
     "AdditionMode": "MeleeATK",
-    "Intro": "位移到一名敵方目標身後，造成物理傷害，此傷害必定暴擊，並有機率造成兩倍傷害"
+    "Intro": "TM_Assassin_8_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "致命毒藥",
+    "Name": "TM_Assassin_9_Name",
     "SkillID": "Assassin_9",
     "NeedLv": 35,
     "Characteristic": false,
@@ -4659,11 +4659,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "任何物理攻擊有30%機率造成中毒，中毒狀態可疊加5次，持續3秒"
+    "Intro": "TM_Assassin_9_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "噴濺鮮血",
+    "Name": "TM_Assassin_10_Name",
     "SkillID": "Assassin_10",
     "NeedLv": 36,
     "Characteristic": true,
@@ -4677,11 +4677,11 @@
     "CircleDistance": 15,
     "Damage": 1.66,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一名敵方目標造成物理傷害，若目標處於出血狀態，將傷害擴散至其周圍最多兩名敵方目標，並對他們造成中毒"
+    "Intro": "TM_Assassin_10_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "破壞器官",
+    "Name": "TM_Assassin_11_Name",
     "SkillID": "Assassin_11",
     "NeedLv": 38,
     "Characteristic": true,
@@ -4695,11 +4695,11 @@
     "CircleDistance": 0,
     "Damage": 1.48,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一名敵方目標造成物理傷害，並減少目標的生命回復量、藥水回復、受到治癒術的回復量50%，持續5秒"
+    "Intro": "TM_Assassin_11_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "割喉打擊",
+    "Name": "TM_Assassin_12_Name",
     "SkillID": "Assassin_12",
     "NeedLv": 40,
     "Characteristic": true,
@@ -4713,11 +4713,11 @@
     "CircleDistance": 0,
     "Damage": 1.9,
     "AdditionMode": "MeleeATK",
-    "Intro": "位移到一名敵方目標身旁並造成物理傷害，並沉默3秒"
+    "Intro": "TM_Assassin_12_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "劇毒擴散",
+    "Name": "TM_Assassin_13_Name",
     "SkillID": "Assassin_13",
     "NeedLv": 42,
     "Characteristic": true,
@@ -4731,11 +4731,11 @@
     "CircleDistance": 0,
     "Damage": 2.02,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一名敵方目標造成大量物理傷害，目標身上每層中毒增加傷害20%"
+    "Intro": "TM_Assassin_13_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "割斷動脈",
+    "Name": "TM_Assassin_14_Name",
     "SkillID": "Assassin_14",
     "NeedLv": 43,
     "Characteristic": true,
@@ -4749,11 +4749,11 @@
     "CircleDistance": 0,
     "Damage": 2.08,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一名敵方目標造成大量物理傷害，目標若處於出血，增加此傷害50%"
+    "Intro": "TM_Assassin_14_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "死亡印記",
+    "Name": "TM_Assassin_15_Name",
     "SkillID": "Assassin_15",
     "NeedLv": 45,
     "Characteristic": true,
@@ -4767,11 +4767,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "對一名敵方目標烙上印記，持續5秒，效果持續時間內對其造成的傷害增加10%"
+    "Intro": "TM_Assassin_15_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "割斷筋骨",
+    "Name": "TM_Assassin_16_Name",
     "SkillID": "Assassin_16",
     "NeedLv": 45,
     "Characteristic": true,
@@ -4785,11 +4785,11 @@
     "CircleDistance": 0,
     "Damage": 2.1,
     "AdditionMode": "MeleeATK",
-    "Intro": "位移到一名敵方目標身旁，對其造成大量物理傷害，並禁錮3秒"
+    "Intro": "TM_Assassin_16_Intro"
   },
   {
     "Job": "Assassin",
-    "Name": "連殺",
+    "Name": "TM_Assassin_17_Name",
     "SkillID": "Assassin_17",
     "NeedLv": 48,
     "Characteristic": false,
@@ -4803,11 +4803,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "在擊殺一名敵軍(玩家)後，刷新所有技能冷卻時間"
+    "Intro": "TM_Assassin_17_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "精通長杖",
+    "Name": "TM_Battlemage_1_Name",
     "SkillID": "Battlemage_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -4821,11 +4821,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用長杖類的武器時，近距離物理攻擊與魔法攻擊提升"
+    "Intro": "TM_Battlemage_1_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "皮甲的好處",
+    "Name": "TM_Battlemage_2_Name",
     "SkillID": "Battlemage_2",
     "NeedLv": 30,
     "Characteristic": false,
@@ -4839,11 +4839,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力，大量提升迴避值"
+    "Intro": "TM_Battlemage_2_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "迴旋敲擊",
+    "Name": "TM_Battlemage_3_Name",
     "SkillID": "Battlemage_3",
     "NeedLv": 30,
     "Characteristic": true,
@@ -4857,11 +4857,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "MeleeATK",
-    "Intro": "使用長杖向周圍揮出，對最多五名敵人造成物理傷害"
+    "Intro": "TM_Battlemage_3_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "震地一破",
+    "Name": "TM_Battlemage_4_Name",
     "SkillID": "Battlemage_4",
     "NeedLv": 30,
     "Characteristic": true,
@@ -4875,11 +4875,11 @@
     "CircleDistance": 5,
     "Damage": 1.6,
     "AdditionMode": "MageATK",
-    "Intro": "奮力一踩，從對手腳下震出大岩石，造成目標與最多3名敵人地屬性魔法傷害"
+    "Intro": "TM_Battlemage_4_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "平心靜氣",
+    "Name": "TM_Battlemage_5_Name",
     "SkillID": "Battlemage_5",
     "NeedLv": 32,
     "Characteristic": true,
@@ -4893,11 +4893,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升生命回復量、魔力回復量，並提升防禦力與魔法防禦力"
+    "Intro": "TM_Battlemage_5_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "定心運功",
+    "Name": "TM_Battlemage_6_Name",
     "SkillID": "Battlemage_6",
     "NeedLv": 32,
     "Characteristic": true,
@@ -4911,11 +4911,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "180秒內，提升近距離物理攻擊力、魔法攻擊力，近距離命中、魔法命中"
+    "Intro": "TM_Battlemage_6_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "定海神針",
+    "Name": "TM_Battlemage_7_Name",
     "SkillID": "Battlemage_7",
     "NeedLv": 35,
     "Characteristic": true,
@@ -4929,11 +4929,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "MeleeATK",
-    "Intro": "將長杖用力往地上敲擊，將周圍最多5名敵人震開"
+    "Intro": "TM_Battlemage_7_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "迴旋氣功",
+    "Name": "TM_Battlemage_8_Name",
     "SkillID": "Battlemage_8",
     "NeedLv": 35,
     "Characteristic": true,
@@ -4947,11 +4947,11 @@
     "CircleDistance": 0,
     "Damage": 1.25,
     "AdditionMode": "MageATK",
-    "Intro": "運功將氣凝於手掌，朝目標攻擊，並震退目標，造成風屬性魔法傷害"
+    "Intro": "TM_Battlemage_8_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "開海神杖",
+    "Name": "TM_Battlemage_9_Name",
     "SkillID": "Battlemage_9",
     "NeedLv": 36,
     "Characteristic": true,
@@ -4965,11 +4965,11 @@
     "CircleDistance": 0,
     "Damage": 1.35,
     "AdditionMode": "MeleeATK",
-    "Intro": "往前突進一段距離，朝目標方向揮出一擊，造成物理傷害"
+    "Intro": "TM_Battlemage_9_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "碎地之雨",
+    "Name": "TM_Battlemage_10_Name",
     "SkillID": "Battlemage_10",
     "NeedLv": 37,
     "Characteristic": true,
@@ -4983,11 +4983,11 @@
     "CircleDistance": 0,
     "Damage": 1.1,
     "AdditionMode": "MageATK",
-    "Intro": "用長杖在周圍畫出一個圈，破壞地形，讓揚起的塵土攻擊周圍目標，造成土屬性傷害持續5秒"
+    "Intro": "TM_Battlemage_10_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "點到為止",
+    "Name": "TM_Battlemage_11_Name",
     "SkillID": "Battlemage_11",
     "NeedLv": 39,
     "Characteristic": true,
@@ -5001,11 +5001,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個目標造成物理傷害，並使對手攻擊力降低10%持續5秒，其他正在冷卻的魔法攻擊降低1秒冷卻時間"
+    "Intro": "TM_Battlemage_11_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "暴風眼",
+    "Name": "TM_Battlemage_12_Name",
     "SkillID": "Battlemage_12",
     "NeedLv": 42,
     "Characteristic": true,
@@ -5019,11 +5019,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "MageATK",
-    "Intro": "造周圍凝聚強風，持續對周圍的目標造成風屬性魔法傷害，期間物理攻擊附加風屬性魔法傷害，持續5秒"
+    "Intro": "TM_Battlemage_12_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "長久的修行",
+    "Name": "TM_Battlemage_13_Name",
     "SkillID": "Battlemage_13",
     "NeedLv": 42,
     "Characteristic": false,
@@ -5037,11 +5037,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "長久的修行使自身的歷練提升，提升最大生命、異常狀態抗性、暴擊抵抗"
+    "Intro": "TM_Battlemage_13_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "物理超渡",
+    "Name": "TM_Battlemage_14_Name",
     "SkillID": "Battlemage_14",
     "NeedLv": 44,
     "Characteristic": true,
@@ -5055,11 +5055,11 @@
     "CircleDistance": 0,
     "Damage": 1.8,
     "AdditionMode": "MeleeATK",
-    "Intro": "使用長杖往目標用力敲擊，將累積長久的修行試圖傳達給對方，造成大量近距離物理傷害，並造成2秒暈眩"
+    "Intro": "TM_Battlemage_14_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "魔法超渡",
+    "Name": "TM_Battlemage_15_Name",
     "SkillID": "Battlemage_15",
     "NeedLv": 45,
     "Characteristic": true,
@@ -5073,11 +5073,11 @@
     "CircleDistance": 0,
     "Damage": 1.8,
     "AdditionMode": "MageATK",
-    "Intro": "匯聚一身的魔法攻擊對方，造成目標大量魔法傷害，並使其緩速25%持續5秒"
+    "Intro": "TM_Battlemage_15_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "戰法連擊",
+    "Name": "TM_Battlemage_16_Name",
     "SkillID": "Battlemage_16",
     "NeedLv": 48,
     "Characteristic": true,
@@ -5091,11 +5091,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "10秒內，若施放的攻擊技能與上一個技能不重疊，使所有主動技能冷卻時間縮短一半"
+    "Intro": "TM_Battlemage_16_Intro"
   },
   {
     "Job": "Battlemage",
-    "Name": "戰法雙修",
+    "Name": "TM_Battlemage_17_Name",
     "SkillID": "Battlemage_17",
     "NeedLv": 48,
     "Characteristic": false,
@@ -5109,11 +5109,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "領悟魔法與物理的真理，提升近距離物理攻擊與魔法攻擊，並且若施放的攻擊技能在物理與魔法間穿插，造成的傷害提升10%，持續5秒，最多疊加10次"
+    "Intro": "TM_Battlemage_17_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "龍甲與龍血",
+    "Name": "TM_Dragonknight_1_Name",
     "SkillID": "Dragonknight_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -5127,11 +5127,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "繼承龍的皮膚與龍的血液，提升最大生命值、異常狀態抗性、物理攻擊力，會被攻擊目標視同為龍族生物"
+    "Intro": "TM_Dragonknight_1_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "精通重甲",
+    "Name": "TM_Dragonknight_2_Name",
     "SkillID": "Dragonknight_2",
     "NeedLv": 30,
     "Characteristic": false,
@@ -5145,11 +5145,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備重型鎧甲時，提升大量防禦力，大量下降移動速度"
+    "Intro": "TM_Dragonknight_2_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "精通雙手劍",
+    "Name": "TM_Dragonknight_3_Name",
     "SkillID": "Dragonknight_3",
     "NeedLv": 30,
     "Characteristic": false,
@@ -5163,11 +5163,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備雙手劍時，獲得大量物理攻擊力，但會下降攻擊速度"
+    "Intro": "TM_Dragonknight_3_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "龍之怒",
+    "Name": "TM_Dragonknight_4_Name",
     "SkillID": "Dragonknight_4",
     "NeedLv": 30,
     "Characteristic": true,
@@ -5181,11 +5181,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MeleeATK",
-    "Intro": "釋放憤怒的龍之意識，對周圍目標最多7名造成物理傷害，並造成0.5秒暈眩"
+    "Intro": "TM_Dragonknight_4_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "龍鱗",
+    "Name": "TM_Dragonknight_6_Name",
     "SkillID": "Dragonknight_6",
     "NeedLv": 32,
     "Characteristic": true,
@@ -5199,11 +5199,11 @@
     "CircleDistance": 0,
     "Damage": 1.35,
     "AdditionMode": "None",
-    "Intro": "模擬龍身上的鱗片，提升防禦力、魔法防禦、最大生命值，持續180秒"
+    "Intro": "TM_Dragonknight_6_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "龍息",
+    "Name": "TM_Dragonknight_7_Name",
     "SkillID": "Dragonknight_7",
     "NeedLv": 33,
     "Characteristic": true,
@@ -5217,11 +5217,11 @@
     "CircleDistance": 0,
     "Damage": 1.4,
     "AdditionMode": "MeleeATK",
-    "Intro": "擁有龍鱗狀態才可以施放，釋放龍的吐息，造成路徑上最多5名目標物理傷害，並暈眩持續1秒"
+    "Intro": "TM_Dragonknight_7_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "龍之俯衝",
+    "Name": "TM_Dragonknight_8_Name",
     "SkillID": "Dragonknight_8",
     "NeedLv": 35,
     "Characteristic": true,
@@ -5235,11 +5235,11 @@
     "CircleDistance": 10,
     "Damage": 1.5,
     "AdditionMode": "MeleeATK",
-    "Intro": "擁有龍鱗狀態才可以施放，向目標區域衝刺，並擊非目標內最多7名敵人，造成近距離物理傷害，並暈眩1秒"
+    "Intro": "TM_Dragonknight_8_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "龍的惡語",
+    "Name": "TM_Dragonknight_9_Name",
     "SkillID": "Dragonknight_9",
     "NeedLv": 37,
     "Characteristic": true,
@@ -5253,11 +5253,11 @@
     "CircleDistance": 0,
     "Damage": 1.6,
     "AdditionMode": "MeleeATK",
-    "Intro": "擁有龍鱗狀態才可以施放，釋放龍的咒語，對周圍敵人最多5名，造成物理傷害，並暈眩1.5秒"
+    "Intro": "TM_Dragonknight_9_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "龍之波動",
+    "Name": "TM_Dragonknight_10_Name",
     "SkillID": "Dragonknight_10",
     "NeedLv": 38,
     "Characteristic": true,
@@ -5271,11 +5271,11 @@
     "CircleDistance": 0,
     "Damage": 1.6,
     "AdditionMode": "MeleeATK",
-    "Intro": "擁有龍鱗狀態才可以施放，釋放龍的力量，對周圍敵人最多7名造成物理傷害，暈眩1秒，並破甲25%持續3秒"
+    "Intro": "TM_Dragonknight_10_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "巨劍反擊",
+    "Name": "TM_Dragonknight_11_Name",
     "SkillID": "Dragonknight_11",
     "NeedLv": 38,
     "Characteristic": true,
@@ -5289,11 +5289,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "10秒內若遭受控制型的技能，揮劍反擊，抵銷該次控制效果，並反擊效果回施放者"
+    "Intro": "TM_Dragonknight_11_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "高傲的龍族",
+    "Name": "TM_Dragonknight_12_Name",
     "SkillID": "Dragonknight_12",
     "NeedLv": 40,
     "Characteristic": true,
@@ -5307,11 +5307,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "繼承了龍的力量，留著龍族的血液，對任何目標造成傷害，給予龍印的負面狀態效果，當持有此負面技能的目標，降低異常狀態抗性持續3秒，若時間內造成傷害重新刷新，此增益效果持續180秒"
+    "Intro": "TM_Dragonknight_12_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "龍之翼",
+    "Name": "TM_Dragonknight_13_Name",
     "SkillID": "Dragonknight_13",
     "NeedLv": 40,
     "Characteristic": true,
@@ -5325,11 +5325,11 @@
     "CircleDistance": 0,
     "Damage": 1.75,
     "AdditionMode": "MeleeATK",
-    "Intro": "擁有龍鱗狀態才可以施放，震動龍的翅膀，將周圍敵人最多7名擊退，並造成物理傷害"
+    "Intro": "TM_Dragonknight_13_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "巨劍衝擊",
+    "Name": "TM_Dragonknight_14_Name",
     "SkillID": "Dragonknight_14",
     "NeedLv": 42,
     "Characteristic": true,
@@ -5343,11 +5343,11 @@
     "CircleDistance": 8,
     "Damage": 1.75,
     "AdditionMode": "MeleeATK",
-    "Intro": "揮出巨大的雙手劍，朝目標揮擊，並對目標所在區域內最多5名目標造成物理傷害，並暈眩1秒"
+    "Intro": "TM_Dragonknight_14_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "龍的祝福",
+    "Name": "TM_Dragonknight_15_Name",
     "SkillID": "Dragonknight_15",
     "NeedLv": 43,
     "Characteristic": true,
@@ -5361,11 +5361,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "擁有龍鱗狀態才可以施放，遠古的龍族長老賜予的祝福，提升一名友軍的異常狀態抗性持續10秒，該友軍在持續時間內也會被目標視為龍族生物"
+    "Intro": "TM_Dragonknight_15_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "龍之衝擊",
+    "Name": "TM_Dragonknight_16_Name",
     "SkillID": "Dragonknight_16",
     "NeedLv": 45,
     "Characteristic": true,
@@ -5379,11 +5379,11 @@
     "CircleDistance": 0,
     "Damage": 1.8,
     "AdditionMode": "MeleeATK",
-    "Intro": "擁有龍鱗狀態才可以施放，對目標路徑揮出強力的一擊，宛如一條猛龍的衝擊，造成範圍內最多8名目標物理傷害，並暈眩1.5秒，並會拖拽"
+    "Intro": "TM_Dragonknight_16_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "逆鱗",
+    "Name": "TM_Dragonknight_17_Name",
     "SkillID": "Dragonknight_17",
     "NeedLv": 46,
     "Characteristic": true,
@@ -5397,11 +5397,11 @@
     "CircleDistance": 0,
     "Damage": 1.9,
     "AdditionMode": "MeleeATK",
-    "Intro": "擁有龍鱗的狀態時才可以使用，造成周圍敵人最多8名大量的物理傷害，並暈眩1秒，受到的傷害降低10%，持續3秒"
+    "Intro": "TM_Dragonknight_17_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "龍之心",
+    "Name": "TM_Dragonknight_18_Name",
     "SkillID": "Dragonknight_18",
     "NeedLv": 47,
     "Characteristic": false,
@@ -5415,11 +5415,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "活躍的龍之心臟，受到的任何傷害減低12%，減少受到的控制狀態持續時間"
+    "Intro": "TM_Dragonknight_18_Intro"
   },
   {
     "Job": "Dragonknight",
-    "Name": "龍咆哮",
+    "Name": "TM_Dragonknight_19_Name",
     "SkillID": "Dragonknight_19",
     "NeedLv": 48,
     "Characteristic": true,
@@ -5433,11 +5433,11 @@
     "CircleDistance": 0,
     "Damage": 2.2,
     "AdditionMode": "MeleeATK",
-    "Intro": "擁有龍鱗的狀態時才可以使用，釋放龍的怒吼，對周圍目標最多10名造成極大的物理傷害，並暈眩2.5秒，當有龍麟的狀態時，每擊中一名目標減少此技能1秒的冷卻時間"
+    "Intro": "TM_Dragonknight_19_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "精通布甲",
+    "Name": "TM_Archangel_1_Name",
     "SkillID": "Archangel_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -5451,11 +5451,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備布甲時，稍微提升防禦力"
+    "Intro": "TM_Archangel_1_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "精通長杖",
+    "Name": "TM_Archangel_2_Name",
     "SkillID": "Archangel_2",
     "NeedLv": 30,
     "Characteristic": false,
@@ -5469,11 +5469,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用長杖類的武器時，近距離物理攻擊與魔法攻擊提升"
+    "Intro": "TM_Archangel_2_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "神聖的治癒術",
+    "Name": "TM_Archangel_3_Name",
     "SkillID": "Archangel_3",
     "NeedLv": 30,
     "Characteristic": true,
@@ -5487,11 +5487,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "大量回復一名友軍的生命值，小量提升怪物的仇恨值"
+    "Intro": "TM_Archangel_3_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "聖光束",
+    "Name": "TM_Archangel_4_Name",
     "SkillID": "Archangel_4",
     "NeedLv": 30,
     "Characteristic": true,
@@ -5505,11 +5505,11 @@
     "CircleDistance": 0,
     "Damage": 1.1,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱1秒，對一名敵方目標造成神聖屬性的魔法攻擊"
+    "Intro": "TM_Archangel_4_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "聖棺",
+    "Name": "TM_Archangel_5_Name",
     "SkillID": "Archangel_5",
     "NeedLv": 33,
     "Characteristic": true,
@@ -5523,11 +5523,11 @@
     "CircleDistance": 0,
     "Damage": 1.2,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱1秒，以目標為中心召喚神聖棺木，造成該目標及最多額外2名敵人受到神聖屬性的魔法攻擊"
+    "Intro": "TM_Archangel_5_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "天使的祝福",
+    "Name": "TM_Archangel_6_Name",
     "SkillID": "Archangel_6",
     "NeedLv": 33,
     "Characteristic": true,
@@ -5541,11 +5541,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "降下天使，為範圍內的所有友軍獻上天使之吻，提升魔法攻擊力、物理攻擊力、移動速度、生命回復量，效果持續到死亡前(祝福效果只能受到一種效果)"
+    "Intro": "TM_Archangel_6_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "被祝福的治癒術",
+    "Name": "TM_Archangel_11_Name",
     "SkillID": "Archangel_11",
     "NeedLv": 35,
     "Characteristic": true,
@@ -5559,11 +5559,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "升級神聖的治癒術，提升治癒量，並且小量以目標為中心，範圍內最多4名友軍的血量，小量提升怪物的仇恨值"
+    "Intro": "TM_Archangel_11_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "神罰的祝福",
+    "Name": "TM_Archangel_7_Name",
     "SkillID": "Archangel_7",
     "NeedLv": 35,
     "Characteristic": true,
@@ -5577,11 +5577,11 @@
     "CircleDistance": 0,
     "Damage": 1.2,
     "AdditionMode": "MageATK",
-    "Intro": "降下神罰，為範圍內的敵人最多7名，造成神聖屬性傷害，並持續受到神聖屬性傷害持續到死亡(祝福效果只能受到一種效果)"
+    "Intro": "TM_Archangel_7_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "淨化的祝福",
+    "Name": "TM_Archangel_8_Name",
     "SkillID": "Archangel_8",
     "NeedLv": 36,
     "Characteristic": true,
@@ -5595,11 +5595,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "以目標為中心施放聖域，解除目標以及最多額外4名友軍的所有負面狀態，並以一定機率(10%)免疫受到的負面狀態，效果持續到死亡(祝福效果只能受到一種效果)"
+    "Intro": "TM_Archangel_8_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "審判的祝福",
+    "Name": "TM_Archangel_9_Name",
     "SkillID": "Archangel_9",
     "NeedLv": 37,
     "Characteristic": true,
@@ -5613,11 +5613,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MageATK",
-    "Intro": "以自身為範圍最多7名敵人，造成神聖屬性傷害，並將受到傷害的目標進行不死同化持續到死亡(祝福效果只能受到一種效果)"
+    "Intro": "TM_Archangel_9_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "聖潔的祝福",
+    "Name": "TM_Archangel_10_Name",
     "SkillID": "Archangel_10",
     "NeedLv": 38,
     "Characteristic": true,
@@ -5631,11 +5631,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "聖潔之力沐浴你與隊友的全身，提升你與隊友的防禦力、魔法防禦、迴避值、並給予一次性的護盾，效果持續到死亡前(祝福效果只能受到一種效果)"
+    "Intro": "TM_Archangel_10_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "崇高的祝福",
+    "Name": "TM_Archangel_12_Name",
     "SkillID": "Archangel_12",
     "NeedLv": 40,
     "Characteristic": true,
@@ -5649,11 +5649,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MageATK",
-    "Intro": "吟唱1秒後，對前方路徑敵人造成神聖屬性的魔法傷害，最多八名，並弱化30%與耗弱30%持續到死亡前(祝福效果只能受到一種效果)"
+    "Intro": "TM_Archangel_12_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "繁榮的祝福",
+    "Name": "TM_Archangel_13_Name",
     "SkillID": "Archangel_13",
     "NeedLv": 42,
     "Characteristic": true,
@@ -5667,11 +5667,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "降下繁榮之神的祝福，提升你與隊友的由狩獵獲得的經驗值15%與狩獵後的調寶率15%，效果持續到死亡前(祝福效果只能受到一種效果)"
+    "Intro": "TM_Archangel_13_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "歌頌聖音",
+    "Name": "TM_Archangel_14_Name",
     "SkillID": "Archangel_14",
     "NeedLv": 42,
     "Characteristic": true,
@@ -5685,11 +5685,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "MageATK",
-    "Intro": "歌頌聖靈的神聖之歌，吟唱1秒後，以自身為中心對附近最多8名敵人造成神聖屬性傷害，並且對於不死與惡魔生物的傷害在提升50%。"
+    "Intro": "TM_Archangel_14_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "神聖復甦",
+    "Name": "TM_Archangel_15_Name",
     "SkillID": "Archangel_15",
     "NeedLv": 43,
     "Characteristic": true,
@@ -5703,11 +5703,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "吟唱5秒後，復活一名已死亡的友軍，並恢復其生命值"
+    "Intro": "TM_Archangel_15_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "不朽的祝福",
+    "Name": "TM_Archangel_16_Name",
     "SkillID": "Archangel_16",
     "NeedLv": 45,
     "Characteristic": true,
@@ -5721,11 +5721,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "吟唱3秒後，以自身為範圍，範圍內的友軍增加神聖屬性傷害，降低受到的闇屬性傷害，並且持續恢復生命值，敵軍則沉默3秒，並且持續受到15%緩速神聖屬性傷害(祝福效果只能受到一種效果)"
+    "Intro": "TM_Archangel_16_Intro"
   },
   {
     "Job": "Archangel",
-    "Name": "不可侵犯的恩寵",
+    "Name": "TM_Archangel_17_Name",
     "SkillID": "Archangel_17",
     "NeedLv": 48,
     "Characteristic": false,
@@ -5739,11 +5739,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "接受了神祇賜予尊貴的恩寵，所有祝福的增益效果轉為被動在你身上永久的持續運作，並且可以疊加所有祝福。"
+    "Intro": "TM_Archangel_17_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "皮甲的好處",
+    "Name": "TM_Scythemaster_1_Name",
     "SkillID": "Scythemaster_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -5757,11 +5757,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力，大量提升迴避值"
+    "Intro": "TM_Scythemaster_1_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "精通鐮刀的技術",
+    "Name": "TM_Scythemaster_2_Name",
     "SkillID": "Scythemaster_2",
     "NeedLv": 30,
     "Characteristic": false,
@@ -5775,11 +5775,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用指定武器「鐮刀」，提升近距離物理攻擊、近距離命中、近距離暴擊、遠距離攻擊、遠距離命中、遠距離暴擊、死神的所有傷害技能，會有特別的計算傷害方式，近距離遠距離相關數值都會受到影響"
+    "Intro": "TM_Scythemaster_2_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "迴旋飛鐮",
+    "Name": "TM_Scythemaster_3_Name",
     "SkillID": "Scythemaster_3",
     "NeedLv": 30,
     "Characteristic": true,
@@ -5793,11 +5793,11 @@
     "CircleDistance": 0,
     "Damage": 1.15,
     "AdditionMode": "MeleeATK、RemoteATK",
-    "Intro": "以自身為中心，向周圍甩出鐮刀，造成最多4名敵人受到傷害"
+    "Intro": "TM_Scythemaster_3_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "撕裂斬擊",
+    "Name": "TM_Scythemaster_4_Name",
     "SkillID": "Scythemaster_4",
     "NeedLv": 30,
     "Characteristic": true,
@@ -5811,11 +5811,11 @@
     "CircleDistance": 0,
     "Damage": 1.15,
     "AdditionMode": "MeleeATK、RemoteATK",
-    "Intro": "對單一目標造成兩段傷害"
+    "Intro": "TM_Scythemaster_4_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "死神的氣息",
+    "Name": "TM_Scythemaster_5_Name",
     "SkillID": "Scythemaster_5",
     "NeedLv": 33,
     "Characteristic": true,
@@ -5829,11 +5829,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "在180秒內，提升自身的遠近攻擊力、遠近命中值。"
+    "Intro": "TM_Scythemaster_5_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "索命撕扯I",
+    "Name": "TM_Scythemaster_6_Name",
     "SkillID": "Scythemaster_6",
     "NeedLv": 33,
     "Characteristic": true,
@@ -5847,11 +5847,11 @@
     "CircleDistance": 0,
     "Damage": 1.2,
     "AdditionMode": "MeleeATK、RemoteATK",
-    "Intro": "使用鐮刀對前方扇形內最多5名敵人造成傷害，並造成出血3秒，在5秒內可以使用連技「索命撕扯II」超過時間索命撕扯進入冷卻時間"
+    "Intro": "TM_Scythemaster_6_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "索命撕扯II",
+    "Name": "TM_Scythemaster_7_Name",
     "SkillID": "Scythemaster_7",
     "NeedLv": 34,
     "Characteristic": true,
@@ -5865,11 +5865,11 @@
     "CircleDistance": 0,
     "Damage": 1.25,
     "AdditionMode": "MeleeATK、RemoteATK",
-    "Intro": "利用旋轉的力量將鎖鏈綑綁住受到索命撕扯I的目標，並將他們以自身拖拽，造成1秒暈眩，在5秒內可以使用連技「索命撕扯III」超過時間索命撕扯進入冷卻時間"
+    "Intro": "TM_Scythemaster_7_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "索命撕扯III",
+    "Name": "TM_Scythemaster_8_Name",
     "SkillID": "Scythemaster_8",
     "NeedLv": 35,
     "Characteristic": true,
@@ -5883,11 +5883,11 @@
     "CircleDistance": 0,
     "Damage": 1.25,
     "AdditionMode": "MeleeATK、RemoteATK",
-    "Intro": "收回鐮刀並對受到索命撕扯II的目標造成傷害，收割10%目標，對未收割完成的目標進行不死同化10秒，索命撕扯進入冷卻時間"
+    "Intro": "TM_Scythemaster_8_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "召喚來自煉獄的你I",
+    "Name": "TM_Scythemaster_9_Name",
     "SkillID": "Scythemaster_9",
     "NeedLv": 35,
     "Characteristic": false,
@@ -5901,11 +5901,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "解放一半死神的力量，產生一個死神能量共同體，每一定週期收割5%周圍的一名目標，每當你擊殺一個目標後，少量回復你的生命值。"
+    "Intro": "TM_Scythemaster_9_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "死亡牽絆",
+    "Name": "TM_Scythemaster_11_Name",
     "SkillID": "Scythemaster_11",
     "NeedLv": 36,
     "Characteristic": false,
@@ -5919,11 +5919,11 @@
     "CircleDistance": 0,
     "Damage": 0.3,
     "AdditionMode": "MeleeATK、RemoteATK",
-    "Intro": "若對任何目標造成控制狀態後有一定機率以目標為中心，對範圍內最多額外2名敵人造成傷害後，向目標拖拽"
+    "Intro": "TM_Scythemaster_11_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "攝魂牽引",
+    "Name": "TM_Scythemaster_10_Name",
     "SkillID": "Scythemaster_10",
     "NeedLv": 37,
     "Characteristic": true,
@@ -5937,11 +5937,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MeleeATK、RemoteATK",
-    "Intro": "揮出鐮刀勾中指定目標後造成傷害後，利用收回鐮刀的作用力，縮進彼此的距離"
+    "Intro": "TM_Scythemaster_10_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "亡魂悲鳴",
+    "Name": "TM_Scythemaster_12_Name",
     "SkillID": "Scythemaster_12",
     "NeedLv": 38,
     "Characteristic": true,
@@ -5955,11 +5955,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "死者的亡魂在你自旁圍繞，在180秒內，提升自身的迴避值，小量提升防禦值、魔法防禦，並有機率直接免疫控制型狀態"
+    "Intro": "TM_Scythemaster_12_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "煉獄的亡靈纏繞",
+    "Name": "TM_Scythemaster_13_Name",
     "SkillID": "Scythemaster_13",
     "NeedLv": 40,
     "Characteristic": true,
@@ -5973,11 +5973,11 @@
     "CircleDistance": 0,
     "Damage": 1.1,
     "AdditionMode": "MeleeATK、RemoteATK",
-    "Intro": "在目標底下開啟煉獄之門，亡靈們貪婪的雙手死抓住對手的雙腳，對指定單一目標造成傷害，並緩速30%2秒"
+    "Intro": "TM_Scythemaster_13_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "煉獄的惡魔之手",
+    "Name": "TM_Scythemaster_14_Name",
     "SkillID": "Scythemaster_14",
     "NeedLv": 41,
     "Characteristic": true,
@@ -5991,11 +5991,11 @@
     "CircleDistance": 5,
     "Damage": 1,
     "AdditionMode": "MeleeATK、RemoteATK",
-    "Intro": "在目標底下開啟煉獄之門，來自深淵的大手抓住目標，對指定單一目標造成傷害，並禁錮1秒"
+    "Intro": "TM_Scythemaster_14_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "索魂宣告",
+    "Name": "TM_Scythemaster_15_Name",
     "SkillID": "Scythemaster_15",
     "NeedLv": 42,
     "Characteristic": true,
@@ -6009,11 +6009,11 @@
     "CircleDistance": 0,
     "Damage": 1.2,
     "AdditionMode": "MeleeATK、RemoteATK",
-    "Intro": "朝指定路徑甩出鐮刀，並對命中的第一個目標造成傷害，暈眩1.25秒，並附帶出血3秒，並位移到目標旁"
+    "Intro": "TM_Scythemaster_15_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "煉獄的黃泉悲歌",
+    "Name": "TM_Scythemaster_16_Name",
     "SkillID": "Scythemaster_16",
     "NeedLv": 42,
     "Characteristic": true,
@@ -6027,11 +6027,11 @@
     "CircleDistance": 0,
     "Damage": 0.35,
     "AdditionMode": "MeleeATK、RemoteATK",
-    "Intro": "在自身的地板開啟地獄之門，無數地獄的亡靈伸出貪婪的雙手，在180秒內提升移動速度，並每秒在範圍內對離自己最近的敵對目標同時最多3名造成傷害"
+    "Intro": "TM_Scythemaster_16_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "喪門弔客",
+    "Name": "TM_Scythemaster_17_Name",
     "SkillID": "Scythemaster_17",
     "NeedLv": 45,
     "Characteristic": true,
@@ -6045,11 +6045,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MeleeATK、RemoteATK",
-    "Intro": "對指定路徑甩出鐮刀，對路徑上最多3名敵人造成傷害，附帶破甲25%3秒，並拖拽"
+    "Intro": "TM_Scythemaster_17_Intro"
   },
   {
     "Job": "Scythemaster",
-    "Name": "召喚來自煉獄的你II",
+    "Name": "TM_Scythemaster_18_Name",
     "SkillID": "Scythemaster_18",
     "NeedLv": 48,
     "Characteristic": true,
@@ -6063,11 +6063,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "完全解放死神的力量，化身為完全體死神，在60秒內大量提升遠近攻擊，移動速度，並同樣對自己進行不死同化，期間對任何造成傷害的目標10%收割"
+    "Intro": "TM_Scythemaster_18_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "皮甲的好處",
+    "Name": "TM_Magicsword_1_Name",
     "SkillID": "Magicsword_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -6081,11 +6081,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力，大量提升迴避值"
+    "Intro": "TM_Magicsword_1_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "精通雙手劍",
+    "Name": "TM_Magicsword_2_Name",
     "SkillID": "Magicsword_2",
     "NeedLv": 30,
     "Characteristic": false,
@@ -6099,11 +6099,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用武器類行為雙手劍時，提升物理攻擊力、物理命中值、物理暴擊"
+    "Intro": "TM_Magicsword_2_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "魔法的奧義",
+    "Name": "TM_Magicsword_3_Name",
     "SkillID": "Magicsword_3",
     "NeedLv": 30,
     "Characteristic": true,
@@ -6117,11 +6117,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "在180秒內，提升魔法攻擊、魔法命中、魔法暴擊"
+    "Intro": "TM_Magicsword_3_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "弦月斬",
+    "Name": "TM_Magicsword_4_Name",
     "SkillID": "Magicsword_4",
     "NeedLv": 30,
     "Characteristic": true,
@@ -6135,11 +6135,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MeleeATK",
-    "Intro": "將雙手劍猛力揮出，對指定方向的扇形區域內最多3名敵人，造成物理傷害"
+    "Intro": "TM_Magicsword_4_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "閃焰",
+    "Name": "TM_Magicsword_5_Name",
     "SkillID": "Magicsword_5",
     "NeedLv": 32,
     "Characteristic": true,
@@ -6153,11 +6153,11 @@
     "CircleDistance": 4,
     "Damage": 1.2,
     "AdditionMode": "MageATK",
-    "Intro": "已指定目標為中心，對範圍內最多3名敵人，造成火屬性魔法傷害，有機率灼傷2秒"
+    "Intro": "TM_Magicsword_5_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "焚血",
+    "Name": "TM_Magicsword_6_Name",
     "SkillID": "Magicsword_6",
     "NeedLv": 33,
     "Characteristic": true,
@@ -6171,11 +6171,11 @@
     "CircleDistance": 0,
     "Damage": 1,
     "AdditionMode": "MeleeATK",
-    "Intro": "攻擊速度極短的傷害技能，對單一目標造成物理傷害，並且造成破甲10%持續2秒。"
+    "Intro": "TM_Magicsword_6_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "墜星",
+    "Name": "TM_Magicsword_7_Name",
     "SkillID": "Magicsword_7",
     "NeedLv": 34,
     "Characteristic": true,
@@ -6189,11 +6189,11 @@
     "CircleDistance": 0,
     "Damage": 1.35,
     "AdditionMode": "MageATK",
-    "Intro": "召喚流星擊中目標，對單一目標造成地屬性魔法傷害，並且造成耗弱30%持續2秒。"
+    "Intro": "TM_Magicsword_7_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "冰柱",
+    "Name": "TM_Magicsword_8_Name",
     "SkillID": "Magicsword_8",
     "NeedLv": 35,
     "Characteristic": true,
@@ -6207,11 +6207,11 @@
     "CircleDistance": 4,
     "Damage": 1.4,
     "AdditionMode": "MageATK",
-    "Intro": "以目標所在的區域為中心，從地上喚出一支冰矛攻擊，對最多5名敵人造成水屬性傷害，造成凍結1.75秒"
+    "Intro": "TM_Magicsword_8_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "劍雷閃",
+    "Name": "TM_Magicsword_9_Name",
     "SkillID": "Magicsword_9",
     "NeedLv": 36,
     "Characteristic": true,
@@ -6225,11 +6225,11 @@
     "CircleDistance": 0,
     "Damage": 1.45,
     "AdditionMode": "MeleeATK",
-    "Intro": "將雙手劍猛力揮出，創造五個劍氣，對指定方向的扇形區域內最多5敵人，造成物理傷害"
+    "Intro": "TM_Magicsword_9_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "貫雷術",
+    "Name": "TM_Magicsword_10_Name",
     "SkillID": "Magicsword_10",
     "NeedLv": 38,
     "Characteristic": true,
@@ -6243,11 +6243,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "MageATK",
-    "Intro": "以自身為中心召喚天上的雷電劈打自身周圍，對最多5名敵人造成風屬性魔法傷害"
+    "Intro": "TM_Magicsword_10_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "X字劍斬",
+    "Name": "TM_Magicsword_11_Name",
     "SkillID": "Magicsword_11",
     "NeedLv": 39,
     "Characteristic": true,
@@ -6261,11 +6261,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "MeleeATK",
-    "Intro": "快速以雙手劍揮出攻擊，往目標路徑揮出X字的劍氣，對路徑上最多5名敵人造成物理傷害"
+    "Intro": "TM_Magicsword_11_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "劍與魔法的藝術",
+    "Name": "TM_Magicsword_12_Name",
     "SkillID": "Magicsword_12",
     "NeedLv": 40,
     "Characteristic": true,
@@ -6279,11 +6279,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "在180秒內，所有造成的物理傷害造成額外10%的魔法傷害，提升屬性傷害增幅10%"
+    "Intro": "TM_Magicsword_12_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "焚天I",
+    "Name": "TM_Magicsword_13_Name",
     "SkillID": "Magicsword_13",
     "NeedLv": 42,
     "Characteristic": true,
@@ -6297,11 +6297,11 @@
     "CircleDistance": 0,
     "Damage": 1.75,
     "AdditionMode": "MeleeATK",
-    "Intro": "以自身為中心，使用手中的雙手劍用力向周圍的敵人揮擊，造成最多8名敵人物理傷害，在5秒內可以使用連技「焚天II」超過時間焚天進入冷卻時間"
+    "Intro": "TM_Magicsword_13_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "焚天II",
+    "Name": "TM_Magicsword_14_Name",
     "SkillID": "Magicsword_14",
     "NeedLv": 42,
     "Characteristic": true,
@@ -6315,11 +6315,11 @@
     "CircleDistance": 0,
     "Damage": 1.65,
     "AdditionMode": "MageATK",
-    "Intro": "將手中的雙手劍往地上插，將火焰的力量注入大地，造成周圍最多8名敵人火屬性魔法傷害，並對敵人造成灼傷3秒"
+    "Intro": "TM_Magicsword_14_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "襲風刺",
+    "Name": "TM_Magicsword_15_Name",
     "SkillID": "Magicsword_15",
     "NeedLv": 43,
     "Characteristic": true,
@@ -6333,11 +6333,11 @@
     "CircleDistance": 0,
     "Damage": 1.7,
     "AdditionMode": "MeleeATK",
-    "Intro": "使出全力揮動手中的雙手劍，往目標路徑揮出，對路徑上最多7名敵人造成物理傷害，並飛往路徑的終點"
+    "Intro": "TM_Magicsword_15_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "冰晶護甲",
+    "Name": "TM_Magicsword_16_Name",
     "SkillID": "Magicsword_16",
     "NeedLv": 45,
     "Characteristic": true,
@@ -6351,11 +6351,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用水屬性的魔法製造出冰晶護甲保護自己，在180秒內提升防禦力，魔法防禦，屬性傷害抗性。"
+    "Intro": "TM_Magicsword_16_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "破月連斬",
+    "Name": "TM_Magicsword_17_Name",
     "SkillID": "Magicsword_17",
     "NeedLv": 47,
     "Characteristic": true,
@@ -6369,11 +6369,11 @@
     "CircleDistance": 0,
     "Damage": 1.85,
     "AdditionMode": "MeleeATK",
-    "Intro": "連續揮出手中的雙手劍，造成扇形目標內最多8名敵人物理傷害，造成3段傷害"
+    "Intro": "TM_Magicsword_17_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "土流瀑",
+    "Name": "TM_Magicsword_18_Name",
     "SkillID": "Magicsword_18",
     "NeedLv": 47,
     "Characteristic": true,
@@ -6387,11 +6387,11 @@
     "CircleDistance": 0,
     "Damage": 1.8,
     "AdditionMode": "MageATK",
-    "Intro": "甩出雙手劍重擊地面，將魔法的力量注入大地形成土石流，造成扇形區域內最多8名敵人土屬性魔法傷害，並且暈續1秒"
+    "Intro": "TM_Magicsword_18_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "火屬性附魔",
+    "Name": "TM_Magicsword_19_Name",
     "SkillID": "Magicsword_19",
     "NeedLv": 48,
     "Characteristic": true,
@@ -6405,11 +6405,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "開關技能，每觸發一次會消耗魔力，任何物理傷害附加10%魔法攻擊值與火屬性傷害增幅的火屬性傷害，機率造成灼傷2秒(無法與其他屬性附魔同時使用)"
+    "Intro": "TM_Magicsword_19_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "風屬性附魔",
+    "Name": "TM_Magicsword_20_Name",
     "SkillID": "Magicsword_20",
     "NeedLv": 48,
     "Characteristic": true,
@@ -6423,11 +6423,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "開關技能，每觸發一次會消耗魔力，任何物理傷害附加10%魔法攻擊值與風屬性傷害增幅的風屬性傷害，機率造成額外一次的風屬性魔法傷害"
+    "Intro": "TM_Magicsword_20_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "水屬性附魔",
+    "Name": "TM_Magicsword_21_Name",
     "SkillID": "Magicsword_21",
     "NeedLv": 48,
     "Characteristic": true,
@@ -6441,11 +6441,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "開關技能，每觸發一次會消耗魔力，任何物理傷害附加10%魔法攻擊值與水屬性傷害增幅的水屬性傷害，機率回復自身的生命值"
+    "Intro": "TM_Magicsword_21_Intro"
   },
   {
     "Job": "Magicsword",
-    "Name": "地屬性附魔",
+    "Name": "TM_Magicsword_22_Name",
     "SkillID": "Magicsword_22",
     "NeedLv": 48,
     "Characteristic": true,
@@ -6459,11 +6459,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "開關技能，每觸發一次會消耗魔力，任何物理傷害附加10%魔法攻擊值與火屬性傷害增幅的地屬性傷害，機率造成緩速15%2秒(無法與其他屬性附魔同時使用)"
+    "Intro": "TM_Magicsword_22_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "皮甲的好處",
+    "Name": "TM_RighteousMonk_1_Name",
     "SkillID": "RighteousMonk_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -6477,11 +6477,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力，大量提升迴避值"
+    "Intro": "TM_RighteousMonk_1_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "精通長杖與拳套",
+    "Name": "TM_RighteousMonk_2_Name",
     "SkillID": "RighteousMonk_2",
     "NeedLv": 30,
     "Characteristic": false,
@@ -6495,11 +6495,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用武器類為長杖或是拳套時，提升近距離物理攻擊力、近距離物理命中值、近距離物理暴擊"
+    "Intro": "TM_RighteousMonk_2_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "戒律",
+    "Name": "TM_RighteousMonk_3_Name",
     "SkillID": "RighteousMonk_3",
     "NeedLv": 30,
     "Characteristic": false,
@@ -6513,11 +6513,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "身為僧人，必須以戒約束自己，讓修行之人克服煩惱，清淨身心。必須以執行其中一條戒律約束自己，獲得相應的增益與減益效果。(切換戒律會進行冷卻時間計算)"
+    "Intro": "TM_RighteousMonk_3_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "正拳",
+    "Name": "TM_RighteousMonk_4_Name",
     "SkillID": "RighteousMonk_4",
     "NeedLv": 30,
     "Characteristic": false,
@@ -6531,11 +6531,11 @@
     "CircleDistance": 0,
     "Damage": 1.15,
     "AdditionMode": "MeleeATK",
-    "Intro": "使用手中的武器，給予目標物理傷害。"
+    "Intro": "TM_RighteousMonk_4_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "不殺生戒",
+    "Name": "TM_RighteousMonk_5_Name",
     "SkillID": "RighteousMonk_5",
     "NeedLv": 30,
     "Characteristic": true,
@@ -6549,11 +6549,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "戒律中的不殺生戒，警惕自己，不得剝奪任何生命。對目標造成任何傷害都不會使其死亡(不會使目標生命低於1)，但會提升物理攻擊力、物理防禦。"
+    "Intro": "TM_RighteousMonk_5_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "不偷盜戒",
+    "Name": "TM_RighteousMonk_6_Name",
     "SkillID": "RighteousMonk_6",
     "NeedLv": 32,
     "Characteristic": true,
@@ -6567,11 +6567,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "戒律中的不偷盜戒，警惕自己，不得奪取有主的任何物品。無法撿取任何物品，但會提升近距離命中值、迴避值。"
+    "Intro": "TM_RighteousMonk_6_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "破障",
+    "Name": "TM_RighteousMonk_7_Name",
     "SkillID": "RighteousMonk_7",
     "NeedLv": 32,
     "Characteristic": true,
@@ -6585,11 +6585,11 @@
     "CircleDistance": 0,
     "Damage": 1.25,
     "AdditionMode": "MeleeATK",
-    "Intro": "以自身為中心，使用手中的武器用力向周圍的敵人攻擊，造成周圍最多3名敵人造成物理傷害"
+    "Intro": "TM_RighteousMonk_7_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "不背信戒",
+    "Name": "TM_RighteousMonk_8_Name",
     "SkillID": "RighteousMonk_8",
     "NeedLv": 35,
     "Characteristic": true,
@@ -6603,11 +6603,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "戒律中的不背信戒，警惕自己，不得背叛任何身邊的人。無法對任何目標添加負面狀態，但會提升異常狀態免疫與魔法防禦"
+    "Intro": "TM_RighteousMonk_8_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "心靈之火",
+    "Name": "TM_RighteousMonk_9_Name",
     "SkillID": "RighteousMonk_9",
     "NeedLv": 38,
     "Characteristic": true,
@@ -6621,11 +6621,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "在艱苦的修行之路上，身心靈都獲得了新的境界的提升，在180秒內，提升自身與隊友的最大生命值，生命回復。"
+    "Intro": "TM_RighteousMonk_9_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "感謝正拳",
+    "Name": "TM_RighteousMonk_10_Name",
     "SkillID": "RighteousMonk_10",
     "NeedLv": 38,
     "Characteristic": true,
@@ -6639,11 +6639,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MeleeATK",
-    "Intro": "在修行之路上，獲得了很多的幫助，將這些感謝，灌輸到拳頭上，強化正拳，使正拳的傷害更加提升。"
+    "Intro": "TM_RighteousMonk_10_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "救贖破障",
+    "Name": "TM_RighteousMonk_11_Name",
     "SkillID": "RighteousMonk_11",
     "NeedLv": 38,
     "Characteristic": true,
@@ -6657,11 +6657,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "MeleeATK",
-    "Intro": "在修行之路上，體悟了救贖蒼生之道，帶著救贖苦難的信念，解救深陷苦海的蒼生，提升破障的傷害。"
+    "Intro": "TM_RighteousMonk_11_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "不華鬘戒",
+    "Name": "TM_RighteousMonk_12_Name",
     "SkillID": "RighteousMonk_12",
     "NeedLv": 38,
     "Characteristic": true,
@@ -6675,11 +6675,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "戒律中的不華鬘戒，警惕自己，不可追求奢華，過度打扮自己。移除所有防具效果，但會提升經驗值與掉寶率。"
+    "Intro": "TM_RighteousMonk_12_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "不暴食戒",
+    "Name": "TM_RighteousMonk_13_Name",
     "SkillID": "RighteousMonk_13",
     "NeedLv": 40,
     "Characteristic": true,
@@ -6693,11 +6693,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "戒律中的不暴食戒，警惕自己，不可暴飲暴食。不可使用任何增益道具，提升生命回復、魔力回復，移動速度。"
+    "Intro": "TM_RighteousMonk_13_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "墜地一擊",
+    "Name": "TM_RighteousMonk_14_Name",
     "SkillID": "RighteousMonk_14",
     "NeedLv": 40,
     "Characteristic": true,
@@ -6711,11 +6711,11 @@
     "CircleDistance": 8,
     "Damage": 155,
     "AdditionMode": "MeleeATK",
-    "Intro": "跳向空中，以目標為落地點，落地後對指定區域內最多5名目標，造成物理傷害與擊飛1秒。"
+    "Intro": "TM_RighteousMonk_14_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "定心破擊",
+    "Name": "TM_RighteousMonk_15_Name",
     "SkillID": "RighteousMonk_15",
     "NeedLv": 43,
     "Characteristic": true,
@@ -6729,11 +6729,11 @@
     "CircleDistance": 0,
     "Damage": 1.55,
     "AdditionMode": "MeleeATK",
-    "Intro": "以自身為中心，向周圍目標造成物理傷害，最多5名目標，讓受到傷害的目標繳械2秒。"
+    "Intro": "TM_RighteousMonk_15_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "正氣破擊",
+    "Name": "TM_RighteousMonk_16_Name",
     "SkillID": "RighteousMonk_16",
     "NeedLv": 45,
     "Characteristic": true,
@@ -6747,11 +6747,11 @@
     "CircleDistance": 0,
     "Damage": 1.65,
     "AdditionMode": "MeleeATK",
-    "Intro": "以自身為中心，向周圍目標造成物理傷害，最多5名目標，讓受到傷害的目標暈眩1秒。"
+    "Intro": "TM_RighteousMonk_16_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "千手佛陀",
+    "Name": "TM_RighteousMonk_17_Name",
     "SkillID": "RighteousMonk_17",
     "NeedLv": 47,
     "Characteristic": true,
@@ -6765,11 +6765,11 @@
     "CircleDistance": 0,
     "Damage": 1.05,
     "AdditionMode": "MeleeATK",
-    "Intro": "模仿千手佛陀的模樣，使用上千的手臂，對單一目標在短時間內進行20次物理傷害。"
+    "Intro": "TM_RighteousMonk_17_Intro"
   },
   {
     "Job": "RighteousMonk",
-    "Name": "破戒之行",
+    "Name": "TM_RighteousMonk_18_Name",
     "SkillID": "RighteousMonk_18",
     "NeedLv": 48,
     "Characteristic": false,
@@ -6783,11 +6783,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "在修行之路上，體會到戒律對於自身的約束，很多情況都無法隨著自身的心意實行正義的動作，於是決心踏上破戒之旅，貫徹心中所想的正義。取消所有戒律的負面狀態，獲得所有戒律曾益效果，並讓隊友享受到戒律增益效果的50%效果"
+    "Intro": "TM_RighteousMonk_18_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "精通布甲",
+    "Name": "TM_Librarian_1_Name",
     "SkillID": "Librarian_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -6801,11 +6801,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備布甲時，稍微提升防禦力"
+    "Intro": "TM_Librarian_1_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "書裡的智慧",
+    "Name": "TM_Librarian_2_Name",
     "SkillID": "Librarian_2",
     "NeedLv": 30,
     "Characteristic": false,
@@ -6819,11 +6819,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備魔法書時，提升魔法攻擊力、魔法命中，並增加小量吟唱速度"
+    "Intro": "TM_Librarian_2_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "來讀書吧!",
+    "Name": "TM_Librarian_3_Name",
     "SkillID": "Librarian_3",
     "NeedLv": 30,
     "Characteristic": true,
@@ -6837,11 +6837,11 @@
     "CircleDistance": 0,
     "Damage": 1.05,
     "AdditionMode": "MageATK",
-    "Intro": "強迫目標與你一起共進讀書時光，給予目標魔法傷害"
+    "Intro": "TM_Librarian_3_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "英文單字",
+    "Name": "TM_Librarian_4_Name",
     "SkillID": "Librarian_4",
     "NeedLv": 31,
     "Characteristic": true,
@@ -6855,11 +6855,11 @@
     "CircleDistance": 3,
     "Damage": 1.1,
     "AdditionMode": "MageATK",
-    "Intro": "使用困難的英文單字攻擊目標區域，造成最多3名目標魔法傷害，並給予緩速30%，持續1秒。"
+    "Intro": "TM_Librarian_4_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "書本保養法",
+    "Name": "TM_Librarian_5_Name",
     "SkillID": "Librarian_5",
     "NeedLv": 33,
     "Characteristic": true,
@@ -6873,11 +6873,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "在平常的保養書籍中，體悟保養的奧義，運用在實戰中，在180秒內提升防禦、魔法防禦"
+    "Intro": "TM_Librarian_5_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "請安靜!",
+    "Name": "TM_Librarian_6_Name",
     "SkillID": "Librarian_6",
     "NeedLv": 33,
     "Characteristic": true,
@@ -6891,11 +6891,11 @@
     "CircleDistance": 0,
     "Damage": 1.1,
     "AdditionMode": "MageATK",
-    "Intro": "以命令的口吻，強迫對方安靜，給予目標魔法傷害，並沉默持續1秒。"
+    "Intro": "TM_Librarian_6_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "一起讀書吧!",
+    "Name": "TM_Librarian_7_Name",
     "SkillID": "Librarian_7",
     "NeedLv": 35,
     "Characteristic": true,
@@ -6909,11 +6909,11 @@
     "CircleDistance": 3,
     "Damage": 1.2,
     "AdditionMode": "MageATK",
-    "Intro": "強迫指定區域內的目標與你一同共進讀書時光，給予目標最多3名魔法傷害，並減少異常狀態抗性1秒"
+    "Intro": "TM_Librarian_7_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "閱讀禁忌之書",
+    "Name": "TM_Librarian_8_Name",
     "SkillID": "Librarian_8",
     "NeedLv": 35,
     "Characteristic": true,
@@ -6927,11 +6927,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "MageATK",
-    "Intro": "閱讀了被歸類在禁忌，不可閱讀的書籍，背書中的力量反噬，給予周圍最多4名目標魔法傷害，並被書中的力量禁錮1秒"
+    "Intro": "TM_Librarian_8_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "我說，請安靜!",
+    "Name": "TM_Librarian_9_Name",
     "SkillID": "Librarian_9",
     "NeedLv": 36,
     "Characteristic": true,
@@ -6945,11 +6945,11 @@
     "CircleDistance": 3,
     "Damage": 1.1,
     "AdditionMode": "MageATK",
-    "Intro": "再次以命令的口吻，強迫對方安靜，給予目標區域內最多3名目標魔法傷害，並沉默持續1.25秒。"
+    "Intro": "TM_Librarian_9_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "歷史文本",
+    "Name": "TM_Librarian_10_Name",
     "SkillID": "Librarian_10",
     "NeedLv": 38,
     "Characteristic": true,
@@ -6963,11 +6963,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "在歷史類的書籍，召喚古人的靈魂，與自己並肩作戰，持續180秒，技能效果依據召喚的靈魂有不同的效果"
+    "Intro": "TM_Librarian_10_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "背不完的十萬英文單字",
+    "Name": "TM_Librarian_11_Name",
     "SkillID": "Librarian_11",
     "NeedLv": 40,
     "Characteristic": true,
@@ -6981,11 +6981,11 @@
     "CircleDistance": 5,
     "Damage": 1.5,
     "AdditionMode": "MageATK",
-    "Intro": "使用更為困難且記不住的英文單字攻擊目標區域，造成最多5名目標魔法傷害，並給予暈眩3持續1秒。"
+    "Intro": "TM_Librarian_11_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "保持安靜!",
+    "Name": "TM_Librarian_12_Name",
     "SkillID": "Librarian_12",
     "NeedLv": 42,
     "Characteristic": true,
@@ -6999,11 +6999,11 @@
     "CircleDistance": 5,
     "Damage": 1.65,
     "AdditionMode": "MageATK",
-    "Intro": "以貫徹空間的口吻，強迫依舊吵雜的目標安靜，給予目標區域內最多5名目標魔法傷害，並沉默持續1.25秒。"
+    "Intro": "TM_Librarian_12_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "分享知識",
+    "Name": "TM_Librarian_13_Name",
     "SkillID": "Librarian_13",
     "NeedLv": 42,
     "Characteristic": true,
@@ -7017,11 +7017,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "閱讀了大量書本後，與身邊的友軍分享書本的大量知識、文詞造詣、歷史故事、數學公式、生活常識等等，使範圍內包含自己，最多12名友軍，提升防禦力、魔法防禦力、異常狀態抗性，持續180秒"
+    "Intro": "TM_Librarian_13_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "禁書反噬",
+    "Name": "TM_Librarian_14_Name",
     "SkillID": "Librarian_14",
     "NeedLv": 44,
     "Characteristic": true,
@@ -7035,11 +7035,11 @@
     "CircleDistance": 0,
     "Damage": 1.65,
     "AdditionMode": "MageATK",
-    "Intro": "閱讀了禁書的內容，被書中的力量給反噬，給予自身與目標周圍最多7名目標，造成魔法傷害，並恐懼1秒"
+    "Intro": "TM_Librarian_14_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "穿透書籍的閱讀力",
+    "Name": "TM_Librarian_15_Name",
     "SkillID": "Librarian_15",
     "NeedLv": 45,
     "Characteristic": false,
@@ -7053,11 +7053,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "閱讀大量的書本，獲得了近乎穿透任何書本的閱讀力，提升魔法攻擊力、最大魔力、魔力回復，無視目標的異常抗性力"
+    "Intro": "TM_Librarian_15_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "知識就是力量",
+    "Name": "TM_Librarian_16_Name",
     "SkillID": "Librarian_16",
     "NeedLv": 46,
     "Characteristic": true,
@@ -7071,11 +7071,11 @@
     "CircleDistance": 4,
     "Damage": 1.65,
     "AdditionMode": "MageATK",
-    "Intro": "閱讀了大量的書本，獲得了大量的知識，以龐大的知識量攻擊目標所在區域，最多3名目標造成魔法傷害，並給予壓制1.5秒"
+    "Intro": "TM_Librarian_16_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "虛擬圖書館",
+    "Name": "TM_Librarian_17_Name",
     "SkillID": "Librarian_17",
     "NeedLv": 48,
     "Characteristic": true,
@@ -7089,11 +7089,11 @@
     "CircleDistance": 5,
     "Damage": 1.7,
     "AdditionMode": "MageATK",
-    "Intro": "精通了所有書本的內容，獲得了大量的知識、常識、故事、公式，以目標為中心最多5名目標，建立虛擬圖書館，給予他們精神上的打擊，造成大量的魔法傷害，並孤立3.5秒，期間內耗弱30%"
+    "Intro": "TM_Librarian_17_Intro"
   },
   {
     "Job": "Librarian",
-    "Name": "學不會的基本電學",
+    "Name": "TM_Librarian_18_Name",
     "SkillID": "Librarian_18",
     "NeedLv": 48,
     "Characteristic": true,
@@ -7107,11 +7107,11 @@
     "CircleDistance": 0,
     "Damage": 2,
     "AdditionMode": "MageATK",
-    "Intro": "就算融會貫通至今的書籍，對於充滿科技知識的電學還是一竅未通，只好將問題都丟給對方嘗試求得答案，造成目標區域內最多8名目標魔法傷害，並且恐懼持續5秒。"
+    "Intro": "TM_Librarian_18_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "皮甲的好處",
+    "Name": "TM_SmokeScout_1_Name",
     "SkillID": "SmokeScout_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -7125,11 +7125,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力，大量提升迴避值"
+    "Intro": "TM_SmokeScout_1_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "菸斗大師",
+    "Name": "TM_SmokeScout_2_Name",
     "SkillID": "SmokeScout_2",
     "NeedLv": 30,
     "Characteristic": false,
@@ -7143,11 +7143,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用傳說武器「菸斗」當作武器的話，提升遠距離物理攻擊與命中"
+    "Intro": "TM_SmokeScout_2_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙兵",
+    "Name": "TM_SmokeScout_3_Name",
     "SkillID": "SmokeScout_3",
     "NeedLv": 30,
     "Characteristic": true,
@@ -7161,11 +7161,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用菸斗吐出的煙霧，製作一個可受操作的煙兵，每個煙兵存在時間為5秒。每過冷卻時間可以儲存一個煙兵，上限為5個"
+    "Intro": "TM_SmokeScout_3_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙兵-突擊",
+    "Name": "TM_SmokeScout_4_Name",
     "SkillID": "SmokeScout_4",
     "NeedLv": 30,
     "Characteristic": true,
@@ -7179,11 +7179,11 @@
     "CircleDistance": 0,
     "Damage": 1,
     "AdditionMode": "RemoteATK",
-    "Intro": "有存在在戰場上的煙兵並且非偵查產生才可以使用，命令所有煙兵往目標進行突擊，造成物理傷害，第2煙兵後的造成傷害減少至15%"
+    "Intro": "TM_SmokeScout_4_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "菸斗打擊",
+    "Name": "TM_SmokeScout_5_Name",
     "SkillID": "SmokeScout_5",
     "NeedLv": 32,
     "Characteristic": true,
@@ -7197,11 +7197,11 @@
     "CircleDistance": 0,
     "Damage": 1.1,
     "AdditionMode": "RemoteATK",
-    "Intro": "使用手中的菸斗，對周圍最多3名敵人進行打擊"
+    "Intro": "TM_SmokeScout_5_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙圈",
+    "Name": "TM_SmokeScout_6_Name",
     "SkillID": "SmokeScout_6",
     "NeedLv": 33,
     "Characteristic": true,
@@ -7215,11 +7215,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "利用菸斗吐出的煙霧包裹住自己，降低本體的能見性，小幅提升迴避值、提升移動速度，持續180秒。"
+    "Intro": "TM_SmokeScout_6_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙兵-召回",
+    "Name": "TM_SmokeScout_7_Name",
     "SkillID": "SmokeScout_7",
     "NeedLv": 33,
     "Characteristic": true,
@@ -7233,11 +7233,11 @@
     "CircleDistance": 0,
     "Damage": 1,
     "AdditionMode": "RemoteATK",
-    "Intro": "有存在在戰場上的煙兵，命令所有煙兵往自己移動，在自身周圍以一個圓圈排列，對移動路徑上的敵方目標造成傷害，第2個煙兵後造成的傷害減少至15%。"
+    "Intro": "TM_SmokeScout_7_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙兵-切換",
+    "Name": "TM_SmokeScout_8_Name",
     "SkillID": "SmokeScout_8",
     "NeedLv": 35,
     "Characteristic": true,
@@ -7251,11 +7251,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "有存在在戰場上的煙兵，指定一個煙兵與自己切換位置，切換完畢後在2秒內提升移動速度。"
+    "Intro": "TM_SmokeScout_8_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙兵強化",
+    "Name": "TM_SmokeScout_9_Name",
     "SkillID": "SmokeScout_9",
     "NeedLv": 36,
     "Characteristic": false,
@@ -7269,11 +7269,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "學會了更高階的煙兵操作技巧，每個煙兵的存在時間調整為7秒，可儲存的煙兵上限為8個"
+    "Intro": "TM_SmokeScout_9_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙兵-偵查",
+    "Name": "TM_SmokeScout_10_Name",
     "SkillID": "SmokeScout_10",
     "NeedLv": 37,
     "Characteristic": true,
@@ -7287,11 +7287,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "召喚一個沒有存在時間限制的煙兵，不可對其進行任何操作，但是可以獲得其一定範圍內的視野，此煙兵受到任何攻擊後直接消失。"
+    "Intro": "TM_SmokeScout_10_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙兵-爆炸",
+    "Name": "TM_SmokeScout_11_Name",
     "SkillID": "SmokeScout_11",
     "NeedLv": 38,
     "Characteristic": true,
@@ -7305,11 +7305,11 @@
     "CircleDistance": 5,
     "Damage": 1.2,
     "AdditionMode": "None",
-    "Intro": "有存在在戰場上的煙兵才可以使用，對指定的煙兵進行爆炸操作，造成煙兵周為小範圍內的敵方目標最多3名傷害。"
+    "Intro": "TM_SmokeScout_11_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙兵-消散",
+    "Name": "TM_SmokeScout_12_Name",
     "SkillID": "SmokeScout_12",
     "NeedLv": 40,
     "Characteristic": true,
@@ -7323,11 +7323,11 @@
     "CircleDistance": 5,
     "Damage": 1.1,
     "AdditionMode": "RemoteATK",
-    "Intro": "有存在在戰場上的煙兵並且非偵查產生才可以使用，將在戰場上存在的煙兵解體，化為濃厚的煙霧，造成小範圍內的敵方目標最多5名傷害，第2個煙兵後造成的傷害減少至15%，並使造成傷害的目標失明2秒。"
+    "Intro": "TM_SmokeScout_12_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙霧迷漫",
+    "Name": "TM_SmokeScout_13_Name",
     "SkillID": "SmokeScout_13",
     "NeedLv": 41,
     "Characteristic": true,
@@ -7341,11 +7341,11 @@
     "CircleDistance": 0,
     "Damage": 1.3,
     "AdditionMode": "RemoteATK",
-    "Intro": "利用菸斗吐出的煙霧環繞在自己周圍，對周圍最多5名敵方目標造成傷害，持續3秒。"
+    "Intro": "TM_SmokeScout_13_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙兵-化圓",
+    "Name": "TM_SmokeScout_14_Name",
     "SkillID": "SmokeScout_14",
     "NeedLv": 42,
     "Characteristic": true,
@@ -7359,11 +7359,11 @@
     "CircleDistance": 5,
     "Damage": 1,
     "AdditionMode": "RemoteATK",
-    "Intro": "有存在在戰場上的煙兵，命令所有煙兵以自身為中心，突進到攻擊範圍最外圈，對移動路徑上的敵方目標造成傷害，第2個煙兵後造成的傷害減少至15%。"
+    "Intro": "TM_SmokeScout_14_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙兵-煙化",
+    "Name": "TM_SmokeScout_15_Name",
     "SkillID": "SmokeScout_15",
     "NeedLv": 43,
     "Characteristic": true,
@@ -7377,11 +7377,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "RemoteATK",
-    "Intro": "有存在在戰場上的煙兵，幻化成煙，殘留在所在區域，經過的友軍獲得2秒的提高移動速度效果，停留在煙霧區域獲得隱身效果，煙霧存在3秒。"
+    "Intro": "TM_SmokeScout_15_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "星點菸灰",
+    "Name": "TM_SmokeScout_16_Name",
     "SkillID": "SmokeScout_16",
     "NeedLv": 44,
     "Characteristic": true,
@@ -7395,11 +7395,11 @@
     "CircleDistance": 5,
     "Damage": 1.45,
     "AdditionMode": "RemoteATK",
-    "Intro": "拿起菸斗對目標所在圓形區域進行攻擊，撒出菸斗中正在燃燒的菸灰，造成最多5名敵方目標物理傷害附加15%的火焰魔法傷害。"
+    "Intro": "TM_SmokeScout_16_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙兵-替身",
+    "Name": "TM_SmokeScout_17_Name",
     "SkillID": "SmokeScout_17",
     "NeedLv": 45,
     "Characteristic": true,
@@ -7413,11 +7413,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "施放後獲得一個無時間限制的增益效果，當受到致命效果且煙兵還尚有儲存量時，立刻召喚一個煙兵進行傷害目標，並讓技能進入倒數計時。"
+    "Intro": "TM_SmokeScout_17_Intro"
   },
   {
     "Job": "SmokeScout",
-    "Name": "煙兵精通大法",
+    "Name": "TM_SmokeScout_18_Name",
     "SkillID": "SmokeScout_18",
     "NeedLv": 48,
     "Characteristic": true,
@@ -7431,11 +7431,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "完全精通了煙兵操作技巧，學會了最高級的技術，每個煙兵的存在時間調整為10秒，可儲存的煙兵上限為12個"
+    "Intro": "TM_SmokeScout_18_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "皮甲的好處",
+    "Name": "TM_MineArtisan_1_Name",
     "SkillID": "MineArtisan_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -7449,11 +7449,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力，大量提升迴避值"
+    "Intro": "TM_MineArtisan_1_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "與弓隨行",
+    "Name": "TM_MineArtisan_2_Name",
     "SkillID": "MineArtisan_2",
     "NeedLv": 30,
     "Characteristic": false,
@@ -7467,11 +7467,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備弓時，提升攻擊力、命中值"
+    "Intro": "TM_MineArtisan_2_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "地雷安裝技術",
+    "Name": "TM_MineArtisan_3_Name",
     "SkillID": "MineArtisan_3",
     "NeedLv": 30,
     "Characteristic": false,
@@ -7485,11 +7485,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "可以安裝持有的地雷，最多安裝10個"
+    "Intro": "TM_MineArtisan_3_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "地雷拆除技術",
+    "Name": "TM_MineArtisan_4_Name",
     "SkillID": "MineArtisan_4",
     "NeedLv": 30,
     "Characteristic": true,
@@ -7503,11 +7503,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "拆除自己安裝並未觸發、以及偵測到的地雷"
+    "Intro": "TM_MineArtisan_4_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "地雷偵查技術",
+    "Name": "TM_MineArtisan_5_Name",
     "SkillID": "MineArtisan_5",
     "NeedLv": 30,
     "Characteristic": true,
@@ -7521,11 +7521,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "偵查一定範圍內非友方單位安裝的地雷，持續180秒"
+    "Intro": "TM_MineArtisan_5_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "隱身",
+    "Name": "TM_MineArtisan_6_Name",
     "SkillID": "MineArtisan_6",
     "NeedLv": 30,
     "Characteristic": true,
@@ -7539,11 +7539,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "隱蔽自己的氣息，讓他人無法察覺自身的存在，進入隱身狀態，持續180秒，期間進行攻擊，隱身狀態取消。"
+    "Intro": "TM_MineArtisan_6_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "完美的射箭術",
+    "Name": "TM_MineArtisan_7_Name",
     "SkillID": "MineArtisan_7",
     "NeedLv": 30,
     "Characteristic": true,
@@ -7557,11 +7557,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "RemoteATK",
-    "Intro": "對一名敵方目標造更高的物理傷害(消耗1支箭)"
+    "Intro": "TM_MineArtisan_7_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "隱密的射箭術",
+    "Name": "TM_MineArtisan_8_Name",
     "SkillID": "MineArtisan_8",
     "NeedLv": 32,
     "Characteristic": true,
@@ -7575,11 +7575,11 @@
     "CircleDistance": 0,
     "Damage": 1.33,
     "AdditionMode": "RemoteATK",
-    "Intro": "只可在隱身狀態下使用，對一名敵方目標造更高的物理傷害，此傷害必定暴擊(消耗1支箭)"
+    "Intro": "TM_MineArtisan_8_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "弱化的箭雨",
+    "Name": "TM_MineArtisan_9_Name",
     "SkillID": "MineArtisan_9",
     "NeedLv": 33,
     "Characteristic": true,
@@ -7593,11 +7593,11 @@
     "CircleDistance": 5,
     "Damage": 1.35,
     "AdditionMode": "RemoteATK",
-    "Intro": "對指定區域射出大批的箭矢，造成持續物理傷害，最多五名(僅限使用弓)(消耗5支箭)"
+    "Intro": "TM_MineArtisan_9_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "地雷改造計畫",
+    "Name": "TM_MineArtisan_10_Name",
     "SkillID": "MineArtisan_10",
     "NeedLv": 35,
     "Characteristic": true,
@@ -7611,11 +7611,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "對持有的地雷進行改造，造成更高的殺傷力，持續180秒。"
+    "Intro": "TM_MineArtisan_10_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "強制引爆",
+    "Name": "TM_MineArtisan_11_Name",
     "SkillID": "MineArtisan_11",
     "NeedLv": 38,
     "Characteristic": true,
@@ -7629,11 +7629,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "將目前已安置的所有地雷給引爆。"
+    "Intro": "TM_MineArtisan_11_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "武裝箭",
+    "Name": "TM_MineArtisan_12_Name",
     "SkillID": "MineArtisan_12",
     "NeedLv": 40,
     "Characteristic": true,
@@ -7647,11 +7647,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "使用強力一擊，射出殺傷力強大的箭矢，對單體敵方目標造成極大的傷害，並暈眩0.75秒(消耗3支箭)"
+    "Intro": "TM_MineArtisan_12_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "地雷穿透技術",
+    "Name": "TM_MineArtisan_13_Name",
     "SkillID": "MineArtisan_13",
     "NeedLv": 42,
     "Characteristic": true,
@@ -7665,11 +7665,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "對持有的地雷進行改造，地雷爆炸造成的傷害有機率無視物理與魔法防禦35%，持續180秒。"
+    "Intro": "TM_MineArtisan_13_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "穿突箭",
+    "Name": "TM_MineArtisan_14_Name",
     "SkillID": "MineArtisan_14",
     "NeedLv": 43,
     "Characteristic": true,
@@ -7683,11 +7683,11 @@
     "CircleDistance": 0,
     "Damage": 1.5,
     "AdditionMode": "RemoteATK",
-    "Intro": "對指定路徑射出箭，造成路徑上的敵方目標最多5名物理傷害，必造成擊退。(消耗8支箭)"
+    "Intro": "TM_MineArtisan_14_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "連環地雷術",
+    "Name": "TM_MineArtisan_15_Name",
     "SkillID": "MineArtisan_15",
     "NeedLv": 45,
     "Characteristic": true,
@@ -7701,11 +7701,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "對指定區域埋藏推疊的地雷3個，當有目標觸發地雷時，造成3次爆炸傷害。"
+    "Intro": "TM_MineArtisan_15_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "反隱身偵查術",
+    "Name": "TM_MineArtisan_16_Name",
     "SkillID": "MineArtisan_16",
     "NeedLv": 47,
     "Characteristic": true,
@@ -7719,11 +7719,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "不可在隱身狀態下使用，偵查周圍是否有隱身的任何單位，發現目標的話可以進行選取與相關操作，持續180秒。"
+    "Intro": "TM_MineArtisan_16_Intro"
   },
   {
     "Job": "MineArtisan",
-    "Name": "高深的地雷安裝技術",
+    "Name": "TM_MineArtisan_17_Name",
     "SkillID": "MineArtisan_17",
     "NeedLv": 48,
     "Characteristic": false,
@@ -7737,11 +7737,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "可以安裝持有的地雷，最多安裝20個"
+    "Intro": "TM_MineArtisan_17_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "精通單手劍",
+    "Name": "TM_Echo_1_Name",
     "SkillID": "Echo_1",
     "NeedLv": 30,
     "Characteristic": false,
@@ -7755,11 +7755,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備單手劍時提升攻擊力，裝備第二把時獲得其一半的攻擊力"
+    "Intro": "TM_Echo_1_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "精通皮甲",
+    "Name": "TM_Echo_2_Name",
     "SkillID": "Echo_2",
     "NeedLv": 30,
     "Characteristic": false,
@@ -7773,11 +7773,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "裝備皮甲時，提升防禦力、迴避值"
+    "Intro": "TM_Echo_2_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "強烈的砍擊",
+    "Name": "TM_Echo_3_Name",
     "SkillID": "Echo_3",
     "NeedLv": 30,
     "Characteristic": true,
@@ -7791,11 +7791,11 @@
     "CircleDistance": 0,
     "Damage": 1.4,
     "AdditionMode": "MeleeATK",
-    "Intro": "對一個敵對目標使用傷害較高的砍擊"
+    "Intro": "TM_Echo_3_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "輕巧的躍擊",
+    "Name": "TM_Echo_4_Name",
     "SkillID": "Echo_4",
     "NeedLv": 33,
     "Characteristic": true,
@@ -7809,11 +7809,11 @@
     "CircleDistance": 8,
     "Damage": 1.25,
     "AdditionMode": "MeleeATK",
-    "Intro": "跳躍至指定地點，並對地點內最多五名敵對目標傷害，並緩速命中目標移動速度15%，持續2.5秒"
+    "Intro": "TM_Echo_4_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "回音戰鬥法則",
+    "Name": "TM_Echo_5_Name",
     "SkillID": "Echo_5",
     "NeedLv": 35,
     "Characteristic": false,
@@ -7827,11 +7827,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "回音的戰鬥方式，是透過吸收傷害並反擊傷害為主要戰鬥方式，為了正確的吸收傷害，回音並不能進行任何閃避與格檔。"
+    "Intro": "TM_Echo_5_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "臥薪嘗膽",
+    "Name": "TM_Echo_6_Name",
     "SkillID": "Echo_6",
     "NeedLv": 35,
     "Characteristic": false,
@@ -7845,11 +7845,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "記錄在「如履薄冰」狀態下的傷害吸收量，死亡時吸收量會歸零。"
+    "Intro": "TM_Echo_6_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "如履薄冰",
+    "Name": "TM_Echo_7_Name",
     "SkillID": "Echo_7",
     "NeedLv": 35,
     "Characteristic": true,
@@ -7863,11 +7863,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "在180秒內，受到任何的傷害後，在未受到致命傷害的情況下，將傷害儲存起來。"
+    "Intro": "TM_Echo_7_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "以眼還眼",
+    "Name": "TM_Echo_8_Name",
     "SkillID": "Echo_8",
     "NeedLv": 35,
     "Characteristic": true,
@@ -7881,11 +7881,11 @@
     "CircleDistance": 0,
     "Damage": 1,
     "AdditionMode": "MeleeATK",
-    "Intro": "將「臥薪嘗膽」吸收的傷害量，對目標進行傷害。"
+    "Intro": "TM_Echo_8_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "抗打鍛鍊",
+    "Name": "TM_Echo_9_Name",
     "SkillID": "Echo_9",
     "NeedLv": 38,
     "Characteristic": true,
@@ -7899,11 +7899,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "大幅提升自己的血量、小幅提升血量自然回復與移動速度，持續180秒。"
+    "Intro": "TM_Echo_9_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "弔亡曲回音",
+    "Name": "TM_Echo_10_Name",
     "SkillID": "Echo_10",
     "NeedLv": 40,
     "Characteristic": true,
@@ -7917,11 +7917,11 @@
     "CircleDistance": 5,
     "Damage": 1.5,
     "AdditionMode": "MeleeATK",
-    "Intro": "對目標區域內最多5名敵人造成物理傷害，並賦予禁錮1秒。"
+    "Intro": "TM_Echo_10_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "慰問歌回音",
+    "Name": "TM_Echo_11_Name",
     "SkillID": "Echo_11",
     "NeedLv": 42,
     "Characteristic": true,
@@ -7935,11 +7935,11 @@
     "CircleDistance": 0,
     "Damage": 2,
     "AdditionMode": "MeleeATK",
-    "Intro": "敲打手中的劍，為亡靈們獻上慰問曲，快速恢復自己的生命。"
+    "Intro": "TM_Echo_11_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "喪葬樂回音",
+    "Name": "TM_Echo_12_Name",
     "SkillID": "Echo_12",
     "NeedLv": 45,
     "Characteristic": true,
@@ -7953,11 +7953,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "MeleeATK",
-    "Intro": "用力且快速得敲打手中的劍，使用敲打出來的聲波增加自己的移動，大幅提升移動速度持續5秒。"
+    "Intro": "TM_Echo_12_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "以彼之道、還施彼身",
+    "Name": "TM_Echo_13_Name",
     "SkillID": "Echo_13",
     "NeedLv": 48,
     "Characteristic": false,
@@ -7971,11 +7971,11 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "強化「以眼還眼」，提升20%造成的傷害，並增加可造成傷害的目標，提升為目標與目標周圍最多5名敵人。"
+    "Intro": "TM_Echo_13_Intro"
   },
   {
     "Job": "Echo",
-    "Name": "末徒的回音",
+    "Name": "TM_Echo_14_Name",
     "SkillID": "Echo_14",
     "NeedLv": 48,
     "Characteristic": false,
@@ -7989,6 +7989,6 @@
     "CircleDistance": 0,
     "Damage": 0,
     "AdditionMode": "None",
-    "Intro": "身為遊走在生死邊緣的人，已習慣了隨時死亡的感覺，當自己的生命會低時，造成的傷害越高，但會降低移動速度。"
+    "Intro": "TM_Echo_14_Intro"
   }
 ]

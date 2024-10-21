@@ -150,5 +150,69 @@
   {
     "TextID": "TM_ClothArmor",
     "TextContent": "布甲"
+  },
+  {
+    "TextID": "TM_Medium",
+    "TextContent": "中型"
+  },
+  {
+    "TextID": "TM_Normal",
+    "TextContent": "一般"
+  },
+  {
+    "TextID": "TM_Elite",
+    "TextContent": "菁英"
+  },
+  {
+    "TextID": "TM_Boss",
+    "TextContent": "王"
+  },
+  {
+    "TextID": "TM_MonsterType_Human",
+    "TextContent": "人型"
+  },
+  {
+    "TextID": "TM_MonsterType_Beast",
+    "TextContent": "野獸"
+  },
+  {
+    "TextID": "TM_MonsterType_MagicalCreature",
+    "TextContent": "魔法生物"
+  },
+  {
+    "TextID": "TM_MonsterType_Goblin",
+    "TextContent": "哥布林"
+  },
+  {
+    "TextID": "TM_Buff",
+    "TextContent": "增益效果"
+  },
+  {
+    "TextID": "TM_DeBuff",
+    "TextContent": "減益效果"
+  },
+  {
+    "TextID": "TM_CrowdControl",
+    "TextContent": "控制效果"
+  },
+  {
+    "TextID": "TM_Passive",
+    "TextContent": "被動效果"
+  },
+  {
+    "TextID": "TM_PlayerLv",
+    "TextContent": "玩家等級"
+  },
+  {
+    "TextID": "TM_Human",
+    "TextContent": "人類"
+  },
+  {
+    "TextID": "TM_Elf",
+    "TextContent": "精靈"
+  },
+  {
+    "TextID": "TM_Druid",
+    "TextContent": "德魯伊"
   }
 ]

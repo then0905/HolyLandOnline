@@ -72,7 +72,7 @@ public class MonsterBehaviour : ActivityCharacterBase
     //怪物魔力
     protected int mp;
 
-    public override string Name { get => monsterValue.Name; }
+    public override string Name { get => monsterValue.Name.GetText(); }
     public override int HP
     {
         get { return hp; }

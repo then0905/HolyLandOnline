@@ -6,5 +6,21 @@
   {
     "TextID": "TM_CharacterStatusHintBuffFomat",
     "TextContent": "{0}: {1}"
+  },
+  {
+    "TextID": "TM_Leave",
+    "TextContent": "離開"
+  },
+  {
+    "TextID": "TM_Trade",
+    "TextContent": "交易"
+  },
+  {
+    "TextID": "TM_SkillCastMageError",
+    "TextContent": "技能：{0}  所需消耗魔力不足…"
+  },
+  {
+    "TextID": "TM_SkillCoolDownError",
+    "TextContent": "技能：{0}  正在冷卻時間中…"
   }
 ]

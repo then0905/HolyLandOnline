@@ -132,7 +132,7 @@ public class ItemManager : MonoBehaviour
                 item.GetComponent<Equipment>().EquipmentDatas.Armor = armorvaule;
                 //設定堆疊數量資料
                 item.Qty = 1;
-                CommonFunction.MessageHint(("獲得" + armorvaule.Name), HintType.NormalItem);
+                CommonFunction.MessageHint(("獲得" + armorvaule.Name.GetText()), HintType.NormalItem);
                 return;
             }
             else
@@ -160,7 +160,7 @@ public class ItemManager : MonoBehaviour
                 item.GetComponent<Equipment>().EquipmentDatas.Weapon = weaponvaule;
                 //設定物品堆疊資料
                 item.Qty = 1;
-                CommonFunction.MessageHint(("獲得" + weaponvaule.Name), HintType.NormalItem);
+                CommonFunction.MessageHint(("獲得" + weaponvaule.Name.GetText()), HintType.NormalItem);
                 return;
             }
             else
@@ -198,7 +198,7 @@ public class ItemManager : MonoBehaviour
                 //設定資料
                 item.GetComponent<Equipment>().EquipmentDatas.Item = itemvaule;
                 item.Qty = qty;
-                CommonFunction.MessageHint(("獲得" + itemvaule.Name), HintType.NormalItem);
+                CommonFunction.MessageHint(("獲得" + itemvaule.Name.GetText()), HintType.NormalItem);
                 return;
             }
             else if (item.EquipmentDatas.Item?.CodeID == itemvaule.CodeID)

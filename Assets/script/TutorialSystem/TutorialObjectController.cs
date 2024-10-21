@@ -123,7 +123,7 @@ public class TutorialObjectController : MonoBehaviour
         List<string> tempFormat = new List<string>();
 
         if (dialogFormat == null)
-            return dialogText;
+            return dialogText.GetText();
         else
             foreach (var formatTarget in dialogFormat)
             {
@@ -137,7 +137,7 @@ public class TutorialObjectController : MonoBehaviour
                 }
             }
 
-        return string.Format(dialogText, tempFormat.ToArray());
+        return string.Format(dialogText.GetText(), tempFormat.ToArray());
     }
 
     /// <summary>

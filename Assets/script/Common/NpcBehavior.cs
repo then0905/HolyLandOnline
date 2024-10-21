@@ -27,7 +27,7 @@ public class NpcBehavior : ActivityCharacterBase
         }
     }
 
-    public override string Name => npcDataModel.NpcName;
+    public override string Name => npcDataModel.NpcName.GetText();
 
     public override int HP { get { return npcDataModel.HP; } set { HP = value; } }
     public override int MP { get { return npcDataModel.MP; } set { MP = value; } }
@@ -69,7 +69,7 @@ public class NpcBehavior : ActivityCharacterBase
         //獲得此NPC資料
         npcDataModel = GameData.NpcDataDic?[NpcID];
         //設定此NPC名稱
-        NameText.GetComponent<TextMeshProUGUI>().text = npcDataModel.NpcName;
+        NameText.GetComponent<TextMeshProUGUI>().text = npcDataModel.NpcName.GetText();
         //將名稱文字的父級 轉移到 文字畫布
         NameText.transform.SetParent(MapManager.Instance.CanvasMapText.transform);
     }

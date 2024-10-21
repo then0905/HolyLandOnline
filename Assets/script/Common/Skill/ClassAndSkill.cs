@@ -83,10 +83,10 @@ public class ClassAndSkill : MonoBehaviour
 
             //設定此物件的資料
             skillUIobj.SkillID = item.SkillID;
-            skillUIobj.SkillName = item.Name;
+            skillUIobj.SkillName = item.Name.GetText();
             skillUIobj.CastMage = item.CastMage;
             skillUIobj.CooldownTime = item.CD;
-            skillUIobj.SkillIntro = string.IsNullOrEmpty(skillUIobj.SkillUpgradeID) ? item.Intro : item.Intro + "\n" + skillUIobj.SkillUpgradeID;
+            skillUIobj.SkillIntro = string.IsNullOrEmpty(skillUIobj.SkillUpgradeID) ? item.Intro.GetText() : item.Intro.GetText() + "\n" + skillUIobj.SkillUpgradeID;
             skillUIobj.Characteristic = item.Characteristic;
             //skillUIobj.SkillIcon.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerDataOverView.Instance.PlayerData_.Job, item.SkillID);
 

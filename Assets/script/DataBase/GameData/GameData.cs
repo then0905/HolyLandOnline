@@ -50,6 +50,20 @@ public partial class GameData : MonoBehaviour
     /// </summary>
     public static void Init()
     {
+        CommonFunction.InitData(GameTextDataDic, "Json",
+            "GameText",
+            "StatusText", 
+            "CommonText",
+            "AreaText",
+            "ArmorText",
+            "ItemText",
+            "JobText",
+            "MonsterText",
+            "NpcText",
+            "QuestText",
+            "SkillText",
+            "TutorialText",
+            "WeaponText");
         CommonFunction.InitData(MonsterBootysDic,  "Json", "Bootys");
         CommonFunction.InitData(ArmorsDic, "Json", "Armor");
         CommonFunction.InitData(SkillsUIDic, "Json", "SkillIntro");
@@ -64,9 +78,5 @@ public partial class GameData : MonoBehaviour
         CommonFunction.InitData(NpcDataDic, "Json", "NpcData");
         CommonFunction.InitData(QuestDataDic, "Json", "Quest");
         CommonFunction.InitData(TutorialDataDic, "Json", "TutorialSystem");
-        CommonFunction.InitData(GameTextDataDic, "Json",
-            "GameText",
-            "StatusText", 
-            "CommonText");
     }
 }

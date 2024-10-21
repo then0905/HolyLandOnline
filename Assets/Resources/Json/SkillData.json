@@ -1,6 +1,6 @@
 [
   {
-    "Name": "砍擊",
+    "Name": "TM_Sword_1_Name",
     "SkillID": "Sword_1",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -19,10 +19,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標使用砍擊"
+    "Intro": "TM_Sword_1_Intro"
   },
   {
-    "Name": "重擊",
+    "Name": "TM_Sword_2_Name",
     "SkillID": "Sword_2",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -40,10 +40,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "升級砍擊，對一個敵對目標使用傷害較高的砍擊"
+    "Intro": "TM_Sword_2_Intro"
   },
   {
-    "Name": "劈擊",
+    "Name": "TM_Sword_3_Name",
     "SkillID": "Sword_3",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -62,10 +62,10 @@
     "Width": 10,
     "Height": 5,
     "CircleDistance": 0,
-    "Intro": "對前方區域內三名敵對目標使用範圍型的攻擊"
+    "Intro": "TM_Sword_3_Intro"
   },
   {
-    "Name": "劍術之途",
+    "Name": "TM_Sword_4_Name",
     "SkillID": "Sword_4",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -93,10 +93,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備劍類武器時，稍微提升攻擊力"
+    "Intro": "TM_Sword_4_Intro"
   },
   {
-    "Name": "修練之途",
+    "Name": "TM_Sword_5_Name",
     "SkillID": "Sword_5",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -120,10 +120,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "稍微提升最大生命值"
+    "Intro": "TM_Sword_5_Intro"
   },
   {
-    "Name": "破擊",
+    "Name": "TM_Warrior_1_Name",
     "SkillID": "Warrior_1",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -148,10 +148,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標造成較高的傷害，並附帶1秒暈眩"
+    "Intro": "TM_Warrior_1_Intro"
   },
   {
-    "Name": "躍擊",
+    "Name": "TM_Warrior_2_Name",
     "SkillID": "Warrior_2",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -170,10 +170,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 4,
-    "Intro": "跳躍到指定地點，並對地點內最多三名敵對目標造成較高的傷害"
+    "Intro": "TM_Warrior_2_Intro"
   },
   {
-    "Name": "多重打擊",
+    "Name": "TM_Warrior_3_Name",
     "SkillID": "Warrior_3",
     "Characteristic": true,
     "MultipleValue": 3,
@@ -192,10 +192,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標揮出多次打擊，每次造成傷害，最多3次"
+    "Intro": "TM_Warrior_3_Intro"
   },
   {
-    "Name": "戰鬥意志",
+    "Name": "TM_Warrior_4_Name",
     "SkillID": "Warrior_4",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -221,10 +221,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升攻擊力"
+    "Intro": "TM_Warrior_4_Intro"
   },
   {
-    "Name": "粗糙的皮膚",
+    "Name": "TM_Warrior_5_Name",
     "SkillID": "Warrior_5",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -253,10 +253,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，稍微提升防禦力以及最大生命值"
+    "Intro": "TM_Warrior_5_Intro"
   },
   {
-    "Name": "熟練的雙手武器",
+    "Name": "TM_Warrior_6_Name",
     "SkillID": "Warrior_6",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -288,10 +288,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "使用雙手武器(劍、斧、槌)時，提升攻擊力以及命中"
+    "Intro": "TM_Warrior_6_Intro"
   },
   {
-    "Name": "精通戰鬥的人",
+    "Name": "TM_Warrior_7_Name",
     "SkillID": "Warrior_7",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -318,10 +318,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "稍微提升防禦力及最大生命值"
+    "Intro": "TM_Warrior_7_Intro"
   },
   {
-    "Name": "騎士的砍擊",
+    "Name": "TM_Knight_1_Name",
     "SkillID": "Knight_1",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -340,10 +340,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標使用傷害較高砍擊"
+    "Intro": "TM_Knight_1_Intro"
   },
   {
-    "Name": "嘲諷",
+    "Name": "TM_Knight_2_Name",
     "SkillID": "Knight_2",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -371,10 +371,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標使用嘲諷，使其攻擊自己，持續2秒，若目標為怪物提高仇恨值"
+    "Intro": "TM_Knight_2_Intro"
   },
   {
-    "Name": "保護同伴",
+    "Name": "TM_Knight_3_Name",
     "SkillID": "Knight_3",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -403,10 +403,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升隊友及自身的攻擊力、防禦力"
+    "Intro": "TM_Knight_3_Intro"
   },
   {
-    "Name": "團隊的盾牌",
+    "Name": "TM_Knight_4_Name",
     "SkillID": "Knight_4",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -438,10 +438,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升隊友及自身的最大生命值及生命回復量"
+    "Intro": "TM_Knight_4_Intro"
   },
   {
-    "Name": "用力的盾擊",
+    "Name": "TM_Knight_5_Name",
     "SkillID": "Knight_5",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -466,10 +466,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "使用盾牌砸向一個敵對目標，使目標受到傷害並暈眩1秒"
+    "Intro": "TM_Knight_5_Intro"
   },
   {
-    "Name": "單手武器的熟練",
+    "Name": "TM_Knight_6_Name",
     "SkillID": "Knight_6",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -500,10 +500,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "使用單手武器時提升攻擊力及命中"
+    "Intro": "TM_Knight_6_Intro"
   },
   {
-    "Name": "握起盾牌的覺悟",
+    "Name": "TM_Knight_7_Name",
     "SkillID": "Knight_7",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -533,10 +533,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備盾牌時提昇大量防禦力及些許的格擋，降低攻擊速度"
+    "Intro": "TM_Knight_7_Intro"
   },
   {
-    "Name": "重甲的好處與壞處",
+    "Name": "TM_Knight_8_Name",
     "SkillID": "Knight_8",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -566,10 +566,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備重型鎧甲的裝備時，提升大量防禦力，下降移動速度"
+    "Intro": "TM_Knight_8_Intro"
   },
   {
-    "Name": "狂戰士的破擊",
+    "Name": "TM_Berserker_1_Name",
     "SkillID": "Berserker_1",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -594,10 +594,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標造成大量的傷害，並附帶2秒暈眩"
+    "Intro": "TM_Berserker_1_Intro"
   },
   {
-    "Name": "狂戰士的躍擊",
+    "Name": "TM_Berserker_2_Name",
     "SkillID": "Berserker_2",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -628,10 +628,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 8,
-    "Intro": "跳躍至指定地點，並對地點內最多五名敵對目標造成大量的傷害，並緩速命中目標移動速度15%，持續2.5秒"
+    "Intro": "TM_Berserker_2_Intro"
   },
   {
-    "Name": "致殘打擊",
+    "Name": "TM_Berserker_3_Name",
     "SkillID": "Berserker_3",
     "Characteristic": true,
     "MultipleValue": 3,
@@ -650,10 +650,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標揮出多次打擊，每次造成傷害，最多3次，並附帶出血"
+    "Intro": "TM_Berserker_3_Intro"
   },
   {
-    "Name": "狂戰精神",
+    "Name": "TM_Berserker_4_Name",
     "SkillID": "Berserker_4",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -684,10 +684,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升大量攻擊力、命中以及暴擊"
+    "Intro": "TM_Berserker_4_Intro"
   },
   {
-    "Name": "嗜血的神經病",
+    "Name": "TM_Berserker_5_Name",
     "SkillID": "Berserker_5",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -718,10 +718,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，獲得攻擊血量小於最大值一半的目標，有更多傷害以及吸血的增益狀態"
+    "Intro": "TM_Berserker_5_Intro"
   },
   {
-    "Name": "怒氣",
+    "Name": "TM_Berserker_6_Name",
     "SkillID": "Berserker_6",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -752,10 +752,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "受攻擊或攻擊時(戰鬥狀態中)持續增加 數值越高傷害範圍越高，最高值100，持續5秒"
+    "Intro": "TM_Berserker_6_Intro"
   },
   {
-    "Name": "雙手武器的堅持",
+    "Name": "TM_Berserker_7_Name",
     "SkillID": "Berserker_7",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -787,10 +787,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備雙手武器(劍、斧、槌)時，獲得大量攻擊力，以及提高些微攻擊速度"
+    "Intro": "TM_Berserker_7_Intro"
   },
   {
-    "Name": "身經百戰的熟練戰士",
+    "Name": "TM_Berserker_8_Name",
     "SkillID": "Berserker_8",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -825,10 +825,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "稍微提升防禦力以及最大生命值，戰鬥狀態中再稍微提升"
+    "Intro": "TM_Berserker_8_Intro"
   },
   {
-    "Name": "來自狂戰士的怒吼",
+    "Name": "TM_Berserker_9_Name",
     "SkillID": "Berserker_9",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -857,10 +857,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "消耗所有怒氣，每1點怒氣大量提高攻擊力以及降低防禦力，持續3秒"
+    "Intro": "TM_Berserker_9_Intro"
   },
   {
-    "Name": "我要打翻身仗",
+    "Name": "TM_Berserker_10_Name",
     "SkillID": "Berserker_10",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -891,10 +891,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "當生命值低於35%時可以使用，使用時提高大量攻擊力以及攻擊速度，持續5秒"
+    "Intro": "TM_Berserker_10_Intro"
   },
   {
-    "Name": "迴旋烈斬",
+    "Name": "TM_Berserker_11_Name",
     "SkillID": "Berserker_11",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -913,10 +913,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "持續對周圍敵對目標，最多五名造成傷害，每揮中一次造成一次傷害(按住按鍵持續施放)"
+    "Intro": "TM_Berserker_11_Intro"
   },
   {
-    "Name": "打不過的敵人",
+    "Name": "TM_Berserker_12_Name",
     "SkillID": "Berserker_12",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -941,10 +941,10 @@
     "Width": 5,
     "Height": 2,
     "CircleDistance": 0,
-    "Intro": "揮出武器，對一名敵對目標造成傷害並擊退目標"
+    "Intro": "TM_Berserker_12_Intro"
   },
   {
-    "Name": "嘿嘿嘿我要來囉",
+    "Name": "TM_Berserker_13_Name",
     "SkillID": "Berserker_13",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -972,10 +972,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "10秒內向敵方目標(玩家)移動時提升移動速度"
+    "Intro": "TM_Berserker_13_Intro"
   },
   {
-    "Name": "不要阻止我！",
+    "Name": "TM_Berserker_14_Name",
     "SkillID": "Berserker_14",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -998,10 +998,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "解除所有控制狀態"
+    "Intro": "TM_Berserker_14_Intro"
   },
   {
-    "Name": "狂戰士斷頭台",
+    "Name": "TM_Berserker_15_Name",
     "SkillID": "Berserker_15",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1020,10 +1020,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標造成極大量的傷害"
+    "Intro": "TM_Berserker_15_Intro"
   },
   {
-    "Name": "狂戰士之路",
+    "Name": "TM_Berserker_16_Name",
     "SkillID": "Berserker_16",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1054,10 +1054,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "持續戰鬥狀態中，每秒提高攻擊力及攻擊速度，脫離戰鬥狀態後維持1.5秒"
+    "Intro": "TM_Berserker_16_Intro"
   },
   {
-    "Name": "聖騎士的砍擊",
+    "Name": "TM_Paladin_1_Name",
     "SkillID": "Paladin_1",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1076,10 +1076,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標使用傷害較高並附帶神聖屬性的砍擊"
+    "Intro": "TM_Paladin_1_Intro"
   },
   {
-    "Name": "無情嘲諷",
+    "Name": "TM_Paladin_2_Name",
     "SkillID": "Paladin_2",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1116,10 +1116,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標使用嘲諷，使其攻擊自己，持續2秒，並降低來自目標的傷害，若目標為怪物提高大量仇恨值"
+    "Intro": "TM_Paladin_2_Intro"
   },
   {
-    "Name": "神聖之力的祝福",
+    "Name": "TM_Paladin_3_Name",
     "SkillID": "Paladin_3",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1152,10 +1152,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升隊友與自身的攻擊力、攻擊速度、移動速度"
+    "Intro": "TM_Paladin_3_Intro"
   },
   {
-    "Name": "神聖之力的保護",
+    "Name": "TM_Paladin_4_Name",
     "SkillID": "Paladin_4",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1190,10 +1190,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升隊友與自身的防禦力、迴避值、最大生命值、生命回復量"
+    "Intro": "TM_Paladin_4_Intro"
   },
   {
-    "Name": "神聖之力的奉獻",
+    "Name": "TM_Paladin_5_Name",
     "SkillID": "Paladin_5",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1219,10 +1219,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，若隊友受到的傷害，轉移小量傷害改由自身承受"
+    "Intro": "TM_Paladin_5_Intro"
   },
   {
-    "Name": "神聖的盾擊",
+    "Name": "TM_Paladin_6_Name",
     "SkillID": "Paladin_6",
     "Characteristic": true,
     "EffectValue": [
@@ -1243,10 +1243,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "使用盾牌敲向一個敵對目標，並附帶神聖屬性傷害，使目標受到傷害並暈眩1.5秒"
+    "Intro": "TM_Paladin_6_Intro"
   },
   {
-    "Name": "祭司授權的治癒術",
+    "Name": "TM_Paladin_7_Name",
     "SkillID": "Paladin_7",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1268,10 +1268,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "回復一個友方目標的小量生命值"
+    "Intro": "TM_Paladin_7_Intro"
   },
   {
-    "Name": "神聖之力是什麼",
+    "Name": "TM_Paladin_8_Name",
     "SkillID": "Paladin_8",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1297,10 +1297,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，自身所有傷害附帶神聖屬性"
+    "Intro": "TM_Paladin_8_Intro"
   },
   {
-    "Name": "聖騎士無所畏懼",
+    "Name": "TM_Paladin_9_Name",
     "SkillID": "Paladin_9",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1328,10 +1328,10 @@
     "Width": 5,
     "Height": 2,
     "CircleDistance": 0,
-    "Intro": "拿起盾牌衝向指定方向，路徑上所有敵對目標受到小量傷害並暈眩1秒"
+    "Intro": "TM_Paladin_9_Intro"
   },
   {
-    "Name": "拿好久的單手武器",
+    "Name": "TM_Paladin_10_Name",
     "SkillID": "Paladin_10",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1358,10 +1358,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備單手武器(槌、劍)時，些微提升攻擊力以及命中"
+    "Intro": "TM_Paladin_10_Intro"
   },
   {
-    "Name": "拿好久的盾牌",
+    "Name": "TM_Paladin_11_Name",
     "SkillID": "Paladin_11",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1394,10 +1394,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備盾牌時提升大量防禦力及格擋，些微降低攻擊速度"
+    "Intro": "TM_Paladin_11_Intro"
   },
   {
-    "Name": "穿好久的重甲",
+    "Name": "TM_Paladin_12_Name",
     "SkillID": "Paladin_12",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1427,10 +1427,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備重型鎧甲時，提升大量防禦力，些微下降移動速度"
+    "Intro": "TM_Paladin_12_Intro"
   },
   {
-    "Name": "聖騎士的權力",
+    "Name": "TM_Paladin_13_Name",
     "SkillID": "Paladin_13",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1464,10 +1464,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對嘲諷的目標附加破甲狀態，持續2秒"
+    "Intro": "TM_Paladin_13_Intro"
   },
   {
-    "Name": "聖光啊！",
+    "Name": "TM_Paladin_14_Name",
     "SkillID": "Paladin_14",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1489,10 +1489,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "祭司授權的治癒術可以解除目標受到的負面狀態"
+    "Intro": "TM_Paladin_14_Intro"
   },
   {
-    "Name": "神聖之力的庇佑",
+    "Name": "TM_Paladin_15_Name",
     "SkillID": "Paladin_15",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1519,10 +1519,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "以一定百分比降低所受傷害"
+    "Intro": "TM_Paladin_15_Intro"
   },
   {
-    "Name": "擊潰資本主義的高牆",
+    "Name": "TM_Paladin_16_Name",
     "SkillID": "Paladin_16",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1556,10 +1556,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "若短時間內(意指5秒內)，遭受暈眩、緩速、禁錮、擊退等控制狀態時，降低接下來受到會造成控制狀態效果"
+    "Intro": "TM_Paladin_16_Intro"
   },
   {
-    "Name": "聖主保佑",
+    "Name": "TM_Paladin_17_Name",
     "SkillID": "Paladin_17",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1595,10 +1595,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "詠唱1.5秒後，3秒內隊友及自身不受到任何傷害，但無法免疫控制狀態"
+    "Intro": "TM_Paladin_17_Intro"
   },
   {
-    "Name": "刺擊",
+    "Name": "TM_Praetorian_1_Name",
     "SkillID": "Praetorian_1",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1626,10 +1626,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對敵方目標造成物理傷害，並破甲15%2秒"
+    "Intro": "TM_Praetorian_1_Intro"
   },
   {
-    "Name": "迴旋刺擊",
+    "Name": "TM_Praetorian_2_Name",
     "SkillID": "Praetorian_2",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1657,10 +1657,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對周圍敵方目標，最多三人造成刺擊，並使目標出血5秒"
+    "Intro": "TM_Praetorian_2_Intro"
   },
   {
-    "Name": "連續刺砍",
+    "Name": "TM_Praetorian_3_Name",
     "SkillID": "Praetorian_3",
     "Characteristic": true,
     "MultipleValue": 5,
@@ -1688,10 +1688,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成多次傷害，最多5次，每一段傷害增加上一次的傷害15%"
+    "Intro": "TM_Praetorian_3_Intro"
   },
   {
-    "Name": "聽候差遣",
+    "Name": "TM_Praetorian_4_Name",
     "SkillID": "Praetorian_4",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1723,10 +1723,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升移動速度，攻擊速度，暴擊率"
+    "Intro": "TM_Praetorian_4_Intro"
   },
   {
-    "Name": "縱橫沙場",
+    "Name": "TM_Praetorian_5_Name",
     "SkillID": "Praetorian_5",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1752,10 +1752,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，對任何控制狀態，緩速狀態減少30%效果及持續時間"
+    "Intro": "TM_Praetorian_5_Intro"
   },
   {
-    "Name": "捍衛國家之心",
+    "Name": "TM_Praetorian_6_Name",
     "SkillID": "Praetorian_6",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1790,10 +1790,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升些許攻擊力、防禦力、格檔"
+    "Intro": "TM_Praetorian_6_Intro"
   },
   {
-    "Name": "衝鋒刺擊",
+    "Name": "TM_Praetorian_7_Name",
     "SkillID": "Praetorian_7",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -1821,10 +1821,10 @@
     "Width": 7,
     "Height": 4,
     "CircleDistance": 0,
-    "Intro": "向指定方向移動，並對路徑上所有敵人使用刺擊的傷害及效果"
+    "Intro": "TM_Praetorian_7_Intro"
   },
   {
-    "Name": "重點刺擊",
+    "Name": "TM_Praetorian_8_Name",
     "SkillID": "Praetorian_8",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1854,10 +1854,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "提升刺擊的傷害，若使用衝鋒刺擊，每擊中1名目標減少0.5秒冷卻時間，最多5秒"
+    "Intro": "TM_Praetorian_8_Intro"
   },
   {
-    "Name": "單手武器的精通",
+    "Name": "TM_Praetorian_9_Name",
     "SkillID": "Praetorian_9",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1887,10 +1887,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備單手武器時(單手劍)，提升攻擊力與攻擊速度"
+    "Intro": "TM_Praetorian_9_Intro"
   },
   {
-    "Name": "還是得搭配盾牌",
+    "Name": "TM_Praetorian_10_Name",
     "SkillID": "Praetorian_10",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1920,10 +1920,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備盾牌時，提升些許防禦、格檔"
+    "Intro": "TM_Praetorian_10_Intro"
   },
   {
-    "Name": "輕便的穿搭",
+    "Name": "TM_Praetorian_11_Name",
     "SkillID": "Praetorian_11",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1954,10 +1954,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "非裝備重型鎧甲的防具，可以提升些許防禦、移動速度"
+    "Intro": "TM_Praetorian_11_Intro"
   },
   {
-    "Name": "回擊好禮",
+    "Name": "TM_Praetorian_12_Name",
     "SkillID": "Praetorian_12",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -1982,10 +1982,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "當格檔時，有35%機率直接造成一次刺擊"
+    "Intro": "TM_Praetorian_12_Intro"
   },
   {
-    "Name": "穿梭戰場的刺刺",
+    "Name": "TM_Praetorian_13_Name",
     "SkillID": "Praetorian_13",
     "Characteristic": false,
     "MultipleValue": 0,
@@ -2012,10 +2012,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "提升刺擊的距離，擊中後移動到擊中目標旁"
+    "Intro": "TM_Praetorian_13_Intro"
   },
   {
-    "Name": "刺擊絕對領域",
+    "Name": "TM_Praetorian_14_Name",
     "SkillID": "Praetorian_14",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -2036,10 +2036,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "詠唱1秒，對周圍所有敵方目標造成傷害，依照攻擊速度給予攻擊頻率，持續5秒"
+    "Intro": "TM_Praetorian_14_Intro"
   },
   {
-    "Name": "飛天御刺",
+    "Name": "TM_Praetorian_15_Name",
     "SkillID": "Praetorian_15",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -2067,10 +2067,10 @@
     "Width": 7,
     "Height": 4,
     "CircleDistance": 0,
-    "Intro": "投擲單手劍擊向指定方向的一名敵方目標，並附加緩速30%，持續3秒"
+    "Intro": "TM_Praetorian_15_Intro"
   },
   {
-    "Name": "禁衛軍！集合！",
+    "Name": "TM_Praetorian_16_Name",
     "SkillID": "Praetorian_16",
     "Characteristic": true,
     "MultipleValue": 8,
@@ -2096,10 +2096,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "詠唱3秒，召喚兩名自己的分身，壓制住敵方目標1秒，並給予八次傷害。"
+    "Intro": "TM_Praetorian_16_Intro"
   },
   {
-    "Name": "火球術",
+    "Name": "TM_Mage_1_Name",
     "SkillID": "Mage_1",
     "Characteristic": true,
     "MultipleValue": 0,
@@ -2114,10 +2114,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "使用火球對一名敵對目標造成火屬性傷害"
+    "Intro": "TM_Mage_1_Intro"
   },
   {
-    "Name": "水流術",
+    "Name": "TM_Mage_2_Name",
     "SkillID": "Mage_2",
     "Characteristic": true,
     "EffectValue": [
@@ -2131,10 +2131,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 4,
-    "Intro": "吟唱1秒，使用水流對指定區域內最多三名敵對目標造成水屬性傷害"
+    "Intro": "TM_Mage_2_Intro"
   },
   {
-    "Name": "土牢術",
+    "Name": "TM_Mage_3_Name",
     "SkillID": "Mage_3",
     "Characteristic": true,
     "EffectValue": [
@@ -2148,10 +2148,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 4,
-    "Intro": "吟唱2秒，指定區域內最多三名敵對目標受到地屬性傷害，並因指定區域的地板下陷，敵對目標同時遭到2秒禁錮"
+    "Intro": "TM_Mage_3_Intro"
   },
   {
-    "Name": "風波術",
+    "Name": "TM_Mage_4_Name",
     "SkillID": "Mage_4",
     "Characteristic": true,
     "EffectValue": [
@@ -2165,10 +2165,10 @@
     "Width": 12,
     "Height": 5,
     "CircleDistance": 0,
-    "Intro": "吟唱2秒，對指定方向使用風聚集的衝擊，對路徑上最多五名敵對目標造成風屬性傷害，並擊退一小段距離"
+    "Intro": "TM_Mage_4_Intro"
   },
   {
-    "Name": "書上的知識",
+    "Name": "TM_Mage_5_Name",
     "SkillID": "Mage_5",
     "Characteristic": false,
     "EffectValue": [
@@ -2182,10 +2182,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "稍微提升魔法攻擊力以及魔力最大值"
+    "Intro": "TM_Mage_5_Intro"
   },
   {
-    "Name": "熟練法杖",
+    "Name": "TM_Mage_6_Name",
     "SkillID": "Mage_6",
     "Characteristic": false,
     "EffectValue": [
@@ -2199,10 +2199,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備單手或雙手的法杖時提高魔法攻擊力"
+    "Intro": "TM_Mage_6_Intro"
   },
   {
-    "Name": "祭司傳承的治癒術",
+    "Name": "TM_Monk_1_Name",
     "SkillID": "Monk_1",
     "Characteristic": true,
     "EffectValue": [
@@ -2216,10 +2216,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "回復一名友軍的小量生命值，小量提升怪物的仇恨值"
+    "Intro": "TM_Monk_1_Intro"
   },
   {
-    "Name": "破除迷惑",
+    "Name": "TM_Monk_2_Name",
     "SkillID": "Monk_2",
     "Characteristic": true,
     "EffectValue": [
@@ -2233,10 +2233,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "解除一名友軍的所有負面狀態"
+    "Intro": "TM_Monk_2_Intro"
   },
   {
-    "Name": "天之箭",
+    "Name": "TM_Monk_3_Name",
     "SkillID": "Monk_3",
     "Characteristic": true,
     "EffectValue": [
@@ -2250,10 +2250,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "吟唱1秒，對一名敵方目標造成神聖屬性的魔法攻擊"
+    "Intro": "TM_Monk_3_Intro"
   },
   {
-    "Name": "神聖力量爆破",
+    "Name": "TM_Monk_4_Name",
     "SkillID": "Monk_4",
     "Characteristic": true,
     "EffectValue": [
@@ -2267,10 +2267,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "吟唱2秒，對周圍敵方目標造成神聖屬性的魔法攻擊，最多三名"
+    "Intro": "TM_Monk_4_Intro"
   },
   {
-    "Name": "聖所的護身法",
+    "Name": "TM_Monk_5_Name",
     "SkillID": "Monk_5",
     "Characteristic": true,
     "EffectValue": [
@@ -2284,10 +2284,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升隊友與自身的些微防禦力、生命回復量、魔力回復量"
+    "Intro": "TM_Monk_5_Intro"
   },
   {
-    "Name": "祭司傳承的淨化術",
+    "Name": "TM_Monk_6_Name",
     "SkillID": "Monk_6",
     "Characteristic": true,
     "EffectValue": [
@@ -2301,10 +2301,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升隊友與自身的命中值、迴避值"
+    "Intro": "TM_Monk_6_Intro"
   },
   {
-    "Name": "精通短法杖",
+    "Name": "TM_Monk_7_Name",
     "SkillID": "Monk_7",
     "Characteristic": false,
     "EffectValue": [
@@ -2318,10 +2318,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備單手法杖時，些微提升魔法攻擊力，以及吟唱速度"
+    "Intro": "TM_Monk_7_Intro"
   },
   {
-    "Name": "熟練輕型盾牌",
+    "Name": "TM_Monk_8_Name",
     "SkillID": "Monk_8",
     "Characteristic": false,
     "EffectValue": [
@@ -2335,10 +2335,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備非重型盾牌時，些微提升防禦力"
+    "Intro": "TM_Monk_8_Intro"
   },
   {
-    "Name": "隕石術",
+    "Name": "TM_Wizard_1_Name",
     "SkillID": "Wizard_1",
     "Characteristic": true,
     "EffectValue": [
@@ -2352,10 +2352,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 5,
-    "Intro": "吟唱1秒，對指定範圍內敵方單位造成火屬性傷害，最多三名，並有15%機率附帶灼傷"
+    "Intro": "TM_Wizard_1_Intro"
   },
   {
-    "Name": "水龍捲",
+    "Name": "TM_Wizard_2_Name",
     "SkillID": "Wizard_2",
     "Characteristic": true,
     "EffectValue": [
@@ -2369,10 +2369,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 5,
-    "Intro": "吟唱1.5秒，對指定範圍內敵方單位造成水屬性傷害，最多三名，並附帶擊飛"
+    "Intro": "TM_Wizard_2_Intro"
   },
   {
-    "Name": "沙塵暴",
+    "Name": "TM_Wizard_3_Name",
     "SkillID": "Wizard_3",
     "Characteristic": true,
     "EffectValue": [
@@ -2386,10 +2386,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 5,
-    "Intro": "吟唱3秒，對指定範圍內敵方單位造成地屬性傷害，最多三名，並附帶致盲"
+    "Intro": "TM_Wizard_3_Intro"
   },
   {
-    "Name": "振氣一擊",
+    "Name": "TM_Wizard_4_Name",
     "SkillID": "Wizard_4",
     "Characteristic": true,
     "EffectValue": [
@@ -2403,10 +2403,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "吟唱3秒，對周圍敵方單位造成風屬性傷害，最多五名，並附帶擊退"
+    "Intro": "TM_Wizard_4_Intro"
   },
   {
-    "Name": "精神昇華",
+    "Name": "TM_Wizard_5_Name",
     "SkillID": "Wizard_5",
     "Characteristic": true,
     "EffectValue": [
@@ -2420,10 +2420,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升自己的魔法攻擊力，暴擊率"
+    "Intro": "TM_Wizard_5_Intro"
   },
   {
-    "Name": "精通長法杖",
+    "Name": "TM_Wizard_6_Name",
     "SkillID": "Wizard_6",
     "Characteristic": false,
     "EffectValue": [
@@ -2437,10 +2437,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備雙手法杖時，提升魔法攻擊力，吟唱速度"
+    "Intro": "TM_Wizard_6_Intro"
   },
   {
-    "Name": "書上的智慧",
+    "Name": "TM_Wizard_7_Name",
     "SkillID": "Wizard_7",
     "Characteristic": false,
     "EffectValue": [
@@ -2454,10 +2454,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備魔法書時，提升智慧10%"
+    "Intro": "TM_Wizard_7_Intro"
   },
   {
-    "Name": "自然力加強",
+    "Name": "TM_Wizard_8_Name",
     "SkillID": "Wizard_8",
     "Characteristic": true,
     "EffectValue": [
@@ -2471,10 +2471,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升自己的魔法屬性傷害"
+    "Intro": "TM_Wizard_8_Intro"
   },
   {
-    "Name": "正宗的治癒術",
+    "Name": "TM_Priest_1_Name",
     "SkillID": "Priest_1",
     "Characteristic": true,
     "EffectValue": [
@@ -2488,10 +2488,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "回復一名友軍的生命值，小量提升怪物的仇恨值"
+    "Intro": "TM_Priest_1_Intro"
   },
   {
-    "Name": "集體治癒術",
+    "Name": "TM_Priest_2_Name",
     "SkillID": "Priest_2",
     "Characteristic": true,
     "EffectValue": [
@@ -2505,10 +2505,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "回復自身及隊友的生命值，大量提升怪物的仇恨值"
+    "Intro": "TM_Priest_2_Intro"
   },
   {
-    "Name": "解除迷惑",
+    "Name": "TM_Priest_3_Name",
     "SkillID": "Priest_3",
     "Characteristic": true,
     "EffectValue": [
@@ -2522,10 +2522,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "解除一名友軍的所有負面狀態，並賦予2秒內降低接下來受到的負面狀態效果"
+    "Intro": "TM_Priest_3_Intro"
   },
   {
-    "Name": "神聖之箭",
+    "Name": "TM_Priest_4_Name",
     "SkillID": "Priest_4",
     "Characteristic": true,
     "EffectValue": [
@@ -2539,10 +2539,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "吟唱1秒，對一名敵方目標造成大量神聖屬性的魔法攻擊"
+    "Intro": "TM_Priest_4_Intro"
   },
   {
-    "Name": "神聖力量爆發",
+    "Name": "TM_Priest_5_Name",
     "SkillID": "Priest_5",
     "Characteristic": true,
     "EffectValue": [
@@ -2556,10 +2556,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "吟唱2秒，對周圍敵方目標造成大量神聖屬性的魔法攻擊，最多三名，並降低接下來2秒內自身從擊中目標受到的傷害。"
+    "Intro": "TM_Priest_5_Intro"
   },
   {
-    "Name": "大祭司護身法",
+    "Name": "TM_Priest_6_Name",
     "SkillID": "Priest_6",
     "Characteristic": true,
     "EffectValue": [
@@ -2573,10 +2573,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升隊友與自身的防禦力、魔法防禦、傷害減緩、些微降低受到的負面狀態效果。"
+    "Intro": "TM_Priest_6_Intro"
   },
   {
-    "Name": "大祭司淨化術",
+    "Name": "TM_Priest_7_Name",
     "SkillID": "Priest_7",
     "Characteristic": true,
     "EffectValue": [
@@ -2590,10 +2590,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升隊友與自身的命中值、移動速度。"
+    "Intro": "TM_Priest_7_Intro"
   },
   {
-    "Name": "短法杖的奧秘",
+    "Name": "TM_Priest_8_Name",
     "SkillID": "Priest_8",
     "Characteristic": false,
     "EffectValue": [
@@ -2607,10 +2607,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備單手法杖時，提升魔法攻擊力，以及些微吟唱速度、小量提升治癒術的回復量"
+    "Intro": "TM_Priest_8_Intro"
   },
   {
-    "Name": "精通清型盾牌",
+    "Name": "TM_Priest_9_Name",
     "SkillID": "Priest_9",
     "Characteristic": false,
     "EffectValue": [
@@ -2624,10 +2624,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備非種型盾牌時，提升防禦力"
+    "Intro": "TM_Priest_9_Intro"
   },
   {
-    "Name": "大祭司聖結界",
+    "Name": "TM_Priest_10_Name",
     "SkillID": "Priest_10",
     "Characteristic": true,
     "EffectValue": [
@@ -2641,10 +2641,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "25秒內，降低自身與隊友受到的30%所有傷害"
+    "Intro": "TM_Priest_10_Intro"
   },
   {
-    "Name": "清算業障",
+    "Name": "TM_Priest_11_Name",
     "SkillID": "Priest_11",
     "Characteristic": true,
     "EffectValue": [
@@ -2658,10 +2658,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標施放負面狀態，目標被視為死亡生物，目標提高受到的聖屬性傷害降低受到的闇屬性傷害，並無法受到任何回復血量效果，持續10秒。"
+    "Intro": "TM_Priest_11_Intro"
   },
   {
-    "Name": "來自上天的神諭",
+    "Name": "TM_Priest_12_Name",
     "SkillID": "Priest_12",
     "Characteristic": true,
     "EffectValue": [
@@ -2675,10 +2675,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "立即回復自身及隊友的大量生命值，解除所有負面狀態"
+    "Intro": "TM_Priest_12_Intro"
   },
   {
-    "Name": "大祭司加持法",
+    "Name": "TM_Priest_13_Name",
     "SkillID": "Priest_13",
     "Characteristic": true,
     "EffectValue": [
@@ -2692,10 +2692,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升隊友與自身的最大生命值，最大魔力值"
+    "Intro": "TM_Priest_13_Intro"
   },
   {
-    "Name": "合格的大祭司",
+    "Name": "TM_Priest_14_Name",
     "SkillID": "Priest_14",
     "Characteristic": false,
     "EffectValue": [
@@ -2709,10 +2709,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "提升神聖屬性的魔法傷害，提升治癒術的回復量"
+    "Intro": "TM_Priest_14_Intro"
   },
   {
-    "Name": "輪迴轉生",
+    "Name": "TM_Priest_15_Name",
     "SkillID": "Priest_15",
     "Characteristic": true,
     "EffectValue": [
@@ -2726,10 +2726,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "將一名死亡的友軍復活，並回復其30%最大生命值的生命量"
+    "Intro": "TM_Priest_15_Intro"
   },
   {
-    "Name": "告誡眾生",
+    "Name": "TM_Priest_16_Name",
     "SkillID": "Priest_16",
     "Characteristic": true,
     "EffectValue": [
@@ -2743,10 +2743,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 5,
-    "Intro": "指定區域範圍內的所有友軍獲得持續性回復血量的增益效果，範圍內所有敵軍獲得持續性減少血量並減少回復量的負面狀態效果，區域持續30秒。"
+    "Intro": "TM_Priest_16_Intro"
   },
   {
-    "Name": "末日隕石",
+    "Name": "TM_Magister_1_Name",
     "SkillID": "Magister_1",
     "Characteristic": true,
     "EffectValue": [
@@ -2760,10 +2760,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 8,
-    "Intro": "吟唱1秒，對指定範圍內敵方單位造成火屬性傷害，最多五名，並有15%機率附帶灼傷"
+    "Intro": "TM_Magister_1_Intro"
   },
   {
-    "Name": "大漩渦",
+    "Name": "TM_Magister_2_Name",
     "SkillID": "Magister_2",
     "Characteristic": true,
     "EffectValue": [
@@ -2777,10 +2777,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 8,
-    "Intro": "吟唱1.5秒，對指定範圍內敵方單位造成水屬性傷害，最多五名，並將所有集中目標拉往區域中心"
+    "Intro": "TM_Magister_2_Intro"
   },
   {
-    "Name": "沙塵湮滅",
+    "Name": "TM_Magister_3_Name",
     "SkillID": "Magister_3",
     "Characteristic": true,
     "EffectValue": [
@@ -2794,10 +2794,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 8,
-    "Intro": "吟唱3秒，對指定範圍內敵方目標造成地屬性傷害，最多七名，並附帶致盲"
+    "Intro": "TM_Magister_3_Intro"
   },
   {
-    "Name": "死亡龍捲風",
+    "Name": "TM_Magister_4_Name",
     "SkillID": "Magister_4",
     "Characteristic": true,
     "EffectValue": [
@@ -2811,10 +2811,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 8,
-    "Intro": "吟唱3秒，對指定範圍內敵方目標造成風屬性傷害，最多八名，並對擊中目標緩速3秒。"
+    "Intro": "TM_Magister_4_Intro"
   },
   {
-    "Name": "自然力毀滅",
+    "Name": "TM_Magister_5_Name",
     "SkillID": "Magister_5",
     "Characteristic": true,
     "EffectValue": [
@@ -2828,10 +2828,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，大量提升自己的魔法屬性傷害，以及魔法暴擊率。"
+    "Intro": "TM_Magister_5_Intro"
   },
   {
-    "Name": "智慧昇華",
+    "Name": "TM_Magister_6_Name",
     "SkillID": "Magister_6",
     "Characteristic": true,
     "EffectValue": [
@@ -2845,10 +2845,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升自己的魔法攻擊力，些微提升吟唱速度、魔法暴擊率。"
+    "Intro": "TM_Magister_6_Intro"
   },
   {
-    "Name": "長法杖的爆發力",
+    "Name": "TM_Magister_7_Name",
     "SkillID": "Magister_7",
     "Characteristic": false,
     "EffectValue": [
@@ -2862,10 +2862,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備雙手法杖時，提升魔法攻擊力，些微提升吟唱速度、魔法暴擊率。"
+    "Intro": "TM_Magister_7_Intro"
   },
   {
-    "Name": "魔法書的加持",
+    "Name": "TM_Magister_8_Name",
     "SkillID": "Magister_8",
     "Characteristic": false,
     "EffectValue": [
@@ -2879,10 +2879,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備魔法書時，提升智慧15%，並增加小量吟唱速度"
+    "Intro": "TM_Magister_8_Intro"
   },
   {
-    "Name": "寒霜地獄",
+    "Name": "TM_Magister_9_Name",
     "SkillID": "Magister_9",
     "Characteristic": true,
     "EffectValue": [
@@ -2896,10 +2896,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 8,
-    "Intro": "吟唱3.5秒，對指定範圍內敵方目標持續造成水屬性傷害，最多八名，持續5秒，並有機率使集中目標凍結3秒。"
+    "Intro": "TM_Magister_9_Intro"
   },
   {
-    "Name": "末日烙印",
+    "Name": "TM_Magister_10_Name",
     "SkillID": "Magister_10",
     "Characteristic": true,
     "EffectValue": [
@@ -2913,10 +2913,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "立即施放，使一名敵方目標接下來3秒內增加受到的魔法傷害。"
+    "Intro": "TM_Magister_10_Intro"
   },
   {
-    "Name": "悲之詠嘆調",
+    "Name": "TM_Magister_11_Name",
     "SkillID": "Magister_11",
     "Characteristic": true,
     "EffectValue": [
@@ -2930,10 +2930,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "10秒內使用任何技能無須吟唱。"
+    "Intro": "TM_Magister_11_Intro"
   },
   {
-    "Name": "自然元素的加成",
+    "Name": "TM_Magister_12_Name",
     "SkillID": "Magister_12",
     "Characteristic": false,
     "EffectValue": [
@@ -2947,10 +2947,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "使用主動的攻擊技能時，若與上個使用過的攻擊技能的屬性不同，提升使用的技能傷害10%，最多疊加3次，持續5秒。"
+    "Intro": "TM_Magister_12_Intro"
   },
   {
-    "Name": "大地惡魔的獻祭",
+    "Name": "TM_Magister_13_Name",
     "SkillID": "Magister_13",
     "Characteristic": true,
     "EffectValue": [
@@ -2964,10 +2964,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 8,
-    "Intro": "吟唱3.5秒，對指定範圍內敵方目標造成大量地屬性傷害，最多十名，使擊中目標禁錮2秒。"
+    "Intro": "TM_Magister_13_Intro"
   },
   {
-    "Name": "末日衝擊",
+    "Name": "TM_Magister_14_Name",
     "SkillID": "Magister_14",
     "Characteristic": true,
     "EffectValue": [
@@ -2981,10 +2981,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 8,
-    "Intro": "立即施放，使指定範圍內敵方目標受到暈眩3秒，並降低魔法防禦力，最多五名，持續3秒"
+    "Intro": "TM_Magister_14_Intro"
   },
   {
-    "Name": "末日即將來臨",
+    "Name": "TM_Magister_15_Name",
     "SkillID": "Magister_15",
     "Characteristic": true,
     "EffectValue": [
@@ -2998,10 +2998,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 8,
-    "Intro": "吟唱5秒(無法被縮減，也無法被「悲之詠嘆調」減免)，對指定範圍內所有敵軍造成持續性的大量火屬性魔法傷害，若擊中目標的血量低於其最大生命值10%，直接擊殺。"
+    "Intro": "TM_Magister_15_Intro"
   },
   {
-    "Name": "熟練的振氣一擊",
+    "Name": "TM_Prophet_1_Name",
     "SkillID": "Prophet_1",
     "Characteristic": true,
     "EffectValue": [
@@ -3015,10 +3015,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "立即施放，對周圍敵方單位造成風屬性傷害，最多五名，並附帶擊退"
+    "Intro": "TM_Prophet_1_Intro"
   },
   {
-    "Name": "電球攻擊",
+    "Name": "TM_Prophet_2_Name",
     "SkillID": "Prophet_2",
     "Characteristic": true,
     "EffectValue": [
@@ -3032,10 +3032,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "立即施放，對一名敵方目標造成風屬性傷害"
+    "Intro": "TM_Prophet_2_Intro"
   },
   {
-    "Name": "洞察",
+    "Name": "TM_Prophet_3_Name",
     "SkillID": "Prophet_3",
     "Characteristic": false,
     "EffectValue": [
@@ -3049,10 +3049,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "提升自身魔法防禦、迴避值，以及小量魔法攻擊"
+    "Intro": "TM_Prophet_3_Intro"
   },
   {
-    "Name": "風之路徑",
+    "Name": "TM_Prophet_4_Name",
     "SkillID": "Prophet_4",
     "Characteristic": true,
     "EffectValue": [
@@ -3066,10 +3066,10 @@
     "Width": 8,
     "Height": 5,
     "CircleDistance": 0,
-    "Intro": "立即施放，對指定方向的路徑最多三名敵人造成風屬性傷害，並留下痕跡，路過的友軍在痕跡上增加移動速度"
+    "Intro": "TM_Prophet_4_Intro"
   },
   {
-    "Name": "急救術",
+    "Name": "TM_Prophet_5_Name",
     "SkillID": "Prophet_5",
     "Characteristic": true,
     "EffectValue": [
@@ -3083,10 +3083,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "立即施放，回復自身小量生命值"
+    "Intro": "TM_Prophet_5_Intro"
   },
   {
-    "Name": "風之祝福",
+    "Name": "TM_Prophet_6_Name",
     "SkillID": "Prophet_6",
     "Characteristic": true,
     "EffectValue": [
@@ -3100,10 +3100,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升自己的移動速度，小量提升迴避值"
+    "Intro": "TM_Prophet_6_Intro"
   },
   {
-    "Name": "物換星移",
+    "Name": "TM_Prophet_7_Name",
     "SkillID": "Prophet_7",
     "Characteristic": true,
     "EffectValue": [
@@ -3117,10 +3117,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "使一名敵軍與自身的位置交換，降低自己所受的傷害5秒。"
+    "Intro": "TM_Prophet_7_Intro"
   },
   {
-    "Name": "心靈破壞",
+    "Name": "TM_Prophet_8_Name",
     "SkillID": "Prophet_8",
     "Characteristic": true,
     "EffectValue": [
@@ -3134,10 +3134,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵軍造成大量無屬性魔法傷害，降低其攻擊力、魔法攻擊力3秒。"
+    "Intro": "TM_Prophet_8_Intro"
   },
   {
-    "Name": "心靈感知",
+    "Name": "TM_Prophet_9_Name",
     "SkillID": "Prophet_9",
     "Characteristic": true,
     "EffectValue": [
@@ -3151,10 +3151,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "60秒內，賦予一個隊友增益效果，在持續效果內，若隊友受到重傷(一個傷害量大於其最大生命值50%的傷害)，位移到自身旁。"
+    "Intro": "TM_Prophet_9_Intro"
   },
   {
-    "Name": "來自未來",
+    "Name": "TM_Prophet_10_Name",
     "SkillID": "Prophet_10",
     "Characteristic": true,
     "EffectValue": [
@@ -3168,10 +3168,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，若受到傷害有15%機率直接迴避掉，造成的傷害有15%機率必命中。"
+    "Intro": "TM_Prophet_10_Intro"
   },
   {
-    "Name": "心靈尖嘯",
+    "Name": "TM_Prophet_11_Name",
     "SkillID": "Prophet_11",
     "Characteristic": true,
     "EffectValue": [
@@ -3185,10 +3185,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "沉默一名敵軍3秒，並使其攻擊速度，移動速度降低5秒。"
+    "Intro": "TM_Prophet_11_Intro"
   },
   {
-    "Name": "精通任何法杖",
+    "Name": "TM_Prophet_12_Name",
     "SkillID": "Prophet_12",
     "Characteristic": false,
     "EffectValue": [
@@ -3202,10 +3202,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備短法杖時，增加魔法攻擊力並提升移動速度，裝備長法杖時，增加魔法攻擊力並提升迴避值"
+    "Intro": "TM_Prophet_12_Intro"
   },
   {
-    "Name": "心靈毀滅",
+    "Name": "TM_Prophet_13_Name",
     "SkillID": "Prophet_13",
     "Characteristic": true,
     "EffectValue": [
@@ -3219,10 +3219,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵軍造成無屬性傷害，並在3秒內使其持續性受到小量無屬性傷害"
+    "Intro": "TM_Prophet_13_Intro"
   },
   {
-    "Name": "心靈操縱",
+    "Name": "TM_Prophet_14_Name",
     "SkillID": "Prophet_14",
     "Characteristic": true,
     "EffectValue": [
@@ -3236,10 +3236,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵軍造成小量無屬性傷害，並使其致盲3秒，持續時間內對方只看的見自己"
+    "Intro": "TM_Prophet_14_Intro"
   },
   {
-    "Name": "心靈入侵",
+    "Name": "TM_Prophet_15_Name",
     "SkillID": "Prophet_15",
     "Characteristic": true,
     "EffectValue": [
@@ -3253,10 +3253,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 4,
-    "Intro": "對指定範圍內敵軍造成持續性無屬性傷害，區域持續5秒。"
+    "Intro": "TM_Prophet_15_Intro"
   },
   {
-    "Name": "未來炸彈",
+    "Name": "TM_Prophet_16_Name",
     "SkillID": "Prophet_16",
     "Characteristic": true,
     "EffectValue": [
@@ -3270,10 +3270,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵軍施放一個負面狀態，接下來3秒內承受的傷害累積，3秒後造成35%印記傷害"
+    "Intro": "TM_Prophet_16_Intro"
   },
   {
-    "Name": "星塵暴",
+    "Name": "TM_Prophet_17_Name",
     "SkillID": "Prophet_17",
     "Characteristic": true,
     "EffectValue": [
@@ -3287,10 +3287,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "吟唱5秒，吟唱結束對周圍敵軍最多五名，造成極大量的無屬性傷害。"
+    "Intro": "TM_Prophet_17_Intro"
   },
   {
-    "Name": "射箭術",
+    "Name": "TM_Archer_1_Name",
     "SkillID": "Archer_1",
     "Characteristic": true,
     "EffectValue": [
@@ -3304,10 +3304,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成物理傷害(消耗1支箭)"
+    "Intro": "TM_Archer_1_Intro"
   },
   {
-    "Name": "連續射擊",
+    "Name": "TM_Archer_2_Name",
     "SkillID": "Archer_2",
     "Characteristic": true,
     "EffectValue": [
@@ -3321,10 +3321,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成三次物理傷害(消耗3支箭)"
+    "Intro": "TM_Archer_2_Intro"
   },
   {
-    "Name": "三箭齊發",
+    "Name": "TM_Archer_3_Name",
     "SkillID": "Archer_3",
     "Characteristic": true,
     "EffectValue": [
@@ -3338,10 +3338,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對指定方向扇形區域內敵方目標造成物理傷害，最多三名(消耗3支箭)"
+    "Intro": "TM_Archer_3_Intro"
   },
   {
-    "Name": "與弓隨行",
+    "Name": "TM_Archer_4_Name",
     "SkillID": "Archer_4",
     "Characteristic": false,
     "EffectValue": [
@@ -3355,10 +3355,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備弓時，些微提升攻擊力、命中值"
+    "Intro": "TM_Archer_4_Intro"
   },
   {
-    "Name": "輕便的衣服",
+    "Name": "TM_Archer_5_Name",
     "SkillID": "Archer_5",
     "Characteristic": false,
     "EffectValue": [
@@ -3372,10 +3372,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備皮甲時，些微提升防禦力、迴避值"
+    "Intro": "TM_Archer_5_Intro"
   },
   {
-    "Name": "長遠射擊",
+    "Name": "TM_Shooter_1_Name",
     "SkillID": "Shooter_1",
     "Characteristic": false,
     "EffectValue": [
@@ -3389,10 +3389,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "攻擊範圍增加"
+    "Intro": "TM_Shooter_1_Intro"
   },
   {
-    "Name": "精準的射箭術",
+    "Name": "TM_Shooter_2_Name",
     "SkillID": "Shooter_2",
     "Characteristic": true,
     "EffectValue": [
@@ -3406,10 +3406,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成比較高的物理傷害(消耗1支箭)"
+    "Intro": "TM_Shooter_2_Intro"
   },
   {
-    "Name": "迅速的連續射擊",
+    "Name": "TM_Shooter_3_Name",
     "SkillID": "Shooter_3",
     "Characteristic": true,
     "EffectValue": [
@@ -3423,10 +3423,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成三次物理傷害，攻擊動畫更迅速、並在執行此技能時可以同時移動(消耗3支箭)"
+    "Intro": "TM_Shooter_3_Intro"
   },
   {
-    "Name": "貫穿箭",
+    "Name": "TM_Shooter_4_Name",
     "SkillID": "Shooter_4",
     "Characteristic": true,
     "EffectValue": [
@@ -3440,10 +3440,10 @@
     "Width": 10,
     "Height": 5,
     "CircleDistance": 0,
-    "Intro": "對前方路徑射出箭，路徑上的敵人受到物理傷害並擊退到最遠處，最多三名(僅限使用弩)(消耗3支箭)"
+    "Intro": "TM_Shooter_4_Intro"
   },
   {
-    "Name": "漂亮的三箭齊發",
+    "Name": "TM_Shooter_5_Name",
     "SkillID": "Shooter_5",
     "Characteristic": true,
     "EffectValue": [
@@ -3457,10 +3457,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對指定方向扇形區域內敵方目標造成物理傷害，高機率造成暴擊，最多三名(僅限使用弓)(消耗3支箭)"
+    "Intro": "TM_Shooter_5_Intro"
   },
   {
-    "Name": "精神力集中",
+    "Name": "TM_Shooter_6_Name",
     "SkillID": "Shooter_6",
     "Characteristic": true,
     "EffectValue": [
@@ -3474,10 +3474,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升自身的命中值、些微提升暴擊率"
+    "Intro": "TM_Shooter_6_Intro"
   },
   {
-    "Name": "瞄準狙擊",
+    "Name": "TM_Shooter_7_Name",
     "SkillID": "Shooter_7",
     "Characteristic": true,
     "EffectValue": [
@@ -3491,10 +3491,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成高傷害的物理傷害，並附帶1.5秒暈眩(僅限使用弩)(消耗3支箭)"
+    "Intro": "TM_Shooter_7_Intro"
   },
   {
-    "Name": "精通長弓",
+    "Name": "TM_Shooter_8_Name",
     "SkillID": "Shooter_8",
     "Characteristic": false,
     "EffectValue": [
@@ -3508,10 +3508,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備弓時，提升攻擊力、命中值"
+    "Intro": "TM_Shooter_8_Intro"
   },
   {
-    "Name": "精通重弩",
+    "Name": "TM_Shooter_9_Name",
     "SkillID": "Shooter_9",
     "Characteristic": false,
     "EffectValue": [
@@ -3525,10 +3525,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備弩時，提升攻擊力，任何命中的攻擊都會使目標些微的擊退，但會大幅下降攻速"
+    "Intro": "TM_Shooter_9_Intro"
   },
   {
-    "Name": "熟練皮甲行動",
+    "Name": "TM_Shooter_10_Name",
     "SkillID": "Shooter_10",
     "Characteristic": false,
     "EffectValue": [
@@ -3542,10 +3542,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備皮甲時，提升防禦力、迴避值，些微提升移動速度"
+    "Intro": "TM_Shooter_10_Intro"
   },
   {
-    "Name": "信仰法則",
+    "Name": "TM_Hunter_1_Name",
     "SkillID": "Hunter_1",
     "Characteristic": false,
     "EffectValue": [
@@ -3559,10 +3559,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "可以選擇一項信仰技能作使用，並獲得其效果"
+    "Intro": "TM_Hunter_1_Intro"
   },
   {
-    "Name": "獵豹信仰",
+    "Name": "TM_Hunter_2_Name",
     "SkillID": "Hunter_2",
     "Characteristic": true,
     "EffectValue": [
@@ -3576,10 +3576,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "獲得移動速度、命中值。"
+    "Intro": "TM_Hunter_2_Intro"
   },
   {
-    "Name": "精準的射箭術",
+    "Name": "TM_Hunter_3_Name",
     "SkillID": "Hunter_3",
     "Characteristic": true,
     "EffectValue": [
@@ -3593,10 +3593,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成比較高的物理傷害(消耗1支箭)"
+    "Intro": "TM_Hunter_3_Intro"
   },
   {
-    "Name": "狒狒信仰",
+    "Name": "TM_Hunter_4_Name",
     "SkillID": "Hunter_4",
     "Characteristic": true,
     "EffectValue": [
@@ -3610,10 +3610,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "獲得攻擊速度、攻擊力。"
+    "Intro": "TM_Hunter_4_Intro"
   },
   {
-    "Name": "絆腳陷阱",
+    "Name": "TM_Hunter_5_Name",
     "SkillID": "Hunter_5",
     "Characteristic": true,
     "EffectValue": [
@@ -3627,10 +3627,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 3,
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到物理傷害，並緩速3秒"
+    "Intro": "TM_Hunter_5_Intro"
   },
   {
-    "Name": "捕獸夾陷阱",
+    "Name": "TM_Hunter_6_Name",
     "SkillID": "Hunter_6",
     "Characteristic": true,
     "EffectValue": [
@@ -3644,10 +3644,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 3,
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到物理傷害，並禁錮持續1.5秒"
+    "Intro": "TM_Hunter_6_Intro"
   },
   {
-    "Name": "爆裂陷阱",
+    "Name": "TM_Hunter_7_Name",
     "SkillID": "Hunter_7",
     "Characteristic": true,
     "EffectValue": [
@@ -3661,10 +3661,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 3,
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到範圍的火焰傷害。"
+    "Intro": "TM_Hunter_7_Intro"
   },
   {
-    "Name": "雄鷹信仰",
+    "Name": "TM_Hunter_8_Name",
     "SkillID": "Hunter_8",
     "Characteristic": true,
     "EffectValue": [
@@ -3678,10 +3678,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "獲得較遠的攻擊範圍，暴擊率"
+    "Intro": "TM_Hunter_8_Intro"
   },
   {
-    "Name": "地鼠信仰",
+    "Name": "TM_Hunter_9_Name",
     "SkillID": "Hunter_9",
     "Characteristic": true,
     "EffectValue": [
@@ -3695,10 +3695,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "安裝陷阱的時間縮短"
+    "Intro": "TM_Hunter_9_Intro"
   },
   {
-    "Name": "毒蛇信仰",
+    "Name": "TM_Hunter_10_Name",
     "SkillID": "Hunter_10",
     "Characteristic": true,
     "EffectValue": [
@@ -3712,10 +3712,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "任何物理攻擊有15%機率附帶中毒"
+    "Intro": "TM_Hunter_10_Intro"
   },
   {
-    "Name": "掉落陷阱",
+    "Name": "TM_Hunter_11_Name",
     "SkillID": "Hunter_11",
     "Characteristic": true,
     "EffectValue": [
@@ -3729,10 +3729,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 3,
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到物理傷害，並壓制持續1.5秒"
+    "Intro": "TM_Hunter_11_Intro"
   },
   {
-    "Name": "熟練與弓隨行",
+    "Name": "TM_Hunter_12_Name",
     "SkillID": "Hunter_12",
     "Characteristic": false,
     "EffectValue": [
@@ -3746,10 +3746,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備弓時，小量提升攻擊力、命中值"
+    "Intro": "TM_Hunter_12_Intro"
   },
   {
-    "Name": "熟練皮甲",
+    "Name": "TM_Hunter_13_Name",
     "SkillID": "Hunter_13",
     "Characteristic": false,
     "EffectValue": [
@@ -3763,10 +3763,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備皮甲時，小量提升防禦力、迴避值"
+    "Intro": "TM_Hunter_13_Intro"
   },
   {
-    "Name": "陷阱安裝技術",
+    "Name": "TM_Hunter_14_Name",
     "SkillID": "Hunter_14",
     "Characteristic": false,
     "EffectValue": [
@@ -3780,10 +3780,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "可以安裝持有的陷阱，最多安裝10個"
+    "Intro": "TM_Hunter_14_Intro"
   },
   {
-    "Name": "陷阱拆除技術",
+    "Name": "TM_Hunter_15_Name",
     "SkillID": "Hunter_15",
     "Characteristic": true,
     "EffectValue": [
@@ -3797,10 +3797,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "拆除自己安裝並未觸發的陷阱"
+    "Intro": "TM_Hunter_15_Intro"
   },
   {
-    "Name": "精準彈道",
+    "Name": "TM_Marksman_1_Name",
     "SkillID": "Marksman_1",
     "Characteristic": false,
     "EffectValue": [
@@ -3814,10 +3814,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "攻擊範圍大幅提升，並增加暴擊率"
+    "Intro": "TM_Marksman_1_Intro"
   },
   {
-    "Name": "虛無的射箭術",
+    "Name": "TM_Marksman_2_Name",
     "SkillID": "Marksman_2",
     "Characteristic": true,
     "EffectValue": [
@@ -3831,10 +3831,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成高傷害的物理傷害，此攻擊無法被迴避。(消耗1支箭)"
+    "Intro": "TM_Marksman_2_Intro"
   },
   {
-    "Name": "暴風雨般的連續射擊",
+    "Name": "TM_Marksman_3_Name",
     "SkillID": "Marksman_3",
     "Characteristic": true,
     "EffectValue": [
@@ -3848,10 +3848,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成五次物理傷害，攻擊動畫更迅速，並在執行此技能時可以同時移動(消耗5支箭)"
+    "Intro": "TM_Marksman_3_Intro"
   },
   {
-    "Name": "爆裂箭矢",
+    "Name": "TM_Marksman_4_Name",
     "SkillID": "Marksman_4",
     "Characteristic": true,
     "EffectValue": [
@@ -3865,10 +3865,10 @@
     "Width": 15,
     "Height": 5,
     "CircleDistance": 0,
-    "Intro": "對前方路徑射出箭，路徑上的敵人受到物理傷害並擊退到最遠處，最多五名，最遠處時造成爆炸傷害(僅限使用弩)(消耗5支箭)"
+    "Intro": "TM_Marksman_4_Intro"
   },
   {
-    "Name": "箭雨",
+    "Name": "TM_Marksman_5_Name",
     "SkillID": "Marksman_5",
     "Characteristic": true,
     "EffectValue": [
@@ -3882,10 +3882,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 5,
-    "Intro": "對指定區域射出大批的箭矢，造成持續物理傷害，持續5秒，附帶緩速，最多五名(僅限使用弓)(消耗10支箭)"
+    "Intro": "TM_Marksman_5_Intro"
   },
   {
-    "Name": "專注射擊",
+    "Name": "TM_Marksman_6_Name",
     "SkillID": "Marksman_6",
     "Characteristic": true,
     "EffectValue": [
@@ -3899,10 +3899,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升自身的命中值、暴擊率"
+    "Intro": "TM_Marksman_6_Intro"
   },
   {
-    "Name": "高火力狙擊",
+    "Name": "TM_Marksman_7_Name",
     "SkillID": "Marksman_7",
     "Characteristic": true,
     "EffectValue": [
@@ -3916,10 +3916,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成極高傷害的物理傷害，並附帶2秒暈眩(僅限使用弩)(消耗5支箭)"
+    "Intro": "TM_Marksman_7_Intro"
   },
   {
-    "Name": "駕馭長弓之人",
+    "Name": "TM_Marksman_8_Name",
     "SkillID": "Marksman_8",
     "Characteristic": false,
     "EffectValue": [
@@ -3933,10 +3933,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備長弓時，更高的提升攻擊力、命中值"
+    "Intro": "TM_Marksman_8_Intro"
   },
   {
-    "Name": "駕馭重弩之人",
+    "Name": "TM_Marksman_9_Name",
     "SkillID": "Marksman_9",
     "Characteristic": false,
     "EffectValue": [
@@ -3950,10 +3950,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備弩時，更高的提升攻擊力，任何命中的攻擊都會使目標些微的擊退，但會大幅下降攻速"
+    "Intro": "TM_Marksman_9_Intro"
   },
   {
-    "Name": "精通皮甲行動",
+    "Name": "TM_Marksman_10_Name",
     "SkillID": "Marksman_10",
     "Characteristic": false,
     "EffectValue": [
@@ -3967,10 +3967,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備皮甲時，提升防禦力，大幅度提升迴避值，些微提升移動速度"
+    "Intro": "TM_Marksman_10_Intro"
   },
   {
-    "Name": "破甲箭",
+    "Name": "TM_Marksman_11_Name",
     "SkillID": "Marksman_11",
     "Characteristic": true,
     "EffectValue": [
@@ -3984,10 +3984,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，裝備弩進行攻擊命中時，會降低對方防禦值3%，最多疊加5次，此負面狀態持續5秒。"
+    "Intro": "TM_Marksman_11_Intro"
   },
   {
-    "Name": "弱點破擊",
+    "Name": "TM_Marksman_12_Name",
     "SkillID": "Marksman_12",
     "Characteristic": true,
     "EffectValue": [
@@ -4001,10 +4001,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，命中的攻擊有機率使對方降低物理暴擊抵抗30%，此負面狀態持續10秒"
+    "Intro": "TM_Marksman_12_Intro"
   },
   {
-    "Name": "屏氣凝神",
+    "Name": "TM_Marksman_13_Name",
     "SkillID": "Marksman_13",
     "Characteristic": true,
     "EffectValue": [
@@ -4018,10 +4018,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "吟唱1秒，對一名敵方目標造成極高傷害的物理傷害，此傷害無視目標20%的防禦力。(僅限使用弓)(消耗20支箭)"
+    "Intro": "TM_Marksman_13_Intro"
   },
   {
-    "Name": "逃脫射擊",
+    "Name": "TM_Marksman_14_Name",
     "SkillID": "Marksman_14",
     "Characteristic": true,
     "EffectValue": [
@@ -4035,10 +4035,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成物理傷害，並根據自身與對方的距離向後位移，雙方距離越遠位移的距離越大(消耗10支箭)"
+    "Intro": "TM_Marksman_14_Intro"
   },
   {
-    "Name": "弓弩交錯",
+    "Name": "TM_Marksman_15_Name",
     "SkillID": "Marksman_15",
     "Characteristic": false,
     "EffectValue": [
@@ -4052,10 +4052,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "切換使用弓及弩時增加切換的動畫速度，切換弓時第一發傷害附帶小量傷害，切換弩時第一發傷害必定暴擊"
+    "Intro": "TM_Marksman_15_Intro"
   },
   {
-    "Name": "纏繞箭矢",
+    "Name": "TM_Marksman_16_Name",
     "SkillID": "Marksman_16",
     "Characteristic": true,
     "EffectValue": [
@@ -4069,10 +4069,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成物理傷害，並禁錮2秒，禁錮期間目標無法接受任何來自其友軍的位移。(消耗25支箭)"
+    "Intro": "TM_Marksman_16_Intro"
   },
   {
-    "Name": "武力鎮壓",
+    "Name": "TM_Marksman_17_Name",
     "SkillID": "Marksman_17",
     "Characteristic": true,
     "EffectValue": [
@@ -4086,10 +4086,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成大量物理傷害，並降低其攻擊力30%，持續2秒(消耗20支箭)"
+    "Intro": "TM_Marksman_17_Intro"
   },
   {
-    "Name": "箭神壓迫力",
+    "Name": "TM_Marksman_18_Name",
     "SkillID": "Marksman_18",
     "Characteristic": true,
     "EffectValue": [
@@ -4103,10 +4103,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成極高的物理傷害，命中時造成目標3秒內無法進行普通攻擊以及使用攻擊技能。(僅限使用弓)(消耗35支箭)"
+    "Intro": "TM_Marksman_18_Intro"
   },
   {
-    "Name": "箭神制裁力",
+    "Name": "TM_Marksman_19_Name",
     "SkillID": "Marksman_19",
     "Characteristic": true,
     "EffectValue": [
@@ -4120,10 +4120,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成極高的物理傷害，命中時造成目標3秒內降低50%任何暴擊抵抗以及暴擊傷害減緩，此傷害無視30%防禦、格檔。(僅限使用弩)(消耗35支箭)"
+    "Intro": "TM_Marksman_19_Intro"
   },
   {
-    "Name": "虔誠的信仰",
+    "Name": "TM_Chaser_1_Name",
     "SkillID": "Chaser_1",
     "Characteristic": false,
     "EffectValue": [
@@ -4137,10 +4137,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "可以選擇一項信仰技能作使用，獲得其效果，並且效果在提升30%"
+    "Intro": "TM_Chaser_1_Intro"
   },
   {
-    "Name": "獵豹神信仰",
+    "Name": "TM_Chaser_2_Name",
     "SkillID": "Chaser_2",
     "Characteristic": true,
     "EffectValue": [
@@ -4154,10 +4154,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "獲得移動速度、命中值。"
+    "Intro": "TM_Chaser_2_Intro"
   },
   {
-    "Name": "完美的射箭術",
+    "Name": "TM_Chaser_3_Name",
     "SkillID": "Chaser_3",
     "Characteristic": true,
     "EffectValue": [
@@ -4171,10 +4171,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造更高的物理傷害(消耗1支箭)"
+    "Intro": "TM_Chaser_3_Intro"
   },
   {
-    "Name": "狒狒王信仰",
+    "Name": "TM_Chaser_4_Name",
     "SkillID": "Chaser_4",
     "Characteristic": true,
     "EffectValue": [
@@ -4188,10 +4188,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "獲得攻擊速度、攻擊力。"
+    "Intro": "TM_Chaser_4_Intro"
   },
   {
-    "Name": "陰險的絆腳陷阱",
+    "Name": "TM_Chaser_5_Name",
     "SkillID": "Chaser_5",
     "Characteristic": true,
     "EffectValue": [
@@ -4205,10 +4205,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 3,
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並緩速3秒"
+    "Intro": "TM_Chaser_5_Intro"
   },
   {
-    "Name": "痛苦的捕獸夾陷阱",
+    "Name": "TM_Chaser_6_Name",
     "SkillID": "Chaser_6",
     "Characteristic": true,
     "EffectValue": [
@@ -4222,10 +4222,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 3,
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並禁錮持續2秒"
+    "Intro": "TM_Chaser_6_Intro"
   },
   {
-    "Name": "藝術的爆裂陷阱",
+    "Name": "TM_Chaser_7_Name",
     "SkillID": "Chaser_7",
     "Characteristic": true,
     "EffectValue": [
@@ -4239,10 +4239,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 3,
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到大範圍的火焰傷害，15%機率造成灼傷。"
+    "Intro": "TM_Chaser_7_Intro"
   },
   {
-    "Name": "大雄鷹信仰",
+    "Name": "TM_Chaser_8_Name",
     "SkillID": "Chaser_8",
     "Characteristic": true,
     "EffectValue": [
@@ -4256,10 +4256,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "獲得較遠的攻擊範圍，暴擊率"
+    "Intro": "TM_Chaser_8_Intro"
   },
   {
-    "Name": "地鼠主信仰",
+    "Name": "TM_Chaser_9_Name",
     "SkillID": "Chaser_9",
     "Characteristic": true,
     "EffectValue": [
@@ -4273,10 +4273,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "安裝陷阱的時間縮短"
+    "Intro": "TM_Chaser_9_Intro"
   },
   {
-    "Name": "毒蛇魔信仰",
+    "Name": "TM_Chaser_10_Name",
     "SkillID": "Chaser_10",
     "Characteristic": true,
     "EffectValue": [
@@ -4290,10 +4290,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "任何物理攻擊有15%機率附帶中毒"
+    "Intro": "TM_Chaser_10_Intro"
   },
   {
-    "Name": "恐懼的掉落陷阱",
+    "Name": "TM_Chaser_11_Name",
     "SkillID": "Chaser_11",
     "Characteristic": true,
     "EffectValue": [
@@ -4307,10 +4307,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 3,
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並壓制持續1.5秒"
+    "Intro": "TM_Chaser_11_Intro"
   },
   {
-    "Name": "煙霧陷阱",
+    "Name": "TM_Chaser_12_Name",
     "SkillID": "Chaser_12",
     "Characteristic": true,
     "EffectValue": [
@@ -4324,10 +4324,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 3,
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有友軍觸發，施放煙霧，降低在煙霧中友軍受到的攻擊命中率"
+    "Intro": "TM_Chaser_12_Intro"
   },
   {
-    "Name": "劇毒陷阱",
+    "Name": "TM_Chaser_13_Name",
     "SkillID": "Chaser_13",
     "Characteristic": true,
     "EffectValue": [
@@ -4341,10 +4341,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 3,
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並提升接下來受到的中毒傷害3秒。"
+    "Intro": "TM_Chaser_13_Intro"
   },
   {
-    "Name": "連鎖反應",
+    "Name": "TM_Chaser_14_Name",
     "SkillID": "Chaser_14",
     "Characteristic": true,
     "EffectValue": [
@@ -4358,10 +4358,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 6,
-    "Intro": "賦予一個陷阱，若其被觸發，在一定範圍內的所有陷阱跟著觸發。"
+    "Intro": "TM_Chaser_14_Intro"
   },
   {
-    "Name": "山豬神信仰",
+    "Name": "TM_Chaser_15_Name",
     "SkillID": "Chaser_15",
     "Characteristic": true,
     "EffectValue": [
@@ -4375,10 +4375,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "獲得最大生命加成、生命回復量增加"
+    "Intro": "TM_Chaser_15_Intro"
   },
   {
-    "Name": "犯罪陷阱",
+    "Name": "TM_Chaser_16_Name",
     "SkillID": "Chaser_16",
     "Characteristic": true,
     "EffectValue": [
@@ -4392,10 +4392,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 3,
-    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並降低其防禦力15%持續3秒。"
+    "Intro": "TM_Chaser_16_Intro"
   },
   {
-    "Name": "虎山靈信仰",
+    "Name": "TM_Chaser_17_Name",
     "SkillID": "Chaser_17",
     "Characteristic": true,
     "EffectValue": [
@@ -4409,10 +4409,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "提高迴避值、周圍友軍也會獲得你啟動的信仰技能的增益狀態"
+    "Intro": "TM_Chaser_17_Intro"
   },
   {
-    "Name": "完美的信仰者",
+    "Name": "TM_Chaser_18_Name",
     "SkillID": "Chaser_18",
     "Characteristic": false,
     "EffectValue": [
@@ -4426,10 +4426,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "獲得所有信仰的增益效果"
+    "Intro": "TM_Chaser_18_Intro"
   },
   {
-    "Name": "與弓隨行",
+    "Name": "TM_Chaser_19_Name",
     "SkillID": "Chaser_19",
     "Characteristic": false,
     "EffectValue": [
@@ -4443,10 +4443,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備弓時，提升攻擊力、命中值"
+    "Intro": "TM_Chaser_19_Intro"
   },
   {
-    "Name": "精通皮甲",
+    "Name": "TM_Chaser_20_Name",
     "SkillID": "Chaser_20",
     "Characteristic": false,
     "EffectValue": [
@@ -4460,10 +4460,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備皮甲時，提升防禦力、迴避值"
+    "Intro": "TM_Chaser_20_Intro"
   },
   {
-    "Name": "高深的陷阱安裝技術",
+    "Name": "TM_Chaser_21_Name",
     "SkillID": "Chaser_21",
     "Characteristic": false,
     "EffectValue": [
@@ -4477,10 +4477,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "可以安裝持有的陷阱，最多安裝20個"
+    "Intro": "TM_Chaser_21_Intro"
   },
   {
-    "Name": "陷阱拆除技術",
+    "Name": "TM_Chaser_22_Name",
     "SkillID": "Chaser_22",
     "Characteristic": true,
     "EffectValue": [
@@ -4494,10 +4494,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "拆除自己安裝並未觸發的陷阱"
+    "Intro": "TM_Chaser_22_Intro"
   },
   {
-    "Name": "突刺",
+    "Name": "TM_Rogue_1_Name",
     "SkillID": "Rogue_1",
     "Characteristic": true,
     "EffectValue": [
@@ -4511,10 +4511,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標使用突刺"
+    "Intro": "TM_Rogue_1_Intro"
   },
   {
-    "Name": "背刺",
+    "Name": "TM_Rogue_2_Name",
     "SkillID": "Rogue_2",
     "Characteristic": true,
     "EffectValue": [
@@ -4528,10 +4528,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "升級突刺，對一個敵對目標從背後使用突刺的話會有較高傷害"
+    "Intro": "TM_Rogue_2_Intro"
   },
   {
-    "Name": "暴擊之刺",
+    "Name": "TM_Rogue_3_Name",
     "SkillID": "Rogue_3",
     "Characteristic": false,
     "EffectValue": [
@@ -4545,10 +4545,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "使用突刺時有機率造成更高傷害，若是觸發背刺必定造成更高傷害"
+    "Intro": "TM_Rogue_3_Intro"
   },
   {
-    "Name": "熟練匕首",
+    "Name": "TM_Rogue_4_Name",
     "SkillID": "Rogue_4",
     "Characteristic": false,
     "EffectValue": [
@@ -4562,10 +4562,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備匕首時，稍微提升攻擊力"
+    "Intro": "TM_Rogue_4_Intro"
   },
   {
-    "Name": "熟練皮甲",
+    "Name": "TM_Rogue_5_Name",
     "SkillID": "Rogue_5",
     "Characteristic": false,
     "EffectValue": [
@@ -4579,10 +4579,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備皮甲時，稍微提升防禦力，提升迴避值"
+    "Intro": "TM_Rogue_5_Intro"
   },
   {
-    "Name": "精通單手劍",
+    "Name": "TM_Ranger_1_Name",
     "SkillID": "Ranger_1",
     "Characteristic": false,
     "EffectValue": [
@@ -4596,10 +4596,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備單手劍時提升攻擊力，裝備第二把時獲得其一半的攻擊力"
+    "Intro": "TM_Ranger_1_Intro"
   },
   {
-    "Name": "精通皮甲",
+    "Name": "TM_Ranger_2_Name",
     "SkillID": "Ranger_2",
     "Characteristic": false,
     "EffectValue": [
@@ -4613,10 +4613,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備皮甲時，提升防禦力、迴避值"
+    "Intro": "TM_Ranger_2_Intro"
   },
   {
-    "Name": "半月斬",
+    "Name": "TM_Ranger_3_Name",
     "SkillID": "Ranger_3",
     "Characteristic": true,
     "EffectValue": [
@@ -4630,10 +4630,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標造成物理傷害"
+    "Intro": "TM_Ranger_3_Intro"
   },
   {
-    "Name": "翻身斬",
+    "Name": "TM_Ranger_4_Name",
     "SkillID": "Ranger_4",
     "Characteristic": true,
     "EffectValue": [
@@ -4647,10 +4647,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標造成兩次物理傷害，並在3秒內提升自己的迴避值"
+    "Intro": "TM_Ranger_4_Intro"
   },
   {
-    "Name": "圓月斬",
+    "Name": "TM_Ranger_5_Name",
     "SkillID": "Ranger_5",
     "Characteristic": true,
     "EffectValue": [
@@ -4664,10 +4664,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對周圍敵對目標造成物理傷害，最多三名"
+    "Intro": "TM_Ranger_5_Intro"
   },
   {
-    "Name": "劍舞",
+    "Name": "TM_Ranger_6_Name",
     "SkillID": "Ranger_6",
     "Characteristic": true,
     "EffectValue": [
@@ -4681,10 +4681,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升攻擊力、命中"
+    "Intro": "TM_Ranger_6_Intro"
   },
   {
-    "Name": "雙劍和壁",
+    "Name": "TM_Ranger_7_Name",
     "SkillID": "Ranger_7",
     "Characteristic": false,
     "EffectValue": [
@@ -4698,10 +4698,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備兩把單手劍時，有機率格檔傷害"
+    "Intro": "TM_Ranger_7_Intro"
   },
   {
-    "Name": "螺旋斬",
+    "Name": "TM_Ranger_8_Name",
     "SkillID": "Ranger_8",
     "Characteristic": true,
     "EffectValue": [
@@ -4715,10 +4715,10 @@
     "Width": 5,
     "Height": 2.5,
     "CircleDistance": 0,
-    "Intro": "對前方路徑敵人造成物理傷害，最多三名，並位移到最遠距離。"
+    "Intro": "TM_Ranger_8_Intro"
   },
   {
-    "Name": "雙劍劈斬",
+    "Name": "TM_Ranger_9_Name",
     "SkillID": "Ranger_9",
     "Characteristic": true,
     "EffectValue": [
@@ -4732,10 +4732,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵對目標造成物理傷害，最多五次。"
+    "Intro": "TM_Ranger_9_Intro"
   },
   {
-    "Name": "精通輕武器",
+    "Name": "TM_Thieves_1_Name",
     "SkillID": "Thieves_1",
     "Characteristic": false,
     "EffectValue": [
@@ -4749,10 +4749,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備匕首或小刀時，提升攻擊力，稍微提升暴擊率"
+    "Intro": "TM_Thieves_1_Intro"
   },
   {
-    "Name": "精通皮甲",
+    "Name": "TM_Thieves_2_Name",
     "SkillID": "Thieves_2",
     "Characteristic": false,
     "EffectValue": [
@@ -4766,10 +4766,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備皮甲時，提升防禦力、迴避值"
+    "Intro": "TM_Thieves_2_Intro"
   },
   {
-    "Name": "無情背刺",
+    "Name": "TM_Thieves_3_Name",
     "SkillID": "Thieves_3",
     "Characteristic": true,
     "EffectValue": [
@@ -4783,10 +4783,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "位移到一個敵人背後，造成物理傷害。"
+    "Intro": "TM_Thieves_3_Intro"
   },
   {
-    "Name": "盜賊之道",
+    "Name": "TM_Thieves_4_Name",
     "SkillID": "Thieves_4",
     "Characteristic": true,
     "EffectValue": [
@@ -4800,10 +4800,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升暴擊率、攻擊力"
+    "Intro": "TM_Thieves_4_Intro"
   },
   {
-    "Name": "要害突刺",
+    "Name": "TM_Thieves_5_Name",
     "SkillID": "Thieves_5",
     "Characteristic": true,
     "EffectValue": [
@@ -4817,10 +4817,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成三次物理傷害。"
+    "Intro": "TM_Thieves_5_Intro"
   },
   {
-    "Name": "要害點破",
+    "Name": "TM_Thieves_6_Name",
     "SkillID": "Thieves_6",
     "Characteristic": false,
     "EffectValue": [
@@ -4834,10 +4834,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "任何物理攻擊有15%機率造成出血"
+    "Intro": "TM_Thieves_6_Intro"
   },
   {
-    "Name": "弱點刺擊",
+    "Name": "TM_Thieves_7_Name",
     "SkillID": "Thieves_7",
     "Characteristic": true,
     "EffectValue": [
@@ -4851,10 +4851,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成物理傷害，若對方有任何負面狀態的話傷害再提升"
+    "Intro": "TM_Thieves_7_Intro"
   },
   {
-    "Name": "致命一擊",
+    "Name": "TM_Thieves_8_Name",
     "SkillID": "Thieves_8",
     "Characteristic": true,
     "EffectValue": [
@@ -4868,10 +4868,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成物理傷害，此傷害必定暴擊"
+    "Intro": "TM_Thieves_8_Intro"
   },
   {
-    "Name": "毒藥",
+    "Name": "TM_Thieves_9_Name",
     "SkillID": "Thieves_9",
     "Characteristic": false,
     "EffectValue": [
@@ -4885,10 +4885,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "任何物理攻擊有15%機率造成中毒"
+    "Intro": "TM_Thieves_9_Intro"
   },
   {
-    "Name": "單手劍之舞",
+    "Name": "TM_Swashbuckler_1_Name",
     "SkillID": "Swashbuckler_1",
     "Characteristic": false,
     "EffectValue": [
@@ -4902,10 +4902,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備單手劍時提升攻擊力，裝備第二把時獲得其一半的攻擊力，並提升攻擊速度"
+    "Intro": "TM_Swashbuckler_1_Intro"
   },
   {
-    "Name": "皮甲的好處",
+    "Name": "TM_Swashbuckler_2_Name",
     "SkillID": "Swashbuckler_2",
     "Characteristic": false,
     "EffectValue": [
@@ -4919,10 +4919,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備皮甲時，提升防禦力，大量提升迴避值"
+    "Intro": "TM_Swashbuckler_2_Intro"
   },
   {
-    "Name": "完美的半月斬",
+    "Name": "TM_Swashbuckler_3_Name",
     "SkillID": "Swashbuckler_3",
     "Characteristic": true,
     "EffectValue": [
@@ -4936,10 +4936,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標造成較高的物理傷害"
+    "Intro": "TM_Swashbuckler_3_Intro"
   },
   {
-    "Name": "嫻熟的翻身斬",
+    "Name": "TM_Swashbuckler_4_Name",
     "SkillID": "Swashbuckler_4",
     "Characteristic": true,
     "EffectValue": [
@@ -4953,10 +4953,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一個敵對目標造成兩次較高的物理傷害，並在3秒內提升自己的迴避值"
+    "Intro": "TM_Swashbuckler_4_Intro"
   },
   {
-    "Name": "完美的圓月斬",
+    "Name": "TM_Swashbuckler_5_Name",
     "SkillID": "Swashbuckler_5",
     "Characteristic": true,
     "EffectValue": [
@@ -4970,10 +4970,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對周圍敵對目標造成較高的物理傷害，最多三名"
+    "Intro": "TM_Swashbuckler_5_Intro"
   },
   {
-    "Name": "刀光劍舞",
+    "Name": "TM_Swashbuckler_6_Name",
     "SkillID": "Swashbuckler_6",
     "Characteristic": true,
     "EffectValue": [
@@ -4987,10 +4987,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，大幅提升攻擊力、命中"
+    "Intro": "TM_Swashbuckler_6_Intro"
   },
   {
-    "Name": "雙劍和壁II",
+    "Name": "TM_Swashbuckler_7_Name",
     "SkillID": "Swashbuckler_7",
     "Characteristic": false,
     "EffectValue": [
@@ -5004,10 +5004,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備兩把單手劍時，有機率格檔傷害，格檔後有機率造成反擊"
+    "Intro": "TM_Swashbuckler_7_Intro"
   },
   {
-    "Name": "輕巧的螺旋斬",
+    "Name": "TM_Swashbuckler_8_Name",
     "SkillID": "Swashbuckler_8",
     "Characteristic": true,
     "EffectValue": [
@@ -5021,10 +5021,10 @@
     "Width": 5,
     "Height": 2.5,
     "CircleDistance": 0,
-    "Intro": "對前方路徑敵人造成較高的物理傷害，最多三名，並位移到最遠距離，並有機率造成致盲。"
+    "Intro": "TM_Swashbuckler_8_Intro"
   },
   {
-    "Name": "無情的雙劍劈斬",
+    "Name": "TM_Swashbuckler_9_Name",
     "SkillID": "Swashbuckler_9",
     "Characteristic": true,
     "EffectValue": [
@@ -5038,10 +5038,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵對目標造成物理傷害，最多五次，每次傷害增加15%。"
+    "Intro": "TM_Swashbuckler_9_Intro"
   },
   {
-    "Name": "和諧劍舞",
+    "Name": "TM_Swashbuckler_10_Name",
     "SkillID": "Swashbuckler_10",
     "Characteristic": true,
     "EffectValue": [
@@ -5055,10 +5055,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升攻擊速度，並加快攻擊技能的動畫"
+    "Intro": "TM_Swashbuckler_10_Intro"
   },
   {
-    "Name": "疾風劍舞",
+    "Name": "TM_Swashbuckler_11_Name",
     "SkillID": "Swashbuckler_11",
     "Characteristic": true,
     "EffectValue": [
@@ -5072,10 +5072,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，提升移動速度、迴避值，並對任何魔法傷害有10%的免疫"
+    "Intro": "TM_Swashbuckler_11_Intro"
   },
   {
-    "Name": "連擊",
+    "Name": "TM_Swashbuckler_12_Name",
     "SkillID": "Swashbuckler_12",
     "Characteristic": false,
     "EffectValue": [
@@ -5089,10 +5089,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "使用技能會出現指令，在1.5秒內使用指令出現的技能會增加傷害，並回復上一個使用的技能的1秒冷卻時間"
+    "Intro": "TM_Swashbuckler_12_Intro"
   },
   {
-    "Name": "雙刀劍舞",
+    "Name": "TM_Swashbuckler_13_Name",
     "SkillID": "Swashbuckler_13",
     "Characteristic": true,
     "EffectValue": [
@@ -5106,10 +5106,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，普通攻擊，技能攻擊有15%機率造成兩倍傷害"
+    "Intro": "TM_Swashbuckler_13_Intro"
   },
   {
-    "Name": "烈日斬",
+    "Name": "TM_Swashbuckler_14_Name",
     "SkillID": "Swashbuckler_14",
     "Characteristic": true,
     "EffectValue": [
@@ -5123,10 +5123,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "用極快的速度揮出雙手的劍，對一個敵方目標造成物理傷害並附帶小量的火焰傷害。"
+    "Intro": "TM_Swashbuckler_14_Intro"
   },
   {
-    "Name": "破虛斬",
+    "Name": "TM_Swashbuckler_15_Name",
     "SkillID": "Swashbuckler_15",
     "Characteristic": true,
     "EffectValue": [
@@ -5140,10 +5140,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "用極大的力氣揮出劍，對一個敵方目標造成大量物理傷害，並減少其防禦力25%持續2.5秒"
+    "Intro": "TM_Swashbuckler_15_Intro"
   },
   {
-    "Name": "始拓斬",
+    "Name": "TM_Swashbuckler_16_Name",
     "SkillID": "Swashbuckler_16",
     "Characteristic": true,
     "EffectValue": [
@@ -5157,10 +5157,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "一手刀背擊中對方的頭，另一手刀砍向對方，造成一名敵方目標物理傷害，並使其暈眩2秒"
+    "Intro": "TM_Swashbuckler_16_Intro"
   },
   {
-    "Name": "阿修羅劍景",
+    "Name": "TM_Swashbuckler_17_Name",
     "SkillID": "Swashbuckler_17",
     "Characteristic": true,
     "EffectValue": [
@@ -5174,10 +5174,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 5,
-    "Intro": "從地上刺出劍圍成一個競技場，將自身與一個敵軍包圍在其中，在競技場持續時間內增加對敵軍的傷害15%，持續10秒，競技場形成時，任何單位無法進入"
+    "Intro": "TM_Swashbuckler_17_Intro"
   },
   {
-    "Name": "輕武器支配者",
+    "Name": "TM_Assassin_1_Name",
     "SkillID": "Assassin_1",
     "Characteristic": false,
     "EffectValue": [
@@ -5191,10 +5191,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備匕首或小刀時，提升攻擊力、暴擊率"
+    "Intro": "TM_Assassin_1_Intro"
   },
   {
-    "Name": "皮甲的好處",
+    "Name": "TM_Assassin_2_Name",
     "SkillID": "Assassin_2",
     "Characteristic": false,
     "EffectValue": [
@@ -5208,10 +5208,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "裝備皮甲時，提升防禦力，大量提升迴避值"
+    "Intro": "TM_Assassin_2_Intro"
   },
   {
-    "Name": "殘酷背刺",
+    "Name": "TM_Assassin_3_Name",
     "SkillID": "Assassin_3",
     "Characteristic": true,
     "EffectValue": [
@@ -5225,10 +5225,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "位移到一個敵人背後，造成物理傷害，此傷害必定造成出血"
+    "Intro": "TM_Assassin_3_Intro"
   },
   {
-    "Name": "刺客之道",
+    "Name": "TM_Assassin_4_Name",
     "SkillID": "Assassin_4",
     "Characteristic": true,
     "EffectValue": [
@@ -5242,10 +5242,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "180秒內，大量提升暴擊率、攻擊力，隊友任何負面狀態的目標造成額外傷害"
+    "Intro": "TM_Assassin_4_Intro"
   },
   {
-    "Name": "殘忍行刑",
+    "Name": "TM_Assassin_5_Name",
     "SkillID": "Assassin_5",
     "Characteristic": true,
     "EffectValue": [
@@ -5259,10 +5259,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成三次物理傷害，並降低目標物理暴擊抵抗，持續3秒。"
+    "Intro": "TM_Assassin_5_Intro"
   },
   {
-    "Name": "精準的要害點破",
+    "Name": "TM_Assassin_6_Name",
     "SkillID": "Assassin_6",
     "Characteristic": false,
     "EffectValue": [
@@ -5276,10 +5276,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "任何物理攻擊有30%機率造成出血，對出血的敵人攻擊時提升暴擊率"
+    "Intro": "TM_Assassin_6_Intro"
   },
   {
-    "Name": "陰險的弱點刺擊",
+    "Name": "TM_Assassin_7_Name",
     "SkillID": "Assassin_7",
     "Characteristic": true,
     "EffectValue": [
@@ -5293,10 +5293,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成較高的物理傷害，若對方有任何負面狀態的話傷害再提升，若目標身上有控制狀態，刷新該控制狀態時間"
+    "Intro": "TM_Assassin_7_Intro"
   },
   {
-    "Name": "致命吐息",
+    "Name": "TM_Assassin_8_Name",
     "SkillID": "Assassin_8",
     "Characteristic": true,
     "EffectValue": [
@@ -5310,10 +5310,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "位移到一名敵方目標身後，造成物理傷害，此傷害必定暴擊，並有機率造成兩倍傷害"
+    "Intro": "TM_Assassin_8_Intro"
   },
   {
-    "Name": "致命毒藥",
+    "Name": "TM_Assassin_9_Name",
     "SkillID": "Assassin_9",
     "Characteristic": false,
     "EffectValue": [
@@ -5327,10 +5327,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "任何物理攻擊有30%機率造成中毒，中毒狀態可疊加5次，持續3秒"
+    "Intro": "TM_Assassin_9_Intro"
   },
   {
-    "Name": "噴濺鮮血",
+    "Name": "TM_Assassin_10_Name",
     "SkillID": "Assassin_10",
     "Characteristic": true,
     "EffectValue": [
@@ -5344,10 +5344,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 15,
-    "Intro": "對一名敵方目標造成物理傷害，若目標處於出血狀態，將傷害擴散至其周圍最多兩名敵方目標，並對他們造成中毒"
+    "Intro": "TM_Assassin_10_Intro"
   },
   {
-    "Name": "破壞器官",
+    "Name": "TM_Assassin_11_Name",
     "SkillID": "Assassin_11",
     "Characteristic": true,
     "EffectValue": [
@@ -5361,10 +5361,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成物理傷害，並減少目標的生命回復量、藥水回復、受到治癒術的回復量50%，持續5秒"
+    "Intro": "TM_Assassin_11_Intro"
   },
   {
-    "Name": "割喉打擊",
+    "Name": "TM_Assassin_12_Name",
     "SkillID": "Assassin_12",
     "Characteristic": true,
     "EffectValue": [
@@ -5378,10 +5378,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "位移到一名敵方目標身旁並造成物理傷害，並沉默3秒"
+    "Intro": "TM_Assassin_12_Intro"
   },
   {
-    "Name": "劇毒擴散",
+    "Name": "TM_Assassin_13_Name",
     "SkillID": "Assassin_13",
     "Characteristic": true,
     "EffectValue": [
@@ -5395,10 +5395,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成大量物理傷害，目標身上每層中毒增加傷害20%"
+    "Intro": "TM_Assassin_13_Intro"
   },
   {
-    "Name": "割斷動脈",
+    "Name": "TM_Assassin_14_Name",
     "SkillID": "Assassin_14",
     "Characteristic": true,
     "EffectValue": [
@@ -5412,10 +5412,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標造成大量物理傷害，目標若處於出血，增加此傷害50%"
+    "Intro": "TM_Assassin_14_Intro"
   },
   {
-    "Name": "死亡印記",
+    "Name": "TM_Assassin_15_Name",
     "SkillID": "Assassin_15",
     "Characteristic": true,
     "EffectValue": [
@@ -5429,10 +5429,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "對一名敵方目標烙上印記，持續5秒，效果持續時間內對其造成的傷害增加10%"
+    "Intro": "TM_Assassin_15_Intro"
   },
   {
-    "Name": "割斷筋骨",
+    "Name": "TM_Assassin_16_Name",
     "SkillID": "Assassin_16",
     "Characteristic": true,
     "EffectValue": [
@@ -5446,10 +5446,10 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "位移到一名敵方目標身旁，對其造成大量物理傷害，並禁錮3秒"
+    "Intro": "TM_Assassin_16_Intro"
   },
   {
-    "Name": "連殺",
+    "Name": "TM_Assassin_17_Name",
     "SkillID": "Assassin_17",
     "Characteristic": false,
     "EffectValue": [
@@ -5463,6 +5463,6 @@
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
-    "Intro": "在擊殺一名敵軍(玩家)後，刷新所有技能冷卻時間"
+    "Intro": "TM_Assassin_17_Intro"
   }
 ]
