@@ -9,10 +9,14 @@ public  class Skill_Base_Buff_Passive : Skill_Base_Buff
     /*
      被動型技能幾乎為buff屬性(加強玩家)
      */
+
+    //角色狀態訊息類別標籤
+    protected override CharacterStatusType characterStatusType => CharacterStatusType.Passive;
+
     protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defenfer = null)
     {
         SkillBuffEffectStart();
-        print("施放的被動技能效果:"+skillName);
+        print("施放的被動技能效果:"+skillID);
         if (gameObject != null)
             gameObject.transform.parent = PassiveSkillManager.Instance.transform;
     }

@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43c16972f7923d4dba315833ff421f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Sword_2
+  skillID: Sword_2
   effectObj: {fileID: 0}
   upgradeSkillID: Sword_1

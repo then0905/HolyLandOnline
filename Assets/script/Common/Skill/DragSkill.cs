@@ -28,7 +28,7 @@ public class DragSkill : MonoBehaviour
     //
     // public SkillRange Skillrange;
     //技能名稱
-    private string skillName;
+    private string skillID;
     //
     public SkillUI Callskillbase;
 
@@ -55,7 +55,7 @@ public class DragSkill : MonoBehaviour
             }
             //PointerEventData _ = data as PointerEventData;
 
-            skillName = data.pointerCurrentRaycast.gameObject.GetComponent<SkillUI>().SkillName.text;
+            skillID = data.pointerCurrentRaycast.gameObject.GetComponent<SkillUI>().SkillID;
 
             //若技能升級  更改拖曳的技能圖鑑
             skillCloneIns.GetComponent<Image>().sprite =
@@ -103,8 +103,7 @@ public class DragSkill : MonoBehaviour
             return;
         }
         SetSkillHotKey(go.GetComponent<HotKeyData>(),
-            skillCloneIns.GetComponent<Image>().sprite, GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(skillName)).
-            Select(x => x.Key).FirstOrDefault(), skillCloneIns.GetComponent<SkillUI>().SkillUpgradeID);
+            skillCloneIns.GetComponent<Image>().sprite, CommonFunction.LoadSkillPrefab(skillID), skillCloneIns.GetComponent<SkillUI>().SkillUpgradeID);
 
         go.GetComponent<Image>().raycastTarget = true;
     }
@@ -115,7 +114,7 @@ public class DragSkill : MonoBehaviour
     /// <param name="skillhotkey"></param>
     /// <param name="skillIcon"></param>
     /// <param name="skillID"></param>
-    public void SetSkillHotKey(HotKeyData skillhotkey, Sprite skillIcon, string skillID, string upgradeSkillID = "")
+    public void SetSkillHotKey(HotKeyData skillhotkey, Sprite skillIcon, IHotKey skillID, string upgradeSkillID = "")
     {
         skillhotkey.SetSkill(skillIcon, skillID, upgradeSkillID);
         EndDragMethod(skillCloneIns);

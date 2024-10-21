@@ -6,7 +6,7 @@ using UnityEngine;
 //  創建日期:2024/03/14
 //  創建用途: 活體人物基底
 //==========================================
-public class ActivityCharacterBase : MonoBehaviour
+public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
 {
     [Header("角色中心點"), SerializeField] protected Transform povit;
     public Transform Povit
@@ -22,6 +22,46 @@ public class ActivityCharacterBase : MonoBehaviour
     protected bool canBeChoose;
     public bool CanBeChoose => canBeChoose;
 
+    public virtual string Name { get; }
+
+    public virtual int HP { get; set; }
+    public virtual int MP { get; set; }
+
+    public virtual int LV { get; }
+
+    public virtual int ATK { get; }
+
+    public virtual int Hit { get; }
+
+    public virtual int Avoid { get; }
+
+    public virtual int DEF { get; }
+
+    public virtual int MDEF { get; }
+
+    public virtual int DamageReduction { get; }
+
+    public virtual float Crt { get; }
+
+    public virtual int CrtDamage { get; }
+
+    public virtual float CrtResistance { get; }
+
+    public virtual float DisorderResistance { get; }
+
+    public virtual float BlockRate { get; }
+
+    public virtual float ElementDamageIncrease { get; }
+
+    public virtual float ElementDamageReduction { get; }
+
+    public virtual GameObject Obj { get; }
+
+    public bool IsDead { get; set; }
+
+    /// <summary>
+    /// 物件被選取處理
+    /// </summary>
     public void BeenSelected()
     {
         if (!canBeChoose) return;
@@ -117,5 +157,10 @@ public class ActivityCharacterBase : MonoBehaviour
                    gameObject);
             }
         }
+    }
+
+    public virtual void DealingWithInjuriesMethod(ICombatant attackerData, int damage)
+    {
+        
     }
 }

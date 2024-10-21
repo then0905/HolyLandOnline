@@ -69,15 +69,18 @@ public static class CommonFunction
     /// <param name="dictionary"></param>
     /// <param name="name"></param>
     /// <param name="path"></param>
-    public static void InitData<I, K>(Dictionary<I, K> dictionary, string name, string path)
+    public static void InitData<I, K>(Dictionary<I, K> dictionary, string path, params string[] name)
         where I : IConvertible
         where K : IDictionaryData<I>
     {
-        var list = DeserializeJson<K>(path, name);
-        for (int i = 0; i < list.Count; i++)
+        for (int j = 0; j < name.Length; j++)
         {
-            var t = list[i];
-            dictionary.TrySetValue(t.GetKey, t);
+            var list = DeserializeJson<K>(path, name[j]);
+            for (int i = 0; i < list.Count; i++)
+            {
+                var t = list[i];
+                dictionary.TrySetValue(t.GetKey, t);
+            }
         }
     }
 
@@ -110,6 +113,38 @@ public static class CommonFunction
         where T : UnityEngine.Object
     {
         return Resources.Load<T>(path + "/" + name);
+    }
+
+    /// <summary>
+    /// 讀取技能圖示專用
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="path"></param>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public static Sprite LoadSkillIcon(string name)
+    {
+        return Resources.LoadAll<Sprite>("").FirstOrDefault(x => x.name == name);
+    }
+
+    /// <summary>
+    /// 讀取技能預製物專用
+    /// </summary>
+    /// <param name="skillID">技能ID</param>
+    /// <returns></returns>
+    public static Skill_Base LoadSkillPrefab(string skillID)
+    {
+        return LoadObject<GameObject>(GameConfig.SkillPrefab, "SkillEffect_" + skillID).GetComponent<Skill_Base>();
+    }
+
+    /// <summary>
+    /// 取得文字內容
+    /// </summary>
+    /// <param name="id"></param>
+    /// <returns></returns>
+    public static string GetText(this string id)
+    {
+        return GameData.GameTextDataDic[id].TextContent;
     }
 
     /// <summary>

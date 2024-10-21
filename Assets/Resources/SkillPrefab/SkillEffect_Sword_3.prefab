@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c121dcde2ad05947a988c92f016c5dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skillName: Sword_3
+  skillID: Sword_3
   effectObj: {fileID: 0}

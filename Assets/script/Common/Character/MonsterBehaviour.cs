@@ -21,7 +21,7 @@ public enum MonserBehaviorEnum
 //  翻修日期:  2023/05/20
 //  創建用途:  怪物行為設定呈現
 //==========================================
-public class MonsterBehaviour : ActivityCharacterBase, ICombatant
+public class MonsterBehaviour : ActivityCharacterBase
 {
     //取得動畫
     [SerializeField] private Animator MonsterAnimator;
@@ -30,8 +30,6 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
     //怪物UI
     public Canvas MonsterNameCanvas;
     public GameObject MonsterNameText;
-    //頭頂位置參考
-    public Transform MonsterHeadTrans;
 
     [Header("遊戲資料")]
     //怪物ID
@@ -62,20 +60,20 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
     /// 戰鬥對象資料字典
     /// </summary>
     public Dictionary<ICombatant, int> BattleTargetDic = new Dictionary<ICombatant, int>();
+
     //協程區
     public Coroutine MonsterPatrolCoroutine;
     public Coroutine MonsterPursueCoroutine;
     public Coroutine MonsterAttackCoroutine;
     public Coroutine CommonPursueCoroutine;
 
-
     //怪物血量
     protected int hp;
     //怪物魔力
     protected int mp;
 
-    public string Name { get => monsterValue.Name; }
-    public int HP
+    public override string Name { get => monsterValue.Name; }
+    public override int HP
     {
         get { return hp; }
         set
@@ -100,7 +98,7 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
             }
         }
     }
-    public int MP
+    public override int MP
     {
         get { return mp; }
         set
@@ -108,23 +106,21 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
             mp = value;
         }
     }
-    public int LV { get => monsterValue.Lv; }
-    public int ATK { get => monsterValue.ATK; }
-    public int Hit { get => monsterValue.Hit; }
-    public int Avoid { get => monsterValue.Avoid; }
-    public int DEF { get => monsterValue.DEF; }
-    public int MDEF { get => monsterValue.DEF; }
-    public int DamageReduction { get => monsterValue.DamageReduction; }
-    public float Crt { get => monsterValue.Crt; }
-    public int CrtDamage { get => monsterValue.CrtDamage; }
-    public float CrtResistance { get => monsterValue.CrtResistance; }
-    public float DisorderResistance { get => monsterValue.DamageReduction; }
-    public float BlockRate { get => monsterValue.BlockRate; }
-    public float ElementDamageIncrease { get => monsterValue.ElementDamageIncrease; }
-    public float ElementDamageReduction { get => monsterValue.ElementDamageReduction; }
-    public GameObject Obj { get => gameObject; }
-
-    public bool IsDead { get; set; }
+    public override int LV { get => monsterValue.Lv; }
+    public override int ATK { get => monsterValue.ATK; }
+    public override int Hit { get => monsterValue.Hit; }
+    public override int Avoid { get => monsterValue.Avoid; }
+    public override int DEF { get => monsterValue.DEF; }
+    public override int MDEF { get => monsterValue.DEF; }
+    public override int DamageReduction { get => monsterValue.DamageReduction; }
+    public override float Crt { get => monsterValue.Crt; }
+    public override int CrtDamage { get => monsterValue.CrtDamage; }
+    public override float CrtResistance { get => monsterValue.CrtResistance; }
+    public override float DisorderResistance { get => monsterValue.DamageReduction; }
+    public override float BlockRate { get => monsterValue.BlockRate; }
+    public override float ElementDamageIncrease { get => monsterValue.ElementDamageIncrease; }
+    public override float ElementDamageReduction { get => monsterValue.ElementDamageReduction; }
+    public override GameObject Obj { get => gameObject; }
 
     public void Start()
     {
@@ -197,9 +193,9 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
         //Camera.main.transform.rotation * Vector3.up);
 
         //獲取世界轉換成螢幕的座標
-        Vector3 screenPosition = PlayerDataOverView.Instance.CharacterMove.CharacterCamera.WorldToScreenPoint(MonsterHeadTrans.position);
+        Vector3 screenPosition = PlayerDataOverView.Instance.CharacterMove.CharacterCamera.WorldToScreenPoint(HeadTrans.position);
         //計算怪物物件與攝影機的距離
-        float distance = Vector3.Distance(MonsterHeadTrans.position, PlayerDataOverView.Instance.CharacterMove.CharacterCamera.transform.position);
+        float distance = Vector3.Distance(HeadTrans.position, PlayerDataOverView.Instance.CharacterMove.CharacterCamera.transform.position);
         // 將屏幕坐標轉換為Canvas中的本地坐標
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             MapManager.Instance.CanvasMapText.GetComponent<RectTransform>(),
@@ -407,7 +403,7 @@ public class MonsterBehaviour : ActivityCharacterBase, ICombatant
         }
     }
 
-    public void DealingWithInjuriesMethod(ICombatant battleData, int damage)
+    public override void DealingWithInjuriesMethod(ICombatant battleData, int damage)
     {
         StartCoroutine(DealingWithInjuriesCoroutine(battleData, damage));
     }

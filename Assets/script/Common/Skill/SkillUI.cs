@@ -8,18 +8,28 @@ using TMPro;
 //  翻修日期:  2023/05/10
 //  創建用途:  技能UI架構(技能視窗的技能)
 //==========================================
-public class SkillUI : MonoBehaviour
+public class SkillUI : MonoBehaviour, ISkillBase
 {
-    //技能名稱
-    public TMP_Text SkillName;
-    //技能消耗魔力
-    public TMP_Text SkillCostMage;
-    //技能冷卻時間
-    public TMP_Text SkillCD;
-    //技能介紹
-    public TMP_Text SkillIntro;
-    //技能圖示
-    public Image SkillIcon;
+    public string SkillID { get; set ;  }
+
+    public float CooldownTime { get { return int.Parse(skillCostMage.text); } set { skillCostMage.text = value.ToString(); } }
+
+    public int CastMage { get { return int.Parse(skillCostMage.text); } set { skillCostMage.text = value.ToString(); } }
+
+    public string SkillName { get { return skillName.text; } set { skillName.text = value; skillIcon.sprite = CommonFunction.LoadSkillIcon(SkillID); } }
+
+    public string SkillIntro { get { return skillIntro.text; } set { skillIntro.text = value; } }
+
+    [Header("技能名稱文字"), SerializeField] private TMP_Text skillName;
+
+    [Header("技能消耗魔力文字"), SerializeField] private TMP_Text skillCostMage;
+
+    [Header("技能冷卻時間文字"), SerializeField] private TMP_Text skillCD;
+
+    [Header("技能介紹文字"), SerializeField] private TMP_Text skillIntro;
+
+    [Header("技能圖示"), SerializeField] private Image skillIcon;
+
     //數字
     public int Number;
     //是否主動技
@@ -28,11 +38,12 @@ public class SkillUI : MonoBehaviour
     /*技能升級內容*/
 
     //技能是否被升級
-     public bool SkillBeUpgrade = false;
+    public bool SkillBeUpgrade = false;
     //技能升級提示(增加在技能介紹) EX:已升級為...
-     public string SkillUpgradeID="";
+    public string SkillUpgradeID = "";
     //技能升級後的Icon更新
     public Sprite SkillUpgradeIcon;
+
 
     void Start()
     {

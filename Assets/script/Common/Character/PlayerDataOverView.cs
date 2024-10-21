@@ -10,7 +10,7 @@ using UnityEngine.UI;
 //  創建日期:2024/04/21
 //  創建用途: 玩家資料總覽
 //==========================================
-public class PlayerDataOverView : ActivityCharacterBase, ICombatant
+public class PlayerDataOverView : ActivityCharacterBase
 {
     #region 全域靜態變數
 
@@ -51,7 +51,7 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
     public PlayerData PlayerData_ = new PlayerData();
 
     public string GetAttackMode { get; set; }
-    public int HP
+    public override int HP
     {
         get => PlayerData_.HP;
         set
@@ -72,7 +72,7 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
             PlayerData_.HP = value;
         }
     }
-    public int MP
+    public override int MP
     {
         get => PlayerData_.MP; set
         {
@@ -86,7 +86,7 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
             PlayerData_.MP = value;
         }
     }
-    public int ATK
+    public override int ATK
     {
         get
         {
@@ -99,7 +99,7 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
             };
         }
     }
-    public int Hit
+    public override int Hit
     {
         get
         {
@@ -112,21 +112,20 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
             };
         }
     }
-    public string Name { get => PlayerData_.PlayerName; }
-    public int LV { get => PlayerData_.Lv; }
-    public int Avoid { get => PlayerData_.Avoid; }
-    public int DEF { get => PlayerData_.Avoid; }
-    public int MDEF { get => PlayerData_.MDEF; }
-    public int DamageReduction { get => PlayerData_.DamageReduction; }
-    public float Crt { get => PlayerData_.Crt; }
-    public int CrtDamage { get => PlayerData_.CrtDamage; }
-    public float CrtResistance { get => PlayerData_.CrtResistance; }
-    public float DisorderResistance { get => PlayerData_.DisorderResistance; }
-    public float BlockRate { get => PlayerData_.BlockRate; }
-    public float ElementDamageIncrease { get => PlayerData_.ElementDamageIncrease; }
-    public float ElementDamageReduction { get => PlayerData_.ElementDamageReduction; }
-    public GameObject Obj { get => gameObject; }
-    public bool IsDead { get; set; }
+    public override string Name { get => PlayerData_.PlayerName; }
+    public override int LV { get => PlayerData_.Lv; }
+    public override int Avoid { get => PlayerData_.Avoid; }
+    public override int DEF { get => PlayerData_.Avoid; }
+    public override int MDEF { get => PlayerData_.MDEF; }
+    public override int DamageReduction { get => PlayerData_.DamageReduction; }
+    public override float Crt { get => PlayerData_.Crt; }
+    public override int CrtDamage { get => PlayerData_.CrtDamage; }
+    public override float CrtResistance { get => PlayerData_.CrtResistance; }
+    public override float DisorderResistance { get => PlayerData_.DisorderResistance; }
+    public override float BlockRate { get => PlayerData_.BlockRate; }
+    public override float ElementDamageIncrease { get => PlayerData_.ElementDamageIncrease; }
+    public override float ElementDamageReduction { get => PlayerData_.ElementDamageReduction; }
+    public override GameObject Obj { get => gameObject; }
 
     [Header("事件區")]
     public Action UIrefresh;        //刷新玩家UI的事件
@@ -159,15 +158,6 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
         UIrefresh += PlayerDataPanelProcessor.Instance.SetPlayerDataContent;
         ChangeHpEvent += ChangePlayerHp;
         ChangeMpEvent += ChangePlayerMp;
-        ExpProcessor();
-    }
-
-    /// <summary>
-    /// 經驗值增加測試
-    /// </summary>
-    public void exptest()
-    {
-        PlayerData_.Exp += 10;
         ExpProcessor();
     }
 
@@ -255,6 +245,7 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
     /// </summary>
     private void LVup()
     {
+        ClassAndSkill.Instance.Init();//技能視窗初始化
         StatusOperation.Instance.StatusMethod();//使用者資料刷新
         RefreshExpAndLv();
         //回復玩家生命值與魔力
@@ -283,7 +274,7 @@ public class PlayerDataOverView : ActivityCharacterBase, ICombatant
         UIrefresh?.Invoke();
     }
 
-    public void DealingWithInjuriesMethod(ICombatant attackerData, int damage)
+    public override void DealingWithInjuriesMethod(ICombatant attackerData, int damage)
     {
         ChangeHpEvent.Invoke(damage);
     }

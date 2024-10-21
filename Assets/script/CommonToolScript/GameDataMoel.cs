@@ -213,12 +213,15 @@ public class SkillDataModel : IDictionaryData<string>
     public int TargetCount { get; set; }                    // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
     public float EffectDurationTime { get; set; }           // 效果持續時間
     public float ChantTime { get; set; }                    // 詠唱時間
-
+    public int CastMage { get; set; }            // 技能花費魔力
+    public float CD { get; set; }            // 技能冷卻時間
+    public string Type { get; set; }            // 技能類型
     public string AdditionMode { get; set; }                // 攻擊模式 戰鬥計算防禦方面使用 (近距離物理、遠距離物理找物防:魔法找魔防)
     public float Distance { get; set; }                     // 技能範圍(施放者與目標間的距離值)
     public float Width { get; set; }                        // 矩形範圍的寬
     public float Height { get; set; }                       // 矩形範圍的長度
     public float CircleDistance { get; set; }               // 圓形範圍 
+    public string Intro { get; set; }            // 技能說明
     public string GetKey { get { return SkillID; } }
 }
 
@@ -559,6 +562,20 @@ public class TutorialIDData
     public string TutorialID { get; set; }          //教學ID
     public List<string> NotIncludedID { get; set; }          //此教學必須不包含的ID清單
     public List<string> IncludedID { get; set; }          //此教學必須包含的ID清單
+}
+
+/// <summary>
+/// 遊戲文字資料
+/// </summary>
+public class GameText:IDictionaryData<string>
+{
+    public string TextID { get; set; }          //文字ID
+    public string TextContent { get; set; }      //文字內容
+
+    public string GetKey
+    {
+        get { return TextID; }
+    }
 }
 
 #endregion

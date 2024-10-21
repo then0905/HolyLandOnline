@@ -40,6 +40,8 @@ public partial class GameData : MonoBehaviour
     public static Dictionary<string, QuestDataModel> QuestDataDic = new Dictionary<string, QuestDataModel>();
     //教學資料字典
     public static Dictionary<string, TutorialSystemData> TutorialDataDic = new Dictionary<string, TutorialSystemData>();
+    //遊戲文字字典
+    public static Dictionary<string, GameText> GameTextDataDic = new Dictionary<string, GameText>();
 
     #endregion
 
@@ -48,19 +50,23 @@ public partial class GameData : MonoBehaviour
     /// </summary>
     public static void Init()
     {
-        CommonFunction.InitData(MonsterBootysDic, "Bootys", "Json");
-        CommonFunction.InitData(ArmorsDic, "Armor", "Json");
-        CommonFunction.InitData(SkillsUIDic, "SkillIntro", "Json");
-        CommonFunction.InitData(SkillsDataDic, "SkillData", "Json");
-        CommonFunction.InitData(WeaponsDic, "Weapon", "Json");
-        CommonFunction.InitData(ItemsDic, "Item", "Json");
-        CommonFunction.InitData(MonstersDataDic, "Monster", "Json");
-        CommonFunction.InitData(JobBonusDic, "JobBonus", "Json");
-        CommonFunction.InitData(StatusFormulaDic, "StatusFormula", "Json");
-        CommonFunction.InitData(ExpAndLvDic, "LvAndExp", "Json");
-        CommonFunction.InitData(GameSettingDic, "GameSetting", "Json");
-        CommonFunction.InitData(NpcDataDic, "NpcData", "Json");
-        CommonFunction.InitData(QuestDataDic, "Quest", "Json");
-        CommonFunction.InitData(TutorialDataDic, "TutorialSystem", "Json");
+        CommonFunction.InitData(MonsterBootysDic,  "Json", "Bootys");
+        CommonFunction.InitData(ArmorsDic, "Json", "Armor");
+        CommonFunction.InitData(SkillsUIDic, "Json", "SkillIntro");
+        CommonFunction.InitData(SkillsDataDic, "Json", "SkillData");
+        CommonFunction.InitData(WeaponsDic, "Json", "Weapon");
+        CommonFunction.InitData(ItemsDic, "Json", "Item");
+        CommonFunction.InitData(MonstersDataDic, "Json", "Monster");
+        CommonFunction.InitData(JobBonusDic, "Json", "JobBonus");
+        CommonFunction.InitData(StatusFormulaDic, "Json", "StatusFormula");
+        CommonFunction.InitData(ExpAndLvDic, "Json", "LvAndExp");
+        CommonFunction.InitData(GameSettingDic, "Json", "GameSetting");
+        CommonFunction.InitData(NpcDataDic, "Json", "NpcData");
+        CommonFunction.InitData(QuestDataDic, "Json", "Quest");
+        CommonFunction.InitData(TutorialDataDic, "Json", "TutorialSystem");
+        CommonFunction.InitData(GameTextDataDic, "Json",
+            "GameText",
+            "StatusText", 
+            "CommonText");
     }
 }

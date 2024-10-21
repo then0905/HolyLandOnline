@@ -1,11 +1,115 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System.Collections;
+using UnityEngine.UI;
+
 //==========================================
 //  創建者:家豪
 //  創建日期:2023/05/03
 //  創建用途: 技能效果_基底
 //==========================================
+
+#region 接口區
+
+/// <summary>
+/// 技能基底接口
+/// </summary>
+public interface ISkillBase
+{
+    /// <summary>
+    /// 技能ID
+    /// </summary>
+    string SkillID { get; }
+
+    /// <summary>
+    /// 技能名稱
+    /// </summary>
+    string SkillName { get; }
+
+    /// <summary>
+    /// 技能效果描述
+    /// </summary>
+    string SkillIntro { get; }
+
+    /// <summary>
+    /// 冷卻時間
+    /// </summary>
+    float CooldownTime { get; }
+
+    /// <summary>
+    /// 消耗魔力
+    /// </summary>
+    int CastMage { get; }
+}
+
+/// <summary>
+/// 「技能」的效果接口
+/// </summary>
+public interface ISkillEffect : ISkillBase
+{
+    /// <summary>
+    /// 該技能是否可以施放
+    /// <param name="tempMana">施放者魔力值</param>
+    /// </summary>
+    bool SkillCanUse(float tempMana);
+
+    /// <summary>
+    /// 技能施放 效果實現
+    /// </summary>
+    /// <param name="caster">施放者</param>
+    /// <param name="target">被施放者</param>
+    void SkillEffect(ICombatant caster, ICombatant target);
+
+    /// <summary>
+    /// 暫存已進入的冷卻時間
+    /// </summary>
+    float TempCooldownTime { get; }
+
+    /// <summary>
+    /// 更新冷卻時間
+    /// </summary>
+    /// <param name="deltaTime">冷卻時間</param>
+    IEnumerable UpdateCooldown(float deltaTime);
+}
+
+/// <summary>
+/// 額外效果接口
+/// </summary>
+public interface IExtraEffect
+{
+    /// <summary>
+    /// 額外效果ID
+    /// </summary>
+    string ExtraEffectIDName { get; }
+    /// <summary>
+    /// 額外效果名稱
+    /// </summary>
+    string ExtraEffectName { get; }
+    /// <summary>
+    /// 額外效果持續時間
+    /// </summary>
+    float Duration { get; }
+    /// <summary>
+    /// 開始附加額外效果
+    /// </summary>
+    /// <param name="target"></param>
+    void Apply(ICombatant target);
+    /// <summary>
+    /// 額外效果更新時間
+    /// </summary>
+    /// <param name="target"></param>
+    void Update(ICombatant target);
+    /// <summary>
+    /// 額外效果移除
+    /// </summary>
+    /// <param name="target"></param>
+    void Remove(ICombatant target);
+}
+
+#endregion
+
+#region Enum宣告區
 
 /// <summary>
 /// 技能類別標籤
@@ -30,7 +134,137 @@ public enum SkillEffectCategory
     Attack
 }
 
-public abstract class Skill_Base : MonoBehaviour
+/// <summary>
+/// 控制效果類別標籤
+/// </summary>
+public enum CrownControlCategory
+{
+    /// <summary>
+    /// 暈眩
+    /// </summary>
+    Stun,
+    /// <summary>
+    /// 禁錮
+    /// </summary>
+    Imprison,
+    /// <summary>
+    /// 壓制
+    /// </summary>
+    Suppress,
+    /// <summary>
+    /// 嘲諷
+    /// </summary>
+    Taunt,
+    /// <summary>
+    /// 擊退
+    /// </summary>
+    Repel,
+    /// <summary>
+    /// 擊飛
+    /// </summary>
+    Knockup,
+    /// <summary>
+    /// 托拽
+    /// </summary>
+    Drag,
+    /// <summary>
+    /// 凍結
+    /// </summary>
+    Freeze,
+    /// <summary>
+    /// 沉默
+    /// </summary>
+    Silence,
+    /// <summary>
+    /// 單挑
+    /// </summary>
+    Duel
+}
+
+/// <summary>
+/// 負面效果類別標籤
+/// </summary>
+public enum DebuffCategory
+{
+    /// <summary>
+    /// 破甲
+    /// </summary>
+    ArmorBreak,
+
+    /// <summary>
+    /// 耗弱
+    /// </summary>
+    MagicShred,
+
+    /// <summary>
+    /// 弱化
+    /// </summary>
+    Weaken,
+
+    /// <summary>
+    /// 出血
+    /// </summary>
+    Bleeding,
+
+    /// <summary>
+    /// 中毒
+    /// </summary>
+    Poisoned,
+
+    /// <summary>
+    /// 灼傷
+    /// </summary>
+    Scorched,
+
+    /// <summary>
+    /// 謙遜
+    /// </summary>
+    Thorns,
+
+    /// <summary>
+    /// 緩速
+    /// </summary>
+    SpeedSlow,
+
+    /// <summary>
+    /// 致盲
+    /// </summary>
+    Blind,
+
+    /// <summary>
+    /// 不死童話
+    /// </summary>
+    Lichform,
+
+    /// <summary>
+    /// 收割
+    /// </summary>
+    Harvest,
+
+    /// <summary>
+    /// 失明
+    /// </summary>
+    Darkness,
+
+    /// <summary>
+    /// 印記
+    /// </summary>
+    Marked,
+
+    /// <summary>
+    /// 烙印
+    /// </summary>
+    Branded,
+
+    /// <summary>
+    /// 創傷
+    /// </summary>
+    Wound
+}
+
+#endregion
+
+public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
 {
 
     #region GameData上的資料結構
@@ -72,28 +306,55 @@ public abstract class Skill_Base : MonoBehaviour
     public List<float> AdditionalEffectTime { get { return additionalEffectTime; } }   // 額外附加效果持續時間
     public Dictionary<string, List<string>> Condition { get { return condition; } }              // 執行技能所需條件
 
-    public int EffectRecive { get { return EffectRecive; } }
-    public int TargetCount { get { return TargetCount; } }                        // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
-    public float EffectDurationTime { get { return EffectDurationTime; } }              // 效果持續時間
-    public float ChantTime { get { return ChantTime; } }                        // 詠唱時間
-
-    public string AdditionMode { get { return AdditionMode; } }                    // 攻擊模式 戰鬥計算防禦方面使用 (近距離物理、遠距離物理找物防:魔法找魔防)
-    public float Distance { get { return Distance; } }                        // 技能範圍(施放者與目標間的距離值)
-    public float Width { get { return Width; } }                           // 矩形範圍的寬
-    public float Height { get { return Height; } }                         // 矩形範圍的長度
-    public float CircleDistance { get { return CircleDistance; } }                 // 圓形範圍 
+    public int EffectRecive { get { return effectRecive; } }
+    public int TargetCount { get { return targetCount; } }                        // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
+    public float EffectDurationTime { get { return effectDurationTime; } }              // 效果持續時間
+    public float ChantTime { get { return chantTime; } }                        // 詠唱時間
+    public string Type { get; set; }            // 技能類型
+    public string AdditionMode { get { return additionMode; } }                    // 攻擊模式 戰鬥計算防禦方面使用 (近距離物理、遠距離物理找物防:魔法找魔防)
+    public float Distance { get { return distance; } }                        // 技能範圍(施放者與目標間的距離值)
+    public float Width { get { return width; } }                           // 矩形範圍的寬
+    public float Height { get { return height; } }                         // 矩形範圍的長度
+    public float CircleDistance { get { return circleDistance; } }                 // 圓形範圍 
 
     #endregion
 
-    public string SkillName { get { return skillName; } }
+    public string SkillID { get { return skillID; } }
 
-    [Header("技能ID 用來從GameData找資料輸入"), SerializeField] protected string skillName;
+    public string SkillName { get; protected set; }
+
+    public string SkillIntro { get; protected set; }
+
+    public float CooldownTime { get; protected set; }
+
+    public int CastMage { get; protected set; }
+
+    public bool SkillCanUse(float tempMana)
+    {
+        if (tempMana - CastMage <= 0)
+            CommonFunction.MessageHint(string.Format("技能：{0}  所需消耗魔力不足...", SkillName), HintType.Warning);
+        else if (TempCooldownTime > 0)
+            CommonFunction.MessageHint(string.Format("技能：{0}  正在冷卻時間中...", SkillName), HintType.Warning);
+
+        return (tempMana - CastMage >= 0) && (TempCooldownTime <= 0);
+    }
+
+    public Sprite SkillIcon { get; protected set; }
+
+    public float TempCooldownTime { get; protected set; }
+
+    public string KeyID => SkillID;
+
+
+    [Header("技能ID 用來從GameData找資料輸入"), SerializeField] protected string skillID;
 
     [Header("生成的動畫特效物件"), SerializeField] protected GameObject effectObj;
 
     protected SkillEffectCategory category;//技能類別標籤
 
     protected bool skillBeUpgrade = false;      //技能是否被升級
+
+    private float dis;      //暫存當前玩家與目標的距離
 
     /// <summary>
     /// 初始化技能資料
@@ -102,14 +363,12 @@ public abstract class Skill_Base : MonoBehaviour
     /// <param name="skillUpgrade">是否升級技能</param>
     /// <param name="caster">施放者</param>
     /// <param name="receiver">接收者</param>
-    public void InitSkillEffectData(int costMaga, bool skillUpgrade = false, ICombatant caster = null, ICombatant receiver = null)
+    public virtual void InitSkillEffectData(bool skillUpgrade = false, ICombatant caster = null, ICombatant receiver = null)
     {
         skillBeUpgrade = skillUpgrade;
         //獲取GameData技能資料
-        var effectData = GameData.SkillsDataDic[skillName];
+        SkillDataModel effectData = GameData.SkillsDataDic[skillID];
 
-        //轉換List
-        //TranslateListData(effectData);
         //設定其他資料
         characteristic = effectData.Characteristic;
         multipleValue = effectData.MultipleValue;
@@ -129,14 +388,67 @@ public abstract class Skill_Base : MonoBehaviour
         additionalEffect = effectData.AdditionalEffect;
         additionalEffectValue = effectData.AdditionalEffectValue;
         additionalEffectTime = effectData.AdditionalEffectTime;
-        //扣除消耗魔力
-        PlayerDataOverView.Instance.ChangeMpEvent?.Invoke(costMaga * -1);
+
+        CooldownTime = effectData.CD;
+        CastMage = effectData.CastMage;
+        Type = effectData.Type;
+
+        SkillName = effectData.Name;
+        SkillIntro = effectData.Intro;
 
         //如果技能被升級 初始化技能時不執行 等待升級資訊後才執行
-        if (!skillUpgrade)
-            SkillEffectStart(caster, receiver);
+        //if (!skillUpgrade)
+        //    SkillEffectStart(caster, receiver);
         //設定生成特效參考
         if (effectObj != null) InitSkillEffect(effectData.EffectTarget);
+    }
+
+    /// <summary>
+    /// 確認玩家是否進入可施放範圍
+    /// </summary>
+    public IEnumerator SkillDistanceCheck()
+    {
+        DistanceWithTarget();
+        PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = true;
+        //若還沒進入施放距離則移動玩家
+        while (dis > Distance)
+        {
+            DistanceWithTarget();
+
+            // 取得角色面相目標的方向
+            Vector3 direction = SelectTarget.Instance.Targetgameobject.transform.position - PlayerDataOverView.Instance.CharacterMove.Character.transform.position;
+            // 鎖定y軸的旋轉 避免角色在x軸和z軸上傾斜
+            direction.y = 0;
+            // 如果 direction 的長度不為零，設定角色的朝向
+            if (direction != Vector3.zero)
+                PlayerDataOverView.Instance.CharacterMove.Character.transform.rotation = Quaternion.LookRotation(direction);
+
+            //跑步動畫
+            PlayerDataOverView.Instance.CharacterMove.RunAnimation(true);
+            //設定移動座標
+            PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position =
+                Vector3.MoveTowards(PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position,
+                SelectTarget.Instance.Targetgameobject.Povit.position,
+                PlayerDataOverView.Instance.CharacterMove.MoveSpeed);
+
+            yield return new WaitForEndOfFrame();
+        }
+        PlayerDataOverView.Instance.CharacterMove.RunAnimation(false);
+        SkillController.Instance.UsingSkill = true;
+        SkillEffect(PlayerDataOverView.Instance,SelectTarget.Instance.Targetgameobject);
+    }
+
+    /// <summary>
+    /// 取得玩家與目標間的距離
+    /// </summary>
+    /// <returns></returns>
+    private float DistanceWithTarget()
+    {
+        if (SelectTarget.Instance.CatchTarget)
+            dis = Vector3.Distance(SelectTarget.Instance.Targetgameobject.Povit.position, PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position);
+        else
+            return 0;
+        return dis;
     }
 
     /// <summary>
@@ -234,6 +546,7 @@ public abstract class Skill_Base : MonoBehaviour
     /// <param name="caster">施放者</param>
     /// <param name="receiver">被施放者</param>
     protected abstract void SkillEffectStart(ICombatant caster = null, ICombatant receiver = null);
+
     /// <summary>
     /// 技能施放結束
     /// </summary>
@@ -298,6 +611,26 @@ public abstract class Skill_Base : MonoBehaviour
         additionalEffectTime = effectData.AdditionalEffectTime;
         //升級資訊完成 執行程式
         skillBeUpgrade = false;
-        SkillEffectStart(caster, receiver);
+        SkillEffect(caster, receiver);
+    }
+
+    public void SkillEffect(ICombatant caster = null, ICombatant target = null)
+    {
+        SkillEffectStart(caster, target);
+    }
+
+    public virtual IEnumerable UpdateCooldown(float deltaTime)
+    {
+        //暫存冷卻時間
+        TempCooldownTime = deltaTime;
+        while (TempCooldownTime > 0)
+        {
+            TempCooldownTime -= 0.1f;
+            //更新技能冷卻讀條
+            //skillCdSlider.value = CooldownTime - TempCooldownTime;
+            var hotkeyData = SkillController.Instance.SkillHotKey.Where(x => (x.TempHotKeyData is Skill_Base) && ((object)x.TempHotKeyData == this)).FirstOrDefault();
+            hotkeyData.HotKeyCdProcessor(CooldownTime - TempCooldownTime);
+            yield return new WaitForSeconds(0.1f);
+        }
     }
 }

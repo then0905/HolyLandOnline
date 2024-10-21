@@ -1,0 +1,154 @@
+[
+  {
+    "TextID": "TM_Rate",
+    "TextContent": "提升{0}倍。"
+  },
+  {
+    "TextID": "TM_Value",
+    "TextContent": "加上{0}。"
+  },
+  {
+    "TextID": "TM_Lv",
+    "TextContent": "等級"
+  },
+  {
+    "TextID": "TM_Race",
+    "TextContent": "種族"
+  },
+  {
+    "TextID": "TM_Job",
+    "TextContent": "職業"
+  },
+  {
+    "TextID": "TM_Exp",
+    "TextContent": "經驗值"
+  },
+  {
+    "TextID": "TM_MaxExp",
+    "TextContent": "最大經驗值"
+  },
+  {
+    "TextID": "TM_PlayerCoin",
+    "TextContent": "玩家金幣量"
+  },
+  {
+    "TextID": "TM_Weapon",
+    "TextContent": "武器"
+  },
+  {
+    "TextID": "TM_Item",
+    "TextContent": "道具"
+  },
+  {
+    "TextID": "TM_Armor",
+    "TextContent": "防具"
+  },
+  {
+    "TextID": "TM_RightHand",
+    "TextContent": "主手"
+  },
+  {
+    "TextID": "TM_LeftHand",
+    "TextContent": "副手"
+  },
+  {
+    "TextID": "TM_BothHand",
+    "TextContent": "雙手"
+  },
+  {
+    "TextID": "TM_OneHandedSword",
+    "TextContent": "單手劍"
+  },
+  {
+    "TextID": "TM_TwoHandedSword",
+    "TextContent": "雙手劍"
+  },
+  {
+    "TextID": "TM_Mage",
+    "TextContent": "長杖"
+  },
+  {
+    "TextID": "TM_LongBow",
+    "TextContent": "弓"
+  },
+  {
+    "TextID": "TM_Dagger",
+    "TextContent": "匕首"
+  },
+  {
+    "TextID": "TM_Axe",
+    "TextContent": "雙手斧"
+  },
+  {
+    "TextID": "TM_Crossbow",
+    "TextContent": "弩"
+  },
+  {
+    "TextID": "TM_Stick",
+    "TextContent": "短杖"
+  },
+  {
+    "TextID": "TM_Hammer",
+    "TextContent": "單手槌"
+  },
+  {
+    "TextID": "TM_GiantMallet",
+    "TextContent": "雙手槌"
+  },
+  {
+    "TextID": "TM_Book",
+    "TextContent": "法書"
+  },
+  {
+    "TextID": "TM_Shield",
+    "TextContent": "盾牌"
+  },
+  {
+    "TextID": "TM_Potion",
+    "TextContent": "藥劑"
+  },
+  {
+    "TextID": "TM_Reel",
+    "TextContent": "卷軸"
+  },
+  {
+    "TextID": "TM_Enhance",
+    "TextContent": "強化道具"
+  },
+  {
+    "TextID": "TM_Booty",
+    "TextContent": "戰利品"
+  },
+  {
+    "TextID": "TM_Head",
+    "TextContent": "頭部"
+  },
+  {
+    "TextID": "TM_Body",
+    "TextContent": "身體"
+  },
+  {
+    "TextID": "TM_Leg",
+    "TextContent": "腿部"
+  },
+  {
+    "TextID": "TM_Arm",
+    "TextContent": "手腕"
+  },
+  {
+    "TextID": "TM_Foot",
+    "TextContent": "腳踝"
+  },
+  {
+    "TextID": "TM_HeavyArmor",
+    "TextContent": "重甲"
+  },
+  {
+    "TextID": "TM_LightArmor",
+    "TextContent": "輕甲"
+  },
+  {
+    "TextID": "TM_ClothArmor",
+    "TextContent": "布甲"
+  }
+]

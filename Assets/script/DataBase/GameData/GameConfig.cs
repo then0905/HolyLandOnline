@@ -10,11 +10,16 @@ using UnityEngine;
 public static class GameConfig
 {
    public const string SkillIcon = "Skill/Icon";
+   public const string SkillPrefab = "SkillPrefab";
+
    public const string Monster = "Monster";
+
    public const string NpcAvatar = "Npc/Avatar";
    public const string NpcPrefab = "Npc/Prefab";
+
    public const string SpriteItem = "CommonSprite/Item";
    public const string SpriteWeapon = "CommonSprite/Weapon";
    public const string SpriteArmor = "CommonSprite/Armor";
+
    public const string Player = "Player";
 }

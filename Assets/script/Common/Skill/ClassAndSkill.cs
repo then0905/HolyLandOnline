@@ -82,12 +82,13 @@ public class ClassAndSkill : MonoBehaviour
             SkillUI skillUIobj = Instantiate(SkillChild, InsSkillChildTrans).GetComponent<SkillUI>();
 
             //設定此物件的資料
-            skillUIobj.SkillName.text = item.Name;
-            skillUIobj.SkillCostMage.text = item.CastMage.ToString();
-            skillUIobj.SkillCD.text = item.CD.ToString();
-            skillUIobj.SkillIntro.text = string.IsNullOrEmpty(skillUIobj.SkillUpgradeID) ? item.Intro : item.Intro + "\n" + skillUIobj.SkillUpgradeID;
+            skillUIobj.SkillID = item.SkillID;
+            skillUIobj.SkillName = item.Name;
+            skillUIobj.CastMage = item.CastMage;
+            skillUIobj.CooldownTime = item.CD;
+            skillUIobj.SkillIntro = string.IsNullOrEmpty(skillUIobj.SkillUpgradeID) ? item.Intro : item.Intro + "\n" + skillUIobj.SkillUpgradeID;
             skillUIobj.Characteristic = item.Characteristic;
-            skillUIobj.SkillIcon.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerDataOverView.Instance.PlayerData_.Job, item.SkillID);
+            //skillUIobj.SkillIcon.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerDataOverView.Instance.PlayerData_.Job, item.SkillID);
 
             skillUIobj.GetComponent<DragSkill>().TopOfUnit = topOfUnit;
             skillUIobj.GetComponent<DragSkill>().SkillHotKey = skillHotKeyTrans;

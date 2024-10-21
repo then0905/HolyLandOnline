@@ -1,0 +1,10 @@
+[
+  {
+    "TextID": "TM_TimeLeft",
+    "TextContent": "剩餘時間: {0}"
+  },
+  {
+    "TextID": "TM_CharacterStatusHintBuffFomat",
+    "TextContent": "{0}: {1}"
+  }
+]

@@ -1903,7 +1903,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6799786157524830503}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 24.58, z: 0}
+  m_LocalPosition: {x: 0, y: 12, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 18}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2440,7 +2440,6 @@ MonoBehaviour:
   canBeChoose: 1
   NameCanvas: {fileID: 6799786157769184748}
   NameText: {fileID: 6799786157033792533}
-  HeadTrans: {fileID: 3584846766352946952}
   NpcID: Npc05
 --- !u!1 &7413423856077223146
 GameObject:

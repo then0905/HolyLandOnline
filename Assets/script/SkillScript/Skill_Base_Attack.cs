@@ -38,13 +38,14 @@ public abstract class Skill_Base_Attack : Skill_Base
     /// <summary>
     /// 確認是否有選擇到目標
     /// </summary>
-    /// <param name="attackType">傷害類型</param>
-    protected void CheckGetAnyTarget(AttackCategory attackType, ICombatant attacker = null, ICombatant defender = null)
+    /// <param name="attacker">施放者</param>
+    /// <param name="defender">被施放者</param>
+    protected void CheckGetAnyTarget(ICombatant attacker = null, ICombatant defender = null)
     {
-        if (SelectTarget.Instance.Targetgameobject != null && !SkillBeUpgrade)
+        if (SelectTarget.Instance.Targetgameobject != null/* && !SkillBeUpgrade*/)
         {
             BattleOperation.Instance.SkillAttackEvent?.Invoke(this, attacker, defender);
-            PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetTrigger(skillName);
+            PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetTrigger(skillID);
         }
         else
         {

@@ -11,11 +11,15 @@
     "EffectTarget": "Target",
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 10,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標使用砍擊"
   },
   {
     "Name": "重擊",
@@ -28,11 +32,15 @@
     "EffectCategory": "SkillBuff",
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 10,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "升級砍擊，對一個敵對目標使用傷害較高的砍擊"
   },
   {
     "Name": "劈擊",
@@ -46,11 +54,15 @@
     "EffectTarget": "Target",
     "EffectRecive": -1,
     "TargetCount": 3,
+    "CastMage": 25,
+    "CD": 3,
+    "Type": "Arrow",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 10,
     "Height": 5,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對前方區域內三名敵對目標使用範圍型的攻擊"
   },
   {
     "Name": "劍術之途",
@@ -73,11 +85,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備劍類武器時，稍微提升攻擊力"
   },
   {
     "Name": "修練之途",
@@ -96,11 +112,15 @@
     "EffectCategory": "Buff",
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "稍微提升最大生命值"
   },
   {
     "Name": "破擊",
@@ -120,11 +140,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 35,
+    "CD": 2,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標造成較高的傷害，並附帶1秒暈眩"
   },
   {
     "Name": "躍擊",
@@ -138,11 +162,15 @@
     "EffectTarget": "TargetArea",
     "EffectRecive": -1,
     "TargetCount": 3,
+    "CastMage": 50,
+    "CD": 5,
+    "Type": "Circle",
     "AdditionMode": "MeleeATK",
     "Distance": 8,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 4
+    "CircleDistance": 4,
+    "Intro": "跳躍到指定地點，並對地點內最多三名敵對目標造成較高的傷害"
   },
   {
     "Name": "多重打擊",
@@ -156,11 +184,15 @@
     "EffectTarget": "Target",
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 70,
+    "CD": 8,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標揮出多次打擊，每次造成傷害，最多3次"
   },
   {
     "Name": "戰鬥意志",
@@ -181,11 +213,15 @@
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 180,
+    "CastMage": 55,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升攻擊力"
   },
   {
     "Name": "粗糙的皮膚",
@@ -209,11 +245,15 @@
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 180,
+    "CastMage": 55,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，稍微提升防禦力以及最大生命值"
   },
   {
     "Name": "熟練的雙手武器",
@@ -240,11 +280,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "使用雙手武器(劍、斧、槌)時，提升攻擊力以及命中"
   },
   {
     "Name": "精通戰鬥的人",
@@ -266,11 +310,15 @@
     "EffectCategory": "Buff",
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "稍微提升防禦力及最大生命值"
   },
   {
     "Name": "騎士的砍擊",
@@ -284,11 +332,15 @@
     "EffectTarget": "Target",
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 13,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標使用傷害較高砍擊"
   },
   {
     "Name": "嘲諷",
@@ -311,11 +363,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 25,
+    "CD": 5,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標使用嘲諷，使其攻擊自己，持續2秒，若目標為怪物提高仇恨值"
   },
   {
     "Name": "保護同伴",
@@ -339,11 +395,15 @@
     "EffectRecive": -3,
     "TargetCount": -1,
     "EffectDurationTime": 180,
+    "CastMage": 35,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升隊友及自身的攻擊力、防禦力"
   },
   {
     "Name": "團隊的盾牌",
@@ -370,11 +430,15 @@
     "EffectRecive": -3,
     "TargetCount": -1,
     "EffectDurationTime": 180,
+    "CastMage": 35,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升隊友及自身的最大生命值及生命回復量"
   },
   {
     "Name": "用力的盾擊",
@@ -394,11 +458,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 50,
+    "CD": 5,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "使用盾牌砸向一個敵對目標，使目標受到傷害並暈眩1秒"
   },
   {
     "Name": "單手武器的熟練",
@@ -424,11 +492,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "使用單手武器時提升攻擊力及命中"
   },
   {
     "Name": "握起盾牌的覺悟",
@@ -453,11 +525,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備盾牌時提昇大量防禦力及些許的格擋，降低攻擊速度"
   },
   {
     "Name": "重甲的好處與壞處",
@@ -482,11 +558,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備重型鎧甲的裝備時，提升大量防禦力，下降移動速度"
   },
   {
     "Name": "狂戰士的破擊",
@@ -506,11 +586,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標造成大量的傷害，並附帶2秒暈眩"
   },
   {
     "Name": "狂戰士的躍擊",
@@ -536,11 +620,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": 5,
+    "CastMage": 78,
+    "CD": 3,
+    "Type": "Circle",
     "AdditionMode": "MeleeATK",
     "Distance": 9,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 8
+    "CircleDistance": 8,
+    "Intro": "跳躍至指定地點，並對地點內最多五名敵對目標造成大量的傷害，並緩速命中目標移動速度15%，持續2.5秒"
   },
   {
     "Name": "致殘打擊",
@@ -554,11 +642,15 @@
     "EffectTarget": "Target",
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 78,
+    "CD": 10,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標揮出多次打擊，每次造成傷害，最多3次，並附帶出血"
   },
   {
     "Name": "狂戰精神",
@@ -584,11 +676,15 @@
     "EffectTarget": "Self",
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 58,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升大量攻擊力、命中以及暴擊"
   },
   {
     "Name": "嗜血的神經病",
@@ -614,11 +710,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 58,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，獲得攻擊血量小於最大值一半的目標，有更多傷害以及吸血的增益狀態"
   },
   {
     "Name": "怒氣",
@@ -644,11 +744,15 @@
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 5,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "受攻擊或攻擊時(戰鬥狀態中)持續增加 數值越高傷害範圍越高，最高值100，持續5秒"
   },
   {
     "Name": "雙手武器的堅持",
@@ -675,11 +779,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備雙手武器(劍、斧、槌)時，獲得大量攻擊力，以及提高些微攻擊速度"
   },
   {
     "Name": "身經百戰的熟練戰士",
@@ -709,11 +817,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "稍微提升防禦力以及最大生命值，戰鬥狀態中再稍微提升"
   },
   {
     "Name": "來自狂戰士的怒吼",
@@ -737,11 +849,15 @@
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 3,
+    "CastMage": 0,
+    "CD": 30,
+    "Type": "Circle",
     "AdditionMode": "MeleeATK",
     "Distance": 7,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "消耗所有怒氣，每1點怒氣大量提高攻擊力以及降低防禦力，持續3秒"
   },
   {
     "Name": "我要打翻身仗",
@@ -767,11 +883,15 @@
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 5,
+    "CastMage": 100,
+    "CD": 45,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "當生命值低於35%時可以使用，使用時提高大量攻擊力以及攻擊速度，持續5秒"
   },
   {
     "Name": "迴旋烈斬",
@@ -785,11 +905,15 @@
     "EffectTarget": "Self",
     "EffectRecive": -1,
     "TargetCount": 5,
+    "CastMage": 35,
+    "CD": 0,
+    "Type": "Circle",
     "AdditionMode": "MeleeATK",
     "Distance": 7,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "持續對周圍敵對目標，最多五名造成傷害，每揮中一次造成一次傷害(按住按鍵持續施放)"
   },
   {
     "Name": "打不過的敵人",
@@ -809,11 +933,15 @@
     ],
     "EffectRecive": 1,
     "TargetCount": 1,
+    "CastMage": 50,
+    "CD": 10,
+    "Type": "Arrow",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 5,
     "Height": 2,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "揮出武器，對一名敵對目標造成傷害並擊退目標"
   },
   {
     "Name": "嘿嘿嘿我要來囉",
@@ -836,11 +964,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 40,
+    "CD": 30,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 8,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "10秒內向敵方目標(玩家)移動時提升移動速度"
   },
   {
     "Name": "不要阻止我！",
@@ -858,11 +990,15 @@
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 10,
+    "CastMage": 100,
+    "CD": 60,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "解除所有控制狀態"
   },
   {
     "Name": "狂戰士斷頭台",
@@ -876,11 +1012,15 @@
     "EffectTarget": "Target",
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 175,
+    "CD": 80,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標造成極大量的傷害"
   },
   {
     "Name": "狂戰士之路",
@@ -906,11 +1046,15 @@
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 1.5,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "持續戰鬥狀態中，每秒提高攻擊力及攻擊速度，脫離戰鬥狀態後維持1.5秒"
   },
   {
     "Name": "聖騎士的砍擊",
@@ -924,11 +1068,15 @@
     "EffectTarget": "Target",
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 23,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標使用傷害較高並附帶神聖屬性的砍擊"
   },
   {
     "Name": "無情嘲諷",
@@ -960,11 +1108,15 @@
     "EffectRecive": -1,
     "TargetCount": 1,
     "EffectDurationTime": 2,
+    "CastMage": 38,
+    "CD": 5,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標使用嘲諷，使其攻擊自己，持續2秒，並降低來自目標的傷害，若目標為怪物提高大量仇恨值"
   },
   {
     "Name": "神聖之力的祝福",
@@ -992,11 +1144,15 @@
     "EffectRecive": -3,
     "TargetCount": -1,
     "EffectDurationTime": 180,
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升隊友與自身的攻擊力、攻擊速度、移動速度"
   },
   {
     "Name": "神聖之力的保護",
@@ -1026,11 +1182,15 @@
     "EffectRecive": -3,
     "TargetCount": -1,
     "EffectDurationTime": 180,
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升隊友與自身的防禦力、迴避值、最大生命值、生命回復量"
   },
   {
     "Name": "神聖之力的奉獻",
@@ -1051,11 +1211,15 @@
     "EffectRecive": -3,
     "TargetCount": -1,
     "EffectDurationTime": 180,
+    "CastMage": 70,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，若隊友受到的傷害，轉移小量傷害改由自身承受"
   },
   {
     "Name": "神聖的盾擊",
@@ -1071,11 +1235,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 65,
+    "CD": 5,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "使用盾牌敲向一個敵對目標，並附帶神聖屬性傷害，使目標受到傷害並暈眩1.5秒"
   },
   {
     "Name": "祭司授權的治癒術",
@@ -1092,11 +1260,15 @@
     "EffectTarget": "Target",
     "EffectRecive": -2,
     "TargetCount": 1,
+    "CastMage": 80,
+    "CD": 10,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 13,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "回復一個友方目標的小量生命值"
   },
   {
     "Name": "神聖之力是什麼",
@@ -1117,11 +1289,15 @@
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 180,
+    "CastMage": 35,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，自身所有傷害附帶神聖屬性"
   },
   {
     "Name": "聖騎士無所畏懼",
@@ -1144,11 +1320,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": -2,
+    "CastMage": 50,
+    "CD": 15,
+    "Type": "Arrow",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 5,
     "Height": 2,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "拿起盾牌衝向指定方向，路徑上所有敵對目標受到小量傷害並暈眩1秒"
   },
   {
     "Name": "拿好久的單手武器",
@@ -1170,11 +1350,15 @@
     "EffectCategory": "Buff",
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備單手武器(槌、劍)時，些微提升攻擊力以及命中"
   },
   {
     "Name": "拿好久的盾牌",
@@ -1202,11 +1386,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備盾牌時提升大量防禦力及格擋，些微降低攻擊速度"
   },
   {
     "Name": "穿好久的重甲",
@@ -1231,11 +1419,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備重型鎧甲時，提升大量防禦力，些微下降移動速度"
   },
   {
     "Name": "聖騎士的權力",
@@ -1264,11 +1456,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對嘲諷的目標附加破甲狀態，持續2秒"
   },
   {
     "Name": "聖光啊！",
@@ -1285,11 +1481,15 @@
     ],
     "EffectRecive": -2,
     "TargetCount": 1,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "祭司授權的治癒術可以解除目標受到的負面狀態"
   },
   {
     "Name": "神聖之力的庇佑",
@@ -1311,11 +1511,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "以一定百分比降低所受傷害"
   },
   {
     "Name": "擊潰資本主義的高牆",
@@ -1344,11 +1548,15 @@
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 5,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "若短時間內(意指5秒內)，遭受暈眩、緩速、禁錮、擊退等控制狀態時，降低接下來受到會造成控制狀態效果"
   },
   {
     "Name": "聖主保佑",
@@ -1379,11 +1587,15 @@
     "TargetCount": -1,
     "EffectDurationTime": 3,
     "ChantTime": 1.5,
+    "CastMage": 120,
+    "CD": 180,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "詠唱1.5秒後，3秒內隊友及自身不受到任何傷害，但無法免疫控制狀態"
   },
   {
     "Name": "刺擊",
@@ -1406,11 +1618,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 25,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對敵方目標造成物理傷害，並破甲15%2秒"
   },
   {
     "Name": "迴旋刺擊",
@@ -1433,11 +1649,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": 3,
+    "CastMage": 38,
+    "CD": 3,
+    "Type": "Circle",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對周圍敵方目標，最多三人造成刺擊，並使目標出血5秒"
   },
   {
     "Name": "連續刺砍",
@@ -1460,11 +1680,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 45,
+    "CD": 5,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成多次傷害，最多5次，每一段傷害增加上一次的傷害15%"
   },
   {
     "Name": "聽候差遣",
@@ -1491,11 +1715,15 @@
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 180,
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升移動速度，攻擊速度，暴擊率"
   },
   {
     "Name": "縱橫沙場",
@@ -1516,11 +1744,15 @@
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 180,
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，對任何控制狀態，緩速狀態減少30%效果及持續時間"
   },
   {
     "Name": "捍衛國家之心",
@@ -1550,11 +1782,15 @@
     "EffectRecive": 0,
     "TargetCount": 0,
     "EffectDurationTime": 180,
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升些許攻擊力、防禦力、格檔"
   },
   {
     "Name": "衝鋒刺擊",
@@ -1577,11 +1813,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": -2,
+    "CastMage": 35,
+    "CD": 8,
+    "Type": "Arrow",
     "AdditionMode": "MeleeATK",
     "Distance": 7,
     "Width": 7,
     "Height": 4,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "向指定方向移動，並對路徑上所有敵人使用刺擊的傷害及效果"
   },
   {
     "Name": "重點刺擊",
@@ -1606,11 +1846,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "提升刺擊的傷害，若使用衝鋒刺擊，每擊中1名目標減少0.5秒冷卻時間，最多5秒"
   },
   {
     "Name": "單手武器的精通",
@@ -1635,11 +1879,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備單手武器時(單手劍)，提升攻擊力與攻擊速度"
   },
   {
     "Name": "還是得搭配盾牌",
@@ -1664,11 +1912,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備盾牌時，提升些許防禦、格檔"
   },
   {
     "Name": "輕便的穿搭",
@@ -1694,11 +1946,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "非裝備重型鎧甲的防具，可以提升些許防禦、移動速度"
   },
   {
     "Name": "回擊好禮",
@@ -1718,11 +1974,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "當格檔時，有35%機率直接造成一次刺擊"
   },
   {
     "Name": "穿梭戰場的刺刺",
@@ -1744,11 +2004,15 @@
     ],
     "EffectRecive": 0,
     "TargetCount": 0,
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "提升刺擊的距離，擊中後移動到擊中目標旁"
   },
   {
     "Name": "刺擊絕對領域",
@@ -1764,11 +2028,15 @@
     "TargetCount": -3,
     "EffectDurationTime": 5,
     "ChantTime": 1,
+    "CastMage": 85,
+    "CD": 30,
+    "Type": "Circle",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "詠唱1秒，對周圍所有敵方目標造成傷害，依照攻擊速度給予攻擊頻率，持續5秒"
   },
   {
     "Name": "飛天御刺",
@@ -1791,11 +2059,15 @@
     ],
     "EffectRecive": -1,
     "TargetCount": 1,
+    "CastMage": 68,
+    "CD": 10,
+    "Type": "Arrow",
     "AdditionMode": "MeleeATK",
     "Distance": 7,
     "Width": 7,
     "Height": 4,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "投擲單手劍擊向指定方向的一名敵方目標，並附加緩速30%，持續3秒"
   },
   {
     "Name": "禁衛軍！集合！",
@@ -1816,11 +2088,15 @@
     "EffectRecive": 1,
     "TargetCount": 1,
     "ChantTime": 3,
+    "CastMage": 100,
+    "CD": 45,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 8,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "詠唱3秒，召喚兩名自己的分身，壓制住敵方目標1秒，並給予八次傷害。"
   },
   {
     "Name": "火球術",
@@ -1830,11 +2106,15 @@
     "EffectValue": [
       "1.25"
     ],
+    "CastMage": 15,
+    "CD": 3,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 8,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "使用火球對一名敵對目標造成火屬性傷害"
   },
   {
     "Name": "水流術",
@@ -1843,11 +2123,15 @@
     "EffectValue": [
       "1.2"
     ],
+    "CastMage": 25,
+    "CD": 5,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 4
+    "CircleDistance": 4,
+    "Intro": "吟唱1秒，使用水流對指定區域內最多三名敵對目標造成水屬性傷害"
   },
   {
     "Name": "土牢術",
@@ -1856,11 +2140,15 @@
     "EffectValue": [
       "1.2"
     ],
+    "CastMage": 32,
+    "CD": 7,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 4
+    "CircleDistance": 4,
+    "Intro": "吟唱2秒，指定區域內最多三名敵對目標受到地屬性傷害，並因指定區域的地板下陷，敵對目標同時遭到2秒禁錮"
   },
   {
     "Name": "風波術",
@@ -1869,11 +2157,15 @@
     "EffectValue": [
       "1.2"
     ],
+    "CastMage": 40,
+    "CD": 10,
+    "Type": "Arrow",
     "AdditionMode": "MageATK",
     "Distance": 12,
     "Width": 12,
     "Height": 5,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "吟唱2秒，對指定方向使用風聚集的衝擊，對路徑上最多五名敵對目標造成風屬性傷害，並擊退一小段距離"
   },
   {
     "Name": "書上的知識",
@@ -1882,11 +2174,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "稍微提升魔法攻擊力以及魔力最大值"
   },
   {
     "Name": "熟練法杖",
@@ -1895,11 +2191,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備單手或雙手的法杖時提高魔法攻擊力"
   },
   {
     "Name": "祭司傳承的治癒術",
@@ -1908,11 +2208,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 20,
+    "CD": 3,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "回復一名友軍的小量生命值，小量提升怪物的仇恨值"
   },
   {
     "Name": "破除迷惑",
@@ -1921,11 +2225,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 40,
+    "CD": 10,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "解除一名友軍的所有負面狀態"
   },
   {
     "Name": "天之箭",
@@ -1934,11 +2242,15 @@
     "EffectValue": [
       "1.1"
     ],
+    "CastMage": 15,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "MageATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "吟唱1秒，對一名敵方目標造成神聖屬性的魔法攻擊"
   },
   {
     "Name": "神聖力量爆破",
@@ -1947,11 +2259,15 @@
     "EffectValue": [
       "1.12"
     ],
+    "CastMage": 50,
+    "CD": 5,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 8,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "吟唱2秒，對周圍敵方目標造成神聖屬性的魔法攻擊，最多三名"
   },
   {
     "Name": "聖所的護身法",
@@ -1960,11 +2276,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升隊友與自身的些微防禦力、生命回復量、魔力回復量"
   },
   {
     "Name": "祭司傳承的淨化術",
@@ -1973,11 +2293,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升隊友與自身的命中值、迴避值"
   },
   {
     "Name": "精通短法杖",
@@ -1986,11 +2310,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備單手法杖時，些微提升魔法攻擊力，以及吟唱速度"
   },
   {
     "Name": "熟練輕型盾牌",
@@ -1999,11 +2327,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備非重型盾牌時，些微提升防禦力"
   },
   {
     "Name": "隕石術",
@@ -2012,11 +2344,15 @@
     "EffectValue": [
       "1.4"
     ],
+    "CastMage": 30,
+    "CD": 3,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 5
+    "CircleDistance": 5,
+    "Intro": "吟唱1秒，對指定範圍內敵方單位造成火屬性傷害，最多三名，並有15%機率附帶灼傷"
   },
   {
     "Name": "水龍捲",
@@ -2025,11 +2361,15 @@
     "EffectValue": [
       "1.35"
     ],
+    "CastMage": 55,
+    "CD": 5,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 5
+    "CircleDistance": 5,
+    "Intro": "吟唱1.5秒，對指定範圍內敵方單位造成水屬性傷害，最多三名，並附帶擊飛"
   },
   {
     "Name": "沙塵暴",
@@ -2038,11 +2378,15 @@
     "EffectValue": [
       "1.35"
     ],
+    "CastMage": 73,
+    "CD": 8,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 5
+    "CircleDistance": 5,
+    "Intro": "吟唱3秒，對指定範圍內敵方單位造成地屬性傷害，最多三名，並附帶致盲"
   },
   {
     "Name": "振氣一擊",
@@ -2051,11 +2395,15 @@
     "EffectValue": [
       "1.35"
     ],
+    "CastMage": 85,
+    "CD": 10,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "吟唱3秒，對周圍敵方單位造成風屬性傷害，最多五名，並附帶擊退"
   },
   {
     "Name": "精神昇華",
@@ -2064,11 +2412,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升自己的魔法攻擊力，暴擊率"
   },
   {
     "Name": "精通長法杖",
@@ -2077,11 +2429,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備雙手法杖時，提升魔法攻擊力，吟唱速度"
   },
   {
     "Name": "書上的智慧",
@@ -2090,11 +2446,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備魔法書時，提升智慧10%"
   },
   {
     "Name": "自然力加強",
@@ -2103,11 +2463,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升自己的魔法屬性傷害"
   },
   {
     "Name": "正宗的治癒術",
@@ -2116,11 +2480,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 55,
+    "CD": 1.5,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "回復一名友軍的生命值，小量提升怪物的仇恨值"
   },
   {
     "Name": "集體治癒術",
@@ -2129,11 +2497,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 70,
+    "CD": 5,
+    "Type": "Circle",
     "AdditionMode": "None",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "回復自身及隊友的生命值，大量提升怪物的仇恨值"
   },
   {
     "Name": "解除迷惑",
@@ -2142,11 +2514,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 65,
+    "CD": 10,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "解除一名友軍的所有負面狀態，並賦予2秒內降低接下來受到的負面狀態效果"
   },
   {
     "Name": "神聖之箭",
@@ -2155,11 +2531,15 @@
     "EffectValue": [
       "1.25"
     ],
+    "CastMage": 40,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "MageATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "吟唱1秒，對一名敵方目標造成大量神聖屬性的魔法攻擊"
   },
   {
     "Name": "神聖力量爆發",
@@ -2168,11 +2548,15 @@
     "EffectValue": [
       "1.35"
     ],
+    "CastMage": 75,
+    "CD": 5,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 7,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "吟唱2秒，對周圍敵方目標造成大量神聖屬性的魔法攻擊，最多三名，並降低接下來2秒內自身從擊中目標受到的傷害。"
   },
   {
     "Name": "大祭司護身法",
@@ -2181,11 +2565,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升隊友與自身的防禦力、魔法防禦、傷害減緩、些微降低受到的負面狀態效果。"
   },
   {
     "Name": "大祭司淨化術",
@@ -2194,11 +2582,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升隊友與自身的命中值、移動速度。"
   },
   {
     "Name": "短法杖的奧秘",
@@ -2207,11 +2599,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備單手法杖時，提升魔法攻擊力，以及些微吟唱速度、小量提升治癒術的回復量"
   },
   {
     "Name": "精通清型盾牌",
@@ -2220,11 +2616,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備非種型盾牌時，提升防禦力"
   },
   {
     "Name": "大祭司聖結界",
@@ -2233,11 +2633,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 85,
+    "CD": 60,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "25秒內，降低自身與隊友受到的30%所有傷害"
   },
   {
     "Name": "清算業障",
@@ -2246,11 +2650,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 110,
+    "CD": 30,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標施放負面狀態，目標被視為死亡生物，目標提高受到的聖屬性傷害降低受到的闇屬性傷害，並無法受到任何回復血量效果，持續10秒。"
   },
   {
     "Name": "來自上天的神諭",
@@ -2259,11 +2667,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 150,
+    "CD": 60,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "立即回復自身及隊友的大量生命值，解除所有負面狀態"
   },
   {
     "Name": "大祭司加持法",
@@ -2272,11 +2684,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升隊友與自身的最大生命值，最大魔力值"
   },
   {
     "Name": "合格的大祭司",
@@ -2285,11 +2701,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "提升神聖屬性的魔法傷害，提升治癒術的回復量"
   },
   {
     "Name": "輪迴轉生",
@@ -2298,11 +2718,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 200,
+    "CD": 600,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 7,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "將一名死亡的友軍復活，並回復其30%最大生命值的生命量"
   },
   {
     "Name": "告誡眾生",
@@ -2311,11 +2735,15 @@
     "EffectValue": [
       "0.85"
     ],
+    "CastMage": 135,
+    "CD": 360,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 5
+    "CircleDistance": 5,
+    "Intro": "指定區域範圍內的所有友軍獲得持續性回復血量的增益效果，範圍內所有敵軍獲得持續性減少血量並減少回復量的負面狀態效果，區域持續30秒。"
   },
   {
     "Name": "末日隕石",
@@ -2324,11 +2752,15 @@
     "EffectValue": [
       "1.75"
     ],
+    "CastMage": 55,
+    "CD": 3,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 8
+    "CircleDistance": 8,
+    "Intro": "吟唱1秒，對指定範圍內敵方單位造成火屬性傷害，最多五名，並有15%機率附帶灼傷"
   },
   {
     "Name": "大漩渦",
@@ -2337,11 +2769,15 @@
     "EffectValue": [
       "1.6"
     ],
+    "CastMage": 75,
+    "CD": 5,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 8
+    "CircleDistance": 8,
+    "Intro": "吟唱1.5秒，對指定範圍內敵方單位造成水屬性傷害，最多五名，並將所有集中目標拉往區域中心"
   },
   {
     "Name": "沙塵湮滅",
@@ -2350,11 +2786,15 @@
     "EffectValue": [
       "1.6"
     ],
+    "CastMage": 98,
+    "CD": 7,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 8
+    "CircleDistance": 8,
+    "Intro": "吟唱3秒，對指定範圍內敵方目標造成地屬性傷害，最多七名，並附帶致盲"
   },
   {
     "Name": "死亡龍捲風",
@@ -2363,11 +2803,15 @@
     "EffectValue": [
       "1.6"
     ],
+    "CastMage": 120,
+    "CD": 10,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 8
+    "CircleDistance": 8,
+    "Intro": "吟唱3秒，對指定範圍內敵方目標造成風屬性傷害，最多八名，並對擊中目標緩速3秒。"
   },
   {
     "Name": "自然力毀滅",
@@ -2376,11 +2820,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，大量提升自己的魔法屬性傷害，以及魔法暴擊率。"
   },
   {
     "Name": "智慧昇華",
@@ -2389,11 +2837,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升自己的魔法攻擊力，些微提升吟唱速度、魔法暴擊率。"
   },
   {
     "Name": "長法杖的爆發力",
@@ -2402,11 +2854,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備雙手法杖時，提升魔法攻擊力，些微提升吟唱速度、魔法暴擊率。"
   },
   {
     "Name": "魔法書的加持",
@@ -2415,11 +2871,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備魔法書時，提升智慧15%，並增加小量吟唱速度"
   },
   {
     "Name": "寒霜地獄",
@@ -2428,11 +2888,15 @@
     "EffectValue": [
       "1.8"
     ],
+    "CastMage": 150,
+    "CD": 12,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 8
+    "CircleDistance": 8,
+    "Intro": "吟唱3.5秒，對指定範圍內敵方目標持續造成水屬性傷害，最多八名，持續5秒，並有機率使集中目標凍結3秒。"
   },
   {
     "Name": "末日烙印",
@@ -2441,11 +2905,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 78,
+    "CD": 6,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "立即施放，使一名敵方目標接下來3秒內增加受到的魔法傷害。"
   },
   {
     "Name": "悲之詠嘆調",
@@ -2454,11 +2922,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 130,
+    "CD": 60,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "10秒內使用任何技能無須吟唱。"
   },
   {
     "Name": "自然元素的加成",
@@ -2467,11 +2939,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "使用主動的攻擊技能時，若與上個使用過的攻擊技能的屬性不同，提升使用的技能傷害10%，最多疊加3次，持續5秒。"
   },
   {
     "Name": "大地惡魔的獻祭",
@@ -2480,11 +2956,15 @@
     "EffectValue": [
       "1.85"
     ],
+    "CastMage": 175,
+    "CD": 15,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 8
+    "CircleDistance": 8,
+    "Intro": "吟唱3.5秒，對指定範圍內敵方目標造成大量地屬性傷害，最多十名，使擊中目標禁錮2秒。"
   },
   {
     "Name": "末日衝擊",
@@ -2493,11 +2973,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 180,
+    "CD": 15,
+    "Type": "Circle",
     "AdditionMode": "None",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 8
+    "CircleDistance": 8,
+    "Intro": "立即施放，使指定範圍內敵方目標受到暈眩3秒，並降低魔法防禦力，最多五名，持續3秒"
   },
   {
     "Name": "末日即將來臨",
@@ -2506,11 +2990,15 @@
     "EffectValue": [
       "2.45"
     ],
+    "CastMage": 250,
+    "CD": 480,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 8
+    "CircleDistance": 8,
+    "Intro": "吟唱5秒(無法被縮減，也無法被「悲之詠嘆調」減免)，對指定範圍內所有敵軍造成持續性的大量火屬性魔法傷害，若擊中目標的血量低於其最大生命值10%，直接擊殺。"
   },
   {
     "Name": "熟練的振氣一擊",
@@ -2519,11 +3007,15 @@
     "EffectValue": [
       "1.35"
     ],
+    "CastMage": 100,
+    "CD": 3,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 8,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "立即施放，對周圍敵方單位造成風屬性傷害，最多五名，並附帶擊退"
   },
   {
     "Name": "電球攻擊",
@@ -2532,11 +3024,15 @@
     "EffectValue": [
       "1.35"
     ],
+    "CastMage": 70,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "立即施放，對一名敵方目標造成風屬性傷害"
   },
   {
     "Name": "洞察",
@@ -2545,11 +3041,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "提升自身魔法防禦、迴避值，以及小量魔法攻擊"
   },
   {
     "Name": "風之路徑",
@@ -2558,11 +3058,15 @@
     "EffectValue": [
       "1.4"
     ],
+    "CastMage": 80,
+    "CD": 5,
+    "Type": "Arrow",
     "AdditionMode": "MageATK",
     "Distance": 8,
     "Width": 8,
     "Height": 5,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "立即施放，對指定方向的路徑最多三名敵人造成風屬性傷害，並留下痕跡，路過的友軍在痕跡上增加移動速度"
   },
   {
     "Name": "急救術",
@@ -2571,11 +3075,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 30,
+    "CD": 5,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "立即施放，回復自身小量生命值"
   },
   {
     "Name": "風之祝福",
@@ -2584,11 +3092,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升自己的移動速度，小量提升迴避值"
   },
   {
     "Name": "物換星移",
@@ -2597,11 +3109,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 75,
+    "CD": 120,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 8,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "使一名敵軍與自身的位置交換，降低自己所受的傷害5秒。"
   },
   {
     "Name": "心靈破壞",
@@ -2610,11 +3126,15 @@
     "EffectValue": [
       "1.65"
     ],
+    "CastMage": 100,
+    "CD": 10,
+    "Type": "Target",
     "AdditionMode": "MageATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵軍造成大量無屬性魔法傷害，降低其攻擊力、魔法攻擊力3秒。"
   },
   {
     "Name": "心靈感知",
@@ -2623,11 +3143,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 120,
+    "CD": 180,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 10,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "60秒內，賦予一個隊友增益效果，在持續效果內，若隊友受到重傷(一個傷害量大於其最大生命值50%的傷害)，位移到自身旁。"
   },
   {
     "Name": "來自未來",
@@ -2636,11 +3160,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 155,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，若受到傷害有15%機率直接迴避掉，造成的傷害有15%機率必命中。"
   },
   {
     "Name": "心靈尖嘯",
@@ -2649,11 +3177,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 160,
+    "CD": 30,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 10,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "沉默一名敵軍3秒，並使其攻擊速度，移動速度降低5秒。"
   },
   {
     "Name": "精通任何法杖",
@@ -2662,11 +3194,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備短法杖時，增加魔法攻擊力並提升移動速度，裝備長法杖時，增加魔法攻擊力並提升迴避值"
   },
   {
     "Name": "心靈毀滅",
@@ -2675,11 +3211,15 @@
     "EffectValue": [
       "1.45"
     ],
+    "CastMage": 120,
+    "CD": 60,
+    "Type": "Target",
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵軍造成無屬性傷害，並在3秒內使其持續性受到小量無屬性傷害"
   },
   {
     "Name": "心靈操縱",
@@ -2688,11 +3228,15 @@
     "EffectValue": [
       "1.3"
     ],
+    "CastMage": 175,
+    "CD": 30,
+    "Type": "Target",
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵軍造成小量無屬性傷害，並使其致盲3秒，持續時間內對方只看的見自己"
   },
   {
     "Name": "心靈入侵",
@@ -2701,11 +3245,15 @@
     "EffectValue": [
       "1.55"
     ],
+    "CastMage": 80,
+    "CD": 15,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 10,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 4
+    "CircleDistance": 4,
+    "Intro": "對指定範圍內敵軍造成持續性無屬性傷害，區域持續5秒。"
   },
   {
     "Name": "未來炸彈",
@@ -2714,11 +3262,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 155,
+    "CD": 30,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 8,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵軍施放一個負面狀態，接下來3秒內承受的傷害累積，3秒後造成35%印記傷害"
   },
   {
     "Name": "星塵暴",
@@ -2727,11 +3279,15 @@
     "EffectValue": [
       "2.3"
     ],
+    "CastMage": 200,
+    "CD": 600,
+    "Type": "Circle",
     "AdditionMode": "MageATK",
     "Distance": 8,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "吟唱5秒，吟唱結束對周圍敵軍最多五名，造成極大量的無屬性傷害。"
   },
   {
     "Name": "射箭術",
@@ -2740,11 +3296,15 @@
     "EffectValue": [
       "1.13"
     ],
+    "CastMage": 10,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成物理傷害(消耗1支箭)"
   },
   {
     "Name": "連續射擊",
@@ -2753,11 +3313,15 @@
     "EffectValue": [
       "1.15"
     ],
+    "CastMage": 12,
+    "CD": 3,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成三次物理傷害(消耗3支箭)"
   },
   {
     "Name": "三箭齊發",
@@ -2766,11 +3330,15 @@
     "EffectValue": [
       "1.18"
     ],
+    "CastMage": 25,
+    "CD": 5,
+    "Type": "Cone",
     "AdditionMode": "RemoteATK",
     "Distance": 10,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對指定方向扇形區域內敵方目標造成物理傷害，最多三名(消耗3支箭)"
   },
   {
     "Name": "與弓隨行",
@@ -2779,11 +3347,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備弓時，些微提升攻擊力、命中值"
   },
   {
     "Name": "輕便的衣服",
@@ -2792,11 +3364,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備皮甲時，些微提升防禦力、迴避值"
   },
   {
     "Name": "長遠射擊",
@@ -2805,11 +3381,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "攻擊範圍增加"
   },
   {
     "Name": "精準的射箭術",
@@ -2818,11 +3398,15 @@
     "EffectValue": [
       "1.25"
     ],
+    "CastMage": 12,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 18,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成比較高的物理傷害(消耗1支箭)"
   },
   {
     "Name": "迅速的連續射擊",
@@ -2831,11 +3415,15 @@
     "EffectValue": [
       "1.3"
     ],
+    "CastMage": 15,
+    "CD": 3,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 18,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成三次物理傷害，攻擊動畫更迅速、並在執行此技能時可以同時移動(消耗3支箭)"
   },
   {
     "Name": "貫穿箭",
@@ -2844,11 +3432,15 @@
     "EffectValue": [
       "1.38"
     ],
+    "CastMage": 25,
+    "CD": 5,
+    "Type": "Arrow",
     "AdditionMode": "RemoteATK",
     "Distance": 10,
     "Width": 10,
     "Height": 5,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對前方路徑射出箭，路徑上的敵人受到物理傷害並擊退到最遠處，最多三名(僅限使用弩)(消耗3支箭)"
   },
   {
     "Name": "漂亮的三箭齊發",
@@ -2857,11 +3449,15 @@
     "EffectValue": [
       "1.3"
     ],
+    "CastMage": 25,
+    "CD": 5,
+    "Type": "Cone",
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對指定方向扇形區域內敵方目標造成物理傷害，高機率造成暴擊，最多三名(僅限使用弓)(消耗3支箭)"
   },
   {
     "Name": "精神力集中",
@@ -2870,11 +3466,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升自身的命中值、些微提升暴擊率"
   },
   {
     "Name": "瞄準狙擊",
@@ -2883,11 +3483,15 @@
     "EffectValue": [
       "1.5"
     ],
+    "CastMage": 18,
+    "CD": 5,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成高傷害的物理傷害，並附帶1.5秒暈眩(僅限使用弩)(消耗3支箭)"
   },
   {
     "Name": "精通長弓",
@@ -2896,11 +3500,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備弓時，提升攻擊力、命中值"
   },
   {
     "Name": "精通重弩",
@@ -2909,11 +3517,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備弩時，提升攻擊力，任何命中的攻擊都會使目標些微的擊退，但會大幅下降攻速"
   },
   {
     "Name": "熟練皮甲行動",
@@ -2922,11 +3534,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備皮甲時，提升防禦力、迴避值，些微提升移動速度"
   },
   {
     "Name": "信仰法則",
@@ -2935,11 +3551,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "可以選擇一項信仰技能作使用，並獲得其效果"
   },
   {
     "Name": "獵豹信仰",
@@ -2948,11 +3568,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 15,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "獲得移動速度、命中值。"
   },
   {
     "Name": "精準的射箭術",
@@ -2961,11 +3585,15 @@
     "EffectValue": [
       "1.2"
     ],
+    "CastMage": 12,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成比較高的物理傷害(消耗1支箭)"
   },
   {
     "Name": "狒狒信仰",
@@ -2974,11 +3602,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 15,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "獲得攻擊速度、攻擊力。"
   },
   {
     "Name": "絆腳陷阱",
@@ -2987,11 +3619,15 @@
     "EffectValue": [
       "1.35"
     ],
+    "CastMage": 30,
+    "CD": 0.5,
+    "Type": "Circle",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 3
+    "CircleDistance": 3,
+    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到物理傷害，並緩速3秒"
   },
   {
     "Name": "捕獸夾陷阱",
@@ -3000,11 +3636,15 @@
     "EffectValue": [
       "1.35"
     ],
+    "CastMage": 30,
+    "CD": 0.5,
+    "Type": "Circle",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 3
+    "CircleDistance": 3,
+    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到物理傷害，並禁錮持續1.5秒"
   },
   {
     "Name": "爆裂陷阱",
@@ -3013,11 +3653,15 @@
     "EffectValue": [
       "1.28"
     ],
+    "CastMage": 30,
+    "CD": 0.5,
+    "Type": "Circle",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 3
+    "CircleDistance": 3,
+    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到範圍的火焰傷害。"
   },
   {
     "Name": "雄鷹信仰",
@@ -3026,11 +3670,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 15,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "獲得較遠的攻擊範圍，暴擊率"
   },
   {
     "Name": "地鼠信仰",
@@ -3039,11 +3687,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 15,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "安裝陷阱的時間縮短"
   },
   {
     "Name": "毒蛇信仰",
@@ -3052,11 +3704,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 15,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "任何物理攻擊有15%機率附帶中毒"
   },
   {
     "Name": "掉落陷阱",
@@ -3065,11 +3721,15 @@
     "EffectValue": [
       "1.35"
     ],
+    "CastMage": 30,
+    "CD": 0.5,
+    "Type": "Circle",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 3
+    "CircleDistance": 3,
+    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到物理傷害，並壓制持續1.5秒"
   },
   {
     "Name": "熟練與弓隨行",
@@ -3078,11 +3738,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備弓時，小量提升攻擊力、命中值"
   },
   {
     "Name": "熟練皮甲",
@@ -3091,11 +3755,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備皮甲時，小量提升防禦力、迴避值"
   },
   {
     "Name": "陷阱安裝技術",
@@ -3104,11 +3772,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "可以安裝持有的陷阱，最多安裝10個"
   },
   {
     "Name": "陷阱拆除技術",
@@ -3117,11 +3789,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 8,
+    "CD": 0.5,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "拆除自己安裝並未觸發的陷阱"
   },
   {
     "Name": "精準彈道",
@@ -3130,11 +3806,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "攻擊範圍大幅提升，並增加暴擊率"
   },
   {
     "Name": "虛無的射箭術",
@@ -3143,11 +3823,15 @@
     "EffectValue": [
       "1.45"
     ],
+    "CastMage": 12,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成高傷害的物理傷害，此攻擊無法被迴避。(消耗1支箭)"
   },
   {
     "Name": "暴風雨般的連續射擊",
@@ -3156,11 +3840,15 @@
     "EffectValue": [
       "1.58"
     ],
+    "CastMage": 20,
+    "CD": 3,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成五次物理傷害，攻擊動畫更迅速，並在執行此技能時可以同時移動(消耗5支箭)"
   },
   {
     "Name": "爆裂箭矢",
@@ -3169,11 +3857,15 @@
     "EffectValue": [
       "1.66"
     ],
+    "CastMage": 32,
+    "CD": 5,
+    "Type": "Arrow",
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 15,
     "Height": 5,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對前方路徑射出箭，路徑上的敵人受到物理傷害並擊退到最遠處，最多五名，最遠處時造成爆炸傷害(僅限使用弩)(消耗5支箭)"
   },
   {
     "Name": "箭雨",
@@ -3182,11 +3874,15 @@
     "EffectValue": [
       "1.62"
     ],
+    "CastMage": 32,
+    "CD": 5,
+    "Type": "Circle",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 5
+    "CircleDistance": 5,
+    "Intro": "對指定區域射出大批的箭矢，造成持續物理傷害，持續5秒，附帶緩速，最多五名(僅限使用弓)(消耗10支箭)"
   },
   {
     "Name": "專注射擊",
@@ -3195,11 +3891,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升自身的命中值、暴擊率"
   },
   {
     "Name": "高火力狙擊",
@@ -3208,11 +3908,15 @@
     "EffectValue": [
       "1.72"
     ],
+    "CastMage": 20,
+    "CD": 3,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成極高傷害的物理傷害，並附帶2秒暈眩(僅限使用弩)(消耗5支箭)"
   },
   {
     "Name": "駕馭長弓之人",
@@ -3221,11 +3925,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備長弓時，更高的提升攻擊力、命中值"
   },
   {
     "Name": "駕馭重弩之人",
@@ -3234,11 +3942,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備弩時，更高的提升攻擊力，任何命中的攻擊都會使目標些微的擊退，但會大幅下降攻速"
   },
   {
     "Name": "精通皮甲行動",
@@ -3247,11 +3959,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備皮甲時，提升防禦力，大幅度提升迴避值，些微提升移動速度"
   },
   {
     "Name": "破甲箭",
@@ -3260,11 +3976,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，裝備弩進行攻擊命中時，會降低對方防禦值3%，最多疊加5次，此負面狀態持續5秒。"
   },
   {
     "Name": "弱點破擊",
@@ -3273,11 +3993,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，命中的攻擊有機率使對方降低物理暴擊抵抗30%，此負面狀態持續10秒"
   },
   {
     "Name": "屏氣凝神",
@@ -3286,11 +4010,15 @@
     "EffectValue": [
       "1.75"
     ],
+    "CastMage": 70,
+    "CD": 10,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "吟唱1秒，對一名敵方目標造成極高傷害的物理傷害，此傷害無視目標20%的防禦力。(僅限使用弓)(消耗20支箭)"
   },
   {
     "Name": "逃脫射擊",
@@ -3299,11 +4027,15 @@
     "EffectValue": [
       "1.35"
     ],
+    "CastMage": 45,
+    "CD": 12,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 8,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成物理傷害，並根據自身與對方的距離向後位移，雙方距離越遠位移的距離越大(消耗10支箭)"
   },
   {
     "Name": "弓弩交錯",
@@ -3312,11 +4044,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "切換使用弓及弩時增加切換的動畫速度，切換弓時第一發傷害附帶小量傷害，切換弩時第一發傷害必定暴擊"
   },
   {
     "Name": "纏繞箭矢",
@@ -3325,11 +4061,15 @@
     "EffectValue": [
       "1.8"
     ],
+    "CastMage": 62,
+    "CD": 10,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成物理傷害，並禁錮2秒，禁錮期間目標無法接受任何來自其友軍的位移。(消耗25支箭)"
   },
   {
     "Name": "武力鎮壓",
@@ -3338,11 +4078,15 @@
     "EffectValue": [
       "1.82"
     ],
+    "CastMage": 62,
+    "CD": 8,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成大量物理傷害，並降低其攻擊力30%，持續2秒(消耗20支箭)"
   },
   {
     "Name": "箭神壓迫力",
@@ -3351,11 +4095,15 @@
     "EffectValue": [
       "2"
     ],
+    "CastMage": 120,
+    "CD": 60,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成極高的物理傷害，命中時造成目標3秒內無法進行普通攻擊以及使用攻擊技能。(僅限使用弓)(消耗35支箭)"
   },
   {
     "Name": "箭神制裁力",
@@ -3364,11 +4112,15 @@
     "EffectValue": [
       "2.2"
     ],
+    "CastMage": 120,
+    "CD": 60,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 15,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成極高的物理傷害，命中時造成目標3秒內降低50%任何暴擊抵抗以及暴擊傷害減緩，此傷害無視30%防禦、格檔。(僅限使用弩)(消耗35支箭)"
   },
   {
     "Name": "虔誠的信仰",
@@ -3377,11 +4129,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "可以選擇一項信仰技能作使用，獲得其效果，並且效果在提升30%"
   },
   {
     "Name": "獵豹神信仰",
@@ -3390,11 +4146,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 25,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "獲得移動速度、命中值。"
   },
   {
     "Name": "完美的射箭術",
@@ -3403,11 +4163,15 @@
     "EffectValue": [
       "1.33"
     ],
+    "CastMage": 22,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "RemoteATK",
     "Distance": 10,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造更高的物理傷害(消耗1支箭)"
   },
   {
     "Name": "狒狒王信仰",
@@ -3416,11 +4180,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 15,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "獲得攻擊速度、攻擊力。"
   },
   {
     "Name": "陰險的絆腳陷阱",
@@ -3429,11 +4197,15 @@
     "EffectValue": [
       "1.55"
     ],
+    "CastMage": 35,
+    "CD": 0.5,
+    "Type": "Circle",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 3
+    "CircleDistance": 3,
+    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並緩速3秒"
   },
   {
     "Name": "痛苦的捕獸夾陷阱",
@@ -3442,11 +4214,15 @@
     "EffectValue": [
       "1.55"
     ],
+    "CastMage": 35,
+    "CD": 0.5,
+    "Type": "Circle",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 3
+    "CircleDistance": 3,
+    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並禁錮持續2秒"
   },
   {
     "Name": "藝術的爆裂陷阱",
@@ -3455,11 +4231,15 @@
     "EffectValue": [
       "1.4"
     ],
+    "CastMage": 35,
+    "CD": 0.5,
+    "Type": "Circle",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 3
+    "CircleDistance": 3,
+    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到大範圍的火焰傷害，15%機率造成灼傷。"
   },
   {
     "Name": "大雄鷹信仰",
@@ -3468,11 +4248,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 25,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "獲得較遠的攻擊範圍，暴擊率"
   },
   {
     "Name": "地鼠主信仰",
@@ -3481,11 +4265,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 25,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "安裝陷阱的時間縮短"
   },
   {
     "Name": "毒蛇魔信仰",
@@ -3494,11 +4282,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 25,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "任何物理攻擊有15%機率附帶中毒"
   },
   {
     "Name": "恐懼的掉落陷阱",
@@ -3507,11 +4299,15 @@
     "EffectValue": [
       "1.58"
     ],
+    "CastMage": 35,
+    "CD": 0.5,
+    "Type": "Circle",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 3
+    "CircleDistance": 3,
+    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並壓制持續1.5秒"
   },
   {
     "Name": "煙霧陷阱",
@@ -3520,11 +4316,15 @@
     "EffectValue": [
       "1.58"
     ],
+    "CastMage": 38,
+    "CD": 0.5,
+    "Type": "Buff",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 3
+    "CircleDistance": 3,
+    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有友軍觸發，施放煙霧，降低在煙霧中友軍受到的攻擊命中率"
   },
   {
     "Name": "劇毒陷阱",
@@ -3533,11 +4333,15 @@
     "EffectValue": [
       "1.58"
     ],
+    "CastMage": 35,
+    "CD": 0.5,
+    "Type": "Buff",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 3
+    "CircleDistance": 3,
+    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並提升接下來受到的中毒傷害3秒。"
   },
   {
     "Name": "連鎖反應",
@@ -3546,11 +4350,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 85,
+    "CD": 30,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 8,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 6
+    "CircleDistance": 6,
+    "Intro": "賦予一個陷阱，若其被觸發，在一定範圍內的所有陷阱跟著觸發。"
   },
   {
     "Name": "山豬神信仰",
@@ -3559,11 +4367,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 25,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "獲得最大生命加成、生命回復量增加"
   },
   {
     "Name": "犯罪陷阱",
@@ -3572,11 +4384,15 @@
     "EffectValue": [
       "1.63"
     ],
+    "CastMage": 35,
+    "CD": 0.5,
+    "Type": "Circle",
     "AdditionMode": "RemoteATK",
     "Distance": 12,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 3
+    "CircleDistance": 3,
+    "Intro": "安裝一個陷阱，1.5秒後安裝完畢，若有敵方目標觸發，受到較高的物理傷害，並降低其防禦力15%持續3秒。"
   },
   {
     "Name": "虎山靈信仰",
@@ -3585,11 +4401,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 25,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "提高迴避值、周圍友軍也會獲得你啟動的信仰技能的增益狀態"
   },
   {
     "Name": "完美的信仰者",
@@ -3598,11 +4418,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "獲得所有信仰的增益效果"
   },
   {
     "Name": "與弓隨行",
@@ -3611,11 +4435,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備弓時，提升攻擊力、命中值"
   },
   {
     "Name": "精通皮甲",
@@ -3624,11 +4452,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備皮甲時，提升防禦力、迴避值"
   },
   {
     "Name": "高深的陷阱安裝技術",
@@ -3637,11 +4469,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "可以安裝持有的陷阱，最多安裝20個"
   },
   {
     "Name": "陷阱拆除技術",
@@ -3650,11 +4486,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 8,
+    "CD": 0.5,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "拆除自己安裝並未觸發的陷阱"
   },
   {
     "Name": "突刺",
@@ -3663,11 +4503,15 @@
     "EffectValue": [
       "1.18"
     ],
+    "CastMage": 10,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標使用突刺"
   },
   {
     "Name": "背刺",
@@ -3676,11 +4520,15 @@
     "EffectValue": [
       "1.25"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "升級突刺，對一個敵對目標從背後使用突刺的話會有較高傷害"
   },
   {
     "Name": "暴擊之刺",
@@ -3689,11 +4537,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "使用突刺時有機率造成更高傷害，若是觸發背刺必定造成更高傷害"
   },
   {
     "Name": "熟練匕首",
@@ -3702,11 +4554,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備匕首時，稍微提升攻擊力"
   },
   {
     "Name": "熟練皮甲",
@@ -3715,11 +4571,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備皮甲時，稍微提升防禦力，提升迴避值"
   },
   {
     "Name": "精通單手劍",
@@ -3728,11 +4588,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備單手劍時提升攻擊力，裝備第二把時獲得其一半的攻擊力"
   },
   {
     "Name": "精通皮甲",
@@ -3741,11 +4605,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備皮甲時，提升防禦力、迴避值"
   },
   {
     "Name": "半月斬",
@@ -3754,11 +4622,15 @@
     "EffectValue": [
       "1.35"
     ],
+    "CastMage": 12,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標造成物理傷害"
   },
   {
     "Name": "翻身斬",
@@ -3767,11 +4639,15 @@
     "EffectValue": [
       "1.46"
     ],
+    "CastMage": 23,
+    "CD": 3,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標造成兩次物理傷害，並在3秒內提升自己的迴避值"
   },
   {
     "Name": "圓月斬",
@@ -3780,11 +4656,15 @@
     "EffectValue": [
       "1.26"
     ],
+    "CastMage": 35,
+    "CD": 5,
+    "Type": "circle",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對周圍敵對目標造成物理傷害，最多三名"
   },
   {
     "Name": "劍舞",
@@ -3793,11 +4673,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升攻擊力、命中"
   },
   {
     "Name": "雙劍和壁",
@@ -3806,11 +4690,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備兩把單手劍時，有機率格檔傷害"
   },
   {
     "Name": "螺旋斬",
@@ -3819,11 +4707,15 @@
     "EffectValue": [
       "1.3"
     ],
+    "CastMage": 42,
+    "CD": 8,
+    "Type": "Arrow",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 5,
     "Height": 2.5,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對前方路徑敵人造成物理傷害，最多三名，並位移到最遠距離。"
   },
   {
     "Name": "雙劍劈斬",
@@ -3832,11 +4724,15 @@
     "EffectValue": [
       "1.5"
     ],
+    "CastMage": 53,
+    "CD": 3,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵對目標造成物理傷害，最多五次。"
   },
   {
     "Name": "精通輕武器",
@@ -3845,11 +4741,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備匕首或小刀時，提升攻擊力，稍微提升暴擊率"
   },
   {
     "Name": "精通皮甲",
@@ -3858,11 +4758,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備皮甲時，提升防禦力、迴避值"
   },
   {
     "Name": "無情背刺",
@@ -3871,11 +4775,15 @@
     "EffectValue": [
       "1.4"
     ],
+    "CastMage": 12,
+    "CD": 10,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "位移到一個敵人背後，造成物理傷害。"
   },
   {
     "Name": "盜賊之道",
@@ -3884,11 +4792,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升暴擊率、攻擊力"
   },
   {
     "Name": "要害突刺",
@@ -3897,11 +4809,15 @@
     "EffectValue": [
       "1.6"
     ],
+    "CastMage": 18,
+    "CD": 5,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成三次物理傷害。"
   },
   {
     "Name": "要害點破",
@@ -3910,11 +4826,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "任何物理攻擊有15%機率造成出血"
   },
   {
     "Name": "弱點刺擊",
@@ -3923,11 +4843,15 @@
     "EffectValue": [
       "1.58"
     ],
+    "CastMage": 25,
+    "CD": 8,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成物理傷害，若對方有任何負面狀態的話傷害再提升"
   },
   {
     "Name": "致命一擊",
@@ -3936,11 +4860,15 @@
     "EffectValue": [
       "1.65"
     ],
+    "CastMage": 35,
+    "CD": 8,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成物理傷害，此傷害必定暴擊"
   },
   {
     "Name": "毒藥",
@@ -3949,11 +4877,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "任何物理攻擊有15%機率造成中毒"
   },
   {
     "Name": "單手劍之舞",
@@ -3962,11 +4894,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備單手劍時提升攻擊力，裝備第二把時獲得其一半的攻擊力，並提升攻擊速度"
   },
   {
     "Name": "皮甲的好處",
@@ -3975,11 +4911,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備皮甲時，提升防禦力，大量提升迴避值"
   },
   {
     "Name": "完美的半月斬",
@@ -3988,11 +4928,15 @@
     "EffectValue": [
       "1.4"
     ],
+    "CastMage": 20,
+    "CD": 1,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標造成較高的物理傷害"
   },
   {
     "Name": "嫻熟的翻身斬",
@@ -4001,11 +4945,15 @@
     "EffectValue": [
       "1.5"
     ],
+    "CastMage": 28,
+    "CD": 3,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一個敵對目標造成兩次較高的物理傷害，並在3秒內提升自己的迴避值"
   },
   {
     "Name": "完美的圓月斬",
@@ -4014,11 +4962,15 @@
     "EffectValue": [
       "1.58"
     ],
+    "CastMage": 35,
+    "CD": 5,
+    "Type": "Circle",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對周圍敵對目標造成較高的物理傷害，最多三名"
   },
   {
     "Name": "刀光劍舞",
@@ -4027,11 +4979,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，大幅提升攻擊力、命中"
   },
   {
     "Name": "雙劍和壁II",
@@ -4040,11 +4996,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備兩把單手劍時，有機率格檔傷害，格檔後有機率造成反擊"
   },
   {
     "Name": "輕巧的螺旋斬",
@@ -4053,11 +5013,15 @@
     "EffectValue": [
       "1.42"
     ],
+    "CastMage": 58,
+    "CD": 8,
+    "Type": "Arrow",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 5,
     "Height": 2.5,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對前方路徑敵人造成較高的物理傷害，最多三名，並位移到最遠距離，並有機率造成致盲。"
   },
   {
     "Name": "無情的雙劍劈斬",
@@ -4066,11 +5030,15 @@
     "EffectValue": [
       "1.65"
     ],
+    "CastMage": 66,
+    "CD": 3,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵對目標造成物理傷害，最多五次，每次傷害增加15%。"
   },
   {
     "Name": "和諧劍舞",
@@ -4079,11 +5047,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升攻擊速度，並加快攻擊技能的動畫"
   },
   {
     "Name": "疾風劍舞",
@@ -4092,11 +5064,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，提升移動速度、迴避值，並對任何魔法傷害有10%的免疫"
   },
   {
     "Name": "連擊",
@@ -4105,11 +5081,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "使用技能會出現指令，在1.5秒內使用指令出現的技能會增加傷害，並回復上一個使用的技能的1秒冷卻時間"
   },
   {
     "Name": "雙刀劍舞",
@@ -4118,11 +5098,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，普通攻擊，技能攻擊有15%機率造成兩倍傷害"
   },
   {
     "Name": "烈日斬",
@@ -4131,11 +5115,15 @@
     "EffectValue": [
       "1.72"
     ],
+    "CastMage": 70,
+    "CD": 5,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "用極快的速度揮出雙手的劍，對一個敵方目標造成物理傷害並附帶小量的火焰傷害。"
   },
   {
     "Name": "破虛斬",
@@ -4144,11 +5132,15 @@
     "EffectValue": [
       "1.8"
     ],
+    "CastMage": 78,
+    "CD": 10,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "用極大的力氣揮出劍，對一個敵方目標造成大量物理傷害，並減少其防禦力25%持續2.5秒"
   },
   {
     "Name": "始拓斬",
@@ -4157,11 +5149,15 @@
     "EffectValue": [
       "1.93"
     ],
+    "CastMage": 82,
+    "CD": 13,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "一手刀背擊中對方的頭，另一手刀砍向對方，造成一名敵方目標物理傷害，並使其暈眩2秒"
   },
   {
     "Name": "阿修羅劍景",
@@ -4170,11 +5166,15 @@
     "EffectValue": [
       "2.05"
     ],
+    "CastMage": 150,
+    "CD": 360,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 8,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 5
+    "CircleDistance": 5,
+    "Intro": "從地上刺出劍圍成一個競技場，將自身與一個敵軍包圍在其中，在競技場持續時間內增加對敵軍的傷害15%，持續10秒，競技場形成時，任何單位無法進入"
   },
   {
     "Name": "輕武器支配者",
@@ -4183,11 +5183,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備匕首或小刀時，提升攻擊力、暴擊率"
   },
   {
     "Name": "皮甲的好處",
@@ -4196,11 +5200,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "裝備皮甲時，提升防禦力，大量提升迴避值"
   },
   {
     "Name": "殘酷背刺",
@@ -4209,11 +5217,15 @@
     "EffectValue": [
       "1.62"
     ],
+    "CastMage": 25,
+    "CD": 8,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "位移到一個敵人背後，造成物理傷害，此傷害必定造成出血"
   },
   {
     "Name": "刺客之道",
@@ -4222,11 +5234,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 50,
+    "CD": 1,
+    "Type": "Buff",
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "180秒內，大量提升暴擊率、攻擊力，隊友任何負面狀態的目標造成額外傷害"
   },
   {
     "Name": "殘忍行刑",
@@ -4235,11 +5251,15 @@
     "EffectValue": [
       "1.78"
     ],
+    "CastMage": 35,
+    "CD": 5,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成三次物理傷害，並降低目標物理暴擊抵抗，持續3秒。"
   },
   {
     "Name": "精準的要害點破",
@@ -4248,11 +5268,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "任何物理攻擊有30%機率造成出血，對出血的敵人攻擊時提升暴擊率"
   },
   {
     "Name": "陰險的弱點刺擊",
@@ -4261,11 +5285,15 @@
     "EffectValue": [
       "1.85"
     ],
+    "CastMage": 38,
+    "CD": 5,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成較高的物理傷害，若對方有任何負面狀態的話傷害再提升，若目標身上有控制狀態，刷新該控制狀態時間"
   },
   {
     "Name": "致命吐息",
@@ -4274,11 +5302,15 @@
     "EffectValue": [
       "1.82"
     ],
+    "CastMage": 35,
+    "CD": 12,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "位移到一名敵方目標身後，造成物理傷害，此傷害必定暴擊，並有機率造成兩倍傷害"
   },
   {
     "Name": "致命毒藥",
@@ -4287,11 +5319,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "任何物理攻擊有30%機率造成中毒，中毒狀態可疊加5次，持續3秒"
   },
   {
     "Name": "噴濺鮮血",
@@ -4300,11 +5336,15 @@
     "EffectValue": [
       "1.66"
     ],
+    "CastMage": 40,
+    "CD": 8,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 15
+    "CircleDistance": 15,
+    "Intro": "對一名敵方目標造成物理傷害，若目標處於出血狀態，將傷害擴散至其周圍最多兩名敵方目標，並對他們造成中毒"
   },
   {
     "Name": "破壞器官",
@@ -4313,11 +5353,15 @@
     "EffectValue": [
       "1.48"
     ],
+    "CastMage": 48,
+    "CD": 10,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成物理傷害，並減少目標的生命回復量、藥水回復、受到治癒術的回復量50%，持續5秒"
   },
   {
     "Name": "割喉打擊",
@@ -4326,11 +5370,15 @@
     "EffectValue": [
       "1.9"
     ],
+    "CastMage": 52,
+    "CD": 10,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "位移到一名敵方目標身旁並造成物理傷害，並沉默3秒"
   },
   {
     "Name": "劇毒擴散",
@@ -4339,11 +5387,15 @@
     "EffectValue": [
       "2.02"
     ],
+    "CastMage": 60,
+    "CD": 8,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成大量物理傷害，目標身上每層中毒增加傷害20%"
   },
   {
     "Name": "割斷動脈",
@@ -4352,11 +5404,15 @@
     "EffectValue": [
       "2.08"
     ],
+    "CastMage": 70,
+    "CD": 12,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 3,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標造成大量物理傷害，目標若處於出血，增加此傷害50%"
   },
   {
     "Name": "死亡印記",
@@ -4365,11 +5421,15 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 52,
+    "CD": 15,
+    "Type": "Target",
     "AdditionMode": "None",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "對一名敵方目標烙上印記，持續5秒，效果持續時間內對其造成的傷害增加10%"
   },
   {
     "Name": "割斷筋骨",
@@ -4378,11 +5438,15 @@
     "EffectValue": [
       "2.1"
     ],
+    "CastMage": 80,
+    "CD": 30,
+    "Type": "Target",
     "AdditionMode": "MeleeATK",
     "Distance": 5,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "位移到一名敵方目標身旁，對其造成大量物理傷害，並禁錮3秒"
   },
   {
     "Name": "連殺",
@@ -4391,10 +5455,14 @@
     "EffectValue": [
       "0"
     ],
+    "CastMage": 0,
+    "CD": 0,
+    "Type": false,
     "AdditionMode": "None",
     "Distance": 0,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 0
+    "CircleDistance": 0,
+    "Intro": "在擊殺一名敵軍(玩家)後，刷新所有技能冷卻時間"
   }
 ]

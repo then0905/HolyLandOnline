@@ -860,10 +860,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c62eda7a30e754f42b2760df4b3086ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TopOfUnit: {fileID: 0}
   SkillClone: {fileID: 1292497249034310911, guid: 300d665882552f844876cf66b0877a7d,
     type: 3}
-  SkillHotKey: {fileID: 0}
   Callskillbase: {fileID: 3736669580567959314}
 --- !u!114 &3736669580567959314
 MonoBehaviour:
@@ -877,13 +875,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f54f5bb5b2f44624189cd08ffaedf183, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SkillName: {fileID: 6300532599301731386}
-  SkillCostMage: {fileID: 8648183469134970896}
-  SkillCD: {fileID: 3973506076643751714}
-  SkillIntro: {fileID: 7673799157220279569}
-  SkillIcon: {fileID: 3679178092719661331}
+  skillName: {fileID: 6300532599301731386}
+  skillCostMage: {fileID: 8648183469134970896}
+  skillCD: {fileID: 3973506076643751714}
+  skillIntro: {fileID: 7673799157220279569}
+  skillIcon: {fileID: 3679178092719661331}
   Number: 0
-  Passive: 0
+  Characteristic: 0
+  SkillBeUpgrade: 0
+  SkillUpgradeID: 
+  SkillUpgradeIcon: {fileID: 0}
 --- !u!61 &2812552981774221567
 BoxCollider2D:
   m_ObjectHideFlags: 0

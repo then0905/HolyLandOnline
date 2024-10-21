@@ -3,6 +3,7 @@ using System;
 using System.Linq;
 using TMPro;
 using System.Collections.Generic;
+using System.Reflection;
 
 //==========================================
 //  創建者:    家豪
@@ -18,8 +19,8 @@ public class TempBasalStatus
     public int MeleeATK;
     public int RemoteATK;
     public int MageATK;
-    public int MaxHp;
-    public int MaxMp;
+    public int MaxHP;
+    public int MaxMP;
     public int HP_Recovery;
     public int MP_Recovery;
     public int DEF;
@@ -56,11 +57,6 @@ public class StatusOperation : MonoBehaviour
 
     #endregion
 
-    //基礎能力值加成事件
-    private static Action refreshStatus;
-    //需等待基礎數值計算完後才計算的部分
-    private static Action refreshAfterStatus;
-
     //暫存基礎能力值
     protected TempBasalStatus tempBasalStatus = new TempBasalStatus();
     //暫存效果影響的能力值
@@ -70,6 +66,12 @@ public class StatusOperation : MonoBehaviour
     private List<WeaponDataModel> weaponList = new List<WeaponDataModel>();
     //防具資料清單
     private List<ArmorDataModel> armorList = new List<ArmorDataModel>();
+
+    //基礎能力值加成事件
+    private static Action refreshStatus;
+    //需等待基礎數值計算完後才計算的部分
+    private static Action refreshAfterStatus;
+
     /// <summary>
     /// 初始化訂閱事件內容
     /// </summary>
@@ -92,10 +94,11 @@ public class StatusOperation : MonoBehaviour
         refreshStatus += ElementDamageReduction;
         refreshStatus += HP_RecoveryReduction;
         refreshStatus += MP_RecoveryReduction;
-        refreshStatus += AttackRange;
+        refreshStatus += GetNormalAttackRange;
         refreshStatus += Speed;
         refreshAfterStatus += AttackSpeedTimer;
     }
+
     private void OnDisable()
     {
         refreshStatus -= MeleeATK;
@@ -115,7 +118,7 @@ public class StatusOperation : MonoBehaviour
         refreshStatus -= ElementDamageReduction;
         refreshStatus -= HP_RecoveryReduction;
         refreshStatus -= MP_RecoveryReduction;
-        refreshStatus -= AttackRange;
+        refreshStatus -= GetNormalAttackRange;
         refreshStatus -= Speed;
         refreshAfterStatus -= AttackSpeedTimer;
     }
@@ -214,6 +217,7 @@ public class StatusOperation : MonoBehaviour
         tempBasalStatus.MeleeATK = (int)Mathf.Round(PlayerDataOverView.Instance.PlayerData_.STR * targetStatus.STR +
               PlayerDataOverView.Instance.PlayerData_.Lv * targetStatus.LvCodition) + weaponData;
     }
+
     /// <summary>
     /// 遠距離攻擊加成
     /// </summary>
@@ -229,6 +233,7 @@ public class StatusOperation : MonoBehaviour
         tempBasalStatus.RemoteATK = (int)Mathf.Round(PlayerDataOverView.Instance.PlayerData_.DEX * targetStatus.DEX +
                 PlayerDataOverView.Instance.PlayerData_.Lv * targetStatus.LvCodition) + weaponData;
     }
+
     /// <summary>
     /// 魔法攻擊加成
     /// </summary>
@@ -246,6 +251,7 @@ public class StatusOperation : MonoBehaviour
                 PlayerDataOverView.Instance.PlayerData_.Lv * targetStatus.LvCodition) + weaponData;
 
     }
+
     /// <summary>
     /// 最大生命加成
     /// </summary>
@@ -261,10 +267,11 @@ public class StatusOperation : MonoBehaviour
         //獲取防具能力值數據
         int armorData = armorList.Sum(x => x.HP);
 
-        tempBasalStatus.MaxHp = (int)Mathf.Round(PlayerDataOverView.Instance.PlayerData_.VIT * targetStatus.VIT +
+        tempBasalStatus.MaxHP = (int)Mathf.Round(PlayerDataOverView.Instance.PlayerData_.VIT * targetStatus.VIT +
                 PlayerDataOverView.Instance.PlayerData_.STR * targetStatus.STR +
                 PlayerDataOverView.Instance.PlayerData_.Lv * targetStatus.LvCodition) + weaponData + armorData + PlayerDataOverView.Instance.PlayerData_.MaxHP;
     }
+
     /// <summary>
     /// 最大魔力加成
     /// </summary>
@@ -280,9 +287,10 @@ public class StatusOperation : MonoBehaviour
         //獲取防具能力值數據
         int armorData = armorList.Sum(x => x.MP);
 
-        tempBasalStatus.MaxMp = (int)Mathf.Round(PlayerDataOverView.Instance.PlayerData_.INT * targetStatus.INT +
+        tempBasalStatus.MaxMP = (int)Mathf.Round(PlayerDataOverView.Instance.PlayerData_.INT * targetStatus.INT +
                 PlayerDataOverView.Instance.PlayerData_.Lv * targetStatus.LvCodition) + weaponData + armorData + PlayerDataOverView.Instance.PlayerData_.MaxMP;
     }
+
     /// <summary>
     /// 物理防禦加成
     /// </summary>
@@ -303,6 +311,7 @@ public class StatusOperation : MonoBehaviour
                 PlayerDataOverView.Instance.PlayerData_.Lv * targetStatus.LvCodition) + weaponData + armorData;
 
     }
+
     /// <summary>
     /// 迴避值加成
     /// </summary>
@@ -321,6 +330,7 @@ public class StatusOperation : MonoBehaviour
         tempBasalStatus.Avoid = (int)Mathf.Round(PlayerDataOverView.Instance.PlayerData_.DEX * targetStatus.DEX +
                 PlayerDataOverView.Instance.PlayerData_.AGI * targetStatus.AGI) + weaponData + armorData;
     }
+
     /// <summary>
     /// 進距離命中加成
     /// </summary>
@@ -338,6 +348,7 @@ public class StatusOperation : MonoBehaviour
                 PlayerDataOverView.Instance.PlayerData_.AGI * targetStatus.AGI +
                 PlayerDataOverView.Instance.PlayerData_.Lv * targetStatus.LvCodition) + weaponData;
     }
+
     /// <summary>
     /// 遠距離命中加成
     /// </summary>
@@ -355,6 +366,7 @@ public class StatusOperation : MonoBehaviour
                 PlayerDataOverView.Instance.PlayerData_.AGI * targetStatus.AGI +
                 PlayerDataOverView.Instance.PlayerData_.Lv * targetStatus.LvCodition) + weaponData;
     }
+
     /// <summary>
     /// 魔法命中加成
     /// </summary>
@@ -372,6 +384,7 @@ public class StatusOperation : MonoBehaviour
                 PlayerDataOverView.Instance.PlayerData_.AGI * targetStatus.AGI +
                 PlayerDataOverView.Instance.PlayerData_.Lv * targetStatus.LvCodition) + weaponData;
     }
+
     /// <summary>
     /// 魔法防禦值加成
     /// </summary>
@@ -412,6 +425,7 @@ public class StatusOperation : MonoBehaviour
 
         tempBasalStatus.AS = weaponAS.Equals(0) ? 1 : weaponAS;
     }
+
     /// <summary>
     /// 傷害減緩加成
     /// </summary>
@@ -427,6 +441,7 @@ public class StatusOperation : MonoBehaviour
 
         tempBasalStatus.DamageReduction = (int)Mathf.Round(PlayerDataOverView.Instance.PlayerData_.VIT * targetStatus.VIT) + armorData;
     }
+
     /// <summary>
     /// 屬性傷害增幅加成
     /// </summary>
@@ -442,6 +457,7 @@ public class StatusOperation : MonoBehaviour
 
         tempBasalStatus.ElementDamageIncrease = (int)Mathf.Round(PlayerDataOverView.Instance.PlayerData_.INT * targetStatus.INT);
     }
+
     /// <summary>
     /// 屬性傷害抵抗加成
     /// </summary>
@@ -495,23 +511,10 @@ public class StatusOperation : MonoBehaviour
            GameData.GameSettingDic[PlayerDataOverView.Instance.PlayerData_.Race + "BasalMpRecovery"].GameSettingValue) + armorData;
     }
 
-    #endregion
-
-    #region 能力值加成完成後需要計算的機制
-
     /// <summary>
-    /// 計算攻擊速度
+    /// 取得裝備武器的普通攻擊範圍
     /// </summary>
-    public void AttackSpeedTimer()
-    {
-        //每當攻擊速度重新設定 計算攻擊速度區間
-        NormalAttackSystem.AttackSpeedTimer = 1 / PlayerDataOverView.Instance.PlayerData_.AS;
-    }
-
-    /// <summary>
-    /// 取得裝備武器的攻擊範圍
-    /// </summary>
-    public void AttackRange()
+    public void GetNormalAttackRange()
     {
         /*腳本下中斷點 經過  weaponType = "MeleeAttackRange"; 後 後面都不會執行 帶查驗修正*/
 
@@ -531,57 +534,137 @@ public class StatusOperation : MonoBehaviour
 
     #endregion
 
+    #region 能力值加成完成後需要計算的機制
+
+    /// <summary>
+    /// 計算攻擊速度
+    /// </summary>
+    public void AttackSpeedTimer()
+    {
+        //每當攻擊速度重新設定 計算攻擊速度區間
+        NormalAttackSystem.AttackSpeedTimer = 1 / PlayerDataOverView.Instance.PlayerData_.AS;
+    }
+
+    #endregion
+
     /// <summary>
     /// 技能效果運算
     /// <para>在計算完玩家穿戴裝備 種族 職業基本加成的詳細能力值(稱 基礎能力值)</para>
     /// <para>再將玩家當前所有的被動 buff debuff 以 基礎能力值 將技能影響數值做計算</para>
     /// </summary>
-    public void SkillEffectStatusOperation(string statusType, bool Rate, float value)
+    public void SkillEffectStatusOperation(string statusType, bool isRate, float value)
     {
-        switch (statusType)
+        //取得 能力值裡對應的欄位參數(技能效果)
+        FieldInfo effectProperty = typeof(TempBasalStatus).GetField(statusType);
+        //取得 能力值裡對應的欄位參數(當前基礎屬性)
+        FieldInfo basalProperty = typeof(TempBasalStatus).GetField(statusType);
+
+        //檢查空值
+        if (effectProperty != null && basalProperty != null)
         {
-            default:
-            case "MeleeATK":
-                tempEffectStatus.MeleeATK += (Rate ? (int)(tempBasalStatus.MeleeATK * value) : (int)value);
-                break;
-            case "MaxHP":
-                tempEffectStatus.MaxHp += (Rate ? (int)(tempBasalStatus.MaxHp * value) : (int)value);
-                break;
-            case "DEF":
-                tempEffectStatus.DEF += (Rate ? (int)(tempBasalStatus.DEF * value) : (int)value);
-                break;
-            case "MeleeHit":
-                tempEffectStatus.MeleeHit += (Rate ? (int)(tempBasalStatus.MeleeHit * value) : (int)value);
-                break;
-            case "HP_Recovery":
-                tempEffectStatus.HP_Recovery += (Rate ? (int)(tempBasalStatus.HP_Recovery * value) : (int)value);
-                break;
-            case "MP_Recovery":
-                tempEffectStatus.MP_Recovery += (Rate ? (int)(tempBasalStatus.MP_Recovery * value) : (int)value);
-                break;
-            case "ATK":
-                tempEffectStatus.MeleeATK += (Rate ? (int)(tempBasalStatus.MeleeATK * value) : (int)value);
-                tempEffectStatus.RemoteATK += (Rate ? (int)(tempBasalStatus.RemoteATK * value) : (int)value);
-                tempEffectStatus.MageATK += (Rate ? (int)(tempBasalStatus.MageATK * value) : (int)value);
-                break;
-            case "BlockRate":
-                tempEffectStatus.BlockRate += (Rate ? (int)(tempBasalStatus.BlockRate * value) : (int)value);
-                break;
-            case "Speed":
-                //倍率的話以速度基準值來計算 不會用穿上裝備的加總
-                tempEffectStatus.Speed += (Rate ? (int)(1 * value) : (int)value);
-                break;
-            case "Crt":
-                tempEffectStatus.Crt += (Rate ? (int)(tempBasalStatus.Crt * value) : (int)value);
-                break;
-            case "AS":
-                tempEffectStatus.AS += (Rate ? (int)(tempBasalStatus.AS * value) : (int)value);
-                break;
-            case "DisorderResistance":
-                tempEffectStatus.DisorderResistance += (Rate ? (int)(tempBasalStatus.DisorderResistance * value) : (int)value);
-                break;
+            //若效果為 全部攻擊 屬性
+            if (statusType == "ATK")
+            {
+                //取得所有攻擊屬性
+                string[] atkTypes = { "MeleeATK", "RemoteATK", "MageATK" };
+                //依次增加所有攻擊屬性
+                foreach (string atkType in atkTypes)
+                {
+                    //取得能力值對應的攻擊欄位參數(技能效果)
+                    FieldInfo effectATKProperty = typeof(TempBasalStatus).GetField(atkType);
+                    //取得能力值對應的攻擊欄位參數(當前基礎屬性)
+                    FieldInfo basalATKProperty = typeof(TempBasalStatus).GetField(atkType);
+
+                    //檢查空值
+                    if (effectProperty != null && basalProperty != null)
+                    {
+                        //取得 技能效果 能力值裡對應的攻擊參數的數值
+                        int effectValue = (int)effectATKProperty.GetValue(tempEffectStatus);
+                        //取得 當前基礎屬性 能力值裡對應的攻擊參數的數值
+                        int basalValue = (int)basalATKProperty.GetValue(tempBasalStatus);
+
+                        //依照加成或倍率計算數值
+                        effectValue += (isRate ? (int)(basalValue * value) : (int)value);
+
+                        //設定技能效果屬性的數值
+                        effectProperty.SetValue(tempEffectStatus, effectValue);
+                    }
+                }
+            }
+            //若效果為 移動速度 屬性
+            else if (statusType == "Speed")
+            {
+                //取得 技能效果 能力值裡對應的參數的數值
+                int effectValue = (int)effectProperty.GetValue(tempEffectStatus);
+                //設定技能效果屬性的數值 (移動速度的算法比較特別 "倍率"的話以速度基準值來計算 不會用穿上裝備的加總)
+                effectProperty.SetValue(tempEffectStatus, effectValue + (isRate ? (int)(1 * value) : (int)value));
+            }
+            //其餘屬性正常運算
+            else
+            {
+                //取得 技能效果 能力值裡對應的參數的數值
+                int effectValue = (int)effectProperty.GetValue(tempEffectStatus);
+                //取得 當前基礎屬性 能力值裡對應的參數的數值
+                int basalValue = (int)basalProperty.GetValue(tempBasalStatus);
+
+                //依照加成或倍率計算數值
+                effectValue += (isRate ? (int)(basalValue * value) : (int)value);
+
+                //設定技能效果屬性的數值
+                effectProperty.SetValue(tempEffectStatus, effectValue);
+            }
         }
+        else
+        {
+            Debug.Log($"未宣告參數或是輸入了不知名參數: {statusType}");
+        }
+        //將效果影響的能力值進行運算
         PlayerDataStatusOperation();
+        #region 舊版運算 使用SwitchCase 已棄用 改用映射
+        //switch (statusType)
+        //{
+        //    default:
+        //    case "MeleeATK":
+        //        tempEffectStatus.MeleeATK += (isRate ? (int)(tempBasalStatus.MeleeATK * value) : (int)value);
+        //        break;
+        //    case "MaxHP":
+        //        tempEffectStatus.MaxHp += (isRate ? (int)(tempBasalStatus.MaxHp * value) : (int)value);
+        //        break;
+        //    case "DEF":
+        //        tempEffectStatus.DEF += (isRate ? (int)(tempBasalStatus.DEF * value) : (int)value);
+        //        break;
+        //    case "MeleeHit":
+        //        tempEffectStatus.MeleeHit += (isRate ? (int)(tempBasalStatus.MeleeHit * value) : (int)value);
+        //        break;
+        //    case "HP_Recovery":
+        //        tempEffectStatus.HP_Recovery += (isRate ? (int)(tempBasalStatus.HP_Recovery * value) : (int)value);
+        //        break;
+        //    case "MP_Recovery":
+        //        tempEffectStatus.MP_Recovery += (isRate ? (int)(tempBasalStatus.MP_Recovery * value) : (int)value);
+        //        break;
+        //    case "ATK":
+        //        tempEffectStatus.MeleeATK += (isRate ? (int)(tempBasalStatus.MeleeATK * value) : (int)value);
+        //        tempEffectStatus.RemoteATK += (isRate ? (int)(tempBasalStatus.RemoteATK * value) : (int)value);
+        //        tempEffectStatus.MageATK += (isRate ? (int)(tempBasalStatus.MageATK * value) : (int)value);
+        //        break;
+        //    case "BlockRate":
+        //        tempEffectStatus.BlockRate += (isRate ? (int)(tempBasalStatus.BlockRate * value) : (int)value);
+        //        break;
+        //    case "Speed":
+        //        //倍率的話以速度基準值來計算 不會用穿上裝備的加總
+        //        tempEffectStatus.Speed += (isRate ? (int)(1 * value) : (int)value);
+        //        break;
+        //    case "Crt":
+        //        tempEffectStatus.Crt += (isRate ? (int)(tempBasalStatus.Crt * value) : (int)value);
+        //        break;
+        //    case "AS":
+        //        tempEffectStatus.AS += (isRate ? (int)(tempBasalStatus.AS * value) : (int)value);
+        //        break;
+        //    case "DisorderResistance":
+        //        tempEffectStatus.DisorderResistance += (isRate ? (int)(tempBasalStatus.DisorderResistance * value) : (int)value);
+        //        break;
+        //}
+        #endregion
     }
 
     /// <summary>
@@ -594,8 +677,8 @@ public class StatusOperation : MonoBehaviour
             PlayerDataOverView.Instance.PlayerData_.MeleeATK = (tempEffectStatus.MeleeATK + tempBasalStatus.MeleeATK);
             PlayerDataOverView.Instance.PlayerData_.RemoteATK = (tempEffectStatus.RemoteATK + tempBasalStatus.RemoteATK);
             PlayerDataOverView.Instance.PlayerData_.MageATK = (tempEffectStatus.MageATK + tempBasalStatus.MageATK);
-            PlayerDataOverView.Instance.PlayerData_.MaxHP = (tempEffectStatus.MaxHp + tempBasalStatus.MaxHp);
-            PlayerDataOverView.Instance.PlayerData_.MaxMP = (tempEffectStatus.MaxMp + tempBasalStatus.MaxMp);
+            PlayerDataOverView.Instance.PlayerData_.MaxHP = (tempEffectStatus.MaxHP + tempBasalStatus.MaxHP);
+            PlayerDataOverView.Instance.PlayerData_.MaxMP = (tempEffectStatus.MaxMP + tempBasalStatus.MaxMP);
             PlayerDataOverView.Instance.PlayerData_.HP_Recovery = (tempEffectStatus.HP_Recovery + tempBasalStatus.HP_Recovery);
             PlayerDataOverView.Instance.PlayerData_.MP_Recovery = (tempEffectStatus.MP_Recovery + tempBasalStatus.MP_Recovery);
             PlayerDataOverView.Instance.PlayerData_.DEF = (tempEffectStatus.DEF + tempBasalStatus.DEF);
@@ -618,8 +701,8 @@ public class StatusOperation : MonoBehaviour
             PlayerDataOverView.Instance.PlayerData_.MeleeATK = tempBasalStatus.MeleeATK;
             PlayerDataOverView.Instance.PlayerData_.RemoteATK = tempBasalStatus.RemoteATK;
             PlayerDataOverView.Instance.PlayerData_.MageATK = tempBasalStatus.MageATK;
-            PlayerDataOverView.Instance.PlayerData_.MaxHP = tempBasalStatus.MaxHp;
-            PlayerDataOverView.Instance.PlayerData_.MaxMP = tempBasalStatus.MaxMp;
+            PlayerDataOverView.Instance.PlayerData_.MaxHP = tempBasalStatus.MaxHP;
+            PlayerDataOverView.Instance.PlayerData_.MaxMP = tempBasalStatus.MaxMP;
             PlayerDataOverView.Instance.PlayerData_.HP_Recovery = tempBasalStatus.HP_Recovery;
             PlayerDataOverView.Instance.PlayerData_.MP_Recovery = tempBasalStatus.MP_Recovery;
             PlayerDataOverView.Instance.PlayerData_.DEF = tempBasalStatus.DEF;
@@ -639,5 +722,14 @@ public class StatusOperation : MonoBehaviour
         }
         //刷新數據呈現
         PlayerDataPanelProcessor.Instance.SetPlayerDataContent();
+    }
+
+    /// <summary>
+    /// 經驗值增加測試
+    /// </summary>
+    public void AddExpTest()
+    {
+        PlayerDataOverView.Instance.PlayerData_.Exp += 10;
+        PlayerDataOverView.Instance.ExpProcessor();
     }
 }

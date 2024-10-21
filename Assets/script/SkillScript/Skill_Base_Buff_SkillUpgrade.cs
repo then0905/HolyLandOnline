@@ -10,6 +10,7 @@ using System.Linq;
 public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
 {
     [Header("升級的指定技能"), SerializeField] protected string upgradeSkillID;
+
     protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defenfer = null)
     {
         //尋找場景上所有SkillUI
@@ -17,12 +18,12 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
         if (findSkillUIResult.Count > 0 && findSkillUIResult != null)
         {
             string upgragdeSkillName = GameData.SkillsDataDic[upgradeSkillID].Name;
-            var getSkillUIListOnScene = findSkillUIResult.Where(x => x.SkillName.text.Contains(upgragdeSkillName)).ToList();
+            var getSkillUIListOnScene = findSkillUIResult.Where(x => x.SkillName.Contains(upgragdeSkillName)).ToList();
             foreach (var skillUIData in getSkillUIListOnScene)
             {
                 skillUIData.SkillBeUpgrade = true;
-                skillUIData.SkillUpgradeID = skillName;
-                skillUIData.SkillUpgradeIcon = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerDataOverView.Instance.PlayerData_.Job, skillName);
+                skillUIData.SkillUpgradeID = skillID;
+                skillUIData.SkillUpgradeIcon = CommonFunction.LoadSkillIcon(skillID);
 
             }
         }
@@ -30,17 +31,19 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
         //更新快捷鍵上的技能圖片
 
         //獲取快捷鍵資料
-        var hotKeyDataList = SkillController.Instance.SkillHotKey.ToList();
+        List<HotKeyData> hotKeyDataList = SkillController.Instance.SkillHotKey.ToList();
         //收尋快捷鍵上資料ID 找尋升級的指定技能ID
-        var item = hotKeyDataList.Where(x => x.HotKeyDataID.Contains(upgradeSkillID)).FirstOrDefault();
+        HotKeyData item = hotKeyDataList.Find(x => x.TempHotKeyData == (IHotKey)this);
         if (item != null)
         {
             //更換圖片與更新升級技能ID資訊
-            item.Background.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerDataOverView.Instance.PlayerData_.Job, skillName);
-            item.UpgradeSkillID = skillName;
+            item.UpgradeSkillHotkeyDataProceoose(CommonFunction.LoadSkillIcon(skillID));
+            item.UpgradeSkillID = skillID;
         }
         if (gameObject != null)
             gameObject.transform.parent = PassiveSkillManager.Instance.transform;
+
+        CharacterStatusHintSetting();
     }
 
     protected override void SkillEffectEnd()
@@ -50,26 +53,25 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
         if (findSkillUIResult.Count > 0 && findSkillUIResult != null)
         {
             string upgragdeSkillName = GameData.SkillsDataDic[upgradeSkillID].Name;
-            var getSkillUIListOnScene = findSkillUIResult.Where(x => x.SkillName.text.Contains(upgragdeSkillName)).ToList();
+            var getSkillUIListOnScene = findSkillUIResult.Where(x => x.SkillName.Contains(upgragdeSkillName)).ToList();
             foreach (var skillUIData in getSkillUIListOnScene)
             {
                 skillUIData.SkillBeUpgrade = false;
                 skillUIData.SkillUpgradeID = "";
                 skillUIData.SkillUpgradeIcon = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerDataOverView.Instance.PlayerData_.Job, upgradeSkillID);
-
             }
         }
 
         //更新快捷鍵上的技能圖片
 
         //獲取快捷鍵資料
-        var hotKeyDataList = SkillController.Instance.SkillHotKey.ToList();
-        //收尋快捷鍵上資料ID 將升級的技能還原
-        var item = hotKeyDataList.Where(x => x.HotKeyDataID.Contains(upgradeSkillID)).FirstOrDefault();
+        List<HotKeyData> hotKeyDataList = SkillController.Instance.SkillHotKey.ToList();
+        //收尋快捷鍵上資料ID 找尋升級的指定技能ID
+        HotKeyData item = hotKeyDataList.Find(x => x.TempHotKeyData == (IHotKey)this);
         if (item != null)
         {
             //更換圖片與更新升級技能ID資訊
-            item.Background.sprite = CommonFunction.LoadObject<Sprite>(GameConfig.SkillIcon + "/" + PlayerDataOverView.Instance.PlayerData_.Job, upgradeSkillID);
+            item.UpgradeSkillHotkeyDataProceoose(CommonFunction.LoadSkillIcon(skillID));
             item.UpgradeSkillID = "";
         }
     }
@@ -80,7 +82,7 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
     public override void RestartSkillEffect()
     {
         SkillEffectEnd();
-        SkillEffectStart();
+        SkillEffect();
     }
 
     private void OnDestroy()

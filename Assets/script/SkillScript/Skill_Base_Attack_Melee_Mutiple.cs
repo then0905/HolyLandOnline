@@ -17,8 +17,8 @@ public class Skill_Base_Attack_Melee_Mutiple : Skill_Base_Attack
     protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defenfer = null)
     {
         //CheckGetAnyTarget(AttackType);
-        SkillController.Instance.SkillArrowImage.GetComponent<ArrowHit>().SetSkillSize(this, skillName);
-        PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetTrigger(skillName);
+        SkillController.Instance.SkillArrowImage.GetComponent<ArrowHit>().SetSkillSize(this, skillID);
+        PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetTrigger(skillID);
     }
     protected override void SkillEffectEnd()
     {

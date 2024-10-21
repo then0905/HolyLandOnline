@@ -16,7 +16,7 @@ public class Skill_Base_Attack_Melee : Skill_Base_Attack
 
     protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defender = null)
     {
-        CheckGetAnyTarget(AttackType, attacker, defender);
+        CheckGetAnyTarget(attacker, defender);
     }
 
     protected override void SkillEffectEnd()

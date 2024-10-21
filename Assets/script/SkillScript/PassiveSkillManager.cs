@@ -48,22 +48,22 @@ public class PassiveSkillManager : MonoBehaviour
         SkillUIList.Clear();
 
         //找尋輸入的技能內 為被動技能的部分
-        var getAllPassiveSkill = skillUIList.Where(x => x.Characteristic == false).ToList();
+        var getAllPassiveSkill = skillUIList.FindAll(x => !x.Characteristic);
         SkillUIList.AddRange(skillUIList);
 
         if (SkillPassiveBuffList.Count == 0)
             //執行被動技能效果
             getAllPassiveSkill.ForEach(passiveSkill =>
             {
-                string queryResule =
-                    GameData.SkillsDataDic.Where(x => x.Value.Name.Contains(passiveSkill.SkillName.text)).Select(x => x.Value.SkillID).FirstOrDefault();
-                GameObject effectObj = CommonFunction.LoadObject<GameObject>("SkillPrefab", "SkillEffect_" + queryResule);
-                GameObject skillEffectObj = Instantiate(effectObj);
+                GameObject skillEffectObj = Instantiate(CommonFunction.LoadSkillPrefab(passiveSkill.SkillID)).gameObject;
 
                 //儲存生成的被動技能
                 SkillPassiveBuffList.Add(skillEffectObj.GetComponent<Skill_Base_Buff_Passive>());
                 print("生成的被動技能效果物件:" + skillEffectObj);
-                skillEffectObj.GetComponent<Skill_Base>().InitSkillEffectData(0);
+                //被動技能初始化
+                skillEffectObj.GetComponent<Skill_Base>().InitSkillEffectData();
+                //被動技能效果執行
+                skillEffectObj.GetComponent<Skill_Base>().SkillEffect();
             });
     }
 
