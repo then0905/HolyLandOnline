@@ -78,16 +78,16 @@ public class CharacterStatusManager : MonoBehaviour
     {
         bool checkCharacterStatusIsExist = CharacterStatusHintDic.TryGetValue(skillbuff.SkillID, out CharacterStatusHint_Base value);
         //若已存在同樣效果 且 低於10秒
-        if (checkCharacterStatusIsExist&& value.TempCoolDownTime<=10)
+        if (checkCharacterStatusIsExist && value.TempCoolDownTime <= 10)
         {
-            //更新效果時間
-            value.TempCoolDownTime = skillbuff.TempCooldownTime;
+            //重新設定資料
+            value.BuffHintInit(skillbuff);
         }
         //不存在同樣效果
         else if (!checkCharacterStatusIsExist)
         {
             //直接生成
-            CharacterStatusHint_Base characterStatusHintObj = Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Buff")).GetComponent<CharacterStatusHint_Base>();
+            CharacterStatusHint_Base characterStatusHintObj = Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Buff"), ReturnCharacterStatusArea(skillbuff.CharacterStatusType.ToString())).GetComponent<CharacterStatusHint_Base>();
             characterStatusHintObj.BuffHintInit(skillbuff);
             CharacterStatusHintDic.TryAdd(characterStatusHintObj.CharacterStatusID, characterStatusHintObj);
             skillbuff.BuffTimerUpdateEvent += characterStatusHintObj.UpdateTimerMethod;

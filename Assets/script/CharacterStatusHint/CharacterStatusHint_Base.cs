@@ -129,13 +129,13 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
         //訂閱移除事件
         CharacterStatusManager.Instance.CharacterSatusRemoveEvent += RemoveCharacterStatusHint;
 
-        //設定狀態提示物件父級 與 大小 位置
-        gameObject.transform.parent = CharacterStatusManager.Instance.ReturnCharacterStatusArea(skillBase_Buff.CharacterStatusType.ToString());
-        gameObject.transform.localScale = Vector3.one;
+        //設定狀態提示物件 位置 大小 與 旋轉方向
         gameObject.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
+        gameObject.transform.localScale = Vector3.one;
+        gameObject.transform.eulerAngles = Vector3.zero;
 
         //暫存
-        CharacterStatusManager.Instance.CharacterStatusHintDic.Add(CharacterStatusID, this);
+        CharacterStatusManager.Instance.CharacterStatusHintDic.TryAdd(CharacterStatusID, this);
     }
 
     public virtual IEnumerable UpdateTimerCoroutine(float deltaTime)
