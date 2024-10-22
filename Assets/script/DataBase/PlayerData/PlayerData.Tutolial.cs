@@ -56,7 +56,7 @@ public partial class PlayerData /*: MonoBehaviour*/
             }
             else
             {
-                CommonFunction.MessageHint(string.Format("錯誤:已有存在的教學ID", tutorial), HintType.Warning);
+                CommonFunction.MessageHint(string.Format("TM_TutorialSaveError".GetText(), tutorial), HintType.Warning);
             }
         }
     }

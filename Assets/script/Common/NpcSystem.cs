@@ -93,7 +93,7 @@ public class NpcSystem : MonoBehaviour
         npcTradeItemList = npcData.ShopInventoryList ?? npcData.ShopInventoryList;
         //顯示視窗
         gameObject.SetActive(true);
-        
+
         //取得NPC任務資料
         var getNpcQuest = GameData.QuestDataDic.Values.Where(x => x.StartNpcID == npcData.NpcID).ToList();
         if (getNpcQuest != null && getNpcQuest.Count > 0)
@@ -224,7 +224,7 @@ public class NpcSystem : MonoBehaviour
                 chatContent.text = tempQuestData.QuestChatContent[tempStep].GetText();
                 ClearTempData();
                 //ButtonFunction buttonFunction1 = ButtonFunctionList.Find(x => x.ButtonID == "QuestContinue");
-                buttonText.text = "繼續";
+                buttonText.text = "TM_Continue".GetText();
                 Button btn1 = Instantiate(buttonObj, buttonParent);
                 Action act1 = () => ContinusQuest(missionStatus);
                 btn1.onClick.AddListener(() => act1.Invoke());
@@ -237,14 +237,14 @@ public class NpcSystem : MonoBehaviour
                 chatContent.text = tempQuestData.QuestChatContent[tempStep].GetText();
                 ClearTempData();
                 ButtonFunction buttonFunction1 = ButtonFunctionList.Find(x => x.ButtonID == "QuestAccept");
-                buttonText.text = "接受";
+                buttonText.text = "TM_Accept".GetText();
                 Button btn1 = Instantiate(buttonObj, buttonParent);
                 Action act1 = () => buttonFunction1.ButtonAct.Invoke();
                 btn1.onClick.AddListener(() => act1.Invoke());
                 btn1.gameObject.SetActive(true);
                 buttonRecordList.Add(btn1);
                 ButtonFunction buttonFunction2 = ButtonFunctionList.Find(x => x.ButtonID == "QuestReject");
-                buttonText.text = "拒絕";
+                buttonText.text = "TM_Reject".GetText();
                 Button btn2 = Instantiate(buttonObj, buttonParent);
                 Action act2 = () => buttonFunction2.ButtonAct.Invoke();
                 btn2.onClick.AddListener(() => act2.Invoke());
@@ -260,7 +260,7 @@ public class NpcSystem : MonoBehaviour
                 chatContent.text = getFinishData.QuestChatContent[tempStep].GetText();
                 ClearTempData();
                 //ButtonFunction buttonFunction1 = ButtonFunctionList.Find(x => x.ButtonID == "QuestContinue");
-                buttonText.text = "繼續";
+                buttonText.text = "TM_Continue".GetText();
                 Button btn1 = Instantiate(buttonObj, buttonParent);
                 Action act1 = () => ContinusQuest(missionStatus);
                 btn1.onClick.AddListener(() => act1.Invoke());
@@ -273,10 +273,10 @@ public class NpcSystem : MonoBehaviour
                 chatContent.text = getFinishData.QuestChatContent[tempStep].GetText();
                 //設定金幣文字
                 coinReward.enabled = true;
-                coinReward.text = "金幣:" + tempQuestData.Coin.ToString();
+                coinReward.text = "TM_Coin".GetText(true) + tempQuestData.Coin.ToString();
                 //設定經驗文字
                 expReward.enabled = true;
-                expReward.text = "經驗:" + tempQuestData.Exp.ToString();
+                expReward.text = "TM_Exp".GetText(true) + tempQuestData.Exp.ToString();
 
                 //若有獎勵資料 設定獎勵物件
                 if (tempQuestData.QuestRewardList != null && tempQuestData.QuestRewardList.Count > 0)
@@ -304,7 +304,7 @@ public class NpcSystem : MonoBehaviour
                 LayoutRebuilder.ForceRebuildLayoutImmediate(rewardArea);
 
                 ClearTempData();
-                buttonText.text = "領取獎勵";
+                buttonText.text = "TM_ClaimReward".GetText();
                 Button btn2 = Instantiate(buttonObj, buttonParent);
                 btn2.onClick.AddListener(() => GetMissionReward(tempQuestData));
                 btn2.gameObject.SetActive(true);

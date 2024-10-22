@@ -214,5 +214,61 @@
   {
     "TextID": "TM_Druid",
     "TextContent": "德魯伊"
+  },
+  {
+    "TextID": "TM_Coin",
+    "TextContent": "金幣"
+  },
+  {
+    "TextID": "TM_Hunting",
+    "TextContent": "狩獵"
+  },
+  {
+    "TextID": "TM_Collect",
+    "TextContent": "收集"
+  },
+  {
+    "TextID": "TM_Deliver",
+    "TextContent": "交付"
+  },
+  {
+    "TextID": "TM_SendMessageTo",
+    "TextContent": "傳話給"
+  },
+  {
+    "TextID": "TM_ItemName",
+    "TextContent": "道具名稱"
+  },
+  {
+    "TextID": "TM_Classification",
+    "TextContent": "材質類型"
+  },
+  {
+    "TextID": "TM_WearPart",
+    "TextContent": "裝備部位"
+  },
+  {
+    "TextID": "TM_ItemType",
+    "TextContent": "道具分類"
+  },
+  {
+    "TextID": "TM_NeedLv",
+    "TextContent": "所需等級"
+  },
+  {
+    "TextID": "TM_Volume",
+    "TextContent": "作用值"
+  },
+  {
+    "TextID": "TM_CD",
+    "TextContent": "冷卻時間"
+  },
+  {
+    "TextID": "TM_Duration",
+    "TextContent": "持續時間"
+  },
+  {
+    "TextID": "TM_PlayerName",
+    "TextContent": "玩家名稱"
   }
 ]

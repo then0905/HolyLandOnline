@@ -6,6 +6,7 @@ using System;
 using Newtonsoft.Json;
 using System.IO;
 using static Equipment;
+using System.Security;
 
 //==========================================
 //  創建者:    家豪
@@ -140,11 +141,18 @@ public static class CommonFunction
     /// <summary>
     /// 取得文字內容
     /// </summary>
-    /// <param name="id"></param>
+    /// <param name="id">帶入文字ID</param>
+    /// <param name="addColon">是否需要冒號</param>
     /// <returns></returns>
-    public static string GetText(this string id)
+    public static string GetText(this string id, bool addColon = false)
     {
-        return GameData.GameTextDataDic[id].TextContent;
+        //試圖取得文字資料
+        if (GameData.GameTextDataDic.TryGetValue(id, out GameText value))
+            //回傳文字內容並且根據是否需求設定冒號
+            return (GameData.GameTextDataDic[id].TextContent + (addColon ? ": " : string.Empty));
+        else
+            //未尋找到文字資料
+            return "???";
     }
 
     /// <summary>

@@ -33,8 +33,8 @@ public class MissionInfo : MonoBehaviour
         missionInfoText.text = "";
         missionitem.QuestData.QuestChatContent.ForEach(x => missionInfoText.text += x.GetText());
         missionSchedule.text = missionitem.MissionScheduleText;
-        missionExp.text = "經驗值: " + missionitem.QuestData.Exp.ToString();
-        missionCoin.text = "金幣: " + missionitem.QuestData.Coin.ToString();
+        missionExp.text = "TM_Exp".GetText(true) + missionitem.QuestData.Exp.ToString();
+        missionCoin.text = "TM_Coin".GetText(true) + missionitem.QuestData.Coin.ToString();
         tempMissionID = missionitem.QuestData.QuestID;
     }
 }

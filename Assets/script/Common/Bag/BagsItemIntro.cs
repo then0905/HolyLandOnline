@@ -60,7 +60,7 @@ public class BagsItemIntro : MonoBehaviour
     /// 點擊事件
     /// </summary>
     /// <param name="BagsItem"></param>
-    public void OnClick(RectTransform topOfUnit,PointerEventData BagsItem)
+    public void OnClick(RectTransform topOfUnit, PointerEventData BagsItem)
     {
         //檢查是否為背包格子
         if (BagsItem.pointerCurrentRaycast.gameObject.tag != "BagItem" && BagsItem.pointerCurrentRaycast.gameObject.tag != "Equip")
@@ -74,7 +74,7 @@ public class BagsItemIntro : MonoBehaviour
         Equipment equipment = BagsItem.pointerCurrentRaycast.gameObject.GetComponent<Equipment>();
 
         //檢查是否重複點擊同件物品
-        if (introItem ==null && introItem != equipment)
+        if (introItem == null && introItem != equipment)
         {
             //若不是則記錄物品資料
             introItem = equipment;
@@ -165,11 +165,11 @@ public class BagsItemIntro : MonoBehaviour
     /// <param name="introData">顯示資料</param>
     private void SetItemIntro(IntroData introData)
     {
-        Name.text = "道具名稱:" + introData.Name;
-        Classification.text = "材質類型:" + introData.Classification;
-        Part.text = "裝備部位:" + introData.Part;
-        Type.text = "道具分類:" + introData.Type;
-        Lv.text = "所需等級:" + introData.Lv;
+        Name.text = "TM_ItemName".GetText(true) + introData.Name;
+        Classification.text = "TM_Classification".GetText(true) + introData.Classification;
+        Part.text = "TM_WearPart".GetText(true) + introData.Part;
+        Type.text = "TM_ItemType".GetText(true) + introData.Type;
+        Lv.text = "TM_NeedLv".GetText(true) + introData.Lv;
         Intro.text = introData.Content;
         Image.sprite = introData.Icon;
     }
@@ -182,55 +182,55 @@ public class BagsItemIntro : MonoBehaviour
         if (introItem.EquipmentDatas.Weapon.MeleeATK != 0)
         {
             Value.text =
-                "近距離攻擊力:" + introItem.EquipmentDatas.Weapon.MeleeATK + "\n"
-                + "近距離命中值:" + introItem.EquipmentDatas.Weapon.MeleeHit + "\n";
+                "TM_MeleeATK".GetText(true) + introItem.EquipmentDatas.Weapon.MeleeATK + "\n"
+                + "TM_MeleeHit:".GetText(true) + introItem.EquipmentDatas.Weapon.MeleeHit + "\n";
         }
         if (introItem.EquipmentDatas.Weapon.RemoteATK != 0)
         {
             Value.text =
-                 "遠距離攻擊力:" + introItem.EquipmentDatas.Weapon.RemoteATK + "\n"
-                + "遠距離命中值:" + introItem.EquipmentDatas.Weapon.RemoteHit + "\n";
+                 "TM_RemoteATK".GetText(true) + introItem.EquipmentDatas.Weapon.RemoteATK + "\n"
+                + "TM_RemoteHit".GetText(true) + introItem.EquipmentDatas.Weapon.RemoteHit + "\n";
 
         }
         if (introItem.EquipmentDatas.Weapon.MageATK != 0)
         {
             Value.text =
-                 "魔法攻擊力:" + introItem.EquipmentDatas.Weapon.MageATK + "\n"
-                + "魔法命中值:" + introItem.EquipmentDatas.Weapon.MageHit + "\n";
+                 "TM_MageATK".GetText(true) + introItem.EquipmentDatas.Weapon.MageATK + "\n"
+                + "TM_MAgeHit".GetText(true) + introItem.EquipmentDatas.Weapon.MageHit + "\n";
         }
-        Value.text += "武器攻擊速度:" + introItem.EquipmentDatas.Weapon.AS + "\n"
-               + "武器暴擊率:" + introItem.EquipmentDatas.Weapon.Crt + "\n"
-               + "武器暴擊傷害:" + introItem.EquipmentDatas.Weapon.CrtDamage + "\n"
-               + "STR:" + introItem.EquipmentDatas.Weapon.STR + "\n"
-               + "DEX:" + introItem.EquipmentDatas.Weapon.DEX + "\n"
-               + "INT:" + introItem.EquipmentDatas.Weapon.INT + "\n"
-               + "AGI:" + introItem.EquipmentDatas.Weapon.AGI + "\n"
-               + "VIT:" + introItem.EquipmentDatas.Weapon.VIT + "\n"
-               + "WIS:" + introItem.EquipmentDatas.Weapon.WIS + "\n";
+        Value.text += "TM_AS".GetText(true) + introItem.EquipmentDatas.Weapon.AS + "\n"
+               + "TM_Crt".GetText(true) + introItem.EquipmentDatas.Weapon.Crt + "\n"
+               + "TM_CrtDamage".GetText(true) + introItem.EquipmentDatas.Weapon.CrtDamage + "\n"
+               + "TM_STR".GetText(true) + introItem.EquipmentDatas.Weapon.STR + "\n"
+               + "TM_DEX".GetText(true) + introItem.EquipmentDatas.Weapon.DEX + "\n"
+               + "TM_INT".GetText(true) + introItem.EquipmentDatas.Weapon.INT + "\n"
+               + "TM_AGI".GetText(true) + introItem.EquipmentDatas.Weapon.AGI + "\n"
+               + "TM_VIT".GetText(true) + introItem.EquipmentDatas.Weapon.VIT + "\n"
+               + "TM_WIS".GetText(true) + introItem.EquipmentDatas.Weapon.WIS + "\n";
     }
     /// <summary>
     /// 顯示防具數據
     /// </summary>
     private void AddArmorVaule()
     {
-        Value.text = "防禦值:" + introItem.EquipmentDatas.Armor.DEF + "\n"
-                    + "迴避值:" + introItem.EquipmentDatas.Armor.Avoid + "\n"
-                    + "魔法防禦值:" + introItem.EquipmentDatas.Armor.MDEF + "\n"
-                    + "移動速度:" + introItem.EquipmentDatas.Armor.Speed + "\n"
-                    + "暴擊抵抗:" + introItem.EquipmentDatas.Armor.CrtResistance + "\n"
-                    + "傷害減緩:" + introItem.EquipmentDatas.Armor.DamageReduction + "\n"
-                    + "HP最大值:" + introItem.EquipmentDatas.Armor.HP + "\n"
-                    + "MP最大值:" + introItem.EquipmentDatas.Armor.MP + "\n"
-                    + "HP自然回復:" + introItem.EquipmentDatas.Armor.HpRecovery + "\n"
-                    + "MP自然回復:" + introItem.EquipmentDatas.Armor.MpRecovery + "\n"
-                    + "STR:" + introItem.EquipmentDatas.Armor.STR + "\n"
-                    + "DEX:" + introItem.EquipmentDatas.Armor.DEX + "\n"
-                    + "INT:" + introItem.EquipmentDatas.Armor.INT + "\n"
-                    + "AGI:" + introItem.EquipmentDatas.Armor.AGI + "\n"
-                    + "VIT:" + introItem.EquipmentDatas.Armor.VIT + "\n"
-                    + "WIS:" + introItem.EquipmentDatas.Armor.WIS + "\n"
-                    + "屬性傷害減免:" + introItem.EquipmentDatas.Armor.ElementDamageReduction + "\n"
-                    + "異常狀態抗性:" + introItem.EquipmentDatas.Armor.DisorderResistance + "\n";
+        Value.text = "TM_DEF".GetText(true) + introItem.EquipmentDatas.Armor.DEF + "\n"
+                    + "TM_Avoid".GetText(true) + introItem.EquipmentDatas.Armor.Avoid + "\n"
+                    + "TM_MDEF".GetText(true) + introItem.EquipmentDatas.Armor.MDEF + "\n"
+                    + "TM_Speed".GetText(true) + introItem.EquipmentDatas.Armor.Speed + "\n"
+                    + "TM_CrtResistance".GetText(true) + introItem.EquipmentDatas.Armor.CrtResistance + "\n"
+                    + "TM_DamageReduction".GetText(true) + introItem.EquipmentDatas.Armor.DamageReduction + "\n"
+                    + "TM_MaxHP".GetText(true) + introItem.EquipmentDatas.Armor.HP + "\n"
+                    + "TM_MaxMP".GetText(true) + introItem.EquipmentDatas.Armor.MP + "\n"
+                    + "TM_HP_Recovery".GetText(true) + introItem.EquipmentDatas.Armor.HpRecovery + "\n"
+                    + "TM_MP_Recovery".GetText(true) + introItem.EquipmentDatas.Armor.MpRecovery + "\n"
+                    + "TM_STR".GetText(true) + introItem.EquipmentDatas.Armor.STR + "\n"
+                    + "TM_DEX".GetText(true) + introItem.EquipmentDatas.Armor.DEX + "\n"
+                    + "TM_INT".GetText(true) + introItem.EquipmentDatas.Armor.INT + "\n"
+                    + "TM_AGI".GetText(true) + introItem.EquipmentDatas.Armor.AGI + "\n"
+                    + "TM_VIT".GetText(true) + introItem.EquipmentDatas.Armor.VIT + "\n"
+                    + "TM_WIS".GetText(true) + introItem.EquipmentDatas.Armor.WIS + "\n"
+                    + "TM_ElementDamageReduction".GetText(true) + introItem.EquipmentDatas.Armor.ElementDamageReduction + "\n"
+                    + "TM_DisorderResistance".GetText(true) + introItem.EquipmentDatas.Armor.DisorderResistance + "\n";
 
     }
     /// <summary>
@@ -238,12 +238,12 @@ public class BagsItemIntro : MonoBehaviour
     /// </summary>
     void AddShieldVaule()
     {
-        Value.text = "防禦值:" + introItem.EquipmentDatas.Weapon.DEF + "\n"
-               + "魔法防禦值:" + introItem.EquipmentDatas.Weapon.MDEF + "\n"
-               + "迴避值:" + introItem.EquipmentDatas.Weapon.Avoid + "\n"
-               + "HP最大值:" + introItem.EquipmentDatas.Weapon.HP + "\n"
-               + "MP最大值:" + introItem.EquipmentDatas.Weapon.MP + "\n"
-               + "格檔率:" + introItem.EquipmentDatas.Weapon.BlockRate + "\n";
+        Value.text = "TM_DEF".GetText(true) + introItem.EquipmentDatas.Weapon.DEF + "\n"
+               + "TM_MDEF".GetText(true) + introItem.EquipmentDatas.Weapon.MDEF + "\n"
+               + "TM_Avoid".GetText(true) + introItem.EquipmentDatas.Weapon.Avoid + "\n"
+               + "TM_MaxHP".GetText(true) + introItem.EquipmentDatas.Weapon.HP + "\n"
+               + "TM_MaxMP".GetText(true) + introItem.EquipmentDatas.Weapon.MP + "\n"
+               + "TM_BlockRate".GetText(true) + introItem.EquipmentDatas.Weapon.BlockRate + "\n";
     }
     /// <summary>
     /// 顯示道具數據
@@ -251,9 +251,9 @@ public class BagsItemIntro : MonoBehaviour
     private void AddItemVaule()
     {
         var itemData = introItem.EquipmentDatas.Item;
-        Value.text = "作用值:" + (itemData.Volume.Count > 0 ? itemData.Volume[0] + "~" + itemData.Volume[itemData.Volume.Count - 1] : itemData.Volume[0]) + "\n"
-               + "冷卻時間:" + itemData.CD + "\n"
-               + "持續時間:" + itemData.ActionTime + "\n";
+        Value.text = "TM_Volume".GetText(true) + (itemData.Volume.Count > 0 ? itemData.Volume[0] + "~" + itemData.Volume[itemData.Volume.Count - 1] : itemData.Volume[0]) + "\n"
+               + "TM_CD".GetText(true) + itemData.CD + "\n"
+               + "TM_Duration".GetText(true) + itemData.ActionTime + "\n";
     }
     #endregion
 }

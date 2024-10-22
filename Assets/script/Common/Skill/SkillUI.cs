@@ -43,15 +43,4 @@ public class SkillUI : MonoBehaviour, ISkillBase
     public string SkillUpgradeID = "";
     //技能升級後的Icon更新
     public Sprite SkillUpgradeIcon;
-
-
-    void Start()
-    {
-        //SkillName.text = DataBase.Instance.SkillDB.Skill[Number].SkillName;
-        //SkillCD.text = DataBase.Instance.SkillDB.Skill[Number].SkillCoolDown.ToString();
-        //SkillCostMage.text = DataBase.Instance.SkillDB.Skill[Number].CostMana.ToString();
-        //SkillIntro.text = DataBase.Instance.SkillDB.Skill[Number].SkillIntro;
-        //SkillIcon.sprite = DataBase.Instance.SkillDB.SkillIcon[Number];
-        //Passive = DataBase.Instance.SkillDB.Skill[Number ].SkillIsPassive;
-    }
 }

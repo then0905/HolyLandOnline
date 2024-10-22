@@ -16,11 +16,39 @@
     "TextContent": "交易"
   },
   {
+    "TextID": "TM_Continue",
+    "TextContent": "繼續"
+  },
+  {
+    "TextID": "TM_Accept",
+    "TextContent": "接受"
+  },
+  {
+    "TextID": "TM_Reject",
+    "TextContent": "拒絕"
+  },
+  {
     "TextID": "TM_SkillCastMageError",
     "TextContent": "技能：{0}  所需消耗魔力不足…"
   },
   {
     "TextID": "TM_SkillCoolDownError",
     "TextContent": "技能：{0}  正在冷卻時間中…"
+  },
+  {
+    "TextID": "TM_SkillIsUsing",
+    "TextContent": "當前有技能正在使用中!"
+  },
+  {
+    "TextID": "TM_CancelAttackTarget",
+    "TextContent": "正在取消攻擊目標"
+  },
+  {
+    "TextID": "TM_ClaimReward",
+    "TextContent": "領取獎勵"
+  },
+  {
+    "TextID": "TM_TutorialSaveError",
+    "TextContent": "錯誤:已有存在的教學ID 請向開發人員反應 錯誤ID為 {0}"
   }
 ]

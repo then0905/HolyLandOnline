@@ -207,7 +207,7 @@ public class SkillController : MonoBehaviour
 
             if (UsingSkill)
             {
-                CommonFunction.MessageHint("當前有技能正在使用中!", HintType.Warning);
+                CommonFunction.MessageHint("TM_SkillIsUsing".GetText(), HintType.Warning);
                 return;
             }
 
@@ -241,19 +241,6 @@ public class SkillController : MonoBehaviour
                 }
             }
         }
-    }
-
-    /// <summary>
-    /// 取得玩家與目標間的距離
-    /// </summary>
-    /// <returns></returns>
-    private float DistanceWithTarget()
-    {
-        if (SelectTarget.Instance.CatchTarget)
-            dis = Vector3.Distance(SelectTarget.Instance.Targetgameobject.Povit.position, PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position);
-        else
-            return 0;
-        return dis;
     }
 
     /// <summary>
@@ -368,84 +355,6 @@ public class SkillController : MonoBehaviour
     }
 
     /// <summary>
-    /// 設定快捷鍵上的技能冷卻與資料(裝上技能時呼叫)
-    /// </summary>
-    /// <param name="indexKey">快捷鍵鍵位</param>
-    //public void CoolDownRecord(int indexKey)
-    //{
-    //    Skillinformation.SkillSlider[indexKey].maxValue = Skillinformation.CDsec[indexKey];
-    //    Skillinformation.SkillSlider[indexKey].value = Skillinformation.CDR[indexKey];
-    //}
-
-    /// <summary>
-    /// 處理技能冷卻讀秒
-    /// </summary>
-    /// <param name="indexKey">快捷鍵鍵位</param>
-    //public IEnumerator ProcessorSkillCoolDown(SkillUIModel skillUIData)
-    //{
-    //    //取得快捷鍵上 有此技能資料的鍵位
-    //    var tempHotKey = SkillHotKey.Where(x => x.HotKeyDataID.Contains(skillUIData.SkillID)).Select(x => x.Keyindex).FirstOrDefault();
-    //    //設定清單索引目標 若輸入不是0鍵則-1 若是0則設定為9(最大索引值)
-    //    int getIndexKey = tempHotKey.Equals(0) ? (tempHotKey + 9) : (tempHotKey - 1);
-    //    Skillinformation.CDR[getIndexKey] = 0;
-    //    while (Skillinformation.CDR[getIndexKey] < Skillinformation.CDsec[getIndexKey])
-    //    {
-    //        Skillinformation.CDR[getIndexKey] += 0.1f;
-    //        Skillinformation.SkillSlider[getIndexKey].value = Skillinformation.CDR[getIndexKey];
-    //        //print(skillUIData.Name + "當前冷卻:" + Skillinformation.CDR[getIndexKey] + "總時間:" + Skillinformation.CDsec[getIndexKey]);
-    //        yield return new WaitForSeconds(0.1f);
-    //    }
-    //}
-
-    ///// <summary>
-    ///// 確認玩家是否進入可施放範圍
-    ///// </summary>
-    //public IEnumerator SkillDistanceCheck(SkillUIModel skillUIData, string UpgradeSkillID = "")
-    //{
-    //    DistanceWithTarget();
-    //    //是否有在使用的技能 是否魔力足夠 以及 該技能冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能) 
-    //    if (!UsingSkill && PlayerDataOverView.Instance.PlayerData_.MP - skillUIData.CastMage >= 0 && Skillinformation.CDR[keyIndex] >= Skillinformation.CDsec[keyIndex])
-    //    {
-    //        UsingSkill = true;
-    //        PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = true;
-    //        //若還沒進入施放距離則移動玩家
-    //        while (dis > skillUIData.Distance)
-    //        {
-    //            DistanceWithTarget();
-    //            //PlayerDataOverView.Instance.CharacterMove.Character.transform.LookAt(SelectTarget.Instance.Targetgameobject.transform);
-
-    //            // 取得角色面相目標的方向
-    //            Vector3 direction = SelectTarget.Instance.Targetgameobject.transform.position - PlayerDataOverView.Instance.CharacterMove.Character.transform.position;
-    //            // 鎖定y軸的旋轉 避免角色在x軸和z軸上傾斜
-    //            direction.y = 0;
-    //            // 如果 direction 的長度不為零，設定角色的朝向
-    //            if (direction != Vector3.zero)
-    //                PlayerDataOverView.Instance.CharacterMove.Character.transform.rotation = Quaternion.LookRotation(direction);
-
-    //            //跑步動畫
-    //            PlayerDataOverView.Instance.CharacterMove.RunAnimation(true);
-    //            //設定移動座標
-    //            PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position =
-    //                Vector3.MoveTowards(PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position,
-    //                SelectTarget.Instance.Targetgameobject.Povit.position,
-    //                PlayerDataOverView.Instance.CharacterMove.MoveSpeed);
-
-    //            yield return new WaitForEndOfFrame();
-    //        }
-    //        PlayerDataOverView.Instance.CharacterMove.RunAnimation(false);
-    //        CallSkillEffect(skillUIData, UpgradeSkillID);
-    //    }
-    //    else
-    //    {
-    //        if (PlayerDataOverView.Instance.PlayerData_.MP - skillUIData.CastMage < 0)
-    //            CommonFunction.MessageHint("魔力不足...", HintType.Warning);
-    //        else if (Skillinformation.CDR[keyIndex] < Skillinformation.CDsec[keyIndex])
-    //            CommonFunction.MessageHint("該技能冷卻時間未完成!", HintType.Warning);
-
-    //    }
-    //}
-
-    /// <summary>
     /// 還原技能範圍碰撞器與圖片
     /// </summary>
     public void SkillDistanceReverse()
@@ -469,7 +378,7 @@ public class SkillController : MonoBehaviour
         {
             StopCoroutine(SkillChasingCoroutine);
             SkillChasingCoroutine = null;
-            CommonFunction.MessageHint("正在取消攻擊目標", HintType.Warning);
+            CommonFunction.MessageHint("TM_CancelAttackTarget".GetText(), HintType.Warning);
         }
         PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = false;
     }
