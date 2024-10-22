@@ -35,7 +35,16 @@ public class TutorialManager : MonoBehaviour
     /// </summary>
     public void RunTutorial()
     {
-        TutorialObjectController tempObj = Instantiate(tutorialObj);
-        tempObj.InitTutorialCheck(tutorialID);
+        //取得教學 ID判斷組合資料
+        var tutorialSystemData = GameData.TutorialDataDic[tutorialID].TutorialIDList[0];
+
+        //檢查是否符合判斷
+        if (PlayerDataOverView.Instance.PlayerData_.CheckPlayerTutorialID(tutorialSystemData))
+        {
+            //生成教學物件
+            TutorialObjectController tempObj = Instantiate(tutorialObj);
+            //初始化教學
+            tempObj.InitTutorial(tutorialID);
+        }
     }
 }

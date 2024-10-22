@@ -36,26 +36,26 @@ public class TutorialObjectController : MonoBehaviour
     [SerializeField] private GameObject dialog;
     [SerializeField] private TextMeshProUGUI dialogText;
 
+
     /// <summary>
-    /// 初始化教學檢查
+    /// 初始化教學
     /// </summary>
-    public void InitTutorialCheck(string tutorialID)
+    /// <param name="tutorialID">教學ID</param>
+    public void InitTutorial(string tutorialID)
     {
+        //畫布裝上相機
         canvas.worldCamera = Camera.main;
+        //取得此教學資料
         tutorialSystemData = GameData.TutorialDataDic[tutorialID];
 
-        if (PlayerDataOverView.Instance.PlayerData_.CheckPlayerTutorialID(tutorialSystemData.TutorialIDList[0]))
-        {
-            //需要取得從0開始的索引值 所以-1
-            tutorialMaxIndex = tutorialSystemData.TutorialBasalSettingList.Count - 1;
-            tutorialIndex = 0;
-            IsTutorial = true;
-            TutorialDataSetting();
-        }
-        else
-        {
-            return;
-        }
+        //需要取得從0開始的索引值 所以-1
+        tutorialMaxIndex = tutorialSystemData.TutorialBasalSettingList.Count - 1;
+        tutorialIndex = 0;
+        //正在教學中標記
+        IsTutorial = true;
+        
+        //教學資料設定
+        TutorialDataSetting();
     }
 
     /// <summary>
@@ -95,12 +95,12 @@ public class TutorialObjectController : MonoBehaviour
 
             lightCricleTrans.anchoredPosition = uiPosition;
         }
-            //lightCricleTrans.anchoredPosition = new Vector2(maskImgTrans.position.x, maskImgTrans.position.y);
+        //lightCricleTrans.anchoredPosition = new Vector2(maskImgTrans.position.x, maskImgTrans.position.y);
 
         //對話框位置
         dialog.GetComponent<RectTransform>().anchoredPosition = new Vector2(tempData.DiaologPosX, tempData.DiaologPosY);
         //設定對話框文字內容
-        dialogText.text = DialogTextFormatProcessor(tempData.TutorialDialog, tempData.TutorialDialogFormat != null ? tempData.TutorialDialogFormat.ToArray() :null );
+        dialogText.text = DialogTextFormatProcessor(tempData.TutorialDialog, tempData.TutorialDialogFormat != null ? tempData.TutorialDialogFormat.ToArray() : null);
 
         //設定是否需要暫停時間
         Time.timeScale = (tempData.TimeScaleStop ? 0 : 1);
@@ -117,18 +117,22 @@ public class TutorialObjectController : MonoBehaviour
     /// <summary>
     /// 對話框文字合併處理
     /// </summary>
-    /// <param name="dialogFormat"></param>
+    /// <param name="dialogFormat">需要合併的字串資料</param>
     public string DialogTextFormatProcessor(string dialogText, params string[] dialogFormat)
     {
+        //宣告 儲存需合併的字串資料
         List<string> tempFormat = new List<string>();
 
+        //若沒有需要合併的字串 直接回傳對話文字
         if (dialogFormat == null)
             return dialogText.GetText();
         else
+            //尋找需合併的字串資料
             foreach (var formatTarget in dialogFormat)
             {
                 switch (formatTarget)
                 {
+                    //玩家ID
                     case "PlayerName":
                         tempFormat.Add(PlayerDataOverView.Instance.PlayerData_.PlayerName);
                         break;
@@ -137,6 +141,7 @@ public class TutorialObjectController : MonoBehaviour
                 }
             }
 
+        //回傳處理合併過後的資料
         return string.Format(dialogText.GetText(), tempFormat.ToArray());
     }
 
@@ -179,8 +184,10 @@ public class TutorialObjectController : MonoBehaviour
     /// </summary>
     public void CallNextTutorialIndex()
     {
+        //若已到教學索引最大值 => 教學將完成
         if (tutorialIndex.Equals(tutorialMaxIndex))
         {
+            //紀錄ID
             PlayerDataOverView.Instance.PlayerData_.SaveTargetID(tutorialSystemData.SaveTutorialID);
 
             //清空物件
@@ -190,12 +197,17 @@ public class TutorialObjectController : MonoBehaviour
                 tempActorList.Clear();
             }
 
+            //教學結束標記
             IsTutorial = false;
+            
+            //清除物件
             Destroy(this.gameObject);
         }
         else
         {
+            //教學索引+1
             tutorialIndex += 1;
+            //設定新索引的教學資料
             TutorialDataSetting();
         }
     }
