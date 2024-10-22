@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System.Collections;
-using UnityEngine.UI;
 
 //==========================================
 //  創建者:家豪
@@ -435,7 +434,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         }
         PlayerDataOverView.Instance.CharacterMove.RunAnimation(false);
         SkillController.Instance.UsingSkill = true;
-        SkillEffect(PlayerDataOverView.Instance,SelectTarget.Instance.Targetgameobject);
+        SkillEffect(PlayerDataOverView.Instance, SelectTarget.Instance.Targetgameobject);
     }
 
     /// <summary>
@@ -616,6 +615,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
 
     public void SkillEffect(ICombatant caster = null, ICombatant target = null)
     {
+        PlayerDataOverView.Instance?.ChangeMpEvent?.Invoke(-1 * CastMage);
         SkillEffectStart(caster, target);
     }
 
