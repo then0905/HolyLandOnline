@@ -16,85 +16,41 @@ public class ArrowHit : MonoBehaviour
     //此範圍碰撞
     public BoxCollider ArrowCollider;
     //存取技能資料
-    private SkillDataModel skillData;
-    //存取技能基底
-    private Skill_Base_Attack skillAttackData;
-    //獲取範圍內其他目標
-    private List<ICombatant> otherObjList = new List<ICombatant>();
-    //重新設定範圍(從ArrowCollider碰撞上校正x旋轉為0後的範圍)
-    private Vector3 correctTriggerRange = new Vector3();
+    private SkillData skillData;
 
     /// <summary>
     /// 設定有效命中範圍
     /// </summary>
     /// <param name="skillBaseAttack">技能資料</param>
     /// <param name="skillID">技能ID</param>
-    public void SetSkillSize(Skill_Base_Attack skillBaseAttack, string skillID)
+    public List<ICombatant> SetSkillSize(Skill_Base_Attack skillBaseAttack, SkillOperationData skill)
     {
-        //ArrowCollider.size = new Vector3(SKillArrow.GetComponent<RectTransform>().sizeDelta.x, SKillArrow.GetComponent<RectTransform>().sizeDelta.y, 1);
-
-        //初始化目標清單
-        otherObjList = new List<ICombatant>();
         //獲取當前技能資料
-        skillData = GameData.SkillsDataDic[skillID];
+        skillData = skillBaseAttack.SkillData;
         //設定碰撞範圍
         ArrowCollider.size = new Vector3(skillData.Width, skillData.Height, 1);
         ArrowCollider.enabled = true;
-        //設定偵測範圍
-        correctTriggerRange = new Vector3(skillData.Width, 1, skillData.Height);
-        //儲存技能基底資料
-        skillAttackData = skillBaseAttack;
-    }
 
-
-    /// <summary>
-    /// 獲取範圍內目標清單
-    /// </summary>
-    public void CatchTarget(List<ICombatant> otherObj)
-    {
-        //存取可攻擊對象
-        otherObjList.AddRange(otherObj);
-        if (otherObjList.Count > skillData.TargetCount)
+        //範圍內所有怪物
+        if (skill.TargetCount.Equals(-4))
+            return Physics.OverlapBox(transform.localPosition, ArrowCollider.size, Quaternion.identity)
+       .Where(x => x != null && x.GetComponent<MonsterBehaviour>() != null).Select(x => x.GetComponent<ICombatant>()).ToList();
+        //所有敵對玩家
+        else if (skill.TargetCount.Equals(-2))
+            return Physics.OverlapBox(transform.localPosition, ArrowCollider.size, Quaternion.identity)
+       .Where(x => x != null && x.GetComponent<OtherPlayerCharacter>() != null).Select(x => x.GetComponent<ICombatant>()).ToList();
+        //範圍內數量
+        else
         {
-            otherObjList = otherObjList.Take(skillData.TargetCount).ToList();
-        }
-
-        //當可攻擊對象達到目標數量後進行傷害
-        //if (otherObjList.Count == skillData.TargetCount)
-        //{
-        foreach (ICombatant obj in otherObjList)
-        {
-            //戰鬥計算
-            BattleOperation.Instance.SkillAttackEvent?.Invoke(skillAttackData, PlayerDataOverView.Instance, obj);
-        }
-        //}
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.GetComponent<ICombatant>() != null)
-        {
-            if (SkillController.Instance.UsingSkill)
-            {
-                List<Collider> targetList = Physics.OverlapBox(gameObject.transform.position, correctTriggerRange, Quaternion.identity).ToList();
-                List<ICombatant> combatantList = new List<ICombatant>();
-                foreach (Collider coll in targetList)
-                {
-                    print("偵測到的目標:" + coll.name);
-                    //獲取可攻擊目標(怪物行為腳本或是其他)
-                    if (coll.GetComponent<ICombatant>() != null && coll.GetComponent<ActivityCharacterBase>().CanBeChoose)
-                    {
-                        combatantList.Add(coll.GetComponent<ICombatant>());
-                    }
-
-                }
-                CatchTarget(combatantList);
-            }
+            return Physics.OverlapBox(transform.localPosition, ArrowCollider.size, Quaternion.identity)
+                   .Where(x => x != null && x.GetComponent<ICombatant>() != null).Select(x => x.GetComponent<ICombatant>()).Take(skill.TargetCount).ToList();
         }
     }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;//
-        Gizmos.DrawWireCube(transform.position, correctTriggerRange);//
+        Vector3 v3 = new Vector3(ArrowCollider.size.x, 1, ArrowCollider.size.y);
+        Gizmos.DrawWireCube(transform.position, v3);//
     }
 }

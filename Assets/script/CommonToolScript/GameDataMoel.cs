@@ -167,9 +167,9 @@ public class ItemDataModel : BasalAttributesDataModel, IDictionaryData<string>, 
 #region 技能
 
 /// <summary>
-/// 技能頁面上的資料結構
+/// 技能資料結構
 /// </summary>
-public class SkillUIModel : IDictionaryData<string>
+public class SkillData : IDictionaryData<string>
 {
     public string Job { get; set; }               // 職業
     public string Name { get; set; }            // 技能名稱
@@ -178,8 +178,10 @@ public class SkillUIModel : IDictionaryData<string>
     public bool Characteristic { get; set; }            // 技能特性
     public int CastMage { get; set; }            // 技能花費魔力
     public float CD { get; set; }            // 技能冷卻時間
+    public float ChantTime { get; set; }                    // 詠唱時間
     public string AnimaTrigger { get; set; }            // 技能動畫名稱
     public string Type { get; set; }            // 技能類型
+    public string EffectTarget { get; set; }            // 特效物件生成參考
     public float Distance { get; set; }            // 技能施放距離
     public float Width { get; set; }            // 技能命中寬度
     public float Height { get; set; }            // 技能命中長度
@@ -187,42 +189,26 @@ public class SkillUIModel : IDictionaryData<string>
     public float Damage { get; set; }            // 技能傷害倍率
     public string AdditionMode { get; set; }            // 技能攻擊模式
     public string Intro { get; set; }            // 技能說明
+    public List<SkillOperationData> SkillOperationDataList { get; set; }        //技能實際運作所需資料清單
     public string GetKey { get { return SkillID; } }
 }
 
-/// <summary>
-/// 技能施放進行運算所需的資料結構
-/// </summary>
-public class SkillDataModel : IDictionaryData<string>
-{
-    public string Name { get; set; }            // 技能名稱
-    public string SkillID { get; set; }                     // 技能ID
-    public bool Characteristic { get; set; }                // True:主動、False:被動
-    public int MultipleValue { get; set; }                  // 多段傷害的次數 次數大於1需要填
 
-    public List<float> EffectValue { get; set; }            // 效果值 
-    public List<string> InfluenceStatus { get; set; }       // 效果影響的屬性 (Buff)   
-    public List<string> AddType { get; set; }               // 加成運算的方式 Rate:乘法、Value:加法   
-    public string EffectCategory { get; set; }              // 標籤類型    
-    public string EffectTarget { get; set; }            //特效參考目標
-    public List<string> AdditionalEffect { get; set; }      // 額外附加效果標籤
-    public List<float> AdditionalEffectValue { get; set; }  // 額外附加效果的值
-    public List<float> AdditionalEffectTime { get; set; }   // 額外附加效果持續時間
-    public List<string> Condition { get; set; }             // 執行技能需要的條件 不需要不用填 
-    public int EffectRecive { get; set; }
-    public int TargetCount { get; set; }                    // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
-    public float EffectDurationTime { get; set; }           // 效果持續時間
-    public float ChantTime { get; set; }                    // 詠唱時間
-    public int CastMage { get; set; }            // 技能花費魔力
-    public float CD { get; set; }            // 技能冷卻時間
-    public string Type { get; set; }            // 技能類型
-    public string AdditionMode { get; set; }                // 攻擊模式 戰鬥計算防禦方面使用 (近距離物理、遠距離物理找物防:魔法找魔防)
-    public float Distance { get; set; }                     // 技能範圍(施放者與目標間的距離值)
-    public float Width { get; set; }                        // 矩形範圍的寬
-    public float Height { get; set; }                       // 矩形範圍的長度
-    public float CircleDistance { get; set; }               // 圓形範圍 
-    public string Intro { get; set; }            // 技能說明
-    public string GetKey { get { return SkillID; } }
+/// <summary>
+/// 技能實際運作所需資料
+/// </summary>
+public class SkillOperationData
+{
+    public string SkillID { get; set; }      // 技能ID
+    public string SkillComponentID { get; set; }        //技能組件ID
+    public float EffectValue { get; set; }        // 效果值 
+    public string InfluenceStatus { get; set; }     // 效果影響的屬性 (Buff)   
+    public string AddType { get; set; }      // 加成運算的方式 Rate:乘法、Value:加法   
+    public List<string> Condition { get; set; }      // 執行技能需要的條件 不需要不用填 
+    public float EffectDurationTime { get; set; }       // 效果持續時間
+    public int EffectRecive { get; set; }       //效果接收方-3:隊友 -2:所有友軍(包含自己) -1:怪物、玩家 0:自身 1:敵軍
+    public int TargetCount { get; set; }        // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
+    public object Bonus { get; set; }       //配合技能組件規則的額外設定
 }
 
 #endregion
@@ -326,6 +312,8 @@ public class BootyDataList
 
 #endregion
 
+#region 遊戲設定相關
+
 /// <summary>
 /// 職業能力值加成
 /// </summary>
@@ -395,6 +383,10 @@ public class GameSettingDataModel : IDictionaryData<string>
     }
 }
 
+#endregion
+
+#region NPC
+
 /// <summary>
 /// NPC 資料
 /// </summary>
@@ -439,6 +431,10 @@ public class ShopInventoryData
     public string ProductID { get; set; }           //道具 ID
     public int LimitQty { get; set; }           //限制販賣數量(0為不限制)
 }
+
+#endregion
+
+#region 任務
 
 /// <summary>
 /// 任務資料結構
@@ -505,6 +501,10 @@ public class FinishQuestData
     public List<string> QuestChatContent { get; set; }         //完成任務對話
 }
 
+#endregion
+
+#region 教學
+
 /// <summary>
 /// 教學系統資料
 /// </summary>
@@ -564,10 +564,12 @@ public class TutorialIDData
     public List<string> IncludedID { get; set; }          //此教學必須包含的ID清單
 }
 
+#endregion
+
 /// <summary>
 /// 遊戲文字資料
 /// </summary>
-public class GameText:IDictionaryData<string>
+public class GameText : IDictionaryData<string>
 {
     public string TextID { get; set; }          //文字ID
     public string TextContent { get; set; }      //文字內容

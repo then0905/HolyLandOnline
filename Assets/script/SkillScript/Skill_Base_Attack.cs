@@ -16,40 +16,16 @@ public abstract class Skill_Base_Attack : Skill_Base
     /// </summary>
     [HideInInspector] public bool SkillBeUpgrade { get { return skillBeUpgrade; } }
 
-    /// <summary>
-    /// 攻擊型技能標籤
-    /// </summary>
-    public enum AttackCategory
+    protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defender = null)
     {
-        /// <summary>
-        /// 近距離攻擊
-        /// </summary>
-        MeleeATK,
-        /// <summary>
-        /// 遠距離攻擊
-        /// </summary>
-        RemoteATK,
-        /// <summary>
-        /// 魔法攻擊
-        /// </summary>
-        MageATK,
+        SkillController.Instance.UsingSkillObj = this;
+        base.SkillEffectStart(attacker, defender);
     }
 
-    /// <summary>
-    /// 確認是否有選擇到目標
-    /// </summary>
-    /// <param name="attacker">施放者</param>
-    /// <param name="defender">被施放者</param>
-    protected void CheckGetAnyTarget(ICombatant attacker = null, ICombatant defender = null)
+    protected override void SkillEffectEnd(ICombatant caster = null, ICombatant receiver = null)
     {
-        if (SelectTarget.Instance.Targetgameobject != null/* && !SkillBeUpgrade*/)
-        {
-            BattleOperation.Instance.SkillAttackEvent?.Invoke(this, attacker, defender);
-            PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetTrigger(skillID);
-        }
-        else
-        {
-            SkillEffectEnd();
-        }
+        SkillController.Instance.UsingSkillObj = null;
+        if (gameObject)
+            Destroy(gameObject);
     }
 }

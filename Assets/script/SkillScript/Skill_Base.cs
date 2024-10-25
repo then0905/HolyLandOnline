@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using System.Collections;
+using System;
 
 //==========================================
 //  創建者:家豪
@@ -47,6 +48,16 @@ public interface ISkillBase
 /// </summary>
 public interface ISkillEffect : ISkillBase
 {
+    /// <summary>
+    /// 技能資料
+    /// </summary>
+    SkillData SkillData { get; set; }
+
+    /// <summary>
+    /// 技能組件資料清單
+    /// </summary>
+    List<ISkillComponent> SkillComponentList { get; set; }
+
     /// <summary>
     /// 該技能是否可以施放
     /// <param name="tempMana">施放者魔力值</param>
@@ -104,6 +115,19 @@ public interface IExtraEffect
     /// </summary>
     /// <param name="target"></param>
     void Remove(ICombatant target);
+}
+
+/// <summary>
+/// 技能組件接口
+/// </summary>
+public interface ISkillComponent
+{
+    /// <summary>
+    /// 技能效果實現
+    /// </summary>
+    /// <param name="caster">施放者</param>
+    /// <param name="target">被施放者</param>
+    void Execute(ICombatant caster, ICombatant target);
 }
 
 #endregion
@@ -265,59 +289,6 @@ public enum DebuffCategory
 
 public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
 {
-
-    #region GameData上的資料結構
-    protected bool characteristic;                // True:主動、False:被動
-    protected int multipleValue;                 // 多段傷害的次數 次數大於1需要填
-
-    protected List<float> effectValue;            // 效果值 
-    protected List<string> influenceStatus;       // 效果影響的屬性 (Buff)   
-    protected List<string> addType;               // 加成運算的方式 Rate:乘法、Value:加法   
-    protected string effectCategory;              // 標籤類型    
-    protected List<string> additionalEffect = new List<string>();      // 額外附加效果標籤
-    protected List<float> additionalEffectValue = new List<float>();  // 額外附加效果的值
-    protected List<float> additionalEffectTime = new List<float>();   // 額外附加效果持續時間
-    protected Dictionary<string, List<string>> condition = new Dictionary<string, List<string>>();             // 執行技能所需條件
-
-    protected int effectRecive;
-    protected int targetCount;                    // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
-    protected float effectDurationTime;           // 效果持續時間
-    protected float chantTime;                    // 詠唱時間
-
-    protected string additionMode;                // 攻擊模式 戰鬥計算防禦方面使用 (近距離物理、遠距離物理找物防:魔法找魔防)
-    protected float distance;                     // 技能範圍(施放者與目標間的距離值)
-    protected float width;                        // 矩形範圍的寬
-    protected float height;                       // 矩形範圍的長度
-    protected float circleDistance;               // 圓形範圍
-    #endregion
-
-    #region 供外部獲取資料的結構
-
-    public bool Characteristic { get { return characteristic; } }             // True:主動、False:被動
-    public int MultipleValue { get { return multipleValue; } }                 // 多段傷害的次數 次數大於1需要填
-
-    public List<float> EffectValue { get { return effectValue; } }               // 效果值 
-    public List<string> InfluenceStatus { get { return influenceStatus; } }        // 效果影響的屬性 (Buff)   
-    public List<string> AddType { get { return addType; } }                // 加成運算的方式 Rate:乘法、Value:加法   
-    public string EffectCategory { get { return effectCategory; } }                   // 標籤類型    
-    public List<string> AdditionalEffect { get { return additionalEffect; } }      // 額外附加效果標籤
-    public List<float> AdditionalEffectValue { get { return additionalEffectValue; } }  // 額外附加效果的值
-    public List<float> AdditionalEffectTime { get { return additionalEffectTime; } }   // 額外附加效果持續時間
-    public Dictionary<string, List<string>> Condition { get { return condition; } }              // 執行技能所需條件
-
-    public int EffectRecive { get { return effectRecive; } }
-    public int TargetCount { get { return targetCount; } }                        // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
-    public float EffectDurationTime { get { return effectDurationTime; } }              // 效果持續時間
-    public float ChantTime { get { return chantTime; } }                        // 詠唱時間
-    public string Type { get; set; }            // 技能類型
-    public string AdditionMode { get { return additionMode; } }                    // 攻擊模式 戰鬥計算防禦方面使用 (近距離物理、遠距離物理找物防:魔法找魔防)
-    public float Distance { get { return distance; } }                        // 技能範圍(施放者與目標間的距離值)
-    public float Width { get { return width; } }                           // 矩形範圍的寬
-    public float Height { get { return height; } }                         // 矩形範圍的長度
-    public float CircleDistance { get { return circleDistance; } }                 // 圓形範圍 
-
-    #endregion
-
     public string SkillID { get { return skillID; } }
 
     public string SkillName { get; protected set; }
@@ -344,6 +315,9 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
 
     public string KeyID => SkillID;
 
+    public SkillData SkillData { get; set; }
+
+    public List<ISkillComponent> SkillComponentList { get; set; } = new List<ISkillComponent>();
 
     [Header("技能ID 用來從GameData找資料輸入"), SerializeField] protected string skillID;
 
@@ -366,41 +340,98 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     {
         skillBeUpgrade = skillUpgrade;
         //獲取GameData技能資料
-        SkillDataModel effectData = GameData.SkillsDataDic[skillID];
+        SkillData = GameData.SkillDataDic[skillID];
 
-        //設定其他資料
-        characteristic = effectData.Characteristic;
-        multipleValue = effectData.MultipleValue;
-        effectCategory = effectData.EffectCategory;
-        effectRecive = effectData.EffectRecive;
-        targetCount = effectData.TargetCount;
-        effectDurationTime = effectData.EffectDurationTime;
-        chantTime = effectData.ChantTime;
-        additionMode = effectData.AdditionMode;
-        distance = effectData.Distance;
-        width = effectData.Width;
-        height = effectData.Height;
-        circleDistance = effectData.CircleDistance;
-        effectValue = effectData.EffectValue;
-        addType = effectData.AddType;
-        influenceStatus = effectData.InfluenceStatus;
-        additionalEffect = effectData.AdditionalEffect;
-        additionalEffectValue = effectData.AdditionalEffectValue;
-        additionalEffectTime = effectData.AdditionalEffectTime;
+        CooldownTime = SkillData.CD;
+        CastMage = SkillData.CastMage;
 
-        CooldownTime = effectData.CD;
-        CastMage = effectData.CastMage;
-        Type = effectData.Type;
+        SkillName = SkillData.Name.GetText();
+        SkillIntro = SkillData.Intro.GetText();
 
-        SkillName = effectData.Name.GetText();
-        SkillIntro = effectData.Intro.GetText();
+        //設定技能組件接口
+        SkillData.SkillOperationDataList.ForEach(x => SkillComponentList.Add(SkillComponent(x)));
 
-        //如果技能被升級 初始化技能時不執行 等待升級資訊後才執行
-        //if (!skillUpgrade)
-        //    SkillEffectStart(caster, receiver);
         //設定生成特效參考
-        if (effectObj != null) InitSkillEffect(effectData.EffectTarget);
+        if (effectObj != null) InitSkillEffect(SkillData.EffectTarget);
     }
+
+    /// <summary>
+    /// 技能施放開始
+    /// </summary>
+    /// <param name="caster">施放者</param>
+    /// <param name="receiver">被施放者</param>
+    protected virtual void SkillEffectStart(ICombatant caster = null, ICombatant receiver = null)
+    {
+        SkillComponentList.ForEach(x => x.Execute(caster, receiver));
+    }
+
+    /// <summary>
+    /// 技能施放結束
+    /// </summary>
+    protected abstract void SkillEffectEnd(ICombatant caster = null, ICombatant receiver = null);
+
+    /// <summary>
+    /// 技能施放結束 For AnimationEvent
+    /// </summary>
+    public void SkillEndForAnimation()
+    {
+        SkillEffectEnd();
+    }
+
+    /// <summary>
+    /// 實例化技能特效物件
+    /// </summary>
+    /// <param name="targetReference">生成目標參考</param>
+    protected void InitSkillEffect(string targetReference)
+    {
+        GameObject obj;
+        switch (targetReference)
+        {
+            default:
+            case "Self":
+                obj = Instantiate(effectObj, PlayerDataOverView.Instance.CharacterMove.Character.transform);
+                break;
+            case "Target":
+                obj = Instantiate(effectObj, SelectTarget.Instance.Targetgameobject.transform);
+                break;
+                //case "TargetArea":
+                //case "Team":
+        }
+        obj.transform.localScale = Vector3.one;
+    }
+
+    /// <summary>
+    /// 從被動獲得技能升級效果 刷新技能內容
+    /// </summary>
+    /// <param name="skillUpgradeID">技能升級目標ID</param>
+    public void GetSkillUpgradeEffect(string skillUpgradeID, ICombatant caster = null, ICombatant receiver = null)
+    {
+        //獲取GameData技能資料
+        var effectData = GameData.SkillDataDic[skillUpgradeID];
+        SkillData.CastMage = effectData.CastMage;
+        SkillData.CD = effectData.CD;
+        SkillData.ChantTime = effectData.ChantTime;
+        SkillData.AnimaTrigger = effectData.AnimaTrigger;
+        SkillData.Type = effectData.Type;
+        SkillData.EffectTarget = effectData.EffectTarget;
+        SkillData.Distance = effectData.Distance;
+        SkillData.Width = effectData.Width;
+        SkillData.Height = effectData.Height;
+        SkillData.CircleDistance = effectData.CircleDistance;
+        SkillData.Damage = effectData.Damage;
+        SkillData.AdditionMode = effectData.AdditionMode;
+        //升級資訊完成 執行程式
+        skillBeUpgrade = false;
+        SkillEffect(caster, receiver);
+    }
+
+    public void SkillEffect(ICombatant caster = null, ICombatant target = null)
+    {
+        PlayerDataOverView.Instance?.ChangeMpEvent?.Invoke(-1 * CastMage);
+        SkillEffectStart(caster, target);
+    }
+
+    #region 技能運作功能類方法
 
     /// <summary>
     /// 確認玩家是否進入可施放範圍
@@ -410,7 +441,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         DistanceWithTarget();
         PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = true;
         //若還沒進入施放距離則移動玩家
-        while (dis > Distance)
+        while (dis > SkillData.Distance)
         {
             DistanceWithTarget();
 
@@ -451,53 +482,12 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     }
 
     /// <summary>
-    /// 分割並輸入條件資料
-    /// </summary>
-    /// <param name="conditionID"></param>
-    private void SplitConditionData(List<string> conditionID)
-    {
-        if (conditionID == null) return;
-        List<string> tempValue = new List<string>();
-        string tempKey = "";
-        foreach (string item in conditionID)
-        {
-            //分割出條件(key)與判斷值(value)
-            var splitData = item.Split('_');
-
-            //判斷key值是否一樣 不一樣清空value
-            if (tempKey != splitData[0])
-                tempValue = new List<string>();
-
-            tempKey = splitData[0];
-            tempValue.Add(splitData[1]);
-            condition.TrySetValue(tempKey, tempValue);
-        }
-    }
-
-    /// <summary>
-    /// 效果所需條件是否達成判斷
-    /// </summary>
-    /// <returns></returns>
-    protected bool CheckCondition()
-    {
-        bool[] checkResult = new bool[condition.Count];
-        int i = 0;
-        foreach (var item in condition)
-        {
-            checkResult[i] = DetailConditionProcess(item.Key, item.Value);
-            i++;
-        }
-
-        return checkResult.All(x => x == true);
-    }
-
-    /// <summary>
     /// 詳細條件判斷處理
     /// </summary>
     /// <param name="key">條件名稱</param>
     /// <param name="value">條件判斷值</param>
     /// <returns></returns>
-    protected bool DetailConditionProcess(string key, List<string> value)
+    public bool DetailConditionProcess(string key, object value)
     {
         switch (key)
         {
@@ -506,16 +496,20 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
             case "Equip":
                 foreach (var itemData in ItemManager.Instance.EquipDataList)
                 {
-                    if (itemData.EquipmentDatas.Weapon != null)
-                    {
-                        if (value.Any(x => x.Contains(itemData.EquipmentDatas.Weapon.TypeID)))
-                            return true;
-                    }
-                    else if (itemData.EquipmentDatas.Armor != null)
-                    {
-                        if (value.Any(x => x.Contains(itemData.EquipmentDatas.Armor.TypeID)))
-                            return true;
-                    }
+                    if (value.ToString() == itemData.EquipmentDatas.Weapon?.TypeID)
+                        return true;
+                    if (value.ToString() == itemData.EquipmentDatas.Armor?.TypeID)
+                        return true;
+                    //if (itemData.EquipmentDatas.Weapon != null)
+                    //{
+                    //    if (value.ToString() == itemData.EquipmentDatas.Weapon?.TypeID)
+                    //        return true;
+                    //}
+                    //else if (itemData.EquipmentDatas.Armor != null)
+                    //{
+                    //    if (value.Any(x => x.Contains(itemData.EquipmentDatas.Armor.TypeID)))
+                    //        return true;
+                    //}
                 }
                 return false;
             //在戰鬥狀態中
@@ -539,86 +533,6 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         }
     }
 
-    /// <summary>
-    /// 技能施放開始
-    /// </summary>
-    /// <param name="caster">施放者</param>
-    /// <param name="receiver">被施放者</param>
-    protected abstract void SkillEffectStart(ICombatant caster = null, ICombatant receiver = null);
-
-    /// <summary>
-    /// 技能施放結束
-    /// </summary>
-    protected abstract void SkillEffectEnd();
-
-    /// <summary>
-    /// 技能施放結束 For AnimationEvent
-    /// </summary>
-    public void SkillEndForAnimation()
-    {
-        SkillEffectEnd();
-    }
-
-    /// <summary>
-    /// 實例化技能特效物件
-    /// </summary>
-    /// <param name="targetReference">生成目標參考</param>
-    protected void InitSkillEffect(string targetReference)
-    {
-        GameObject obj;
-        switch (targetReference)
-        {
-            default:
-            case "Self":
-                obj = Instantiate(effectObj, PlayerDataOverView.Instance.CharacterMove.Character.transform);
-                break;
-            case "Target":
-                obj = Instantiate(effectObj, SelectTarget.Instance.Targetgameobject.transform);
-                break;
-                //case "TargetArea":
-                //case "Team":
-        }
-        obj.transform.localScale = Vector3.one;
-    }
-
-    /// <summary>
-    /// 從被動獲得技能升級效果 刷新技能內容
-    /// </summary>
-    /// <param name="skillUpgradeID">技能升級目標ID</param>
-    public void GetSkillUpgradeEffect(string skillUpgradeID, ICombatant caster = null, ICombatant receiver = null)
-    {
-        //獲取GameData技能資料
-        var effectData = GameData.SkillsDataDic[skillUpgradeID];
-        //設定其他資料
-        //characteristic = effectData.Characteristic;
-        multipleValue = effectData.MultipleValue;
-        //effectCategory = effectData.EffectCategory;
-        effectRecive = effectData.EffectRecive;
-        targetCount = effectData.TargetCount;
-        effectDurationTime = effectData.EffectDurationTime;
-        chantTime = effectData.ChantTime;
-        additionMode = effectData.AdditionMode;
-        distance = effectData.Distance;
-        width = effectData.Width;
-        height = effectData.Height;
-        circleDistance = effectData.CircleDistance;
-        effectValue = effectData.EffectValue;
-        addType = effectData.AddType;
-        influenceStatus = effectData.InfluenceStatus;
-        additionalEffect = effectData.AdditionalEffect;
-        additionalEffectValue = effectData.AdditionalEffectValue;
-        additionalEffectTime = effectData.AdditionalEffectTime;
-        //升級資訊完成 執行程式
-        skillBeUpgrade = false;
-        SkillEffect(caster, receiver);
-    }
-
-    public void SkillEffect(ICombatant caster = null, ICombatant target = null)
-    {
-        PlayerDataOverView.Instance?.ChangeMpEvent?.Invoke(-1 * CastMage);
-        SkillEffectStart(caster, target);
-    }
-
     public virtual IEnumerable UpdateCooldown(float deltaTime)
     {
         //暫存冷卻時間
@@ -633,4 +547,90 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
             yield return new WaitForSeconds(0.1f);
         }
     }
+
+    /// <summary>
+    /// 效果所需條件是否達成判斷
+    /// </summary>
+    /// <returns></returns>
+    public bool CheckCondition()
+    {
+        bool[] checkResult = new bool[SkillData.SkillOperationDataList.Count];
+        int i = 0;
+        foreach (var item in SkillData.SkillOperationDataList)
+        {
+            List<string> condition = item.Condition;
+            if (condition == null || condition.Count <= 0) return true;
+            foreach (var data in condition)
+            {
+                DetailConditionProcess(data.Split('_')[0], data.Split('_')[1]);
+                i++;
+            }
+        }
+
+        return checkResult.All(x => x == true);
+    }
+
+    /// <summary>
+    /// 取得技能組件
+    /// </summary>
+    /// <param name="skillComponentID"></param>
+    /// <returns></returns>
+    public ISkillComponent SkillComponent(SkillOperationData skillOperationData)
+    {
+        switch (skillOperationData.SkillComponentID)
+        {
+            case "Damage":
+                return new DamageSkillComponent(this, skillOperationData);
+
+            case "ElementtDamage":
+                return new ElementtDamageSkillComponent(this, skillOperationData);
+
+            case "DotDamage":
+                return new DotDamageSkill(this, skillOperationData);
+
+            case "CrowdControl":
+                return new CrowdControlSkillComponent(this, skillOperationData);
+
+            case "Channeled":
+                return new ChanneledSkillComponent(this, skillOperationData);
+
+            case "Utility":
+                return new UtilitySkillComponent(this, skillOperationData);
+
+            case "Teleportation":
+                return new TeleportationSkillComponent(this, skillOperationData);
+
+            case "Lunge":
+                return new LungeSkillComponent(this, skillOperationData);
+
+            case "Charge":
+                return new ChargeSkillComponent(this, skillOperationData);
+
+            case "UpgradeSkill":
+                return new UpgradeSkillComponent(this, skillOperationData);
+
+            case "EnhanceSkill":
+                return new EnhanceSkillComponent(this, skillOperationData);
+
+            case "InheritDamage":
+                return new InheritDamegeSkillComponent(this, skillOperationData);
+
+            case "PassiveBuff":
+                return new PassiveBuffSkillComponent(this, skillOperationData);
+
+            case "ContinuanceBuff":
+                return new ContinuanceBuffComponent(this, skillOperationData);
+
+            case "AdditiveBuff ":
+                return new AdditiveBuffComponent(this, skillOperationData);
+
+            case "Debuff":
+                return new DebuffComponent(this, skillOperationData);
+
+            default:
+                return null;
+        }
+    }
+
+    #endregion 
 }

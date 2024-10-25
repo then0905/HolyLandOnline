@@ -1,8 +1,6 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -36,30 +34,15 @@ public interface ICharacterStatus
     /// Buff類型
     /// </summary>
     string CharacterStatusType { get; }
-
     /// <summary>
-    /// Buff持續時間
+    /// 紀錄持續時間資料
     /// </summary>
-    float CharacterStatusDuration { get; }
-
-    /// <summary>
-    /// 更新狀態效果運行時間 協程 自運算使用
-    /// </summary>
-    /// <param name="deltaTime"></param>
-    /// <returns></returns>
-    IEnumerable UpdateTimerCoroutine(float deltaTime);
-
-    /// <summary>
-    /// 更新狀態效果運行時間 方法 外部更新
-    /// </summary>
-    /// <param name="deltaTime"></param>
-    void UpdateTimerMethod(object o, float deltaTime);
-
+    float TempCoolDownTime { get; set; }
     /// <summary>
     /// 狀態效果移除
     /// </summary>
     /// <param name="deltaTime"></param>
-    void RemoveCharacterStatusHint(object o, string id);
+    void RemoveCharacterStatusHint(params SkillOperationData[] skillcomponent);
 }
 
 /// <summary>
@@ -110,21 +93,24 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
 
     private Skill_Base_Buff skill_Base_Buff;
 
+    public SkillOperationData[] SkillOperationDatas { get; set; }
+
     public EventHandler<float> CharacterHintTimeEvent;     //狀態效果時間更新事件
 
     /// <summary>
     /// 初始化狀態提示資料
     /// </summary>
-    public virtual void BuffHintInit(Skill_Base_Buff skillBase_Buff)
+    public virtual IEnumerator BuffHintInit(SkillComponent skillcomponent, params SkillOperationData[] skillOperationData)
     {
         //狀態提示基本資料設定
-        CharacterStatusName = skillBase_Buff.SkillName;
-        CharacterStatusID = skillBase_Buff.SkillID;
-        CharacterStatusDuration = skillBase_Buff.EffectDurationTime;
-        CharacterStatusIntro = skillBase_Buff.SkillIntro;
-        CharacterStatusType = ("TM_"+skillBase_Buff.CharacterStatusType.ToString()).GetText();
+        skill_Base_Buff = skillcomponent.SkillBase as Skill_Base_Buff;
+        SkillOperationDatas = skillOperationData;
+
+        CharacterStatusName = skill_Base_Buff.SkillName;
+        CharacterStatusID = skill_Base_Buff.SkillID;
+        CharacterStatusIntro = skill_Base_Buff.SkillIntro;
+        CharacterStatusType = CharacterStatusManager.Instance.ReturnCharacterTypeStr(skillOperationData[0].SkillComponentID);
         buffIcon.sprite = CommonFunction.LoadSkillIcon(CharacterStatusID);
-        skill_Base_Buff = skillBase_Buff;
 
         //訂閱移除事件
         CharacterStatusManager.Instance.CharacterSatusRemoveEvent += RemoveCharacterStatusHint;
@@ -132,59 +118,47 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
         //設定狀態提示物件 位置 大小 與 旋轉方向
         gameObject.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
         gameObject.transform.localScale = Vector3.one;
-        gameObject.transform.eulerAngles = Vector3.zero;
 
         //暫存
-        CharacterStatusManager.Instance.CharacterStatusHintDic.TryAdd(CharacterStatusID, this);
+        CharacterStatusManager.Instance.CharacterStatusHintDic.Add(this);
+
+        if (CharacterStatusManager.Instance.ReturnTimerCheck(skillOperationData[0].SkillComponentID))
+            //開始運行計時
+            StartCoroutine(UpdateTimer(skillOperationData[0].EffectDurationTime));
+
+        yield return new WaitForEndOfFrame();
+
+        //gameObject.transform.eulerAngles = Vector3.zero;
     }
 
-    public virtual IEnumerable UpdateTimerCoroutine(float deltaTime)
+    public IEnumerator UpdateTimer(float timer)
     {
-        //更新時間
-        TempCoolDownTime = deltaTime;
+        TempCoolDownTime = timer;
         while (TempCoolDownTime > 0)
         {
             TempCoolDownTime -= 0.1f;
-            //更新持續時間文字
-            //buffTimerText.text = TempCoolDownTime.ToString();
-            CharacterHintTimeEvent?.Invoke(null, TempCoolDownTime);
-
             if (TempCoolDownTime <= 10)
-                alphaAinmCoroutine = StartCoroutine(CanvasGroupAnim());
-            else
-            {
-                if (alphaAinmCoroutine != null)
-                {
-                    StopCoroutine(alphaAinmCoroutine);
-                    alphaAinmCoroutine = null;
-                }
-            }
-
+                StartCoroutine(CanvasGroupAnim());
             yield return new WaitForSeconds(0.1f);
         }
+        CharacterStatusManager.Instance.CharacterSatusRemoveEvent?.Invoke(this.SkillOperationDatas);
     }
 
-    public virtual void UpdateTimerMethod(object o, float deltaTime)
+    public virtual void RemoveCharacterStatusHint(params SkillOperationData[] skillcomponent)
     {
-        TempCoolDownTime = deltaTime;
-        CharacterHintTimeEvent?.Invoke(null, TempCoolDownTime);
-        //buffTimerText.text = TempCoolDownTime.ToString();
-        if (TempCoolDownTime <= 10)
-            alphaAinmCoroutine = StartCoroutine(CanvasGroupAnim());
-        else
+        if (skillcomponent.ToArray().SequenceEqual(this.SkillOperationDatas))
         {
-            if (alphaAinmCoroutine != null)
+            CharacterStatusManager.Instance.CharacterSatusRemoveEvent -= RemoveCharacterStatusHint;
+            foreach (var item in skill_Base_Buff.SkillComponentList)
             {
-                StopCoroutine(alphaAinmCoroutine);
-                alphaAinmCoroutine = null;
+                if (item is BuffComponent)
+                {
+                    (item as BuffComponent).ReverseExecute(skillcomponent);
+                }
             }
+            CharacterStatusManager.Instance.CharacterStatusHintDic.Remove(this);
+            Destroy(this.gameObject);
         }
-    }
-
-    public virtual void RemoveCharacterStatusHint(object o, string id)
-    {
-        CharacterStatusManager.Instance.CharacterSatusRemoveEvent -= RemoveCharacterStatusHint;
-        Destroy(this.gameObject);
     }
 
     /// <summary>

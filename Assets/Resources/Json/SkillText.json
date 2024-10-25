@@ -445,7 +445,7 @@
   },
   {
     "TextID": "TM_Praetorian_3_Intro",
-    "TextContent": "對一名敵方目標造成多次傷害，最多5次，每一段傷害增加上一次的傷害15%"
+    "TextContent": "對一名敵方目標造成多次傷害，最多3次，每一段傷害增加10%"
   },
   {
     "TextID": "TM_Praetorian_4_Name",

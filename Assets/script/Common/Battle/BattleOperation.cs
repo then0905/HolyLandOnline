@@ -57,6 +57,20 @@ public interface ICombatant
     /// <param name="attackerData">攻擊方</param>
     /// <param name="damage">傷害量</param>
     public void DealingWithInjuriesMethod(ICombatant attackerData, int damage);
+
+    /// <summary>
+    /// 賦予目標Buff處理
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="skillTarget"></param>
+    public void GetBuffEffect(ICombatant target, SkillOperationData skillTarget);
+
+    /// <summary>
+    /// 移除目標Buff處理
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="skillTarget"></param>
+    public void RemoveBuffEffect(ICombatant target, SkillOperationData skillTarget);
 }
 
 public class BattleOperation : MonoBehaviour
@@ -81,7 +95,7 @@ public class BattleOperation : MonoBehaviour
     private int hitRate;        //命中率
 
     //技能攻擊
-    public Action<Skill_Base_Attack, ICombatant, ICombatant> SkillAttackEvent;
+    public Action<DamageComponent, ICombatant, ICombatant> SkillAttackEvent;
     //普通攻擊
     public Action<ICombatant, ICombatant> NormalAttackEvent;
 
@@ -111,28 +125,28 @@ public class BattleOperation : MonoBehaviour
     /// <summary>
     /// 獲取戰鬥對象
     /// </summary>    
-    /// <param name="skillBase">攻擊技能資料</param>
+    /// <param name="skillCompnent">攻擊技能資料</param>
     /// <param name="attacker">攻擊方</param>
     /// <param name="defender">防守方</param>
-    public void BattleOperationStart(Skill_Base_Attack skillBase, ICombatant attacker, ICombatant defender)
+    public void BattleOperationStart(DamageComponent skillCompnent, ICombatant attacker, ICombatant defender)
     {
         //檢查空值
-        if (skillBase != null && attacker != default(ICombatant) && defender != default(ICombatant))
-            HitOrMiss(attacker, defender, skillBase);
+        if (skillCompnent != null && attacker != default(ICombatant) && defender != default(ICombatant))
+            HitOrMiss(attacker, defender, skillCompnent);
     }
 
     /// <summary>
     ///  是否命中
     /// </summary>
-    /// <param name="skillBase">攻擊技能資料</param>
+    /// <param name="skillCompnent">攻擊技能資料</param>
     /// <param name="target">目標</param>
-    public void HitOrMiss(ICombatant attacker, ICombatant defender, Skill_Base_Attack skillBase = null)
+    public void HitOrMiss(ICombatant attacker, ICombatant defender, DamageComponent skillCompnent = null)
     {
         PlayerDataOverView.Instance.GetAttackMode =
         (PlayerDataOverView.Instance.PlayerData_.NormalAttackRange >= 3 ? "RemoteATK" : "MeleeATK");
 
-        if (skillBase != null)
-            PlayerDataOverView.Instance.GetAttackMode = skillBase.EffectCategory;
+        if (skillCompnent != null)
+            PlayerDataOverView.Instance.GetAttackMode = skillCompnent.SkillBase.SkillData.AdditionMode;
 
         hitValue = attacker.Hit * 100 / (attacker.Hit + defender.Avoid);
         hitRate = (int)Mathf.Round(hitValue);
@@ -141,7 +155,7 @@ public class BattleOperation : MonoBehaviour
 
         // 是否命中
         if (isHit < hitRate)
-            CrtOrNormal(attacker, defender, skillBase);
+            CrtOrNormal(attacker, defender, skillCompnent);
         else
             InstanceDmgGUI("Miss", false, defender.Obj);
     }
@@ -150,7 +164,7 @@ public class BattleOperation : MonoBehaviour
     /// 是否暴擊計算
     /// </summary>
     /// <param name="monsterBehaviour">怪物行為腳本</param>
-    public void CrtOrNormal(ICombatant attacker, ICombatant defender, Skill_Base_Attack skillBase = null)
+    public void CrtOrNormal(ICombatant attacker, ICombatant defender, DamageComponent skillComponent = null)
     {
         //宣告暴擊率
         float CrtRate;
@@ -159,7 +173,7 @@ public class BattleOperation : MonoBehaviour
 
         //查看是否暴擊
         int isCrt = UnityEngine.Random.Range(0, 101);
-        DmgOperation(isCrt < CrtRate, attacker, defender, skillBase);
+        DmgOperation(isCrt < CrtRate, attacker, defender, skillComponent);
     }
 
     /// <summary>
@@ -175,8 +189,8 @@ public class BattleOperation : MonoBehaviour
     /// </summary>
     /// <param name="iscrt">是否暴擊</param>
     /// <param name="monsterBehaviour">怪物行為腳本</param>
-    /// <param name="skillData">技能資料</param>
-    public void DmgOperation(bool iscrt, ICombatant attacker, ICombatant defender, Skill_Base_Attack skillData = null)
+    /// <param name="skillcompnent">技能資料</param>
+    public void DmgOperation(bool iscrt, ICombatant attacker, ICombatant defender, DamageComponent skillcompnent = null)
     {
         float defRate;//防禦%
         float damage;//總傷害
@@ -184,18 +198,18 @@ public class BattleOperation : MonoBehaviour
         //計算出防禦%
         defRate = 0.75f * defender.DEF / (attacker.LV + 9);
 
-        if (skillData != null)
+        if (skillcompnent != null)
         {
-            PlayerDataOverView.Instance.GetAttackMode = skillData.EffectCategory;
-            print("技能倍率:" + skillData.EffectValue[0]);
+            PlayerDataOverView.Instance.GetAttackMode = skillcompnent.SkillBase.SkillData.AdditionMode;
+            print("技能倍率:" + skillcompnent.SkillOperationData.EffectValue);
         }
         damage = attacker.ATK;
 
         //是否暴擊
         if (iscrt)
-            damage = (skillData != null) ? damage * skillData.EffectValue[0] * (damage * 1.5f + attacker.CrtDamage) : damage * (damage * 1.5f + attacker.CrtDamage);
+            damage = (skillcompnent != null) ? damage * skillcompnent.SkillOperationData.EffectValue * (damage * 1.5f + attacker.CrtDamage) : damage * (damage * 1.5f + attacker.CrtDamage);
         else
-            damage = (skillData != null) ? damage * skillData.EffectValue[0] : damage;
+            damage = (skillcompnent != null) ? damage * skillcompnent.SkillOperationData.EffectValue : damage;
         //目標扣除生命
         int finalDamage = (int)Mathf.Round((1 - defRate) * damage);
         defender.DealingWithInjuriesMethod(attacker, finalDamage);

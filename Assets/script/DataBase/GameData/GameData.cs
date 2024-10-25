@@ -17,9 +17,9 @@ public partial class GameData : MonoBehaviour
     //防具字典
     public static Dictionary<string, ArmorDataModel> ArmorsDic = new Dictionary<string, ArmorDataModel>();
     //技能UI版字典
-    public static Dictionary<string, SkillUIModel> SkillsUIDic = new Dictionary<string, SkillUIModel>();
+    public static Dictionary<string, SkillData> SkillDataDic = new Dictionary<string, SkillData>();
     //技能資料字典
-    public static Dictionary<string, SkillDataModel> SkillsDataDic = new Dictionary<string, SkillDataModel>();
+    //public static Dictionary<string, SkillDataModel> SkillsDataDic = new Dictionary<string, SkillDataModel>();
     //武器字典
     public static Dictionary<string, WeaponDataModel> WeaponsDic = new Dictionary<string, WeaponDataModel>();
     //道具字典
@@ -66,8 +66,8 @@ public partial class GameData : MonoBehaviour
             "WeaponText");
         CommonFunction.InitData(MonsterBootysDic,  "Json", "Bootys");
         CommonFunction.InitData(ArmorsDic, "Json", "Armor");
-        CommonFunction.InitData(SkillsUIDic, "Json", "SkillIntro");
-        CommonFunction.InitData(SkillsDataDic, "Json", "SkillData");
+        CommonFunction.InitData(SkillDataDic, "Json", "SkillData");
+        //CommonFunction.InitData(SkillDataDic, "Json", "SkillData");
         CommonFunction.InitData(WeaponsDic, "Json", "Weapon");
         CommonFunction.InitData(ItemsDic, "Json", "Item");
         CommonFunction.InitData(MonstersDataDic, "Json", "Monster");

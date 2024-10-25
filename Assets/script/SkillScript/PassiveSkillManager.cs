@@ -63,7 +63,7 @@ public class PassiveSkillManager : MonoBehaviour
                 //被動技能初始化
                 skillEffectObj.GetComponent<Skill_Base>().InitSkillEffectData();
                 //被動技能效果執行
-                skillEffectObj.GetComponent<Skill_Base>().SkillEffect();
+                skillEffectObj.GetComponent<Skill_Base>().SkillEffect(PlayerDataOverView.Instance,PlayerDataOverView.Instance) ;
             });
     }
 
@@ -73,6 +73,11 @@ public class PassiveSkillManager : MonoBehaviour
     public void RestartPassiveSkill()
     {
         if (SkillPassiveBuffList.Count < 1) return;
-        SkillPassiveBuffList.ForEach(x => x.RestartSkillEffect());
+        //SkillPassiveBuffList.ForEach(x => x.RestartSkillEffect());
+        for (int i = 0; i < SkillPassiveBuffList.Count; i++)
+        {
+            if (SkillPassiveBuffList[i].gameObject != null)
+                SkillPassiveBuffList[i].RestartSkillEffect();
+        }
     }
 }

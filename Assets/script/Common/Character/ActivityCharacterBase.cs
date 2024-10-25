@@ -163,4 +163,14 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
     {
         
     }
+
+    public virtual void GetBuffEffect(ICombatant target, SkillOperationData skillData)
+    {
+
+    }
+
+    public virtual void RemoveBuffEffect(ICombatant target, SkillOperationData skillTarget)
+    {
+
+    }
 }

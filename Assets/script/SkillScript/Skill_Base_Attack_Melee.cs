@@ -9,20 +9,8 @@ using UnityEngine;
 //==========================================
 public class Skill_Base_Attack_Melee : Skill_Base_Attack
 {
-    /// <summary>
-    /// 攻擊標籤
-    /// </summary>
-    public readonly AttackCategory AttackType = AttackCategory.MeleeATK;
-
     protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defender = null)
     {
-        CheckGetAnyTarget(attacker, defender);
+        base.SkillEffectStart(attacker, defender);
     }
-
-    protected override void SkillEffectEnd()
-    {
-        if (gameObject)
-            Destroy(gameObject);
-    }
-
 }

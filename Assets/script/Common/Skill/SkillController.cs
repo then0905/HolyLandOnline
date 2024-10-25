@@ -216,7 +216,7 @@ public class SkillController : MonoBehaviour
                 SkillChasingCoroutine = StartCoroutine(skill_Base.SkillDistanceCheck());
             else
             {
-                switch (skill_Base.Type)
+                switch (skill_Base.SkillData.Type)
                 {
                     //指向技能類型
                     case "Arrow":
@@ -250,7 +250,7 @@ public class SkillController : MonoBehaviour
     public void SkillArrow(Skill_Base skillUIData, string UpgradeSkillID = "")
     {
         //設定範圍圖示長寬
-        SkillArrowImage.GetComponent<RectTransform>().sizeDelta = new Vector2(skillUIData.Width, skillUIData.Height);
+        SkillArrowImage.GetComponent<RectTransform>().sizeDelta = new Vector2(skillUIData.SkillData.Width, skillUIData.SkillData.Height);
 
         //顯示指向技畫布並隱藏其他型畫布
         SkillArrowImage.GetComponent<Image>().enabled = true;
@@ -295,9 +295,9 @@ public class SkillController : MonoBehaviour
     public void SkillCircle(Skill_Base skillUIData, string UpgradeSkillID = "")
     {
         //設定範圍圖示半徑
-        SkillPlayerCricle.GetComponent<RectTransform>().sizeDelta = new Vector2(skillUIData.Distance, skillUIData.Distance);
+        SkillPlayerCricle.GetComponent<RectTransform>().sizeDelta = new Vector2(skillUIData.SkillData.Distance, skillUIData.SkillData.Distance);
         //設定圓圈型範圍技的圖示半徑
-        SkillTargetCircle.GetComponent<RectTransform>().sizeDelta = new Vector2(skillUIData.CircleDistance, skillUIData.CircleDistance);
+        SkillTargetCircle.GetComponent<RectTransform>().sizeDelta = new Vector2(skillUIData.SkillData.CircleDistance, skillUIData.SkillData.CircleDistance);
 
         //顯示圓形範圍技與攻擊範圍圖示 隱藏其他圖示
         SkillArrowImage.GetComponent<Image>().enabled = false;
@@ -320,7 +320,7 @@ public class SkillController : MonoBehaviour
     public void SkillTarget(Skill_Base skillUIData, string UpgradeSkillID = "")
     {
         //設定範圍圖示半徑
-        SkillPlayerCricle.GetComponent<RectTransform>().sizeDelta = new Vector2(skillUIData.Distance, skillUIData.Distance);
+        SkillPlayerCricle.GetComponent<RectTransform>().sizeDelta = new Vector2(skillUIData.SkillData.Distance, skillUIData.SkillData.Distance);
 
         //顯示攻擊範圍圖示 隱藏其他圖示
         SkillArrowImage.GetComponent<Image>().enabled = false;

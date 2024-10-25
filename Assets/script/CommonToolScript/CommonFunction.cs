@@ -279,13 +279,13 @@ public static class CommonFunction
     /// <param name="realtimeAct">進度更新時的事件</param>
     /// <param name="finishAct">完成計時的事件</param>
     /// <returns></returns>
-    public static IEnumerator Timer(float time, Action realtimeAct = null, Action finishAct = null)
+    public static IEnumerator Timer(float time, Action<float> realtimeAct = null, Action finishAct = null)
     {
         float tempTime = time;
         while (time > 0)
         {
             time -= Time.deltaTime;
-            realtimeAct?.Invoke();
+            realtimeAct?.Invoke(time);
             yield return null;
         }
         finishAct?.Invoke();

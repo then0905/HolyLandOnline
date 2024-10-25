@@ -38,7 +38,7 @@ public class ClassAndSkill : MonoBehaviour
     //生成技能物件的父級
     public Transform InsSkillChildTrans;
     //儲存生成的Skill該有的資料
-    private List<SkillUIModel> skillDataModelList = new List<SkillUIModel>();
+    private List<SkillData> skillDataModelList = new List<SkillData>();
     //儲存生成的SkillUI
     private List<SkillUI> skillUIList = new List<SkillUI>();
 
@@ -54,14 +54,14 @@ public class ClassAndSkill : MonoBehaviour
     /// </summary>
     public void Init()
     {
-        skillDataModelList = new List<SkillUIModel>();
+        skillDataModelList = new List<SkillData>();
         skillUIList.ForEach(x => Destroy(x.gameObject));
         skillUIList.Clear();
         Job = PlayerDataOverView.Instance.PlayerData_.Job;
         LV = PlayerDataOverView.Instance.PlayerData_.Lv;
 
         //玩家職業可以取得的技能
-        var jobSkillList = GameData.SkillsUIDic.Values.Where(x => x.Job.Contains(Job) && x.NeedLv <= LV).OrderBy(y => y.NeedLv).ToList();
+        var jobSkillList = GameData.SkillDataDic.Values.Where(x => x.Job.Contains(Job) && x.NeedLv <= LV).OrderBy(y => y.NeedLv).ToList();
 
         //儲存技能資料
         foreach (var data in jobSkillList)

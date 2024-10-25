@@ -43,7 +43,7 @@ public class CharacterStatusHintIntroSetting : MonoBehaviour
         buffIntroIcon.sprite = CommonFunction.LoadSkillIcon(characterStatus.CharacterStatusID);
         buffNameText.text = characterStatus.CharacterStatusName;
         buffIntroText.text = characterStatus.CharacterStatusIntro;
-        buffTimerText.text = string.Format("TM_TimeLeft".GetText(), (characterStatus.CharacterStatusType == "TM_Passive".GetText()) ? "--" : characterStatus.CharacterStatusDuration.ToString());
+        buffTimerText.text = string.Format("TM_TimeLeft".GetText(), (characterStatus.CharacterStatusType == "TM_Passive".GetText()) ? "--" : characterStatus.TempCoolDownTime.ToString());
         buffTypeText.text = characterStatus.CharacterStatusType.ToString();
 
         //訂閱事件處理
@@ -54,16 +54,23 @@ public class CharacterStatusHintIntroSetting : MonoBehaviour
         }
 
         //設定buff強化相關資訊
-        if (skillBase_Buff.InfluenceStatus != null && skillBase_Buff.InfluenceStatus.Count > 0)
-            for (int i = 0; i < skillBase_Buff.InfluenceStatus.Count; i++)
-            {
-                GameObject tempObj = Instantiate(buffContentTextObj, buffContentTrans);
-                tempObj.SetActive(true);
-                TextMeshProUGUI tempObjText = tempObj.GetComponentInChildren<TextMeshProUGUI>();
-                tempObjText.text = string.Format("TM_CharacterStatusHintBuffFomat".GetText(),
-                    ("TM_" + skillBase_Buff.InfluenceStatus[i]).GetText(), string.Format(("TM_" + skillBase_Buff.AddType[i]).GetText(), skillBase_Buff.EffectValue[i].ToString()));
-                buffContentTextObjList.Add(tempObj);
-            }
+        for (int i = 0; i < tempCharacterStatusHintbase.SkillOperationDatas.Length; i++)
+        {
+            if (string.IsNullOrEmpty(tempCharacterStatusHintbase.SkillOperationDatas[i].InfluenceStatus)) continue;
+
+            GameObject tempObj = Instantiate(buffContentTextObj, buffContentTrans);
+
+            tempObj.SetActive(true);
+
+            TextMeshProUGUI tempObjText = tempObj.GetComponentInChildren<TextMeshProUGUI>();
+
+            tempObjText.text = string.Format("TM_CharacterStatusHintBuffFomat".GetText(),
+                ("TM_" + tempCharacterStatusHintbase.SkillOperationDatas[i].InfluenceStatus).GetText(),
+                string.Format(("TM_" + tempCharacterStatusHintbase.SkillOperationDatas[i].AddType).GetText(),
+                tempCharacterStatusHintbase.SkillOperationDatas[i].EffectValue.ToString()));
+
+            buffContentTextObjList.Add(tempObj);
+        }
     }
 
     /// <summary>

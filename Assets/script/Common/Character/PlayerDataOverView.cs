@@ -278,4 +278,15 @@ public class PlayerDataOverView : ActivityCharacterBase
     {
         ChangeHpEvent.Invoke(damage);
     }
+
+    public override void GetBuffEffect(ICombatant target, SkillOperationData skillData)
+    {
+
+        StatusOperation.Instance.SkillEffectStatusOperation(skillData.InfluenceStatus, (skillData.AddType == "Rate"), skillData.EffectValue);
+    }
+
+    public override void RemoveBuffEffect(ICombatant target, SkillOperationData skillData)
+    {
+        StatusOperation.Instance.SkillEffectStatusOperation(skillData.InfluenceStatus, (skillData.AddType == "Rate"), skillData.EffectValue * -1);
+    }
 }
