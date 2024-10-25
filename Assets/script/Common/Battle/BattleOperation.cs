@@ -22,6 +22,8 @@ public interface ICombatant
     public int LV { get; }
     /// <summary>攻擊力</summary>
     public int ATK { get; }
+    /// <summary>攻擊模式</summary>
+    public string GetAttackMode { get; set; }
     /// <summary>命中值</summary>
     public int Hit { get; }
     /// <summary>迴避值</summary>
@@ -142,12 +144,6 @@ public class BattleOperation : MonoBehaviour
     /// <param name="target">目標</param>
     public void HitOrMiss(ICombatant attacker, ICombatant defender, DamageComponent skillCompnent = null)
     {
-        PlayerDataOverView.Instance.GetAttackMode =
-        (PlayerDataOverView.Instance.PlayerData_.NormalAttackRange >= 3 ? "RemoteATK" : "MeleeATK");
-
-        if (skillCompnent != null)
-            PlayerDataOverView.Instance.GetAttackMode = skillCompnent.SkillBase.SkillData.AdditionMode;
-
         hitValue = attacker.Hit * 100 / (attacker.Hit + defender.Avoid);
         hitRate = (int)Mathf.Round(hitValue);
         // 命中率
@@ -195,31 +191,34 @@ public class BattleOperation : MonoBehaviour
         float defRate;//防禦%
         float damage;//總傷害
 
-        //計算出防禦%
-        defRate = 0.75f * defender.DEF / (attacker.LV + 9);
-
+        //有施放技能 取得技能運算的攻擊類型
         if (skillcompnent != null)
         {
-            PlayerDataOverView.Instance.GetAttackMode = skillcompnent.SkillBase.SkillData.AdditionMode;
+            attacker.GetAttackMode = skillcompnent.SkillBase.SkillData.AdditionMode;
             print("技能倍率:" + skillcompnent.SkillOperationData.EffectValue);
         }
+        else
+        {
+            PlayerDataOverView.Instance.GetAttackMode = (PlayerDataOverView.Instance.PlayerData_.NormalAttackRange >= 3 ? "RemoteATK" : "MeleeATK");
+        }
+
         damage = attacker.ATK;
 
-        //是否暴擊
+        //計算出防禦%
+        defRate = 0.75f * (attacker.GetAttackMode == "MageATK" ? defender.MDEF : defender.DEF) / (attacker.LV + 9);
+
+        //是否暴擊 取得傷害量
         if (iscrt)
             damage = (skillcompnent != null) ? damage * skillcompnent.SkillOperationData.EffectValue * (damage * 1.5f + attacker.CrtDamage) : damage * (damage * 1.5f + attacker.CrtDamage);
         else
             damage = (skillcompnent != null) ? damage * skillcompnent.SkillOperationData.EffectValue : damage;
-        //目標扣除生命
+
+        //傷害經過防禦減免的數值
         int finalDamage = (int)Mathf.Round((1 - defRate) * damage);
+
+        //被攻擊者運算扣除生命
         defender.DealingWithInjuriesMethod(attacker, finalDamage);
-        //monsterBehaviour.CurrentHp -= (int)Mathf.Round((1 - defRate) * damage);
-        //monsterBehaviour.MonsterInBattleEvent?.Invoke(null, new BattleTargetData()
-        //{
-        //    Target = PlayerDataOverView.Instance.CharacterMove.gameObject,
-        //    TargetData = PlayerDataOverView.Instance.PlayerData_,
-        //    Damage = 1
-        //});
+
         //生成傷害數字
         InstanceDmgGUI(finalDamage.ToString(), iscrt, defender.Obj);
     }

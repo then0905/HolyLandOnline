@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 //==========================================
 //  創建者:    家豪
@@ -13,7 +12,7 @@ public class OtherPlayerCharacter : ActivityCharacterBase
     [Header("遊戲資料")]
     public PlayerData PlayerData_ = new PlayerData();
 
-    public string GetAttackMode { get; set; }
+    public override string GetAttackMode { get; set; }
     public override int HP
     {
         get => PlayerData_.HP;

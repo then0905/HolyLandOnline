@@ -36,6 +36,8 @@ public class NpcBehavior : ActivityCharacterBase
 
     public override int ATK => npcDataModel.ATK;
 
+    public override string GetAttackMode { get; set; }
+
     public override int Hit => npcDataModel.Hit;
 
     public override int Avoid => npcDataModel.Avoid;

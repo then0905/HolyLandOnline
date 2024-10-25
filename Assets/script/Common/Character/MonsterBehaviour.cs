@@ -108,6 +108,7 @@ public class MonsterBehaviour : ActivityCharacterBase
     }
     public override int LV { get => monsterValue.Lv; }
     public override int ATK { get => monsterValue.ATK; }
+    public override string GetAttackMode { get { return monsterValue.AttackMode; } set { value = monsterValue.AttackMode; } }
     public override int Hit { get => monsterValue.Hit; }
     public override int Avoid { get => monsterValue.Avoid; }
     public override int DEF { get => monsterValue.DEF; }

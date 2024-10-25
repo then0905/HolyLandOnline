@@ -50,7 +50,7 @@ public class PlayerDataOverView : ActivityCharacterBase
     [Header("遊戲資料")]
     public PlayerData PlayerData_ = new PlayerData();
 
-    public string GetAttackMode { get; set; }
+    public override string GetAttackMode { get; set; }
     public override int HP
     {
         get => PlayerData_.HP;
