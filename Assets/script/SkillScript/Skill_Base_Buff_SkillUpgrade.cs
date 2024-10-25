@@ -22,9 +22,9 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
     {
         foreach (var component in SkillComponentList)
         {
-            if (component is UpgradeSkillComponent)
+            if (component is UpgradeSkillComponent skillcomponentData)
             {
-                (component as UpgradeSkillComponent).ReverseExecute();
+                skillcomponentData.ReverseExecute();
             }
         }
         buffIsRun = false;

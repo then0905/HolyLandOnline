@@ -151,9 +151,9 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
             CharacterStatusManager.Instance.CharacterSatusRemoveEvent -= RemoveCharacterStatusHint;
             foreach (var item in skill_Base_Buff.SkillComponentList)
             {
-                if (item is BuffComponent)
+                if (item is BuffComponent buffcomponent)
                 {
-                    (item as BuffComponent).ReverseExecute(skillcomponent);
+                    buffcomponent.ReverseExecute(skillcomponent);
                 }
             }
             CharacterStatusManager.Instance.CharacterStatusHintDic.Remove(this);
