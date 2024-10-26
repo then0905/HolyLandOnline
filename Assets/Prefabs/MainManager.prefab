@@ -562,6 +562,7 @@ MonoBehaviour:
   characterBuffStatusTrans: {fileID: 1819869161044325610}
   characterDeBuffStatusTrans: {fileID: 2453945982400194479}
   characterPassiveStatusTrans: {fileID: 1088915620276226953}
+  CharacterStatusHintDic: []
 --- !u!1 &9062499104897443465
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,6 +980,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: StatusOperation, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 1275579474673554301, guid: a998fef5049e7e84cb923ef83b486cab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1275579474734130159, guid: a998fef5049e7e84cb923ef83b486cab,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1094,6 +1100,11 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 9062499104029004557}
+    - target: {fileID: 1275579474997517649, guid: a998fef5049e7e84cb923ef83b486cab,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1275579475003163091, guid: a998fef5049e7e84cb923ef83b486cab,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -1591,6 +1602,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4851480915535052379, guid: a998fef5049e7e84cb923ef83b486cab,
         type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4851480915535052379, guid: a998fef5049e7e84cb923ef83b486cab,
+        type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -1668,6 +1684,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[3].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: OnClick
+      objectReference: {fileID: 0}
+    - target: {fileID: 8822692289509742542, guid: a998fef5049e7e84cb923ef83b486cab,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8822692289509742542, guid: a998fef5049e7e84cb923ef83b486cab,
         type: 3}

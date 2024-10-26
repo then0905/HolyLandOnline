@@ -12,7 +12,7 @@ public class SkillUI : MonoBehaviour, ISkillBase
 {
     public string SkillID { get; set ;  }
 
-    public float CooldownTime { get { return int.Parse(skillCostMage.text); } set { skillCostMage.text = value.ToString(); } }
+    public float CooldownTime { get { return int.Parse(skillCD.text); } set { skillCD.text = value.ToString(); } }
 
     public int CastMage { get { return int.Parse(skillCostMage.text); } set { skillCostMage.text = value.ToString(); } }
 
