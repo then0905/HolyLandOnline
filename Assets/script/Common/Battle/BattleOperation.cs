@@ -144,6 +144,17 @@ public class BattleOperation : MonoBehaviour
     /// <param name="target">目標</param>
     public void HitOrMiss(ICombatant attacker, ICombatant defender, DamageComponent skillCompnent = null)
     {
+        //有施放技能 取得技能運算的攻擊類型
+        if (skillCompnent != null)
+        {
+            attacker.GetAttackMode = skillCompnent.SkillBase.SkillData.AdditionMode;
+            print("技能倍率:" + skillCompnent.SkillOperationData.EffectValue);
+        }
+        else
+        {
+            PlayerDataOverView.Instance.GetAttackMode = (PlayerDataOverView.Instance.PlayerData_.NormalAttackRange >= 3 ? "RemoteATK" : "MeleeATK");
+        }
+
         hitValue = attacker.Hit * 100 / (attacker.Hit + defender.Avoid);
         hitRate = (int)Mathf.Round(hitValue);
         // 命中率
@@ -190,17 +201,6 @@ public class BattleOperation : MonoBehaviour
     {
         float defRate;//防禦%
         float damage;//總傷害
-
-        //有施放技能 取得技能運算的攻擊類型
-        if (skillcompnent != null)
-        {
-            attacker.GetAttackMode = skillcompnent.SkillBase.SkillData.AdditionMode;
-            print("技能倍率:" + skillcompnent.SkillOperationData.EffectValue);
-        }
-        else
-        {
-            PlayerDataOverView.Instance.GetAttackMode = (PlayerDataOverView.Instance.PlayerData_.NormalAttackRange >= 3 ? "RemoteATK" : "MeleeATK");
-        }
 
         damage = attacker.ATK;
 
