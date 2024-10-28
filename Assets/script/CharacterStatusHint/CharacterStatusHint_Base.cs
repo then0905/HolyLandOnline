@@ -137,6 +137,7 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
         while (TempCoolDownTime > 0)
         {
             TempCoolDownTime -= 0.1f;
+            CharacterHintTimeEvent?.Invoke(this, TempCoolDownTime);
             if (TempCoolDownTime <= 10)
                 StartCoroutine(CanvasGroupAnim());
             yield return new WaitForSeconds(0.1f);

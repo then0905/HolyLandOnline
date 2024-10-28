@@ -80,7 +80,7 @@ public class CharacterStatusHintIntroSetting : MonoBehaviour
     /// <param name="timer"></param>
     private void TimeSetting(object o, float timer)
     {
-        buffTimerText.text = string.Format("TM_TimeLeft".GetText(), timer.ToString()); ;
+        buffTimerText.text = string.Format("TM_TimeLeft".GetText(), ((int)timer).ToString()); ;
     }
 
     public void DestroyGameObject()
