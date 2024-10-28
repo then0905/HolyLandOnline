@@ -13,5 +13,8 @@ EditorBuildSettings:
     guid: fa23a077eeb2ce7428ad4a6cdcdcbb6f
   - enabled: 1
     path: Assets/Scenes/DevelopmentTest.unity
-    guid: 23cbc96a694f22a4dbd70059b7f23de9
+    guid: 2d7a346c5a38faf4da025772c39ad8ed
+  - enabled: 1
+    path: Assets/Scenes/LoginScene.unity
+    guid: 3d5dd9bce1debad4594c4354024036ee
   m_configObjects: {}
