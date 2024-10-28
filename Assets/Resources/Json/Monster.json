@@ -29,7 +29,7 @@
     "AtkSpeed": 0.7,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100,
     "MonsterSpawnPosList": [
       {
@@ -82,7 +82,7 @@
     "AtkSpeed": 1,
     "WalkSpeed": 0.05,
     "RunSpeed": 0.05,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100,
     "MonsterSpawnPosList": [
       {
@@ -135,7 +135,7 @@
     "AtkSpeed": 0.5,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -168,7 +168,7 @@
     "AtkSpeed": 0.35,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -201,7 +201,7 @@
     "AtkSpeed": 1.1,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -235,7 +235,7 @@
     "AtkSpeed": 0.35,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -268,7 +268,7 @@
     "AtkSpeed": 0.6,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 6,
+    "AttackRange": 12,
     "PursueRange": 100
   },
   {
@@ -301,7 +301,7 @@
     "AtkSpeed": 0.5,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -334,7 +334,7 @@
     "AtkSpeed": 0.55,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -367,7 +367,7 @@
     "AtkSpeed": 0.6,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -400,7 +400,7 @@
     "AtkSpeed": 0.6,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 10,
+    "AttackRange": 20,
     "PursueRange": 100
   },
   {
@@ -433,7 +433,7 @@
     "AtkSpeed": 0.6,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 8,
+    "AttackRange": 16,
     "PursueRange": 100,
     "MonsterSkillList": [
       {
@@ -483,7 +483,7 @@
     "AtkSpeed": 0.7,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -517,7 +517,7 @@
     "AtkSpeed": 0.75,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -550,7 +550,7 @@
     "AtkSpeed": 0.5,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -584,7 +584,7 @@
     "AtkSpeed": 0.6,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -618,7 +618,7 @@
     "AtkSpeed": 0.6,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 10,
+    "AttackRange": 20,
     "PursueRange": 100
   },
   {
@@ -652,7 +652,7 @@
     "AtkSpeed": 0.6,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 8,
+    "AttackRange": 16,
     "PursueRange": 100,
     "MonsterSkillList": [
       {
@@ -702,7 +702,7 @@
     "AtkSpeed": 0.7,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -736,7 +736,7 @@
     "AtkSpeed": 0.75,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -770,7 +770,7 @@
     "AtkSpeed": 0.5,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -804,7 +804,7 @@
     "AtkSpeed": 0.66,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 10,
+    "AttackRange": 20,
     "PursueRange": 100
   },
   {
@@ -838,7 +838,7 @@
     "AtkSpeed": 0.6,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -872,7 +872,7 @@
     "AtkSpeed": 0.55,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -906,7 +906,7 @@
     "AtkSpeed": 0.5,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 4,
+    "AttackRange": 8,
     "PursueRange": 100
   },
   {
@@ -940,7 +940,7 @@
     "AtkSpeed": 0.4,
     "WalkSpeed": 0.08,
     "RunSpeed": 0.15,
-    "AttackRange": 5,
+    "AttackRange": 12,
     "PursueRange": 100,
     "MonsterSkillList": [
       {

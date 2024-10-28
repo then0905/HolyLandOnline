@@ -39,6 +39,7 @@ public class DragSkill : MonoBehaviour
     public void BeginDrag(BaseEventData baseEventData)
     {
         PointerEventData data = baseEventData as PointerEventData;
+        //if (data.pointerCurrentRaycast.gameObject.GetComponent<SkillUI>() == null) return;
         //判斷是否為被動技能
         if (Callskillbase.Characteristic)
         {

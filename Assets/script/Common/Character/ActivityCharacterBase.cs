@@ -161,7 +161,7 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
         }
     }
 
-    public virtual void DealingWithInjuriesMethod(ICombatant attackerData, int damage)
+    public virtual void DealingWithInjuriesMethod(ICombatant attackerData, int damage , bool animTrigger = true)
     {
         
     }

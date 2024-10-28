@@ -122,7 +122,7 @@ public class OtherPlayerCharacter : ActivityCharacterBase
 
     }
 
-    public override void DealingWithInjuriesMethod(ICombatant attackerData, int damage)
+    public override void DealingWithInjuriesMethod(ICombatant attackerData, int damage, bool animTrigger = true)
     {
         
     }

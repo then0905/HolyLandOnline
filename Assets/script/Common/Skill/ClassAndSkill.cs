@@ -79,7 +79,7 @@ public class ClassAndSkill : MonoBehaviour
         foreach (var item in skillDataModelList)
         {
             //生成SkillUI物件
-            SkillUI skillUIobj = Instantiate(SkillChild, InsSkillChildTrans).GetComponent<SkillUI>();
+            SkillUI skillUIobj = Instantiate(SkillChild, InsSkillChildTrans).GetComponentInChildren<SkillUI>();
 
             //設定此物件的資料
             skillUIobj.SkillID = item.SkillID;

@@ -351,7 +351,7 @@ public class MonsterBehaviour : ActivityCharacterBase
                 },
                 () =>
                 {
-                    Debug.Log("怪物:" + name + " 當前狀態 :" + "追擊成功 切換 攻擊");
+                    //Debug.Log("怪物:" + name + " 當前狀態 :" + "追擊成功 切換 攻擊");
                     MonsterSetting(MonserBehaviorEnum.Attack);
                 }));
         }
@@ -381,7 +381,7 @@ public class MonsterBehaviour : ActivityCharacterBase
             MonsterAnimator.SetTrigger("Attack");
             //攻擊計時器協程
             StartCoroutine(CommonFunction.Timer(monsterAttackTimer, null, (() => { MonsterIsAttack = false; })));
-            Debug.Log("怪物:" + name + " 當前狀態 :" + "攻擊");
+            //Debug.Log("怪物:" + name + " 當前狀態 :" + "攻擊");
 
             // 等待一段時間，以確保動畫已經開始播放
             yield return new WaitForSeconds(0.1f);
@@ -391,7 +391,7 @@ public class MonsterBehaviour : ActivityCharacterBase
             // 等待動畫播放完畢
             yield return new WaitUntil(() => !MonsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("MonsterAttack"));
 
-            Debug.Log("怪物:" + name + " 當前狀態 :" + "攻擊完畢");
+            //Debug.Log("怪物:" + name + " 當前狀態 :" + "攻擊完畢");
             //BreakAnyCoroutine();
             //攻擊完成重新設定追擊
             MonsterSetting(MonserBehaviorEnum.Pursue);
@@ -399,14 +399,14 @@ public class MonsterBehaviour : ActivityCharacterBase
         else
         {
             yield return null;
-            Debug.Log("怪物:" + name + " 當前狀態 :" + "攻擊 但攻擊計時未完成 切換追擊再次等待攻擊");
+            //Debug.Log("怪物:" + name + " 當前狀態 :" + "攻擊 但攻擊計時未完成 切換追擊再次等待攻擊");
             MonsterSetting(MonserBehaviorEnum.Pursue);
         }
     }
 
-    public override void DealingWithInjuriesMethod(ICombatant battleData, int damage)
+    public override void DealingWithInjuriesMethod(ICombatant battleData, int damage, bool animTrigger = true)
     {
-        StartCoroutine(DealingWithInjuriesCoroutine(battleData, damage));
+        StartCoroutine(DealingWithInjuriesCoroutine(battleData, damage, animTrigger));
     }
 
     /// <summary>
@@ -415,7 +415,7 @@ public class MonsterBehaviour : ActivityCharacterBase
     /// <param name="battleData"></param>
     /// <param name="damage"></param>
     /// <returns></returns>
-    public IEnumerator DealingWithInjuriesCoroutine(ICombatant battleData, int damage)
+    public IEnumerator DealingWithInjuriesCoroutine(ICombatant battleData, int damage, bool animTrigger)
     {
         //檢查此次傷害造成者是否已經在紀錄中
         if (!BattleTargetDic.ContainsKey(battleData))
@@ -425,12 +425,14 @@ public class MonsterBehaviour : ActivityCharacterBase
 
         //血量扣除
         HP -= damage;
-        //怪物動畫(受傷)
-        MonsterAnimator.SetTrigger("Injuried");
+
+        if (animTrigger)
+            //怪物動畫(受傷)
+            MonsterAnimator.SetTrigger("Injuried");
 
         // 等待一段時間，以確保動畫已經開始播放
         yield return new WaitForSeconds(0.1f);
-        Debug.Log("怪物:" + name + " 當前狀態 :" + "受傷");
+        //Debug.Log("怪物:" + name + " 當前狀態 :" + "受傷");
         // 等待動畫播放完畢
         yield return new WaitUntil(() => !MonsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("MonsterInjuried"));
 

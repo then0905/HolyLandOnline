@@ -274,7 +274,7 @@ public class PlayerDataOverView : ActivityCharacterBase
         UIrefresh?.Invoke();
     }
 
-    public override void DealingWithInjuriesMethod(ICombatant attackerData, int damage)
+    public override void DealingWithInjuriesMethod(ICombatant attackerData, int damage, bool animTrigger = true)
     {
         ChangeHpEvent.Invoke(damage);
     }

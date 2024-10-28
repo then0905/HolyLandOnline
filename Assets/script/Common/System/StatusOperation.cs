@@ -721,7 +721,8 @@ public class StatusOperation : MonoBehaviour
             PlayerDataOverView.Instance.PlayerData_.DisorderResistance = tempBasalStatus.DisorderResistance;
         }
         //刷新數據呈現
-        PlayerDataPanelProcessor.Instance.SetPlayerDataContent();
+        //PlayerDataPanelProcessor.Instance.SetPlayerDataContent();
+        PlayerDataOverView.Instance.UIrefresh?.Invoke();
     }
 
     /// <summary>

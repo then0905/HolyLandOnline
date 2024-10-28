@@ -9,7 +9,7 @@
     "CD": 1,
     "AnimaTrigger": "Sword01",
     "Type": "Target",
-    "Distance": 3,
+    "Distance": 8,
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
@@ -36,7 +36,7 @@
     "CD": 1,
     "AnimaTrigger": "Sword02",
     "Type": "Target",
-    "Distance": 3,
+    "Distance": 8,
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
@@ -64,9 +64,9 @@
     "CD": 3,
     "AnimaTrigger": "Sword03",
     "Type": "Arrow",
-    "Distance": 3,
-    "Width": 10,
-    "Height": 5,
+    "Distance": 8,
+    "Width": 18,
+    "Height": 8,
     "CircleDistance": 0,
     "Damage": 1.1,
     "AdditionMode": "MeleeATK",
@@ -236,14 +236,14 @@
       },
       {
         "SkillID": "Warrior_3",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.25,
         "EffectRecive": -1,
         "TargetCount": 1
       },
       {
         "SkillID": "Warrior_3",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.25,
         "EffectRecive": -1,
         "TargetCount": 1
@@ -619,7 +619,7 @@
         "SkillID": "Knight_6",
         "SkillComponentID": "PassiveBuff",
         "EffectValue": 5,
-        "InfluenceStatus": "MeleeATK,MeleeHit",
+        "InfluenceStatus": "MeleeHit",
         "AddType": "Value",
         "Condition": [
           "Equip_OneHandedSword",
@@ -822,14 +822,14 @@
       },
       {
         "SkillID": "Berserker_3",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.55,
         "EffectRecive": -1,
         "TargetCount": 1
       },
       {
         "SkillID": "Berserker_3",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.55,
         "EffectRecive": -1,
         "TargetCount": 1
@@ -2167,7 +2167,7 @@
       },
       {
         "SkillID": "Praetorian_3",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.35,
         "InfluenceStatus": "IncreaseDmg",
         "AddType": "Rate",
@@ -2176,7 +2176,7 @@
       },
       {
         "SkillID": "Praetorian_3",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.45,
         "InfluenceStatus": "IncreaseDmg",
         "AddType": "Rate",
@@ -2719,49 +2719,49 @@
       },
       {
         "SkillID": "Praetorian_16",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.1,
         "EffectRecive": 1,
         "TargetCount": 1
       },
       {
         "SkillID": "Praetorian_16",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.1,
         "EffectRecive": 1,
         "TargetCount": 1
       },
       {
         "SkillID": "Praetorian_16",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.1,
         "EffectRecive": 1,
         "TargetCount": 1
       },
       {
         "SkillID": "Praetorian_16",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.1,
         "EffectRecive": 1,
         "TargetCount": 1
       },
       {
         "SkillID": "Praetorian_16",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.1,
         "EffectRecive": 1,
         "TargetCount": 1
       },
       {
         "SkillID": "Praetorian_16",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.1,
         "EffectRecive": 1,
         "TargetCount": 1
       },
       {
         "SkillID": "Praetorian_16",
-        "SkillComponentID": "Damage",
+        "SkillComponentID": "MultipleDamage",
         "EffectValue": 1.1,
         "EffectRecive": 1,
         "TargetCount": 1

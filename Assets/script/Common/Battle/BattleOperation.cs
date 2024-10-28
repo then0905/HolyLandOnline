@@ -58,7 +58,7 @@ public interface ICombatant
     /// <param name="o"></param>
     /// <param name="attackerData">攻擊方</param>
     /// <param name="damage">傷害量</param>
-    public void DealingWithInjuriesMethod(ICombatant attackerData, int damage);
+    public void DealingWithInjuriesMethod(ICombatant attackerData, int damage, bool animTrigger = true);
 
     /// <summary>
     /// 賦予目標Buff處理
@@ -152,7 +152,7 @@ public class BattleOperation : MonoBehaviour
         }
         else
         {
-            PlayerDataOverView.Instance.GetAttackMode = (PlayerDataOverView.Instance.PlayerData_.NormalAttackRange >= 3 ? "RemoteATK" : "MeleeATK");
+            PlayerDataOverView.Instance.GetAttackMode = (PlayerDataOverView.Instance.PlayerData_.NormalAttackRange >= 8 ? "RemoteATK" : "MeleeATK");
         }
 
         hitValue = attacker.Hit * 100 / (attacker.Hit + defender.Avoid);
@@ -180,7 +180,7 @@ public class BattleOperation : MonoBehaviour
 
         //查看是否暴擊
         int isCrt = UnityEngine.Random.Range(0, 101);
-        DmgOperation(isCrt < CrtRate, attacker, defender, skillComponent);
+        StartCoroutine(DmgOperation(isCrt < CrtRate, attacker, defender, skillComponent));
     }
 
     /// <summary>
@@ -197,7 +197,7 @@ public class BattleOperation : MonoBehaviour
     /// <param name="iscrt">是否暴擊</param>
     /// <param name="monsterBehaviour">怪物行為腳本</param>
     /// <param name="skillcompnent">技能資料</param>
-    public void DmgOperation(bool iscrt, ICombatant attacker, ICombatant defender, DamageComponent skillcompnent = null)
+    public IEnumerator DmgOperation(bool iscrt, ICombatant attacker, ICombatant defender, DamageComponent skillcompnent = null)
     {
         float defRate;//防禦%
         float damage;//總傷害
@@ -216,8 +216,11 @@ public class BattleOperation : MonoBehaviour
         //傷害經過防禦減免的數值
         int finalDamage = (int)Mathf.Round((1 - defRate) * damage);
 
+        if (skillcompnent is MultipleDamageSkillComponent)
+            yield return new WaitForSeconds(0.75f);
+
         //被攻擊者運算扣除生命
-        defender.DealingWithInjuriesMethod(attacker, finalDamage);
+        defender.DealingWithInjuriesMethod(attacker, finalDamage, skillcompnent is not MultipleDamageSkillComponent);
 
         //生成傷害數字
         InstanceDmgGUI(finalDamage.ToString(), iscrt, defender.Obj);

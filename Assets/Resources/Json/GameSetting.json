@@ -53,7 +53,7 @@
   },
   {
     "GameSettingID": "MeleeAttackRange",
-    "GameSettingValue": 5
+    "GameSettingValue": 8
   },
   {
     "GameSettingID": "MonsterActivityIntervalMin",

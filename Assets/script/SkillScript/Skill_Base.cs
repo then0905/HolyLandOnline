@@ -362,6 +362,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     /// <param name="receiver">被施放者</param>
     protected virtual void SkillEffectStart(ICombatant caster = null, ICombatant receiver = null)
     {
+        print("生成的被動技能效果物件:" + SkillName);
         SkillComponentList.ForEach(x => x.Execute(caster, receiver));
     }
 
@@ -438,6 +439,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     /// </summary>
     public IEnumerator SkillDistanceCheck()
     {
+        Vector3 direction;
         DistanceWithTarget();
         PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = true;
         //若還沒進入施放距離則移動玩家
@@ -446,12 +448,10 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
             DistanceWithTarget();
 
             // 取得角色面相目標的方向
-            Vector3 direction = SelectTarget.Instance.Targetgameobject.transform.position - PlayerDataOverView.Instance.CharacterMove.Character.transform.position;
+            direction = SelectTarget.Instance.Targetgameobject.transform.position - PlayerDataOverView.Instance.CharacterMove.Character.transform.position;
             // 鎖定y軸的旋轉 避免角色在x軸和z軸上傾斜
             direction.y = 0;
-            // 如果 direction 的長度不為零，設定角色的朝向
-            if (direction != Vector3.zero)
-                PlayerDataOverView.Instance.CharacterMove.Character.transform.rotation = Quaternion.LookRotation(direction);
+            PlayerDataOverView.Instance.CharacterMove.Character.transform.rotation = Quaternion.LookRotation(direction);
 
             //跑步動畫
             PlayerDataOverView.Instance.CharacterMove.RunAnimation(true);
@@ -464,7 +464,12 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
             yield return new WaitForEndOfFrame();
         }
         PlayerDataOverView.Instance.CharacterMove.RunAnimation(false);
-        SkillController.Instance.UsingSkill = true;
+        // 取得角色面相目標的方向
+        direction = SelectTarget.Instance.Targetgameobject.transform.position - PlayerDataOverView.Instance.CharacterMove.Character.transform.position;
+        // 鎖定y軸的旋轉 避免角色在x軸和z軸上傾斜
+        direction.y = 0;
+        PlayerDataOverView.Instance.CharacterMove.Character.transform.rotation = Quaternion.LookRotation(direction);
+        //SkillController.Instance.UsingSkill = true;
         SkillEffect(PlayerDataOverView.Instance, SelectTarget.Instance.Targetgameobject);
     }
 
@@ -554,16 +559,17 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     /// <returns></returns>
     public bool CheckCondition()
     {
-        bool[] checkResult = new bool[SkillData.SkillOperationDataList.Count];
-        int i = 0;
+        List<bool> checkResult = new List<bool>();
         foreach (var item in SkillData.SkillOperationDataList)
         {
             List<string> condition = item.Condition;
-            if (condition == null || condition.Count <= 0) return true;
+            if (condition == null || condition.Count <= 0) continue;
             foreach (var data in condition)
             {
-                DetailConditionProcess(data.Split('_')[0], data.Split('_')[1]);
-                i++;
+                if (data.Split('_').Length >= 2)
+                    checkResult.Add(DetailConditionProcess(data.Split('_')[0], data.Split('_')[1]));
+                else
+                    checkResult.Add(DetailConditionProcess(data.Split('_')[0], null));
             }
         }
 
@@ -581,6 +587,9 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         {
             case "Damage":
                 return new DamageSkillComponent(this, skillOperationData);
+
+            case "MultipleDamage":
+                return new MultipleDamageSkillComponent(this, skillOperationData);
 
             case "ElementtDamage":
                 return new ElementtDamageSkillComponent(this, skillOperationData);

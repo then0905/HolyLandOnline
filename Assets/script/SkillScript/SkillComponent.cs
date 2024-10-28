@@ -54,6 +54,27 @@ public class DamageSkillComponent : DamageComponent
 }
 
 /// <summary>
+/// 多段傷害演出技能組件
+/// </summary>
+public class MultipleDamageSkillComponent : DamageComponent
+{
+    public MultipleDamageSkillComponent(Skill_Base skill_Base, SkillOperationData operationData)
+    {
+        skillbase = skill_Base;
+        skillOperationData = operationData;
+    }
+
+    public override void Execute(ICombatant caster, ICombatant target)
+    {
+        if (SelectTarget.Instance.Targetgameobject != null/* && !SkillBeUpgrade*/)
+        {
+            Skill_Base_Attack skill_Base_Attack = skillbase as Skill_Base_Attack;
+            BattleOperation.Instance.SkillAttackEvent?.Invoke(this, caster, target);
+        }
+    }
+}
+
+/// <summary>
 /// 附帶屬性的傷害技能組件
 /// </summary>
 public class ElementtDamageSkillComponent : DamageComponent
