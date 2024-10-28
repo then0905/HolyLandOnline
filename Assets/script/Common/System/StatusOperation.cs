@@ -603,15 +603,30 @@ public class StatusOperation : MonoBehaviour
             else
             {
                 //取得 技能效果 能力值裡對應的參數的數值
-                int effectValue = (int)effectProperty.GetValue(tempEffectStatus);
-                //取得 當前基礎屬性 能力值裡對應的參數的數值
-                int basalValue = (int)basalProperty.GetValue(tempBasalStatus);
+                if (effectProperty.GetValue(tempEffectStatus) is int)
+                {
+                    int effectValue = (int)effectProperty.GetValue(tempEffectStatus);
+                    //取得 當前基礎屬性 能力值裡對應的參數的數值
+                    int basalValue = (int)basalProperty.GetValue(tempBasalStatus);
+                    //依照加成或倍率計算數值
+                    effectValue += (isRate ? (int)(basalValue * value) : (int)value);
 
-                //依照加成或倍率計算數值
-                effectValue += (isRate ? (int)(basalValue * value) : (int)value);
+                    //設定技能效果屬性的數值
+                    effectProperty.SetValue(tempEffectStatus, effectValue);
+                }
+                else if (effectProperty.GetValue(tempEffectStatus) is float)
+                {
+                    float effectValue = (float)effectProperty.GetValue(tempEffectStatus);
+                    //取得 當前基礎屬性 能力值裡對應的參數的數值
+                    float basalValue = (float)basalProperty.GetValue(tempBasalStatus);
+                    //依照加成或倍率計算數值
+                    effectValue += (isRate ? (float)(basalValue * value) : (float)value);
 
-                //設定技能效果屬性的數值
-                effectProperty.SetValue(tempEffectStatus, effectValue);
+                    //設定技能效果屬性的數值
+                    effectProperty.SetValue(tempEffectStatus, effectValue);
+                }
+
+
             }
         }
         else

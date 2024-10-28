@@ -362,7 +362,6 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     /// <param name="receiver">被施放者</param>
     protected virtual void SkillEffectStart(ICombatant caster = null, ICombatant receiver = null)
     {
-        print("生成的被動技能效果物件:" + SkillName);
         SkillComponentList.ForEach(x => x.Execute(caster, receiver));
     }
 

@@ -20,26 +20,15 @@ public abstract class Skill_Base_Buff : Skill_Base
     //紀錄技能效果是否正在啟動
     protected bool buffIsRun = false;
 
-
     /// <summary>
     /// Buff型技能啟動
     /// <para> 先檢查有無條件資料 有資料卻沒達成return </para>
     /// </summary>
     protected void SkillBuffEffectStart(ICombatant caster, ICombatant receiver)
     {
-
-        if (SkillData.SkillOperationDataList != null && SkillData.SkillOperationDataList.Count > 0)
-        {
-            if (CheckCondition())
-            {
-                base.SkillEffectStart(caster, receiver);
-                buffIsRun = true;
-            }
-            else
-            {
-                Debug.Log("技能: " + SkillName + " 未達成條件");
-            }
-        }
+        //base.SkillEffectStart(caster, receiver);
+        SkillComponentList[0].Execute(caster, receiver);
+        buffIsRun = true;
     }
 
     /// <summary>

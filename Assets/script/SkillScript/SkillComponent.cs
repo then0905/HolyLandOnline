@@ -29,6 +29,86 @@ public abstract class DamageComponent : SkillComponent
 public abstract class BuffComponent : SkillComponent
 {
     public abstract void ReverseExecute(params SkillOperationData[] skillOperationData);
+
+    /// <summary>
+    /// 確認條件
+    /// </summary>
+    /// <param name="skillOperationData"></param>
+    /// <returns></returns>
+    protected bool CheckCondition(List<SkillOperationData> skillOperationData)
+    {
+        List<bool> checkResult = new List<bool>();
+        //找出每個技能運算資料
+        foreach (var item in skillOperationData)
+        {
+            //暫存技能施放條件資料
+            List<string> condition = item.Condition;
+            //若不需要條件直接跳過
+            if (condition == null || condition.Count <= 0) continue;
+            foreach (var data in condition)
+            {
+                //條件文字依照'_'文字拆解
+                if (data.Split('_').Length >= 2)
+                    checkResult.Add(DetailConditionProcess(data.Split('_')[0], data.Split('_')[1]));
+                else
+                    checkResult.Add(DetailConditionProcess(data.Split('_')[0], null));
+            }
+        }
+        //回傳條件結果
+        return checkResult.All(x => x == true);
+    }
+
+    /// <summary>
+    /// 詳細條件判斷處理
+    /// </summary>
+    /// <param name="key">條件名稱</param>
+    /// <param name="value">條件判斷值</param>
+    /// <returns></returns>
+    protected bool DetailConditionProcess(string key, object value)
+    {
+        switch (key)
+        {
+            default:
+            //裝備指定類型道具
+            case "Equip":
+                foreach (var itemData in ItemManager.Instance.EquipDataList)
+                {
+                    if (value.ToString() == itemData.EquipmentDatas.Weapon?.TypeID)
+                        return true;
+                    if (value.ToString() == itemData.EquipmentDatas.Armor?.TypeID)
+                        return true;
+                    //if (itemData.EquipmentDatas.Weapon != null)
+                    //{
+                    //    if (value.ToString() == itemData.EquipmentDatas.Weapon?.TypeID)
+                    //        return true;
+                    //}
+                    //else if (itemData.EquipmentDatas.Armor != null)
+                    //{
+                    //    if (value.Any(x => x.Contains(itemData.EquipmentDatas.Armor.TypeID)))
+                    //        return true;
+                    //}
+                }
+                return false;
+            //在戰鬥狀態中
+            case "InCombatStatus":
+                //缺少戰鬥狀態判斷
+                return false;
+            //HP低於指定百分比
+            //case "HpLess":
+            //    float conditionHP = PlayerData.MaxHP * float.Parse(value);
+            //    return conditionHP < PlayerData.HP;
+            //HP低於指定百分比
+            //case "HpMore":
+            //    conditionHP = PlayerData.MaxHP * float.Parse(value);
+            //    return conditionHP > PlayerData.HP;
+            case "Close":
+                //建立靠近單位的判斷(朝單位移動? 雙方距離縮短? 單位判斷與距離多少?)
+                return false;
+            case "Random":
+                //缺乏隨機條件(目前有的資料 禁衛軍的"回擊好禮")
+                return false;
+        }
+    }
 }
 
 /// <summary>
@@ -360,10 +440,14 @@ public class PassiveBuffSkillComponent : BuffComponent
         //取得Buff技能詳細資料
         var buffData = skillbase.SkillData.SkillOperationDataList;
         //以相同的組件 與 持續時間分組
-        var group = buffData.GroupBy(x => new { x.SkillComponentID, x.EffectDurationTime });
+        var group = buffData.GroupBy(x => new { x.SkillComponentID, x.EffectDurationTime, x.Condition });
         foreach (var groupData in group)
         {
-            CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, groupData.ToArray());
+
+            if (CheckCondition(groupData.ToList()))
+                CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, groupData.ToArray());
+            else
+                break;
             foreach (var data in groupData)
             {
                 tempCaster.GetBuffEffect(tempTarget, data);
@@ -400,10 +484,13 @@ public class ContinuanceBuffComponent : BuffComponent
         //取得Buff技能詳細資料
         var buffData = skillbase.SkillData.SkillOperationDataList;
         //以相同的組件 與 持續時間分組
-        var group = buffData.GroupBy(x => new { x.SkillComponentID, x.EffectDurationTime });
+        var group = buffData.GroupBy(x => new { x.SkillComponentID, x.EffectDurationTime, x.Condition });
         foreach (var groupData in group)
         {
-            CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, groupData.ToArray());
+            if (CheckCondition(groupData.ToList()))
+                CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, groupData.ToArray());
+            else
+                break;
             foreach (var data in groupData)
             {
                 tempCaster.GetBuffEffect(tempTarget, data);
