@@ -80,7 +80,7 @@ public interface ISkillEffect : ISkillBase
     /// 更新冷卻時間
     /// </summary>
     /// <param name="deltaTime">冷卻時間</param>
-    IEnumerable UpdateCooldown(float deltaTime);
+    IEnumerator UpdateCooldown(float deltaTime);
 }
 
 /// <summary>
@@ -299,10 +299,12 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
 
     public int CastMage { get; protected set; }
 
-    public bool SkillCanUse(float tempMana)
+    public virtual bool SkillCanUse(float tempMana)
     {
+        //魔力是否足夠施放
         if (tempMana - CastMage <= 0)
             CommonFunction.MessageHint(string.Format("TM_SkillCastMageError".GetText(), SkillName), HintType.Warning);
+        //是否正在冷卻時間
         else if (TempCooldownTime > 0)
             CommonFunction.MessageHint(string.Format("TM_SkillCoolDownError".GetText(), SkillName), HintType.Warning);
 
@@ -428,6 +430,8 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     public void SkillEffect(ICombatant caster = null, ICombatant target = null)
     {
         PlayerDataOverView.Instance?.ChangeMpEvent?.Invoke(-1 * CastMage);
+        if (!CooldownTime.Equals(0))
+            StartCoroutine(UpdateCooldown(CooldownTime));
         SkillEffectStart(caster, target);
     }
 
@@ -537,7 +541,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         }
     }
 
-    public virtual IEnumerable UpdateCooldown(float deltaTime)
+    public virtual IEnumerator UpdateCooldown(float deltaTime)
     {
         //暫存冷卻時間
         TempCooldownTime = deltaTime;
@@ -547,6 +551,11 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
             //更新技能冷卻讀條
             //skillCdSlider.value = CooldownTime - TempCooldownTime;
             var hotkeyData = SkillController.Instance.SkillHotKey.Where(x => (x.TempHotKeyData is Skill_Base) && ((object)x.TempHotKeyData == this)).FirstOrDefault();
+            if (hotkeyData == null)
+            {
+                Debug.Log("快捷鍵上沒有正在施放的技能 :" + SkillName);
+                yield break;
+            }
             hotkeyData.HotKeyCdProcessor(CooldownTime - TempCooldownTime);
             yield return new WaitForSeconds(0.1f);
         }

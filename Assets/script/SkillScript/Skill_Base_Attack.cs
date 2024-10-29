@@ -25,7 +25,7 @@ public abstract class Skill_Base_Attack : Skill_Base
     protected override void SkillEffectEnd(ICombatant caster = null, ICombatant receiver = null)
     {
         SkillController.Instance.UsingSkillObj = null;
-        if (gameObject)
-            Destroy(gameObject);
+        //if (gameObject)
+        //    Destroy(gameObject);
     }
 }

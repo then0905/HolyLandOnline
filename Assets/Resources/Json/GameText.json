@@ -36,6 +36,10 @@
     "TextContent": "技能：{0}  正在冷卻時間中…"
   },
   {
+    "TextID": "TM_SkillBuffError",
+    "TextContent": "技能：{0}  已有相同的效果…"
+  },
+  {
     "TextID": "TM_SkillIsUsing",
     "TextContent": "當前有技能正在使用中!"
   },
