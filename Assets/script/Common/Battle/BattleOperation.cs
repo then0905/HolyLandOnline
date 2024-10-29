@@ -161,7 +161,7 @@ public class BattleOperation : MonoBehaviour
         int isHit = UnityEngine.Random.Range(0, 101);
 
         // 是否命中
-        if (isHit < hitRate)
+        if (isHit <= hitRate)
             CrtOrNormal(attacker, defender, skillCompnent);
         else
             InstanceDmgGUI("Miss", false, defender.Obj);
@@ -180,7 +180,7 @@ public class BattleOperation : MonoBehaviour
 
         //查看是否暴擊
         int isCrt = UnityEngine.Random.Range(0, 101);
-        StartCoroutine(DmgOperation(isCrt < CrtRate, attacker, defender, skillComponent));
+        StartCoroutine(DmgOperation(isCrt <= CrtRate, attacker, defender, skillComponent));
     }
 
     /// <summary>
@@ -199,30 +199,28 @@ public class BattleOperation : MonoBehaviour
     /// <param name="skillcompnent">技能資料</param>
     public IEnumerator DmgOperation(bool iscrt, ICombatant attacker, ICombatant defender, DamageComponent skillcompnent = null)
     {
-        float defRate;//防禦%
-        float damage;//總傷害
+        float damage; // 總傷害
 
+        // 計算基礎傷害
         damage = attacker.ATK;
 
-        //計算出防禦%
-        defRate = 0.75f * (attacker.GetAttackMode == "MageATK" ? defender.MDEF : defender.DEF) / (attacker.LV + 9);
+        // 計算防禦減免
+        float defenseRatio = Mathf.Clamp((attacker.GetAttackMode == "MageATK" ? defender.MDEF : defender.DEF) / (attacker.LV + 9), 0.1f, 0.9f);
 
         //是否暴擊 取得傷害量
         if (iscrt)
-            damage = (skillcompnent != null) ? damage * skillcompnent.SkillOperationData.EffectValue * (damage * 1.5f + attacker.CrtDamage) : damage * (damage * 1.5f + attacker.CrtDamage);
+            damage = (skillcompnent != null) ? damage * skillcompnent.SkillOperationData.EffectValue * (damage * 1.5f + attacker.CrtDamage) : (damage * 1.5f + attacker.CrtDamage);
         else
             damage = (skillcompnent != null) ? damage * skillcompnent.SkillOperationData.EffectValue : damage;
 
-        //傷害經過防禦減免的數值
-        int finalDamage = (int)Mathf.Round((1 - defRate) * damage);
+        // 計算最終傷害 (傷害*防禦減免倍率-傷害減免值) 最小取0
+        int finalDamage = (Mathf.Clamp((int)Mathf.Round(damage * (1f - defenseRatio)) - defender.DamageReduction, 0, (int)Mathf.Round(damage * (1f - defenseRatio)) - defender.DamageReduction)) * -1;
 
+        // 處理傷害
         if (skillcompnent is MultipleDamageSkillComponent)
             yield return new WaitForSeconds(0.75f);
 
-        //被攻擊者運算扣除生命
-        defender.DealingWithInjuriesMethod(attacker, finalDamage, skillcompnent is not MultipleDamageSkillComponent);
-
-        //生成傷害數字
+        defender.DealingWithInjuriesMethod(attacker, finalDamage, !(skillcompnent is MultipleDamageSkillComponent));
         InstanceDmgGUI(finalDamage.ToString(), iscrt, defender.Obj);
     }
 

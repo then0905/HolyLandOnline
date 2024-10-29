@@ -2044,7 +2044,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6799786157812202740}
   m_LocalRotation: {x: -0, y: -0, z: -0.0000000018626451, w: 1}
-  m_LocalPosition: {x: 0, y: 0.9, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 8, y: 8, z: 18}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2213,7 +2213,6 @@ GameObject:
   - component: {fileID: 2671289938195866835}
   - component: {fileID: 6792639816742281142}
   - component: {fileID: 1377174813669216382}
-  - component: {fileID: 3893748855933571628}
   m_Layer: 0
   m_Name: Monster_Test_0
   m_TagString: Untagged
@@ -2301,19 +2300,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b339a149352cbaa40b74fde416d6ca86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3893748855933571628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7349593381154591709}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 529e409ae2be4ed498b2c1d448e51d6b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Povit: {fileID: 6799786157812202743}
 --- !u!1 &7368541893514430549
 GameObject:
   m_ObjectHideFlags: 0

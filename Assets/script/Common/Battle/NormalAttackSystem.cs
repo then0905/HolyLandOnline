@@ -58,6 +58,12 @@ public class NormalAttackSystem : MonoBehaviour
     public void RunAttack(ICombatant attacker = null, ICombatant defender = null)
     {
         if (defender.IsDead) return;
+        // 取得角色面相目標的方向
+        Vector3 direction = SelectTarget.Instance.Targetgameobject.transform.position - PlayerDataOverView.Instance.CharacterMove.Character.transform.position;
+        // 鎖定y軸的旋轉 避免角色在x軸和z軸上傾斜
+        direction.y = 0;
+        // 如果 direction 的長度不為零，設定角色的朝向
+        PlayerDataOverView.Instance.CharacterMove.Character.transform.rotation = Quaternion.LookRotation(direction);
         PlayerDataOverView.Instance.CharacterMove.RunAnimation(false);
         AttackAllow = true;
         //依照攻擊速度調整動畫播放速度
@@ -80,13 +86,13 @@ public class NormalAttackSystem : MonoBehaviour
         // 鎖定y軸的旋轉 避免角色在x軸和z軸上傾斜
         direction.y = 0;
         // 如果 direction 的長度不為零，設定角色的朝向
-        if (direction != Vector3.zero)
+        //if (direction != Vector3.zero)
             PlayerDataOverView.Instance.CharacterMove.Character.transform.rotation = Quaternion.LookRotation(direction);
 
         PlayerDataOverView.Instance.CharacterMove.RunAnimation(true);
 
         PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position =
-            Vector3.MoveTowards(PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position,
+            Vector3.MoveTowards(PlayerDataOverView.Instance.Povit.transform.position,
             SelectTarget.Instance.Targetgameobject.Povit.position,
             PlayerDataOverView.Instance.CharacterMove.MoveSpeed);
     }

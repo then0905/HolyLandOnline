@@ -84,6 +84,16 @@ public class Character_move : MonoBehaviour
             return speed;
         }
     }
+
+    /// <summary>
+    /// 是否可以自由移動
+    /// </summary>
+    /// <returns></returns>
+    private bool CanMove(Vector2 inputToMove, AnimatorStateInfo stateInfo)
+    {
+        return (AutoNavToTarget && inputToMove == Vector2.zero || (!stateInfo.IsName("Running") && !stateInfo.IsName("Idle")));
+    }
+
     private void OnEnable()
     {
         ControCharacterAnimationEvent += CallCharacterAnimationSpeed;
@@ -139,7 +149,7 @@ public class Character_move : MonoBehaviour
         AnimatorStateInfo stateInfo = characterAnimator.GetCurrentAnimatorStateInfo(0);
 
         //若玩家在導航 或是 正在進行非跑步 站立 的其他動畫時 不執行移動
-        if (AutoNavToTarget && inputToMove == Vector2.zero || (!stateInfo.IsName("Running") && !stateInfo.IsName("Idle"))) return;
+        if (CanMove(inputToMove, stateInfo)) return;
         //打斷導航 恢復為 玩家控制移動
         else if (AutoNavToTarget)
         {

@@ -142,7 +142,7 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
 
                             PlayerDataOverView.Instance.CharacterMove.RunAnimation(true);
                             PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position =
-                                Vector3.MoveTowards(PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position,
+                                Vector3.MoveTowards(PlayerDataOverView.Instance.Povit.transform.position,
                                 SelectTarget.Instance.Targetgameobject.Povit.position,
                                 PlayerDataOverView.Instance.CharacterMove.MoveSpeed);
                         }

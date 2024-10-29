@@ -123,6 +123,15 @@ public class MonsterBehaviour : ActivityCharacterBase
     public override float ElementDamageReduction { get => monsterValue.ElementDamageReduction; }
     public override GameObject Obj { get => gameObject; }
 
+    /// <summary>
+    /// 檢查是否可以移動
+    /// </summary>
+    /// <returns></returns>
+    private bool CanMove()
+    {
+        return (!MonsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("MonsterAttack")) && (!MonsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("MonsterInjuried"));
+    }
+
     public void Start()
     {
         //設定怪物頭上文字轉移到 渲染文字的畫布
@@ -346,7 +355,7 @@ public class MonsterBehaviour : ActivityCharacterBase
                         //調整面向
                         transform.LookAt(targetObj.transform);
 
-                        transform.position = Vector3.MoveTowards(transform.position, targetObj.GetComponent<ActivityCharacterBase>().Povit.position, monsterValue.RunSpeed);
+                        transform.position = Vector3.MoveTowards(Povit.position, targetObj.GetComponent<ActivityCharacterBase>().Povit.position, monsterValue.RunSpeed);
                     }
                 },
                 () =>
@@ -389,7 +398,7 @@ public class MonsterBehaviour : ActivityCharacterBase
             //攻擊計算
             BattleOperation.Instance.NormalAttackEvent.Invoke(this, getTarget);
             // 等待動畫播放完畢
-            yield return new WaitUntil(() => !MonsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("MonsterAttack"));
+            yield return new WaitUntil(() => /*!MonsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("MonsterAttack")*/CanMove());
 
             //Debug.Log("怪物:" + name + " 當前狀態 :" + "攻擊完畢");
             //BreakAnyCoroutine();
@@ -419,12 +428,12 @@ public class MonsterBehaviour : ActivityCharacterBase
     {
         //檢查此次傷害造成者是否已經在紀錄中
         if (!BattleTargetDic.ContainsKey(battleData))
-            BattleTargetDic.Add(battleData, damage);
+            BattleTargetDic.Add(battleData, damage * -1);
         else
-            BattleTargetDic[battleData] = damage;
+            BattleTargetDic[battleData] = damage * -1;
 
         //血量扣除
-        HP -= damage;
+        HP += damage;
 
         if (animTrigger)
             //怪物動畫(受傷)

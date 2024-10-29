@@ -479,7 +479,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     private float DistanceWithTarget()
     {
         if (SelectTarget.Instance.CatchTarget)
-            dis = Vector3.Distance(SelectTarget.Instance.Targetgameobject.Povit.position, PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position);
+            dis = Vector3.Distance(SelectTarget.Instance.Targetgameobject.Povit.position, PlayerDataOverView.Instance.Povit.transform.position);
         else
             return 0;
         return dis;

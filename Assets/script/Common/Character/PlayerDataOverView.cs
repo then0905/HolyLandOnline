@@ -115,7 +115,7 @@ public class PlayerDataOverView : ActivityCharacterBase
     public override string Name { get => PlayerData_.PlayerName; }
     public override int LV { get => PlayerData_.Lv; }
     public override int Avoid { get => PlayerData_.Avoid; }
-    public override int DEF { get => PlayerData_.Avoid; }
+    public override int DEF { get => PlayerData_.DEF; }
     public override int MDEF { get => PlayerData_.MDEF; }
     public override int DamageReduction { get => PlayerData_.DamageReduction; }
     public override float Crt { get => PlayerData_.Crt; }
