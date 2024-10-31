@@ -2575,5 +2575,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   accountText: {fileID: 1952092531}
   passwordText: {fileID: 1233297511}
-  loginSuccessObj: {fileID: 680623414}
-  loginFailObj: {fileID: 204955293}
+  loginSuccessObj: {fileID: 204955293}
+  loginFailObj: {fileID: 680623414}
