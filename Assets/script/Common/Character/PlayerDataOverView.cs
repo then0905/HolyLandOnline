@@ -132,6 +132,7 @@ public class PlayerDataOverView : ActivityCharacterBase
     public Action<int> ChangeHpEvent;        //刷新玩家HP的事件
     public Action<int> ChangeMpEvent;        //刷新玩家MP的事件
 
+
     private void OnEnable()
     {
         CharacterMove.ControlCharacterEvent += NormalAttackSystem.Instance.StopNormalAttack;

@@ -96,7 +96,7 @@ public class NpcSystem : MonoBehaviour
 
         //取得NPC任務資料
         var getNpcQuest = GameData.QuestDataDic.Values.Where(x => x.StartNpcID == npcData.NpcID).ToList();
-        if (getNpcQuest != null && getNpcQuest.Count > 0)
+        if (getNpcQuest.CheckAnyData())
         {
             //查詢階段1 排除玩家接取的任務
             var queryResult1 = getNpcQuest.Where(x => !MissionManager.Instance.AlllMission.Any(y => y.QuestData.QuestID == x.QuestID)).ToList();
@@ -156,7 +156,7 @@ public class NpcSystem : MonoBehaviour
         //查詢玩家以接取的資料
         var queryResult = MissionManager.Instance.AlllMission.Where(x => x.GetMissionFinishStatus && x.QuestData.EndNpcID == npcData.NpcID).ToList();
 
-        if (queryResult != null && queryResult.Count > 0)
+        if (queryResult.CheckAnyData())
         {
             foreach (var quest in queryResult)
             {
@@ -279,7 +279,7 @@ public class NpcSystem : MonoBehaviour
                 expReward.text = "TM_Exp".GetText(true) + tempQuestData.Exp.ToString();
 
                 //若有獎勵資料 設定獎勵物件
-                if (tempQuestData.QuestRewardList != null && tempQuestData.QuestRewardList.Count > 0)
+                if (tempQuestData.QuestRewardList.CheckAnyData())
                 {
                     foreach (var item in tempQuestData.QuestRewardList)
                     {
@@ -354,7 +354,7 @@ public class NpcSystem : MonoBehaviour
         //金幣獎勵
         ItemManager.Instance.PickUp(questData.Coin);
         //道具獎勵
-        if (questData.QuestRewardList != null && questData.QuestRewardList.Count > 0)
+        if (questData.QuestRewardList.CheckAnyData())
         {
             foreach (var item in questData.QuestRewardList)
             {

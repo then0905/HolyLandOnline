@@ -121,7 +121,7 @@ public class MapManager : MonoBehaviour
 
         //為場景上的 Canvas相機控制腳本設定相機
         List<CanvasCameraControll> cameraList = FindObjectsOfType<CanvasCameraControll>().ToList();
-        if (cameraList != null && cameraList.Count > 0)
+        if (cameraList.CheckAnyData())
             cameraList.ForEach(x => x.SetCamera());
 
         //一秒延遲

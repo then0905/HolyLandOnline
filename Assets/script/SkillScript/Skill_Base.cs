@@ -84,40 +84,6 @@ public interface ISkillEffect : ISkillBase
 }
 
 /// <summary>
-/// 額外效果接口
-/// </summary>
-public interface IExtraEffect
-{
-    /// <summary>
-    /// 額外效果ID
-    /// </summary>
-    string ExtraEffectIDName { get; }
-    /// <summary>
-    /// 額外效果名稱
-    /// </summary>
-    string ExtraEffectName { get; }
-    /// <summary>
-    /// 額外效果持續時間
-    /// </summary>
-    float Duration { get; }
-    /// <summary>
-    /// 開始附加額外效果
-    /// </summary>
-    /// <param name="target"></param>
-    void Apply(ICombatant target);
-    /// <summary>
-    /// 額外效果更新時間
-    /// </summary>
-    /// <param name="target"></param>
-    void Update(ICombatant target);
-    /// <summary>
-    /// 額外效果移除
-    /// </summary>
-    /// <param name="target"></param>
-    void Remove(ICombatant target);
-}
-
-/// <summary>
 /// 技能組件接口
 /// </summary>
 public interface ISkillComponent
@@ -299,6 +265,10 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
 
     public int CastMage { get; protected set; }
 
+    public SkillData SkillData { get; set; }
+
+    public List<ISkillComponent> SkillComponentList { get; set; } = new List<ISkillComponent>();
+
     public virtual bool SkillCanUse(float tempMana)
     {
         //魔力是否足夠施放
@@ -311,36 +281,75 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         return (tempMana - CastMage >= 0) && (TempCooldownTime <= 0);
     }
 
-    public Sprite SkillIcon { get; protected set; }
-
     public float TempCooldownTime { get; protected set; }
 
     public string KeyID => SkillID;
 
-    public SkillData SkillData { get; set; }
-
-    public List<ISkillComponent> SkillComponentList { get; set; } = new List<ISkillComponent>();
+    protected bool skillBeUpgrade = false;      //技能是否被升級
 
     [Header("技能ID 用來從GameData找資料輸入"), SerializeField] protected string skillID;
 
     [Header("生成的動畫特效物件"), SerializeField] protected GameObject effectObj;
 
-    protected SkillEffectCategory category;//技能類別標籤
+    [SerializeField] protected string skillCondtionHintText = "TM_SkillConditionError";   //使用者要施放技能但條件未達成 提示的字樣
 
-    protected bool skillBeUpgrade = false;      //技能是否被升級
+    protected bool skillCondtionCheck = false;      //技能條件確認
+
+    /// <summary>
+    /// 回傳 技能條件檢查結果
+    /// </summary>
+    public bool SkillConditionCheck
+    {
+        get
+        {
+            if (!skillCondtionCheck)
+                CommonFunction.MessageHint(skillCondtionHintText.GetText(), HintType.Warning);
+            return skillCondtionCheck;
+        }
+    }
+
+    /// <summary>
+    /// 確認是否需要使用技能檢查
+    /// </summary>
+    protected bool UseSkillCheck
+    {
+        get
+        {
+            //若 計算資料 每項都需要OR條件 直接回傳true
+            if (SkillData.SkillOperationDataList.All(x => x.ConditionOR.CheckAnyData()))
+                return true;
+            //回傳 有需要判斷條件(有任何一筆OR條件或是AND條件)
+            return SkillData.SkillOperationDataList.Any(x => (x.ConditionOR.CheckAnyData()) ||
+            (x.ConditionAND.CheckAnyData()));
+        }
+    }
+
+    //取得 技能的所有運算資料
+    protected List<SkillOperationData> skillOperationList => SkillData.SkillOperationDataList;
 
     private float dis;      //暫存當前玩家與目標的距離
+
+    protected void OnEnable()
+    {
+
+    }
+
+    protected void OnDestroy()
+    {
+        if (UseSkillCheck && PlayerDataOverView.Instance != null)
+            SkillController.Instance.SkillConditionCheckEvent -= SkillBuffSub;
+    }
 
     /// <summary>
     /// 初始化技能資料
     /// </summary>
-    /// <param name="costMaga">消耗魔力</param>
     /// <param name="skillUpgrade">是否升級技能</param>
     /// <param name="caster">施放者</param>
     /// <param name="receiver">接收者</param>
     public virtual void InitSkillEffectData(bool skillUpgrade = false, ICombatant caster = null, ICombatant receiver = null)
     {
         skillBeUpgrade = skillUpgrade;
+
         //獲取GameData技能資料
         SkillData = GameData.SkillDataDic[skillID];
 
@@ -355,6 +364,13 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
 
         //設定生成特效參考
         if (effectObj != null) InitSkillEffect(SkillData.EffectTarget);
+
+        //是否需要判斷條件 需要的話 訂閱事件
+        if (UseSkillCheck)
+            SkillController.Instance.SkillConditionCheckEvent += SkillBuffSub;
+        else
+            //不需要判斷條件 直接允許技能使用
+            skillCondtionCheck = true;
     }
 
     /// <summary>
@@ -378,6 +394,43 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     public void SkillEndForAnimation()
     {
         SkillEffectEnd();
+    }
+
+    public void SkillEffect(ICombatant caster = null, ICombatant target = null)
+    {
+        PlayerDataOverView.Instance?.ChangeMpEvent?.Invoke(-1 * CastMage);
+        if (!CooldownTime.Equals(0))
+            StartCoroutine(UpdateCooldown(CooldownTime));
+        SkillEffectStart(caster, target);
+    }
+
+    /// <summary>
+    /// 訂閱使用 角色狀態改變時呼叫 檢查條件查看是否達成條件
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="value"></param>
+    public virtual void SkillBuffSub(string key, object value)
+    {
+        List<bool> checkCondtionOR = new List<bool>();
+        List<bool> checkCondtionAND = new List<bool>();
+
+        //檢查 技能運算資料清單
+        foreach (var operationData in skillOperationList)
+        {
+            //檢查條件清單
+            if (operationData.ConditionOR.CheckAnyData())
+                checkCondtionOR.Add(CheckConditionOR(operationData.ConditionOR.Where(x => x.Contains(key)).ToList()));
+            else if (operationData.ConditionAND.CheckAnyData())
+                checkCondtionAND.Add(CheckConditionAND(operationData.ConditionAND.Where(x => x.Contains(key)).ToList()));
+            else
+            {
+                //不需要判斷任何條件 增加一個True到OR條件清單
+                checkCondtionOR.Add(true);
+                continue;
+            }
+        }
+        //設定技能是否允許使用 (OR條件任一達成 以及 AND條件全達成或是沒有任何AND資料)
+        skillCondtionCheck = (checkCondtionAND.CheckAnyData()) ? (checkCondtionOR.Any(x => x) && checkCondtionAND.All(x => x)) : checkCondtionOR.Any(x => x);
     }
 
     /// <summary>
@@ -425,14 +478,6 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         //升級資訊完成 執行程式
         skillBeUpgrade = false;
         SkillEffect(caster, receiver);
-    }
-
-    public void SkillEffect(ICombatant caster = null, ICombatant target = null)
-    {
-        PlayerDataOverView.Instance?.ChangeMpEvent?.Invoke(-1 * CastMage);
-        if (!CooldownTime.Equals(0))
-            StartCoroutine(UpdateCooldown(CooldownTime));
-        SkillEffectStart(caster, target);
     }
 
     #region 技能運作功能類方法
@@ -495,50 +540,82 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     /// <param name="key">條件名稱</param>
     /// <param name="value">條件判斷值</param>
     /// <returns></returns>
-    public bool DetailConditionProcess(string key, object value)
+    protected bool DetailConditionProcess(List<string> conditions)
     {
-        switch (key)
+        //宣告 判斷條件清單
+        List<bool> finalResult = new List<bool>();
+        //宣告 儲存條件判斷字典
+        List<KeyValuePair<string, object>> conditionDetail = new List<KeyValuePair<string, object>>();
+
+        foreach (string condition in conditions)
         {
-            default:
-            //裝備指定類型道具
-            case "Equip":
-                foreach (var itemData in ItemManager.Instance.EquipDataList)
-                {
-                    if (value.ToString() == itemData.EquipmentDatas.Weapon?.TypeID)
-                        return true;
-                    if (value.ToString() == itemData.EquipmentDatas.Armor?.TypeID)
-                        return true;
-                    //if (itemData.EquipmentDatas.Weapon != null)
-                    //{
-                    //    if (value.ToString() == itemData.EquipmentDatas.Weapon?.TypeID)
-                    //        return true;
-                    //}
-                    //else if (itemData.EquipmentDatas.Armor != null)
-                    //{
-                    //    if (value.Any(x => x.Contains(itemData.EquipmentDatas.Armor.TypeID)))
-                    //        return true;
-                    //}
-                }
-                return false;
-            //在戰鬥狀態中
-            case "InCombatStatus":
-                //缺少戰鬥狀態判斷
-                return false;
-            //HP低於指定百分比
-            //case "HpLess":
-            //    float conditionHP = PlayerData.MaxHP * float.Parse(value);
-            //    return conditionHP < PlayerData.HP;
-            //HP低於指定百分比
-            //case "HpMore":
-            //    conditionHP = PlayerData.MaxHP * float.Parse(value);
-            //    return conditionHP > PlayerData.HP;
-            case "Close":
-                //建立靠近單位的判斷(朝單位移動? 雙方距離縮短? 單位判斷與距離多少?)
-                return false;
-            case "Random":
-                //缺乏隨機條件(目前有的資料 禁衛軍的"回擊好禮")
-                return false;
+            KeyValuePair<string, object> tempData = new KeyValuePair<string, object>(condition.Split('_')[0], condition.Split('_')[1]);
+            conditionDetail.Add(tempData);
         }
+
+        //根據處理完的字典資料 判斷條件是否達成
+        foreach (var condtionData in conditionDetail)
+        {
+            switch (condtionData.Key)
+            {
+                default:
+                //裝備指定類型武器
+                case "EquipWeapon":
+                    //取得裝備的武器資料
+                    var allWeaponData = ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).ToList();
+
+                    //沒有任何資料直接回傳False
+                    if (allWeaponData == null || allWeaponData.Count < 1)
+                        finalResult.Add(false);
+                    else
+                        finalResult.Add(ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).Any(x => x.EquipmentDatas.Weapon.TypeID == condtionData.Value.ToString()));
+                    break;
+
+                //副手裝備指定類型
+                case "EquipLeft":
+                    //取得裝備的武器資料
+                    allWeaponData = ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).ToList();
+
+                    //沒有任何資料直接回傳False
+                    if (allWeaponData == null || allWeaponData.Count < 1)
+                        finalResult.Add(false);
+                    else
+                    {
+                        //尋找左手格子資料
+                        var leftItemData = allWeaponData.Where(x => x.GetComponent<EquipData>().PartID.Any(x => x == "LeftHand")).FirstOrDefault();
+
+
+                        if (leftItemData != null)
+                            //判斷是不是指定類型
+                            finalResult.Add(leftItemData.EquipmentDatas.Weapon.TackHandID == condtionData.Value.ToString());
+                        else
+                        {
+                            Debug.Log("沒有找到左手資料 錯誤了啦>>>>>>>>>>>>>");
+                            finalResult.Add(false);
+                        }
+                    }
+                    break;
+                //在戰鬥狀態中
+                case "InCombatStatus":
+                    //缺少戰鬥狀態判斷
+                    return false;
+                //HP低於指定百分比
+                //case "HpLess":
+                //    float conditionHP = PlayerData.MaxHP * float.Parse(value);
+                //    return conditionHP < PlayerData.HP;
+                //HP低於指定百分比
+                //case "HpMore":
+                //    conditionHP = PlayerData.MaxHP * float.Parse(value);
+                //    return conditionHP > PlayerData.HP;
+                case "Close":
+                    //建立靠近單位的判斷(朝單位移動? 雙方距離縮短? 單位判斷與距離多少?)
+                    return false;
+                case "Random":
+                    //缺乏隨機條件(目前有的資料 禁衛軍的"回擊好禮")
+                    return false;
+            }
+        }
+        return finalResult.All(x => x);
     }
 
     public virtual IEnumerator UpdateCooldown(float deltaTime)
@@ -562,25 +639,30 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     }
 
     /// <summary>
-    /// 效果所需條件是否達成判斷
+    /// 效果所需條件是否達成判斷 OR版
     /// </summary>
     /// <returns></returns>
-    public bool CheckCondition()
+    protected bool CheckConditionOR(List<string> condtions)
     {
         List<bool> checkResult = new List<bool>();
-        foreach (var item in SkillData.SkillOperationDataList)
-        {
-            List<string> condition = item.Condition;
-            if (condition == null || condition.Count <= 0) continue;
-            foreach (var data in condition)
-            {
-                if (data.Split('_').Length >= 2)
-                    checkResult.Add(DetailConditionProcess(data.Split('_')[0], data.Split('_')[1]));
-                else
-                    checkResult.Add(DetailConditionProcess(data.Split('_')[0], null));
-            }
-        }
 
+        checkResult.Add(DetailConditionProcess(condtions));
+
+        //回傳條件結果
+        return checkResult.Any(x => x == true);
+    }
+
+    /// <summary>
+    /// 效果所需條件是否達成判斷 AND版
+    /// </summary>
+    /// <returns></returns>
+    protected bool CheckConditionAND(List<string> condtions)
+    {
+        List<bool> checkResult = new List<bool>();
+
+        checkResult.Add(DetailConditionProcess(condtions));
+
+        //回傳條件結果
         return checkResult.All(x => x == true);
     }
 

@@ -246,6 +246,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EquipImage: {fileID: 4196453715420496265}
+  equipQty: {fileID: 0}
+  EquipmentType: Player
+  EquipmentDatas:
+    Qty: 0
 --- !u!114 &4196453716500560568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -336,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PartID:
-  - Right
-  - Single
+  - RightHand
+  - BothHand
+  - SingleHand
   Hint: {fileID: 4196453716482355526}

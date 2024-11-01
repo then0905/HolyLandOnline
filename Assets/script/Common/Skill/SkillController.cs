@@ -68,6 +68,8 @@ public class SkillController : MonoBehaviour
     //記錄追擊協程
     public Coroutine SkillChasingCoroutine;
 
+    public Action<string, object> SkillConditionCheckEvent;     //發生特定事情後 檢查技能條件是否達成
+
     void Update()
     {
         //按下快捷鍵
@@ -137,49 +139,49 @@ public class SkillController : MonoBehaviour
                 return;
             }
 
-            //Buff類型 直接施放
-            if (skill_Base.SkillData.Type == "Buff")
+            if (skill_Base.SkillConditionCheck)
             {
-                skill_Base.SkillEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
-            }
-            //剩餘類型 需要設定目標
-            else
-            {
-                //若已選取目標 接近目標到可施放範圍
-                if (SelectTarget.Instance.CatchTarget)
+                //Buff類型 直接施放
+                if (skill_Base.SkillData.Type == "Buff")
                 {
-
-                    SkillChasingCoroutine = StartCoroutine(skill_Base.SkillDistanceCheck());
-
+                    skill_Base.SkillEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
                 }
+                //剩餘類型 需要設定目標
                 else
                 {
-                    switch (skill_Base.SkillData.Type)
+                    //若已選取目標 接近目標到可施放範圍
+                    if (SelectTarget.Instance.CatchTarget)
                     {
-                        //指向技能類型
-                        case "Arrow":
-                            //若未選取 顯示該技能範圍
-                            SkillArrow(skill_Base, SkillHotKey[inputNumber].UpgradeSkillID);
-                            break;
+                        SkillChasingCoroutine = StartCoroutine(skill_Base.SkillDistanceCheck());
+                    }
+                    else
+                    {
+                        switch (skill_Base.SkillData.Type)
+                        {
+                            //指向技能類型
+                            case "Arrow":
+                                //若未選取 顯示該技能範圍
+                                SkillArrow(skill_Base, SkillHotKey[inputNumber].UpgradeSkillID);
+                                break;
 
-                        //指定技能類型
-                        case "Target":
-                            SkillTarget(skill_Base, SkillHotKey[inputNumber].UpgradeSkillID);
-                            break;
+                            //指定技能類型
+                            case "Target":
+                                SkillTarget(skill_Base, SkillHotKey[inputNumber].UpgradeSkillID);
+                                break;
 
-                        //圓圈型範圍技能類型
-                        case "Circle":
-                            SkillCircle(skill_Base, SkillHotKey[inputNumber].UpgradeSkillID);
-                            break;
+                            //圓圈型範圍技能類型
+                            case "Circle":
+                                SkillCircle(skill_Base, SkillHotKey[inputNumber].UpgradeSkillID);
+                                break;
 
-                        //扇型範圍技能類型
-                        case "Cone":
-                            SkillCone(skill_Base, SkillHotKey[inputNumber].UpgradeSkillID);
-                            break;
+                            //扇型範圍技能類型
+                            case "Cone":
+                                SkillCone(skill_Base, SkillHotKey[inputNumber].UpgradeSkillID);
+                                break;
+                        }
                     }
                 }
             }
-
         }
     }
 

@@ -204,7 +204,8 @@ public class SkillOperationData
     public float EffectValue { get; set; }        // 效果值 
     public string InfluenceStatus { get; set; }     // 效果影響的屬性 (Buff)   
     public string AddType { get; set; }      // 加成運算的方式 Rate:乘法、Value:加法   
-    public List<string> Condition { get; set; }      // 執行技能需要的條件 不需要不用填 
+    public List<string> ConditionOR { get; set; }       //條件清單 (OR判斷 滿足其中一項即可)
+    public List<string> ConditionAND { get; set; }      //條件清單 (AND判斷 滿足所有條件)
     public float EffectDurationTime { get; set; }       // 效果持續時間
     public int EffectRecive { get; set; }       //效果接收方-3:隊友 -2:所有友軍(包含自己) -1:怪物、玩家 0:自身 1:敵軍
     public int TargetCount { get; set; }        // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己

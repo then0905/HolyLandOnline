@@ -41,7 +41,7 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
     /// </summary>
     public override void RestartSkillEffect()
     {
-        SkillEffectEnd();
-        SkillEffect();
+        //SkillEffectEnd();
+        //SkillEffect();
     }
 }

@@ -44,7 +44,7 @@ public class ItemManager : MonoBehaviour
     public void Init(List<EquipmentDataToJson> itemBagList = null)
     {
         //從本地獲取背包資料
-        if (itemBagList != null && itemBagList.Count > 0)
+        if (itemBagList.CheckAnyData())
         {
             //BagItems = itemBagList;
             //依照設定多少數量 生成背包格數

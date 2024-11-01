@@ -60,10 +60,14 @@ public class PassiveSkillManager : MonoBehaviour
                 //儲存生成的被動技能
                 SkillPassiveBuffList.Add(skillEffectObj);
 
+                //設定被動技能物件父級
+                skillEffectObj.gameObject.transform.parent = transform;
+
                 //被動技能初始化
-                skillEffectObj.GetComponent<Skill_Base>().InitSkillEffectData();
-                //被動技能效果執行
-                skillEffectObj.GetComponent<Skill_Base>().SkillEffect(PlayerDataOverView.Instance,PlayerDataOverView.Instance) ;
+                skillEffectObj.InitSkillEffectData();
+                //不需要判斷條件的被動技能效果執行
+                if (skillEffectObj.SkillConditionCheck)
+                    skillEffectObj.SkillEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
             });
     }
 

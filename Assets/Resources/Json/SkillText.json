@@ -109,7 +109,7 @@
   },
   {
     "TextID": "TM_Knight_2_Intro",
-    "TextContent": "對一個敵對目標使用嘲諷，使其攻擊自己，持續2秒，若目標為怪物提高仇恨值"
+    "TextContent": "裝備盾牌才可以使用，對一個敵對目標使用嘲諷，使其攻擊自己，持續2秒，若目標為怪物提高仇恨值"
   },
   {
     "TextID": "TM_Knight_3_Name",
@@ -117,7 +117,7 @@
   },
   {
     "TextID": "TM_Knight_3_Intro",
-    "TextContent": "180秒內，提升隊友及自身的攻擊力、防禦力"
+    "TextContent": "裝備盾牌才可以使用，180秒內，提升隊友及自身的攻擊力、防禦力"
   },
   {
     "TextID": "TM_Knight_4_Name",
@@ -125,7 +125,7 @@
   },
   {
     "TextID": "TM_Knight_4_Intro",
-    "TextContent": "180秒內，提升隊友及自身的最大生命值及生命回復量"
+    "TextContent": "裝備盾牌才可以使用，180秒內，提升隊友及自身的最大生命值及生命回復量"
   },
   {
     "TextID": "TM_Knight_5_Name",
@@ -133,7 +133,7 @@
   },
   {
     "TextID": "TM_Knight_5_Intro",
-    "TextContent": "使用盾牌砸向一個敵對目標，使目標受到傷害並暈眩1秒"
+    "TextContent": "裝備盾牌才可以使用，使用盾牌砸向一個敵對目標，使目標受到傷害並暈眩1秒"
   },
   {
     "TextID": "TM_Knight_6_Name",
@@ -141,7 +141,7 @@
   },
   {
     "TextID": "TM_Knight_6_Intro",
-    "TextContent": "使用單手武器時提升攻擊力及命中"
+    "TextContent": "使用單手近距離武器時提升攻擊力及命中"
   },
   {
     "TextID": "TM_Knight_7_Name",
@@ -157,7 +157,7 @@
   },
   {
     "TextID": "TM_Knight_8_Intro",
-    "TextContent": "裝備重型鎧甲的裝備時，提升大量防禦力，下降移動速度"
+    "TextContent": "裝備整套重型鎧甲的裝備時，提升大量防禦力，下降移動速度"
   },
   {
     "TextID": "TM_Berserker_1_Name",
@@ -205,7 +205,7 @@
   },
   {
     "TextID": "TM_Berserker_6_Intro",
-    "TextContent": "受攻擊或攻擊時(戰鬥狀態中)持續增加 數值越高傷害範圍越高，最高值100，持續5秒"
+    "TextContent": "戰鬥狀態中持續增加疊層，數值越高傷害範圍越高，最高值100，持續5秒"
   },
   {
     "TextID": "TM_Berserker_7_Name",

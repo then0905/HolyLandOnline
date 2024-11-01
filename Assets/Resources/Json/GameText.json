@@ -54,5 +54,37 @@
   {
     "TextID": "TM_TutorialSaveError",
     "TextContent": "錯誤:已有存在的教學ID 請向開發人員反應 錯誤ID為 {0}"
+  },
+  {
+    "TextID": "TM_Equip_OneHandedSword",
+    "TextContent": "技能施放錯誤：需要裝備單手劍"
+  },
+  {
+    "TextID": "TM_Equip_TwoHandedSword",
+    "TextContent": "技能施放錯誤：需要裝備雙手劍"
+  },
+  {
+    "TextID": "TM_Equip_GiantMallet",
+    "TextContent": "技能施放錯誤：需要裝備雙手錘"
+  },
+  {
+    "TextID": "TM_Equip_Axe",
+    "TextContent": "技能施放錯誤：需要裝備雙手斧"
+  },
+  {
+    "TextID": "TM_Equip_Shield",
+    "TextContent": "技能施放錯誤：需要裝備盾牌"
+  },
+  {
+    "TextID": "TM_Equip_Hammer",
+    "TextContent": "技能施放錯誤：需要裝備單手錘"
+  },
+  {
+    "TextID": "TM_Close_Enemy",
+    "TextContent": "技能施放錯誤：並沒有正在靠近的敵人"
+  },
+  {
+    "TextID": "TM_SkillConditionError",
+    "TextContent": "技能施放錯誤：技能所需條件未達成！"
   }
 ]

@@ -245,10 +245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b47041b248e2c744a2d8a6f55ee709b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Itemmanger: {fileID: 0}
   EquipImage: {fileID: 2888239864825257133}
-  ThisEquipmentImage: {fileID: 0}
-  Coins: 0
+  equipQty: {fileID: 0}
+  EquipmentType: Player
+  EquipmentDatas:
+    Qty: 0
 --- !u!114 &2888239864836887927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +340,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PartID:
-  - Left
-  - Both
-  - Single
+  - LeftHand
+  - SingleHand
   Hint: {fileID: 2888239864303837692}

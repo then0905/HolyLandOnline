@@ -28,14 +28,14 @@ public partial class PlayerData /*: MonoBehaviour*/
         List<string> dontHaveLsit = new List<string>();
 
         //教學需要尋找玩家 未教學的ID (取得玩家是否有 此教學不可教學過的ID)
-        if (tutorialIDList.NotIncludedID != null && tutorialIDList.NotIncludedID.Count > 0)
+        if (tutorialIDList.NotIncludedID.CheckAnyData())
             haveList = PlayerTutorialList.Intersect(tutorialIDList.NotIncludedID).ToList();
         //教學需要尋找玩家 已教學的ID (取得玩家是否有 此教學需要教學過的ID)
-        if (tutorialIDList.IncludedID != null && tutorialIDList.IncludedID.Count > 0)
+        if (tutorialIDList.IncludedID.CheckAnyData())
             dontHaveLsit = PlayerTutorialList.Intersect(tutorialIDList.IncludedID).ToList();
 
         //回傳 此次教學 需要玩家並沒有教過的ID(null或是0) 以及 此次教學 需要玩家有教過的ID (不可為null且有資料)
-        return ((haveList == null || haveList.Count <= 0) && (dontHaveLsit != null && dontHaveLsit.Count > 0));
+        return ((haveList == null || haveList.Count <= 0) && (dontHaveLsit.CheckAnyData()));
     }
 
     /// <summary>

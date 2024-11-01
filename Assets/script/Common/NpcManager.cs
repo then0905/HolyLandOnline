@@ -64,7 +64,7 @@ public class NpcManager : MonoBehaviour
     /// </summary>
     public void ClearNpcObj()
     {
-        if (tempMapNpcSpawnObj != null && tempMapNpcSpawnObj.Count > 0)
+        if (tempMapNpcSpawnObj.CheckAnyData())
         {
             try
             {

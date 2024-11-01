@@ -71,7 +71,7 @@ public class MissionManager : MonoBehaviour
     public void Init()
     {
         ResetMissionData();
-        if (MissionList != null && MissionList.Count > 0)
+        if (MissionList.CheckAnyData())
         {
             foreach (var item in MissionList)
             {

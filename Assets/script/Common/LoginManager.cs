@@ -1,16 +1,14 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using Photon.Pun;
 using System.Text;
-using UnityEngine.UIElements;
 using UnityEngine.SceneManagement;
 //==========================================
-//  創建者:
-//  創建日期:
-//  創建用途: 
+//  創建者:家豪
+//  創建日期:2024/10/28
+//  創建用途: 登入管理
 //==========================================
 public class LoginManager : MonoBehaviourPunCallbacks
 {

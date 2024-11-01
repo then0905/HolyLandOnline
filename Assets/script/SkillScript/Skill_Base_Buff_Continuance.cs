@@ -1,4 +1,3 @@
-
 using System.Linq;
 //==========================================
 //  創建者:家豪
@@ -7,11 +6,10 @@ using System.Linq;
 //==========================================
 public class Skill_Base_Buff_Continuance : Skill_Base_Buff
 {
-    protected override CharacterStatusType characterStatusType => CharacterStatusType.Buff;
-
     public override bool SkillCanUse(float tempMana)
     {
         bool basalBool = base.SkillCanUse(tempMana);
+        //多判斷 當前是否有存在的Buff資料
         bool buffCheckBool = CharacterStatusManager.Instance.CharacterStatusHintDic.Any(x => x.CharacterStatusID == skillID);
         if (buffCheckBool) CommonFunction.MessageHint(string.Format("TM_SkillBuffError".GetText(), SkillName), HintType.Warning);
         return basalBool && !buffCheckBool;
@@ -19,9 +17,9 @@ public class Skill_Base_Buff_Continuance : Skill_Base_Buff
 
     protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defenfer = null)
     {
-        SkillBuffEffectStart(attacker, defenfer);
-        //if (gameObject != null)
-        //    gameObject.transform.parent = PassiveSkillManager.Instance.transform;
+        //SkillBuffEffectStart(attacker, defenfer);
+        SkillComponentList[0].Execute(attacker, defenfer);
+        buffIsRun = true;
     }
 
 }

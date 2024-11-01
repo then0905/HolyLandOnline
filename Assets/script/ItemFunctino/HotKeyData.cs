@@ -51,11 +51,11 @@ public class HotKeyData : MonoBehaviour
     public void SetSkill(Sprite skillIcon, IHotKey data, string upgradeSkillID = "")
     {
         //先檢查快捷鍵上是否已有此技能資料 有的話清除
-        bool queryResult = SkillController.Instance.SkillHotKey.Any(x => x.TempHotKeyData == data);
+        bool queryResult = SkillController.Instance.SkillHotKey.Any(x => x.TempHotKeyData?.KeyID == data.KeyID);
 
         if (queryResult)
         {
-            var targetQueryResult = SkillController.Instance.SkillHotKey.Where(x => x.TempHotKeyData == data).ToList();
+            var targetQueryResult = SkillController.Instance.SkillHotKey.Where(x => x.TempHotKeyData?.KeyID == data.KeyID).ToList();
             targetQueryResult.ForEach(x => x.ClearHotKeyData());
         }
 
@@ -64,12 +64,17 @@ public class HotKeyData : MonoBehaviour
         hotkeyCdSliderImage.sprite = skillIcon;
         tempHotKeyData = Instantiate(((Skill_Base)data).gameObject).GetComponent<Skill_Base>();
         UpgradeSkillID = upgradeSkillID;
+
         //取得技能腳本資料
         Skill_Base skill_Base = (Skill_Base)tempHotKeyData;
         skill_Base.InitSkillEffectData(!string.IsNullOrEmpty(upgradeSkillID));
+
         //設定技能讀條
         hotkeyCdSlider.maxValue = skill_Base.CooldownTime;
         hotkeyCdSlider.value = skill_Base.CooldownTime;
+
+        //裝上新的技能到快捷鍵 重新刷新狀態 需要呼叫觸發技能條件檢查事件
+        StatusOperation.Instance.StatusMethod();
     }
 
     /// <summary>

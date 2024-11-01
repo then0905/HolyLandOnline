@@ -152,7 +152,7 @@ public class TutorialObjectController : MonoBehaviour
     public void TutorialActorSetting(params TutorialActorData[] actors)
     {
         //清空物件
-        if (tempActorList != null && tempActorList.Count > 0)
+        if (tempActorList.CheckAnyData())
         {
             tempActorList.ForEach(x => Destroy(x.gameObject));
             tempActorList.Clear();
@@ -166,7 +166,7 @@ public class TutorialObjectController : MonoBehaviour
             GameObject tempActor = Instantiate(CommonFunction.LoadObject<GameObject>(actor.Path, actor.Name));
             //設定演出物件的圖層
             List<SpriteRenderer> actorRenderList = tempActor.transform.GetComponentsInChildren<SpriteRenderer>().ToList();
-            if (actorRenderList != null && actorRenderList.Count > 0)
+            if (actorRenderList.CheckAnyData())
             {
                 actorRenderList.ForEach(x => x.sortingOrder = actor.LayoutOrder);
                 actorRenderList.ForEach(x => x.sortingLayerName = actor.LayoutName);
@@ -191,7 +191,7 @@ public class TutorialObjectController : MonoBehaviour
             PlayerDataOverView.Instance.PlayerData_.SaveTargetID(tutorialSystemData.SaveTutorialID);
 
             //清空物件
-            if (tempActorList != null && tempActorList.Count > 0)
+            if (tempActorList.CheckAnyData())
             {
                 tempActorList.ForEach(x => Destroy(x.gameObject));
                 tempActorList.Clear();

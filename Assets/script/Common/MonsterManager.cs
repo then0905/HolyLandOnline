@@ -76,7 +76,7 @@ public class MonsterManager : MonoBehaviour
     /// </summary>
     public void ClearMonsterObj()
     {
-        if (tempMapMonsterSpawnObj != null && tempMapMonsterSpawnObj.Count > 0)
+        if (tempMapMonsterSpawnObj.CheckAnyData())
         {
             try
             {

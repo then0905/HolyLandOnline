@@ -128,19 +128,27 @@ public class StatusOperation : MonoBehaviour
     /// </summary>
     private void ClassStatus()
     {
+        //發送空條件 讓不須條件的物件通過檢查
+        SkillController.Instance.SkillConditionCheckEvent?.Invoke("", null);
         //武器清單
         weaponList = new List<WeaponDataModel>();
         foreach (var item in ItemManager.Instance.EquipDataList)
         {
             if (item.EquipmentDatas.Weapon != null)
+            {
                 weaponList.Add(item.EquipmentDatas.Weapon);
+                SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipWeapon", item.EquipmentDatas.Weapon.TypeID);
+            }
         }
         //防具清單
         armorList = new List<ArmorDataModel>();
         foreach (var item in ItemManager.Instance.EquipDataList)
         {
             if (item.EquipmentDatas.Armor != null)
+            {
                 armorList.Add(item.EquipmentDatas.Armor);
+                SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor", item.EquipmentDatas.Armor.TypeID);
+            }
         }
 
         //獲取武器資料
@@ -188,11 +196,11 @@ public class StatusOperation : MonoBehaviour
             refreshStatus.Invoke(); //刷新加成後的數值
             PlayerDataStatusOperation();    //將刷新後加成的值算入角色屬性
             refreshAfterStatus.Invoke();//需等待基礎數值計算完後才計算的部分
-            PassiveSkillManager.Instance.RestartPassiveSkill();      //重新啟動被動技能  
+            //PassiveSkillManager.Instance.RestartPassiveSkill();      //重新啟動被動技能  
         }
         else
         {
-            PassiveSkillManager.Instance.RestartPassiveSkill();      //重新啟動被動技能  
+            // PassiveSkillManager.Instance.RestartPassiveSkill();      //重新啟動被動技能  
             ClassStatus();      //基礎加成
             refreshStatus.Invoke(); //刷新加成後的數值
             PlayerDataStatusOperation();    //將刷新後加成的值算入角色屬性
