@@ -133,6 +133,24 @@ public abstract class DamageComponent : SkillComponent
 public abstract class BuffComponent : SkillComponent
 {
     public abstract void ReverseExecute(params SkillOperationData[] skillOperationData);
+
+    /// <summary>
+    /// 玩家狀態效果提示物件 移除處理
+    /// </summary>
+    /// <param name="skillOperationDatas"></param>
+    protected void CharacterStatusRemove(params SkillOperationData[] skillOperationDatas)
+    {
+        CharacterStatusManager.Instance.CharacterSatusRemoveEvent?.Invoke(skillOperationDatas.ToArray());
+    }
+
+    /// <summary>
+    /// 玩家狀態效果提示物件 增加除處理
+    /// </summary>
+    /// <param name="skillOperationDatas"></param>
+    protected void CharacterStatusAdd(params SkillOperationData[] skillOperationDatas)
+    {
+        CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, skillOperationDatas.ToArray());
+    }
 }
 
 /// <summary>
@@ -386,24 +404,6 @@ public class UpgradeSkillComponent : BuffComponent
         }
         CharacterStatusRemove(skillOperationData);
     }
-
-    /// <summary>
-    /// 玩家狀態效果提示物件 移除處理
-    /// </summary>
-    /// <param name="skillOperationDatas"></param>
-    private void CharacterStatusRemove(params SkillOperationData[] skillOperationDatas)
-    {
-        CharacterStatusManager.Instance.CharacterSatusRemoveEvent?.Invoke(skillOperationDatas.ToArray());
-    }
-
-    /// <summary>
-    /// 玩家狀態效果提示物件 增加除處理
-    /// </summary>
-    /// <param name="skillOperationDatas"></param>
-    private void CharacterStatusAdd(params SkillOperationData[] skillOperationDatas)
-    {
-        CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, skillOperationDatas.ToArray());
-    }
 }
 
 /// <summary>
@@ -464,12 +464,17 @@ public class PassiveBuffSkillComponent : BuffComponent
         //取得Buff技能詳細資料
         var buffData = skillbase.SkillData.SkillOperationDataList;
         //以相同的組件 與 持續時間分組
-        var group = buffData.GroupBy(x => new { x.SkillComponentID, x.EffectDurationTime, x.ConditionOR });
+        var group = buffData.GroupBy(x => new
+        {
+            x.SkillComponentID,
+            ConditionKey = string.Join(",", x.ConditionOR.OrderBy(c => c))
+        });
         foreach (var groupData in group)
         {
 
             //if (CheckCondition(groupData.ToList(), caster, target))
-            CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, groupData.ToArray());
+            CharacterStatusAdd(groupData.ToArray());
+            //CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, groupData.ToArray());
             //else
             //{
             //    Debug.Log(string.Format("技能 : {0}  條件未達成", skillbase.SkillName));
@@ -511,11 +516,16 @@ public class ContinuanceBuffComponent : BuffComponent
         //取得Buff技能詳細資料
         var buffData = skillbase.SkillData.SkillOperationDataList;
         //以相同的組件 與 持續時間分組
-        var group = buffData.GroupBy(x => new { x.SkillComponentID, x.EffectDurationTime, x.ConditionOR });
+        var group = buffData.GroupBy(x => new
+        {
+            x.SkillComponentID,
+            ConditionKey = string.Join(",", x.ConditionOR.OrderBy(c => c))
+        });
         foreach (var groupData in group)
         {
             //if (CheckCondition(groupData.ToList(), caster, target))
-            CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, groupData.ToArray());
+            CharacterStatusAdd(groupData.ToArray());
+            //CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, groupData.ToArray());
             //else
             //{
             //    Debug.Log(string.Format("技能 : {0}  條件未達成", skillbase.SkillName));
@@ -531,7 +541,7 @@ public class ContinuanceBuffComponent : BuffComponent
     public override void ReverseExecute(params SkillOperationData[] skillOperationData)
     {
         for (int i = 0; i < skillOperationData.Length; i++)
-        {
+            {
             tempCaster.RemoveBuffEffect(tempTarget, skillOperationData[i]);
         }
     }

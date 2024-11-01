@@ -129,7 +129,8 @@ public class StatusOperation : MonoBehaviour
     private void ClassStatus()
     {
         //發送空條件 讓不須條件的物件通過檢查
-        SkillController.Instance.SkillConditionCheckEvent?.Invoke("", null);
+        //SkillController.Instance.SkillConditionCheckEvent?.Invoke("", null);
+
         //武器清單
         weaponList = new List<WeaponDataModel>();
         foreach (var item in ItemManager.Instance.EquipDataList)
@@ -137,19 +138,41 @@ public class StatusOperation : MonoBehaviour
             if (item.EquipmentDatas.Weapon != null)
             {
                 weaponList.Add(item.EquipmentDatas.Weapon);
-                SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipWeapon", item.EquipmentDatas.Weapon.TypeID);
+                if (item.GetComponent<EquipData>().PartID.Any(x => x == "LeftHand"))
+                    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipLeft", item.EquipmentDatas.Weapon.TypeID);
+                else
+                    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipWeapon", item.EquipmentDatas.Weapon.TypeID);
             }
-        }
-        //防具清單
-        armorList = new List<ArmorDataModel>();
-        foreach (var item in ItemManager.Instance.EquipDataList)
-        {
-            if (item.EquipmentDatas.Armor != null)
+            else
             {
-                armorList.Add(item.EquipmentDatas.Armor);
-                SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor", item.EquipmentDatas.Armor.TypeID);
+                if (item.GetComponent<EquipData>().PartID.Any(x => x == "LeftHand"))
+                    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipLeft", "");
+
+                SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipWeapon", "");
             }
         }
+
+        //防具清單
+        var tempArmorList = ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).ToList();
+        armorList = new List<ArmorDataModel>();
+        if (tempArmorList.CheckAnyData())
+            foreach (var item in ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).ToList())
+            {
+                if (item.EquipmentDatas.Armor != null)
+                {
+                    armorList.Add(item.EquipmentDatas.Armor);
+                }
+            }
+
+        //技能條件檢查 防具穿戴處理
+        if (tempArmorList.Count.Equals(5) && tempArmorList.All(x => x.EquipmentDatas.Armor.TypeID == "HeavyArmor"))
+            SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor", "HeavyArmor");
+        else if (tempArmorList.Count.Equals(5) && tempArmorList.All(x => x.EquipmentDatas.Armor.TypeID == "LightArmor"))
+            SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor", "LightArmor");
+        else if (tempArmorList.Count.Equals(5) && tempArmorList.All(x => x.EquipmentDatas.Armor.TypeID == "ClothArmor"))
+            SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor", "ClothArmor");
+        else
+            SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor", "");
 
         //獲取武器資料
         int weaponDataSTR = weaponList.Sum(x => x.STR);
@@ -528,7 +551,7 @@ public class StatusOperation : MonoBehaviour
 
         string weaponType = "";
         //若沒有武器則為空手 視同近戰
-        if (weaponList.Count == 0)
+        if (weaponList.Count == 0 || (!weaponList.Any(x => x.TypeID.Contains("Bow"))))
         {
             weaponType = "MeleeAttackRange";
         }
@@ -570,42 +593,14 @@ public class StatusOperation : MonoBehaviour
         //檢查空值
         if (effectProperty != null && basalProperty != null)
         {
-            //若效果為 全部攻擊 屬性
-            if (statusType == "ATK")
-            {
-                //取得所有攻擊屬性
-                string[] atkTypes = { "MeleeATK", "RemoteATK", "MageATK" };
-                //依次增加所有攻擊屬性
-                foreach (string atkType in atkTypes)
-                {
-                    //取得能力值對應的攻擊欄位參數(技能效果)
-                    FieldInfo effectATKProperty = typeof(TempBasalStatus).GetField(atkType);
-                    //取得能力值對應的攻擊欄位參數(當前基礎屬性)
-                    FieldInfo basalATKProperty = typeof(TempBasalStatus).GetField(atkType);
 
-                    //檢查空值
-                    if (effectProperty != null && basalProperty != null)
-                    {
-                        //取得 技能效果 能力值裡對應的攻擊參數的數值
-                        int effectValue = (int)effectATKProperty.GetValue(tempEffectStatus);
-                        //取得 當前基礎屬性 能力值裡對應的攻擊參數的數值
-                        int basalValue = (int)basalATKProperty.GetValue(tempBasalStatus);
-
-                        //依照加成或倍率計算數值
-                        effectValue += (isRate ? (int)(basalValue * value) : (int)value);
-
-                        //設定技能效果屬性的數值
-                        effectProperty.SetValue(tempEffectStatus, effectValue);
-                    }
-                }
-            }
             //若效果為 移動速度 屬性
-            else if (statusType == "Speed")
+            if (statusType == "Speed")
             {
                 //取得 技能效果 能力值裡對應的參數的數值
-                int effectValue = (int)effectProperty.GetValue(tempEffectStatus);
+                float effectValue = (float)effectProperty.GetValue(tempEffectStatus);
                 //設定技能效果屬性的數值 (移動速度的算法比較特別 "倍率"的話以速度基準值來計算 不會用穿上裝備的加總)
-                effectProperty.SetValue(tempEffectStatus, effectValue + (isRate ? (int)(1 * value) : (int)value));
+                effectProperty.SetValue(tempEffectStatus, effectValue + (isRate ? (1 * value) : value));
             }
             //其餘屬性正常運算
             else
@@ -635,6 +630,35 @@ public class StatusOperation : MonoBehaviour
                 }
 
 
+            }
+        }
+        //若效果為 全部攻擊 屬性
+        else if (statusType == "ATK")
+        {
+            //取得所有攻擊屬性
+            string[] atkTypes = { "MeleeATK", "RemoteATK", "MageATK" };
+            //依次增加所有攻擊屬性
+            foreach (string atkType in atkTypes)
+            {
+                //取得能力值對應的攻擊欄位參數(技能效果)
+                FieldInfo effectATKProperty = typeof(TempBasalStatus).GetField(atkType);
+                //取得能力值對應的攻擊欄位參數(當前基礎屬性)
+                FieldInfo basalATKProperty = typeof(TempBasalStatus).GetField(atkType);
+
+                //檢查空值
+                if (effectProperty != null && basalProperty != null)
+                {
+                    //取得 技能效果 能力值裡對應的攻擊參數的數值
+                    int effectValue = (int)effectATKProperty.GetValue(tempEffectStatus);
+                    //取得 當前基礎屬性 能力值裡對應的攻擊參數的數值
+                    int basalValue = (int)basalATKProperty.GetValue(tempBasalStatus);
+
+                    //依照加成或倍率計算數值
+                    effectValue += (isRate ? (int)(basalValue * value) : (int)value);
+
+                    //設定技能效果屬性的數值
+                    effectProperty.SetValue(tempEffectStatus, effectValue);
+                }
             }
         }
         else

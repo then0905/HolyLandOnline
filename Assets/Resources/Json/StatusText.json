@@ -126,5 +126,9 @@
   {
     "TextID": "TM_BlockRate",
     "TextContent": "格檔率"
+  },
+  {
+    "TextID": "TM_ATK",
+    "TextContent": "所有攻擊力"
   }
 ]

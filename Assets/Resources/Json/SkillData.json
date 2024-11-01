@@ -710,7 +710,7 @@
         "SkillID": "Knight_8",
         "SkillComponentID": "PassiveBuff",
         "EffectValue": 12,
-        "InfluenceStatus": "DFF",
+        "InfluenceStatus": "DEF",
         "AddType": "Value",
         "ConditionOR": [
           "EquipArmor_HeavyArmor"

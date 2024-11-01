@@ -150,13 +150,8 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
         if (skillcomponent.ToArray().SequenceEqual(this.SkillOperationDatas))
         {
             CharacterStatusManager.Instance.CharacterSatusRemoveEvent -= RemoveCharacterStatusHint;
-            foreach (var item in skill_Base_Buff.SkillComponentList)
-            {
-                if (item is BuffComponent buffcomponent)
-                {
-                    buffcomponent.ReverseExecute(skillcomponent);
-                }
-            }
+            var buffComponen = skill_Base_Buff.SkillComponentList.Where(x => x is BuffComponent).Select(x => x as BuffComponent).FirstOrDefault();
+            buffComponen?.ReverseExecute(SkillOperationDatas);
             CharacterStatusManager.Instance.CharacterStatusHintDic.Remove(this);
             Destroy(this.gameObject);
         }

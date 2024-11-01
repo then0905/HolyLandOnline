@@ -417,17 +417,18 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         //檢查 技能運算資料清單
         foreach (var operationData in skillOperationList)
         {
+            var listOR = operationData.ConditionOR?.Where(x => x.Contains(key)).ToList();
+            var listAND = operationData.ConditionAND?.Where(x => x.Contains(key)).ToList();
+
+            //發送的訂閱類型非此被動技能的類型 不進行檢查
+            if (!listOR.CheckAnyData() && !listAND.CheckAnyData())
+                return;
+
             //檢查條件清單
-            if (operationData.ConditionOR.CheckAnyData())
-                checkCondtionOR.Add(CheckConditionOR(operationData.ConditionOR.Where(x => x.Contains(key)).ToList()));
-            else if (operationData.ConditionAND.CheckAnyData())
-                checkCondtionAND.Add(CheckConditionAND(operationData.ConditionAND.Where(x => x.Contains(key)).ToList()));
-            else
-            {
-                //不需要判斷任何條件 增加一個True到OR條件清單
-                checkCondtionOR.Add(true);
-                continue;
-            }
+            if (listOR.CheckAnyData())
+                checkCondtionOR.Add(CheckConditionOR(listOR));
+            if (listAND.CheckAnyData())
+                checkCondtionAND.Add(CheckConditionAND(listAND));
         }
         //設定技能是否允許使用 (OR條件任一達成 以及 AND條件全達成或是沒有任何AND資料)
         skillCondtionCheck = (checkCondtionAND.CheckAnyData()) ? (checkCondtionOR.Any(x => x) && checkCondtionAND.All(x => x)) : checkCondtionOR.Any(x => x);
@@ -558,14 +559,17 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         {
             switch (condtionData.Key)
             {
+                //不含有任何條件判斷
                 default:
+                    finalResult.Add(false);
+                    break;
                 //裝備指定類型武器
                 case "EquipWeapon":
                     //取得裝備的武器資料
                     var allWeaponData = ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).ToList();
 
                     //沒有任何資料直接回傳False
-                    if (allWeaponData == null || allWeaponData.Count < 1)
+                    if (!allWeaponData.CheckAnyData())
                         finalResult.Add(false);
                     else
                         finalResult.Add(ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).Any(x => x.EquipmentDatas.Weapon.TypeID == condtionData.Value.ToString()));
@@ -577,7 +581,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
                     allWeaponData = ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).ToList();
 
                     //沒有任何資料直接回傳False
-                    if (allWeaponData == null || allWeaponData.Count < 1)
+                    if (!allWeaponData.CheckAnyData())
                         finalResult.Add(false);
                     else
                     {
@@ -587,7 +591,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
 
                         if (leftItemData != null)
                             //判斷是不是指定類型
-                            finalResult.Add(leftItemData.EquipmentDatas.Weapon.TackHandID == condtionData.Value.ToString());
+                            finalResult.Add(leftItemData.EquipmentDatas.Weapon.TypeID == condtionData.Value.ToString());
                         else
                         {
                             Debug.Log("沒有找到左手資料 錯誤了啦>>>>>>>>>>>>>");
@@ -595,6 +599,19 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
                         }
                     }
                     break;
+
+                //防具裝備指定類型
+                case "EquipArmor":
+                    //取得裝備的防具資料
+                    var allArmorData = ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).ToList();
+
+                    //沒有任何資料直接回傳False
+                    if (!allArmorData.CheckAnyData())
+                        finalResult.Add(false);
+                    else
+                        finalResult.Add(ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).Any(x => x.EquipmentDatas.Armor.TypeID == condtionData.Value.ToString()));
+                    break;
+
                 //在戰鬥狀態中
                 case "InCombatStatus":
                     //缺少戰鬥狀態判斷
@@ -644,6 +661,9 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     /// <returns></returns>
     protected bool CheckConditionOR(List<string> condtions)
     {
+        if (!condtions.CheckAnyData())
+            return (false);
+
         List<bool> checkResult = new List<bool>();
 
         checkResult.Add(DetailConditionProcess(condtions));

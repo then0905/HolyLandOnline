@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 
 //==========================================
@@ -65,14 +66,14 @@ public class BootysHandle : MonoBehaviour
     /// <param name="bootysData">掉落物資料</param>
     /// <param name="monsterTransform">生成父級</param>
     /// <param name="battleTargetList">戰鬥資料清單</param>
-    private void GenerateCoin(MonsterBootyDataModel bootysData, Transform monsterTransform, List<ICombatant> battleTargetList,int bootysLockSetting)
+    private void GenerateCoin(MonsterBootyDataModel bootysData, Transform monsterTransform, List<ICombatant> battleTargetList, int bootysLockSetting)
     {
         // 運算金幣量
         Coin = Random.Range(bootysData.MinCoin, bootysData.MaxCoin + 1);
         // 生成物件
         bootyItem = Instantiate(BootyItem, RandomTransform(monsterTransform), transform.rotation).GetComponent<BootysPresent>();
         //掉落物初始化設定
-        bootyItem.Init(bootysLockSetting,battleTargetList);
+        bootyItem.Init(bootysLockSetting, battleTargetList);
         // 設定金幣量
         bootyItem.Coins = Coin;
         //bootyItem.Item.Type = "金幣";
@@ -106,8 +107,32 @@ public class BootysHandle : MonoBehaviour
             bootyItem.EquipmentDatas.Weapon = GameData.WeaponsDic.Where(x => x.Key.Contains(tempBootyListData.BootyID)).FirstOrDefault().Value;
             //從資料庫抓出道具資料 或是空值
             bootyItem.EquipmentDatas.Item = GameData.ItemsDic.Where(x => x.Key.Contains(tempBootyListData.BootyID)).FirstOrDefault().Value;
+            //設定物品圖片
+            bootyItem.ThisEquipmentImage = CommonFunction.GetItemSprite(bootyItem.EquipmentDatas);
             //取得掉落數量
-            bootyItem.Qty = UnityEngine.Random.Range(tempBootyListData.DropCountMin,tempBootyListData.DropCountMax);
+            bootyItem.Qty = UnityEngine.Random.Range(tempBootyListData.DropCountMin, tempBootyListData.DropCountMax);
         }
+    }
+
+    /// <summary>
+    /// 測試 掉落指定道具到玩家附近
+    /// </summary>
+    /// <param name="itemID"></param>
+    public void TestDropBooty(TMP_InputField itemID)
+    {
+        //生成掉落物
+        bootyItem = Instantiate(BootyItem, RandomTransform(PlayerDataOverView.Instance.Obj.transform), transform.rotation).GetComponent<BootysPresent>();
+        //掉落物初始化設定
+        bootyItem.Init(0, new List<ICombatant>() { PlayerDataOverView.Instance });
+        //從資料庫抓出防具資料 或是空值
+        bootyItem.EquipmentDatas.Armor = GameData.ArmorsDic.Where(x => x.Key.Contains(itemID.text)).FirstOrDefault().Value;
+        //從資料庫抓出武器資料 或是空值
+        bootyItem.EquipmentDatas.Weapon = GameData.WeaponsDic.Where(x => x.Key.Contains(itemID.text)).FirstOrDefault().Value;
+        //從資料庫抓出道具資料 或是空值
+        bootyItem.EquipmentDatas.Item = GameData.ItemsDic.Where(x => x.Key.Contains(itemID.text)).FirstOrDefault().Value;
+        //設定物品圖片
+        bootyItem.ThisEquipmentImage = CommonFunction.GetItemSprite(bootyItem.EquipmentDatas);
+        //取得掉落數量
+        bootyItem.Qty = 1;
     }
 }

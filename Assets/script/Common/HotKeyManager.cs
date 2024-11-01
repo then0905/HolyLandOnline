@@ -55,8 +55,11 @@ public class HotKeyManager : MonoBehaviour
         {
             MissionPanelPage();
         }
+        if (Input.GetKeyDown("`"))
+            OpenTargetPanel("TestItemDrop");
+
         // 未選取任何目標 按下esc時 關閉所有面板
-        if (Input.GetKeyDown(KeyCode.Escape)&& !SelectTarget.Instance.CatchTarget)
+        if (Input.GetKeyDown(KeyCode.Escape) && !SelectTarget.Instance.CatchTarget)
         {
             panelManager.CloseAllPanel();
         }
@@ -124,6 +127,22 @@ public class HotKeyManager : MonoBehaviour
         else
         {
             panelManager.SetPanelClose("MissionPanel");
+        }
+    }
+
+    /// <summary>
+    /// 開關指定視窗
+    /// </summary>
+    public void OpenTargetPanel(string panelName)
+    {
+        PanelData playerDataPanel = panelManager.PanelLsit.Where(x => x.PanelName.Contains(panelName)).FirstOrDefault();
+        if (!playerDataPanel.PanelObj.activeSelf)
+        {
+            panelManager.SetPanelOpen(panelName);
+        }
+        else
+        {
+            panelManager.SetPanelClose(panelName);
         }
     }
 }

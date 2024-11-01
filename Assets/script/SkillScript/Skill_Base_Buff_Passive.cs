@@ -19,11 +19,15 @@ public class Skill_Base_Buff_Passive : Skill_Base_Buff
 
     protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defenfer = null)
     {
-        caster = attacker;
-        target = defenfer;
-        //SkillBuffEffectStart(attacker, defenfer);
-        SkillComponentList[0].Execute(caster, target);
-        buffIsRun = true;
+        if (!buffIsRun)
+        {
+            print("啟動的被動技能:" + SkillName);
+            caster = attacker;
+            target = defenfer;
+            //SkillBuffEffectStart(attacker, defenfer);
+            SkillComponentList[0].Execute(caster, target);
+            buffIsRun = true;
+        }
     }
 
     /// <summary>
@@ -31,15 +35,32 @@ public class Skill_Base_Buff_Passive : Skill_Base_Buff
     /// </summary>
     protected override void SkillEffectEnd(ICombatant caster = null, ICombatant receiver = null)
     {
-        print("移除的被動技能:" + SkillName);
 
-        //刪除自己
-        if (this.gameObject)
+        if (buffIsRun)
         {
-            if (this is Skill_Base_Buff_Passive)
-                PassiveSkillManager.Instance.SkillPassiveBuffList.Remove(this);
-            Destroy(this.gameObject);
+            print("移除的被動技能:" + SkillName);
+         
+            //以相同的組件 與 持續時間分組
+            var group = skillOperationList.GroupBy(x => new {
+                x.SkillComponentID,
+                ConditionKey = string.Join(",", x.ConditionOR.OrderBy(c => c))
+            });
+            foreach (var groupData in group)
+            {
+                CharacterStatusManager.Instance.CharacterSatusRemoveEvent?.Invoke(groupData.ToArray());
+            }
+            //SkillBuffEffectStart(attacker, defenfer);
+            //CharacterStatusManager.Instance.CharacterSatusRemoveEvent?.Invoke(skillOperationList.ToArray());
+            buffIsRun = false;
         }
+
+        ////刪除自己
+        //if (this.gameObject)
+        //{
+        //    if (this is Skill_Base_Buff_Passive)
+        //        PassiveSkillManager.Instance.SkillPassiveBuffList.Remove(this);
+        //    Destroy(this.gameObject);
+        //}
     }
 
     /// <summary>
@@ -60,35 +81,37 @@ public class Skill_Base_Buff_Passive : Skill_Base_Buff
         //檢查 技能運算資料清單
         foreach (var operationData in skillOperationList)
         {
+            var listOR = operationData.ConditionOR?.Where(x => x.Contains(key)).ToList();
+            var listAND = operationData.ConditionAND?.Where(x => x.Contains(key)).ToList();
+
+            //發送的訂閱類型非此被動技能的類型 不進行檢查
+            if (!listOR.CheckAnyData() && !listAND.CheckAnyData())
+                return;
+
             //檢查條件清單
-            if (operationData.ConditionOR.CheckAnyData())
-                checkCondtionOR.Add(CheckConditionOR(operationData.ConditionOR.Where(x => x.Contains(key)).ToList()));
-            else if (operationData.ConditionAND.CheckAnyData())
-                checkCondtionAND.Add(CheckConditionOR(operationData.ConditionAND.Where(x => x.Contains(key)).ToList()));
-            else
-            {
-                checkCondtionOR.Add(true);
-                continue;
-            }
+            if (listOR.CheckAnyData())
+                checkCondtionOR.Add(CheckConditionOR(listOR));
+            if (listAND.CheckAnyData())
+                checkCondtionAND.Add(CheckConditionAND(listAND));
         }
 
         //OR條件任一達成 以及 AND條件全達成
         if (checkCondtionOR.CheckAnyData() && checkCondtionAND.CheckAnyData())
         {
-            skillCondtionCheck = (checkCondtionOR.Any(x => x)&& checkCondtionAND.All(x => x));
-            if(skillCondtionCheck)
+            skillCondtionCheck = (checkCondtionOR.Any(x => x) && checkCondtionAND.All(x => x));
+            if (skillCondtionCheck)
                 SkillEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
+            else
+                SkillEffectEnd(null, null);
         }
         //OR條件任一達成 AND無條件資料
-        else if(checkCondtionOR.CheckAnyData())
+        else if (checkCondtionOR.CheckAnyData())
         {
             skillCondtionCheck = checkCondtionOR.Any(x => x);
             if (skillCondtionCheck)
                 SkillEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
-        }
-        else
-        {
-            Debug.Log(string.Format("技能 : {0}  條件未達成", SkillName));
+            else
+                SkillEffectEnd(null, null);
         }
 
         //if (checkCondtionOR.Any(x => x))
