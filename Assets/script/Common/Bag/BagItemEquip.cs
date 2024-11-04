@@ -51,26 +51,23 @@ public class BagItemEquip : MonoBehaviour
     {
         PointerEventData data = baseEventData as PointerEventData;
 
-        GameObject thisItem = data.pointerCurrentRaycast.gameObject;
+        Equipment thisItem = data.pointerCurrentRaycast.gameObject.GetComponent<Equipment>();
         //檢查空值
-        if (thisItem.GetComponent<Equipment>().EquipmentDatas.Armor != null||
-            thisItem.GetComponent<Equipment>().EquipmentDatas.Weapon != null||
-            thisItem.GetComponent<Equipment>().EquipmentDatas.Item != null)
+        if ((thisItem.EquipmentDatas.Armor != null ||
+            thisItem.EquipmentDatas.Weapon != null ||
+            thisItem.EquipmentDatas.Item != null) && thisItem != null)
         {
-            OriginItemSeat = thisItem;
+            OriginItemSeat = thisItem.gameObject;
             if (!cloneItemImage)
             {
                 //生成物件
                 cloneItemImage = true;  //設定防呆 防止重複生成
                 cloneItem = Instantiate(CloneItem, transform.position, transform.rotation, BagWindowTransform);
                 //設定生成物件的圖片與資料
-                cloneItem.transform.GetComponent<Equipment>().EquipImage.sprite = thisItem.GetComponent<Equipment>().EquipImage.sprite;
-                cloneItem.transform.GetComponent<Equipment>().EquipmentDatas = thisItem.GetComponent<Equipment>().EquipmentDatas.Clone();
+                cloneItem.transform.GetComponent<Equipment>().EquipImage.sprite = thisItem.EquipImage.sprite;
+                cloneItem.transform.GetComponent<Equipment>().EquipmentDatas = thisItem.EquipmentDatas.Clone();
                 //背包原位的格子圖片設定為空背包圖 並取消raycast
-                thisItem.GetComponent<Equipment>().EquipImage.sprite = BagItemOriginImage;
-                OriginItemSeat.transform.GetComponent<Image>().raycastTarget = false;
-                //print("拖曳裝備的 裝備格的資料:" + "武器:"+thisItem.GetComponent<Equipment>().EquipmentDatas.Weapon+ 
-                //    "防具:" + thisItem.GetComponent<Equipment>().EquipmentDatas.Armor+ "道具:" + thisItem.GetComponent<Equipment>().EquipmentDatas.Item);
+                thisItem.EquipImage.sprite = BagItemOriginImage;
             }
         }
         else
@@ -89,6 +86,7 @@ public class BagItemEquip : MonoBehaviour
     /// <param name="data"></param>
     public void Dragging(BaseEventData baseEventData)
     {
+        if (!cloneItemImage) return;
         PointerEventData data = baseEventData as PointerEventData;
 
         GameObject MovingItem = data.pointerCurrentRaycast.gameObject;
@@ -110,7 +108,6 @@ public class BagItemEquip : MonoBehaviour
         //獲取複製物件的裝備資料
         Equipment cloneObjEquipment = cloneItem.transform.GetComponent<Equipment>();
 
-
         //檢查空值 拖曳物品到背包的任一欄位時
         if (MovingItem != null)
         {
@@ -118,9 +115,6 @@ public class BagItemEquip : MonoBehaviour
             {
                 //獲取裝備欄腳本
                 EquipData equipData = MovingItem.transform.GetComponent<EquipData>();
-
-                //if (cloneObjEquipment.EquipmentDatas.Item != null)//檢查物品是否為道具類
-                //    return;
 
                 /*檢查滑鼠偵測到的欄位是否為正確穿著位置*/
                 //檢查武器欄

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ using UnityEngine;
 //  創建日期:2024/10/22
 //  創建用途:技能組件接口繼承實例
 //==========================================
-public abstract class SkillComponent : ISkillComponent
+public abstract class SkillComponent : MonoBehaviour, ISkillComponent
 {
     protected Skill_Base skillbase;
     public Skill_Base SkillBase => skillbase;
@@ -232,7 +233,7 @@ public class DotDamageSkill : DamageComponent
 /// <summary>
 /// 控制狀態技能組件
 /// </summary>
-public class CrowdControlSkillComponent : SkillComponent
+public class CrowdControlSkillComponent : BuffComponent
 {
 
     public CrowdControlSkillComponent(Skill_Base skill_Base, SkillOperationData operationData)
@@ -240,10 +241,19 @@ public class CrowdControlSkillComponent : SkillComponent
         skillbase = skill_Base;
         skillOperationData = operationData;
     }
-
+    private ICombatant tempCaster;
+    private ICombatant tempTarget;
     public override void Execute(ICombatant caster, ICombatant target)
     {
+        tempCaster = caster;
+        tempTarget = target;
+        DebuffEffectBase_CrowdControl tempObj = Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.EffectPrefab, $"Effect_{skillOperationData.InfluenceStatus}")).GetComponent<DebuffEffectBase_CrowdControl>();
+        tempObj.EffectStart(caster, target, this);
+    }
 
+    public override void ReverseExecute(params SkillOperationData[] skillOperationData)
+    {
+        tempTarget.RemoveBuffEffect(tempTarget, this.skillOperationData);
     }
 }
 

@@ -117,13 +117,21 @@ public class Character_move : MonoBehaviour
 
     void LateUpdate()
     {
+
+
         //取得玩家控制角色移動的輸出訊息(上下左右 wasd 搖桿等等)
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
         //當有任何移動方向的輸出訊息
         if (horizontalInput != 0 || verticalInput != 0)
-        {
+        {       
+            //強制取消角色移動
+            if (!PlayerDataOverView.Instance.MoveIsEnable.Equals(0))
+            {
+                CommonFunction.MessageHint("TM_MoveEnableError".GetText(), HintType.Warning);
+                return;
+            }
             Vector2 inputToMove = new Vector2(horizontalInput, verticalInput);
             MovePlayerRelativeToCamera(inputToMove);
         }

@@ -144,4 +144,18 @@ public class CharacterStatusManager : MonoBehaviour
             StartCoroutine(characterStatusHintObj.BuffHintInit(skillcomponent, skillOperationData));
         }
     }
+
+    /// <summary>
+    /// 生成角色狀態提示物件 Debuff版本
+    /// </summary>
+    /// <param name="o"></param>
+    /// <param name="skillComponent"></param>
+    public void InitCharacterStatusHintCheck(DebuffEffectBase debuffEffectData)
+    {
+        //直接生成
+        CharacterStatusHint_DeBuff characterStatusHintObj = 
+            Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Debuff"), ReturnCharacterStatusArea(debuffEffectData.EffectType))
+            .GetComponent<CharacterStatusHint_DeBuff>();
+        StartCoroutine(characterStatusHintObj.BuffHintInit(debuffEffectData));
+    }
 }

@@ -89,9 +89,9 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
 
     public string CharacterStatusType { get; set; }
 
-    private Coroutine alphaAinmCoroutine;       //閃爍動畫協成
+    protected Coroutine alphaAinmCoroutine;       //閃爍動畫協成
 
-    private Skill_Base_Buff skill_Base_Buff;
+    protected Skill_Base_Buff skill_Base_Buff;
 
     public SkillOperationData[] SkillOperationDatas { get; set; }
 
@@ -131,7 +131,7 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
         //gameObject.transform.eulerAngles = Vector3.zero;
     }
 
-    public IEnumerator UpdateTimer(float timer)
+    public virtual IEnumerator UpdateTimer(float timer)
     {
         TempCoolDownTime = timer;
         while (TempCoolDownTime > 0)
@@ -189,6 +189,6 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
     public void OnClick()
     {
         CharacterStatusHintIntroSetting tempObj = Instantiate(buffIntroObj);
-        tempObj.Init(this, skill_Base_Buff);
+        tempObj.Init(this);
     }
 }

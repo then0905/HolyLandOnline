@@ -60,6 +60,22 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
     public virtual GameObject Obj { get; }
 
     public bool IsDead { get; set; }
+    public int MoveIsEnable { get; set; } = 0;
+
+    public virtual void MoveEnable(bool enable)
+    {
+        MoveIsEnable = Math.Clamp(MoveIsEnable += enable ? -1 : 1, 0, MoveIsEnable += enable ? -1 : 1);
+    }
+    public int SkillIsEnable { get; set; } = 0;
+    public virtual void SkillEnable(bool enable)
+    {
+        SkillIsEnable = Math.Clamp(SkillIsEnable += enable ? -1 : 1, 0, SkillIsEnable += enable ? -1 : 1);
+    }
+    public int AttackIsEnable { get; set; } = 0;
+    public virtual void AttackEnable(bool enable)
+    {
+        AttackIsEnable = Math.Clamp(AttackIsEnable += enable ? -1 : 1, 0, AttackIsEnable += enable ? -1 : 1);
+    }
 
     /// <summary>
     /// 物件被選取處理
@@ -124,7 +140,7 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
                 CommonFunction.DetectionRangeMethod(PlayerDataOverView.Instance.CharacterMove.gameObject,
                     gameObject, 7.5f,
                     () =>
-                    {        
+                    {
                         //開啟自動尋路
                         PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = true;
                         float pursueDistance = Vector3.Distance(PlayerDataOverView.Instance.CharacterMove.gameObject.transform.position, gameObject.transform.position);
@@ -147,7 +163,8 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
                                 PlayerDataOverView.Instance.CharacterMove.MoveSpeed);
                         }
                     }
-                    ,()=> {
+                    , () =>
+                    {
                         PlayerDataOverView.Instance.CharacterMove.RunAnimation(false);
                         behavior.NpcInit();
                     }));
@@ -161,9 +178,9 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
         }
     }
 
-    public virtual void DealingWithInjuriesMethod(ICombatant attackerData, int damage , bool animTrigger = true)
+    public virtual void DealingWithInjuriesMethod(ICombatant attackerData, int damage, bool animTrigger = true)
     {
-        
+
     }
 
     public virtual void GetBuffEffect(ICombatant target, SkillOperationData skillData)

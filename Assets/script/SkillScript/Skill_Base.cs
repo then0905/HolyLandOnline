@@ -373,6 +373,17 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
             skillCondtionCheck = true;
     }
 
+    //測試方法 目前測試暈眩效果 需要修改或測試效果 反註解依需求修改即可
+    //private void Update()
+    //{
+    //    if (Input.GetKeyUp("f"))
+    //    {
+    //        var test = GameData.SkillDataDic["Warrior_1"].SkillOperationDataList.Where(x => x.InfluenceStatus == "Stun").FirstOrDefault();
+    //        ISkillComponent testC = SkillComponent(test);
+    //        testC.Execute(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
+    //    }
+    //}
+
     /// <summary>
     /// 技能施放開始
     /// </summary>

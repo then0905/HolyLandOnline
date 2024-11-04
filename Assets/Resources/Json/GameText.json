@@ -86,5 +86,17 @@
   {
     "TextID": "TM_SkillConditionError",
     "TextContent": "技能施放錯誤：技能所需條件未達成！"
+  },
+  {
+    "TextID": "TM_SkillEnableError",
+    "TextContent": "技能施放錯誤：角色正在不可施放技能的狀態！"
+  },
+  {
+    "TextID": "TM_MoveEnableError",
+    "TextContent": "技能施放錯誤：角色正在不可移動的狀態！"
+  },
+  {
+    "TextID": "TM_AttackEnableError",
+    "TextContent": "技能施放錯誤：角色正在不可進行普通攻擊的狀態！"
   }
 ]

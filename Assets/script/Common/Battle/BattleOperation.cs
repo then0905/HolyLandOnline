@@ -73,6 +73,39 @@ public interface ICombatant
     /// <param name="target"></param>
     /// <param name="skillTarget"></param>
     public void RemoveBuffEffect(ICombatant target, SkillOperationData skillTarget);
+
+    /// <summary>
+    /// 移動啟動狀態
+    /// </summary>
+    public int MoveIsEnable { get; set; }
+
+    /// <summary>
+    /// 調整移動是否啟動
+    /// </summary>
+    /// <param name="enable"></param>
+    public void MoveEnable(bool enable);
+
+    /// <summary>
+    /// 技能啟動狀態
+    /// </summary>
+    public int SkillIsEnable { get; set; }
+
+    /// <summary>
+    /// 調整技能是否啟動
+    /// </summary>
+    /// <param name="enable"></param>
+    public void SkillEnable(bool enable);
+
+    /// <summary>
+    /// 攻擊啟動狀態
+    /// </summary>
+    public int AttackIsEnable { get; set; }
+
+    /// <summary>
+    /// 調整攻擊是否啟動
+    /// </summary>
+    /// <param name="enable"></param>
+    public void AttackEnable(bool enable);
 }
 
 public class BattleOperation : MonoBehaviour

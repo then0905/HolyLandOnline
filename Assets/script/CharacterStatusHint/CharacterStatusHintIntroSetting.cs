@@ -37,7 +37,7 @@ public class CharacterStatusHintIntroSetting : MonoBehaviour
     /// <summary>
     /// 初始化狀態詳細資料
     /// </summary>
-    public void Init(ICharacterStatus characterStatus, Skill_Base_Buff skillBase_Buff)
+    public void Init(ICharacterStatus characterStatus)
     {
         //狀態提示基本資料設定
         buffIntroIcon.sprite = CommonFunction.LoadSkillIcon(characterStatus.CharacterStatusID);

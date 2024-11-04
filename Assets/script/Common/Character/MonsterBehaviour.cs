@@ -62,10 +62,10 @@ public class MonsterBehaviour : ActivityCharacterBase
     public Dictionary<ICombatant, int> BattleTargetDic = new Dictionary<ICombatant, int>();
 
     //協程區
-    public Coroutine MonsterPatrolCoroutine;
-    public Coroutine MonsterPursueCoroutine;
-    public Coroutine MonsterAttackCoroutine;
-    public Coroutine CommonPursueCoroutine;
+    public Coroutine MonsterPatrolCoroutine;        //偵查行為協程
+    public Coroutine MonsterPursueCoroutine;        //追擊行為協程
+    public Coroutine MonsterAttackCoroutine;        //攻擊行為協程
+    public Coroutine CommonPursueCoroutine;     //追擊距離計算協程
 
     //怪物血量
     protected int hp;
@@ -122,6 +122,45 @@ public class MonsterBehaviour : ActivityCharacterBase
     public override float ElementDamageIncrease { get => monsterValue.ElementDamageIncrease; }
     public override float ElementDamageReduction { get => monsterValue.ElementDamageReduction; }
     public override GameObject Obj { get => gameObject; }
+
+    public override void MoveEnable(bool enable)
+    {
+        base.MoveEnable(enable);
+        //偵查協程 取消
+        if (MonsterPatrolCoroutine != null && !enable)
+        {
+            StopCoroutine(MonsterPatrolCoroutine);
+            MonsterPatrolCoroutine = null;
+        }
+        //追擊行為協程 取消
+        if (MonsterPursueCoroutine != null && !enable)
+        {
+            StopCoroutine(MonsterPursueCoroutine);
+            MonsterPursueCoroutine = null;
+        }
+        //追擊距離協程 取消
+        if (CommonPursueCoroutine != null && !enable)
+        {
+            StopCoroutine(CommonPursueCoroutine);
+            CommonPursueCoroutine = null;
+        }
+    }
+
+    public override void SkillEnable(bool enable)
+    {
+        base.SkillEnable(enable);
+    }
+
+    public override void AttackEnable(bool enbale)
+    {
+        base.AttackEnable(enabled);
+        //攻擊協程 取消
+        if (MonsterAttackCoroutine != null && !enbale)
+        {
+            StopCoroutine(MonsterAttackCoroutine);
+            MonsterAttackCoroutine = null;
+        }
+    }
 
     /// <summary>
     /// 檢查是否可以移動
@@ -241,18 +280,14 @@ public class MonsterBehaviour : ActivityCharacterBase
         {
             //戰鬥中
             case MonserBehaviorEnum.Attack:
-                //Debug.Log("怪物:" + name + " 重新設定狀態 :" + "攻擊");
                 MonsterAttackCoroutine = StartCoroutine(MonsterAttack());
                 break;
             //偵查 巡邏
             case MonserBehaviorEnum.Patrol:
-                //Debug.Log("怪物:" + name + " 重新設定狀態 :" + "巡邏");
                 MonsterPatrolCoroutine = StartCoroutine(MonsterPatrol());
                 break;
             //追擊
             case MonserBehaviorEnum.Pursue:
-
-                //Debug.Log("怪物:" + name + " 重新設定狀態 :" + "追擊");
                 MonsterPursueCoroutine = StartCoroutine(MonsterPursue());
                 break;
         }
@@ -286,7 +321,9 @@ public class MonsterBehaviour : ActivityCharacterBase
     /// <returns></returns>
     private IEnumerator MonsterPatrol()
     {
+        if (!MoveIsEnable.Equals(0)) yield break;
         yield return new WaitForSeconds(Random.Range(monsterActivityIntervalMin, monsterActivityIntervalMax + 1));
+        if (!MoveIsEnable.Equals(0)) yield break;
         while (true)
         {
             Vector2 randomPoint = Random.insideUnitCircle * monsterValue.ActivityScope;
@@ -325,6 +362,7 @@ public class MonsterBehaviour : ActivityCharacterBase
     /// <returns></returns>
     private IEnumerator MonsterPursue()
     {
+        if (!MoveIsEnable.Equals(0)) yield break;
         GameObject targetObj = BattleTargetDic.FirstOrDefault().Key.Obj;
         if (targetObj != null)
         {
@@ -374,6 +412,7 @@ public class MonsterBehaviour : ActivityCharacterBase
     /// <returns></returns>
     private IEnumerator MonsterAttack()
     {
+        if (!AttackIsEnable.Equals(0)) yield break;
         //怪物攻擊內容 動畫 傷害設定 攻擊計時器等等...
         if (!MonsterIsAttack)
         {

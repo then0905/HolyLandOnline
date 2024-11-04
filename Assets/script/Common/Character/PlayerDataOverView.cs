@@ -127,6 +127,30 @@ public class PlayerDataOverView : ActivityCharacterBase
     public override float ElementDamageReduction { get => PlayerData_.ElementDamageReduction; }
     public override GameObject Obj { get => gameObject; }
 
+    public override void SkillEnable(bool enable)
+    {
+        base.SkillEnable(enable);
+        SkillController skillController = SkillController.Instance;
+        //若有正在施放追擊的協程 取消
+        if (skillController.SkillChasingCoroutine != null && !enable)
+        {
+            StopCoroutine(skillController.SkillChasingCoroutine);
+            skillController.SkillChasingCoroutine = null;
+        }
+    }
+
+    public override void AttackEnable(bool enbale)
+    {
+        base.AttackEnable(enabled);
+        NormalAttackSystem normalAttackSystem = NormalAttackSystem.Instance;
+        //若有正在施放追擊的協程 取消
+        if (normalAttackSystem.NormalAttackCoroutine != null && !enbale)
+        {
+            StopCoroutine(normalAttackSystem.NormalAttackCoroutine);
+            normalAttackSystem.NormalAttackCoroutine = null;
+        }
+    }
+
     [Header("事件區")]
     public Action UIrefresh;        //刷新玩家UI的事件
     public Action<int> ChangeHpEvent;        //刷新玩家HP的事件
@@ -282,8 +306,12 @@ public class PlayerDataOverView : ActivityCharacterBase
 
     public override void GetBuffEffect(ICombatant target, SkillOperationData skillData)
     {
+        if (skillData.SkillComponentID == "CrowdControl")
+        {
 
-        StatusOperation.Instance.SkillEffectStatusOperation(skillData.InfluenceStatus, (skillData.AddType == "Rate"), skillData.EffectValue);
+        }
+        else
+            StatusOperation.Instance.SkillEffectStatusOperation(skillData.InfluenceStatus, (skillData.AddType == "Rate"), skillData.EffectValue);
     }
 
     public override void RemoveBuffEffect(ICombatant target, SkillOperationData skillData)

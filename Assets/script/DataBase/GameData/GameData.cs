@@ -54,6 +54,7 @@ public partial class GameData : MonoBehaviour
             "GameText",
             "StatusText", 
             "CommonText",
+            "EffectText",
             "AreaText",
             "ArmorText",
             "ItemText",

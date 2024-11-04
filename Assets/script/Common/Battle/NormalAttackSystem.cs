@@ -1,7 +1,5 @@
 
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 //==========================================
 //  創建者:家豪
@@ -42,6 +40,11 @@ public class NormalAttackSystem : MonoBehaviour
     /// </summary>
     public void StartNormalAttack(GameObject player, GameObject target)
     {
+        if (!PlayerDataOverView.Instance.AttackIsEnable.Equals(0))
+        {
+            CommonFunction.MessageHint("TM_AttackEnableError".GetText(), HintType.Warning);
+            return;
+        }
         if (!AttackAllow)
             //需要進行判斷距離
             NormalAttackCoroutine = StartCoroutine(CommonFunction.DetectionRangeMethod(player, target,
@@ -87,7 +90,7 @@ public class NormalAttackSystem : MonoBehaviour
         direction.y = 0;
         // 如果 direction 的長度不為零，設定角色的朝向
         //if (direction != Vector3.zero)
-            PlayerDataOverView.Instance.CharacterMove.Character.transform.rotation = Quaternion.LookRotation(direction);
+        PlayerDataOverView.Instance.CharacterMove.Character.transform.rotation = Quaternion.LookRotation(direction);
 
         PlayerDataOverView.Instance.CharacterMove.RunAnimation(true);
 

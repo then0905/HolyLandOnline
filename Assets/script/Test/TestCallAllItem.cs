@@ -16,7 +16,7 @@ public class TestCallAllItem : MonoBehaviour
     [SerializeField] private Transform armorTrans; //防具生成參考
     [SerializeField] private Transform itemTrans; //道具生成參考
 
-    [SerializeField]private string tempItem;
+    private string tempItem;
     private void Awake()
     {
         foreach (var data in GameData.WeaponsDic)

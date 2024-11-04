@@ -121,6 +121,11 @@ public class SkillController : MonoBehaviour
     /// <param name="inputNumber">技能快捷鍵</param>
     public void SkillUse(int inputNumber)
     {
+        if (!PlayerDataOverView.Instance.SkillIsEnable.Equals(0))
+        {
+            CommonFunction.MessageHint("TM_SkillEnableError".GetText(), HintType.Warning);
+            return;
+        }
         //判斷 快捷鍵的資料是否為空值
         if (SkillHotKey[inputNumber].TempHotKeyData != null)
         {
