@@ -68,7 +68,7 @@ public class SkillController : MonoBehaviour
     //記錄追擊協程
     public Coroutine SkillChasingCoroutine;
 
-    public Action<string, object> SkillConditionCheckEvent;     //發生特定事情後 檢查技能條件是否達成
+    public Action<string> SkillConditionCheckEvent;     //發生特定事情後 檢查技能條件是否達成
 
     void Update()
     {

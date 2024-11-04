@@ -26,6 +26,7 @@ public class AccountPlayerData
     public List<MissionData> missionDataList = new List<MissionData>();        //接取的任務與進度資料
     public List<string> finishedMissionDataList = new List<string>();          //已完成的任務資料清單
     public List<EquipmentDataToJson> BagItemList = new List<EquipmentDataToJson>();       //背包資料清單
+    public List<EquipmentDataToJson> EquipDataList = new List<EquipmentDataToJson>();       //玩家穿戴裝備資料清單
     public List<string> finishedTutorialIDList = new List<string>();          //已完成的教學ID清單
 }
 
@@ -61,7 +62,7 @@ public class LoadPlayerData : MonoBehaviour
             if (isinit)
             {
                 ItemManager.Instance.PickUp(accountPlayerData.Coin, true);       //不從PlayerData裡帶入值是因為這個方法可以更新玩家資料及背包UI文字
-                ItemManager.Instance.Init(accountPlayerData.BagItemList);       //背包物品資料
+                ItemManager.Instance.Init(accountPlayerData.BagItemList,accountPlayerData.EquipDataList);       //背包物品資料
                 MissionManager.Instance.MissionList = accountPlayerData.missionDataList;
                 MissionManager.Instance.FinishedMissionList = accountPlayerData.finishedMissionDataList;
             }
@@ -93,6 +94,7 @@ public class LoadPlayerData : MonoBehaviour
             missionDataList = MissionManager.Instance.MissionList,
             finishedMissionDataList = MissionManager.Instance.FinishedMissionList,
             BagItemList = ItemManager.Instance.BagItems.Select(x => x.EquipmentDatas.EquipmentDataToJson_).ToList(),
+            EquipDataList = ItemManager.Instance.EquipDataList.Select(x => x.EquipmentDatas.EquipmentDataToJson_).ToList(),
             finishedTutorialIDList = PlayerDataOverView.Instance.PlayerData_.PlayerTutorialList
         });
     }

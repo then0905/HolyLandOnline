@@ -139,16 +139,16 @@ public class StatusOperation : MonoBehaviour
             {
                 weaponList.Add(item.EquipmentDatas.Weapon);
                 if (item.GetComponent<EquipData>().PartID.Any(x => x == "LeftHand"))
-                    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipLeft", item.EquipmentDatas.Weapon.TypeID);
+                    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipLeft");
                 else
-                    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipWeapon", item.EquipmentDatas.Weapon.TypeID);
+                    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipWeapon");
             }
             else
             {
                 if (item.GetComponent<EquipData>().PartID.Any(x => x == "LeftHand"))
-                    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipLeft", "");
+                    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipLeft");
 
-                SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipWeapon", "");
+                SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipWeapon");
             }
         }
 
@@ -165,14 +165,14 @@ public class StatusOperation : MonoBehaviour
             }
 
         //技能條件檢查 防具穿戴處理
-        if (tempArmorList.Count.Equals(5) && tempArmorList.All(x => x.EquipmentDatas.Armor.TypeID == "HeavyArmor"))
-            SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor", "HeavyArmor");
-        else if (tempArmorList.Count.Equals(5) && tempArmorList.All(x => x.EquipmentDatas.Armor.TypeID == "LightArmor"))
-            SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor", "LightArmor");
-        else if (tempArmorList.Count.Equals(5) && tempArmorList.All(x => x.EquipmentDatas.Armor.TypeID == "ClothArmor"))
-            SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor", "ClothArmor");
-        else
-            SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor", "");
+        //if (tempArmorList.Count.Equals(5) && tempArmorList.All(x => x.EquipmentDatas.Armor.TypeID == "HeavyArmor"))
+        //    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor");
+        //else if (tempArmorList.Count.Equals(5) && tempArmorList.All(x => x.EquipmentDatas.Armor.TypeID == "LightArmor"))
+        //    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor");
+        //else if (tempArmorList.Count.Equals(5) && tempArmorList.All(x => x.EquipmentDatas.Armor.TypeID == "ClothArmor"))
+        //    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor");
+        //else
+            SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor");
 
         //獲取武器資料
         int weaponDataSTR = weaponList.Sum(x => x.STR);

@@ -40,8 +40,9 @@ public class ItemManager : MonoBehaviour
     /// <summary>
     /// 初始化
     /// </summary>
-    /// <param name="itemBagList"></param>
-    public void Init(List<EquipmentDataToJson> itemBagList = null)
+    /// <param name="itemBagList">背包物品資料</param>
+    /// <param name="equipDataList">穿戴裝備資料</param>
+    public void Init(List<EquipmentDataToJson> itemBagList = null, List<EquipmentDataToJson> equipDataList = null)
     {
         //從本地獲取背包資料
         if (itemBagList.CheckAnyData())
@@ -51,15 +52,15 @@ public class ItemManager : MonoBehaviour
             for (int i = 0; i < itemBagList.Count; i++)
             {
                 //生成背包格並顯示出來
-                GameObject bag = Instantiate(bagObject, bagContent);
+                Equipment bag = Instantiate(bagObject, bagContent).GetComponent<Equipment>();
                 //紀錄背包格的物品資料
-                BagItems.Add(bag.GetComponent<Equipment>());
-                bag.SetActive(true);
+                BagItems.Add(bag);
+                bag.gameObject.SetActive(true);
                 switch (itemBagList[i].Type)
                 {
                     case "Weapon":
                         //設定物品資料
-                        bag.GetComponent<Equipment>().EquipmentDatas = new EquipmentData()
+                        bag.EquipmentDatas = new EquipmentData()
                         {
                             Weapon = GameData.WeaponsDic[itemBagList[i].CodedID],
                             Qty = itemBagList[i].Qty
@@ -68,7 +69,7 @@ public class ItemManager : MonoBehaviour
 
                     case "Armor":
                         //設定物品資料
-                        bag.GetComponent<Equipment>().EquipmentDatas = new EquipmentData()
+                        bag.EquipmentDatas = new EquipmentData()
                         {
                             Armor = GameData.ArmorsDic[itemBagList[i].CodedID],
                             Qty = itemBagList[i].Qty
@@ -77,7 +78,7 @@ public class ItemManager : MonoBehaviour
 
                     case "Item":
                         //設定物品資料
-                        bag.GetComponent<Equipment>().EquipmentDatas = new EquipmentData()
+                        bag.EquipmentDatas = new EquipmentData()
                         {
                             Item = GameData.ItemsDic[itemBagList[i].CodedID],
                             Qty = itemBagList[i].Qty
@@ -87,10 +88,10 @@ public class ItemManager : MonoBehaviour
                     default:
                         break;
                 }
-                bag.GetComponent<Equipment>().Qty = itemBagList[i].Qty;
+                bag.Qty = itemBagList[i].Qty;
                 //設定物品圖片
-                bag.GetComponent<Equipment>().EquipImage.sprite = CommonFunction.GetItemSprite(bag.GetComponent<Equipment>().EquipmentDatas) == null ?
-                    bagItemEquip.BagItemOriginImage : CommonFunction.GetItemSprite(bag.GetComponent<Equipment>().EquipmentDatas);
+                bag.EquipImage.sprite = CommonFunction.GetItemSprite(bag.EquipmentDatas) == null ?
+                    bagItemEquip.BagItemOriginImage : CommonFunction.GetItemSprite(bag.EquipmentDatas);
             }
         }
         //無本地資料
@@ -107,6 +108,33 @@ public class ItemManager : MonoBehaviour
                     //紀錄背包格的物品資料
                     BagItems.Add(bag.GetComponent<Equipment>());
                     bag.SetActive(true);
+                }
+            }
+        }
+
+        //玩家裝備資料設定
+        if (equipDataList.CheckAnyData())
+        {
+            foreach (var data in equipDataList)
+            {
+                if (GameData.WeaponsDic.TryGetValue(data.CodedID, out WeaponDataModel weaponData))
+                {
+                    var weaponItem = EquipDataList.Where(x => x.GetComponent<EquipData>().PartID.Any(y => y == weaponData.TackHandID)).FirstOrDefault();
+                    if (weaponItem != null)
+                    {
+                        weaponItem.EquipmentDatas.Weapon = weaponData;
+                        weaponItem.EquipImage.sprite = CommonFunction.GetItemSprite(weaponItem.EquipmentDatas);
+                    }
+
+                }
+                if (GameData.ArmorsDic.TryGetValue(data.CodedID, out ArmorDataModel armorData))
+                {
+                    var armorItem = EquipDataList.Where(x => x.GetComponent<EquipData>().PartID.Any(y => y == armorData.WearPartID)).FirstOrDefault();
+                    if (armorItem != null)
+                    {
+                        armorItem.EquipmentDatas.Armor = armorData;
+                        armorItem.EquipImage.sprite = CommonFunction.GetItemSprite(armorItem.EquipmentDatas);
+                    }
                 }
             }
         }

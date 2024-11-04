@@ -409,7 +409,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     /// </summary>
     /// <param name="key"></param>
     /// <param name="value"></param>
-    public virtual void SkillBuffSub(string key, object value)
+    public virtual void SkillBuffSub(string key)
     {
         List<bool> checkCondtionOR = new List<bool>();
         List<bool> checkCondtionAND = new List<bool>();
@@ -609,7 +609,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
                     if (!allArmorData.CheckAnyData())
                         finalResult.Add(false);
                     else
-                        finalResult.Add(ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).Any(x => x.EquipmentDatas.Armor.TypeID == condtionData.Value.ToString()));
+                        finalResult.Add(allArmorData.Count.Equals(5) && allArmorData.All(x => x.EquipmentDatas.Armor.TypeID == condtionData.Value.ToString()));
                     break;
 
                 //在戰鬥狀態中

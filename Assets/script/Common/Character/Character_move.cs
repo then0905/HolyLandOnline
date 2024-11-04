@@ -81,6 +81,7 @@ public class Character_move : MonoBehaviour
         {
             //設定玩家速度值 (移動速度基準值+裝備效果+技能效果)*(1- (2.71828^ −0.2))
             float speed = PlayerDataOverView.Instance.PlayerData_.Speed * (float)(1 - Math.Pow(2.71828, -0.2));
+            speed = Mathf.Clamp(speed, 0.01f, speed);
             return speed;
         }
     }

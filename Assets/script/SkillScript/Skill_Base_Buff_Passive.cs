@@ -73,7 +73,7 @@ public class Skill_Base_Buff_Passive : Skill_Base_Buff
         //SkillBuffEffectStart(caster, target);
     }
 
-    public override void SkillBuffSub(string key, object value)
+    public override void SkillBuffSub(string key)
     {
         List<bool> checkCondtionOR = new List<bool>();
         List<bool> checkCondtionAND = new List<bool>();
