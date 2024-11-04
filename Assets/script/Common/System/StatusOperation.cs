@@ -140,8 +140,7 @@ public class StatusOperation : MonoBehaviour
                 weaponList.Add(item.EquipmentDatas.Weapon);
                 if (item.GetComponent<EquipData>().PartID.Any(x => x == "LeftHand"))
                     SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipLeft");
-                else
-                    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipWeapon");
+                SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipWeapon");
             }
             else
             {
@@ -172,7 +171,7 @@ public class StatusOperation : MonoBehaviour
         //else if (tempArmorList.Count.Equals(5) && tempArmorList.All(x => x.EquipmentDatas.Armor.TypeID == "ClothArmor"))
         //    SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor");
         //else
-            SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor");
+        SkillController.Instance.SkillConditionCheckEvent?.Invoke("EquipArmor");
 
         //獲取武器資料
         int weaponDataSTR = weaponList.Sum(x => x.STR);

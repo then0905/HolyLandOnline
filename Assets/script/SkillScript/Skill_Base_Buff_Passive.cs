@@ -35,13 +35,13 @@ public class Skill_Base_Buff_Passive : Skill_Base_Buff
     /// </summary>
     protected override void SkillEffectEnd(ICombatant caster = null, ICombatant receiver = null)
     {
-
         if (buffIsRun)
         {
             print("移除的被動技能:" + SkillName);
-         
+
             //以相同的組件 與 持續時間分組
-            var group = skillOperationList.GroupBy(x => new {
+            var group = skillOperationList.GroupBy(x => new
+            {
                 x.SkillComponentID,
                 ConditionKey = string.Join(",", x.ConditionOR.OrderBy(c => c))
             });
@@ -49,30 +49,9 @@ public class Skill_Base_Buff_Passive : Skill_Base_Buff
             {
                 CharacterStatusManager.Instance.CharacterSatusRemoveEvent?.Invoke(groupData.ToArray());
             }
-            //SkillBuffEffectStart(attacker, defenfer);
-            //CharacterStatusManager.Instance.CharacterSatusRemoveEvent?.Invoke(skillOperationList.ToArray());
             buffIsRun = false;
         }
-
-        ////刪除自己
-        //if (this.gameObject)
-        //{
-        //    if (this is Skill_Base_Buff_Passive)
-        //        PassiveSkillManager.Instance.SkillPassiveBuffList.Remove(this);
-        //    Destroy(this.gameObject);
-        //}
     }
-
-    /// <summary>
-    /// 重新啟動技能效果 用來穿脫裝時 重新計算數值
-    /// </summary>
-    public virtual void RestartSkillEffect()
-    {
-        //SkillEffectEnd(caster, target);
-
-        //SkillBuffEffectStart(caster, target);
-    }
-
     public override void SkillBuffSub(string key)
     {
         List<bool> checkCondtionOR = new List<bool>();
@@ -113,15 +92,5 @@ public class Skill_Base_Buff_Passive : Skill_Base_Buff
             else
                 SkillEffectEnd(null, null);
         }
-
-        //if (checkCondtionOR.Any(x => x))
-        //{
-        //    skillCondtionCheck = true;
-        //    SkillEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
-        //}
-        //else
-        //{
-        //    Debug.Log(string.Format("技能 : {0}  條件未達成", SkillName));
-        //}
     }
 }

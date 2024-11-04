@@ -16,17 +16,6 @@ public abstract class Skill_Base_Buff : Skill_Base
     protected bool buffIsRun = false;
 
     /// <summary>
-    /// Buff型技能啟動
-    /// <para> 先檢查有無條件資料 有資料卻沒達成return </para>
-    /// </summary>
-    //protected void SkillBuffEffectStart(ICombatant caster, ICombatant receiver)
-    //{
-    //    //base.SkillEffectStart(caster, receiver);
-    //    SkillComponentList[0].Execute(caster, receiver);
-    //    buffIsRun = true;
-    //}
-
-    /// <summary>
     /// 技能效果結束
     /// </summary>
     protected override void SkillEffectEnd(ICombatant caster = null, ICombatant receiver = null)

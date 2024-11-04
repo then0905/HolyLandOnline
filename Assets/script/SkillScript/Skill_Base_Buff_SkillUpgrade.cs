@@ -35,13 +35,4 @@ public class Skill_Base_Buff_SkillUpgrade : Skill_Base_Buff_Passive
             Destroy(this.gameObject);
         }
     }
-
-    /// <summary>
-    /// 重新啟動技能效果 用來穿脫裝時 重新計算數值
-    /// </summary>
-    public override void RestartSkillEffect()
-    {
-        //SkillEffectEnd();
-        //SkillEffect();
-    }
 }

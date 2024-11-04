@@ -70,18 +70,4 @@ public class PassiveSkillManager : MonoBehaviour
                     skillEffectObj.SkillEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
             });
     }
-
-    /// <summary>
-    /// 重新啟動被動技能 (目前在穿裝脫裝時使用)
-    /// </summary>
-    public void RestartPassiveSkill()
-    {
-        if (SkillPassiveBuffList.Count < 1) return;
-        //SkillPassiveBuffList.ForEach(x => x.RestartSkillEffect());
-        for (int i = 0; i < SkillPassiveBuffList.Count; i++)
-        {
-            if (SkillPassiveBuffList[i].gameObject != null)
-                SkillPassiveBuffList[i].RestartSkillEffect();
-        }
-    }
 }

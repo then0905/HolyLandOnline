@@ -118,18 +118,18 @@ public class BootysHandle : MonoBehaviour
     /// 測試 掉落指定道具到玩家附近
     /// </summary>
     /// <param name="itemID"></param>
-    public void TestDropBooty(TMP_InputField itemID)
+    public void TestDropBooty(string itemID)
     {
         //生成掉落物
         bootyItem = Instantiate(BootyItem, RandomTransform(PlayerDataOverView.Instance.Obj.transform), transform.rotation).GetComponent<BootysPresent>();
         //掉落物初始化設定
         bootyItem.Init(0, new List<ICombatant>() { PlayerDataOverView.Instance });
         //從資料庫抓出防具資料 或是空值
-        bootyItem.EquipmentDatas.Armor = GameData.ArmorsDic.Where(x => x.Key.Contains(itemID.text)).FirstOrDefault().Value;
+        bootyItem.EquipmentDatas.Armor = GameData.ArmorsDic.Where(x => x.Key.Contains(itemID)).FirstOrDefault().Value;
         //從資料庫抓出武器資料 或是空值
-        bootyItem.EquipmentDatas.Weapon = GameData.WeaponsDic.Where(x => x.Key.Contains(itemID.text)).FirstOrDefault().Value;
+        bootyItem.EquipmentDatas.Weapon = GameData.WeaponsDic.Where(x => x.Key.Contains(itemID)).FirstOrDefault().Value;
         //從資料庫抓出道具資料 或是空值
-        bootyItem.EquipmentDatas.Item = GameData.ItemsDic.Where(x => x.Key.Contains(itemID.text)).FirstOrDefault().Value;
+        bootyItem.EquipmentDatas.Item = GameData.ItemsDic.Where(x => x.Key.Contains(itemID)).FirstOrDefault().Value;
         //設定物品圖片
         bootyItem.ThisEquipmentImage = CommonFunction.GetItemSprite(bootyItem.EquipmentDatas);
         //取得掉落數量

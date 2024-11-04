@@ -541,7 +541,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     /// <param name="key">條件名稱</param>
     /// <param name="value">條件判斷值</param>
     /// <returns></returns>
-    protected bool DetailConditionProcess(List<string> conditions)
+    protected List<bool> DetailConditionProcess(List<string> conditions)
     {
         //宣告 判斷條件清單
         List<bool> finalResult = new List<bool>();
@@ -572,7 +572,9 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
                     if (!allWeaponData.CheckAnyData())
                         finalResult.Add(false);
                     else
-                        finalResult.Add(ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).Any(x => x.EquipmentDatas.Weapon.TypeID == condtionData.Value.ToString()));
+                        finalResult.Add(allWeaponData.Any(x => x.EquipmentDatas.Weapon.TypeID == condtionData.Value.ToString()));
+                    if (skillID == "Knight_6")
+                        Debug.Log(finalResult);
                     break;
 
                 //副手裝備指定類型
@@ -612,27 +614,27 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
                         finalResult.Add(allArmorData.Count.Equals(5) && allArmorData.All(x => x.EquipmentDatas.Armor.TypeID == condtionData.Value.ToString()));
                     break;
 
-                //在戰鬥狀態中
-                case "InCombatStatus":
+                    //在戰鬥狀態中
+                    //case "InCombatStatus":
                     //缺少戰鬥狀態判斷
-                    return false;
-                //HP低於指定百分比
-                //case "HpLess":
-                //    float conditionHP = PlayerData.MaxHP * float.Parse(value);
-                //    return conditionHP < PlayerData.HP;
-                //HP低於指定百分比
-                //case "HpMore":
-                //    conditionHP = PlayerData.MaxHP * float.Parse(value);
-                //    return conditionHP > PlayerData.HP;
-                case "Close":
+                    //return false;
+                    //HP低於指定百分比
+                    //case "HpLess":
+                    //    float conditionHP = PlayerData.MaxHP * float.Parse(value);
+                    //    return conditionHP < PlayerData.HP;
+                    //HP低於指定百分比
+                    //case "HpMore":
+                    //    conditionHP = PlayerData.MaxHP * float.Parse(value);
+                    //    return conditionHP > PlayerData.HP;
+                    //case "Close":
                     //建立靠近單位的判斷(朝單位移動? 雙方距離縮短? 單位判斷與距離多少?)
-                    return false;
-                case "Random":
+                    //return false;
+                    //case "Random":
                     //缺乏隨機條件(目前有的資料 禁衛軍的"回擊好禮")
-                    return false;
+                    //return false;
             }
         }
-        return finalResult.All(x => x);
+        return finalResult;
     }
 
     public virtual IEnumerator UpdateCooldown(float deltaTime)
@@ -666,7 +668,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
 
         List<bool> checkResult = new List<bool>();
 
-        checkResult.Add(DetailConditionProcess(condtions));
+        checkResult.AddRange(DetailConditionProcess(condtions));
 
         //回傳條件結果
         return checkResult.Any(x => x == true);
@@ -680,7 +682,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     {
         List<bool> checkResult = new List<bool>();
 
-        checkResult.Add(DetailConditionProcess(condtions));
+        checkResult.AddRange(DetailConditionProcess(condtions));
 
         //回傳條件結果
         return checkResult.All(x => x == true);
