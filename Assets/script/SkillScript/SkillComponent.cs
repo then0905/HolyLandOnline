@@ -463,23 +463,17 @@ public class PassiveBuffSkillComponent : BuffComponent
         tempTarget = target;
         //取得Buff技能詳細資料
         var buffData = skillbase.SkillData.SkillOperationDataList;
-        //以相同的組件 與 持續時間分組
+        //以相同的組件 與 相同條件分組
         var group = buffData.GroupBy(x => new
         {
             x.SkillComponentID,
-            ConditionKey = string.Join(",", x.ConditionOR.OrderBy(c => c))
+            ConditionORKey = x.ConditionOR.CheckAnyData() ? string.Join(",", x.ConditionOR.OrderBy(c => c)) : null,
+            ConditionANDKey = x.ConditionAND.CheckAnyData() ? string.Join(",", x.ConditionAND.OrderBy(c => c)) : null
         });
         foreach (var groupData in group)
         {
-
-            //if (CheckCondition(groupData.ToList(), caster, target))
             CharacterStatusAdd(groupData.ToArray());
-            //CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, groupData.ToArray());
-            //else
-            //{
-            //    Debug.Log(string.Format("技能 : {0}  條件未達成", skillbase.SkillName));
-            //    break;
-            //}
+
             foreach (var data in groupData)
             {
                 tempCaster.GetBuffEffect(tempTarget, data);
@@ -519,18 +513,13 @@ public class ContinuanceBuffComponent : BuffComponent
         var group = buffData.GroupBy(x => new
         {
             x.SkillComponentID,
-            ConditionKey = string.Join(",", x.ConditionOR.OrderBy(c => c))
+            ConditionORKey = x.ConditionOR.CheckAnyData() ? string.Join(",", x.ConditionOR.OrderBy(c => c)) : null,
+            ConditionANDKey = x.ConditionAND.CheckAnyData() ? string.Join(",", x.ConditionAND.OrderBy(c => c)) : null
         });
         foreach (var groupData in group)
         {
-            //if (CheckCondition(groupData.ToList(), caster, target))
             CharacterStatusAdd(groupData.ToArray());
-            //CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, groupData.ToArray());
-            //else
-            //{
-            //    Debug.Log(string.Format("技能 : {0}  條件未達成", skillbase.SkillName));
-            //    break;
-            //}
+
             foreach (var data in groupData)
             {
                 tempCaster.GetBuffEffect(tempTarget, data);
@@ -541,7 +530,7 @@ public class ContinuanceBuffComponent : BuffComponent
     public override void ReverseExecute(params SkillOperationData[] skillOperationData)
     {
         for (int i = 0; i < skillOperationData.Length; i++)
-            {
+        {
             tempCaster.RemoveBuffEffect(tempTarget, skillOperationData[i]);
         }
     }
