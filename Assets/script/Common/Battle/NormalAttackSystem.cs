@@ -38,7 +38,7 @@ public class NormalAttackSystem : MonoBehaviour
     /// <summary>
     /// 啟動普通攻擊
     /// </summary>
-    public void StartNormalAttack(GameObject player, GameObject target)
+    public void StartNormalAttack(ActivityCharacterBase player, ActivityCharacterBase target)
     {
         if (!PlayerDataOverView.Instance.AttackIsEnable.Equals(0))
         {
@@ -47,9 +47,9 @@ public class NormalAttackSystem : MonoBehaviour
         }
         if (!AttackAllow)
             //需要進行判斷距離
-            NormalAttackCoroutine = StartCoroutine(CommonFunction.DetectionRangeMethod(player, target,
+            NormalAttackCoroutine = StartCoroutine(CommonFunction.DetectionRangeMethod(player.Povit.gameObject, target.Povit.gameObject,
                 PlayerDataOverView.Instance.PlayerData_.NormalAttackRange, ChasingTarget,
-                () => { RunAttack(PlayerDataOverView.Instance, target.GetComponent<ICombatant>()); }));
+                () => { RunAttack(player, target); }));
         else
             //正在攻擊或是不可普通攻擊狀態
             CommonFunction.MessageHint("正在攻擊或是不可普通攻擊狀態", HintType.Warning);

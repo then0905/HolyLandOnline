@@ -137,17 +137,16 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
             {
                 NpcBehavior behavior = (NpcBehavior)this;
                 StartCoroutine(
-                CommonFunction.DetectionRangeMethod(PlayerDataOverView.Instance.CharacterMove.gameObject,
-                    gameObject, 7.5f,
+                CommonFunction.DetectionRangeMethod(PlayerDataOverView.Instance.Povit.gameObject,
+                   behavior.Povit.gameObject, 7.5f,
                     () =>
                     {
                         //開啟自動尋路
                         PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = true;
-                        float pursueDistance = Vector3.Distance(PlayerDataOverView.Instance.CharacterMove.gameObject.transform.position, gameObject.transform.position);
+                        float pursueDistance = Vector3.Distance(PlayerDataOverView.Instance.Povit.gameObject.transform.position, behavior.Povit.gameObject.transform.position);
+
                         if (pursueDistance > 7.5f)
                         {
-                            //PlayerDataOverView.Instance.CharacterMove.Character.transform.LookAt(SelectTarget.Instance.Targetgameobject.transform);
-
                             // 取得角色面相目標的方向
                             Vector3 direction = SelectTarget.Instance.Targetgameobject.transform.position - PlayerDataOverView.Instance.CharacterMove.Character.transform.position;
                             // 鎖定y軸的旋轉 避免角色在x軸和z軸上傾斜
@@ -171,9 +170,11 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
             }
             else if (this is MonsterBehaviour)
             {
+                MonsterBehaviour monsterBehaviour = (MonsterBehaviour)this;
+
                 NormalAttackSystem.Instance.StartNormalAttack(
-                   PlayerDataOverView.Instance.CharacterMove.CharacterFather,
-                   gameObject);
+                   PlayerDataOverView.Instance,
+                   monsterBehaviour);
             }
         }
     }

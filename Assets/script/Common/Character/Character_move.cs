@@ -125,7 +125,7 @@ public class Character_move : MonoBehaviour
 
         //當有任何移動方向的輸出訊息
         if (horizontalInput != 0 || verticalInput != 0)
-        {       
+        {
             //強制取消角色移動
             if (!PlayerDataOverView.Instance.MoveIsEnable.Equals(0))
             {
@@ -143,9 +143,52 @@ public class Character_move : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && SelectTarget.Instance.Targetgameobject != null)
         {
-            NormalAttackSystem.Instance.StartNormalAttack(
-                CharacterFather,
-               SelectTarget.Instance.Targetgameobject.gameObject);
+            if (SelectTarget.Instance.Targetgameobject is NpcBehavior)
+            {
+                NpcBehavior behavior = (NpcBehavior)SelectTarget.Instance.Targetgameobject;
+                StartCoroutine(
+                CommonFunction.DetectionRangeMethod(PlayerDataOverView.Instance.Povit.gameObject,
+                   behavior.Povit.gameObject, 7.5f,
+                    () =>
+                    {
+                        //開啟自動尋路
+                        PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = true;
+                        float pursueDistance = Vector3.Distance(PlayerDataOverView.Instance.Povit.gameObject.transform.position, behavior.Povit.gameObject.transform.position);
+
+                        if (pursueDistance > 7.5f)
+                        {
+                            // 取得角色面相目標的方向
+                            Vector3 direction = SelectTarget.Instance.Targetgameobject.transform.position - PlayerDataOverView.Instance.CharacterMove.Character.transform.position;
+                            // 鎖定y軸的旋轉 避免角色在x軸和z軸上傾斜
+                            direction.y = 0;
+                            // 如果 direction 的長度不為零，設定角色的朝向
+                            if (direction != Vector3.zero)
+                                PlayerDataOverView.Instance.CharacterMove.Character.transform.rotation = Quaternion.LookRotation(direction);
+
+                            PlayerDataOverView.Instance.CharacterMove.RunAnimation(true);
+                            PlayerDataOverView.Instance.CharacterMove.CharacterFather.transform.position =
+                                Vector3.MoveTowards(PlayerDataOverView.Instance.Povit.transform.position,
+                                SelectTarget.Instance.Targetgameobject.Povit.position,
+                                PlayerDataOverView.Instance.CharacterMove.MoveSpeed);
+                        }
+                    }
+                    , () =>
+                    {
+                        PlayerDataOverView.Instance.CharacterMove.RunAnimation(false);
+                        behavior.NpcInit();
+                    }));
+            }
+            else if (SelectTarget.Instance.Targetgameobject is MonsterBehaviour)
+            {
+                MonsterBehaviour monsterBehaviour = (MonsterBehaviour)SelectTarget.Instance.Targetgameobject;
+
+                NormalAttackSystem.Instance.StartNormalAttack(
+                   PlayerDataOverView.Instance,
+                   monsterBehaviour);
+            }
+            //NormalAttackSystem.Instance.StartNormalAttack(
+            //    CharacterFather,
+            //   SelectTarget.Instance.Targetgameobject.gameObject);
         }
     }
 

@@ -163,6 +163,7 @@ public class PlayerDataOverView : ActivityCharacterBase
         CharacterMove.ControlCharacterEvent += SkillController.Instance.StopSkillChasingTarge;
         SelectTarget.Instance.CharacterCamera = CharacterMove.CharacterCamera;
     }
+    
     private void OnDisable()
     {
         CharacterMove.ControlCharacterEvent -= NormalAttackSystem.Instance.StopNormalAttack;

@@ -363,15 +363,15 @@ public class MonsterBehaviour : ActivityCharacterBase
     private IEnumerator MonsterPursue()
     {
         if (!MoveIsEnable.Equals(0)) yield break;
-        GameObject targetObj = BattleTargetDic.FirstOrDefault().Key.Obj;
+        ActivityCharacterBase targetObj = BattleTargetDic.FirstOrDefault().Key as ActivityCharacterBase;
         if (targetObj != null)
         {
-            CommonPursueCoroutine = StartCoroutine(CommonFunction.DetectionRangeMethod(gameObject,
-                targetObj, monsterValue.AttackRange,
+            CommonPursueCoroutine = StartCoroutine(CommonFunction.DetectionRangeMethod(povit.gameObject,
+                targetObj.Povit.gameObject, monsterValue.AttackRange,
                 () =>
                 {
                     //怪物當前已追擊距離
-                    float pursueDistance = Vector3.Distance(originpos, targetObj.transform.position);
+                    float pursueDistance = Vector3.Distance(originpos, targetObj.Povit.gameObject.transform.position);
                     if (pursueDistance > monsterValue.PursueRange)
                     {
                         //Debug.Log("怪物:" + name + " 當前狀態 :" + "放棄追擊" + "怪物最遠可追擊距離 :" + monsterValue.PursueRange + "當前與目標差距 :" + pursueDistance);
@@ -393,7 +393,7 @@ public class MonsterBehaviour : ActivityCharacterBase
                         //調整面向
                         transform.LookAt(targetObj.transform);
 
-                        transform.position = Vector3.MoveTowards(Povit.position, targetObj.GetComponent<ActivityCharacterBase>().Povit.position, monsterValue.RunSpeed);
+                        transform.position = Vector3.MoveTowards(Povit.position, targetObj.Povit.position, monsterValue.RunSpeed);
                     }
                 },
                 () =>
