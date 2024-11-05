@@ -175,7 +175,7 @@ public class StatusOperation : MonoBehaviour
 
         //獲取武器資料
         int weaponDataSTR = weaponList.Sum(x => x.STR);
-        int weaponDataDEX = weaponList.Sum(x => x.DEF);
+        int weaponDataDEX = weaponList.Sum(x => x.DEX);
         int weaponDataINT = weaponList.Sum(x => x.INT);
         int weaponDataAGI = weaponList.Sum(x => x.AGI);
         int weaponDataWIS = weaponList.Sum(x => x.WIS);
@@ -183,7 +183,7 @@ public class StatusOperation : MonoBehaviour
 
         //獲取防具資料
         int armorDataSTR = armorList.Sum(x => x.STR);
-        int armorDataDEX = armorList.Sum(x => x.DEF);
+        int armorDataDEX = armorList.Sum(x => x.DEX);
         int armorDataINT = armorList.Sum(x => x.INT);
         int armorDataAGI = armorList.Sum(x => x.AGI);
         int armorDataWIS = armorList.Sum(x => x.WIS);

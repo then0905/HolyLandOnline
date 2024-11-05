@@ -584,8 +584,6 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
                         finalResult.Add(false);
                     else
                         finalResult.Add(allWeaponData.Any(x => x.EquipmentDatas.Weapon.TypeID == condtionData.Value.ToString()));
-                    if (skillID == "Knight_6")
-                        Debug.Log(finalResult);
                     break;
 
                 //副手裝備指定類型
