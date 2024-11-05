@@ -1,8 +1,8 @@
 [
   {
+    "CodeID": "Heavy_Head_01",
     "NeedLv": 1,
     "Name": "TM_Heavy_Head_01_Name",
-    "CodeID": "Heavy_Head_01",
     "Path": "UI/Armor",
     "FileName": "Heavy_Head_01",
     "Classification": "防具",
@@ -35,9 +35,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Heavy_Body_01",
     "NeedLv": 1,
     "Name": "TM_Heavy_Body_01_Name",
-    "CodeID": "Heavy_Body_01",
     "Path": "UI/Armor",
     "FileName": "Heavy_Body_01",
     "Classification": "防具",
@@ -70,9 +70,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Heavy_Leg_01",
     "NeedLv": 1,
     "Name": "TM_Heavy_Leg_01_Name",
-    "CodeID": "Heavy_Leg_01",
     "Path": "UI/Armor",
     "FileName": "Heavy_Leg_01",
     "Classification": "防具",
@@ -105,9 +105,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Heavy_Arm_01",
     "NeedLv": 1,
     "Name": "TM_Heavy_Arm_01_Name",
-    "CodeID": "Heavy_Arm_01",
     "Path": "UI/Armor",
     "FileName": "Heavy_Arm_01",
     "Classification": "防具",
@@ -140,9 +140,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Heavy_Foot_01",
     "NeedLv": 1,
     "Name": "TM_Heavy_Foot_01_Name",
-    "CodeID": "Heavy_Foot_01",
     "Path": "UI/Armor",
     "FileName": "Heavy_Foot_01",
     "Classification": "防具",
@@ -175,9 +175,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Light_Head_01",
     "NeedLv": 1,
     "Name": "TM_Light_Head_01_Name",
-    "CodeID": "Light_Head_01",
     "Path": "UI/Armor",
     "FileName": "Light_Head_01",
     "Classification": "防具",
@@ -210,9 +210,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Light_Body_01",
     "NeedLv": 1,
     "Name": "TM_Light_Body_01_Name",
-    "CodeID": "Light_Body_01",
     "Path": "UI/Armor",
     "FileName": "Light_Body_01",
     "Classification": "防具",
@@ -245,9 +245,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Light_Leg_01",
     "NeedLv": 1,
     "Name": "TM_Light_Leg_01_Name",
-    "CodeID": "Light_Leg_01",
     "Path": "UI/Armor",
     "FileName": "Light_Leg_01",
     "Classification": "防具",
@@ -280,9 +280,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Light_Arm_01",
     "NeedLv": 1,
     "Name": "TM_Light_Arm_01_Name",
-    "CodeID": "Light_Arm_01",
     "Path": "UI/Armor",
     "FileName": "Light_Arm_01",
     "Classification": "防具",
@@ -315,9 +315,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Light_Foot_01",
     "NeedLv": 1,
     "Name": "TM_Light_Foot_01_Name",
-    "CodeID": "Light_Foot_01",
     "Path": "UI/Armor",
     "FileName": "Light_Foot_01",
     "Classification": "防具",
@@ -350,9 +350,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Cloth_Head_01",
     "NeedLv": 1,
     "Name": "TM_Cloth_Head_01_Name",
-    "CodeID": "Cloth_Head_01",
     "Path": "UI/Armor",
     "FileName": "Cloth_Head_01",
     "Classification": "防具",
@@ -385,9 +385,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Cloth_Body_01",
     "NeedLv": 1,
     "Name": "TM_Cloth_Body_01_Name",
-    "CodeID": "Cloth_Body_01",
     "Path": "UI/Armor",
     "FileName": "Cloth_Body_01",
     "Classification": "防具",
@@ -420,9 +420,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Cloth_Leg_01",
     "NeedLv": 1,
     "Name": "TM_Cloth_Leg_01_Name",
-    "CodeID": "Cloth_Leg_01",
     "Path": "UI/Armor",
     "FileName": "Cloth_Leg_01",
     "Classification": "防具",
@@ -455,9 +455,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Cloth_Arm_01",
     "NeedLv": 1,
     "Name": "TM_Cloth_Arm_01_Name",
-    "CodeID": "Cloth_Arm_01",
     "Path": "UI/Armor",
     "FileName": "Cloth_Arm_01",
     "Classification": "防具",
@@ -490,9 +490,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Cloth_Foot_01",
     "NeedLv": 1,
     "Name": "TM_Cloth_Foot_01_Name",
-    "CodeID": "Cloth_Foot_01",
     "Path": "UI/Armor",
     "FileName": "Cloth_Foot_01",
     "Classification": "防具",
@@ -525,9 +525,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Heavy_Head_02",
     "NeedLv": 5,
     "Name": "TM_Heavy_Head_02_Name",
-    "CodeID": "Heavy_Head_02",
     "Path": "UI/Armor",
     "FileName": "Heavy_Head_02",
     "Classification": "防具",
@@ -560,9 +560,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Heavy_Body_02",
     "NeedLv": 5,
     "Name": "TM_Heavy_Body_02_Name",
-    "CodeID": "Heavy_Body_02",
     "Path": "UI/Armor",
     "FileName": "Heavy_Body_02",
     "Classification": "防具",
@@ -595,9 +595,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Heavy_Leg_02",
     "NeedLv": 5,
     "Name": "TM_Heavy_Leg_02_Name",
-    "CodeID": "Heavy_Leg_02",
     "Path": "UI/Armor",
     "FileName": "Heavy_Leg_02",
     "Classification": "防具",
@@ -630,9 +630,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Heavy_Arm_02",
     "NeedLv": 5,
     "Name": "TM_Heavy_Arm_02_Name",
-    "CodeID": "Heavy_Arm_02",
     "Path": "UI/Armor",
     "FileName": "Heavy_Arm_02",
     "Classification": "防具",
@@ -665,9 +665,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Heavy_Foot_02",
     "NeedLv": 5,
     "Name": "TM_Heavy_Foot_02_Name",
-    "CodeID": "Heavy_Foot_02",
     "Path": "UI/Armor",
     "FileName": "Heavy_Foot_02",
     "Classification": "防具",
@@ -700,9 +700,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Light_Head_02",
     "NeedLv": 5,
     "Name": "TM_Light_Head_02_Name",
-    "CodeID": "Light_Head_02",
     "Path": "UI/Armor",
     "FileName": "Light_Head_02",
     "Classification": "防具",
@@ -735,9 +735,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Light_Body_02",
     "NeedLv": 5,
     "Name": "TM_Light_Body_02_Name",
-    "CodeID": "Light_Body_02",
     "Path": "UI/Armor",
     "FileName": "Light_Body_02",
     "Classification": "防具",
@@ -770,9 +770,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Light_Leg_02",
     "NeedLv": 5,
     "Name": "TM_Light_Leg_02_Name",
-    "CodeID": "Light_Leg_02",
     "Path": "UI/Armor",
     "FileName": "Light_Leg_02",
     "Classification": "防具",
@@ -805,9 +805,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Light_Arm_02",
     "NeedLv": 5,
     "Name": "TM_Light_Arm_02_Name",
-    "CodeID": "Light_Arm_02",
     "Path": "UI/Armor",
     "FileName": "Light_Arm_02",
     "Classification": "防具",
@@ -840,9 +840,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Light_Foot_02",
     "NeedLv": 5,
     "Name": "TM_Light_Foot_02_Name",
-    "CodeID": "Light_Foot_02",
     "Path": "UI/Armor",
     "FileName": "Light_Foot_02",
     "Classification": "防具",
@@ -875,9 +875,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Cloth_Head_02",
     "NeedLv": 5,
     "Name": "TM_Cloth_Head_02_Name",
-    "CodeID": "Cloth_Head_02",
     "Path": "UI/Armor",
     "FileName": "Cloth_Head_02",
     "Classification": "防具",
@@ -910,9 +910,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Cloth_Body_02",
     "NeedLv": 5,
     "Name": "TM_Cloth_Body_02_Name",
-    "CodeID": "Cloth_Body_02",
     "Path": "UI/Armor",
     "FileName": "Cloth_Body_02",
     "Classification": "防具",
@@ -945,9 +945,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Cloth_Leg_02",
     "NeedLv": 5,
     "Name": "TM_Cloth_Leg_02_Name",
-    "CodeID": "Cloth_Leg_02",
     "Path": "UI/Armor",
     "FileName": "Cloth_Leg_02",
     "Classification": "防具",
@@ -980,9 +980,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Cloth_Arm_02",
     "NeedLv": 5,
     "Name": "TM_Cloth_Arm_02_Name",
-    "CodeID": "Cloth_Arm_02",
     "Path": "UI/Armor",
     "FileName": "Cloth_Arm_02",
     "Classification": "防具",
@@ -1015,9 +1015,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Cloth_Foot_02",
     "NeedLv": 5,
     "Name": "TM_Cloth_Foot_02_Name",
-    "CodeID": "Cloth_Foot_02",
     "Path": "UI/Armor",
     "FileName": "Cloth_Foot_02",
     "Classification": "防具",
@@ -1050,9 +1050,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Heavy_Head_03",
     "NeedLv": 10,
     "Name": "TM_Heavy_Head_03_Name",
-    "CodeID": "Heavy_Head_03",
     "Path": "UI/Armor",
     "FileName": "Heavy_Head_03",
     "Classification": "防具",
@@ -1085,9 +1085,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Heavy_Body_03",
     "NeedLv": 10,
     "Name": "TM_Heavy_Body_03_Name",
-    "CodeID": "Heavy_Body_03",
     "Path": "UI/Armor",
     "FileName": "Heavy_Body_03",
     "Classification": "防具",
@@ -1120,9 +1120,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Heavy_Leg_03",
     "NeedLv": 10,
     "Name": "TM_Heavy_Leg_03_Name",
-    "CodeID": "Heavy_Leg_03",
     "Path": "UI/Armor",
     "FileName": "Heavy_Leg_03",
     "Classification": "防具",
@@ -1155,9 +1155,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Heavy_Arm_03",
     "NeedLv": 10,
     "Name": "TM_Heavy_Arm_03_Name",
-    "CodeID": "Heavy_Arm_03",
     "Path": "UI/Armor",
     "FileName": "Heavy_Arm_03",
     "Classification": "防具",
@@ -1190,9 +1190,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Heavy_Foot_03",
     "NeedLv": 10,
     "Name": "TM_Heavy_Foot_03_Name",
-    "CodeID": "Heavy_Foot_03",
     "Path": "UI/Armor",
     "FileName": "Heavy_Foot_03",
     "Classification": "防具",
@@ -1225,9 +1225,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Light_Head_03",
     "NeedLv": 10,
     "Name": "TM_Light_Head_03_Name",
-    "CodeID": "Light_Head_03",
     "Path": "UI/Armor",
     "FileName": "Light_Head_03",
     "Classification": "防具",
@@ -1260,9 +1260,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Light_Body_03",
     "NeedLv": 10,
     "Name": "TM_Light_Body_03_Name",
-    "CodeID": "Light_Body_03",
     "Path": "UI/Armor",
     "FileName": "Light_Body_03",
     "Classification": "防具",
@@ -1295,9 +1295,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Light_Leg_03",
     "NeedLv": 10,
     "Name": "TM_Light_Leg_03_Name",
-    "CodeID": "Light_Leg_03",
     "Path": "UI/Armor",
     "FileName": "Light_Leg_03",
     "Classification": "防具",
@@ -1330,9 +1330,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Light_Arm_03",
     "NeedLv": 10,
     "Name": "TM_Light_Arm_03_Name",
-    "CodeID": "Light_Arm_03",
     "Path": "UI/Armor",
     "FileName": "Light_Arm_03",
     "Classification": "防具",
@@ -1365,9 +1365,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Light_Foot_03",
     "NeedLv": 10,
     "Name": "TM_Light_Foot_03_Name",
-    "CodeID": "Light_Foot_03",
     "Path": "UI/Armor",
     "FileName": "Light_Foot_03",
     "Classification": "防具",
@@ -1400,9 +1400,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Cloth_Head_03",
     "NeedLv": 10,
     "Name": "TM_Cloth_Head_03_Name",
-    "CodeID": "Cloth_Head_03",
     "Path": "UI/Armor",
     "FileName": "Cloth_Head_03",
     "Classification": "防具",
@@ -1435,9 +1435,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Cloth_Body_03",
     "NeedLv": 10,
     "Name": "TM_Cloth_Body_03_Name",
-    "CodeID": "Cloth_Body_03",
     "Path": "UI/Armor",
     "FileName": "Cloth_Body_03",
     "Classification": "防具",
@@ -1470,9 +1470,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Cloth_Leg_03",
     "NeedLv": 10,
     "Name": "TM_Cloth_Leg_03_Name",
-    "CodeID": "Cloth_Leg_03",
     "Path": "UI/Armor",
     "FileName": "Cloth_Leg_03",
     "Classification": "防具",
@@ -1505,9 +1505,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Cloth_Arm_03",
     "NeedLv": 10,
     "Name": "TM_Cloth_Arm_03_Name",
-    "CodeID": "Cloth_Arm_03",
     "Path": "UI/Armor",
     "FileName": "Cloth_Arm_03",
     "Classification": "防具",
@@ -1540,9 +1540,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Cloth_Foot_03",
     "NeedLv": 10,
     "Name": "TM_Cloth_Foot_03_Name",
-    "CodeID": "Cloth_Foot_03",
     "Path": "UI/Armor",
     "FileName": "Cloth_Foot_03",
     "Classification": "防具",
@@ -1575,9 +1575,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Heavy_Head_04",
     "NeedLv": 15,
     "Name": "TM_Heavy_Head_04_Name",
-    "CodeID": "Heavy_Head_04",
     "Path": "UI/Armor",
     "FileName": "Heavy_Head_04",
     "Classification": "防具",
@@ -1610,9 +1610,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Body_04",
     "NeedLv": 15,
     "Name": "TM_Heavy_Body_04_Name",
-    "CodeID": "Heavy_Body_04",
     "Path": "UI/Armor",
     "FileName": "Heavy_Body_04",
     "Classification": "防具",
@@ -1645,9 +1645,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Leg_04",
     "NeedLv": 15,
     "Name": "TM_Heavy_Leg_04_Name",
-    "CodeID": "Heavy_Leg_04",
     "Path": "UI/Armor",
     "FileName": "Heavy_Leg_04",
     "Classification": "防具",
@@ -1680,9 +1680,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Arm_04",
     "NeedLv": 15,
     "Name": "TM_Heavy_Arm_04_Name",
-    "CodeID": "Heavy_Arm_04",
     "Path": "UI/Armor",
     "FileName": "Heavy_Arm_04",
     "Classification": "防具",
@@ -1715,9 +1715,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Foot_04",
     "NeedLv": 15,
     "Name": "TM_Heavy_Foot_04_Name",
-    "CodeID": "Heavy_Foot_04",
     "Path": "UI/Armor",
     "FileName": "Heavy_Foot_04",
     "Classification": "防具",
@@ -1750,9 +1750,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Head_05",
     "NeedLv": 15,
     "Name": "TM_Heavy_Head_05_Name",
-    "CodeID": "Heavy_Head_05",
     "Path": "UI/Armor",
     "FileName": "Heavy_Head_05",
     "Classification": "防具",
@@ -1785,9 +1785,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Body_05",
     "NeedLv": 15,
     "Name": "TM_Heavy_Body_05_Name",
-    "CodeID": "Heavy_Body_05",
     "Path": "UI/Armor",
     "FileName": "Heavy_Body_05",
     "Classification": "防具",
@@ -1820,9 +1820,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Leg_05",
     "NeedLv": 15,
     "Name": "TM_Heavy_Leg_05_Name",
-    "CodeID": "Heavy_Leg_05",
     "Path": "UI/Armor",
     "FileName": "Heavy_Leg_05",
     "Classification": "防具",
@@ -1855,9 +1855,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Arm_05",
     "NeedLv": 15,
     "Name": "TM_Heavy_Arm_05_Name",
-    "CodeID": "Heavy_Arm_05",
     "Path": "UI/Armor",
     "FileName": "Heavy_Arm_05",
     "Classification": "防具",
@@ -1890,9 +1890,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Foot_05",
     "NeedLv": 15,
     "Name": "TM_Heavy_Foot_05_Name",
-    "CodeID": "Heavy_Foot_05",
     "Path": "UI/Armor",
     "FileName": "Heavy_Foot_05",
     "Classification": "防具",
@@ -1925,9 +1925,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Head_06",
     "NeedLv": 15,
     "Name": "TM_Heavy_Head_06_Name",
-    "CodeID": "Heavy_Head_06",
     "Path": "UI/Armor",
     "FileName": "Heavy_Head_06",
     "Classification": "防具",
@@ -1960,9 +1960,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Body_06",
     "NeedLv": 15,
     "Name": "TM_Heavy_Body_06_Name",
-    "CodeID": "Heavy_Body_06",
     "Path": "UI/Armor",
     "FileName": "Heavy_Body_06",
     "Classification": "防具",
@@ -1995,9 +1995,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Leg_06",
     "NeedLv": 15,
     "Name": "TM_Heavy_Leg_06_Name",
-    "CodeID": "Heavy_Leg_06",
     "Path": "UI/Armor",
     "FileName": "Heavy_Leg_06",
     "Classification": "防具",
@@ -2030,9 +2030,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Arm_06",
     "NeedLv": 15,
     "Name": "TM_Heavy_Arm_06_Name",
-    "CodeID": "Heavy_Arm_06",
     "Path": "UI/Armor",
     "FileName": "Heavy_Arm_06",
     "Classification": "防具",
@@ -2065,9 +2065,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Heavy_Foot_06",
     "NeedLv": 15,
     "Name": "TM_Heavy_Foot_06_Name",
-    "CodeID": "Heavy_Foot_06",
     "Path": "UI/Armor",
     "FileName": "Heavy_Foot_06",
     "Classification": "防具",
@@ -2100,9 +2100,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Head_04",
     "NeedLv": 15,
     "Name": "TM_Light_Head_04_Name",
-    "CodeID": "Light_Head_04",
     "Path": "UI/Armor",
     "FileName": "Light_Head_04",
     "Classification": "防具",
@@ -2135,9 +2135,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Body_04",
     "NeedLv": 15,
     "Name": "TM_Light_Body_04_Name",
-    "CodeID": "Light_Body_04",
     "Path": "UI/Armor",
     "FileName": "Light_Body_04",
     "Classification": "防具",
@@ -2170,9 +2170,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Leg_04",
     "NeedLv": 15,
     "Name": "TM_Light_Leg_04_Name",
-    "CodeID": "Light_Leg_04",
     "Path": "UI/Armor",
     "FileName": "Light_Leg_04",
     "Classification": "防具",
@@ -2205,9 +2205,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Arm_04",
     "NeedLv": 15,
     "Name": "TM_Light_Arm_04_Name",
-    "CodeID": "Light_Arm_04",
     "Path": "UI/Armor",
     "FileName": "Light_Arm_04",
     "Classification": "防具",
@@ -2240,9 +2240,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Foot_04",
     "NeedLv": 15,
     "Name": "TM_Light_Foot_04_Name",
-    "CodeID": "Light_Foot_04",
     "Path": "UI/Armor",
     "FileName": "Light_Foot_04",
     "Classification": "防具",
@@ -2275,9 +2275,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Head_05",
     "NeedLv": 15,
     "Name": "TM_Light_Head_05_Name",
-    "CodeID": "Light_Head_05",
     "Path": "UI/Armor",
     "FileName": "Light_Head_05",
     "Classification": "防具",
@@ -2310,9 +2310,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Body_05",
     "NeedLv": 15,
     "Name": "TM_Light_Body_05_Name",
-    "CodeID": "Light_Body_05",
     "Path": "UI/Armor",
     "FileName": "Light_Body_05",
     "Classification": "防具",
@@ -2345,9 +2345,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Leg_05",
     "NeedLv": 15,
     "Name": "TM_Light_Leg_05_Name",
-    "CodeID": "Light_Leg_05",
     "Path": "UI/Armor",
     "FileName": "Light_Leg_05",
     "Classification": "防具",
@@ -2380,9 +2380,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Arm_05",
     "NeedLv": 15,
     "Name": "TM_Light_Arm_05_Name",
-    "CodeID": "Light_Arm_05",
     "Path": "UI/Armor",
     "FileName": "Light_Arm_05",
     "Classification": "防具",
@@ -2415,9 +2415,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Foot_05",
     "NeedLv": 15,
     "Name": "TM_Light_Foot_05_Name",
-    "CodeID": "Light_Foot_05",
     "Path": "UI/Armor",
     "FileName": "Light_Foot_05",
     "Classification": "防具",
@@ -2450,9 +2450,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Head_06",
     "NeedLv": 15,
     "Name": "TM_Light_Head_06_Name",
-    "CodeID": "Light_Head_06",
     "Path": "UI/Armor",
     "FileName": "Light_Head_06",
     "Classification": "防具",
@@ -2485,9 +2485,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Body_06",
     "NeedLv": 15,
     "Name": "TM_Light_Body_06_Name",
-    "CodeID": "Light_Body_06",
     "Path": "UI/Armor",
     "FileName": "Light_Body_06",
     "Classification": "防具",
@@ -2520,9 +2520,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Leg_06",
     "NeedLv": 15,
     "Name": "TM_Light_Leg_06_Name",
-    "CodeID": "Light_Leg_06",
     "Path": "UI/Armor",
     "FileName": "Light_Leg_06",
     "Classification": "防具",
@@ -2555,9 +2555,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Arm_06",
     "NeedLv": 15,
     "Name": "TM_Light_Arm_06_Name",
-    "CodeID": "Light_Arm_06",
     "Path": "UI/Armor",
     "FileName": "Light_Arm_06",
     "Classification": "防具",
@@ -2590,9 +2590,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Light_Foot_06",
     "NeedLv": 15,
     "Name": "TM_Light_Foot_06_Name",
-    "CodeID": "Light_Foot_06",
     "Path": "UI/Armor",
     "FileName": "Light_Foot_06",
     "Classification": "防具",
@@ -2625,9 +2625,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Head_04",
     "NeedLv": 15,
     "Name": "TM_Cloth_Head_04_Name",
-    "CodeID": "Cloth_Head_04",
     "Path": "UI/Armor",
     "FileName": "Cloth_Head_04",
     "Classification": "防具",
@@ -2660,9 +2660,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Body_04",
     "NeedLv": 15,
     "Name": "TM_Cloth_Body_04_Name",
-    "CodeID": "Cloth_Body_04",
     "Path": "UI/Armor",
     "FileName": "Cloth_Body_04",
     "Classification": "防具",
@@ -2695,9 +2695,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Leg_04",
     "NeedLv": 15,
     "Name": "TM_Cloth_Leg_04_Name",
-    "CodeID": "Cloth_Leg_04",
     "Path": "UI/Armor",
     "FileName": "Cloth_Leg_04",
     "Classification": "防具",
@@ -2730,9 +2730,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Arm_04",
     "NeedLv": 15,
     "Name": "TM_Cloth_Arm_04_Name",
-    "CodeID": "Cloth_Arm_04",
     "Path": "UI/Armor",
     "FileName": "Cloth_Arm_04",
     "Classification": "防具",
@@ -2765,9 +2765,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Foot_04",
     "NeedLv": 15,
     "Name": "TM_Cloth_Foot_04_Name",
-    "CodeID": "Cloth_Foot_04",
     "Path": "UI/Armor",
     "FileName": "Cloth_Foot_04",
     "Classification": "防具",
@@ -2800,9 +2800,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Head_05",
     "NeedLv": 15,
     "Name": "TM_Cloth_Head_05_Name",
-    "CodeID": "Cloth_Head_05",
     "Path": "UI/Armor",
     "FileName": "Cloth_Head_05",
     "Classification": "防具",
@@ -2835,9 +2835,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Body_05",
     "NeedLv": 15,
     "Name": "TM_Cloth_Body_05_Name",
-    "CodeID": "Cloth_Body_05",
     "Path": "UI/Armor",
     "FileName": "Cloth_Body_05",
     "Classification": "防具",
@@ -2870,9 +2870,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Leg_05",
     "NeedLv": 15,
     "Name": "TM_Cloth_Leg_05_Name",
-    "CodeID": "Cloth_Leg_05",
     "Path": "UI/Armor",
     "FileName": "Cloth_Leg_05",
     "Classification": "防具",
@@ -2905,9 +2905,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Arm_05",
     "NeedLv": 15,
     "Name": "TM_Cloth_Arm_05_Name",
-    "CodeID": "Cloth_Arm_05",
     "Path": "UI/Armor",
     "FileName": "Cloth_Arm_05",
     "Classification": "防具",
@@ -2940,9 +2940,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Foot_05",
     "NeedLv": 15,
     "Name": "TM_Cloth_Foot_05_Name",
-    "CodeID": "Cloth_Foot_05",
     "Path": "UI/Armor",
     "FileName": "Cloth_Foot_05",
     "Classification": "防具",
@@ -2975,9 +2975,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Head_06",
     "NeedLv": 15,
     "Name": "TM_Cloth_Head_06_Name",
-    "CodeID": "Cloth_Head_06",
     "Path": "UI/Armor",
     "FileName": "Cloth_Head_06",
     "Classification": "防具",
@@ -3010,9 +3010,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Body_06",
     "NeedLv": 15,
     "Name": "TM_Cloth_Body_06_Name",
-    "CodeID": "Cloth_Body_06",
     "Path": "UI/Armor",
     "FileName": "Cloth_Body_06",
     "Classification": "防具",
@@ -3045,9 +3045,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Leg_06",
     "NeedLv": 15,
     "Name": "TM_Cloth_Leg_06_Name",
-    "CodeID": "Cloth_Leg_06",
     "Path": "UI/Armor",
     "FileName": "Cloth_Leg_06",
     "Classification": "防具",
@@ -3080,9 +3080,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Arm_06",
     "NeedLv": 15,
     "Name": "TM_Cloth_Arm_06_Name",
-    "CodeID": "Cloth_Arm_06",
     "Path": "UI/Armor",
     "FileName": "Cloth_Arm_06",
     "Classification": "防具",
@@ -3115,9 +3115,9 @@
     "Redeem": 250
   },
   {
+    "CodeID": "Cloth_Foot_06",
     "NeedLv": 15,
     "Name": "TM_Cloth_Foot_06_Name",
-    "CodeID": "Cloth_Foot_06",
     "Path": "UI/Armor",
     "FileName": "Cloth_Foot_06",
     "Classification": "防具",

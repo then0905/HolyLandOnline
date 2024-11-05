@@ -35,6 +35,8 @@ public class EquipmentData
 
     /// <summary>物品數量</summary>
     public int Qty;
+    /// <summary>強化等級</summary>
+    public int ForceLv;
 
     /// <summary>取得此物品簡略的基本資訊</summary>
     public IItemBasal ItemCommonData
@@ -63,21 +65,24 @@ public class EquipmentData
                 {
                     CodedID = Weapon.CodeID,
                     Type = Weapon.ClassificationID,
-                    Qty = Qty
+                    Qty = Qty,
+                    ForceLv = ForceLv
                 };
             if (Armor != null)
                 tempData = new EquipmentDataToJson()
                 {
                     CodedID = Armor.CodeID,
                     Type = Armor.ClassificationID,
-                    Qty = Qty
+                    Qty = Qty,
+                    ForceLv = ForceLv
                 };
             if (Item != null)
                 tempData = new EquipmentDataToJson()
                 {
                     CodedID = Item.CodeID,
                     Type = Item.ClassificationID,
-                    Qty = Qty
+                    Qty = Qty,
+                    ForceLv = ForceLv
                 };
             return tempData;
         }
@@ -91,6 +96,7 @@ public class EquipmentDataToJson
     public string CodedID;
     public string Type;
     public int Qty;
+    public int ForceLv;
 }
 
 [RequireComponent(typeof(EventTrigger))]

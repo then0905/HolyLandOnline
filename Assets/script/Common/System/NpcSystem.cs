@@ -391,6 +391,15 @@ public class NpcSystem : MonoBehaviour
     }
 
     /// <summary>
+    /// 呼叫強化介面
+    /// </summary>
+    public void CallForgePanel()
+    {
+        PanelManager.Instance.OpenTargetPanel("ForgePanel");
+        EquipmentForgeSystem.Instance.Init();
+    }
+
+    /// <summary>
     /// 離開對話
     /// </summary>
     public void Exit()

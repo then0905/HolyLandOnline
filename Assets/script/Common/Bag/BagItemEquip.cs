@@ -354,7 +354,7 @@ public class BagItemEquip : MonoBehaviour
         {
             print("無裝備 穿上裝備");
             //設定裝備資料
-            Equip.EquipmentDatas = new Equipment.EquipmentData
+            Equip.EquipmentDatas = new EquipmentData
             {
                 Weapon = cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon,
                 Armor = cloneItem.GetComponent<Equipment>().EquipmentDatas.Armor,

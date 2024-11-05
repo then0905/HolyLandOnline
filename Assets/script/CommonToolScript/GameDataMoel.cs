@@ -105,6 +105,7 @@ public class ArmorDataModel : BasalAttributesDataModel, IDictionaryData<string>,
     public bool Stackability { get; set; }            // 可堆疊性
     public int Redeem { get; set; }            // 販售價格
     public int Price { get; set; }          //商店購買價格
+    public List<ForgeData> ForgeConfigList { get; set; }         //強化效果配置
     public string GetKey
     {
         get { return CodeID; }
@@ -133,6 +134,7 @@ public class WeaponDataModel : BasalAttributesDataModel, IDictionaryData<string>
     public string ASID { get; set; }            // 武器攻擊速度(編碼用)    
     public int Redeem { get; set; }            // 販售價格
     public int Price { get; set; }          //商店購買價格
+    public List<ForgeData> ForgeConfigList { get; set;  }         //強化效果配置
     public string GetKey { get { return CodeID; } }
 }
 
@@ -159,6 +161,17 @@ public class ItemDataModel : BasalAttributesDataModel, IDictionaryData<string>, 
     public int ActionTime { get; set; }            // 道具持續時間
     public int Price { get; set; }            // 道具在商店販賣的價格
     public int Redeem { get; set; }            // 道具賣給商店的價格
+    public string GetKey { get { return CodeID; } }
+}
+
+public class ForgeData : BasalAttributesDataModel
+{
+    public string CodeID { get; set; }            // 武器ID
+    public int ForgeLv { get; set; }            // 強化等級
+    public float SuccessProbability { get; set; }            // 一般強化成功率
+    public float SuperiorSuccessProbability { get; set; }            // 高純度強化成功率
+    public float DestroyedProbability { get; set; }            // 強化失敗時物品損壞率
+    public int Redeem { get; set; }            // 強化後道具回收價格(加上原本物品的售價)
     public string GetKey { get { return CodeID; } }
 }
 

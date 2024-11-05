@@ -38,6 +38,23 @@ public class PanelManager : MonoBehaviour
             return panelList;
         }
     }
+
+    /// <summary>
+    /// 開關指定視窗
+    /// </summary>
+    public void OpenTargetPanel(string panelName)
+    {
+        PanelData playerDataPanel = PanelLsit.Where(x => x.PanelName.Contains(panelName)).FirstOrDefault();
+        if (!playerDataPanel.PanelObj.activeSelf)
+        {
+            SetPanelOpen(panelName);
+        }
+        else
+        {
+            SetPanelClose(panelName);
+        }
+    }
+
     /// <summary>
     /// 設定指定面板打開
     /// </summary>

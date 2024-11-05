@@ -6,10 +6,6 @@ using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
-using static Equipment;
-using System.Drawing;
-using UnityEngine.Networking.Types;
-
 //==========================================
 //  創建者:家豪
 //  創建日期:2024/06/24

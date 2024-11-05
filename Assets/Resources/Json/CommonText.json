@@ -270,5 +270,13 @@
   {
     "TextID": "TM_PlayerName",
     "TextContent": "玩家名稱"
+  },
+  {
+    "TextID": "TM_Forge",
+    "TextContent": "裝備強化"
+  },
+  {
+    "TextID": "TM_Cancel",
+    "TextContent": "取消"
   }
 ]

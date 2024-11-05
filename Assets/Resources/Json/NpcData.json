@@ -98,6 +98,11 @@
       },
       {
         "NpcID": "Npc03",
+        "ButtonActionID": "Forge",
+        "ButtonName": "TM_Forge"
+      },
+      {
+        "NpcID": "Npc03",
         "ButtonActionID": "Exit",
         "ButtonName": "TM_Leave"
       }

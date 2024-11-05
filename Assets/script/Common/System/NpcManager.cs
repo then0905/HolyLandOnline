@@ -26,7 +26,6 @@ public class NpcManager : MonoBehaviour
 
     #endregion
 
-
     //暫存此地圖生成的npc資料 <NpcID,生成座標>
     private Dictionary<string, Vector3> tempMapNpcSpawnData = new Dictionary<string, Vector3>();
     //暫存已生成的npc物件

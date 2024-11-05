@@ -730,6 +730,8 @@ MonoBehaviour:
     PanelObj: {fileID: 7934033641166121285}
   - PanelName: TradePanel
     PanelObj: {fileID: 6854906211642931175}
+  - PanelName: ForgePanel
+    PanelObj: {fileID: 8974145269835075929}
   - PanelName: TestItemDrop
     PanelObj: {fileID: 5449860782550200825}
 --- !u!1 &9062499105865922887
@@ -1867,6 +1869,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 303d0c24cc6ab0c48825320f0cecd4f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &8974145269835075929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1224173975088975583, guid: a998fef5049e7e84cb923ef83b486cab,
+    type: 3}
+  m_PrefabInstance: {fileID: 7815911588882374534}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &9062499104072801717 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1275579476184351283, guid: a998fef5049e7e84cb923ef83b486cab,

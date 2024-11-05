@@ -1,8 +1,8 @@
 [
   {
+    "CodeID": "Potion_Hp_01",
     "Lv": 1,
     "Name": "TM_Potion_Hp_01_Name",
-    "CodeID": "Potion_Hp_01",
     "Path": "UI/Item",
     "FileName": "Potion_Hp_01",
     "TakeHand": "無",
@@ -22,9 +22,9 @@
     "Redeem": 1
   },
   {
+    "CodeID": "Potion_Mp_01",
     "Lv": 1,
     "Name": "TM_Potion_Mp_01_Name",
-    "CodeID": "Potion_Mp_01",
     "Path": "UI/Item",
     "FileName": "Potion_Mp_01",
     "TakeHand": "無",
@@ -44,9 +44,9 @@
     "Redeem": 1
   },
   {
+    "CodeID": "Potion_Hp_02",
     "Lv": 10,
     "Name": "TM_Potion_Hp_02_Name",
-    "CodeID": "Potion_Hp_02",
     "Path": "UI/Item",
     "FileName": "Potion_Hp_02",
     "TakeHand": "無",
@@ -66,9 +66,9 @@
     "Redeem": 1
   },
   {
+    "CodeID": "Potion_Mp_02",
     "Lv": 10,
     "Name": "TM_Potion_Mp_02_Name",
-    "CodeID": "Potion_Mp_02",
     "Path": "UI/Item",
     "FileName": "Potion_Mp_02",
     "TakeHand": "無",
@@ -88,9 +88,9 @@
     "Redeem": 1
   },
   {
+    "CodeID": "Potion_Hp_03",
     "Lv": 25,
     "Name": "TM_Potion_Hp_03_Name",
-    "CodeID": "Potion_Hp_03",
     "Path": "UI/Item",
     "FileName": "Potion_Hp_03",
     "TakeHand": "無",
@@ -110,9 +110,9 @@
     "Redeem": 1
   },
   {
+    "CodeID": "Potion_Mp_03",
     "Lv": 25,
     "Name": "TM_Potion_Mp_03_Name",
-    "CodeID": "Potion_Mp_03",
     "Path": "UI/Item",
     "FileName": "Potion_Mp_03",
     "TakeHand": "無",
@@ -132,9 +132,9 @@
     "Redeem": 1
   },
   {
+    "CodeID": "Potion_Hp_04",
     "Lv": 40,
     "Name": "TM_Potion_Hp_04_Name",
-    "CodeID": "Potion_Hp_04",
     "Path": "UI/Item",
     "FileName": "Potion_Hp_04",
     "TakeHand": "無",
@@ -154,9 +154,9 @@
     "Redeem": 1
   },
   {
+    "CodeID": "Potion_Mp_04",
     "Lv": 40,
     "Name": "TM_Potion_Mp_04_Name",
-    "CodeID": "Potion_Mp_04",
     "Path": "UI/Item",
     "FileName": "Potion_Mp_04",
     "TakeHand": "無",
@@ -176,9 +176,9 @@
     "Redeem": 1
   },
   {
+    "CodeID": "Potion_Detoxification_01",
     "Lv": 1,
     "Name": "TM_Potion_Detoxification_01_Name",
-    "CodeID": "Potion_Detoxification_01",
     "Path": "UI/Item",
     "FileName": "Potion_Detoxification_01",
     "TakeHand": "無",
@@ -198,9 +198,9 @@
     "Redeem": 15
   },
   {
+    "CodeID": "DEF_Reel_01",
     "Lv": 1,
     "Name": "TM_DEF_Reel_01_Name",
-    "CodeID": "DEF_Reel_01",
     "Path": "UI/Item",
     "FileName": "DEF_Reel_01",
     "TakeHand": "無",
@@ -220,9 +220,9 @@
     "Redeem": 50
   },
   {
+    "CodeID": "ATK_Reel_01",
     "Lv": 1,
     "Name": "TM_ATK_Reel_01_Name",
-    "CodeID": "ATK_Reel_01",
     "Path": "UI/Item",
     "FileName": "ATK_Reel_01",
     "TakeHand": "無",
@@ -242,9 +242,9 @@
     "Redeem": 50
   },
   {
+    "CodeID": "Potion_AS_01",
     "Lv": 10,
     "Name": "TM_Potion_AS_01_Name",
-    "CodeID": "Potion_AS_01",
     "Path": "UI/Item",
     "FileName": "Potion_AS_01",
     "TakeHand": "無",
@@ -264,9 +264,9 @@
     "Redeem": 120
   },
   {
+    "CodeID": "Record_Reel_01",
     "Lv": 1,
     "Name": "TM_Record_Reel_01_Name",
-    "CodeID": "Record_Reel_01",
     "Path": "UI/Item",
     "FileName": "Record_Reel_01",
     "TakeHand": "無",
@@ -286,9 +286,9 @@
     "Redeem": 5
   },
   {
+    "CodeID": "Enhance_01",
     "Lv": 1,
     "Name": "TM_Enhance_01_Name",
-    "CodeID": "Enhance_01",
     "Path": "UI/Item",
     "FileName": "Enhance_01",
     "TakeHand": "無",
@@ -327,9 +327,9 @@
     "Redeem": 500
   },
   {
+    "CodeID": "Enhance_02",
     "Lv": 1,
     "Name": "TM_Enhance_02_Name",
-    "CodeID": "Enhance_02",
     "Path": "UI/Item",
     "FileName": "Enhance_02",
     "TakeHand": "無",
@@ -368,9 +368,9 @@
     "Redeem": 1000
   },
   {
+    "CodeID": "Enhance_03",
     "Lv": 1,
     "Name": "TM_Enhance_03_Name",
-    "CodeID": "Enhance_03",
     "Path": "UI/Item",
     "FileName": "Enhance_03",
     "TakeHand": "無",
@@ -409,9 +409,9 @@
     "Redeem": 1000000
   },
   {
+    "CodeID": "Enhance_04",
     "Lv": 1,
     "Name": "TM_Enhance_04_Name",
-    "CodeID": "Enhance_04",
     "Path": "UI/Item",
     "FileName": "Enhance_04",
     "TakeHand": "無",
@@ -450,9 +450,9 @@
     "Redeem": 1000000
   },
   {
+    "CodeID": "Booty_001",
     "Lv": 0,
     "Name": "TM_Booty_001_Name",
-    "CodeID": "Booty_001",
     "Path": "UI/Item",
     "FileName": "Booty_001",
     "TakeHand": "無",
@@ -472,9 +472,9 @@
     "Redeem": 25
   },
   {
+    "CodeID": "Booty_002",
     "Lv": 0,
     "Name": "TM_Booty_002_Name",
-    "CodeID": "Booty_002",
     "Path": "UI/Item",
     "FileName": "Booty_002",
     "TakeHand": "無",
@@ -494,9 +494,9 @@
     "Redeem": 60
   },
   {
+    "CodeID": "Booty_003",
     "Lv": 0,
     "Name": "TM_Booty_003_Name",
-    "CodeID": "Booty_003",
     "Path": "UI/Item",
     "FileName": "Booty_003",
     "TakeHand": "無",
@@ -516,9 +516,9 @@
     "Redeem": 30
   },
   {
+    "CodeID": "Booty_004",
     "Lv": 0,
     "Name": "TM_Booty_004_Name",
-    "CodeID": "Booty_004",
     "Path": "UI/Item",
     "FileName": "Booty_004",
     "TakeHand": "無",
@@ -538,9 +538,9 @@
     "Redeem": 50
   },
   {
+    "CodeID": "Booty_005",
     "Lv": 0,
     "Name": "TM_Booty_005_Name",
-    "CodeID": "Booty_005",
     "Path": "UI/Item",
     "FileName": "Booty_005",
     "TakeHand": "無",
@@ -560,9 +560,9 @@
     "Redeem": 50
   },
   {
+    "CodeID": "Booty_006",
     "Lv": 0,
     "Name": "TM_Booty_006_Name",
-    "CodeID": "Booty_006",
     "Path": "UI/Item",
     "FileName": "Booty_006",
     "TakeHand": "無",
@@ -582,9 +582,9 @@
     "Redeem": 50
   },
   {
+    "CodeID": "Booty_007",
     "Lv": 0,
     "Name": "TM_Booty_007_Name",
-    "CodeID": "Booty_007",
     "Path": "UI/Item",
     "FileName": "Booty_007",
     "TakeHand": "無",
@@ -604,9 +604,9 @@
     "Redeem": 35
   },
   {
+    "CodeID": "Booty_008",
     "Lv": 0,
     "Name": "TM_Booty_008_Name",
-    "CodeID": "Booty_008",
     "Path": "UI/Item",
     "FileName": "Booty_008",
     "TakeHand": "無",
@@ -626,9 +626,9 @@
     "Redeem": 75
   },
   {
+    "CodeID": "Booty_009",
     "Lv": 0,
     "Name": "TM_Booty_009_Name",
-    "CodeID": "Booty_009",
     "Path": "UI/Item",
     "FileName": "Booty_009",
     "TakeHand": "無",
@@ -648,9 +648,9 @@
     "Redeem": 70
   },
   {
+    "CodeID": "Booty_010",
     "Lv": 0,
     "Name": "TM_Booty_010_Name",
-    "CodeID": "Booty_010",
     "Path": "UI/Item",
     "FileName": "Booty_010",
     "TakeHand": "無",
@@ -670,9 +670,9 @@
     "Redeem": 150
   },
   {
+    "CodeID": "Booty_011",
     "Lv": 0,
     "Name": "TM_Booty_011_Name",
-    "CodeID": "Booty_011",
     "Path": "UI/Item",
     "FileName": "Booty_011",
     "TakeHand": "無",
@@ -692,9 +692,9 @@
     "Redeem": 100
   },
   {
+    "CodeID": "Booty_012",
     "Lv": 0,
     "Name": "TM_Booty_012_Name",
-    "CodeID": "Booty_012",
     "Path": "UI/Item",
     "FileName": "Booty_012",
     "TakeHand": "無",
@@ -714,9 +714,9 @@
     "Redeem": 200
   },
   {
+    "CodeID": "Potion_EXP_01",
     "Lv": 1,
     "Name": "TM_Potion_EXP_01_Name",
-    "CodeID": "Potion_EXP_01",
     "Path": "UI/Item",
     "FileName": "Potion_EXP_01",
     "TakeHand": "無",

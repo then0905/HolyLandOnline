@@ -41,22 +41,22 @@ public class HotKeyManager : MonoBehaviour
     {
         if (Input.GetKeyDown("k"))
         {
-            SkillsPanelPage();
+            panelManager.OpenTargetPanel("SkillPanel");
         }
         if (Input.GetKeyDown("b"))
         {
-            BagPanelPage();
+            panelManager.OpenTargetPanel("BagPanel");
         }
         if (Input.GetKeyDown("c"))
         {
-            PlayerDataPanelPage();
+            panelManager.OpenTargetPanel("PlayerDataPanel");
         }
         if (Input.GetKeyDown("q"))
         {
-            MissionPanelPage();
+            panelManager.OpenTargetPanel("MissionPanel");
         }
         if (Input.GetKeyDown("`"))
-            OpenTargetPanel("TestItemDrop");
+            panelManager.OpenTargetPanel("TestItemDrop");
 
         // 未選取任何目標 按下esc時 關閉所有面板
         if (Input.GetKeyDown(KeyCode.Escape) && !SelectTarget.Instance.CatchTarget)
@@ -66,83 +66,6 @@ public class HotKeyManager : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             HotKeyFillArray[i].sprite = HotKeyBackgroundArray[i].sprite;
-        }
-    }
-    /// <summary>
-    /// 開關技能視窗
-    /// </summary>
-    public void SkillsPanelPage()
-    {
-        PanelData skillPanel = panelManager.PanelLsit.Where(x => x.PanelName.Contains("SkillPanel")).FirstOrDefault();
-        if (!skillPanel.PanelObj.activeSelf)
-        {
-            panelManager.SetPanelOpen("SkillPanel");
-        }
-        else
-        {
-            panelManager.SetPanelClose("SkillPanel");
-        }
-    }
-    /// <summary>
-    /// 開關背包視窗
-    /// </summary>
-    public void BagPanelPage()
-    {
-        PanelData bagPanel = panelManager.PanelLsit.Where(x => x.PanelName.Contains("BagPanel")).FirstOrDefault();
-        if (!bagPanel.PanelObj.activeSelf)
-        {
-            panelManager.SetPanelOpen("BagPanel");
-        }
-        else
-        {
-            panelManager.SetPanelClose("BagPanel");
-        }
-    }
-
-    /// <summary>
-    /// 開關角色資料視窗
-    /// </summary>
-    public void PlayerDataPanelPage()
-    {
-        PanelData playerDataPanel = panelManager.PanelLsit.Where(x => x.PanelName.Contains("PlayerDataPanel")).FirstOrDefault();
-        if (!playerDataPanel.PanelObj.activeSelf)
-        {
-            panelManager.SetPanelOpen("PlayerDataPanel");
-        }
-        else
-        {
-            panelManager.SetPanelClose("PlayerDataPanel");
-        }
-    }
-    /// <summary>
-    /// 開關任務視窗
-    /// </summary>
-    public void MissionPanelPage()
-    {
-        PanelData playerDataPanel = panelManager.PanelLsit.Where(x => x.PanelName.Contains("MissionPanel")).FirstOrDefault();
-        if (!playerDataPanel.PanelObj.activeSelf)
-        {
-            panelManager.SetPanelOpen("MissionPanel");
-        }
-        else
-        {
-            panelManager.SetPanelClose("MissionPanel");
-        }
-    }
-
-    /// <summary>
-    /// 開關指定視窗
-    /// </summary>
-    public void OpenTargetPanel(string panelName)
-    {
-        PanelData playerDataPanel = panelManager.PanelLsit.Where(x => x.PanelName.Contains(panelName)).FirstOrDefault();
-        if (!playerDataPanel.PanelObj.activeSelf)
-        {
-            panelManager.SetPanelOpen(panelName);
-        }
-        else
-        {
-            panelManager.SetPanelClose(panelName);
         }
     }
 }

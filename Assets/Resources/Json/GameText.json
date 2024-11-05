@@ -98,5 +98,41 @@
   {
     "TextID": "TM_AttackEnableError",
     "TextContent": "技能施放錯誤：角色正在不可進行普通攻擊的狀態！"
+  },
+  {
+    "TextID": "TM_ForgeSuccessRate",
+    "TextContent": "強化成功率: {0}%"
+  },
+  {
+    "TextID": "TM_ForgeDestroyedRate",
+    "TextContent": "強化失敗裝備破損率: {0}%"
+  },
+  {
+    "TextID": "TM_ForgeLV",
+    "TextContent": "強化等級: {0}"
+  },
+  {
+    "TextID": "TM_NextForgeLV",
+    "TextContent": "下一強化等級: {0}"
+  },
+  {
+    "TextID": "TM_ForgeSuccessMsg",
+    "TextContent": "恭喜！強化成功！"
+  },
+  {
+    "TextID": "TM_ForgeFailMsg",
+    "TextContent": "強化失敗，裝備並沒有發生任何事情"
+  },
+  {
+    "TextID": "TM_ForgeDestroyedMsg",
+    "TextContent": "強化失敗，裝備已經損毀了"
+  },
+  {
+    "TextID": "TM_ForgeError_CantForge",
+    "TextContent": "當前選擇的物品不可進行強化！"
+  },
+  {
+    "TextID": "TM_ForgeError_LvLimit",
+    "TextContent": "已達到最高等級，不可再進行強化"
   }
 ]

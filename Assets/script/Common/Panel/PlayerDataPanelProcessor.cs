@@ -66,7 +66,7 @@ public class PlayerDataPanelProcessor : MonoBehaviour
         playerDataContent.text =
             "TM_PlayerLv".GetText(true) + playerData.Lv + "\n" +
             "TM_Race".GetText(true) + ("TM_" + playerData.Race).GetText() + "\n" +
-            "TM_Race".GetText(true) + ("TM_" + playerData.Job).GetText() + "\n" +
+            "TM_Job".GetText(true) + ("TM_" + playerData.Job).GetText() + "\n" +
             "TM_MaxHP".GetText(true) + playerData.MaxHP + "\n" +
             "TM_HP".GetText(true) + playerData.HP + "\n" +
             "TM_HP_Recovery".GetText(true) + playerData.HP_Recovery + "\n" +
