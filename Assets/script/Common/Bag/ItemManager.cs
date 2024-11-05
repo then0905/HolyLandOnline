@@ -4,8 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
-using static Equipment;
-using static UnityEditor.Progress;
 
 //==========================================
 //  創建者:    家豪

@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using static Equipment;
 
 //==========================================
 //  創建者:    家豪

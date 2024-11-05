@@ -10,6 +10,89 @@ using UnityEngine.EventSystems;
 //  創建用途:  背包格物品資料
 //==========================================
 
+
+[Serializable]
+///<summary>  物品資料  </summary>
+public class EquipmentData
+{
+    /// <summary>
+    /// 複製一個新的實例使用(防止當原本的資料要被清空時 連帶拖曳目標的資料也會被清空)
+    /// </summary>
+    /// <returns></returns>
+    public EquipmentData Clone()
+    {
+        return new EquipmentData
+        {
+            Weapon = this.Weapon,
+            Armor = this.Armor,
+            Item = this.Item,
+            Qty = this.Qty
+        };
+    }
+    public WeaponDataModel Weapon;
+    public ArmorDataModel Armor;
+    public ItemDataModel Item;
+
+    /// <summary>物品數量</summary>
+    public int Qty;
+
+    /// <summary>取得此物品簡略的基本資訊</summary>
+    public IItemBasal ItemCommonData
+    {
+        get
+        {
+            IItemBasal itemBasal = null;
+            if (Weapon != null)
+                itemBasal = Weapon;
+            else if (Armor != null)
+                itemBasal = Armor;
+            else if (Item != null)
+                itemBasal = Item;
+            return itemBasal;
+        }
+    }
+
+    /// <summary>物品基礎資料(用於Json紀錄使用)</summary>
+    public EquipmentDataToJson EquipmentDataToJson_
+    {
+        get
+        {
+            EquipmentDataToJson tempData = new EquipmentDataToJson();
+            if (Weapon != null)
+                tempData = new EquipmentDataToJson()
+                {
+                    CodedID = Weapon.CodeID,
+                    Type = Weapon.ClassificationID,
+                    Qty = Qty
+                };
+            if (Armor != null)
+                tempData = new EquipmentDataToJson()
+                {
+                    CodedID = Armor.CodeID,
+                    Type = Armor.ClassificationID,
+                    Qty = Qty
+                };
+            if (Item != null)
+                tempData = new EquipmentDataToJson()
+                {
+                    CodedID = Item.CodeID,
+                    Type = Item.ClassificationID,
+                    Qty = Qty
+                };
+            return tempData;
+        }
+    }
+}
+
+[Serializable]
+///<summary>  物品資料ForJson序列化  </summary>
+public class EquipmentDataToJson
+{
+    public string CodedID;
+    public string Type;
+    public int Qty;
+}
+
 [RequireComponent(typeof(EventTrigger))]
 public class Equipment : MonoBehaviour
 {
@@ -40,86 +123,4 @@ public class Equipment : MonoBehaviour
 
     [Header("物品資料"), SerializeField]
     public EquipmentData EquipmentDatas;
-
-    [Serializable]
-    ///<summary>  物品資料  </summary>
-    public class EquipmentData
-    {
-        /// <summary>
-        /// 複製一個新的實例使用(防止當原本的資料要被清空時 連帶拖曳目標的資料也會被清空)
-        /// </summary>
-        /// <returns></returns>
-        public EquipmentData Clone()
-        {
-            return new EquipmentData
-            {
-                Weapon = this.Weapon,
-                Armor = this.Armor,
-                Item = this.Item,
-                Qty = this.Qty
-            };
-        }
-        public WeaponDataModel Weapon;
-        public ArmorDataModel Armor;
-        public ItemDataModel Item;
-
-        /// <summary>取得此物品簡略的基本資訊</summary>
-        public IItemBasal ItemCommonData
-        {
-            get
-            {
-                IItemBasal itemBasal = null;
-                if (Weapon != null)
-                    itemBasal = Weapon;
-                else if (Armor != null)
-                    itemBasal = Armor;
-                else if (Item != null)
-                    itemBasal = Item;
-                return itemBasal;
-            }
-        }
-
-        /// <summary>物品基礎資料(用於Json紀錄使用)</summary>
-        public EquipmentDataToJson EquipmentDataToJson_
-        {
-            get
-            {
-                EquipmentDataToJson tempData = new EquipmentDataToJson();
-                if (Weapon != null)
-                    tempData = new EquipmentDataToJson()
-                    {
-                        CodedID = Weapon.CodeID,
-                        Type = Weapon.ClassificationID,
-                        Qty = Qty
-                    };
-                if (Armor != null)
-                    tempData = new EquipmentDataToJson()
-                    {
-                        CodedID = Armor.CodeID,
-                        Type = Armor.ClassificationID,
-                        Qty = Qty
-                    };
-                if (Item != null)
-                    tempData = new EquipmentDataToJson()
-                    {
-                        CodedID = Item.CodeID,
-                        Type = Item.ClassificationID,
-                        Qty = Qty
-                    };
-                return tempData;
-            }
-        }
-
-        /// <summary>物品數量</summary>
-        public int Qty;
-    }
-
-    [Serializable]
-    ///<summary>  物品資料ForJson序列化  </summary>
-    public class EquipmentDataToJson
-    {
-        public string CodedID;
-        public string Type;
-        public int Qty;
-    }
 }

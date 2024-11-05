@@ -5,8 +5,6 @@ using System.Linq;
 using System;
 using Newtonsoft.Json;
 using System.IO;
-using static Equipment;
-using System.Security;
 
 //==========================================
 //  創建者:    家豪
