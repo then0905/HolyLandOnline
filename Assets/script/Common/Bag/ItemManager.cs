@@ -61,7 +61,8 @@ public class ItemManager : MonoBehaviour
                         bag.EquipmentDatas = new EquipmentData()
                         {
                             Weapon = GameData.WeaponsDic[itemBagList[i].CodedID],
-                            Qty = itemBagList[i].Qty
+                            Qty = itemBagList[i].Qty,
+                            ForceLv = itemBagList[i].ForceLv
                         };
                         break;
 
@@ -70,7 +71,8 @@ public class ItemManager : MonoBehaviour
                         bag.EquipmentDatas = new EquipmentData()
                         {
                             Armor = GameData.ArmorsDic[itemBagList[i].CodedID],
-                            Qty = itemBagList[i].Qty
+                            Qty = itemBagList[i].Qty,
+                            ForceLv = itemBagList[i].ForceLv
                         };
                         break;
 
@@ -121,6 +123,7 @@ public class ItemManager : MonoBehaviour
                     if (weaponItem != null)
                     {
                         weaponItem.EquipmentDatas.Weapon = weaponData;
+                        weaponItem.EquipmentDatas.ForceLv = data.ForceLv;
                         weaponItem.EquipImage.sprite = CommonFunction.GetItemSprite(weaponItem.EquipmentDatas);
                     }
 
@@ -131,6 +134,7 @@ public class ItemManager : MonoBehaviour
                     if (armorItem != null)
                     {
                         armorItem.EquipmentDatas.Armor = armorData;
+                        armorItem.EquipmentDatas.ForceLv = data.ForceLv;
                         armorItem.EquipImage.sprite = CommonFunction.GetItemSprite(armorItem.EquipmentDatas);
                     }
                 }

@@ -126,7 +126,7 @@ public class EquipmentForgeSystem : MonoBehaviour
         //當前等級
         currentForgeStatus.enabled = currentForgeData != null;
         if (currentForgeData != null)
-            currentForgeStatus.text = forgeStatusTextProcessor(currentForgeData);
+            currentForgeStatus.text = CurrentForgeStatusTextProcessor(currentForgeData);
 
         //下一等級相關資訊
         successRateText.enabled = nextForgeData != null;
@@ -138,66 +138,147 @@ public class EquipmentForgeSystem : MonoBehaviour
             nextForgeLvText.enabled = true;
             nextForgeLvText.text = string.Format("TM_NextForgeLV".GetText(), (currentForgeLv + 1).ToString());
             nextForgeStatus.enabled = true;
-            nextForgeStatus.text = forgeStatusTextProcessor(nextForgeData);
+            nextForgeStatus.text = NextForgeStatusTextProcessor(currentForgeData, nextForgeData);
         }
         forgeButton.SetActive(true);
         cancelButton.SetActive(true);
     }
 
     /// <summary>
-    /// 獲取強化屬性文字內容
+    /// 獲取當前強化屬性文字內容
     /// </summary>
-    /// <param name="forgeData"></param>
+    /// <param name="currentForgeLvData">當前強化等級的屬性資料</param>
     /// <returns></returns>
-    private string forgeStatusTextProcessor(ForgeData forgeData)
+    private string CurrentForgeStatusTextProcessor(ForgeData currentForgeLvData)
     {
         string temp;
-        if (GameData.WeaponsDic[forgeData.CodeID] != null)
+        if (GameData.WeaponsDic[currentForgeLvData.CodeID] != null)
             temp =
-            "TM_MaxHP".GetText(true) + forgeData.HP + "\n" +
-            "TM_MaxMP".GetText(true) + forgeData.MP + "\n" +
-            "TM_MeleeATK".GetText(true) + forgeData.MeleeATK + "\n" +
-            "TM_RemoteATK".GetText(true) + forgeData.RemoteATK + "\n" +
-            "TM_MageATK".GetText(true) + forgeData.MageATK + "\n" +
-            "TM_MeleeHit".GetText(true) + forgeData.MeleeHit + "\n" +
-            "TM_RemoteHit".GetText(true) + forgeData.RemoteHit + "\n" +
-            "TM_MageHit".GetText(true) + forgeData.MageHit + "\n" +
-            "TM_DEF".GetText(true) + forgeData.DEF + "\n" +
-            "TM_MDEF".GetText(true) + forgeData.MDEF + "\n" +
-            "TM_DamageReduction".GetText(true) + forgeData.DamageReduction + "\n" +
-            "TM_Avoid".GetText(true) + forgeData.Avoid + "\n" +
-            "TM_Crt".GetText(true) + forgeData.Crt + "\n" +
-            "TM_CrtDamage".GetText(true) + forgeData.CrtDamage + "\n" +
-            "TM_STR".GetText(true) + forgeData.STR + "\n" +
-            "TM_DEX".GetText(true) + forgeData.DEX + "\n" +
-            "TM_INT".GetText(true) + forgeData.INT + "\n" +
-            "TM_AGI".GetText(true) + forgeData.AGI + "\n" +
-            "TM_VIT".GetText(true) + forgeData.VIT + "\n" +
-            "TM_WIS".GetText(true) + forgeData.WIS + "\n" +
-            "TM_ElementDamageIncrease".GetText(true) + forgeData.ElementDamageIncrease + "\n" +
-            "TM_BlockRate".GetText(true) + forgeData.BlockRate + "\n";
+            "TM_MaxHP".GetText(true) + currentForgeLvData.HP + "\n" +
+            "TM_MaxMP".GetText(true) + currentForgeLvData.MP + "\n" +
+            "TM_MeleeATK".GetText(true) + currentForgeLvData.MeleeATK + "\n" +
+            "TM_RemoteATK".GetText(true) + currentForgeLvData.RemoteATK + "\n" +
+            "TM_MageATK".GetText(true) + currentForgeLvData.MageATK + "\n" +
+            "TM_MeleeHit".GetText(true) + currentForgeLvData.MeleeHit + "\n" +
+            "TM_RemoteHit".GetText(true) + currentForgeLvData.RemoteHit + "\n" +
+            "TM_MageHit".GetText(true) + currentForgeLvData.MageHit + "\n" +
+            "TM_DEF".GetText(true) + currentForgeLvData.DEF + "\n" +
+            "TM_MDEF".GetText(true) + currentForgeLvData.MDEF + "\n" +
+            "TM_DamageReduction".GetText(true) + currentForgeLvData.DamageReduction + "\n" +
+            "TM_Avoid".GetText(true) + currentForgeLvData.Avoid + "\n" +
+            "TM_Crt".GetText(true) + currentForgeLvData.Crt + "\n" +
+            "TM_CrtDamage".GetText(true) + currentForgeLvData.CrtDamage + "\n" +
+            "TM_STR".GetText(true) + currentForgeLvData.STR + "\n" +
+            "TM_DEX".GetText(true) + currentForgeLvData.DEX + "\n" +
+            "TM_INT".GetText(true) + currentForgeLvData.INT + "\n" +
+            "TM_AGI".GetText(true) + currentForgeLvData.AGI + "\n" +
+            "TM_VIT".GetText(true) + currentForgeLvData.VIT + "\n" +
+            "TM_WIS".GetText(true) + currentForgeLvData.WIS + "\n" +
+            "TM_ElementDamageIncrease".GetText(true) + currentForgeLvData.ElementDamageIncrease + "\n" +
+            "TM_BlockRate".GetText(true) + currentForgeLvData.BlockRate + "\n";
         else
             temp =
-            "TM_MaxHP".GetText(true) + forgeData.HP + "\n" +
-            "TM_HP_Recovery".GetText(true) + forgeData.HpRecovery + "\n" +
-            "TM_MaxMP".GetText(true) + forgeData.MP + "\n" +
-            "TM_MP_Recovery".GetText(true) + forgeData.MpRecovery + "\n" +
-            "TM_DEF".GetText(true) + forgeData.DEF + "\n" +
-            "TM_MDEF".GetText(true) + forgeData.MDEF + "\n" +
-            "TM_DamageReduction".GetText(true) + forgeData.DamageReduction + "\n" +
-            "TM_Avoid".GetText(true) + forgeData.Avoid + "\n" +
-            "TM_CrtResistance".GetText(true) + forgeData.CrtResistance + "\n" +
-            "TM_Speed".GetText(true) + forgeData.Speed + "\n" +
-            "TM_STR".GetText(true) + forgeData.STR + "\n" +
-            "TM_DEX".GetText(true) + forgeData.DEX + "\n" +
-            "TM_INT".GetText(true) + forgeData.INT + "\n" +
-            "TM_AGI".GetText(true) + forgeData.AGI + "\n" +
-            "TM_VIT".GetText(true) + forgeData.VIT + "\n" +
-            "TM_WIS".GetText(true) + forgeData.WIS + "\n" +
-            "TM_ElementDamageReduction".GetText(true) + forgeData.ElementDamageReduction + "\n" +
-            "TM_DisorderResistance".GetText(true) + forgeData.DisorderResistance + "\n";
+            "TM_MaxHP".GetText(true) + currentForgeLvData.HP + "\n" +
+            "TM_HP_Recovery".GetText(true) + currentForgeLvData.HpRecovery + "\n" +
+            "TM_MaxMP".GetText(true) + currentForgeLvData.MP + "\n" +
+            "TM_MP_Recovery".GetText(true) + currentForgeLvData.MpRecovery + "\n" +
+            "TM_DEF".GetText(true) + currentForgeLvData.DEF + "\n" +
+            "TM_MDEF".GetText(true) + currentForgeLvData.MDEF + "\n" +
+            "TM_DamageReduction".GetText(true) + currentForgeLvData.DamageReduction + "\n" +
+            "TM_Avoid".GetText(true) + currentForgeLvData.Avoid + "\n" +
+            "TM_CrtResistance".GetText(true) + currentForgeLvData.CrtResistance + "\n" +
+            "TM_Speed".GetText(true) + currentForgeLvData.Speed + "\n" +
+            "TM_STR".GetText(true) + currentForgeLvData.STR + "\n" +
+            "TM_DEX".GetText(true) + currentForgeLvData.DEX + "\n" +
+            "TM_INT".GetText(true) + currentForgeLvData.INT + "\n" +
+            "TM_AGI".GetText(true) + currentForgeLvData.AGI + "\n" +
+            "TM_VIT".GetText(true) + currentForgeLvData.VIT + "\n" +
+            "TM_WIS".GetText(true) + currentForgeLvData.WIS + "\n" +
+            "TM_ElementDamageReduction".GetText(true) + currentForgeLvData.ElementDamageReduction + "\n" +
+            "TM_DisorderResistance".GetText(true) + currentForgeLvData.DisorderResistance + "\n";
         return temp;
     }
+
+    /// <summary>
+    ///  獲取下一等級強化屬性文字內容
+    /// </summary>
+    /// <param name="currentForgeLvData">當前強化等級屬性資料</param>
+    /// <param name="nextForgeLvData">下一強化等級屬性資料</param>
+    /// <returns></returns>
+    private string NextForgeStatusTextProcessor(ForgeData currentForgeLvData, ForgeData nextForgeLvData)
+    {
+        string temp;
+        if (GameData.WeaponsDic[nextForgeLvData.CodeID] != null)
+            temp =
+            "TM_MaxHP".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.HP), nextForgeLvData.HP) + "\n" +
+            "TM_MaxMP".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.MP), nextForgeLvData.MP) + "\n" +
+            "TM_MeleeATK".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.MeleeATK), nextForgeLvData.MeleeATK) + "\n" +
+            "TM_RemoteATK".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.RemoteATK), nextForgeLvData.RemoteATK) + "\n" +
+            "TM_MageATK".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.MageATK), nextForgeLvData.MageATK) + "\n" +
+            "TM_MeleeHit".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.MeleeHit), nextForgeLvData.MeleeHit) + "\n" +
+            "TM_RemoteHit".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.RemoteHit), nextForgeLvData.RemoteHit) + "\n" +
+            "TM_MageHit".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.MageHit), nextForgeLvData.MageHit) + "\n" +
+            "TM_DEF".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.DEF), nextForgeLvData.DEF) + "\n" +
+            "TM_MDEF".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.MDEF), nextForgeLvData.MDEF) + "\n" +
+            "TM_DamageReduction".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.DamageReduction), nextForgeLvData.DamageReduction) + "\n" +
+            "TM_Avoid".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.Avoid), nextForgeLvData.Avoid) + "\n" +
+            "TM_Crt".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.Crt), nextForgeLvData.Crt) + "\n" +
+            "TM_CrtDamage".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.CrtDamage), nextForgeLvData.CrtDamage) + "\n" +
+            "TM_STR".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.STR), nextForgeLvData.STR) + "\n" +
+            "TM_DEX".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.DEX), nextForgeLvData.DEX) + "\n" +
+            "TM_INT".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.INT), nextForgeLvData.INT) + "\n" +
+            "TM_AGI".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.AGI), nextForgeLvData.AGI) + "\n" +
+            "TM_VIT".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.VIT), nextForgeLvData.VIT) + "\n" +
+            "TM_WIS".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.WIS), nextForgeLvData.WIS) + "\n" +
+            "TM_ElementDamageIncrease".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.ElementDamageIncrease), nextForgeLvData.ElementDamageIncrease) + "\n" +
+            "TM_BlockRate".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.BlockRate), nextForgeLvData.BlockRate) + "\n";
+        else
+            temp =
+            "TM_MaxHP".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.HP), nextForgeLvData.HP) + "\n" +
+            "TM_HP_Recovery".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.HpRecovery), nextForgeLvData.HpRecovery) + "\n" +
+            "TM_MaxMP".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.MP), nextForgeLvData.MP) + "\n" +
+            "TM_MP_Recovery".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.MpRecovery), nextForgeLvData.MpRecovery) + "\n" +
+            "TM_DEF".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.DEF), nextForgeLvData.DEF) + "\n" +
+            "TM_MDEF".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.MDEF), nextForgeLvData.MDEF) + "\n" +
+            "TM_DamageReduction".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.DamageReduction), nextForgeLvData.DamageReduction) + "\n" +
+            "TM_Avoid".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.Avoid), nextForgeLvData.Avoid) + "\n" +
+            "TM_CrtResistance".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.CrtResistance), nextForgeLvData.CrtResistance) + "\n" +
+            "TM_Speed".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.Speed), nextForgeLvData.Speed) + "\n" +
+            "TM_STR".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.STR), nextForgeLvData.STR) + "\n" +
+            "TM_DEX".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.DEX), nextForgeLvData.DEX) + "\n" +
+            "TM_INT".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.INT), nextForgeLvData.INT) + "\n" +
+            "TM_AGI".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.AGI), nextForgeLvData.AGI) + "\n" +
+            "TM_VIT".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.VIT), nextForgeLvData.VIT) + "\n" +
+            "TM_WIS".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.WIS), nextForgeLvData.WIS) + "\n" +
+            "TM_ElementDamageReduction".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.ElementDamageReduction), nextForgeLvData.ElementDamageReduction) + "\n" +
+            "TM_DisorderResistance".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.DisorderResistance), nextForgeLvData.DisorderResistance) + "\n";
+        return temp;
+    }
+
+    /// <summary>
+    /// 處理強化屬性值的文字顏色 根據變強變弱不變改變指定顏色
+    /// </summary>
+    /// <param name="currentValue"></param>
+    /// <param name="nextValue"></param>
+    /// <returns></returns>
+    private string ForgeStatusTextProcessor(float currentValue, float nextValue)
+    {
+        string tempText;
+        if ((currentValue < nextValue))
+        {
+            tempText = $"<color=#1FFF00>{nextValue}</color>";
+        }
+        else if ((currentValue > nextValue))
+        {
+            tempText = $"<color=#ff0d0d>{nextValue}</color>";
+        }
+        else
+        {
+            tempText = nextValue.ToString();
+        }
+        return tempText;
+    }
+
 
     #region 按鈕事件
 
@@ -244,8 +325,11 @@ public class EquipmentForgeSystem : MonoBehaviour
             Debug.Log($"物品強化成功率{successRate}  && 隨機值{randomValue}");
             //強化成功 
             successWindow.SetActive(true);
-            currentEqquipment.EquipmentDatas.ForceLv += 1;
-            SettingForgeTarget(currentEqquipment);
+            var queryResult =  ItemManager.Instance.BagItems.Where(x => x.EquipmentDatas == currentEqquipment.EquipmentDatas).FirstOrDefault();
+            queryResult.EquipmentDatas.ForceLv += 1;
+            SettingForgeTarget(queryResult);
+            //強化成功 重新紀錄背包的資料
+            LoadPlayerData.SaveUserData();
         }
         else
         {
@@ -253,7 +337,7 @@ public class EquipmentForgeSystem : MonoBehaviour
             float destroyedRate = currentForgeData.DestroyedProbability;
             //取得隨機值
             randomValue = UnityEngine.Random.Range(0f, 100f);
-            if(destroyedRate >= randomValue)
+            if (destroyedRate >= randomValue)
             {
                 Debug.Log($"失敗裝備損壞率{destroyedRate}  && 隨機值{randomValue}");
                 //裝備毀損
@@ -261,12 +345,14 @@ public class EquipmentForgeSystem : MonoBehaviour
                 destroyedWindow.SetActive(true);
                 ClearForgeData();
                 Init();
+                //強化失敗裝備 重新紀錄背包的資料
+                LoadPlayerData.SaveUserData();
             }
             else
             {
                 failWindow.SetActive(true);
                 SettingForgeTarget(currentEqquipment);
-            }       
+            }
         }
     }
 
