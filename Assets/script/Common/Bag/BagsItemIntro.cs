@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.EventSystems;
 using System;
 using System.ComponentModel;
+using System.Linq;
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/06/10
@@ -25,6 +26,7 @@ public class BagsItemIntro : MonoBehaviour
     [Header("穿戴部位"), SerializeField] protected TextMeshProUGUI Part;
     [Header("道具分類"), SerializeField] protected TextMeshProUGUI Type;
     [Header("所需等及"), SerializeField] protected TextMeshProUGUI Lv;
+    [Header("強化等級"), SerializeField] protected TextMeshProUGUI Forge;
     [Header("影響數據"), SerializeField] protected TextMeshProUGUI Value;
     [Header("道具介紹"), SerializeField] protected TextMeshProUGUI Intro;
 
@@ -54,6 +56,7 @@ public class BagsItemIntro : MonoBehaviour
         public string Type;
         public string Lv;
         public string Content;
+        public int ForgeLv;
         public Sprite Icon;
     }
     /// <summary>
@@ -94,6 +97,7 @@ public class BagsItemIntro : MonoBehaviour
                         Type = introItem.EquipmentDatas.Weapon.Type,
                         Lv = introItem.EquipmentDatas.Weapon.LV.ToString(),
                         Content = introItem.EquipmentDatas.Weapon.Intro.GetText(),
+                        ForgeLv = introItem.EquipmentDatas.ForceLv,
                         Icon = introItem.EquipImage.sprite
                     });
 
@@ -118,6 +122,7 @@ public class BagsItemIntro : MonoBehaviour
                         Type = introItem.EquipmentDatas.Armor.Type,
                         Lv = introItem.EquipmentDatas.Armor.NeedLv.ToString(),
                         Content = introItem.EquipmentDatas.Armor.Intro.GetText(),
+                        ForgeLv = introItem.EquipmentDatas.ForceLv,
                         Icon = introItem.EquipImage.sprite
                     });
                     //設定防具數據
@@ -170,6 +175,7 @@ public class BagsItemIntro : MonoBehaviour
         Part.text = "TM_WearPart".GetText(true) + introData.Part;
         Type.text = "TM_ItemType".GetText(true) + introData.Type;
         Lv.text = "TM_NeedLv".GetText(true) + introData.Lv;
+        Forge.text = string.Format("TM_ForgeLV".GetText(),introData.ForgeLv);
         Intro.text = introData.Content;
         Image.sprite = introData.Icon;
     }
@@ -179,71 +185,173 @@ public class BagsItemIntro : MonoBehaviour
     /// </summary>
     private void AddWeaponVaule()
     {
-        if (introItem.EquipmentDatas.Weapon.MeleeATK != 0)
+        ForgeData forgeData = introItem.EquipmentDatas.Weapon.ForgeConfigList.Where(x => x.ForgeLv.Equals(introItem.EquipmentDatas.ForceLv)).FirstOrDefault();
+        if (forgeData != null)
         {
-            Value.text =
-                "TM_MeleeATK".GetText(true) + introItem.EquipmentDatas.Weapon.MeleeATK + "\n"
-                + "TM_MeleeHit:".GetText(true) + introItem.EquipmentDatas.Weapon.MeleeHit + "\n";
-        }
-        if (introItem.EquipmentDatas.Weapon.RemoteATK != 0)
-        {
-            Value.text =
-                 "TM_RemoteATK".GetText(true) + introItem.EquipmentDatas.Weapon.RemoteATK + "\n"
-                + "TM_RemoteHit".GetText(true) + introItem.EquipmentDatas.Weapon.RemoteHit + "\n";
+            if (introItem.EquipmentDatas.Weapon.MeleeATK != 0)
+            {
+                Value.text =
+                    "TM_MeleeATK".GetText(true) + introItem.EquipmentDatas.Weapon.MeleeATK +
+                    (forgeData.MeleeATK.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.MeleeATK)) + "\n"
+                    + "TM_MeleeHit".GetText(true) + introItem.EquipmentDatas.Weapon.MeleeHit +
+                     (forgeData.MeleeHit.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.MeleeHit)) + "\n";
+            }
+            if (introItem.EquipmentDatas.Weapon.RemoteATK != 0)
+            {
+                Value.text =
+                     "TM_RemoteATK".GetText(true) + introItem.EquipmentDatas.Weapon.RemoteATK +
+                      (forgeData.RemoteATK.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.RemoteATK)) + "\n"
+                    + "TM_RemoteHit".GetText(true) + introItem.EquipmentDatas.Weapon.RemoteHit +
+                     (forgeData.RemoteHit.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.RemoteHit)) + "\n";
 
+            }
+            if (introItem.EquipmentDatas.Weapon.MageATK != 0)
+            {
+                Value.text =
+                     "TM_MageATK".GetText(true) + introItem.EquipmentDatas.Weapon.MageATK +
+                     (forgeData.MageATK.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.MageATK)) + "\n"
+                    + "TM_MAgeHit".GetText(true) + introItem.EquipmentDatas.Weapon.MageHit +
+                     (forgeData.MageHit.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.MageHit)) + "\n";
+            }
+            Value.text += "TM_AS".GetText(true) + introItem.EquipmentDatas.Weapon.AS + "\n"
+                   + "TM_Crt".GetText(true) + introItem.EquipmentDatas.Weapon.Crt + (forgeData.Crt.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.Crt)) + "\n"
+                   + "TM_CrtDamage".GetText(true) + introItem.EquipmentDatas.Weapon.CrtDamage + (forgeData.CrtDamage.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.CrtDamage)) + "\n"
+                   + "TM_STR".GetText(true) + introItem.EquipmentDatas.Weapon.STR + (forgeData.STR.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.STR)) + "\n"
+                   + "TM_DEX".GetText(true) + introItem.EquipmentDatas.Weapon.DEX + (forgeData.DEX.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.DEX)) + "\n"
+                   + "TM_INT".GetText(true) + introItem.EquipmentDatas.Weapon.INT + (forgeData.INT.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.INT)) + "\n"
+                   + "TM_AGI".GetText(true) + introItem.EquipmentDatas.Weapon.AGI + (forgeData.AGI.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.AGI)) + "\n"
+                   + "TM_VIT".GetText(true) + introItem.EquipmentDatas.Weapon.VIT + (forgeData.VIT.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.VIT)) + "\n"
+                   + "TM_WIS".GetText(true) + introItem.EquipmentDatas.Weapon.WIS + (forgeData.WIS.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.WIS));
         }
-        if (introItem.EquipmentDatas.Weapon.MageATK != 0)
+        else
         {
-            Value.text =
-                 "TM_MageATK".GetText(true) + introItem.EquipmentDatas.Weapon.MageATK + "\n"
-                + "TM_MAgeHit".GetText(true) + introItem.EquipmentDatas.Weapon.MageHit + "\n";
+            if (introItem.EquipmentDatas.Weapon.MeleeATK != 0)
+            {
+                Value.text =
+                    "TM_MeleeATK".GetText(true) + introItem.EquipmentDatas.Weapon.MeleeATK + "\n"
+                    + "TM_MeleeHit".GetText(true) + introItem.EquipmentDatas.Weapon.MeleeHit + "\n";
+            }
+            if (introItem.EquipmentDatas.Weapon.RemoteATK != 0)
+            {
+                Value.text =
+                     "TM_RemoteATK".GetText(true) + introItem.EquipmentDatas.Weapon.RemoteATK + "\n"
+                    + "TM_RemoteHit".GetText(true) + introItem.EquipmentDatas.Weapon.RemoteHit + "\n";
+
+            }
+            if (introItem.EquipmentDatas.Weapon.MageATK != 0)
+            {
+                Value.text =
+                     "TM_MageATK".GetText(true) + introItem.EquipmentDatas.Weapon.MageATK + "\n"
+                    + "TM_MAgeHit".GetText(true) + introItem.EquipmentDatas.Weapon.MageHit + "\n";
+            }
+            Value.text += "TM_AS".GetText(true) + introItem.EquipmentDatas.Weapon.AS + "\n"
+                   + "TM_Crt".GetText(true) + introItem.EquipmentDatas.Weapon.Crt + "\n"
+                   + "TM_CrtDamage".GetText(true) + introItem.EquipmentDatas.Weapon.CrtDamage + "\n"
+                   + "TM_STR".GetText(true) + introItem.EquipmentDatas.Weapon.STR + "\n"
+                   + "TM_DEX".GetText(true) + introItem.EquipmentDatas.Weapon.DEX + "\n"
+                   + "TM_INT".GetText(true) + introItem.EquipmentDatas.Weapon.INT + "\n"
+                   + "TM_AGI".GetText(true) + introItem.EquipmentDatas.Weapon.AGI + "\n"
+                   + "TM_VIT".GetText(true) + introItem.EquipmentDatas.Weapon.VIT + "\n"
+                   + "TM_WIS".GetText(true) + introItem.EquipmentDatas.Weapon.WIS + "\n";
         }
-        Value.text += "TM_AS".GetText(true) + introItem.EquipmentDatas.Weapon.AS + "\n"
-               + "TM_Crt".GetText(true) + introItem.EquipmentDatas.Weapon.Crt + "\n"
-               + "TM_CrtDamage".GetText(true) + introItem.EquipmentDatas.Weapon.CrtDamage + "\n"
-               + "TM_STR".GetText(true) + introItem.EquipmentDatas.Weapon.STR + "\n"
-               + "TM_DEX".GetText(true) + introItem.EquipmentDatas.Weapon.DEX + "\n"
-               + "TM_INT".GetText(true) + introItem.EquipmentDatas.Weapon.INT + "\n"
-               + "TM_AGI".GetText(true) + introItem.EquipmentDatas.Weapon.AGI + "\n"
-               + "TM_VIT".GetText(true) + introItem.EquipmentDatas.Weapon.VIT + "\n"
-               + "TM_WIS".GetText(true) + introItem.EquipmentDatas.Weapon.WIS + "\n";
     }
     /// <summary>
     /// 顯示防具數據
     /// </summary>
     private void AddArmorVaule()
     {
-        Value.text = "TM_DEF".GetText(true) + introItem.EquipmentDatas.Armor.DEF + "\n"
-                    + "TM_Avoid".GetText(true) + introItem.EquipmentDatas.Armor.Avoid + "\n"
-                    + "TM_MDEF".GetText(true) + introItem.EquipmentDatas.Armor.MDEF + "\n"
-                    + "TM_Speed".GetText(true) + introItem.EquipmentDatas.Armor.Speed + "\n"
-                    + "TM_CrtResistance".GetText(true) + introItem.EquipmentDatas.Armor.CrtResistance + "\n"
-                    + "TM_DamageReduction".GetText(true) + introItem.EquipmentDatas.Armor.DamageReduction + "\n"
-                    + "TM_MaxHP".GetText(true) + introItem.EquipmentDatas.Armor.HP + "\n"
-                    + "TM_MaxMP".GetText(true) + introItem.EquipmentDatas.Armor.MP + "\n"
-                    + "TM_HP_Recovery".GetText(true) + introItem.EquipmentDatas.Armor.HpRecovery + "\n"
-                    + "TM_MP_Recovery".GetText(true) + introItem.EquipmentDatas.Armor.MpRecovery + "\n"
-                    + "TM_STR".GetText(true) + introItem.EquipmentDatas.Armor.STR + "\n"
-                    + "TM_DEX".GetText(true) + introItem.EquipmentDatas.Armor.DEX + "\n"
-                    + "TM_INT".GetText(true) + introItem.EquipmentDatas.Armor.INT + "\n"
-                    + "TM_AGI".GetText(true) + introItem.EquipmentDatas.Armor.AGI + "\n"
-                    + "TM_VIT".GetText(true) + introItem.EquipmentDatas.Armor.VIT + "\n"
-                    + "TM_WIS".GetText(true) + introItem.EquipmentDatas.Armor.WIS + "\n"
-                    + "TM_ElementDamageReduction".GetText(true) + introItem.EquipmentDatas.Armor.ElementDamageReduction + "\n"
-                    + "TM_DisorderResistance".GetText(true) + introItem.EquipmentDatas.Armor.DisorderResistance + "\n";
-
+        ForgeData forgeData = introItem.EquipmentDatas.Armor.ForgeConfigList.Where(x => x.ForgeLv.Equals(introItem.EquipmentDatas.ForceLv)).FirstOrDefault();
+        if (forgeData != null)
+        {
+            Value.text = "TM_DEF".GetText(true) + introItem.EquipmentDatas.Armor.DEF +
+                    (forgeData.DEF.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.DEF)) + "\n"
+                    + "TM_Avoid".GetText(true) + introItem.EquipmentDatas.Armor.Avoid +
+                    (forgeData.Avoid.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.Avoid)) + "\n"
+                    + "TM_MDEF".GetText(true) + introItem.EquipmentDatas.Armor.MDEF +
+                    (forgeData.MDEF.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.MDEF)) + "\n"
+                    + "TM_Speed".GetText(true) + introItem.EquipmentDatas.Armor.Speed +
+                    (forgeData.Speed.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.Speed)) + "\n"
+                    + "TM_CrtResistance".GetText(true) + introItem.EquipmentDatas.Armor.CrtResistance +
+                    (forgeData.CrtResistance.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.CrtResistance)) + "\n"
+                    + "TM_DamageReduction".GetText(true) + introItem.EquipmentDatas.Armor.DamageReduction +
+                    (forgeData.DamageReduction.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.DamageReduction)) + "\n"
+                    + "TM_MaxHP".GetText(true) + introItem.EquipmentDatas.Armor.HP +
+                    (forgeData.HP.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.HP)) + "\n"
+                    + "TM_MaxMP".GetText(true) + introItem.EquipmentDatas.Armor.MP +
+                    (forgeData.MP.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.MP)) + "\n"
+                    + "TM_HP_Recovery".GetText(true) + introItem.EquipmentDatas.Armor.HpRecovery +
+                    (forgeData.HpRecovery.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.HpRecovery)) + "\n"
+                    + "TM_MP_Recovery".GetText(true) + introItem.EquipmentDatas.Armor.MpRecovery +
+                    (forgeData.MpRecovery.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.MpRecovery)) + "\n"
+                    + "TM_STR".GetText(true) + introItem.EquipmentDatas.Armor.STR +
+                    (forgeData.STR.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.STR)) + "\n"
+                    + "TM_DEX".GetText(true) + introItem.EquipmentDatas.Armor.DEX +
+                    (forgeData.DEX.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.DEX)) + "\n"
+                    + "TM_INT".GetText(true) + introItem.EquipmentDatas.Armor.INT +
+                    (forgeData.INT.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.INT)) + "\n"
+                    + "TM_AGI".GetText(true) + introItem.EquipmentDatas.Armor.AGI +
+                    (forgeData.AGI.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.AGI)) + "\n"
+                    + "TM_VIT".GetText(true) + introItem.EquipmentDatas.Armor.VIT +
+                    (forgeData.VIT.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.VIT)) + "\n"
+                    + "TM_WIS".GetText(true) + introItem.EquipmentDatas.Armor.WIS +
+                    (forgeData.WIS.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.WIS)) + "\n"
+                    + "TM_ElementDamageReduction".GetText(true) + introItem.EquipmentDatas.Armor.ElementDamageReduction +
+                    (forgeData.ElementDamageReduction.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.ElementDamageReduction)) + "\n"
+                    + "TM_DisorderResistance".GetText(true) + introItem.EquipmentDatas.Armor.DisorderResistance +
+                    (forgeData.DisorderResistance.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.DisorderResistance)) + "\n";
+        }
+        else
+        {
+            Value.text = "TM_DEF".GetText(true) + introItem.EquipmentDatas.Armor.DEF + "\n"
+                 + "TM_Avoid".GetText(true) + introItem.EquipmentDatas.Armor.Avoid + "\n"
+                 + "TM_MDEF".GetText(true) + introItem.EquipmentDatas.Armor.MDEF + "\n"
+                 + "TM_Speed".GetText(true) + introItem.EquipmentDatas.Armor.Speed + "\n"
+                 + "TM_CrtResistance".GetText(true) + introItem.EquipmentDatas.Armor.CrtResistance + "\n"
+                 + "TM_DamageReduction".GetText(true) + introItem.EquipmentDatas.Armor.DamageReduction + "\n"
+                 + "TM_MaxHP".GetText(true) + introItem.EquipmentDatas.Armor.HP + "\n"
+                 + "TM_MaxMP".GetText(true) + introItem.EquipmentDatas.Armor.MP + "\n"
+                 + "TM_HP_Recovery".GetText(true) + introItem.EquipmentDatas.Armor.HpRecovery + "\n"
+                 + "TM_MP_Recovery".GetText(true) + introItem.EquipmentDatas.Armor.MpRecovery + "\n"
+                 + "TM_STR".GetText(true) + introItem.EquipmentDatas.Armor.STR + "\n"
+                 + "TM_DEX".GetText(true) + introItem.EquipmentDatas.Armor.DEX + "\n"
+                 + "TM_INT".GetText(true) + introItem.EquipmentDatas.Armor.INT + "\n"
+                 + "TM_AGI".GetText(true) + introItem.EquipmentDatas.Armor.AGI + "\n"
+                 + "TM_VIT".GetText(true) + introItem.EquipmentDatas.Armor.VIT + "\n"
+                 + "TM_WIS".GetText(true) + introItem.EquipmentDatas.Armor.WIS + "\n"
+                 + "TM_ElementDamageReduction".GetText(true) + introItem.EquipmentDatas.Armor.ElementDamageReduction + "\n"
+                 + "TM_DisorderResistance".GetText(true) + introItem.EquipmentDatas.Armor.DisorderResistance + "\n";
+        }
     }
     /// <summary>
     /// 顯示盾牌數據
     /// </summary>
     void AddShieldVaule()
     {
-        Value.text = "TM_DEF".GetText(true) + introItem.EquipmentDatas.Weapon.DEF + "\n"
-               + "TM_MDEF".GetText(true) + introItem.EquipmentDatas.Weapon.MDEF + "\n"
-               + "TM_Avoid".GetText(true) + introItem.EquipmentDatas.Weapon.Avoid + "\n"
-               + "TM_MaxHP".GetText(true) + introItem.EquipmentDatas.Weapon.HP + "\n"
-               + "TM_MaxMP".GetText(true) + introItem.EquipmentDatas.Weapon.MP + "\n"
-               + "TM_BlockRate".GetText(true) + introItem.EquipmentDatas.Weapon.BlockRate + "\n";
+        ForgeData forgeData = introItem.EquipmentDatas.Weapon.ForgeConfigList.Where(x => x.ForgeLv.Equals(introItem.EquipmentDatas.ForceLv)).FirstOrDefault();
+        if (forgeData != null)
+        {
+            Value.text = "TM_DEF".GetText(true) + introItem.EquipmentDatas.Weapon.DEF +
+                    (forgeData.DEF.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.DEF)) + "\n"
+               + "TM_MDEF".GetText(true) + introItem.EquipmentDatas.Weapon.MDEF +
+                    (forgeData.MDEF.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.MDEF)) + "\n"
+               + "TM_Avoid".GetText(true) + introItem.EquipmentDatas.Weapon.Avoid +
+                    (forgeData.Avoid.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.Avoid)) + "\n"
+               + "TM_MaxHP".GetText(true) + introItem.EquipmentDatas.Weapon.HP +
+                    (forgeData.HP.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.HP)) + "\n"
+               + "TM_MaxMP".GetText(true) + introItem.EquipmentDatas.Weapon.MP +
+                    (forgeData.MP.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.MP)) + "\n"
+               + "TM_BlockRate".GetText(true) + introItem.EquipmentDatas.Weapon.BlockRate +
+                    (forgeData.BlockRate.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.BlockRate)) + "\n";
+        }
+        else
+        {
+            Value.text = "TM_DEF".GetText(true) + introItem.EquipmentDatas.Weapon.DEF + "\n"
+              + "TM_MDEF".GetText(true) + introItem.EquipmentDatas.Weapon.MDEF + "\n"
+              + "TM_Avoid".GetText(true) + introItem.EquipmentDatas.Weapon.Avoid + "\n"
+              + "TM_MaxHP".GetText(true) + introItem.EquipmentDatas.Weapon.HP + "\n"
+              + "TM_MaxMP".GetText(true) + introItem.EquipmentDatas.Weapon.MP + "\n"
+              + "TM_BlockRate".GetText(true) + introItem.EquipmentDatas.Weapon.BlockRate + "\n";
+        }
     }
     /// <summary>
     /// 顯示道具數據

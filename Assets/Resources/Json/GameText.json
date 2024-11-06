@@ -109,7 +109,7 @@
   },
   {
     "TextID": "TM_ForgeLV",
-    "TextContent": "強化等級: {0}"
+    "TextContent": "<color=#f3ff00>強化等級: {0}</color>"
   },
   {
     "TextID": "TM_NextForgeLV",

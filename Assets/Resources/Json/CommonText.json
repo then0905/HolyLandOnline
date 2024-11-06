@@ -278,5 +278,9 @@
   {
     "TextID": "TM_Cancel",
     "TextContent": "取消"
+  },
+  {
+    "TextID": "TM_ForgeAppend",
+    "TextContent": "  (追加: <color=#1FFF00>{0}</color>)"
   }
 ]
