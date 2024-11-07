@@ -63,9 +63,11 @@ public class EquipmentForgeSystem : MonoBehaviour
     /// 初始化
     /// </summary>
     /// <param name="playerItemList"></param>
-    public void Init()
+    public void Init(bool isInit = false)
     {
-        InitDropdown();
+        if (isInit)
+            InitDropdown();
+
         ClearData();
         //獲取最大生成數量
         int bagMaxCount = itemList.Count;
@@ -157,7 +159,7 @@ public class EquipmentForgeSystem : MonoBehaviour
     private string CurrentForgeStatusTextProcessor(ForgeData currentForgeLvData)
     {
         string temp;
-        if (GameData.WeaponsDic[currentForgeLvData.CodeID] != null)
+        if (GameData.WeaponsDic.Where(x => x.Key == currentForgeLvData.CodeID).Select(x => x.Value).FirstOrDefault() != null)
             temp =
             "TM_MaxHP".GetText(true) + currentForgeLvData.HP + "\n" +
             "TM_MaxMP".GetText(true) + currentForgeLvData.MP + "\n" +
@@ -213,7 +215,7 @@ public class EquipmentForgeSystem : MonoBehaviour
     private string NextForgeStatusTextProcessor(ForgeData currentForgeLvData, ForgeData nextForgeLvData)
     {
         string temp;
-        if (GameData.WeaponsDic[nextForgeLvData.CodeID] != null)
+        if (GameData.WeaponsDic.Where(x => x.Key == nextForgeLvData.CodeID).Select(x => x.Value).FirstOrDefault() != null)
             temp =
             "TM_MaxHP".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.HP), nextForgeLvData.HP) + "\n" +
             "TM_MaxMP".GetText(true) + ForgeStatusTextProcessor((currentForgeLvData == null ? 0 : currentForgeLvData.MP), nextForgeLvData.MP) + "\n" +
@@ -377,7 +379,7 @@ public class EquipmentForgeSystem : MonoBehaviour
     {
         //取得下一等級資料
         int nextLv = currentEqquipment.EquipmentDatas.ForceLv + 1;
-        if ((nextLv > 10&& currenntUesdEnhanceItem != "Enhance_04"))
+        if ((nextLv > 10 && currenntUesdEnhanceItem != "Enhance_04"))
         {
             CommonFunction.MessageHint("TM_ForgeError_LvUpLimit".GetText(), HintType.Warning);
             return;

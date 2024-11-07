@@ -396,7 +396,7 @@ public class NpcSystem : MonoBehaviour
     public void CallForgePanel()
     {
         PanelManager.Instance.OpenTargetPanel("ForgePanel");
-        EquipmentForgeSystem.Instance.Init();
+        EquipmentForgeSystem.Instance.Init(true);
     }
 
     /// <summary>
