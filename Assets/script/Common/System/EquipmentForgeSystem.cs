@@ -43,6 +43,7 @@ public class EquipmentForgeSystem : MonoBehaviour
     [SerializeField] private GameObject destroyedWindow;        //物件損壞視窗
     [SerializeField] private GameObject forgeButton;        //強化按鈕
     [SerializeField] private GameObject cancelButton;        //取消強化按鈕
+    [SerializeField] private TMP_Dropdown enhanceItemDropdown;        //選擇強化石類型
 
     [SerializeField] private Equipment playerEquipTradeItem;       //生成玩家交易物品資料的物件
     [SerializeField] private Transform playerEquipTradeItemTrans;       //生成玩家交易物品資料的參考
@@ -53,6 +54,8 @@ public class EquipmentForgeSystem : MonoBehaviour
     [Header("遊戲資料")]
     [SerializeField] private Sprite bagItemOriginImage; //空背包圖
     private Equipment currentEqquipment;       //目前點選的強化物件
+    private string currenntUesdEnhanceItem;     //當前使用的強化道具ID
+    private int currentEnhandceDropdown;        //紀錄當前選擇的強化道具選擇(下拉是選單)
     //背包資料
     private List<Equipment> itemList => ItemManager.Instance.BagItems;
 
@@ -62,6 +65,7 @@ public class EquipmentForgeSystem : MonoBehaviour
     /// <param name="playerItemList"></param>
     public void Init()
     {
+        InitDropdown();
         ClearData();
         //獲取最大生成數量
         int bagMaxCount = itemList.Count;
@@ -101,6 +105,7 @@ public class EquipmentForgeSystem : MonoBehaviour
     /// </summary>
     private void SettingForgeTarget(Equipment equipment)
     {
+        if (equipment == null) return;
         if (equipment.EquipmentDatas.ItemCommonData is ItemDataModel)
         {
             CommonFunction.MessageHint("TM_ForgeError_CantForge".GetText(), HintType.Warning);
@@ -120,7 +125,7 @@ public class EquipmentForgeSystem : MonoBehaviour
         //當前物品的強化等級資料
         ForgeData currentForgeData = forgeDatas.Where(x => x.ForgeLv == (currentForgeLv)).FirstOrDefault();
         //當前物品的下一強化等級資料
-        ForgeData nextForgeData = forgeDatas.Where(x => x.ForgeLv == (currentForgeLv + 1)).FirstOrDefault();
+        ForgeData nextForgeData = forgeDatas.Where(x => x.ForgeLv == (currenntUesdEnhanceItem == "Enhance_04" ? (currentForgeLv - 1) : (currentForgeLv + 1))).FirstOrDefault();
         currentForgeLvText.enabled = true;
         currentForgeLvText.text = string.Format("TM_ForgeLV".GetText(), currentForgeLv.ToString());
         //當前等級
@@ -131,13 +136,13 @@ public class EquipmentForgeSystem : MonoBehaviour
         //下一等級相關資訊
         successRateText.enabled = nextForgeData != null;
         destroyedRateText.enabled = nextForgeData != null;
+        nextForgeStatus.enabled = nextForgeData != null;
+        nextForgeLvText.enabled = nextForgeData != null;
         if (nextForgeData != null)
         {
-            successRateText.text = string.Format("TM_ForgeSuccessRate".GetText(), nextForgeData.SuccessProbability.ToString());
-            destroyedRateText.text = string.Format("TM_ForgeDestroyedRate".GetText(), nextForgeData.DestroyedProbability.ToString());
-            nextForgeLvText.enabled = true;
-            nextForgeLvText.text = string.Format("TM_NextForgeLV".GetText(), (currentForgeLv + 1).ToString());
-            nextForgeStatus.enabled = true;
+            successRateText.text = string.Format("TM_ForgeSuccessRate".GetText(), ReturnSuccessRate(nextForgeData).ToString());
+            destroyedRateText.text = string.Format("TM_ForgeDestroyedRate".GetText(), ReturnDestroyedRate(nextForgeData).ToString());
+            nextForgeLvText.text = string.Format("TM_NextForgeLV".GetText(), (currenntUesdEnhanceItem == "Enhance_04" ? (currentForgeLv - 1) : (currentForgeLv + 1)).ToString());
             nextForgeStatus.text = NextForgeStatusTextProcessor(currentForgeData, nextForgeData);
         }
         forgeButton.SetActive(true);
@@ -279,6 +284,71 @@ public class EquipmentForgeSystem : MonoBehaviour
         return tempText;
     }
 
+    /// <summary>
+    /// 初始化強化石下拉選單
+    /// </summary>
+    private void InitDropdown()
+    {
+        //取得強化道具資料清單
+        List<ItemDataModel> enhanceItemList = GameData.ItemsDic.Where(x => x.Value.TypeID == "EnhanceItem").Select(x => x.Value).ToList();
+        enhanceItemDropdown.ClearOptions();
+        enhanceItemDropdown.AddOptions(
+    enhanceItemList.Select(id => new TMP_Dropdown.OptionData(id.Name.GetText())).ToList());
+
+        //刷新選擇的下拉選單
+        OnDropdownValueChanged(currentEnhandceDropdown);
+    }
+
+    /// <summary>
+    /// 依照選擇的強化石 回傳成功率
+    /// </summary>
+    /// <param name="currentForgeData"></param>
+    /// <returns></returns>
+    private float ReturnSuccessRate(ForgeData currentForgeData)
+    {
+        float temp;
+        switch (currenntUesdEnhanceItem)
+        {
+            case "Enhance_03":
+            case "Enhance_01":
+                temp = currentForgeData.SuccessProbability;
+                break;
+            case "Enhance_02":
+                temp = currentForgeData.SuperiorSuccessProbability;
+                break;
+            case "Enhance_04":
+                temp = 100;
+                break;
+            default:
+                temp = 0;
+                break;
+        }
+        return temp;
+    }
+
+    /// <summary>
+    /// 依照選擇的強化石 回傳成功率
+    /// </summary>
+    /// <param name="currentForgeData"></param>
+    /// <returns></returns>
+    private float ReturnDestroyedRate(ForgeData currentForgeData)
+    {
+        float temp;
+        switch (currenntUesdEnhanceItem)
+        {
+            case "Enhance_02":
+            case "Enhance_01":
+                temp = currentForgeData.DestroyedProbability;
+                break;
+            default:
+            case "Enhance_03":
+            case "Enhance_04":
+                temp = 0;
+                break;
+        }
+        return temp;
+    }
+
 
     #region 按鈕事件
 
@@ -307,17 +377,23 @@ public class EquipmentForgeSystem : MonoBehaviour
     {
         //取得下一等級資料
         int nextLv = currentEqquipment.EquipmentDatas.ForceLv + 1;
-        if (nextLv > 10)
+        if ((nextLv > 10&& currenntUesdEnhanceItem != "Enhance_04"))
         {
-            CommonFunction.MessageHint("TM_ForgeError_LvLimit".GetText(), HintType.Warning);
+            CommonFunction.MessageHint("TM_ForgeError_LvUpLimit".GetText(), HintType.Warning);
             return;
         }
+        else if ((nextLv.Equals(1) && currenntUesdEnhanceItem == "Enhance_04"))
+        {
+            CommonFunction.MessageHint("TM_ForgeError_LvDownLimit".GetText(), HintType.Warning);
+            return;
+        }
+
         //取得強化資料清單
         List<ForgeData> forgeDatas = currentEqquipment.EquipmentDatas.Weapon != null ? currentEqquipment.EquipmentDatas.Weapon.ForgeConfigList : currentEqquipment.EquipmentDatas.Armor.ForgeConfigList;
         //強化資料
         ForgeData currentForgeData = forgeDatas.Where(x => x.ForgeLv == (nextLv)).FirstOrDefault();
         //取得成功率
-        float successRate = currentForgeData.SuccessProbability;
+        float successRate = ReturnSuccessRate(currentForgeData);
         //取得隨機值
         float randomValue = UnityEngine.Random.Range(0f, 100f);
         if (successRate >= randomValue)
@@ -325,16 +401,15 @@ public class EquipmentForgeSystem : MonoBehaviour
             Debug.Log($"物品強化成功率{successRate}  && 隨機值{randomValue}");
             //強化成功 
             successWindow.SetActive(true);
-            var queryResult =  ItemManager.Instance.BagItems.Where(x => x.EquipmentDatas == currentEqquipment.EquipmentDatas).FirstOrDefault();
-            queryResult.EquipmentDatas.ForceLv += 1;
+            var queryResult = itemList.Where(x => x.EquipmentDatas == currentEqquipment.EquipmentDatas).FirstOrDefault();
+            queryResult.EquipmentDatas.ForceLv += (currenntUesdEnhanceItem == "Enhance_04" ? -1 : 1);
             SettingForgeTarget(queryResult);
-            //強化成功 重新紀錄背包的資料
             LoadPlayerData.SaveUserData();
         }
         else
         {
             //取得失敗裝備損壞率
-            float destroyedRate = currentForgeData.DestroyedProbability;
+            float destroyedRate = ReturnDestroyedRate(currentForgeData);
             //取得隨機值
             randomValue = UnityEngine.Random.Range(0f, 100f);
             if (destroyedRate >= randomValue)
@@ -344,8 +419,6 @@ public class EquipmentForgeSystem : MonoBehaviour
                 ItemManager.Instance.RemoveItem(currentEqquipment.EquipmentDatas.ItemCommonData.CodeID);
                 destroyedWindow.SetActive(true);
                 ClearForgeData();
-                Init();
-                //強化失敗裝備 重新紀錄背包的資料
                 LoadPlayerData.SaveUserData();
             }
             else
@@ -354,7 +427,37 @@ public class EquipmentForgeSystem : MonoBehaviour
                 SettingForgeTarget(currentEqquipment);
             }
         }
+        //扣除背包內的強化石
+        ItemManager.Instance.RemoveItem(currenntUesdEnhanceItem, 1);
+        //刷新所有資訊
+        Init();
+        //重新記錄背包資料
+        LoadPlayerData.SaveUserData();
     }
+
+    /// <summary>
+    /// 強化石下拉選單改變時執行的事件
+    /// </summary>
+    /// <param name="index"></param>
+    public void OnDropdownValueChanged(int index)
+    {
+        currentEnhandceDropdown = index;
+        string selectedOption = enhanceItemDropdown.options[index].text;
+
+        //紀錄當前所使用的強化石ID
+        currenntUesdEnhanceItem =
+     GameData.ItemsDic.Where(x => x.Value.Name.GetText() == selectedOption).Select(x => x.Key).FirstOrDefault();
+
+        //設定強化按鈕是否可使用
+        forgeButton.GetComponent<Button>().interactable = (itemList.Any(x => x.EquipmentDatas?.Item?.CodeID == currenntUesdEnhanceItem) ||
+           (currenntUesdEnhanceItem == "Enhance_04" && currentEqquipment.EquipmentDatas.ForceLv.Equals(0)));
+        //強化石不足夠的警告通知
+        if (!forgeButton.GetComponent<Button>().interactable)
+            CommonFunction.MessageHint("TM_ForgeError_EnhanceItemNotEnough".GetText(), HintType.Warning);
+        //刷新強化面板資訊
+        SettingForgeTarget(currentEqquipment);
+    }
+
 
     #endregion
 

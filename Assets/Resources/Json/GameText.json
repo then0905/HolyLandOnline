@@ -132,7 +132,15 @@
     "TextContent": "當前選擇的物品不可進行強化！"
   },
   {
-    "TextID": "TM_ForgeError_LvLimit",
-    "TextContent": "已達到最高等級，不可再進行強化"
+    "TextID": "TM_ForgeError_LvUpLimit",
+    "TextContent": "已達到強化等級的上限，不可再進行強化"
+  },
+  {
+    "TextID": "TM_ForgeError_LvDownLimit",
+    "TextContent": "已達到強化等級的下限，不可再進行強化"
+  },
+  {
+    "TextID": "TM_ForgeError_EnhanceItemNotEnough",
+    "TextContent": "強化錯誤，選擇的強化石在背包內不存在或是數量不足"
   }
 ]

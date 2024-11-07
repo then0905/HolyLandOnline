@@ -211,6 +211,7 @@ public class ItemManager : MonoBehaviour
             var getSameData = BagItems.Where(x => x.EquipmentDatas.Item?.CodeID == itemvaule.CodeID).FirstOrDefault();
             if (getSameData != null)
             {
+                CommonFunction.MessageHint(("獲得" + itemvaule.Name.GetText()), HintType.NormalItem);
                 getSameData.Qty += qty;
                 return;
             }
@@ -233,6 +234,7 @@ public class ItemManager : MonoBehaviour
             }
             else if (item.EquipmentDatas.Item?.CodeID == itemvaule.CodeID)
             {
+                CommonFunction.MessageHint(("獲得" + itemvaule.Name.GetText()), HintType.NormalItem);
                 item.Qty += qty;
             }
             else
@@ -251,7 +253,7 @@ public class ItemManager : MonoBehaviour
         if (queryResult != null)
         {
             //若物品數量 大於 移除量 刪除指定數量即可
-            if (queryResult.Qty < Qty && !Qty.Equals(0))
+            if (queryResult.Qty > Qty && !Qty.Equals(0))
                 queryResult.Qty -= Qty;
             else
             {
