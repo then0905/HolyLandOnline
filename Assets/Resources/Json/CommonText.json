@@ -56,6 +56,10 @@
     "TextContent": "雙手"
   },
   {
+    "TextID": "TM_SingleHand",
+    "TextContent": "單手"
+  },
+  {
     "TextID": "TM_OneHandedSword",
     "TextContent": "單手劍"
   },
@@ -64,7 +68,7 @@
     "TextContent": "雙手劍"
   },
   {
-    "TextID": "TM_Mage",
+    "TextID": "TM_LongStuff",
     "TextContent": "長杖"
   },
   {
@@ -112,7 +116,7 @@
     "TextContent": "卷軸"
   },
   {
-    "TextID": "TM_Enhance",
+    "TextID": "TM_EnhanceItem",
     "TextContent": "強化道具"
   },
   {
@@ -282,5 +286,25 @@
   {
     "TextID": "TM_ForgeAppend",
     "TextContent": "  (追加: <color=#1FFF00>{0}</color>)"
+  },
+  {
+    "TextID": "TM_AttackSpeedSlow",
+    "TextContent": "偏慢"
+  },
+  {
+    "TextID": "TM_AttackSpeedMedium",
+    "TextContent": "中等"
+  },
+  {
+    "TextID": "TM_AttackSpeedFast",
+    "TextContent": "快"
+  },
+  {
+    "TextID": "TM_AttackSppedHighSlow",
+    "TextContent": "慢"
+  },
+  {
+    "TextID": "TM_None",
+    "TextContent": "無"
   }
 ]

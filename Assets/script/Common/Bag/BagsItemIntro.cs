@@ -92,9 +92,9 @@ public class BagsItemIntro : MonoBehaviour
                     SetItemIntro(new IntroData
                     {
                         Name = introItem.EquipmentDatas.Weapon.Name.GetText(),
-                        Classification = introItem.EquipmentDatas.Weapon.Classification,
-                        Part = introItem.EquipmentDatas.Weapon.TackHand,
-                        Type = introItem.EquipmentDatas.Weapon.Type,
+                        Classification = introItem.EquipmentDatas.Weapon.Classification.GetText(),
+                        Part = introItem.EquipmentDatas.Weapon.TackHand.GetText(),
+                        Type = introItem.EquipmentDatas.Weapon.Type.GetText(),
                         Lv = introItem.EquipmentDatas.Weapon.LV.ToString(),
                         Content = introItem.EquipmentDatas.Weapon.Intro.GetText(),
                         ForgeLv = introItem.EquipmentDatas.ForceLv,
@@ -117,9 +117,9 @@ public class BagsItemIntro : MonoBehaviour
                     SetItemIntro(new IntroData
                     {
                         Name = introItem.EquipmentDatas.Armor.Name.GetText(),
-                        Classification = introItem.EquipmentDatas.Armor.Classification,
-                        Part = introItem.EquipmentDatas.Armor.WearPart,
-                        Type = introItem.EquipmentDatas.Armor.Type,
+                        Classification = introItem.EquipmentDatas.Armor.Classification.GetText(),
+                        Part = introItem.EquipmentDatas.Armor.WearPart.GetText(),
+                        Type = introItem.EquipmentDatas.Armor.Type.GetText(),
                         Lv = introItem.EquipmentDatas.Armor.NeedLv.ToString(),
                         Content = introItem.EquipmentDatas.Armor.Intro.GetText(),
                         ForgeLv = introItem.EquipmentDatas.ForceLv,
@@ -137,9 +137,9 @@ public class BagsItemIntro : MonoBehaviour
                     SetItemIntro(new IntroData
                     {
                         Name = introItem.EquipmentDatas.Item.Name.GetText(),
-                        Classification = introItem.EquipmentDatas.Item.Classification,
-                        Part = introItem.EquipmentDatas.Item.TakeHand,
-                        Type = introItem.EquipmentDatas.Item.Type,
+                        Classification = introItem.EquipmentDatas.Item.Classification.GetText(),
+                        Part = introItem.EquipmentDatas.Item.TakeHand.GetText(),
+                        Type = introItem.EquipmentDatas.Item.Type.GetText(),
                         Lv = introItem.EquipmentDatas.Item.LV.ToString(),
                         Content = introItem.EquipmentDatas.Item.Intro.GetText(),
                         Icon = introItem.EquipImage.sprite
