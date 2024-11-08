@@ -120,18 +120,18 @@ public class BagItem : MonoBehaviour
                 //檢查武器欄
                 if (cloneObjEquipment.EquipmentDatas.Weapon != null)
                 {
-                    if (equipData.PartID.Contains(cloneObjEquipment.EquipmentDatas.Weapon.TackHandID))
-                        HintMethod(equipData.Hint, true, Color.green);
-                    else
-                        HintMethod(equipData.Hint, true, Color.red);
+                    HintMethod(equipData.Hint, true,
+                        (equipData.PartID.Contains(cloneObjEquipment.EquipmentDatas.Weapon.TackHandID) &&
+                        PlayerDataOverView.Instance.PlayerData_.Lv >= cloneObjEquipment.EquipmentDatas.Weapon.LV)
+                        ? Color.green : Color.red);
                 }
                 //檢查裝備欄
                 else if (cloneObjEquipment.EquipmentDatas.Armor != null)
                 {
-                    if (equipData.PartID.Contains(cloneObjEquipment.EquipmentDatas.Armor.WearPartID))
-                        HintMethod(equipData.Hint, true, Color.green);
-                    else
-                        HintMethod(equipData.Hint, true, Color.red);
+                    HintMethod(equipData.Hint, true,
+                        (equipData.PartID.Contains(cloneObjEquipment.EquipmentDatas.Armor.WearPartID) &&
+                        PlayerDataOverView.Instance.PlayerData_.Lv >= cloneObjEquipment.EquipmentDatas.Armor.NeedLv)
+                        ? Color.green : Color.red);
                 }
                 else
                     HintMethod(equipData.Hint, true, Color.red);
@@ -167,7 +167,8 @@ public class BagItem : MonoBehaviour
                 //檢查武器欄
                 if (cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon != null)
                 {
-                    if (MovingItem.GetComponent<EquipData>().PartID.Contains(cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon.TackHandID))
+                    if (MovingItem.GetComponent<EquipData>().PartID.Contains(cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon.TackHandID) &&
+                        PlayerDataOverView.Instance.PlayerData_.Lv >= cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon.LV)
                     {
                         print("裝備武器");
                         PutOnEquip(MovingItem);
@@ -183,7 +184,8 @@ public class BagItem : MonoBehaviour
                 else if (cloneItem.GetComponent<Equipment>().EquipmentDatas.Armor != null)
                 {
 
-                    if (MovingItem.GetComponent<EquipData>().PartID.Contains(cloneItem.GetComponent<Equipment>().EquipmentDatas.Armor.WearPartID))
+                    if (MovingItem.GetComponent<EquipData>().PartID.Contains(cloneItem.GetComponent<Equipment>().EquipmentDatas.Armor.WearPartID) &&
+                         PlayerDataOverView.Instance.PlayerData_.Lv >= cloneItem.GetComponent<Equipment>().EquipmentDatas.Armor.NeedLv)
                     {
                         print("裝備防具");
                         PutOnEquip(MovingItem);
