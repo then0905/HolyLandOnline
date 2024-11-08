@@ -352,7 +352,7 @@ public class NpcSystem : MonoBehaviour
         PlayerDataOverView.Instance.PlayerData_.Exp += questData.Exp;
         PlayerDataOverView.Instance.ExpProcessor();
         //金幣獎勵
-        ItemManager.Instance.PickUp(questData.Coin);
+        BagManager.Instance.PickUp(questData.Coin);
         //道具獎勵
         if (questData.QuestRewardList.CheckAnyData())
         {
@@ -362,11 +362,11 @@ public class NpcSystem : MonoBehaviour
                 var weaponData = GameData.WeaponsDic.Where(x => x.Key == item.RewardID).Select(x => x.Value).FirstOrDefault();
                 var armorData = GameData.ArmorsDic.Where(x => x.Key == item.RewardID).Select(x => x.Value).FirstOrDefault();
                 if (itemData != null)
-                    ItemManager.Instance.PickUp(CommonFunction.LoadObject<Sprite>(GameConfig.SpriteItem, itemData.CodeID), itemData);
+                    BagManager.Instance.PickUp(CommonFunction.LoadObject<Sprite>(GameConfig.SpriteItem, itemData.CodeID), itemData);
                 if (weaponData != null)
-                    ItemManager.Instance.PickUp(CommonFunction.LoadObject<Sprite>(GameConfig.SpriteWeapon, weaponData.CodeID), weaponData);
+                    BagManager.Instance.PickUp(CommonFunction.LoadObject<Sprite>(GameConfig.SpriteWeapon, weaponData.CodeID), weaponData);
                 if (armorData != null)
-                    ItemManager.Instance.PickUp(CommonFunction.LoadObject<Sprite>(GameConfig.SpriteArmor, armorData.CodeID), armorData);
+                    BagManager.Instance.PickUp(CommonFunction.LoadObject<Sprite>(GameConfig.SpriteArmor, armorData.CodeID), armorData);
             }
         }
         //清除任務獎勵圖示
@@ -387,7 +387,7 @@ public class NpcSystem : MonoBehaviour
     /// </summary>
     public void CallTradePanel()
     {
-        TradeManager.Instance.Init(npcTradeItemList.Select(x => x.ProductID).ToList(), ItemManager.Instance.BagItems);
+        TradeManager.Instance.Init(npcTradeItemList.Select(x => x.ProductID).ToList(), BagManager.Instance.BagItems);
     }
 
     /// <summary>

@@ -7,10 +7,10 @@ using UnityEngine.EventSystems;
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/06/07
-//  創建用途:  背包物品的 裝備與拖曳
+//  創建用途:  背包物品相關腳本:裝備與拖曳
 //==========================================
 
-public class BagItemEquip : MonoBehaviour
+public class BagItem : MonoBehaviour
 {
     //生成預製物
     public GameObject CloneItem;

@@ -90,10 +90,10 @@ public abstract class SkillComponent : MonoBehaviour, ISkillComponent
                         case "TwoHandedSword":
                         case "Shield":
                         case "Axe":
-                            finalResult.Add(ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).Any(x => x.EquipmentDatas.Weapon.TypeID == condtionData.Value.ToString()));
+                            finalResult.Add(BagManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).Any(x => x.EquipmentDatas.Weapon.TypeID == condtionData.Value.ToString()));
                             break;
                         case "HeavyArmor":
-                            finalResult.Add(ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).All(x => x.EquipmentDatas.Armor.TypeID == condtionData.Value.ToString()));
+                            finalResult.Add(BagManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).All(x => x.EquipmentDatas.Armor.TypeID == condtionData.Value.ToString()));
                             break;
                     }
                     break;

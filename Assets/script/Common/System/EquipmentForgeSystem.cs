@@ -57,7 +57,7 @@ public class EquipmentForgeSystem : MonoBehaviour
     private string currenntUesdEnhanceItem;     //當前使用的強化道具ID
     private int currentEnhandceDropdown;        //紀錄當前選擇的強化道具選擇(下拉是選單)
     //背包資料
-    private List<Equipment> itemList => ItemManager.Instance.BagItems;
+    private List<Equipment> itemList => BagManager.Instance.BagItems;
 
     /// <summary>
     /// 初始化
@@ -418,7 +418,7 @@ public class EquipmentForgeSystem : MonoBehaviour
             {
                 Debug.Log($"失敗裝備損壞率{destroyedRate}  && 隨機值{randomValue}");
                 //裝備毀損
-                ItemManager.Instance.RemoveItem(currentEqquipment.EquipmentDatas.ItemCommonData.CodeID);
+                BagManager.Instance.RemoveItem(currentEqquipment.EquipmentDatas.ItemCommonData.CodeID);
                 destroyedWindow.SetActive(true);
                 ClearForgeData();
                 LoadPlayerData.SaveUserData();
@@ -430,7 +430,7 @@ public class EquipmentForgeSystem : MonoBehaviour
             }
         }
         //扣除背包內的強化石
-        ItemManager.Instance.RemoveItem(currenntUesdEnhanceItem, 1);
+        BagManager.Instance.RemoveItem(currenntUesdEnhanceItem, 1);
         //刷新所有資訊
         Init();
         //重新記錄背包資料

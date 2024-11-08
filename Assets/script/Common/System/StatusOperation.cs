@@ -133,7 +133,7 @@ public class StatusOperation : MonoBehaviour
 
         //武器清單
         weaponList = new List<WeaponDataModel>();
-        foreach (var item in ItemManager.Instance.EquipDataList)
+        foreach (var item in BagManager.Instance.EquipDataList)
         {
             if (item.EquipmentDatas.Weapon != null)
             {
@@ -152,10 +152,10 @@ public class StatusOperation : MonoBehaviour
         }
 
         //防具清單
-        var tempArmorList = ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).ToList();
+        var tempArmorList = BagManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).ToList();
         armorList = new List<ArmorDataModel>();
         if (tempArmorList.CheckAnyData())
-            foreach (var item in ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).ToList())
+            foreach (var item in BagManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).ToList())
             {
                 if (item.EquipmentDatas.Armor != null)
                 {

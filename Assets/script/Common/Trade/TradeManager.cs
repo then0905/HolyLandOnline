@@ -91,7 +91,7 @@ public class TradeManager : MonoBehaviour
     //暫存NPC物品清單
     List<string> tempNpcItemList = new List<string>();
     //背包管理腳本
-    private ItemManager itemManager;
+    private BagManager itemManager;
     #endregion
 
     #region 事件區
@@ -107,7 +107,7 @@ public class TradeManager : MonoBehaviour
     {
         ClearData();
         //獲取背包管理腳本
-        itemManager = ItemManager.Instance;
+        itemManager = BagManager.Instance;
         //紀錄NPC商品
         tempNpcItemList = npcItemList;
         //獲取最大生成數量
@@ -331,7 +331,7 @@ public class TradeManager : MonoBehaviour
         if (tempSelectItem.EquipmentDatas.Armor != null)
             itemManager.PickUp(fianlTradeItemImage.sprite, tempSelectItem.EquipmentDatas.Armor);
         if (tempSelectItem.EquipmentDatas.Item != null)
-            ItemManager.Instance.PickUp(fianlTradeItemImage.sprite, tempSelectItem.EquipmentDatas.Item, int.Parse(finalTradeQtyText.text));
+            BagManager.Instance.PickUp(fianlTradeItemImage.sprite, tempSelectItem.EquipmentDatas.Item, int.Parse(finalTradeQtyText.text));
 
         //扣除相對應金幣數量
         if (PlayerDataOverView.Instance.PlayerData_.Coin - int.Parse(fincalTradePriceText.text) > 0)

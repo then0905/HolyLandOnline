@@ -577,7 +577,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
                 //裝備指定類型武器
                 case "EquipWeapon":
                     //取得裝備的武器資料
-                    var allWeaponData = ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).ToList();
+                    var allWeaponData = BagManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).ToList();
 
                     //沒有任何資料直接回傳False
                     if (!allWeaponData.CheckAnyData())
@@ -589,7 +589,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
                 //副手裝備指定類型
                 case "EquipLeft":
                     //取得裝備的武器資料
-                    allWeaponData = ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).ToList();
+                    allWeaponData = BagManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).ToList();
 
                     //沒有任何資料直接回傳False
                     if (!allWeaponData.CheckAnyData())
@@ -614,7 +614,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
                 //防具裝備指定類型
                 case "EquipArmor":
                     //取得裝備的防具資料
-                    var allArmorData = ItemManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).ToList();
+                    var allArmorData = BagManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).ToList();
 
                     //沒有任何資料直接回傳False
                     if (!allArmorData.CheckAnyData())

@@ -10,16 +10,16 @@ using System.Linq;
 //  翻修日期:  2023/06/07
 //  創建用途:  背包管理
 //==========================================
-public class ItemManager : MonoBehaviour
+public class BagManager : MonoBehaviour
 {
     #region 靜態變數
-    private static ItemManager instance;
-    public static ItemManager Instance
+    private static BagManager instance;
+    public static BagManager Instance
     {
         get
         {
             if (instance == null)
-                instance = FindObjectOfType<ItemManager>();
+                instance = FindObjectOfType<BagManager>();
             return instance;
         }
     }
@@ -31,7 +31,7 @@ public class ItemManager : MonoBehaviour
 
     [Header("生成背包格數的Content"), SerializeField] private Transform bagContent;
     [Header("背包格數生成量"), SerializeField] private int bagCount;
-    [Header("背包物品拖曳腳本"), SerializeField] private BagItemEquip bagItemEquip;
+    [Header("背包物品拖曳腳本"), SerializeField] private BagItem bagItemEquip;
     public int BagCount => bagCount;
     [Header("背包格預置物"), SerializeField] private GameObject bagObject;
 

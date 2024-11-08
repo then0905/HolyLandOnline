@@ -61,8 +61,8 @@ public class LoadPlayerData : MonoBehaviour
             PlayerDataOverView.Instance.PlayerData_.PlayerTutorialList = accountPlayerData.finishedTutorialIDList;
             if (isinit)
             {
-                ItemManager.Instance.PickUp(accountPlayerData.Coin, true);       //不從PlayerData裡帶入值是因為這個方法可以更新玩家資料及背包UI文字
-                ItemManager.Instance.Init(accountPlayerData.BagItemList,accountPlayerData.EquipDataList);       //背包物品資料
+                BagManager.Instance.PickUp(accountPlayerData.Coin, true);       //不從PlayerData裡帶入值是因為這個方法可以更新玩家資料及背包UI文字
+                BagManager.Instance.Init(accountPlayerData.BagItemList,accountPlayerData.EquipDataList);       //背包物品資料
                 MissionManager.Instance.MissionList = accountPlayerData.missionDataList;
                 MissionManager.Instance.FinishedMissionList = accountPlayerData.finishedMissionDataList;
             }
@@ -79,7 +79,7 @@ public class LoadPlayerData : MonoBehaviour
     /// </summary>
     public static void SaveUserData()
     {
-        var test = ItemManager.Instance.BagItems.Select(x => x.EquipmentDatas).ToList();
+        var test = BagManager.Instance.BagItems.Select(x => x.EquipmentDatas).ToList();
         CommonFunction.SaveLocalData(Application.persistentDataPath, "/Usersave.txt", accountPlayerData = new AccountPlayerData()
         {
             UID = "",
@@ -93,8 +93,8 @@ public class LoadPlayerData : MonoBehaviour
             Coin = PlayerDataOverView.Instance.PlayerData_.Coin,
             missionDataList = MissionManager.Instance.MissionList,
             finishedMissionDataList = MissionManager.Instance.FinishedMissionList,
-            BagItemList = ItemManager.Instance.BagItems.Select(x => x.EquipmentDatas.EquipmentDataToJson_).ToList(),
-            EquipDataList = ItemManager.Instance.EquipDataList.Select(x => x.EquipmentDatas.EquipmentDataToJson_).ToList(),
+            BagItemList = BagManager.Instance.BagItems.Select(x => x.EquipmentDatas.EquipmentDataToJson_).ToList(),
+            EquipDataList = BagManager.Instance.EquipDataList.Select(x => x.EquipmentDatas.EquipmentDataToJson_).ToList(),
             finishedTutorialIDList = PlayerDataOverView.Instance.PlayerData_.PlayerTutorialList
         });
     }
