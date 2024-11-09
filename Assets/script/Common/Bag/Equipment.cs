@@ -15,6 +15,19 @@ using UnityEngine.EventSystems;
 ///<summary>  物品資料  </summary>
 public class EquipmentData
 {
+    public EquipmentData()
+    {
+
+    }
+
+    public EquipmentData(EquipmentData data)
+    {
+        Weapon = data.Weapon;
+        Armor = data.Armor;
+        Weapon = data.Weapon;
+        Qty = data.Qty;
+        ForceLv = data.ForceLv;
+    }
     /// <summary>
     /// 複製一個新的實例使用(防止當原本的資料要被清空時 連帶拖曳目標的資料也會被清空)
     /// </summary>
@@ -26,13 +39,14 @@ public class EquipmentData
             Weapon = this.Weapon,
             Armor = this.Armor,
             Item = this.Item,
-            Qty = this.Qty
+            Qty = this.Qty,
+            ForceLv = this.ForceLv
         };
     }
+
     public WeaponDataModel Weapon;
     public ArmorDataModel Armor;
     public ItemDataModel Item;
-
     /// <summary>物品數量</summary>
     public int Qty;
     /// <summary>強化等級</summary>
