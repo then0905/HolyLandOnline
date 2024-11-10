@@ -82,6 +82,10 @@ public class MonsterBehaviour : ActivityCharacterBase
             {
                 value = 0;
                 IsDead = true;
+                Debug.Log("怪物死亡");
+                //移除怪物名稱文字
+                if (MonsterNameText.gameObject != null)
+                    Destroy(MonsterNameText.gameObject);
                 BreakAnyCoroutine();
                 StartCoroutine(DeadBehaviourAsync());
             }
@@ -219,8 +223,6 @@ public class MonsterBehaviour : ActivityCharacterBase
         //設定怪物重生
         MonsterManager.Instance.SetMonsterRebirth(originpos, this);
 
-        if (MonsterNameText.gameObject != null)
-            Destroy(MonsterNameText.gameObject);
         if (this.gameObject != null)
             Destroy(this.gameObject);
     }
@@ -237,6 +239,7 @@ public class MonsterBehaviour : ActivityCharacterBase
 
     private void Update()
     {
+        if (IsDead) return;
         //獲取世界轉換成螢幕的座標
         Vector3 screenPosition = PlayerDataOverView.Instance.CharacterMove.CharacterCamera.WorldToScreenPoint(HeadTrans.position);
         //計算怪物物件與攝影機的距離
@@ -267,6 +270,8 @@ public class MonsterBehaviour : ActivityCharacterBase
     /// <param name="monsterEnumData"></param>
     public void MonsterSetting(MonserBehaviorEnum monsterEnumData)
     {
+        //若怪物死亡 不進行任何行為
+        if (IsDead) return;
         MonserBehaviorData = monsterEnumData;
         BreakAnyCoroutine();
         switch (monsterEnumData)
@@ -473,13 +478,13 @@ public class MonsterBehaviour : ActivityCharacterBase
 
         // 等待一段時間，以確保動畫已經開始播放
         yield return new WaitForSeconds(0.1f);
-        //Debug.Log("怪物:" + name + " 當前狀態 :" + "受傷");
+
         // 等待動畫播放完畢
         yield return new WaitUntil(() => !MonsterAnimator.GetCurrentAnimatorStateInfo(0).IsName("MonsterInjuried"));
 
         // 當動畫播放完成後，繼續執行後續的操作
         BattleTargetDic = BattleTargetDic.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, y => y.Value);
-        //BreakAnyCoroutine();
+
         MonsterSetting(MonserBehaviorEnum.Pursue);
     }
 
