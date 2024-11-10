@@ -12,6 +12,7 @@ TagManager:
   - Item
   - BagItem
   - Equip
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Water
   - UI
   - Monster
-  - 
+  - NPC
   - PostProcessing
   - Item
   - SkillTrigger
