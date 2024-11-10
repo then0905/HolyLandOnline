@@ -55,7 +55,7 @@ public class ClassAndSkill : MonoBehaviour
     public void Init()
     {
         skillDataModelList = new List<SkillData>();
-        skillUIList.ForEach(x => Destroy(x.gameObject));
+        skillUIList.ForEach(x => Destroy(x.transform.parent.gameObject));
         skillUIList.Clear();
         Job = PlayerDataOverView.Instance.PlayerData_.Job;
         LV = PlayerDataOverView.Instance.PlayerData_.Lv;
