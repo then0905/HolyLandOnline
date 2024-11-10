@@ -185,7 +185,7 @@ public class BattleOperation : MonoBehaviour
         }
         else
         {
-            PlayerDataOverView.Instance.GetAttackMode = (PlayerDataOverView.Instance.PlayerData_.NormalAttackRange >= 8 ? "RemoteATK" : "MeleeATK");
+            PlayerDataOverView.Instance.GetAttackMode = (PlayerDataOverView.Instance.PlayerData_.NormalAttackRange <= 8 ? "MeleeATK" : "RemoteATK");
         }
 
         hitValue = attacker.Hit * 100 / (attacker.Hit + defender.Avoid);

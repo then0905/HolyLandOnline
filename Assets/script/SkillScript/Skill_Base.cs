@@ -285,7 +285,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
 
     public string KeyID => SkillID;
 
-    protected bool skillBeUpgrade = false;      //技能是否被升級
+    protected string skillUpgradeID;      //技能若是升級版 取得升級的技能ID
 
     [Header("技能ID 用來從GameData找資料輸入"), SerializeField] protected string skillID;
 
@@ -343,12 +343,12 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     /// <summary>
     /// 初始化技能資料
     /// </summary>
-    /// <param name="skillUpgrade">是否升級技能</param>
+    /// <param name="skillUpgradeID">是否升級技能</param>
     /// <param name="caster">施放者</param>
     /// <param name="receiver">接收者</param>
-    public virtual void InitSkillEffectData(bool skillUpgrade = false, ICombatant caster = null, ICombatant receiver = null)
+    public virtual void InitSkillEffectData(string skillUpgradeID = "", ICombatant caster = null, ICombatant receiver = null)
     {
-        skillBeUpgrade = skillUpgrade;
+        this.skillUpgradeID = skillUpgradeID;
 
         //獲取GameData技能資料
         SkillData = GameData.SkillDataDic[skillID];
@@ -391,7 +391,10 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     /// <param name="receiver">被施放者</param>
     protected virtual void SkillEffectStart(ICombatant caster = null, ICombatant receiver = null)
     {
-        SkillComponentList.ForEach(x => x.Execute(caster, receiver));
+        for (int i = 0; i < SkillComponentList.Count; i++)
+        {
+            SkillComponentList[i].Execute(caster, receiver);
+        }
     }
 
     /// <summary>
@@ -486,9 +489,27 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         SkillData.Height = effectData.Height;
         SkillData.CircleDistance = effectData.CircleDistance;
         SkillData.Damage = effectData.Damage;
-        SkillData.AdditionMode = effectData.AdditionMode;
-        //升級資訊完成 執行程式
-        skillBeUpgrade = false;
+
+        /*獲取強化後的技能運算資料*/
+        //清空原有的組件資料
+        SkillComponentList = new List<ISkillComponent>();
+        //將強化的組件資料帶入原有的組件資料
+        for (int i = 0; i < effectData.SkillOperationDataList.Count; i++)
+        {
+            if (effectData.SkillOperationDataList[i] != null)
+            {
+                SkillData.SkillOperationDataList[i].EffectValue = effectData.SkillOperationDataList[i].EffectValue;
+                SkillData.SkillOperationDataList[i].InfluenceStatus = effectData.SkillOperationDataList[i].InfluenceStatus;
+                SkillData.SkillOperationDataList[i].AddType = effectData.SkillOperationDataList[i].AddType;
+                SkillData.SkillOperationDataList[i].ConditionOR = effectData.SkillOperationDataList[i].ConditionOR;
+                SkillData.SkillOperationDataList[i].ConditionAND = effectData.SkillOperationDataList[i].ConditionAND;
+                SkillData.SkillOperationDataList[i].EffectRecive = effectData.SkillOperationDataList[i].EffectRecive;
+                SkillData.SkillOperationDataList[i].TargetCount = effectData.SkillOperationDataList[i].TargetCount;
+            }
+        }
+        //重新設定技能組件接口
+        SkillData.SkillOperationDataList.ForEach(x => SkillComponentList.Add(SkillComponent(x)));
+
         SkillEffect(caster, receiver);
     }
 
@@ -530,7 +551,12 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         direction.y = 0;
         PlayerDataOverView.Instance.CharacterMove.Character.transform.rotation = Quaternion.LookRotation(direction);
         //SkillController.Instance.UsingSkill = true;
-        SkillEffect(PlayerDataOverView.Instance, SelectTarget.Instance.Targetgameobject);
+
+        //若技能效果為升級版 執行升級效果
+        if (!string.IsNullOrEmpty(skillUpgradeID))
+            GetSkillUpgradeEffect(skillUpgradeID, PlayerDataOverView.Instance, SelectTarget.Instance.Targetgameobject.GetComponent<ICombatant>());
+        else
+            SkillEffect(PlayerDataOverView.Instance, SelectTarget.Instance.Targetgameobject);
     }
 
     /// <summary>
@@ -707,7 +733,8 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         switch (skillOperationData.SkillComponentID)
         {
             case "Damage":
-                return new DamageSkillComponent(this, skillOperationData);
+                DamageSkillComponent x = new DamageSkillComponent(this, skillOperationData);
+                return x;
 
             case "MultipleDamage":
                 return new MultipleDamageSkillComponent(this, skillOperationData);

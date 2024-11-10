@@ -67,7 +67,7 @@ public class HotKeyData : MonoBehaviour
 
         //取得技能腳本資料
         Skill_Base skill_Base = (Skill_Base)tempHotKeyData;
-        skill_Base.InitSkillEffectData(!string.IsNullOrEmpty(upgradeSkillID));
+        skill_Base.InitSkillEffectData(upgradeSkillID);
 
         //設定技能讀條
         hotkeyCdSlider.maxValue = skill_Base.CooldownTime;

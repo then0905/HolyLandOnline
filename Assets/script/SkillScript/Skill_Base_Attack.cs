@@ -9,13 +9,6 @@ using UnityEngine;
 //==========================================
 public abstract class Skill_Base_Attack : Skill_Base
 {
-    protected new readonly SkillEffectCategory category = SkillEffectCategory.Attack;
-
-    /// <summary>
-    /// 技能是否升級狀態
-    /// </summary>
-    [HideInInspector] public bool SkillBeUpgrade { get { return skillBeUpgrade; } }
-
     protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defender = null)
     {
         SkillController.Instance.UsingSkillObj = this;

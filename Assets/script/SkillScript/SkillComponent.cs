@@ -8,7 +8,7 @@ using UnityEngine;
 //  創建日期:2024/10/22
 //  創建用途:技能組件接口繼承實例
 //==========================================
-public abstract class SkillComponent : MonoBehaviour, ISkillComponent
+public abstract class SkillComponent : ISkillComponent
 {
     protected Skill_Base skillbase;
     public Skill_Base SkillBase => skillbase;
@@ -16,109 +16,6 @@ public abstract class SkillComponent : MonoBehaviour, ISkillComponent
     public SkillOperationData SkillOperationData => skillOperationData;
 
     public abstract void Execute(ICombatant caster, ICombatant target);
-
-    /// <summary>
-    /// 確認條件
-    /// </summary>
-    /// <param name="skillOperationData"></param>
-    /// <returns></returns>
-    protected bool CheckCondition(List<SkillOperationData> skillOperationData, ICombatant caster, ICombatant target)
-    {
-        List<bool> checkResult = new List<bool>();
-        //找出每個技能運算資料
-        foreach (var item in skillOperationData)
-        {
-            //暫存技能施放條件資料
-            List<string> condition = item.ConditionOR;
-            //若不需要條件直接跳過
-            if (condition == null || condition.Count <= 0) continue;
-            foreach (var data in condition)
-            {
-                checkResult.Add(DetailConditionProcess(data, caster, target));
-            }
-        }
-        //回傳條件結果
-        return checkResult.All(x => x == true);
-    }
-
-    /// <summary>
-    /// 詳細條件判斷處理
-    /// </summary>
-    /// <param name="key">條件名稱</param>
-    /// <param name="value">條件判斷值</param>
-    /// <returns></returns>
-    protected bool DetailConditionProcess(string condition, ICombatant caster, ICombatant target)
-    {
-        //宣告 判斷條件清單
-        List<bool> finalResult = new List<bool>();
-        //宣告 儲存條件判斷字典
-        Dictionary<string, object> conditionDetail = new Dictionary<string, object>();
-
-        //處理 | 字元
-        if (condition.Contains('|'))
-        {
-            List<string> conditionSplit = condition.Split('|').ToList();
-            foreach (var item in conditionSplit)
-            {
-                //處理_字元
-                if (item.Contains('_'))
-                    conditionDetail.Add(item.Split('_')[0], item.Split('_')[0]);
-                else
-                    conditionDetail.Add(item, null);
-            }
-        }
-        else
-        {
-            //處理_字元
-            if (condition.Contains('_'))
-                conditionDetail.Add(condition.Split('_')[0], condition.Split('_')[0]);
-            else
-                conditionDetail.Add(condition, null);
-        }
-
-        //根據處理完的字典資料 判斷條件是否達成
-        foreach (var condtionData in conditionDetail)
-        {
-            switch (condtionData.Key)
-            {
-                default:
-                //裝備指定類型道具
-                case "Equip":
-                    switch (condtionData.Value.ToString())
-                    {
-                        case "GiantMallet":
-                        case "TwoHandedSword":
-                        case "Shield":
-                        case "Axe":
-                            finalResult.Add(BagManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Weapon != null).Any(x => x.EquipmentDatas.Weapon.TypeID == condtionData.Value.ToString()));
-                            break;
-                        case "HeavyArmor":
-                            finalResult.Add(BagManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).All(x => x.EquipmentDatas.Armor.TypeID == condtionData.Value.ToString()));
-                            break;
-                    }
-                    break;
-                //在戰鬥狀態中
-                case "InCombatStatus":
-                    //缺少戰鬥狀態判斷
-                    return false;
-                //HP低於指定百分比
-                //case "HpLess":
-                //    float conditionHP = PlayerData.MaxHP * float.Parse(value);
-                //    return conditionHP < PlayerData.HP;
-                //HP低於指定百分比
-                //case "HpMore":
-                //    conditionHP = PlayerData.MaxHP * float.Parse(value);
-                //    return conditionHP > PlayerData.HP;
-                case "Close":
-                    //建立靠近單位的判斷(朝單位移動? 雙方距離縮短? 單位判斷與距離多少?)
-                    return false;
-                case "Random":
-                    //缺乏隨機條件(目前有的資料 禁衛軍的"回擊好禮")
-                    return false;
-            }
-        }
-        return finalResult.All(x => x);
-    }
 }
 
 /// <summary>
@@ -247,7 +144,7 @@ public class CrowdControlSkillComponent : BuffComponent
     {
         tempCaster = caster;
         tempTarget = target;
-        DebuffEffectBase_CrowdControl tempObj = Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.EffectPrefab, $"Effect_{skillOperationData.InfluenceStatus}")).GetComponent<DebuffEffectBase_CrowdControl>();
+        DebuffEffectBase_CrowdControl tempObj = UnityEngine.Object.Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.EffectPrefab, $"Effect_{skillOperationData.InfluenceStatus}")).GetComponent<DebuffEffectBase_CrowdControl>();
         tempObj.EffectStart(caster, target, this);
     }
 
@@ -381,6 +278,8 @@ public class UpgradeSkillComponent : BuffComponent
             //更換圖片與更新升級技能ID資訊
             item.UpgradeSkillHotkeyDataProceoose(CommonFunction.LoadSkillIcon(skillbase.SkillID));
             item.UpgradeSkillID = skillbase.SkillID;
+            Skill_Base targetSkillbase = (Skill_Base)item.TempHotKeyData;
+            targetSkillbase.InitSkillEffectData(item.UpgradeSkillID);
         }
         CharacterStatusAdd(skillOperationData);
     }
