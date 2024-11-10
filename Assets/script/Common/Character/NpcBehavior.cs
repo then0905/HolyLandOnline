@@ -97,6 +97,8 @@ public class NpcBehavior : ActivityCharacterBase
         NameText.gameObject.SetActive(screenPosition.z > 0);
         //設定文字座標
         NameText.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(localPoint.x, localPoint.y, 0);
+        //設定文字旋轉
+        NameText.GetComponent<RectTransform>().localEulerAngles = Vector3.zero;
         // 設定文字大小
         NameText.transform.localScale = new Vector3(scale, scale, scale);
     }

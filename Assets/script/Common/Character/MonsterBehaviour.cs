@@ -237,10 +237,6 @@ public class MonsterBehaviour : ActivityCharacterBase
 
     private void Update()
     {
-        //每幀刷新 讓怪物身上的UI面對玩家
-        //    MonsterNameText.transform.LookAt(MonsterNameText.transform.position + Camera.main.transform.rotation * Vector3.forward,
-        //Camera.main.transform.rotation * Vector3.up);
-
         //獲取世界轉換成螢幕的座標
         Vector3 screenPosition = PlayerDataOverView.Instance.CharacterMove.CharacterCamera.WorldToScreenPoint(HeadTrans.position);
         //計算怪物物件與攝影機的距離
@@ -258,11 +254,8 @@ public class MonsterBehaviour : ActivityCharacterBase
         MonsterNameText.gameObject.SetActive(screenPosition.z > 0);
         //設定文字座標
         MonsterNameText.GetComponent<RectTransform>().anchoredPosition3D = new Vector3(localPoint.x, localPoint.y, 0);
-        //  MonsterNameText.GetComponent<RectTransform>().anchoredPosition3D = Vector3.Lerp(
-        //MonsterNameText.GetComponent<RectTransform>().anchoredPosition3D,
-        // new Vector3(localPoint.x, localPoint.y, 0),
-        //Time.deltaTime * 10f);  // 10f 是平滑係數，可以調整
-        //MonsterNameText.transform.position = new Vector2(screenPosition.x, screenPosition.y);
+        //設定文字旋轉
+        MonsterNameText.GetComponent<RectTransform>().localEulerAngles = Vector3.zero;
         // 設定文字大小
         MonsterNameText.transform.localScale = new Vector3(scale, scale, scale);
 
