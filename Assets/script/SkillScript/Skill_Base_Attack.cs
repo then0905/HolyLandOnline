@@ -11,6 +11,7 @@ public abstract class Skill_Base_Attack : Skill_Base
 {
     protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defender = null)
     {
+        SkillController.Instance.UsingSkill = true;
         SkillController.Instance.UsingSkillObj = this;
         base.SkillEffectStart(attacker, defender);
     }

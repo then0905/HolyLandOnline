@@ -8,6 +8,7 @@ public class Skill_Base_Buff_Continuance : Skill_Base_Buff
 {
     public override bool SkillCanUse(float tempMana)
     {
+        SkillController.Instance.UsingSkill = true;
         bool basalBool = base.SkillCanUse(tempMana);
         //多判斷 當前是否有存在的Buff資料
         bool buffCheckBool = CharacterStatusManager.Instance.CharacterStatusHintDic.Any(x => x.CharacterStatusID == skillID);

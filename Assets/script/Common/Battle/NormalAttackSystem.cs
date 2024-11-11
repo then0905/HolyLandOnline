@@ -45,7 +45,8 @@ public class NormalAttackSystem : MonoBehaviour
             CommonFunction.MessageHint("TM_AttackEnableError".GetText(), HintType.Warning);
             return;
         }
-        if (!AttackAllow)
+        Debug.Log("攻擊狀態:" + AttackAllow + "使用技能中:" + SkillController.Instance.UsingSkill);
+        if (!AttackAllow && !SkillController.Instance.UsingSkill)
             //需要進行判斷距離
             NormalAttackCoroutine = StartCoroutine(CommonFunction.DetectionRangeMethod(player.Povit.gameObject, target.Povit.gameObject,
                 PlayerDataOverView.Instance.PlayerData_.NormalAttackRange, ChasingTarget,
@@ -70,8 +71,8 @@ public class NormalAttackSystem : MonoBehaviour
         PlayerDataOverView.Instance.CharacterMove.RunAnimation(false);
         AttackAllow = true;
         //依照攻擊速度調整動畫播放速度
-        PlayerDataOverView.Instance.CharacterMove.ControCharacterAnimationEvent.Invoke(AttackSpeedTimer, "NormalAttack");
-        StartCoroutine(CommonFunction.Timer(AttackSpeedTimer, null, (() => { AttackAllow = false; PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = false; })));
+        PlayerDataOverView.Instance.CharacterMove.ControCharacterAnimationEvent.Invoke((AttackSpeedTimer), "NormalAttack");
+        StartCoroutine(CommonFunction.Timer((1f / AttackSpeedTimer), null, (() => { AttackAllow = false; PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = false; })));
         //執行攻擊運算
         BattleOperation.Instance.NormalAttackEvent.Invoke(attacker, defender);
     }

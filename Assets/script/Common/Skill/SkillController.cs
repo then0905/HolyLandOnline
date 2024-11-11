@@ -137,8 +137,8 @@ public class SkillController : MonoBehaviour
             //判斷是否魔力足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
             if (!skill_Base.SkillCanUse(PlayerDataOverView.Instance.PlayerData_.MP))
                 return;
-
-            if (UsingSkill)
+            Debug.Log("攻擊狀態:" + NormalAttackSystem.AttackAllow + "使用技能中:" + UsingSkill);
+            if (UsingSkill || NormalAttackSystem.AttackAllow)
             {
                 CommonFunction.MessageHint("TM_SkillIsUsing".GetText(), HintType.Warning);
                 return;

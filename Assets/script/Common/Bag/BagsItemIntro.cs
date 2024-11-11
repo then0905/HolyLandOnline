@@ -213,7 +213,7 @@ public class BagsItemIntro : MonoBehaviour
                     + "TM_MAgeHit".GetText(true) + introItem.EquipmentDatas.Weapon.MageHit +
                      (forgeData.MageHit.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.MageHit)) + "\n";
             }
-            Value.text += "TM_AS".GetText(true) + introItem.EquipmentDatas.Weapon.AS.GetText() + "\n"
+            Value.text += "TM_AS".GetText(true) + (introItem.EquipmentDatas.Weapon.AS.GetText()) + "\n"
                    + "TM_Crt".GetText(true) + introItem.EquipmentDatas.Weapon.Crt + (forgeData.Crt.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.Crt)) + "\n"
                    + "TM_CrtDamage".GetText(true) + introItem.EquipmentDatas.Weapon.CrtDamage + (forgeData.CrtDamage.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.CrtDamage)) + "\n"
                    + "TM_STR".GetText(true) + introItem.EquipmentDatas.Weapon.STR + (forgeData.STR.Equals(0) ? "" : string.Format("TM_ForgeAppend".GetText(), forgeData.STR)) + "\n"
