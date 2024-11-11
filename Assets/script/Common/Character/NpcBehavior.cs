@@ -75,7 +75,12 @@ public class NpcBehavior : ActivityCharacterBase
         //將名稱文字的父級 轉移到 文字畫布
         NameText.transform.SetParent(MapManager.Instance.CanvasMapText.transform);
     }
-
+    private void OnDestroy()
+    {
+        //移除怪物名稱文字
+        if (NameText.gameObject != null)
+            Destroy(NameText.gameObject);
+    }
 
     private void Update()
     {

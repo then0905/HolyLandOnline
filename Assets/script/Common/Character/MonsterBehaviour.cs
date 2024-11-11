@@ -181,6 +181,13 @@ public class MonsterBehaviour : ActivityCharacterBase
         MonsterNameText.transform.SetParent(MapManager.Instance.CanvasMapText.transform);
     }
 
+    private void OnDestroy()
+    {
+        //移除怪物名稱文字
+        if (MonsterNameText.gameObject != null)
+            Destroy(MonsterNameText.gameObject);
+    }
+
     /// <summary>
     /// 初始化 設定怪物數值與當前血量
     /// </summary>
