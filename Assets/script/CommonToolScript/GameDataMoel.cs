@@ -164,6 +164,9 @@ public class ItemDataModel : BasalAttributesDataModel, IDictionaryData<string>, 
     public string GetKey { get { return CodeID; } }
 }
 
+/// <summary>
+/// 裝備強化屬性資料
+/// </summary>
 public class ForgeData : BasalAttributesDataModel
 {
     public string CodeID { get; set; }            // 武器ID
@@ -192,7 +195,7 @@ public class SkillData : IDictionaryData<string>
     public int CastMage { get; set; }            // 技能花費魔力
     public float CD { get; set; }            // 技能冷卻時間
     public float ChantTime { get; set; }                    // 詠唱時間
-    public string AnimaTrigger { get; set; }            // 技能動畫名稱
+    public int AnimaTrigger { get; set; }            // 技能動畫 混合樹的數值
     public string Type { get; set; }            // 技能類型
     public string EffectTarget { get; set; }            // 特效物件生成參考
     public float Distance { get; set; }            // 技能施放距離

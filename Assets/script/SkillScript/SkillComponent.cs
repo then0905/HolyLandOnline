@@ -68,7 +68,6 @@ public class DamageSkillComponent : DamageComponent
         {
             Skill_Base_Attack skill_Base_Attack = skillbase as Skill_Base_Attack;
             BattleOperation.Instance.SkillAttackEvent?.Invoke(this, caster, target);
-            PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetTrigger(skillbase.SkillID);
         }
     }
 }

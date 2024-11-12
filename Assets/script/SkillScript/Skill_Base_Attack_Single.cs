@@ -13,5 +13,7 @@ public class Skill_Base_Attack_Single : Skill_Base_Attack
     protected override void SkillEffectStart(ICombatant attacker = null, ICombatant defender = null)
     {
         base.SkillEffectStart(attacker, defender);
+        PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetTrigger("Skill");
+        PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetFloat("SkillID", SkillData.AnimaTrigger);
     }
 }

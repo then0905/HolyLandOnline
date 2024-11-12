@@ -25,4 +25,6 @@ public static class GameConfig
 
     public const string EffectIcon = "Effect/Sprite";
     public const string EffectPrefab = "Effect/Prefab";
+
+    public const string AnimatorJob = "Animator/Job";
 }

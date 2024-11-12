@@ -482,7 +482,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         SkillData.CD = effectData.CD;
         SkillData.ChantTime = effectData.ChantTime;
         SkillData.AnimaTrigger = effectData.AnimaTrigger;
-        SkillData.Type = effectData.Type;
+        SkillData.Type = effectData.Type; 
         SkillData.EffectTarget = effectData.EffectTarget;
         SkillData.Distance = effectData.Distance;
         SkillData.Width = effectData.Width;

@@ -53,6 +53,8 @@ public class Character_move : MonoBehaviour
     {
         get
         {
+            if (characterAnimator.runtimeAnimatorController == null || (characterAnimator.runtimeAnimatorController.name != PlayerDataOverView.Instance.PlayerData_.Job))
+                characterAnimator.runtimeAnimatorController = CommonFunction.LoadObject<AnimatorOverrideController>(GameConfig.AnimatorJob, PlayerDataOverView.Instance.PlayerData_.Job);
             return characterAnimator;
         }
     }
@@ -117,8 +119,6 @@ public class Character_move : MonoBehaviour
 
     void LateUpdate()
     {
-
-
         //取得玩家控制角色移動的輸出訊息(上下左右 wasd 搖桿等等)
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");

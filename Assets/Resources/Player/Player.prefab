@@ -1487,7 +1487,7 @@ Animator:
   m_GameObject: {fileID: 4656379331475770091}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: acbe792770540464b912caa187404908, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2609,6 +2609,7 @@ MonoBehaviour:
     BlockRate: 0
     Coin: 0
     NormalAttackRange: 0
+    PlayerTutorialList: []
 --- !u!114 &5503294863921377030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2646,12 +2647,9 @@ MonoBehaviour:
   CharacterCamera: {fileID: 5503294864338163908}
   Character: {fileID: 4656379331475770091}
   ScrollSpeed: 7
-  wheel: 0
-  angle: 0
   rotateSpeed: 3
   maxRotAngle: 40
   minRotAngle: 5
-  offset: {x: 0, y: 0, z: 0}
 --- !u!136 &5503294863921377024
 CapsuleCollider:
   m_ObjectHideFlags: 0

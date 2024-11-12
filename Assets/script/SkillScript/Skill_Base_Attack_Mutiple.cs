@@ -18,7 +18,8 @@ public class Skill_Base_Attack_Mutiple : Skill_Base_Attack
         {
             base.SkillEffectStart(attacker, target);
         }
-        PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetTrigger(skillID);
+        PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetTrigger("Skill");
+        PlayerDataOverView.Instance.CharacterMove.CharacterAnimator.SetFloat("SkillID",SkillData.AnimaTrigger);
     }
 
     protected override void SkillEffectEnd(ICombatant caster = null, ICombatant receiver = null)
