@@ -20,8 +20,6 @@ public abstract class Skill_Base_Buff : Skill_Base
     /// </summary>
     protected override void SkillEffectEnd(ICombatant caster = null, ICombatant receiver = null)
     {
-        print("移除的被動技能:" + SkillName);
-
         //刪除自己
         if (this.gameObject)
         {

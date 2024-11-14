@@ -38,7 +38,7 @@ public class Skill_Base_Attack_Mutiple : Skill_Base_Attack
         {
             //圓形範圍
             case "Circle":
-                return SkillController.Instance.SkillPlayerCricle.GetComponent<CircleHit>().SetSkillSize(this, skillOperation, attacker, defenfer);
+                return SkillController.Instance.SkillTargetCircle.GetComponent<CircleHit>().SetSkillSize(this, skillOperation, attacker, defenfer);
             //指定方向 方形範圍
             case "Arrow":
                 return SkillController.Instance.SkillArrowImage.GetComponent<ArrowHit>().SetSkillSize(this, skillOperation, attacker, defenfer);

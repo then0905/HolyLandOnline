@@ -16,7 +16,7 @@ public class SkillReverseForAnim : MonoBehaviour
     {
         SkillController.Instance.UsingSkill = false;
         PlayerDataOverView.Instance.CharacterMove.AutoNavToTarget = false;
-        if (SkillController.Instance.UsingSkillObj.GetComponent<Skill_Base>() is Skill_Base_Attack)
+        if (SkillController.Instance.UsingSkillObj != null)
         {
             SkillController.Instance.UsingSkillObj.GetComponent<Skill_Base>().SkillEndForAnimation();
         }

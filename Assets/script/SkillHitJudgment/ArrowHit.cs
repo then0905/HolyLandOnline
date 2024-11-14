@@ -80,19 +80,19 @@ public class ArrowHit : MonoBehaviour
         return targetList;
     }
 
-    private void OnDrawGizmos()
-    {
-        if (!Application.isPlaying) return; // 只在遊戲運行時繪製
+    //private void OnDrawGizmos()
+    //{
+    //    if (!Application.isPlaying) return; // 只在遊戲運行時繪製
 
-        Gizmos.color = Color.red;
-        // 使用矩陣來正確繪製旋轉後的方體
-        Gizmos.matrix = Matrix4x4.TRS(
-            transform.position,
-            ArrowCollider.transform.rotation,
-            Vector3.one
-        );
+    //    Gizmos.color = Color.red;
+    //    // 使用矩陣來正確繪製旋轉後的方體
+    //    Gizmos.matrix = Matrix4x4.TRS(
+    //        transform.position,
+    //        ArrowCollider.transform.rotation,
+    //        Vector3.one
+    //    );
 
-        Vector3 v3 = new Vector3(ArrowCollider.size.x, ArrowCollider.size.z, ArrowCollider.size.y);
-        Gizmos.DrawWireCube(Vector3.zero, v3);
-    }
+    //    Vector3 v3 = new Vector3(ArrowCollider.size.x, ArrowCollider.size.z, ArrowCollider.size.y);
+    //    Gizmos.DrawWireCube(Vector3.zero, v3);
+    //}
 }

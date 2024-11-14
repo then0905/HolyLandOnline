@@ -149,7 +149,7 @@
     "CD": 2,
     "AnimaTrigger": 1,
     "Type": "Target",
-    "Distance": 3,
+    "Distance": 8,
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,
@@ -184,7 +184,7 @@
     "CD": 5,
     "AnimaTrigger": 2,
     "Type": "Circle",
-    "Distance": 6,
+    "Distance": 20,
     "Width": 0,
     "Height": 0,
     "CircleDistance": 4,
@@ -203,7 +203,8 @@
         "SkillID": "Warrior_2",
         "SkillComponentID": "Lunge",
         "EffectRecive": -1,
-        "TargetCount": 3
+        "TargetCount": 3,
+        "Bonus": 0.5
       }
     ]
   },
@@ -217,7 +218,7 @@
     "CD": 8,
     "AnimaTrigger": 3,
     "Type": "Target",
-    "Distance": 3,
+    "Distance": 8,
     "Width": 0,
     "Height": 0,
     "CircleDistance": 0,

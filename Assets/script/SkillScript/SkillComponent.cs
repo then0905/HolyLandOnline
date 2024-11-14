@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using UnityEngine;
+using System.Collections;
+using System.Threading.Tasks;
+using static UnityEngine.GraphicsBuffer;
 
 //==========================================
 //  創建者:家豪
@@ -217,7 +220,41 @@ public class LungeSkillComponent : SkillComponent
 
     public override void Execute(ICombatant caster, ICombatant target)
     {
+        LungeMove((ActivityCharacterBase)caster, (ActivityCharacterBase)target);
+    }
 
+    /// <summary>
+    /// 撲擊移動
+    /// </summary>
+    /// <param name="caster"></param>
+    /// <param name="target"></param>
+    private async void LungeMove(ActivityCharacterBase caster, ActivityCharacterBase target)
+    {
+        float jumpTime;
+        //取得跳躍時間
+        if (float.TryParse(SkillOperationData.Bonus.ToString(), out jumpTime))
+        {
+            float elapsedTime = 0f;
+            //取得施法者位置
+            Vector3 targetPosition = target.Povit.transform.position;
+            //取得面相目標方向
+            Vector3 direction = (targetPosition - caster.Povit.transform.position).normalized;
+            //取得與目標相隔4單位的座標
+            Vector3 destinationPosition = targetPosition - (direction * 4f);
+            //取得與目標差4單位座標的距離
+            float distance = Vector3.Distance(caster.Povit.transform.position, destinationPosition);
+            float speed = distance / jumpTime;
+
+            while (elapsedTime < jumpTime)
+            {
+                caster.Obj.transform.position = Vector3.Lerp(caster.Povit.transform.position, destinationPosition, 0.033f);
+                elapsedTime += Time.deltaTime;
+                await Task.Yield();
+            }
+
+            // Ensure the caster reaches the exact destination position
+            caster.Obj.transform.position = destinationPosition;
+        }
     }
 }
 

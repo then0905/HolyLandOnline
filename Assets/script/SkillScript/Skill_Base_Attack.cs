@@ -18,6 +18,7 @@ public abstract class Skill_Base_Attack : Skill_Base
 
     protected override void SkillEffectEnd(ICombatant caster = null, ICombatant receiver = null)
     {
+        Debug.Log($"技能: {SkillName} 施放完畢，防呆已消除");
         SkillController.Instance.UsingSkillObj = null;
         //if (gameObject)
         //    Destroy(gameObject);
