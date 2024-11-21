@@ -9,31 +9,25 @@ using UnityEngine;
 //==========================================
 public class DebuffEffectBase_CrowdControl_Stun : DebuffEffectBase_CrowdControl
 {
-    public override void EffectStart(ICombatant caster, ICombatant target, BuffComponent skillTarget)
+    public override void EffectStart(ICombatant caster, ICombatant target, SkillComponent skillTarget)
     {
         //暫存輸入資料
         this.caster = caster;
         this.target = target;
-        this.skilldata = skillTarget;
+        this.skillComponent = skillTarget;
         //被施放者獲取效果
-        target.GetBuffEffect(target, skillTarget.SkillOperationData);
-        //生成玩家狀態效果物件
-        CharacterStatusManager.Instance.InitCharacterStatusHintCheck(this);
-        //禁止移動 禁止施放技能 禁止攻擊
-        target.MoveEnable(false);
-        target.SkillEnable(false);
-        target.AttackEnable(false);
+        target.GetDebuff(this);
     }
 
     public override void EffectEnd()
     {
         //移除效果狀態
-        this.skilldata.ReverseExecute(null);
+        (this.skillComponent as CrowdControlSkillComponent).ReverseExecute(this);
         //恢復移動 恢復施放技能 恢復攻擊
-        target.MoveEnable(true);
-        target.SkillEnable(true);
-        target.AttackEnable(true);
-        if (gameObject)
-            Destroy(gameObject);
+        //target.MoveEnable(true);
+        //target.SkillEnable(true);
+        //target.AttackEnable(true);
+        //if (gameObject)
+        //    Destroy(gameObject);
     }
 }

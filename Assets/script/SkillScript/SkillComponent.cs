@@ -132,7 +132,7 @@ public class DotDamageSkill : DamageComponent
 /// <summary>
 /// 控制狀態技能組件
 /// </summary>
-public class CrowdControlSkillComponent : BuffComponent
+public class CrowdControlSkillComponent : SkillComponent
 {
 
     public CrowdControlSkillComponent(Skill_Base skill_Base, SkillOperationData operationData)
@@ -147,12 +147,17 @@ public class CrowdControlSkillComponent : BuffComponent
         tempCaster = caster;
         tempTarget = target;
         DebuffEffectBase_CrowdControl tempObj = UnityEngine.Object.Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.EffectPrefab, $"Effect_{skillOperationData.InfluenceStatus}")).GetComponent<DebuffEffectBase_CrowdControl>();
+        Debug.Log($"被施放效果 {skillOperationData.InfluenceStatus} 施放者 {target.Obj.name} 被施放者 {caster.Obj.name}");
         tempObj.EffectStart(caster, target, this);
     }
 
-    public override void ReverseExecute(params SkillOperationData[] skillOperationData)
+    /// <summary>
+    /// 移除效果處理
+    /// </summary>
+    /// <param name="debuffEffectBase"></param>
+    public void ReverseExecute(DebuffEffectBase debuffEffectBase)
     {
-        tempTarget.RemoveBuffEffect(tempTarget, this.skillOperationData);
+        tempTarget.RemoveDebuff(debuffEffectBase);
     }
 }
 

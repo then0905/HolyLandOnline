@@ -64,17 +64,23 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
 
     public virtual void MoveEnable(bool enable)
     {
-        MoveIsEnable = Math.Clamp(MoveIsEnable += enable ? -1 : 1, 0, MoveIsEnable += enable ? -1 : 1);
+        //設計的想法是 =0才可以移動 帶入false會+1 不能動 等到狀態解除會-1 可能會被多個控制狀態堆疊所以用此設計計算
+        int tempValue = (enable ? -1 : 1);
+        MoveIsEnable = (MoveIsEnable + tempValue) < 0 ? MoveIsEnable : MoveIsEnable + tempValue;
     }
     public int SkillIsEnable { get; set; } = 0;
     public virtual void SkillEnable(bool enable)
     {
-        SkillIsEnable = Math.Clamp(SkillIsEnable += enable ? -1 : 1, 0, SkillIsEnable += enable ? -1 : 1);
+        //設計的想法是 =0才可以移動 帶入false會+1 不能動 等到狀態解除會-1 可能會被多個控制狀態堆疊所以用此設計計算
+        int tempValue = (enable ? -1 : 1);
+        SkillIsEnable = (SkillIsEnable + tempValue) < 0 ? SkillIsEnable : SkillIsEnable + tempValue;
     }
     public int AttackIsEnable { get; set; } = 0;
     public virtual void AttackEnable(bool enable)
     {
-        AttackIsEnable = Math.Clamp(AttackIsEnable += enable ? -1 : 1, 0, AttackIsEnable += enable ? -1 : 1);
+        //設計的想法是 =0才可以移動 帶入false會+1 不能動 等到狀態解除會-1 可能會被多個控制狀態堆疊所以用此設計計算
+        int tempValue = (enable ? -1 : 1);
+        AttackIsEnable = (AttackIsEnable + tempValue) < 0 ? AttackIsEnable : AttackIsEnable + tempValue;
     }
 
     /// <summary>
@@ -126,6 +132,7 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
             SelectTarget.Instance.TargetLV.text = monster.MonsterValue.Lv.ToString();
             SelectTarget.Instance.TargetClass.text = monster.MonsterValue.Class;
             SelectTarget.Instance.TargetHP_MinAndMax.text = SelectTarget.Instance.TargetHP.value.ToString() + "/" + SelectTarget.Instance.TargetHP.maxValue.ToString();
+            SelectTarget.Instance.DebuffIconSetting(monster.DebuffEffectBases);
         }
     }
 
@@ -192,5 +199,36 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
     public virtual void RemoveBuffEffect(ICombatant target, SkillOperationData skillTarget)
     {
 
+    }
+
+    public virtual void GetDebuff(DebuffEffectBase debuffEffectBase)
+    {
+        switch (debuffEffectBase.InfluenceStatus)
+        {
+            case "Stun":
+                //禁止移動 禁止施放技能 禁止攻擊
+                MoveEnable(false);
+                SkillEnable(false);
+                AttackEnable(false);
+                break;
+            default:
+                break; 
+        }
+       
+    }
+
+    public virtual void RemoveDebuff(DebuffEffectBase debuffEffectBase)
+    {
+        switch (debuffEffectBase.InfluenceStatus)
+        {
+            case "Stun":        
+                //恢復移動 恢復施放技能 恢復攻擊
+                MoveEnable(true);
+                SkillEnable(true);
+                AttackEnable(true);
+                break;
+            default:
+                break;
+        }
     }
 }

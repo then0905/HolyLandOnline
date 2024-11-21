@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -124,23 +125,23 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
 
         if (CharacterStatusManager.Instance.ReturnTimerCheck(skillOperationData[0].SkillComponentID))
             //開始運行計時
-            StartCoroutine(UpdateTimer(skillOperationData[0].EffectDurationTime));
+            UpdateTimer(skillOperationData[0].EffectDurationTime);
 
         yield return new WaitForEndOfFrame();
 
         //gameObject.transform.eulerAngles = Vector3.zero;
     }
 
-    public virtual IEnumerator UpdateTimer(float timer)
+    public virtual async void UpdateTimer(float timer)
     {
         TempCoolDownTime = timer;
         while (TempCoolDownTime > 0)
         {
+            await Task.Delay(100); // 100ms = 0.1秒
             TempCoolDownTime -= 0.1f;
             CharacterHintTimeEvent?.Invoke(this, TempCoolDownTime);
             if (TempCoolDownTime <= 10)
-                StartCoroutine(CanvasGroupAnim());
-            yield return new WaitForSeconds(0.1f);
+                CanvasGroupAnim();
         }
         CharacterStatusManager.Instance.CharacterSatusRemoveEvent?.Invoke(this.SkillOperationDatas);
     }
@@ -161,26 +162,26 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
     /// 閃爍動畫協程
     /// </summary>
     /// <returns></returns>
-    protected IEnumerator CanvasGroupAnim()
+    protected async void CanvasGroupAnim()
     {
-        float alpha = canvasGroup.alpha;
-        if (alpha > 0)
-        {
-            while (alpha > 0)
-            {
-                alpha -= 0.1f;
-                yield return new WaitForSeconds(0.1f);
-            }
-        }
-        else
-        {
-            while (alpha < 1)
-            {
-                alpha += 0.1f;
-                yield return new WaitForSeconds(0.1f);
-            }
-        }
-        alphaAinmCoroutine = StartCoroutine(CanvasGroupAnim());
+        //float alpha = canvasGroup.alpha;
+        //if (alpha > 0)
+        //{
+        //    while (alpha > 0)
+        //    {
+        //        await Task.Delay(100); // 100ms = 0.1秒
+        //        alpha -= 0.1f;
+        //    }
+        //}
+        //else
+        //{
+        //    while (alpha < 1)
+        //    {
+        //        await Task.Delay(100); // 100ms = 0.1秒
+        //        alpha += 0.1f;
+        //    }
+        //}
+        //CanvasGroupAnim();
     }
 
     /// <summary>

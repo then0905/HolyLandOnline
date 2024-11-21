@@ -10,12 +10,12 @@ public abstract class DebuffEffectBase : MonoBehaviour
     /// <summary>
     /// 效果ID
     /// </summary>
-    public string EffectID => skilldata.SkillOperationData.SkillID;
+    public string EffectID => skillComponent.SkillOperationData.SkillID;
 
     /// <summary>
     /// 影響屬性
     /// </summary>
-    public string InfluenceStatus => skilldata.SkillOperationData.InfluenceStatus;
+    public string InfluenceStatus => skillComponent.SkillOperationData.InfluenceStatus;
 
     /// <summary>
     /// 效果名稱文字
@@ -30,7 +30,7 @@ public abstract class DebuffEffectBase : MonoBehaviour
     /// <summary>
     /// 持續時間
     /// </summary>
-    public float Duration => skilldata.SkillOperationData.EffectDurationTime;
+    public float Duration => skillComponent.SkillOperationData.EffectDurationTime;
 
     /// <summary>
     /// 效果類型文字
@@ -39,14 +39,14 @@ public abstract class DebuffEffectBase : MonoBehaviour
 
     protected ICombatant caster;
     protected ICombatant target;
-    protected BuffComponent skilldata;
+    protected SkillComponent skillComponent;
 
-    public BuffComponent SkillData => skilldata;
+    public SkillComponent SkillComponent => skillComponent;
 
     /// <summary>
     /// 效果啟動
     /// </summary>
-    public abstract void EffectStart(ICombatant caster, ICombatant target, BuffComponent skillTarget);
+    public abstract void EffectStart(ICombatant caster, ICombatant target, SkillComponent skillTarget);
 
     /// <summary>
     /// 效果結束

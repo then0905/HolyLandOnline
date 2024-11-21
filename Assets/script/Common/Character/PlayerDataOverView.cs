@@ -163,7 +163,7 @@ public class PlayerDataOverView : ActivityCharacterBase
         CharacterMove.ControlCharacterEvent += SkillController.Instance.StopSkillChasingTarge;
         SelectTarget.Instance.CharacterCamera = CharacterMove.CharacterCamera;
     }
-    
+
     private void OnDisable()
     {
         CharacterMove.ControlCharacterEvent -= NormalAttackSystem.Instance.StopNormalAttack;
@@ -307,16 +307,17 @@ public class PlayerDataOverView : ActivityCharacterBase
 
     public override void GetBuffEffect(ICombatant target, SkillOperationData skillData)
     {
-        if (skillData.SkillComponentID == "CrowdControl")
-        {
-
-        }
-        else
-            StatusOperation.Instance.SkillEffectStatusOperation(skillData.InfluenceStatus, (skillData.AddType == "Rate"), skillData.EffectValue);
+        StatusOperation.Instance.SkillEffectStatusOperation(skillData.InfluenceStatus, (skillData.AddType == "Rate"), skillData.EffectValue);
     }
 
     public override void RemoveBuffEffect(ICombatant target, SkillOperationData skillData)
     {
         StatusOperation.Instance.SkillEffectStatusOperation(skillData.InfluenceStatus, (skillData.AddType == "Rate"), skillData.EffectValue * -1);
+    }
+
+    public override void GetDebuff(DebuffEffectBase debuffEffectBase)
+    {
+        base.GetDebuff(debuffEffectBase);
+        CharacterStatusManager.Instance.InitCharacterStatusHintCheck(debuffEffectBase);
     }
 }

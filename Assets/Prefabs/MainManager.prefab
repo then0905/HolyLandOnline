@@ -268,6 +268,9 @@ MonoBehaviour:
   TargetLV: {fileID: 9062499105483315377}
   TargetClass: {fileID: 9062499105727610972}
   Targetgameobject: {fileID: 0}
+  buffTrans: {fileID: 7507569097857951706}
+  debuffTrans: {fileID: 8304358285377967385}
+  DebuffEffectBases: []
 --- !u!1 &9062499104236771444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,6 +1842,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7815911588882374534}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &7507569097857951706 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 308369566649858140, guid: a998fef5049e7e84cb923ef83b486cab,
+    type: 3}
+  m_PrefabInstance: {fileID: 7815911588882374534}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7633948729784446204 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 398157081697973114, guid: a998fef5049e7e84cb923ef83b486cab,
@@ -1854,6 +1863,12 @@ MonoBehaviour:
 --- !u!1 &7934033641166121285 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 174773568901871299, guid: a998fef5049e7e84cb923ef83b486cab,
+    type: 3}
+  m_PrefabInstance: {fileID: 7815911588882374534}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &8304358285377967385 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2254249462454536863, guid: a998fef5049e7e84cb923ef83b486cab,
     type: 3}
   m_PrefabInstance: {fileID: 7815911588882374534}
   m_PrefabAsset: {fileID: 0}

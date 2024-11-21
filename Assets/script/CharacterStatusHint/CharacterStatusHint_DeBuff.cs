@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 //==========================================
@@ -15,7 +16,7 @@ public class CharacterStatusHint_DeBuff : CharacterStatusHint_Base
     /// <summary>
     /// 初始化狀態提示資料
     /// </summary>
-    public IEnumerator BuffHintInit(DebuffEffectBase debuffEffectBaseData)
+    public void BuffHintInit(DebuffEffectBase debuffEffectBaseData)
     {
         //狀態提示基本資料設定
         debuffEffect = debuffEffectBaseData;
@@ -38,21 +39,19 @@ public class CharacterStatusHint_DeBuff : CharacterStatusHint_Base
 
         if (CharacterStatusManager.Instance.ReturnTimerCheck(debuffEffectBaseData.EffectType))
             //開始運行計時
-            StartCoroutine(UpdateTimer(CharacterStatusDuration));
-
-        yield return new WaitForEndOfFrame();
+           UpdateTimer(CharacterStatusDuration);
     }
 
-    public override IEnumerator UpdateTimer(float timer)
+    public override async void UpdateTimer(float timer)
     {
         TempCoolDownTime = timer;
         while (TempCoolDownTime > 0)
         {
+            await Task.Delay(100); // 100ms = 0.1秒
             TempCoolDownTime -= 0.1f;
             CharacterHintTimeEvent?.Invoke(this, TempCoolDownTime);
             if (TempCoolDownTime <= 10)
-                StartCoroutine(CanvasGroupAnim());
-            yield return new WaitForSeconds(0.1f);
+                CanvasGroupAnim();
         }
         RemoveCharacterStatusHint();
     }

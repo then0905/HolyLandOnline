@@ -64,6 +64,15 @@ public class SelectTarget : MonoBehaviour
     //根據此腳本來記錄選擇目標
     public ActivityCharacterBase Targetgameobject;
 
+    //Buff圖示生成參考
+    [SerializeField] private Transform buffTrans;
+    //Debuff圖示生成參考
+    [SerializeField] private Transform debuffTrans;
+    //Buff效果暫存清單
+    [HideInInspector] public List<CharacterStatusHint_DeBuff> BuffEffectBases = new List<CharacterStatusHint_DeBuff>();
+    //Debuff效果暫存清單
+    [HideInInspector] public List<CharacterStatusHint_DeBuff> DebuffEffectBases = new List<CharacterStatusHint_DeBuff>();
+
     private void Start()
     {
         StartCoroutine(Init());
@@ -124,4 +133,48 @@ public class SelectTarget : MonoBehaviour
             }
         }
     }
+
+    /// <summary>
+    /// Buff相關設定
+    /// </summary>
+    public void BuffIconSetting()
+    {
+
+    }
+
+    /// <summary>
+    /// Debuff相關設定
+    /// </summary>
+    /// <param name="debuffEffectBases"></param>
+    public void DebuffIconSetting(List<DebuffEffectBase> debuffEffectBases)
+    {
+        //清空當前所有Debuff資料
+        if (DebuffEffectBases.CheckAnyData())
+        {
+            for (int i = 0; i < DebuffEffectBases.Count; i++)
+            {
+                if (DebuffEffectBases[i])
+                    Destroy(DebuffEffectBases[i].gameObject);
+            }
+            DebuffEffectBases.Clear();
+        }
+
+        //設定新的Debuff清單
+        if (debuffEffectBases.CheckAnyData())
+        {
+            foreach (var item in debuffEffectBases)
+            {
+                //生成圖示
+                CharacterStatusHint_DeBuff characterStatusHintObj =
+                    Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Debuff"), debuffTrans)
+                    .GetComponent<CharacterStatusHint_DeBuff>();
+                //加入暫存
+                DebuffEffectBases.Add(characterStatusHintObj);
+                //初始化該圖示內容
+                characterStatusHintObj.BuffHintInit(item);
+            }
+
+        }
+    }
+
 }

@@ -75,6 +75,18 @@ public interface ICombatant
     public void RemoveBuffEffect(ICombatant target, SkillOperationData skillTarget);
 
     /// <summary>
+    /// 賦予目標負面狀態
+    /// </summary>
+    /// <param name="debuffEffectBase"></param>
+    public void GetDebuff(DebuffEffectBase debuffEffectBase);
+
+    /// <summary>
+    /// 移除存在的負面狀態
+    /// </summary>
+    /// <param name="debuffEffectBase"></param>
+    public void RemoveDebuff(DebuffEffectBase debuffEffectBase);
+
+    /// <summary>
     /// 移動啟動狀態
     /// </summary>
     public int MoveIsEnable { get; set; }

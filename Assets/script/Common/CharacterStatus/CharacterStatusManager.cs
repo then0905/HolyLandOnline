@@ -156,6 +156,6 @@ public class CharacterStatusManager : MonoBehaviour
         CharacterStatusHint_DeBuff characterStatusHintObj = 
             Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Debuff"), ReturnCharacterStatusArea(debuffEffectData.EffectType))
             .GetComponent<CharacterStatusHint_DeBuff>();
-        StartCoroutine(characterStatusHintObj.BuffHintInit(debuffEffectData));
+        characterStatusHintObj.BuffHintInit(debuffEffectData);
     }
 }

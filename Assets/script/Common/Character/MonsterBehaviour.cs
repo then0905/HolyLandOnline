@@ -61,6 +61,24 @@ public class MonsterBehaviour : ActivityCharacterBase
     /// </summary>
     public Dictionary<ICombatant, int> BattleTargetDic = new Dictionary<ICombatant, int>();
 
+    [SerializeField]private List<DebuffEffectBase> debuffEffectBases = new List<DebuffEffectBase>();
+    /// <summary> 怪物身上接受的負面狀態清單 </summary>
+    public List<DebuffEffectBase> DebuffEffectBases
+    {
+        get
+        {
+            return debuffEffectBases;
+        }
+        set
+        {
+            debuffEffectBases = value;
+            if (SelectTarget.Instance.Targetgameobject == this)
+            {
+                SetTargetInformation(this);
+            }
+        }
+    }
+
     //協程區
     public Coroutine MonsterPatrolCoroutine;        //偵查行為協程
     public Coroutine MonsterPursueCoroutine;        //追擊行為協程
@@ -341,16 +359,10 @@ public class MonsterBehaviour : ActivityCharacterBase
                 Vector3 direction = (destination - transform.position).normalized;
                 direction.y = 0; // 將 Y 軸設為 0，僅保留 X 和 Z 軸的方向
 
-                //Quaternion rotation = Quaternion.LookRotation(direction);
-                //transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 360 * Time.deltaTime); // 使用 RotateTowards 逐漸旋轉
-
                 Quaternion targetRotation = Quaternion.LookRotation(direction); // 計算目標旋轉
                 float targetYRotation = targetRotation.eulerAngles.y; // 取得目標旋轉的 Y 軸旋轉值
                 Quaternion rotationOnlyY = Quaternion.Euler(0, targetYRotation, 0); // 建立只包含 Y 軸旋轉的四元數
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, rotationOnlyY, 360 * Time.deltaTime); // 使用 RotateTowards 逐漸旋轉
-
-
-                //Debug.Log("怪物:" + name + " 當前狀態 :" + "巡邏");
 
                 MonsterAnimator.SetBool("IsWalking", true);
                 yield return null;
@@ -519,5 +531,36 @@ public class MonsterBehaviour : ActivityCharacterBase
                 item.Key.Obj.GetComponent<PlayerDataOverView>().ExpProcessor();
             }
         }
+    }
+
+
+    public override void GetDebuff(DebuffEffectBase debuffEffectBase)
+    {
+        base.GetDebuff(debuffEffectBase);
+     
+        //將此次獲得的debuff加入清單
+        DebuffEffectBases.Add(debuffEffectBase);
+        //更新選取目標資訊呈現
+        if (SelectTarget.Instance.Targetgameobject == this)
+        {
+            SetTargetInformation(this);
+        }
+    }
+
+    public override void RemoveDebuff(DebuffEffectBase debuffEffectBase)
+    {
+        base.RemoveDebuff(debuffEffectBase);
+
+        //將此次需要移除的debuff移除清單
+        DebuffEffectBases.Remove(debuffEffectBase);
+        //若物件還存在 清除
+        if (debuffEffectBase.gameObject)
+            Destroy(debuffEffectBase.gameObject);
+        //更新選取目標資訊呈現
+        if (SelectTarget.Instance.Targetgameobject == this)
+        {
+            SetTargetInformation(this);
+        }
+        MonsterSetting(MonserBehaviorEnum.Pursue);
     }
 }
