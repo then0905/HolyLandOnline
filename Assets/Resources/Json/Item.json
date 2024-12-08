@@ -23,6 +23,9 @@
         "EffectValue": 100,
         "InfluenceStatus": "HP",
         "AddType": "Value",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectRecive": 0,
         "TargetCount": 0
       }
@@ -52,6 +55,9 @@
         "EffectValue": 55,
         "InfluenceStatus": "MP",
         "AddType": "Value",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectRecive": 0,
         "TargetCount": 0
       }
@@ -81,6 +87,9 @@
         "EffectValue": 300,
         "InfluenceStatus": "HP",
         "AddType": "Value",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectRecive": 0,
         "TargetCount": 0
       }
@@ -110,6 +119,9 @@
         "EffectValue": 150,
         "InfluenceStatus": "MP",
         "AddType": "Value",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectRecive": 0,
         "TargetCount": 0
       }
@@ -139,6 +151,9 @@
         "EffectValue": 1000,
         "InfluenceStatus": "HP",
         "AddType": "Value",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectRecive": 0,
         "TargetCount": 0
       }
@@ -168,6 +183,9 @@
         "EffectValue": 400,
         "InfluenceStatus": "MP",
         "AddType": "Value",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectRecive": 0,
         "TargetCount": 0
       }
@@ -197,6 +215,9 @@
         "EffectValue": 3000,
         "InfluenceStatus": "HP",
         "AddType": "Value",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectRecive": 0,
         "TargetCount": 0
       }
@@ -226,6 +247,9 @@
         "EffectValue": 1000,
         "InfluenceStatus": "MP",
         "AddType": "Value",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectRecive": 0,
         "TargetCount": 0
       }
@@ -254,6 +278,9 @@
         "ItemComponentID": "Utility",
         "EffectValue": 0,
         "InfluenceStatus": "RemovePoision",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectRecive": 0,
         "TargetCount": 0
       }
@@ -283,6 +310,9 @@
         "EffectValue": 3,
         "InfluenceStatus": "DEF",
         "AddType": "Value",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectDurationTime": 600,
         "EffectRecive": 0,
         "TargetCount": 0
@@ -313,6 +343,9 @@
         "EffectValue": 3,
         "InfluenceStatus": "ATK",
         "AddType": "Value",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectDurationTime": 600,
         "EffectRecive": 0,
         "TargetCount": 0
@@ -343,6 +376,9 @@
         "EffectValue": 10,
         "InfluenceStatus": "AS",
         "AddType": "Value",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectDurationTime": 300,
         "EffectRecive": 0,
         "TargetCount": 0
@@ -372,6 +408,9 @@
         "ItemComponentID": "Utility",
         "EffectValue": 0,
         "InfluenceStatus": "Record",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectRecive": 0,
         "TargetCount": 0
       }
@@ -689,6 +728,9 @@
         "EffectValue": 50,
         "InfluenceStatus": "ExpRate",
         "AddType": "Value",
+        "ConditionOR": [
+          "NeedLv"
+        ],
         "EffectDurationTime": 1800,
         "EffectRecive": 0,
         "TargetCount": 0
