@@ -142,5 +142,13 @@
   {
     "TextID": "TM_ForgeError_EnhanceItemNotEnough",
     "TextContent": "強化錯誤，選擇的強化石在背包內不存在或是數量不足"
+  },
+  {
+    "TextID": "TM_ItemEffectQtyError",
+    "TextContent": "道具使用錯誤：背包內道具 {0} 數量不足！"
+  },
+  {
+    "TextID": "TM_ItemEffectCoolDownError",
+    "TextContent": "道具使用錯誤：道具 {0}正在冷卻時間中…"
   }
 ]

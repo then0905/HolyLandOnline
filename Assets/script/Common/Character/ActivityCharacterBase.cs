@@ -191,6 +191,16 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
 
     }
 
+    public virtual void DealingWithHealMethod(ICombatant attackerData, int value, bool animTrigger = true)
+    {
+
+    }
+
+    public virtual void DealingWithMageMethod(ICombatant attackerData, int value, bool animTrigger = true)
+    {
+
+    }
+
     public virtual void GetBuffEffect(ICombatant target, SkillOperationData skillData)
     {
 
@@ -212,16 +222,16 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
                 AttackEnable(false);
                 break;
             default:
-                break; 
+                break;
         }
-       
+
     }
 
     public virtual void RemoveDebuff(DebuffEffectBase debuffEffectBase)
     {
         switch (debuffEffectBase.InfluenceStatus)
         {
-            case "Stun":        
+            case "Stun":
                 //恢復移動 恢復施放技能 恢復攻擊
                 MoveEnable(true);
                 SkillEnable(true);

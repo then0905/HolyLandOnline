@@ -11,6 +11,7 @@ public static class GameConfig
 {
     public const string SkillIcon = "Skill/Icon";
     public const string SkillPrefab = "SkillPrefab";
+    public const string ItemEffectPrefab = "ItemEffectPrefab";
 
     public const string Monster = "Monster";
 

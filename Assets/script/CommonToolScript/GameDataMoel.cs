@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using static UnityEditor.Progress;
 
 //==========================================
 //  創建者:    家豪
@@ -156,9 +155,8 @@ public class ItemDataModel : BasalAttributesDataModel, IDictionaryData<string>, 
     public string TypeID { get; set; }            // 道具類型ID
     public string Intro { get; set; }            // 道具介紹
     public bool Stackability { get; set; }            // 可堆疊性
-    public List<float> Volume { get; set; }            // 道具作用值
+    public List<ItemEffectData> ItemEffectDataList { get; set; }            // 道具使用效果資料清單
     public float CD { get; set; }            // 道具冷卻時間
-    public int ActionTime { get; set; }            // 道具持續時間
     public int Price { get; set; }            // 道具在商店販賣的價格
     public int Redeem { get; set; }            // 道具賣給商店的價格
     public string GetKey { get { return CodeID; } }
@@ -176,6 +174,24 @@ public class ForgeData : BasalAttributesDataModel
     public float DestroyedProbability { get; set; }            // 強化失敗時物品損壞率
     public int Redeem { get; set; }            // 強化後道具回收價格(加上原本物品的售價)
     public string GetKey { get { return CodeID; } }
+}
+
+/// <summary>
+/// 道具使用後的效果資料
+/// </summary>
+public class ItemEffectData
+{
+    public string CodeID { get; set; }      // 道具ID
+    public string ItemComponentID { get; set; }        //道具組件ID
+    public float EffectValue { get; set; }        // 效果值 
+    public string InfluenceStatus { get; set; }     // 效果影響的屬性 (Buff)   
+    public string AddType { get; set; }      // 加成運算的方式 Rate:乘法、Value:加法   
+    public List<string> ConditionOR { get; set; }       //條件清單 (OR判斷 滿足其中一項即可)
+    public List<string> ConditionAND { get; set; }      //條件清單 (AND判斷 滿足所有條件)
+    public float EffectDurationTime { get; set; }       // 效果持續時間
+    public int EffectRecive { get; set; }       //效果接收方-3:隊友 -2:所有友軍(包含自己) -1:怪物、玩家 0:自身 1:敵軍
+    public int TargetCount { get; set; }        // 目標數量 -4:範圍內所有怪物-3:範圍內所有敵軍、-2:範圍內所有敵方目標、-1:隊友與自身、0:自己
+    public object Bonus { get; set; }       //配合道具組件規則的額外設定
 }
 
 #endregion

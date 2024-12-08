@@ -290,9 +290,25 @@ public class BagManager : MonoBehaviour
     /// 包包排序
     /// </summary>
     public void BagItemSort()
-    {        //背包物品重新排列 有資料的格數優先排列 物品=>武器=>防具
+    {     
+        //背包物品重新排列 有資料的格數優先排列 物品=>武器=>防具
         BagItems = BagItems.OrderByDescending(x => x.EquipmentDatas.Item != null)
             .ThenByDescending(x => x.EquipmentDatas.Weapon != null)
             .ThenByDescending(x => x.EquipmentDatas.Armor != null).ToList();
     }
+
+    /// <summary>
+    /// 取得背包內指定物品的數量
+    /// </summary>
+    /// <param name="codeID"></param>
+    /// <returns></returns>
+    public int GetItemQtyFromBag(string codeID)
+    {
+        var queryResult = BagItems.Where(x => x.EquipmentDatas.Weapon?.CodeID == codeID || x.EquipmentDatas.Armor?.CodeID == codeID || x.EquipmentDatas.Item?.CodeID == codeID).FirstOrDefault();
+        if (queryResult != null)
+            return queryResult.Qty;
+        else
+            return 0;
+    }
+
 }

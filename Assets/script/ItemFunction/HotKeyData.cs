@@ -34,14 +34,50 @@ public class HotKeyData : MonoBehaviour
     //放入升級後的技能ID 供外部呼叫
     public string UpgradeSkillID;
 
-
-    ////鍵位
-    //public int Keyindex;
-    ////鍵位背景圖
-    //public Image Background;
-    ////放入的資料ID 供外部呼叫參考
-    //public string HotKeyDataID;
-
+    void Update()
+    {
+        //按下快捷鍵
+        if (Input.GetKeyDown("1"))
+        {
+            HotKeyDataUse(0);
+        }
+        if (Input.GetKeyDown("2"))
+        {
+            HotKeyDataUse(1);
+        }
+        if (Input.GetKeyDown("3"))
+        {
+            HotKeyDataUse(2);
+        }
+        if (Input.GetKeyDown("4"))
+        {
+            HotKeyDataUse(3);
+        }
+        if (Input.GetKeyDown("5"))
+        {
+            HotKeyDataUse(4);
+        }
+        if (Input.GetKeyDown("6"))
+        {
+            HotKeyDataUse(5);
+        }
+        if (Input.GetKeyDown("7"))
+        {
+            HotKeyDataUse(6);
+        }
+        if (Input.GetKeyDown("8"))
+        {
+            HotKeyDataUse(7);
+        }
+        if (Input.GetKeyDown("9"))
+        {
+            HotKeyDataUse(8);
+        }
+        if (Input.GetKeyDown("0"))
+        {
+            HotKeyDataUse(9);
+        }
+    }
 
     /// <summary>
     /// 設定快捷鍵 (技能版)
@@ -72,6 +108,39 @@ public class HotKeyData : MonoBehaviour
         //設定技能讀條
         hotkeyCdSlider.maxValue = skill_Base.CooldownTime;
         hotkeyCdSlider.value = skill_Base.CooldownTime;
+
+        //裝上新的技能到快捷鍵 重新刷新狀態 需要呼叫觸發技能條件檢查事件
+        StatusOperation.Instance.StatusMethod();
+    }
+
+    /// <summary>
+    /// 設定快捷鍵 (道具效果版)
+    /// </summary>
+    /// <param name="itemIcon">技能圖示</param>
+    /// <param name="data">技能腳本資料</param>
+    public void SetItemEffect(Sprite itemIcon, IHotKey data)
+    {
+        //先檢查快捷鍵上是否已有此技能資料 有的話清除
+        bool queryResult = SkillController.Instance.SkillHotKey.Any(x => x.TempHotKeyData?.KeyID == data.KeyID);
+
+        if (queryResult)
+        {
+            var targetQueryResult = SkillController.Instance.SkillHotKey.Where(x => x.TempHotKeyData?.KeyID == data.KeyID).ToList();
+            targetQueryResult.ForEach(x => x.ClearHotKeyData());
+        }
+
+        //設定 技能圖片 與升級後的技能ID
+        hotkeyBackground.sprite = itemIcon;
+        hotkeyCdSliderImage.sprite = itemIcon;
+        tempHotKeyData = Instantiate(((ItemEffectBase)data).gameObject).GetComponent<ItemEffectBase>();
+
+        //取得技能腳本資料
+        ItemEffectBase itemEffect_Base = (ItemEffectBase)tempHotKeyData;
+        itemEffect_Base.InitItemEffectData();
+
+        //設定讀條
+        hotkeyCdSlider.maxValue = itemEffect_Base.CooldownTime;
+        hotkeyCdSlider.value = itemEffect_Base.CooldownTime;
 
         //裝上新的技能到快捷鍵 重新刷新狀態 需要呼叫觸發技能條件檢查事件
         StatusOperation.Instance.StatusMethod();
@@ -111,6 +180,33 @@ public class HotKeyData : MonoBehaviour
     {
         hotkeyBackground.sprite = upgradeSkillSprite;
         hotkeyCdSliderImage.sprite = upgradeSkillSprite;
+    }
+
+    /// <summary>
+    /// 快捷鍵資料使用
+    /// </summary>
+    /// <param name="keyIndex"></param>
+    private void HotKeyDataUse(int keyIndex)
+    {
+        if (tempHotKeyData is Skill_Base)
+        {
+            SkillController.Instance.SkillUse(keyIndex);
+        }
+        else if (tempHotKeyData is ItemEffectBase)
+        {
+            //判斷 快捷鍵的資料是否為空值
+            if (SkillController.Instance.SkillHotKey[keyIndex].TempHotKeyData != null)
+            {
+                //取得 該技能UI版資料
+                ItemEffectBase itemEffect_Base = (ItemEffectBase)SkillController.Instance.SkillHotKey[keyIndex].TempHotKeyData;
+
+                //判斷道具數量是否足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
+                if (!itemEffect_Base.ItemEffectCanUse())
+                    return;
+
+                itemEffect_Base.ItemEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
+            }
+        }
     }
 }
 

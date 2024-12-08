@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -469,6 +468,18 @@ public class MonsterBehaviour : ActivityCharacterBase
         }
     }
 
+    public override void DealingWithHealMethod(ICombatant battleData, int value, bool animTrigger = true)
+    {
+        //血量改動
+        HP += value;
+    }
+
+    public override void DealingWithMageMethod(ICombatant battleData, int value, bool animTrigger = true)
+    {
+        //魔力改動
+        MP += value;
+    }
+
     public override void DealingWithInjuriesMethod(ICombatant battleData, int damage, bool animTrigger = true)
     {
         StartCoroutine(DealingWithInjuriesCoroutine(battleData, damage, animTrigger));
@@ -506,6 +517,7 @@ public class MonsterBehaviour : ActivityCharacterBase
 
         MonsterSetting(MonserBehaviorEnum.Pursue);
     }
+
 
     /// <summary>
     /// 經驗值處理

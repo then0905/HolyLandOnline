@@ -175,7 +175,7 @@ public class BagsItemIntro : MonoBehaviour
         Part.text = "TM_WearPart".GetText(true) + introData.Part;
         Type.text = "TM_ItemType".GetText(true) + introData.Type;
         Lv.text = "TM_NeedLv".GetText(true) + introData.Lv;
-        Forge.text = string.Format("TM_ForgeLV".GetText(),introData.ForgeLv);
+        Forge.text = string.Format("TM_ForgeLV".GetText(), introData.ForgeLv);
         Intro.text = introData.Content;
         Image.sprite = introData.Icon;
     }
@@ -359,9 +359,21 @@ public class BagsItemIntro : MonoBehaviour
     private void AddItemVaule()
     {
         var itemData = introItem.EquipmentDatas.Item;
-        Value.text = "TM_Volume".GetText(true) + (itemData.Volume.Count > 0 ? itemData.Volume[0] + "~" + itemData.Volume[itemData.Volume.Count - 1] : itemData.Volume[0]) + "\n"
+        var effectDatas = introItem.EquipmentDatas.Item.ItemEffectDataList;
+        string introStr = "TM_Volume".GetText(true);
+        if (effectDatas.CheckAnyData())
+            foreach (var effect in effectDatas)
+            {
+                if (!string.IsNullOrEmpty(effect.AddType) && !string.IsNullOrEmpty(effect.AddType))
+                    introStr += ("TM_" + effect.InfluenceStatus).GetText() + string.Format(("TM_" + effect.AddType).GetText(), effect.EffectValue.ToString()) + "\n";
+                else
+                    introStr += "--";
+            }
+        else
+            introStr += "--";
+        Value.text = introStr
                + "TM_CD".GetText(true) + itemData.CD + "\n"
-               + "TM_Duration".GetText(true) + itemData.ActionTime + "\n";
+               + "TM_Duration".GetText(true) + itemData.ItemEffectDataList.FirstOrDefault().EffectDurationTime + "\n";
     }
     #endregion
 }

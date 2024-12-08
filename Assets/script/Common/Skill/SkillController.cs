@@ -70,51 +70,6 @@ public class SkillController : MonoBehaviour
 
     public Action<string> SkillConditionCheckEvent;     //發生特定事情後 檢查技能條件是否達成
 
-    void Update()
-    {
-        //按下快捷鍵
-        if (Input.GetKeyDown("1"))
-        {
-            SkillUse(0);
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            SkillUse(1);
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            SkillUse(2);
-        }
-        if (Input.GetKeyDown("4"))
-        {
-            SkillUse(3);
-        }
-        if (Input.GetKeyDown("5"))
-        {
-            SkillUse(4);
-        }
-        if (Input.GetKeyDown("6"))
-        {
-            SkillUse(5);
-        }
-        if (Input.GetKeyDown("7"))
-        {
-            SkillUse(6);
-        }
-        if (Input.GetKeyDown("8"))
-        {
-            SkillUse(7);
-        }
-        if (Input.GetKeyDown("9"))
-        {
-            SkillUse(8);
-        }
-        if (Input.GetKeyDown("0"))
-        {
-            SkillUse(9);
-        }
-    }
-
     /// <summary>
     /// 鍵入技能
     /// </summary>

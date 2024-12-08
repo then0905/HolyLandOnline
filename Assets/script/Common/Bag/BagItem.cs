@@ -151,9 +151,8 @@ public class BagItem : MonoBehaviour
         PointerEventData data = baseEventData as PointerEventData;
 
         //獲取放開拖曳後 滑鼠座標的物件
-        Equipment MovingItem = data.pointerCurrentRaycast.gameObject.GetComponent<Equipment>();
         //檢查空值
-        if (MovingItem == null)
+        if (data.pointerCurrentRaycast.gameObject == null)
         {
             print("空值return");
             ReverseDragObj();
@@ -161,8 +160,9 @@ public class BagItem : MonoBehaviour
         }
         else
         {
+            Equipment MovingItem = data.pointerCurrentRaycast.gameObject.GetComponent<Equipment>();
             //若是裝備格
-            if (MovingItem.tag == "Equip")
+            if (data.pointerCurrentRaycast.gameObject.tag == "Equip")
             {
                 //檢查武器欄
                 if (cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon != null)
@@ -205,7 +205,7 @@ public class BagItem : MonoBehaviour
                 }
             }
             //若是背包格       
-            else if (MovingItem.tag == "BagItem")
+            else if (data.pointerCurrentRaycast.gameObject.tag == "BagItem")
             {
                 //若開始拖曳的欄位是裝備欄 則是脫裝 脫裝要檢查 若放開拖曳的格子有資料的話 判斷是否可以更換裝備
                 if (OriginItemSeat.tag == "Equip")
@@ -272,6 +272,11 @@ public class BagItem : MonoBehaviour
                     ChangeSeat(MovingItem);
                     return;
                 }
+            }
+            else if (data.pointerCurrentRaycast.gameObject.tag == "HotKey")
+            {
+                SetItemEffectHotKey(data.pointerCurrentRaycast.gameObject.GetComponent<HotKeyData>(),
+    cloneItem.transform.GetComponent<Equipment>().EquipImage.sprite, CommonFunction.LoadItemEffectPrefab(cloneItem.transform.GetComponent<Equipment>().EquipmentDatas.ItemCommonData.CodeID));
             }
             //都不是則回原位子
             else
@@ -389,5 +394,18 @@ public class BagItem : MonoBehaviour
         OriginItemSeat.GetComponent<Equipment>().EquipImage.sprite = cloneItem.GetComponent<Equipment>().EquipImage.sprite;
         OriginItemSeat.GetComponent<Equipment>().EquipmentDatas = cloneItem.GetComponent<Equipment>().EquipmentDatas.Clone();
         ReductionDrag();
+    }
+
+    /// <summary>
+    /// 設置快捷鍵資料
+    /// </summary>
+    /// <param name="itemEffectHotkey"></param>
+    /// <param name="itemEffectIcon"></param>
+    /// <param name="itemID"></param>
+    public void SetItemEffectHotKey(HotKeyData itemEffectHotkey, Sprite itemEffectIcon, IHotKey itemID)
+    {
+        itemEffectHotkey.SetItemEffect(itemEffectIcon, itemID);
+        //還原原始格子
+        ReverseDragObj();
     }
 }

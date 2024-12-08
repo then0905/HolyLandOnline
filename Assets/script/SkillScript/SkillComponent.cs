@@ -74,6 +74,26 @@ public class DamageSkillComponent : DamageComponent
         }
     }
 }
+/// <summary>
+/// 治癒技能組件
+/// </summary>
+public class HealthComponent : SkillComponent
+{
+    public HealthComponent(Skill_Base skill_Base, SkillOperationData operationData)
+    {
+        skillbase = skill_Base;
+        skillOperationData = operationData;
+    }
+
+    public override void Execute(ICombatant caster, ICombatant target)
+    {
+        if (SelectTarget.Instance.Targetgameobject != null/* && !SkillBeUpgrade*/)
+        {
+            Skill_Base_Attack skill_Base_Attack = skillbase as Skill_Base_Attack;
+            BattleOperation.Instance.SkillHealEvent?.Invoke(this, caster, target);
+        }
+    }
+}
 
 /// <summary>
 /// 多段傷害演出技能組件

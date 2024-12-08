@@ -305,6 +305,16 @@ public class PlayerDataOverView : ActivityCharacterBase
         ChangeHpEvent.Invoke(damage);
     }
 
+    public override void DealingWithHealMethod(ICombatant attackerData, int value, bool animTrigger = true)
+    {
+        ChangeHpEvent.Invoke(value);
+    }
+
+    public override void DealingWithMageMethod(ICombatant attackerData, int value, bool animTrigger = true)
+    {
+        ChangeMpEvent.Invoke(value);
+    }
+
     public override void GetBuffEffect(ICombatant target, SkillOperationData skillData)
     {
         StatusOperation.Instance.SkillEffectStatusOperation(skillData.InfluenceStatus, (skillData.AddType == "Rate"), skillData.EffectValue);

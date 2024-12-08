@@ -61,6 +61,22 @@ public interface ICombatant
     public void DealingWithInjuriesMethod(ICombatant attackerData, int damage, bool animTrigger = true);
 
     /// <summary>
+    /// 受到血量回復處理
+    /// </summary>
+    /// <param name="attackerData"></param>
+    /// <param name="damage"></param>
+    /// <param name="animTrigger"></param>
+    public void DealingWithHealMethod(ICombatant attackerData, int value, bool animTrigger = true);
+
+    /// <summary>
+    /// 受到魔力回復處理
+    /// </summary>
+    /// <param name="attackerData"></param>
+    /// <param name="damage"></param>
+    /// <param name="animTrigger"></param>
+    public void DealingWithMageMethod(ICombatant attackerData, int value, bool animTrigger = true);
+
+    /// <summary>
     /// 賦予目標Buff處理
     /// </summary>
     /// <param name="target"></param>
@@ -120,6 +136,14 @@ public interface ICombatant
     public void AttackEnable(bool enable);
 }
 
+public enum DmgTextColor
+{
+    white,
+    yellow,
+    red,
+    green
+}
+
 public class BattleOperation : MonoBehaviour
 {
 
@@ -143,6 +167,10 @@ public class BattleOperation : MonoBehaviour
 
     //技能攻擊
     public Action<DamageComponent, ICombatant, ICombatant> SkillAttackEvent;
+    //技能治癒
+    public Action<HealthComponent, ICombatant, ICombatant> SkillHealEvent;
+    //道具治癒
+    public Action<ItemComponent, ICombatant, ICombatant> ItemRestorationEvent;
     //普通攻擊
     public Action<ICombatant, ICombatant> NormalAttackEvent;
 
@@ -150,12 +178,16 @@ public class BattleOperation : MonoBehaviour
     {
         SkillAttackEvent += BattleOperationStart;
         NormalAttackEvent += BattleOperationStart;
+        SkillHealEvent += BattleOperationStart;
+        ItemRestorationEvent += BattleOperationStart;
     }
 
     private void OnDisable()
     {
         SkillAttackEvent -= BattleOperationStart;
         NormalAttackEvent -= BattleOperationStart;
+        SkillHealEvent -= BattleOperationStart;
+        ItemRestorationEvent -= BattleOperationStart;
     }
 
     /// <summary>
@@ -180,6 +212,66 @@ public class BattleOperation : MonoBehaviour
         //檢查空值
         if (skillCompnent != null && attacker != default(ICombatant) && defender != default(ICombatant))
             HitOrMiss(attacker, defender, skillCompnent);
+    }
+
+    /// <summary>
+    /// 獲取戰鬥對象
+    /// </summary>    
+    /// <param name="itemCompnent">道具資料</param>
+    /// <param name="caster">攻擊方</param>
+    /// <param name="target">防守方</param>
+    public void BattleOperationStart(ItemComponent itemCompnent, ICombatant caster, ICombatant target)
+    {
+        //檢查空值
+        if (itemCompnent != null && caster != default(ICombatant) && target != default(ICombatant))
+            RecoveryItemProcessor(caster, target, itemCompnent);
+    }
+
+    /// <summary>
+    /// 獲取戰鬥對象
+    /// </summary>    
+    /// <param name="skillCompnent">攻擊技能資料</param>
+    /// <param name="caster">攻擊方</param>
+    /// <param name="target">防守方</param>
+    public void BattleOperationStart(HealthComponent skillCompnent, ICombatant caster, ICombatant target)
+    {
+        //檢查空值
+        if (skillCompnent != null && caster != default(ICombatant) && target != default(ICombatant))
+            HealSkillProcessor(caster, target, skillCompnent);
+    }
+
+    /// <summary>
+    /// 治癒技能效果處理
+    /// </summary>
+    /// <param name="caster"></param>
+    /// <param name="target"></param>
+    /// <param name="skillCompnent"></param>
+    public void HealSkillProcessor(ICombatant caster, ICombatant target, HealthComponent skillCompnent = null)
+    {
+        float damage;
+        // 取得基礎傷害
+        damage = caster.ATK;
+        // 計算倍率
+        damage = damage * skillCompnent.SkillOperationData.EffectValue;
+
+        target.DealingWithHealMethod(caster, (int)damage);
+
+        InstanceDmgGUI(damage.ToString(), DmgTextColor.green, target.Obj);
+    }
+
+    /// <summary>
+    /// 回復道具效果處理
+    /// </summary>
+    /// <param name="caster"></param>
+    /// <param name="target"></param>
+    /// <param name="itemComponent"></param>
+    public void RecoveryItemProcessor(ICombatant caster, ICombatant target, ItemComponent itemComponent = null)
+    {
+        if (itemComponent.ItemEffectData.InfluenceStatus == "HP")
+            target.DealingWithHealMethod(caster, (int)itemComponent.ItemEffectData.EffectValue);
+        if (itemComponent.ItemEffectData.InfluenceStatus == "MP")
+            target.DealingWithMageMethod(caster, (int)itemComponent.ItemEffectData.EffectValue);
+        InstanceDmgGUI(itemComponent.ItemEffectData.EffectValue.ToString(), DmgTextColor.green, target.Obj);
     }
 
     /// <summary>
@@ -209,7 +301,7 @@ public class BattleOperation : MonoBehaviour
         if (isHit <= hitRate)
             CrtOrNormal(attacker, defender, skillCompnent);
         else
-            InstanceDmgGUI("Miss", false, defender.Obj);
+            InstanceDmgGUI("Miss", DmgTextColor.white, defender.Obj);
     }
 
     /// <summary>
@@ -266,7 +358,7 @@ public class BattleOperation : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
 
         defender.DealingWithInjuriesMethod(attacker, finalDamage, !(skillcompnent is MultipleDamageSkillComponent));
-        InstanceDmgGUI(finalDamage.ToString(), iscrt, defender.Obj);
+        InstanceDmgGUI(finalDamage.ToString(), (iscrt ? DmgTextColor.red : DmgTextColor.yellow), defender.Obj);
     }
 
     /// <summary>
@@ -275,7 +367,7 @@ public class BattleOperation : MonoBehaviour
     /// <param name="dmgVaule">傷害值</param>
     /// <param name="iscrt">是否暴擊</param>
     /// <param name="target">生成數字參考對象</param>
-    public void InstanceDmgGUI(string dmgVaule, bool iscrt, GameObject target)
+    public void InstanceDmgGUI(string dmgVaule, DmgTextColor textColor, GameObject target)
     {
         //載入傷害數字prefab
         GameObject DamageGUI = Resources.Load("DMGtext") as GameObject;
@@ -283,28 +375,25 @@ public class BattleOperation : MonoBehaviour
         GameObject head = target.transform.GetChild(0).gameObject;
 
         //判別 是否命中 是否暴擊 產生不同顏色
-        if (dmgVaule == "Miss")
+        switch (textColor)
         {
-            DamageGUI.GetComponent<DamageGUI>().DMGtext.GetComponent<TMP_Text>().color = Color.white;
-        }
-        else
-        {
-            if (iscrt)
-            {
+            case DmgTextColor.white:
+                DamageGUI.GetComponent<DamageGUI>().DMGtext.GetComponent<TMP_Text>().color = Color.white;
+                break;
+            case DmgTextColor.red:
                 DamageGUI.GetComponent<DamageGUI>().DMGtext.GetComponent<TMP_Text>().color = Color.red;
-            }
-            else
-            {
+                break;
+            case DmgTextColor.yellow:
                 DamageGUI.GetComponent<DamageGUI>().DMGtext.GetComponent<TMP_Text>().color = Color.yellow;
-            }
+                break;
+            case DmgTextColor.green:
+                DamageGUI.GetComponent<DamageGUI>().DMGtext.GetComponent<TMP_Text>().color = Color.green;
+                break;
         }
 
         //輸入傷害值
         DamageGUI.GetComponent<DamageGUI>().DMGvalue = dmgVaule;
         //生成傷害數字物件
         Instantiate(DamageGUI, head.transform.position, Quaternion.identity, head.transform);
-
-        //還原技能施展防呆
-        //SkillDisplayAction.Instance.UsingSkill = false;
     }
 }

@@ -137,6 +137,16 @@ public static class CommonFunction
     }
 
     /// <summary>
+    /// 獲取道具效果預製物專用
+    /// </summary>
+    /// <param name="itemID">道具ID</param>
+    /// <returns>回傳道具效果預製物</returns>
+    public static ItemEffectBase LoadItemEffectPrefab(string itemID)
+    {
+        return LoadObject<GameObject>(GameConfig.ItemEffectPrefab, "ItemEffect_" + itemID).GetComponent<ItemEffectBase>();
+    }
+
+    /// <summary>
     /// 取得文字內容
     /// </summary>
     /// <param name="id">帶入文字ID</param>
