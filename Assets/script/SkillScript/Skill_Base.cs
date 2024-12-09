@@ -337,7 +337,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     protected void OnDestroy()
     {
         if (UseSkillCheck && PlayerDataOverView.Instance != null)
-            SkillController.Instance.SkillConditionCheckEvent -= SkillBuffSub;
+            SkillController.Instance.SkillConditionCheckEvent -= SkillConditionSub;
     }
 
     /// <summary>
@@ -367,7 +367,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
 
         //是否需要判斷條件 需要的話 訂閱事件
         if (UseSkillCheck)
-            SkillController.Instance.SkillConditionCheckEvent += SkillBuffSub;
+            SkillController.Instance.SkillConditionCheckEvent += SkillConditionSub;
         else
             //不需要判斷條件 直接允許技能使用
             skillCondtionCheck = true;
@@ -423,7 +423,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
     /// </summary>
     /// <param name="key"></param>
     /// <param name="value"></param>
-    public virtual void SkillBuffSub(string key)
+    public virtual void SkillConditionSub(string key)
     {
         List<bool> checkCondtionOR = new List<bool>();
         List<bool> checkCondtionAND = new List<bool>();

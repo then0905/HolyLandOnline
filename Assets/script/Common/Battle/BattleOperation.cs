@@ -136,12 +136,16 @@ public interface ICombatant
     public void AttackEnable(bool enable);
 }
 
+/// <summary>
+/// 傷害數字顏色Enum
+/// </summary>
 public enum DmgTextColor
 {
     white,
     yellow,
     red,
-    green
+    green,
+    blue
 }
 
 public class BattleOperation : MonoBehaviour
@@ -268,10 +272,15 @@ public class BattleOperation : MonoBehaviour
     public void RecoveryItemProcessor(ICombatant caster, ICombatant target, ItemComponent itemComponent = null)
     {
         if (itemComponent.ItemEffectData.InfluenceStatus == "HP")
+        {
             target.DealingWithHealMethod(caster, (int)itemComponent.ItemEffectData.EffectValue);
+            InstanceDmgGUI(itemComponent.ItemEffectData.EffectValue.ToString(), DmgTextColor.green, target.Obj);
+        }
         if (itemComponent.ItemEffectData.InfluenceStatus == "MP")
+        {
             target.DealingWithMageMethod(caster, (int)itemComponent.ItemEffectData.EffectValue);
-        InstanceDmgGUI(itemComponent.ItemEffectData.EffectValue.ToString(), DmgTextColor.green, target.Obj);
+            InstanceDmgGUI(itemComponent.ItemEffectData.EffectValue.ToString(), DmgTextColor.blue, target.Obj);
+        }
     }
 
     /// <summary>
@@ -388,6 +397,9 @@ public class BattleOperation : MonoBehaviour
                 break;
             case DmgTextColor.green:
                 DamageGUI.GetComponent<DamageGUI>().DMGtext.GetComponent<TMP_Text>().color = Color.green;
+                break;
+            case DmgTextColor.blue:
+                DamageGUI.GetComponent<DamageGUI>().DMGtext.GetComponent<TMP_Text>().color = Color.blue;
                 break;
         }
 

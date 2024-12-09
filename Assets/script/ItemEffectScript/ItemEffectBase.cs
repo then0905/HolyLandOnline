@@ -77,6 +77,8 @@ public abstract class ItemEffectBase : MonoBehaviour, IItemEffect, IHotKey
 
     public ItemDataModel ItemData { get; set; }
 
+    //取得 道具效果所有運算資料
+    protected List<ItemEffectData> itemEffectDataList => ItemData.ItemEffectDataList;
     public string ItemName { get; set; }
 
     public string ItemIntro { get; set; }
@@ -125,20 +127,16 @@ public abstract class ItemEffectBase : MonoBehaviour, IItemEffect, IHotKey
 
         //設定生成特效參考
         if (effectObj != null) InitItemEffect();
-
-        //是否需要判斷條件 需要的話 訂閱事件
-        //if (UseSkillCheck)
-        //    SkillController.Instance.SkillConditionCheckEvent += SkillBuffSub;
-        //else
-        //    //不需要判斷條件 直接允許技能使用
-        //    skillCondtionCheck = true;
     }
 
     public void ItemEffect(ICombatant caster, ICombatant target)
     {
-        if (!CooldownTime.Equals(0))
-            StartCoroutine(UpdateCooldown(CooldownTime));
-        ItemEffectStart(caster, target);
+        if (ItemEffectCondition())
+        {
+            if (!CooldownTime.Equals(0))
+                StartCoroutine(UpdateCooldown(CooldownTime));
+            ItemEffectStart(caster, target);
+        }
     }
 
     public IEnumerator UpdateCooldown(float deltaTime)
@@ -206,7 +204,108 @@ public abstract class ItemEffectBase : MonoBehaviour, IItemEffect, IHotKey
         BagManager.Instance.RemoveItem(ItemID, qty);
     }
 
+    /// <summary>
+    /// 道具使用前 檢查條件查看是否達成條件
+    /// </summary>
+    /// <param name="key"></param>
+    /// <param name="value"></param>
+    public bool ItemEffectCondition()
+    {
+        List<bool> checkCondtionOR = new List<bool>();
+        List<bool> checkCondtionAND = new List<bool>();
 
+        //檢查 技能運算資料清單
+        foreach (var operationData in itemEffectDataList)
+        {
+            var listOR = operationData.ConditionOR;
+            var listAND = operationData.ConditionAND;
+
+            //發送的訂閱類型非此被動技能的類型 不進行檢查
+            if (!listOR.CheckAnyData() && !listAND.CheckAnyData())
+                return true;
+
+            //檢查條件清單
+            if (listOR.CheckAnyData())
+                checkCondtionOR.Add(CheckConditionOR(listOR));
+            if (listAND.CheckAnyData())
+                checkCondtionAND.Add(CheckConditionAND(listAND));
+        }
+        //設定技能是否允許使用 (OR條件任一達成 以及 AND條件全達成或是沒有任何AND資料)
+        return (checkCondtionAND.CheckAnyData()) ? (checkCondtionOR.Any(x => x) && checkCondtionAND.All(x => x)) : checkCondtionOR.Any(x => x);
+    }
+
+    /// <summary>
+    /// 效果所需條件是否達成判斷 OR版
+    /// </summary>
+    /// <returns></returns>
+    protected bool CheckConditionOR(List<string> condtions)
+    {
+        if (!condtions.CheckAnyData())
+            return (false);
+
+        List<bool> checkResult = new List<bool>();
+
+        checkResult.AddRange(DetailConditionProcess(condtions));
+
+        //回傳條件結果
+        return checkResult.Any(x => x == true);
+    }
+
+    /// <summary>
+    /// 效果所需條件是否達成判斷 AND版
+    /// </summary>
+    /// <returns></returns>
+    protected bool CheckConditionAND(List<string> condtions)
+    {
+        List<bool> checkResult = new List<bool>();
+
+        checkResult.AddRange(DetailConditionProcess(condtions));
+
+        //回傳條件結果
+        return checkResult.All(x => x == true);
+    }
+
+    /// <summary>
+    /// 詳細條件判斷處理
+    /// </summary>
+    /// <param name="key">條件名稱</param>
+    /// <param name="value">條件判斷值</param>
+    /// <returns></returns>
+    protected List<bool> DetailConditionProcess(List<string> conditions)
+    {
+        //宣告 判斷條件清單
+        List<bool> finalResult = new List<bool>();
+        //宣告 儲存條件判斷字典
+        List<string> conditionDetail = new List<string>();
+
+        foreach (string condition in conditions)
+        {
+            conditionDetail.Add(condition);
+        }
+
+        //根據處理完的字典資料 判斷條件是否達成
+        foreach (var condtionData in conditionDetail)
+        {
+            switch (condtionData)
+            {
+                //不含有任何條件判斷
+                default:
+                    finalResult.Add(false);
+                    break;
+                //檢查道具使用所需等級
+                case "NeedLv":
+                    finalResult.Add(PlayerDataOverView.Instance.PlayerData_.Lv >= ItemData.LV);
+                    break;
+            }
+        }
+        return finalResult;
+    }
+
+    /// <summary>
+    /// 取得道具效果組件
+    /// </summary>
+    /// <param name="itemComponent"></param>
+    /// <returns></returns>
     public IItemComponent ItemComponent(ItemEffectData itemComponent)
     {
         switch (itemComponent.ItemComponentID)

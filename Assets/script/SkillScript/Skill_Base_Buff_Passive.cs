@@ -52,7 +52,7 @@ public class Skill_Base_Buff_Passive : Skill_Base_Buff
             buffIsRun = false;
         }
     }
-    public override void SkillBuffSub(string key)
+    public override void SkillConditionSub(string key)
     {
         List<bool> checkCondtionOR = new List<bool>();
         List<bool> checkCondtionAND = new List<bool>();
