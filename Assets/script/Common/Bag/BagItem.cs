@@ -151,8 +151,10 @@ public class BagItem : MonoBehaviour
         PointerEventData data = baseEventData as PointerEventData;
 
         //獲取放開拖曳後 滑鼠座標的物件
+        GameObject endDragTargetObj = data.pointerCurrentRaycast.gameObject;
+
         //檢查空值
-        if (data.pointerCurrentRaycast.gameObject == null)
+        if (endDragTargetObj == null)
         {
             print("空值return");
             ReverseDragObj();
@@ -160,9 +162,9 @@ public class BagItem : MonoBehaviour
         }
         else
         {
-            Equipment MovingItem = data.pointerCurrentRaycast.gameObject.GetComponent<Equipment>();
+            Equipment MovingItem = endDragTargetObj.GetComponent<Equipment>();
             //若是裝備格
-            if (data.pointerCurrentRaycast.gameObject.tag == "Equip")
+            if (endDragTargetObj.tag == "Equip")
             {
                 //檢查武器欄
                 if (cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon != null)
@@ -205,18 +207,18 @@ public class BagItem : MonoBehaviour
                 }
             }
             //若是背包格       
-            else if (data.pointerCurrentRaycast.gameObject.tag == "BagItem")
+            else if (endDragTargetObj.tag == "BagItem")
             {
                 //若開始拖曳的欄位是裝備欄 則是脫裝 脫裝要檢查 若放開拖曳的格子有資料的話 判斷是否可以更換裝備
                 if (OriginItemSeat.tag == "Equip")
                 {
                     //若是空格的情況 直接更換
-                    if (MovingItem.GetComponent<Equipment>().EquipmentDatas.Armor == null &&
-                        MovingItem.GetComponent<Equipment>().EquipmentDatas.Weapon == null &&
-                        MovingItem.GetComponent<Equipment>().EquipmentDatas.Item == null)
+                    if (MovingItem.EquipmentDatas.Armor == null &&
+                        MovingItem.EquipmentDatas.Weapon == null &&
+                        MovingItem.EquipmentDatas.Item == null)
                     {
-                        MovingItem.GetComponent<Equipment>().EquipImage.sprite = cloneItem.GetComponent<Equipment>().EquipImage.sprite;
-                        MovingItem.GetComponent<Equipment>().EquipmentDatas = cloneItem.GetComponent<Equipment>().EquipmentDatas.Clone();
+                        MovingItem.EquipImage.sprite = cloneItem.GetComponent<Equipment>().EquipImage.sprite;
+                        MovingItem.EquipmentDatas = cloneItem.GetComponent<Equipment>().EquipmentDatas.Clone();
                         ReductionDrag();
                         OriginItemSeat.GetComponent<Equipment>().EquipImage.sprite = BagItemOriginImage;
                         OriginItemSeat.GetComponent<Equipment>().EquipmentDatas.Armor = null;
@@ -228,7 +230,7 @@ public class BagItem : MonoBehaviour
                         print("將裝備脫到背包內空的格子上");
                     }
                     //檢查該格 是否有武器資料
-                    else if (MovingItem.GetComponent<Equipment>().EquipmentDatas.Weapon != null)
+                    else if (MovingItem.EquipmentDatas.Weapon != null)
                     {
                         if (MovingItem.GetComponent<EquipData>().PartID.Contains(cloneItem.GetComponent<Equipment>().EquipmentDatas.Weapon.TackHandID))
                         {
@@ -243,7 +245,7 @@ public class BagItem : MonoBehaviour
                         }
                     }
                     //檢查該格 是否有裝備資料
-                    else if (MovingItem.GetComponent<Equipment>().EquipmentDatas.Armor != null)
+                    else if (MovingItem.EquipmentDatas.Armor != null)
                     {
                         if (MovingItem.GetComponent<EquipData>().PartID.Contains(cloneItem.GetComponent<Equipment>().EquipmentDatas.Armor.WearPartID))
                         {
@@ -258,7 +260,7 @@ public class BagItem : MonoBehaviour
                         }
                     }
                     //若該格是道具 不可更換穿戴
-                    else if (MovingItem.GetComponent<Equipment>().EquipmentDatas.Item != null)
+                    else if (MovingItem.EquipmentDatas.Item != null)
                     {
                         print("若該格是道具 不可更換穿戴 return");
                         ReverseDragObj();
@@ -273,7 +275,8 @@ public class BagItem : MonoBehaviour
                     return;
                 }
             }
-            else if (data.pointerCurrentRaycast.gameObject.tag == "HotKey")
+            //若是快捷鍵
+            else if (endDragTargetObj.tag == "HotKey")
             {
                 SetItemEffectHotKey(data.pointerCurrentRaycast.gameObject.GetComponent<HotKeyData>(),
     cloneItem.transform.GetComponent<Equipment>().EquipImage.sprite, CommonFunction.LoadItemEffectPrefab(cloneItem.transform.GetComponent<Equipment>().EquipmentDatas.ItemCommonData.CodeID));
@@ -286,6 +289,7 @@ public class BagItem : MonoBehaviour
             }
         }
     }
+
     #endregion
 
     /// <summary>

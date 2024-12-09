@@ -681,7 +681,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
             TempCooldownTime -= 0.1f;
             //更新技能冷卻讀條
             //skillCdSlider.value = CooldownTime - TempCooldownTime;
-            var hotkeyData = SkillController.Instance.SkillHotKey.Where(x => (x.TempHotKeyData is Skill_Base) && ((object)x.TempHotKeyData == this)).FirstOrDefault();
+            var hotkeyData = HotKeyManager.Instance.HotKeyArray.Where(x => (x.TempHotKeyData is Skill_Base) && ((object)x.TempHotKeyData == this)).FirstOrDefault();
             if (hotkeyData == null)
             {
                 Debug.Log("快捷鍵上沒有正在施放的技能 :" + SkillName);

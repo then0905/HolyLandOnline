@@ -331,7 +331,7 @@ public class UpgradeSkillComponent : BuffComponent
         //更新快捷鍵上的技能圖片
 
         //獲取快捷鍵資料
-        List<HotKeyData> hotKeyDataList = SkillController.Instance.SkillHotKey.ToList();
+        List<HotKeyData> hotKeyDataList = HotKeyManager.Instance.HotKeyArray.ToList();
         //收尋快捷鍵上資料ID 找尋升級的指定技能ID
         HotKeyData item = hotKeyDataList.Find(x => x.TempHotKeyData != null && x.TempHotKeyData.KeyID == targetSkillID);
         if (item != null)
@@ -363,7 +363,7 @@ public class UpgradeSkillComponent : BuffComponent
         //更新快捷鍵上的技能圖片
 
         //獲取快捷鍵資料
-        List<HotKeyData> hotKeyDataList = SkillController.Instance.SkillHotKey.ToList();
+        List<HotKeyData> hotKeyDataList = HotKeyManager.Instance.HotKeyArray.ToList();
         //收尋快捷鍵上資料ID 找尋升級的指定技能ID
         HotKeyData item = hotKeyDataList.Find(x => x.TempHotKeyData != null && x.TempHotKeyData.KeyID == targetSkillID);
         if (item != null)

@@ -31,52 +31,15 @@ public class HotKeyData : MonoBehaviour
     //暫存此快捷鍵資料 無論是技能還是道具
     private IHotKey tempHotKeyData;
     public IHotKey TempHotKeyData => tempHotKeyData;
+    //快捷鍵管理器
+    private HotKeyManager hotKeyManager;
+
     //放入升級後的技能ID 供外部呼叫
     public string UpgradeSkillID;
 
-    void Update()
+    private void Start()
     {
-        //按下快捷鍵
-        if (Input.GetKeyDown("1"))
-        {
-            HotKeyDataUse(0);
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            HotKeyDataUse(1);
-        }
-        if (Input.GetKeyDown("3"))
-        {
-            HotKeyDataUse(2);
-        }
-        if (Input.GetKeyDown("4"))
-        {
-            HotKeyDataUse(3);
-        }
-        if (Input.GetKeyDown("5"))
-        {
-            HotKeyDataUse(4);
-        }
-        if (Input.GetKeyDown("6"))
-        {
-            HotKeyDataUse(5);
-        }
-        if (Input.GetKeyDown("7"))
-        {
-            HotKeyDataUse(6);
-        }
-        if (Input.GetKeyDown("8"))
-        {
-            HotKeyDataUse(7);
-        }
-        if (Input.GetKeyDown("9"))
-        {
-            HotKeyDataUse(8);
-        }
-        if (Input.GetKeyDown("0"))
-        {
-            HotKeyDataUse(9);
-        }
+        hotKeyManager = HotKeyManager.Instance;
     }
 
     /// <summary>
@@ -86,14 +49,7 @@ public class HotKeyData : MonoBehaviour
     /// <param name="data">技能腳本資料</param>
     public void SetSkill(Sprite skillIcon, IHotKey data, string upgradeSkillID = "")
     {
-        //先檢查快捷鍵上是否已有此技能資料 有的話清除
-        bool queryResult = SkillController.Instance.SkillHotKey.Any(x => x.TempHotKeyData?.KeyID == data.KeyID);
-
-        if (queryResult)
-        {
-            var targetQueryResult = SkillController.Instance.SkillHotKey.Where(x => x.TempHotKeyData?.KeyID == data.KeyID).ToList();
-            targetQueryResult.ForEach(x => x.ClearHotKeyData());
-        }
+        hotKeyManager.PrepareHotKeySetting(data.KeyID);
 
         //設定 技能圖片 與升級後的技能ID
         hotkeyBackground.sprite = skillIcon;
@@ -121,13 +77,7 @@ public class HotKeyData : MonoBehaviour
     public void SetItemEffect(Sprite itemIcon, IHotKey data)
     {
         //先檢查快捷鍵上是否已有此技能資料 有的話清除
-        bool queryResult = SkillController.Instance.SkillHotKey.Any(x => x.TempHotKeyData?.KeyID == data.KeyID);
-
-        if (queryResult)
-        {
-            var targetQueryResult = SkillController.Instance.SkillHotKey.Where(x => x.TempHotKeyData?.KeyID == data.KeyID).ToList();
-            targetQueryResult.ForEach(x => x.ClearHotKeyData());
-        }
+        hotKeyManager.PrepareHotKeySetting(data.KeyID);
 
         //設定 技能圖片 與升級後的技能ID
         hotkeyBackground.sprite = itemIcon;
@@ -157,6 +107,12 @@ public class HotKeyData : MonoBehaviour
         if (tempHotKeyData is Skill_Base)
         {
             Destroy(((Skill_Base)tempHotKeyData).gameObject);
+
+        }
+        //清除放入的道具效果資料
+        else if (tempHotKeyData is ItemEffectBase)
+        {
+            Destroy(((ItemEffectBase)tempHotKeyData).gameObject);
         }
         tempHotKeyData = null;
 
@@ -165,7 +121,7 @@ public class HotKeyData : MonoBehaviour
     }
 
     /// <summary>
-    /// 技能冷卻時間讀條處理
+    /// 冷卻時間讀條處理
     /// </summary>
     /// <param name="cdTimer"></param>
     public void HotKeyCdProcessor(float cdTimer)
@@ -186,26 +142,23 @@ public class HotKeyData : MonoBehaviour
     /// 快捷鍵資料使用
     /// </summary>
     /// <param name="keyIndex"></param>
-    private void HotKeyDataUse(int keyIndex)
+    public void HotKeyDataUse()
     {
-        if (tempHotKeyData is Skill_Base)
+        if (tempHotKeyData is Skill_Base skillBase)
         {
-            SkillController.Instance.SkillUse(keyIndex);
+            SkillController.Instance.SkillUse(this);
         }
-        else if (tempHotKeyData is ItemEffectBase)
+        else if (tempHotKeyData is ItemEffectBase itemBase)
         {
             //判斷 快捷鍵的資料是否為空值
-            if (SkillController.Instance.SkillHotKey[keyIndex].TempHotKeyData != null)
-            {
-                //取得 該技能UI版資料
-                ItemEffectBase itemEffect_Base = (ItemEffectBase)SkillController.Instance.SkillHotKey[keyIndex].TempHotKeyData;
-
+            //if (SkillController.Instance.SkillHotKey[keyIndex].TempHotKeyData != null)
+            //{ 
                 //判斷道具數量是否足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
-                if (!itemEffect_Base.ItemEffectCanUse())
+                if (!itemBase.ItemEffectCanUse())
                     return;
 
-                itemEffect_Base.ItemEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
-            }
+                itemBase.ItemEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
+            //}
         }
     }
 }

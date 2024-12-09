@@ -43,106 +43,92 @@ public class SkillController : MonoBehaviour
         }
     }
 
-    [Header("冷卻時間紀錄")]
-    private int keyIndex;                        //紀錄當前鍵位
-
-    /// <summary>
-    /// 外部取得當前鍵位索引值
-    /// </summary>
-    public int KeyIndex
-    {
-        get
-        {
-            return keyIndex;
-        }
-    }
-
-    [Header("技能相關參考")]
-    public HotKeyData[] SkillHotKey = new HotKeyData[10];
-
     [HideInInspector] public Image SkillArrowImage;               //指向技圖示
     [HideInInspector] public Image SkillTargetCircle;             //圓圈型範圍技圖示
     [HideInInspector] public Image SkillPlayerCricle;             //攻擊範圍技圖示
     [HideInInspector] public Image SkillConeImage;                //扇形範圍技圖示
 
+    //快捷鍵管理器
+    private HotKeyManager hotKeyManager;
     //記錄追擊協程
     public Coroutine SkillChasingCoroutine;
 
     public Action<string> SkillConditionCheckEvent;     //發生特定事情後 檢查技能條件是否達成
 
+    private void Start()
+    {
+        hotKeyManager = HotKeyManager.Instance;
+    }
+
     /// <summary>
     /// 鍵入技能
     /// </summary>
     /// <param name="inputNumber">技能快捷鍵</param>
-    public void SkillUse(int inputNumber)
+    public void SkillUse(HotKeyData hotKeyData)
     {
         if (!PlayerDataOverView.Instance.SkillIsEnable.Equals(0))
         {
             CommonFunction.MessageHint("TM_SkillEnableError".GetText(), HintType.Warning);
             return;
         }
-        //判斷 快捷鍵的資料是否為空值
-        if (SkillHotKey[inputNumber].TempHotKeyData != null)
+
+        //取得 該技能UI版資料
+        Skill_Base skill_Base = hotKeyData.TempHotKeyData as Skill_Base;
+
+        //判斷是否魔力足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
+        if (!skill_Base.SkillCanUse(PlayerDataOverView.Instance.PlayerData_.MP))
+            return;
+        Debug.Log("攻擊狀態:" + NormalAttackSystem.AttackAllow + "使用技能中:" + UsingSkill);
+        if (UsingSkill || NormalAttackSystem.AttackAllow)
         {
-            //紀錄輸入的鍵位
-            keyIndex = inputNumber;
-            //取得 該技能UI版資料
-            Skill_Base skill_Base = (Skill_Base)SkillHotKey[inputNumber].TempHotKeyData;
+            CommonFunction.MessageHint("TM_SkillIsUsing".GetText(), HintType.Warning);
+            return;
+        }
 
-            //判斷是否魔力足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
-            if (!skill_Base.SkillCanUse(PlayerDataOverView.Instance.PlayerData_.MP))
-                return;
-            Debug.Log("攻擊狀態:" + NormalAttackSystem.AttackAllow + "使用技能中:" + UsingSkill);
-            if (UsingSkill || NormalAttackSystem.AttackAllow)
+        if (skill_Base.SkillConditionCheck)
+        {
+            //Buff類型 直接施放
+            if (skill_Base.SkillData.Type == "Buff")
             {
-                CommonFunction.MessageHint("TM_SkillIsUsing".GetText(), HintType.Warning);
-                return;
+                skill_Base.SkillEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
             }
-
-            if (skill_Base.SkillConditionCheck)
+            //剩餘類型 需要設定目標
+            else
             {
-                //Buff類型 直接施放
-                if (skill_Base.SkillData.Type == "Buff")
+                //若已選取目標 接近目標到可施放範圍
+                if (SelectTarget.Instance.CatchTarget)
                 {
-                    skill_Base.SkillEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
+                    SkillChasingCoroutine = StartCoroutine(skill_Base.SkillDistanceCheck());
                 }
-                //剩餘類型 需要設定目標
                 else
                 {
-                    //若已選取目標 接近目標到可施放範圍
-                    if (SelectTarget.Instance.CatchTarget)
+                    switch (skill_Base.SkillData.Type)
                     {
-                        SkillChasingCoroutine = StartCoroutine(skill_Base.SkillDistanceCheck());
-                    }
-                    else
-                    {
-                        switch (skill_Base.SkillData.Type)
-                        {
-                            //指向技能類型
-                            case "Arrow":
-                                //若未選取 顯示該技能範圍
-                                SkillArrow(skill_Base, SkillHotKey[inputNumber].UpgradeSkillID);
-                                break;
+                        //指向技能類型
+                        case "Arrow":
+                            //若未選取 顯示該技能範圍
+                            SkillArrow(skill_Base, hotKeyData.UpgradeSkillID);
+                            break;
 
-                            //指定技能類型
-                            case "Target":
-                                SkillTarget(skill_Base, SkillHotKey[inputNumber].UpgradeSkillID);
-                                break;
+                        //指定技能類型
+                        case "Target":
+                            SkillTarget(skill_Base, hotKeyData.UpgradeSkillID);
+                            break;
 
-                            //圓圈型範圍技能類型
-                            case "Circle":
-                                SkillCircle(skill_Base, SkillHotKey[inputNumber].UpgradeSkillID);
-                                break;
+                        //圓圈型範圍技能類型
+                        case "Circle":
+                            SkillCircle(skill_Base, hotKeyData.UpgradeSkillID);
+                            break;
 
-                            //扇型範圍技能類型
-                            case "Cone":
-                                SkillCone(skill_Base, SkillHotKey[inputNumber].UpgradeSkillID);
-                                break;
-                        }
+                        //扇型範圍技能類型
+                        case "Cone":
+                            SkillCone(skill_Base, hotKeyData.UpgradeSkillID);
+                            break;
                     }
                 }
             }
         }
+
     }
 
     /// <summary>

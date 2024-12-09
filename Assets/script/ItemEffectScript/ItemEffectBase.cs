@@ -98,7 +98,7 @@ public abstract class ItemEffectBase : MonoBehaviour, IItemEffect, IHotKey
         else if (TempCooldownTime > 0)
             CommonFunction.MessageHint(string.Format("TM_ItemEffectCoolDownError".GetText(), ItemName), HintType.Warning);
 
-        return qtyBool& CooldownBool;
+        return qtyBool & CooldownBool;
     }
 
     [Header("道具ID 用來從GameData找資料輸入"), SerializeField] protected string itemID;
@@ -150,7 +150,7 @@ public abstract class ItemEffectBase : MonoBehaviour, IItemEffect, IHotKey
             TempCooldownTime -= 0.1f;
             //更新技能冷卻讀條
             //skillCdSlider.value = CooldownTime - TempCooldownTime;
-            var hotkeyData = SkillController.Instance.SkillHotKey.Where(x => (x.TempHotKeyData is ItemEffectBase) && ((object)x.TempHotKeyData == this)).FirstOrDefault();
+            var hotkeyData = HotKeyManager.Instance.HotKeyArray.Where(x => (x.TempHotKeyData is ItemEffectBase) && ((object)x.TempHotKeyData == this)).FirstOrDefault();
             if (hotkeyData == null)
             {
                 Debug.Log("快捷鍵上沒有正在施放的道具 :" + ItemName);

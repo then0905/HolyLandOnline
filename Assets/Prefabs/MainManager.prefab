@@ -270,6 +270,7 @@ MonoBehaviour:
   Targetgameobject: {fileID: 0}
   buffTrans: {fileID: 7507569097857951706}
   debuffTrans: {fileID: 8304358285377967385}
+  BuffEffectBases: []
   DebuffEffectBases: []
 --- !u!1 &9062499104236771444
 GameObject:
@@ -502,17 +503,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UsingSkillObj: {fileID: 0}
-  SkillHotKey:
-  - {fileID: 9062499105619122860}
-  - {fileID: 9062499105752699318}
-  - {fileID: 9062499105601042475}
-  - {fileID: 9062499106022832359}
-  - {fileID: 9062499105995175225}
-  - {fileID: 9062499104890622587}
-  - {fileID: 9062499105163043359}
-  - {fileID: 9062499104282940041}
-  - {fileID: 9062499105170770913}
-  - {fileID: 9062499105514716269}
   SkillArrowImage: {fileID: 0}
   SkillTargetCircle: {fileID: 0}
   SkillPlayerCricle: {fileID: 0}
@@ -678,6 +668,17 @@ MonoBehaviour:
   - {fileID: 9062499104229493751}
   HotKeyBackgroundSprite: {fileID: 21300000, guid: 761b19d14f9246541b2195f5173e500d,
     type: 3}
+  HotKeyArray:
+  - {fileID: 9062499105619122860}
+  - {fileID: 9062499105752699318}
+  - {fileID: 9062499105601042475}
+  - {fileID: 9062499106022832359}
+  - {fileID: 9062499105995175225}
+  - {fileID: 9062499104890622587}
+  - {fileID: 9062499105163043359}
+  - {fileID: 9062499104282940041}
+  - {fileID: 9062499105170770913}
+  - {fileID: 9062499105514716269}
 --- !u!1 &9062499105852403512
 GameObject:
   m_ObjectHideFlags: 0
