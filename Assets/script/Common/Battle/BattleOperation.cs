@@ -80,15 +80,15 @@ public interface ICombatant
     /// 賦予目標Buff處理
     /// </summary>
     /// <param name="target"></param>
-    /// <param name="skillTarget"></param>
-    public void GetBuffEffect(ICombatant target, SkillOperationData skillTarget);
+    /// <param name="operationData"></param>
+    public void GetBuffEffect(ICombatant target, OperationData operationData);
 
     /// <summary>
     /// 移除目標Buff處理
     /// </summary>
     /// <param name="target"></param>
-    /// <param name="skillTarget"></param>
-    public void RemoveBuffEffect(ICombatant target, SkillOperationData skillTarget);
+    /// <param name="operationData"></param>
+    public void RemoveBuffEffect(ICombatant target, OperationData operationData);
 
     /// <summary>
     /// 賦予目標負面狀態
@@ -137,9 +137,9 @@ public interface ICombatant
 }
 
 /// <summary>
-/// 傷害數字顏色Enum
+/// 戰鬥文字顏色Enum
 /// </summary>
-public enum DmgTextColor
+public enum CombatTextColor
 {
     white,
     yellow,
@@ -150,7 +150,6 @@ public enum DmgTextColor
 
 public class BattleOperation : MonoBehaviour
 {
-
     #region 靜態變數
     private static BattleOperation instance;
     public static BattleOperation Instance
@@ -166,8 +165,7 @@ public class BattleOperation : MonoBehaviour
     }
     #endregion
 
-    private float hitValue;     //命中值
-    private int hitRate;        //命中率
+    #region 事件區
 
     //技能攻擊
     public Action<DamageComponent, ICombatant, ICombatant> SkillAttackEvent;
@@ -177,6 +175,8 @@ public class BattleOperation : MonoBehaviour
     public Action<ItemComponent, ICombatant, ICombatant> ItemRestorationEvent;
     //普通攻擊
     public Action<ICombatant, ICombatant> NormalAttackEvent;
+
+    #endregion
 
     private void OnEnable()
     {
@@ -195,7 +195,7 @@ public class BattleOperation : MonoBehaviour
     }
 
     /// <summary>
-    /// 獲取戰鬥對象
+    /// 獲取戰鬥對象 (普通攻擊)
     /// </summary>    
     /// <param name="attacker">攻擊方</param>
     /// <param name="defender">防守方</param>
@@ -206,7 +206,8 @@ public class BattleOperation : MonoBehaviour
     }
 
     /// <summary>
-    /// 獲取戰鬥對象
+    /// 獲取戰鬥對象  (技能攻擊)
+    /// 
     /// </summary>    
     /// <param name="skillCompnent">攻擊技能資料</param>
     /// <param name="attacker">攻擊方</param>
@@ -219,7 +220,7 @@ public class BattleOperation : MonoBehaviour
     }
 
     /// <summary>
-    /// 獲取戰鬥對象
+    /// 獲取戰鬥對象  (使用道具)
     /// </summary>    
     /// <param name="itemCompnent">道具資料</param>
     /// <param name="caster">攻擊方</param>
@@ -232,9 +233,9 @@ public class BattleOperation : MonoBehaviour
     }
 
     /// <summary>
-    /// 獲取戰鬥對象
+    /// 獲取戰鬥對象  (治癒技能)
     /// </summary>    
-    /// <param name="skillCompnent">攻擊技能資料</param>
+    /// <param name="skillCompnent">治癒技能資料</param>
     /// <param name="caster">攻擊方</param>
     /// <param name="target">防守方</param>
     public void BattleOperationStart(HealthComponent skillCompnent, ICombatant caster, ICombatant target)
@@ -260,7 +261,7 @@ public class BattleOperation : MonoBehaviour
 
         target.DealingWithHealMethod(caster, (int)damage);
 
-        InstanceDmgGUI(damage.ToString(), DmgTextColor.green, target.Obj);
+        InstanceCombatText(damage.ToString(), CombatTextColor.green, target.Obj);
     }
 
     /// <summary>
@@ -271,17 +272,23 @@ public class BattleOperation : MonoBehaviour
     /// <param name="itemComponent"></param>
     public void RecoveryItemProcessor(ICombatant caster, ICombatant target, ItemComponent itemComponent = null)
     {
-        if (itemComponent.ItemEffectData.InfluenceStatus == "HP")
+        CombatTextColor textColorType = CombatTextColor.white;
+
+        switch (itemComponent.ItemEffectData.InfluenceStatus)
         {
-            target.DealingWithHealMethod(caster, (int)itemComponent.ItemEffectData.EffectValue);
-            InstanceDmgGUI(itemComponent.ItemEffectData.EffectValue.ToString(), DmgTextColor.green, target.Obj);
+            case "HP":
+                textColorType = CombatTextColor.green;
+                break;
+            case "MP":
+                textColorType = CombatTextColor.blue;
+                break;
         }
-        if (itemComponent.ItemEffectData.InfluenceStatus == "MP")
-        {
-            target.DealingWithMageMethod(caster, (int)itemComponent.ItemEffectData.EffectValue);
-            InstanceDmgGUI(itemComponent.ItemEffectData.EffectValue.ToString(), DmgTextColor.blue, target.Obj);
-        }
+
+        target.DealingWithHealMethod(caster, (int)itemComponent.ItemEffectData.EffectValue);
+        InstanceCombatText(itemComponent.ItemEffectData.EffectValue.ToString(), textColorType, target.Obj);
     }
+
+    #region 計算 (戰鬥情況下)
 
     /// <summary>
     ///  是否命中
@@ -301,16 +308,18 @@ public class BattleOperation : MonoBehaviour
             PlayerDataOverView.Instance.GetAttackMode = (PlayerDataOverView.Instance.PlayerData_.NormalAttackRange <= 8 ? "MeleeATK" : "RemoteATK");
         }
 
-        hitValue = attacker.Hit * 100 / (attacker.Hit + defender.Avoid);
-        hitRate = (int)Mathf.Round(hitValue);
-        // 命中率
+        //命中率(小數) = 攻擊方命中值*100 / (攻擊方命中值+防守方迴避值)
+        float hitValue = attacker.Hit * 100 / (attacker.Hit + defender.Avoid);
+        //取得命中率(四捨五入取整數)
+        int hitRate = (int)Mathf.Round(hitValue);
+        //取得命中率隨機值
         int isHit = UnityEngine.Random.Range(0, 101);
 
-        // 是否命中
+        // 是否命中 (命中率隨機值 <= 取得命中率)
         if (isHit <= hitRate)
             CrtOrNormal(attacker, defender, skillCompnent);
         else
-            InstanceDmgGUI("Miss", DmgTextColor.white, defender.Obj);
+            InstanceCombatText("Miss", CombatTextColor.white, defender.Obj);
     }
 
     /// <summary>
@@ -367,16 +376,16 @@ public class BattleOperation : MonoBehaviour
             yield return new WaitForSeconds(0.75f);
 
         defender.DealingWithInjuriesMethod(attacker, finalDamage, !(skillcompnent is MultipleDamageSkillComponent));
-        InstanceDmgGUI(finalDamage.ToString(), (iscrt ? DmgTextColor.red : DmgTextColor.yellow), defender.Obj);
+        InstanceCombatText(finalDamage.ToString(), (iscrt ? CombatTextColor.red : CombatTextColor.yellow), defender.Obj);
     }
 
     /// <summary>
-    /// 生成傷害數字
+    /// 生成戰鬥數字
     /// </summary>
     /// <param name="dmgVaule">傷害值</param>
     /// <param name="iscrt">是否暴擊</param>
     /// <param name="target">生成數字參考對象</param>
-    public void InstanceDmgGUI(string dmgVaule, DmgTextColor textColor, GameObject target)
+    public void InstanceCombatText(string dmgVaule, CombatTextColor textColor, GameObject target)
     {
         //載入傷害數字prefab
         GameObject DamageGUI = Resources.Load("DMGtext") as GameObject;
@@ -386,19 +395,19 @@ public class BattleOperation : MonoBehaviour
         //判別 是否命中 是否暴擊 產生不同顏色
         switch (textColor)
         {
-            case DmgTextColor.white:
+            case CombatTextColor.white:
                 DamageGUI.GetComponent<DamageGUI>().DMGtext.GetComponent<TMP_Text>().color = Color.white;
                 break;
-            case DmgTextColor.red:
+            case CombatTextColor.red:
                 DamageGUI.GetComponent<DamageGUI>().DMGtext.GetComponent<TMP_Text>().color = Color.red;
                 break;
-            case DmgTextColor.yellow:
+            case CombatTextColor.yellow:
                 DamageGUI.GetComponent<DamageGUI>().DMGtext.GetComponent<TMP_Text>().color = Color.yellow;
                 break;
-            case DmgTextColor.green:
+            case CombatTextColor.green:
                 DamageGUI.GetComponent<DamageGUI>().DMGtext.GetComponent<TMP_Text>().color = Color.green;
                 break;
-            case DmgTextColor.blue:
+            case CombatTextColor.blue:
                 DamageGUI.GetComponent<DamageGUI>().DMGtext.GetComponent<TMP_Text>().color = Color.blue;
                 break;
         }
@@ -408,4 +417,6 @@ public class BattleOperation : MonoBehaviour
         //生成傷害數字物件
         Instantiate(DamageGUI, head.transform.position, Quaternion.identity, head.transform);
     }
+
+    #endregion
 }

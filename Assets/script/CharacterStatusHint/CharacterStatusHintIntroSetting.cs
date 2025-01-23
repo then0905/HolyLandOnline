@@ -54,22 +54,43 @@ public class CharacterStatusHintIntroSetting : MonoBehaviour
         }
 
         //設定buff強化相關資訊
-        for (int i = 0; i < tempCharacterStatusHintbase.SkillOperationDatas.Length; i++)
+        for (int i = 0; i < tempCharacterStatusHintbase.OperationDatas.Length; i++)
         {
-            if (string.IsNullOrEmpty(tempCharacterStatusHintbase.SkillOperationDatas[i].InfluenceStatus)) continue;
+            if (tempCharacterStatusHintbase.OperationDatas[i] is SkillOperationData skillOperationData)
+            {
+                if (string.IsNullOrEmpty(skillOperationData.InfluenceStatus)) continue;
 
-            GameObject tempObj = Instantiate(buffContentTextObj, buffContentTrans);
+                GameObject tempObj = Instantiate(buffContentTextObj, buffContentTrans);
 
-            tempObj.SetActive(true);
+                tempObj.SetActive(true);
 
-            TextMeshProUGUI tempObjText = tempObj.GetComponentInChildren<TextMeshProUGUI>();
+                TextMeshProUGUI tempObjText = tempObj.GetComponentInChildren<TextMeshProUGUI>();
 
-            tempObjText.text = string.Format("TM_CharacterStatusHintBuffFomat".GetText(),
-                ("TM_" + tempCharacterStatusHintbase.SkillOperationDatas[i].InfluenceStatus).GetText(),
-                string.Format(("TM_" + tempCharacterStatusHintbase.SkillOperationDatas[i].AddType).GetText(),
-                tempCharacterStatusHintbase.SkillOperationDatas[i].EffectValue.ToString()));
+                tempObjText.text = string.Format("TM_CharacterStatusHintBuffFomat".GetText(),
+                    ("TM_" + skillOperationData.InfluenceStatus).GetText(),
+                    string.Format(("TM_" + skillOperationData.AddType).GetText(),
+                    skillOperationData.EffectValue.ToString()));
 
-            buffContentTextObjList.Add(tempObj);
+                buffContentTextObjList.Add(tempObj);
+            }
+            else if (tempCharacterStatusHintbase.OperationDatas[i] is ItemEffectData itemEffectData)
+            {
+                if (string.IsNullOrEmpty(itemEffectData.InfluenceStatus)) continue;
+
+                GameObject tempObj = Instantiate(buffContentTextObj, buffContentTrans);
+
+                tempObj.SetActive(true);
+
+                TextMeshProUGUI tempObjText = tempObj.GetComponentInChildren<TextMeshProUGUI>();
+
+                tempObjText.text = string.Format("TM_CharacterStatusHintBuffFomat".GetText(),
+                    ("TM_" + itemEffectData.InfluenceStatus).GetText(),
+                    string.Format(("TM_" + itemEffectData.AddType).GetText(),
+                    itemEffectData.EffectValue.ToString()));
+
+                buffContentTextObjList.Add(tempObj);
+            }
+            else continue;
         }
     }
 

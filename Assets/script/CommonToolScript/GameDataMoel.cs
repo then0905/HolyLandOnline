@@ -31,6 +31,14 @@ public class GameDataModel
 }
 
 /// <summary>
+/// 計算資料共用基底
+/// </summary>
+public class OperationData
+{
+
+}
+
+/// <summary>
 /// 基本屬性資料結構
 /// </summary>
 public class BasalAttributesDataModel
@@ -133,7 +141,7 @@ public class WeaponDataModel : BasalAttributesDataModel, IDictionaryData<string>
     public string ASID { get; set; }            // 武器攻擊速度(編碼用)    
     public int Redeem { get; set; }            // 販售價格
     public int Price { get; set; }          //商店購買價格
-    public List<ForgeData> ForgeConfigList { get; set;  }         //強化效果配置
+    public List<ForgeData> ForgeConfigList { get; set; }         //強化效果配置
     public string GetKey { get { return CodeID; } }
 }
 
@@ -179,7 +187,7 @@ public class ForgeData : BasalAttributesDataModel
 /// <summary>
 /// 道具使用後的效果資料
 /// </summary>
-public class ItemEffectData
+public class ItemEffectData : OperationData
 {
     public string CodeID { get; set; }      // 道具ID
     public string ItemComponentID { get; set; }        //道具組件ID
@@ -229,7 +237,7 @@ public class SkillData : IDictionaryData<string>
 /// <summary>
 /// 技能實際運作所需資料
 /// </summary>
-public class SkillOperationData
+public class SkillOperationData : OperationData
 {
     public string SkillID { get; set; }      // 技能ID
     public string SkillComponentID { get; set; }        //技能組件ID

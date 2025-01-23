@@ -311,8 +311,13 @@ public abstract class ItemEffectBase : MonoBehaviour, IItemEffect, IHotKey
         switch (itemComponent.ItemComponentID)
         {
             case "Restoration":
-                ItemRestorationComponent x = new ItemRestorationComponent(this, itemComponent);
-                return x;
+                return new RestorationItemComponent(this, itemComponent);
+
+            case "Continuance":
+                return new BuffItemComponent(this, itemComponent);
+
+            case "Utility":
+                return new UtilityItemComponent(this, itemComponent);
 
             default:
                 return null;

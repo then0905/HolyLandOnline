@@ -2,16 +2,14 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using UnityEngine;
-using System.Collections;
 using System.Threading.Tasks;
-using static UnityEngine.GraphicsBuffer;
 
 //==========================================
 //  創建者:家豪
 //  創建日期:2024/10/22
 //  創建用途:技能組件接口繼承實例
 //==========================================
-public abstract class SkillComponent : ISkillComponent
+public abstract class SkillComponent : BaseComponent, ISkillComponent
 {
     protected Skill_Base skillbase;
     public Skill_Base SkillBase => skillbase;
@@ -33,24 +31,24 @@ public abstract class DamageComponent : SkillComponent
 /// </summary>
 public abstract class BuffComponent : SkillComponent
 {
-    public abstract void ReverseExecute(params SkillOperationData[] skillOperationData);
+    public abstract void ReverseExecute(params OperationData[] operationData);
 
     /// <summary>
     /// 玩家狀態效果提示物件 移除處理
     /// </summary>
     /// <param name="skillOperationDatas"></param>
-    protected void CharacterStatusRemove(params SkillOperationData[] skillOperationDatas)
+    protected void CharacterStatusRemove(params OperationData[] operationData)
     {
-        CharacterStatusManager.Instance.CharacterSatusRemoveEvent?.Invoke(skillOperationDatas.ToArray());
+        CharacterStatusManager.Instance.CharacterSatusRemoveEvent?.Invoke(operationData.ToArray());
     }
 
     /// <summary>
-    /// 玩家狀態效果提示物件 增加除處理
+    /// 玩家狀態效果提示物件 增加處理
     /// </summary>
     /// <param name="skillOperationDatas"></param>
-    protected void CharacterStatusAdd(params SkillOperationData[] skillOperationDatas)
+    protected void CharacterStatusAdd(params SkillOperationData[] operationData)
     {
-        CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, skillOperationDatas.ToArray());
+        CharacterStatusManager.Instance.CharacterSatusAddEvent?.Invoke(this, operationData.ToArray());
     }
 }
 
@@ -74,6 +72,7 @@ public class DamageSkillComponent : DamageComponent
         }
     }
 }
+
 /// <summary>
 /// 治癒技能組件
 /// </summary>
@@ -345,7 +344,7 @@ public class UpgradeSkillComponent : BuffComponent
         CharacterStatusAdd(skillOperationData);
     }
 
-    public override void ReverseExecute(params SkillOperationData[] skillOperationDatas)
+    public override void ReverseExecute(params OperationData[] operationDatas)
     {
         //尋找場景上所有SkillUI
         var findSkillUIResult = PassiveSkillManager.Instance.SkillUIList;
@@ -392,7 +391,7 @@ public class EnhanceSkillComponent : BuffComponent
 
     }
 
-    public override void ReverseExecute(params SkillOperationData[] skillOperationData)
+    public override void ReverseExecute(params OperationData[] operationData)
     {
     }
 }
@@ -450,11 +449,11 @@ public class PassiveBuffSkillComponent : BuffComponent
             }
         }
     }
-    public override void ReverseExecute(params SkillOperationData[] skillOperationData)
+    public override void ReverseExecute(params OperationData[] operationData)
     {
-        for (int i = 0; i < skillOperationData.Length; i++)
+        for (int i = 0; i < operationData.Length; i++)
         {
-            tempCaster.RemoveBuffEffect(tempTarget, skillOperationData[i]);
+            tempCaster.RemoveBuffEffect(tempTarget, operationData[i]);
         }
     }
 }
@@ -497,11 +496,11 @@ public class ContinuanceBuffComponent : BuffComponent
         }
     }
 
-    public override void ReverseExecute(params SkillOperationData[] skillOperationData)
+    public override void ReverseExecute(params OperationData[] operationData)
     {
-        for (int i = 0; i < skillOperationData.Length; i++)
+        for (int i = 0; i < operationData.Length; i++)
         {
-            tempCaster.RemoveBuffEffect(tempTarget, skillOperationData[i]);
+            tempCaster.RemoveBuffEffect(tempTarget, operationData[i]);
         }
     }
 }
@@ -537,7 +536,7 @@ public class AdditiveBuffComponent : BuffComponent
         }
     }
 
-    public override void ReverseExecute(params SkillOperationData[] skillOperationData)
+    public override void ReverseExecute(params OperationData[] operationData)
     {
     }
 }
@@ -573,7 +572,7 @@ public class DebuffComponent : BuffComponent
         }
     }
 
-    public override void ReverseExecute(params SkillOperationData[] skillOperationData)
+    public override void ReverseExecute(params OperationData[] operationData)
     {
     }
 }

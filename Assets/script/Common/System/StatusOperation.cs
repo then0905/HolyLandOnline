@@ -631,7 +631,7 @@ public class StatusOperation : MonoBehaviour
                     int equipmentValue = (int)basalProperty.GetValue(tempEquipStatus);
 
                     //依照加成或倍率計算數值
-                    effectValue += ((isRate ? (int)(basalValue * value) : (int)value) + (isRate ? (int)(equipmentValue * value) : (int)value));
+                    effectValue += (isRate ? (int)((basalValue + equipmentValue) * value) : (int)value);
 
                     //設定技能效果屬性的數值
                     effectProperty.SetValue(tempEffectStatus, effectValue);
@@ -642,10 +642,10 @@ public class StatusOperation : MonoBehaviour
                     //取得 當前基礎屬性 能力值裡對應的參數的數值
                     float basalValue = (float)basalProperty.GetValue(tempBasalStatus);
                     //取得 當前裝備屬性 能力值裡對應的參數的數值
-                    float equipmentValue = (int)basalProperty.GetValue(tempEquipStatus);
+                    float equipmentValue = (float)basalProperty.GetValue(tempEquipStatus);
 
                     //依照加成或倍率計算數值
-                    effectValue += ((isRate ? (int)(basalValue * value) : (int)value) + (isRate ? (int)(equipmentValue * value) : (int)value));
+                    effectValue += (isRate ? ((basalValue + equipmentValue) * value) : value);
 
                     //設定技能效果屬性的數值
                     effectProperty.SetValue(tempEffectStatus, effectValue);

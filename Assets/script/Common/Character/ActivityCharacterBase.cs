@@ -201,12 +201,12 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
 
     }
 
-    public virtual void GetBuffEffect(ICombatant target, SkillOperationData skillData)
+    public virtual void GetBuffEffect(ICombatant target, OperationData operationData)
     {
 
     }
 
-    public virtual void RemoveBuffEffect(ICombatant target, SkillOperationData skillTarget)
+    public virtual void RemoveBuffEffect(ICombatant target, OperationData operationData)
     {
 
     }

@@ -187,7 +187,7 @@
     "Distance": 20,
     "Width": 0,
     "Height": 0,
-    "CircleDistance": 4,
+    "CircleDistance": 5.5,
     "Damage": 1.1,
     "AdditionMode": "MeleeATK",
     "Intro": "TM_Warrior_2_Intro",

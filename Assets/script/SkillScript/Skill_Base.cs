@@ -733,8 +733,7 @@ public abstract class Skill_Base : MonoBehaviour, ISkillEffect, IHotKey
         switch (skillOperationData.SkillComponentID)
         {
             case "Damage":
-                DamageSkillComponent x = new DamageSkillComponent(this, skillOperationData);
-                return x;
+                return new DamageSkillComponent(this, skillOperationData);
 
             case "MultipleDamage":
                 return new MultipleDamageSkillComponent(this, skillOperationData);

@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 
 //==========================================
@@ -37,8 +35,8 @@ public class CharacterStatusManager : MonoBehaviour
     public List<CharacterStatusHint_Base> CharacterStatusHintDic = new List<CharacterStatusHint_Base>();
 
     //事件區
-    public Action<SkillComponent, SkillOperationData[]> CharacterSatusAddEvent;      //狀態效果增加事件
-    public Action<SkillOperationData[]> CharacterSatusRemoveEvent;      //狀態效果移除事件
+    public Action<BaseComponent, OperationData[]> CharacterSatusAddEvent;      //狀態效果增加事件
+    public Action<OperationData[]> CharacterSatusRemoveEvent;      //狀態效果移除事件
 
     private void OnEnable()
     {
@@ -58,6 +56,15 @@ public class CharacterStatusManager : MonoBehaviour
     {
         switch (buffType)
         {
+            #region 道具
+
+            case "Continuance":
+                return characterBuffStatusTrans;
+
+            #endregion
+
+            #region 技能
+
             case "ContinuanceBuff":
             case "AdditiveBuff":
                 return characterBuffStatusTrans;
@@ -68,6 +75,9 @@ public class CharacterStatusManager : MonoBehaviour
             case "EnhanceSkill":
             case "PassiveBuff":
                 return characterPassiveStatusTrans;
+
+            #endregion
+
             default:
                 return null;
         }
@@ -82,6 +92,15 @@ public class CharacterStatusManager : MonoBehaviour
     {
         switch (buffType)
         {
+            #region 道具
+
+            case "Continuance":
+                return "TM_Buff".GetText();
+
+            #endregion
+
+            #region 技能
+
             case "ContinuanceBuff":
             case "AdditiveBuff":
                 return "TM_Buff".GetText();
@@ -93,6 +112,9 @@ public class CharacterStatusManager : MonoBehaviour
             case "EnhanceSkill":
             case "PassiveBuff":
                 return "TM_Passive".GetText();
+
+            #endregion
+
             default:
                 return null;
         }
@@ -107,6 +129,12 @@ public class CharacterStatusManager : MonoBehaviour
     {
         switch (buffType)
         {
+            #region 道具
+            case "Continuance":
+                return true;
+            #endregion
+
+            #region 技能
             case "CrowdControl":
             case "Debuff":
             case "ContinuanceBuff":
@@ -117,6 +145,8 @@ public class CharacterStatusManager : MonoBehaviour
             case "EnhanceSkill":
             case "PassiveBuff":
                 return false;
+                #endregion
+
             default:
                 return true;
         }
@@ -127,21 +157,29 @@ public class CharacterStatusManager : MonoBehaviour
     /// </summary>
     /// <param name="o"></param>
     /// <param name="skillComponent"></param>
-    public void InitCharacterStatusHintCheck(SkillComponent skillcomponent, params SkillOperationData[] skillOperationData)
+    public void InitCharacterStatusHintCheck(BaseComponent basecomponent, params OperationData[] operationData)
     {
-        var checkCharacterStatusIsExist = CharacterStatusHintDic.Where(x => x.SkillOperationDatas.SequenceEqual(skillOperationData.ToArray())).FirstOrDefault();
+        var checkCharacterStatusIsExist = CharacterStatusHintDic.Where(x => x.OperationDatas.SequenceEqual(operationData.ToArray())).FirstOrDefault();
         //若已存在同樣效果 且 低於10秒
         if (checkCharacterStatusIsExist && checkCharacterStatusIsExist.TempCoolDownTime <= 10)
         {
             //重新設定資料
-            StartCoroutine(checkCharacterStatusIsExist.BuffHintInit(skillcomponent, skillOperationData));
+            StartCoroutine(checkCharacterStatusIsExist.BuffHintInit(basecomponent, operationData));
         }
         //不存在同樣效果
         else if (!checkCharacterStatusIsExist)
         {
             //直接生成
-            CharacterStatusHint_Base characterStatusHintObj = Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Buff"), ReturnCharacterStatusArea(skillOperationData[0].SkillComponentID.ToString())).GetComponent<CharacterStatusHint_Base>();
-            StartCoroutine(characterStatusHintObj.BuffHintInit(skillcomponent, skillOperationData));
+            if (operationData is ItemEffectData[] itemOperatinData)
+            {
+                CharacterStatusHint_Base characterStatusHintObj = Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Buff"), ReturnCharacterStatusArea(itemOperatinData[0].ItemComponentID.ToString())).GetComponent<CharacterStatusHint_Base>();
+                StartCoroutine(characterStatusHintObj.BuffHintInit(basecomponent, operationData));
+            }
+            else if (operationData is SkillOperationData[] skillOperatinData)
+            {
+                CharacterStatusHint_Base characterStatusHintObj = Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Buff"), ReturnCharacterStatusArea(skillOperatinData[0].SkillComponentID.ToString())).GetComponent<CharacterStatusHint_Base>();
+                StartCoroutine(characterStatusHintObj.BuffHintInit(basecomponent, operationData));
+            }
         }
     }
 
@@ -153,7 +191,7 @@ public class CharacterStatusManager : MonoBehaviour
     public void InitCharacterStatusHintCheck(DebuffEffectBase debuffEffectData)
     {
         //直接生成
-        CharacterStatusHint_DeBuff characterStatusHintObj = 
+        CharacterStatusHint_DeBuff characterStatusHintObj =
             Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Debuff"), ReturnCharacterStatusArea(debuffEffectData.EffectType))
             .GetComponent<CharacterStatusHint_DeBuff>();
         characterStatusHintObj.BuffHintInit(debuffEffectData);

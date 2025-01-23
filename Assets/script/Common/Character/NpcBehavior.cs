@@ -108,7 +108,6 @@ public class NpcBehavior : ActivityCharacterBase
         NameText.transform.localScale = new Vector3(scale, scale, scale);
     }
 
-
     public void NpcInit()
     {
         npcSystem.InitNpcSystem(npcDataModel);

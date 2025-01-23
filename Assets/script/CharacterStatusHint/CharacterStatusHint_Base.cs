@@ -43,7 +43,7 @@ public interface ICharacterStatus
     /// 狀態效果移除
     /// </summary>
     /// <param name="deltaTime"></param>
-    void RemoveCharacterStatusHint(params SkillOperationData[] skillcomponent);
+    void RemoveCharacterStatusHint(params OperationData[] operationData);
 }
 
 /// <summary>
@@ -92,26 +92,55 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
 
     protected Coroutine alphaAinmCoroutine;       //閃爍動畫協成
 
-    protected Skill_Base_Buff skill_Base_Buff;
-
-    public SkillOperationData[] SkillOperationDatas { get; set; }
+    public OperationData[] OperationDatas { get; set; }     //儲存 運算資料
 
     public EventHandler<float> CharacterHintTimeEvent;     //狀態效果時間更新事件
+    
+    protected Skill_Base_Buff skill_Base_Buff;      //技能類型狀態效果資料
+    protected ItemEffectBase_Buff itemEffectBase_Buff;      //道具狀態效果資料
 
     /// <summary>
     /// 初始化狀態提示資料
     /// </summary>
-    public virtual IEnumerator BuffHintInit(SkillComponent skillcomponent, params SkillOperationData[] skillOperationData)
+    public virtual IEnumerator BuffHintInit(BaseComponent basecomponent, params OperationData[] operationData)
     {
         //狀態提示基本資料設定
-        skill_Base_Buff = skillcomponent.SkillBase as Skill_Base_Buff;
-        SkillOperationDatas = skillOperationData;
+        if (basecomponent is SkillComponent skillComponent
+            && operationData is SkillOperationData[] skillOperationDatas)
+        {
+            //儲存技能類型狀態效果
+            skill_Base_Buff = skillComponent.SkillBase as Skill_Base_Buff;
 
-        CharacterStatusName = skill_Base_Buff.SkillName;
-        CharacterStatusID = skill_Base_Buff.SkillID;
-        CharacterStatusIntro = skill_Base_Buff.SkillIntro;
-        CharacterStatusType = CharacterStatusManager.Instance.ReturnCharacterTypeStr(skillOperationData[0].SkillComponentID);
-        buffIcon.sprite = CommonFunction.LoadSkillIcon(CharacterStatusID);
+            //儲存技能狀態效果的各基本資料
+            CharacterStatusName = skill_Base_Buff.SkillName;
+            CharacterStatusID = skill_Base_Buff.SkillID;
+            CharacterStatusIntro = skill_Base_Buff.SkillIntro;
+            CharacterStatusType = CharacterStatusManager.Instance.ReturnCharacterTypeStr(skillOperationDatas[0].SkillComponentID);
+            buffIcon.sprite = CommonFunction.LoadSkillIcon(CharacterStatusID);
+
+            if (CharacterStatusManager.Instance.ReturnTimerCheck(skillOperationDatas[0].SkillComponentID))
+                //開始運行計時
+                UpdateTimer(skillOperationDatas[0].EffectDurationTime);
+        }
+        else if (basecomponent is ItemComponent itemComponent
+            && operationData is ItemEffectData[] itemOperationDatas)
+        {
+            //儲存道具類型狀態效果
+            itemEffectBase_Buff = itemComponent.ItemBase as ItemEffectBase_Buff;
+
+            //儲存道具狀態效果的各基本資料
+            CharacterStatusName = itemEffectBase_Buff.ItemName;
+            CharacterStatusID = itemEffectBase_Buff.ItemID;
+            CharacterStatusIntro = itemEffectBase_Buff.ItemIntro;
+            CharacterStatusType = CharacterStatusManager.Instance.ReturnCharacterTypeStr(itemOperationDatas[0].ItemComponentID);
+            buffIcon.sprite = CommonFunction.LoadSkillIcon(CharacterStatusID);
+
+            if (CharacterStatusManager.Instance.ReturnTimerCheck(itemOperationDatas[0].ItemComponentID))
+                //開始運行計時
+                UpdateTimer(itemOperationDatas[0].EffectDurationTime);
+        }
+        else
+            yield break;
 
         //訂閱移除事件
         CharacterStatusManager.Instance.CharacterSatusRemoveEvent += RemoveCharacterStatusHint;
@@ -120,13 +149,10 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
         gameObject.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
         gameObject.transform.localScale = Vector3.one;
 
-        //暫存
+        //暫存 這個生成的狀態物件資料
         CharacterStatusManager.Instance.CharacterStatusHintDic.Add(this);
-
-        if (CharacterStatusManager.Instance.ReturnTimerCheck(skillOperationData[0].SkillComponentID))
-            //開始運行計時
-            UpdateTimer(skillOperationData[0].EffectDurationTime);
-
+        //儲存 運算資料
+        OperationDatas = operationData;
         yield return new WaitForEndOfFrame();
 
         //gameObject.transform.eulerAngles = Vector3.zero;
@@ -143,16 +169,16 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
             if (TempCoolDownTime <= 10)
                 CanvasGroupAnim();
         }
-        CharacterStatusManager.Instance.CharacterSatusRemoveEvent?.Invoke(this.SkillOperationDatas);
+        CharacterStatusManager.Instance.CharacterSatusRemoveEvent?.Invoke(this.OperationDatas);
     }
 
-    public virtual void RemoveCharacterStatusHint(params SkillOperationData[] skillcomponent)
+    public virtual void RemoveCharacterStatusHint(params OperationData[] operationData)
     {
-        if (skillcomponent.ToArray().SequenceEqual(this.SkillOperationDatas))
+        if (operationData.ToArray().SequenceEqual(this.OperationDatas))
         {
             CharacterStatusManager.Instance.CharacterSatusRemoveEvent -= RemoveCharacterStatusHint;
             var buffComponen = skill_Base_Buff.SkillComponentList.Where(x => x is BuffComponent).Select(x => x as BuffComponent).FirstOrDefault();
-            buffComponen?.ReverseExecute(SkillOperationDatas);
+            buffComponen?.ReverseExecute(OperationDatas);
             CharacterStatusManager.Instance.CharacterStatusHintDic.Remove(this);
             Destroy(this.gameObject);
         }

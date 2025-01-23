@@ -315,14 +315,20 @@ public class PlayerDataOverView : ActivityCharacterBase
         ChangeMpEvent.Invoke(value);
     }
 
-    public override void GetBuffEffect(ICombatant target, SkillOperationData skillData)
+    public override void GetBuffEffect(ICombatant target, OperationData operationData)
     {
-        StatusOperation.Instance.SkillEffectStatusOperation(skillData.InfluenceStatus, (skillData.AddType == "Rate"), skillData.EffectValue);
+        if (operationData is SkillOperationData skillOperationData)
+            StatusOperation.Instance.SkillEffectStatusOperation(skillOperationData.InfluenceStatus, (skillOperationData.AddType == "Rate"), skillOperationData.EffectValue);
+        else if(operationData is ItemEffectData itemOperationData)
+            StatusOperation.Instance.SkillEffectStatusOperation(itemOperationData.InfluenceStatus, (itemOperationData.AddType == "Rate"), itemOperationData.EffectValue);
     }
 
-    public override void RemoveBuffEffect(ICombatant target, SkillOperationData skillData)
+    public override void RemoveBuffEffect(ICombatant target, OperationData operationData)
     {
-        StatusOperation.Instance.SkillEffectStatusOperation(skillData.InfluenceStatus, (skillData.AddType == "Rate"), skillData.EffectValue * -1);
+        if (operationData is SkillOperationData skillOperationData)
+            StatusOperation.Instance.SkillEffectStatusOperation(skillOperationData.InfluenceStatus, (skillOperationData.AddType == "Rate"), skillOperationData.EffectValue * -1);
+        else if (operationData is ItemEffectData itemOperationData)
+            StatusOperation.Instance.SkillEffectStatusOperation(itemOperationData.InfluenceStatus, (itemOperationData.AddType == "Rate"), itemOperationData.EffectValue * -1);
     }
 
     public override void GetDebuff(DebuffEffectBase debuffEffectBase)

@@ -1,31 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 //==========================================
 //  創建者:家豪
-//  創建日期:2024/11/25
-//  創建用途:道具使用效果基底_回復藥水系列
+//  創建日期:2025/01/21
+//  創建用途:道具使用效果基底_Buff系列
 //==========================================
-public class ItemEffectBase_Potion : ItemEffectBase
+public class ItemEffectBase_Buff : ItemEffectBase
 {
     protected override void ItemEffectStart(ICombatant caster = null, ICombatant receiver = null)
     {
-        //取得道具的使用效果 運算資料
         var tempData = ItemData.ItemEffectDataList[0];
 
-        //檢查資料的空值
         if (ItemComponentList.CheckAnyData())
-            ItemComponentList.ForEach(x => BattleOperation.Instance.ItemRestorationEvent?.Invoke(x as ItemComponent, caster, receiver));
+            //ItemComponentList.ForEach(x => BattleOperation.Instance.ItemRestorationEvent?.Invoke(x as ItemComponent, caster, receiver));
+            ItemComponentList[0].Execute(caster, receiver);
 
-        //進入冷卻計時處理
         if (!CooldownTime.Equals(0))
             StartCoroutine(UpdateCooldown(CooldownTime));
 
-        //扣除背包內的物品數量
         UseItemQtyProcessor();
     }
-
     protected override void ItemEffectEnd(ICombatant caster = null, ICombatant receiver = null)
     {
 

@@ -373,9 +373,9 @@
       {
         "CodeID": "Potion_AS_01",
         "ItemComponentID": "Continuance",
-        "EffectValue": 10,
+        "EffectValue": 0.1,
         "InfluenceStatus": "AS",
-        "AddType": "Value",
+        "AddType": "Rate",
         "ConditionOR": [
           "NeedLv"
         ],
