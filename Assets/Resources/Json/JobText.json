@@ -126,5 +126,33 @@
   {
     "TextID": "TM_Echo",
     "TextContent": "回音"
+  },
+  {
+    "TextID": "TM_Hero",
+    "TextContent": "英雄"
+  },
+  {
+    "TextID": "TM_Dirt",
+    "TextContent": "汙穢"
+  },
+  {
+    "TextID": "TM_Warlord",
+    "TextContent": "戰魂"
+  },
+  {
+    "TextID": "TM_LoneExile",
+    "TextContent": "孤狼"
+  },
+  {
+    "TextID": "TM_BeastTamer",
+    "TextContent": "馴獸師"
+  },
+  {
+    "TextID": "TM_SwordSoul",
+    "TextContent": "劍靈"
+  },
+  {
+    "TextID": "TM_Specialist",
+    "TextContent": "專家"
   }
 ]

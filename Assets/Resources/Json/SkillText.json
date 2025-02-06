@@ -1721,11 +1721,11 @@
   },
   {
     "TextID": "TM_Ranger_1_Name",
-    "TextContent": "精通單手劍"
+    "TextContent": "雙劍流派"
   },
   {
     "TextID": "TM_Ranger_1_Intro",
-    "TextContent": "裝備單手劍時提升攻擊力，裝備第二把時獲得其一半的攻擊力"
+    "TextContent": "裝備單手劍時提升攻擊力，可以裝備第二把並在裝備第二把單手劍時獲得其一半的攻擊力"
   },
   {
     "TextID": "TM_Ranger_2_Name",
@@ -3037,7 +3037,7 @@
   },
   {
     "TextID": "TM_Librarian_3_Intro",
-    "TextContent": "強迫目標與你一起共進讀書時光，給予目標魔法傷害"
+    "TextContent": "吟唱1秒，強迫目標與你一起共進讀書時光，給予目標魔法傷害"
   },
   {
     "TextID": "TM_Librarian_4_Name",
@@ -3045,7 +3045,7 @@
   },
   {
     "TextID": "TM_Librarian_4_Intro",
-    "TextContent": "使用困難的英文單字攻擊目標區域，造成最多3名目標魔法傷害，並給予緩速30%，持續1秒。"
+    "TextContent": "吟唱2秒，使用困難的英文單字攻擊目標區域，造成最多3名目標魔法傷害，並給予緩速30%，持續1秒。"
   },
   {
     "TextID": "TM_Librarian_5_Name",
@@ -3445,7 +3445,7 @@
   },
   {
     "TextID": "TM_Echo_1_Intro",
-    "TextContent": "裝備單手劍時提升攻擊力，裝備第二把時獲得其一半的攻擊力"
+    "TextContent": "裝備單手劍時提升攻擊力、命中、暴擊"
   },
   {
     "TextID": "TM_Echo_2_Name",
@@ -3550,5 +3550,973 @@
   {
     "TextID": "TM_Echo_14_Intro",
     "TextContent": "身為遊走在生死邊緣的人，已習慣了隨時死亡的感覺，當自己的生命會低時，造成的傷害越高，但會降低移動速度。"
+  },
+  {
+    "TextID": "TM_Hero_1_Name",
+    "TextContent": "精通重甲"
+  },
+  {
+    "TextID": "TM_Hero_1_Intro",
+    "TextContent": "裝備重型鎧甲時，提升大量防禦力，大量下降移動速度"
+  },
+  {
+    "TextID": "TM_Hero_2_Name",
+    "TextContent": "拿好久的單手武器"
+  },
+  {
+    "TextID": "TM_Hero_2_Intro",
+    "TextContent": "裝備單手武器(槌、劍)時，些微提升攻擊力以及命中"
+  },
+  {
+    "TextID": "TM_Hero_3_Name",
+    "TextContent": "拿好久的盾牌"
+  },
+  {
+    "TextID": "TM_Hero_3_Intro",
+    "TextContent": "裝備盾牌時提升大量防禦力及格擋，些微降低攻擊速度"
+  },
+  {
+    "TextID": "TM_Hero_4_Name",
+    "TextContent": "精熟的砍擊"
+  },
+  {
+    "TextID": "TM_Hero_4_Intro",
+    "TextContent": "對一個敵對目標使用傷害較高的砍擊"
+  },
+  {
+    "TextID": "TM_Hero_5_Name",
+    "TextContent": "精熟的盾擊"
+  },
+  {
+    "TextID": "TM_Hero_5_Intro",
+    "TextContent": "使用盾牌敲向一個敵對目標，使目標受到傷害並暈眩1.5秒"
+  },
+  {
+    "TextID": "TM_Hero_6_Name",
+    "TextContent": "激勵"
+  },
+  {
+    "TextID": "TM_Hero_6_Intro",
+    "TextContent": "吟唱2秒，賦予範圍內所有友方單位在1800秒內，大幅提升攻擊力、防禦值。"
+  },
+  {
+    "TextID": "TM_Hero_7_Name",
+    "TextContent": "勇猛打擊"
+  },
+  {
+    "TextID": "TM_Hero_7_Intro",
+    "TextContent": "使用盾牌與主武器對一個敵對目標使用組合攻擊，造成兩次傷害並暈眩1秒。"
+  },
+  {
+    "TextID": "TM_Hero_8_Name",
+    "TextContent": "鬥志"
+  },
+  {
+    "TextID": "TM_Hero_8_Intro",
+    "TextContent": "吟唱2秒，賦予範圍內所有友方單位在1800秒內，小幅提升迴避值、提升爆擊率、爆擊傷害。"
+  },
+  {
+    "TextID": "TM_Hero_9_Name",
+    "TextContent": "接力切換"
+  },
+  {
+    "TextID": "TM_Hero_9_Intro",
+    "TextContent": "保護指定友方單位，快速衝向目標，並一個旋轉將目標拋回自己原本的位置，與一名友方單位進行位置上的互換。"
+  },
+  {
+    "TextID": "TM_Hero_10_Name",
+    "TextContent": "勇氣"
+  },
+  {
+    "TextID": "TM_Hero_10_Intro",
+    "TextContent": "吟唱2秒，賦予範圍內所有友方單位在1800秒內，小幅提升最大生命值與最大魔力值、些微降低受到的負面狀態效果。"
+  },
+  {
+    "TextID": "TM_Hero_11_Name",
+    "TextContent": "乘載眾人的寄託"
+  },
+  {
+    "TextID": "TM_Hero_11_Intro",
+    "TextContent": "故事中的英雄，驍勇善戰、無所畏懼，所有的人夢想成為的人，身為英雄的你乘載著所有人的寄託，免疫擊退與恐懼狀態。"
+  },
+  {
+    "TextID": "TM_Hero_12_Name",
+    "TextContent": "長哞"
+  },
+  {
+    "TextID": "TM_Hero_12_Intro",
+    "TextContent": "吟唱2秒，賦予範圍內所有友方單位在1800秒內，小幅提升攻擊速度、移動速度。"
+  },
+  {
+    "TextID": "TM_Hero_13_Name",
+    "TextContent": "無畏者落體"
+  },
+  {
+    "TextID": "TM_Hero_13_Intro",
+    "TextContent": "無所畏懼的跳入敵方陣營中，對範圍內的敵人造成傷害，並擊退。"
+  },
+  {
+    "TextID": "TM_Hero_14_Name",
+    "TextContent": "英勇的反擊"
+  },
+  {
+    "TextID": "TM_Hero_14_Intro",
+    "TextContent": "華麗轉身後對目標揮出手中的武器進行攻擊，對目標造成大量的傷害，並且在動畫進行的時間內免疫任何受到的傷害與負面狀態效果(已被賦予的狀態造成的傷害無法免疫)。"
+  },
+  {
+    "TextID": "TM_Hero_15_Name",
+    "TextContent": "偉大的英雄故事"
+  },
+  {
+    "TextID": "TM_Hero_15_Intro",
+    "TextContent": "詠唱3秒後，在1800秒內，每0.5秒賦予在範圍內的所有友方單位護盾與血量回復。"
+  },
+  {
+    "TextID": "TM_Dirt_1_Name",
+    "TextContent": "精通布甲"
+  },
+  {
+    "TextID": "TM_Dirt_1_Intro",
+    "TextContent": "裝備布甲時，稍微提升防禦力"
+  },
+  {
+    "TextID": "TM_Dirt_2_Name",
+    "TextContent": "書裡的智慧"
+  },
+  {
+    "TextID": "TM_Dirt_2_Intro",
+    "TextContent": "裝備魔法書時，提升魔法攻擊力、魔法命中，並增加小量吟唱速度"
+  },
+  {
+    "TextID": "TM_Dirt_3_Name",
+    "TextContent": "侵蝕泥沼"
+  },
+  {
+    "TextID": "TM_Dirt_3_Intro",
+    "TextContent": "吟唱2秒，在指定的範圍生成一攤黑水，每秒對範圍內的敵方單位造成暗屬性魔法傷害，持續5秒。"
+  },
+  {
+    "TextID": "TM_Dirt_4_Name",
+    "TextContent": "惡濁之爪"
+  },
+  {
+    "TextID": "TM_Dirt_4_Intro",
+    "TextContent": "吟唱1秒，運用汙穢力生成兩道爪痕對一個敵方單位造成兩次暗屬性魔法傷害，並造成出血持續3秒。"
+  },
+  {
+    "TextID": "TM_Dirt_5_Name",
+    "TextContent": "汙言穢語"
+  },
+  {
+    "TextID": "TM_Dirt_5_Intro",
+    "TextContent": "吟唱1.5秒，集中汙穢之力攻擊一個敵方單位的精神，造成目標暗屬性魔法傷害與耗弱30%，持續5秒。"
+  },
+  {
+    "TextID": "TM_Dirt_6_Name",
+    "TextContent": "凋零玫瑰"
+  },
+  {
+    "TextID": "TM_Dirt_6_Intro",
+    "TextContent": "吟唱1.5秒，在指定區域種下凋零玫瑰，經過的敵人受到暗屬性魔法傷害持續3秒，緩速30%3秒，敵人受到新的凋零玫瑰傷害會刷新持續傷害。"
+  },
+  {
+    "TextID": "TM_Dirt_7_Name",
+    "TextContent": "直面汙染"
+  },
+  {
+    "TextID": "TM_Dirt_7_Intro",
+    "TextContent": "汙穢之力覆蓋全身，造成的傷害增加15%，並每秒受到持續傷害，持續180秒。"
+  },
+  {
+    "TextID": "TM_Dirt_8_Name",
+    "TextContent": "潰爛"
+  },
+  {
+    "TextID": "TM_Dirt_8_Intro",
+    "TextContent": "對目標造成任何使用技能的傷害時，給予目標「潰爛」負面狀態，造成額外暗屬性魔法傷害持續3秒"
+  },
+  {
+    "TextID": "TM_Dirt_9_Name",
+    "TextContent": "加速潰敗"
+  },
+  {
+    "TextID": "TM_Dirt_9_Intro",
+    "TextContent": "指定一名敵方單位，加速他身上持有的會造成持續傷害的所有負面狀態，造成的傷害是所有符合的負面狀態當前剩餘傷害的5倍"
+  },
+  {
+    "TextID": "TM_Dirt_10_Name",
+    "TextContent": "汙蝕"
+  },
+  {
+    "TextID": "TM_Dirt_10_Intro",
+    "TextContent": "清除指定目標的所有正在套用的增益狀態。"
+  },
+  {
+    "TextID": "TM_Dirt_11_Name",
+    "TextContent": "潰爛蔓延"
+  },
+  {
+    "TextID": "TM_Dirt_11_Intro",
+    "TextContent": "吟唱1秒，指定一名含有「潰爛」狀態的敵方單位，將目標的「潰爛」狀態擴散給目標周圍的敵方單位。"
+  },
+  {
+    "TextID": "TM_Dirt_12_Name",
+    "TextContent": "潰爛彌撒"
+  },
+  {
+    "TextID": "TM_Dirt_12_Intro",
+    "TextContent": "對周圍一定範圍內帶有「潰爛」狀態的目標，引爆他們持有的「潰爛」，造成大量暗屬性魔法傷害。"
+  },
+  {
+    "TextID": "TM_Dirt_13_Name",
+    "TextContent": "柑橘污雲"
+  },
+  {
+    "TextID": "TM_Dirt_13_Intro",
+    "TextContent": "吟唱2秒，在指定的範圍內生成黑霧，造成範圍內所有敵方單位每秒受到暗屬性魔法傷害，在受到傷害的同時，減少任何生命回復的效果。"
+  },
+  {
+    "TextID": "TM_Dirt_14_Name",
+    "TextContent": "潰爛恩典"
+  },
+  {
+    "TextID": "TM_Dirt_14_Intro",
+    "TextContent": "敵方單位在帶有「潰爛」的狀態下死亡時，回復一定生命值。"
+  },
+  {
+    "TextID": "TM_Dirt_15_Name",
+    "TextContent": "混濁禱告"
+  },
+  {
+    "TextID": "TM_Dirt_15_Intro",
+    "TextContent": "對自己套用長達180秒的「潰爛」狀態，任何對自己造成傷害的敵方單位也會受到潰爛的效果。"
+  },
+  {
+    "TextID": "TM_Dirt_16_Name",
+    "TextContent": "死亡的花朵"
+  },
+  {
+    "TextID": "TM_Dirt_16_Intro",
+    "TextContent": "在自己死亡時，引爆自己的屍體，對周圍的所有單位造成大量暗屬性魔法傷害。"
+  },
+  {
+    "TextID": "TM_Warlord_01_Name",
+    "TextContent": "精通權杖"
+  },
+  {
+    "TextID": "TM_Warlord_01_Intro",
+    "TextContent": "裝備單手武器(槌、劍)時，些微提升攻擊力以及命中"
+  },
+  {
+    "TextID": "TM_Warlord_02_Name",
+    "TextContent": "精通重甲"
+  },
+  {
+    "TextID": "TM_Warlord_02_Intro",
+    "TextContent": "裝備重型鎧甲時，提升大量防禦力，大量下降移動速度"
+  },
+  {
+    "TextID": "TM_Warlord_03_Name",
+    "TextContent": "拿好久的盾牌"
+  },
+  {
+    "TextID": "TM_Warlord_03_Intro",
+    "TextContent": "裝備盾牌時提升大量防禦力及格擋，些微降低攻擊速度"
+  },
+  {
+    "TextID": "TM_Warlord_04_Name",
+    "TextContent": "真空波"
+  },
+  {
+    "TextID": "TM_Warlord_04_Intro",
+    "TextContent": "快速揮出手中的權杖，形成一個劍氣攻擊敵方單位，造成物理傷害"
+  },
+  {
+    "TextID": "TM_Warlord_05_Name",
+    "TextContent": "震盪波"
+  },
+  {
+    "TextID": "TM_Warlord_05_Intro",
+    "TextContent": "將手中的權杖用力敲擊地面，對周圍形成一個震波，造成物理傷害並緩速20%2秒"
+  },
+  {
+    "TextID": "TM_Warlord_06_Name",
+    "TextContent": "聖盾防禦"
+  },
+  {
+    "TextID": "TM_Warlord_06_Intro",
+    "TextContent": "使用後形成一個防護罩，抵抗下一次會造成自身死亡的致命傷害，持續180秒"
+  },
+  {
+    "TextID": "TM_Warlord_07_Name",
+    "TextContent": "統領"
+  },
+  {
+    "TextID": "TM_Warlord_07_Intro",
+    "TextContent": "每升一級獲得一點統領，每一點統領視同5點Str加成。"
+  },
+  {
+    "TextID": "TM_Warlord_08_Name",
+    "TextContent": "君主聖印"
+  },
+  {
+    "TextID": "TM_Warlord_08_Intro",
+    "TextContent": "在180秒內，大幅提升自身與隊友的暴擊率、暴擊傷害。"
+  },
+  {
+    "TextID": "TM_Warlord_09_Name",
+    "TextContent": "馭馬術"
+  },
+  {
+    "TextID": "TM_Warlord_09_Intro",
+    "TextContent": "可以騎乘戰馬，騎乘戰馬的狀況下提高移動速度，並可以使用戰馬專屬的技能，當戰馬死亡時，「上馬」進入冷卻時間。戰馬的傷害取決於自身攻擊力與統領的加成。"
+  },
+  {
+    "TextID": "TM_Warlord_10_Name",
+    "TextContent": "上馬"
+  },
+  {
+    "TextID": "TM_Warlord_10_Intro",
+    "TextContent": "騎乘戰馬。"
+  },
+  {
+    "TextID": "TM_Warlord_11_Name",
+    "TextContent": "下馬"
+  },
+  {
+    "TextID": "TM_Warlord_11_Intro",
+    "TextContent": "騎乘戰馬狀態下可使用，取消騎乘戰馬。"
+  },
+  {
+    "TextID": "TM_Warlord_12_Name",
+    "TextContent": "地裂術"
+  },
+  {
+    "TextID": "TM_Warlord_12_Intro",
+    "TextContent": "騎乘戰馬狀態下可使用，戰馬用力地向下踏地，在地板上冒出許多尖刺，造成周圍最多6位敵方目標物理傷害，並擊退。"
+  },
+  {
+    "TextID": "TM_Warlord_13_Name",
+    "TextContent": "裂震衝擊"
+  },
+  {
+    "TextID": "TM_Warlord_13_Intro",
+    "TextContent": "騎乘戰馬狀態下可使用，操縱戰馬飛向空中，接著朝著目標區域衝擊，造成範圍內最多6位敵方目標物理傷害，並擊飛。"
+  },
+  {
+    "TextID": "TM_Warlord_14_Name",
+    "TextContent": "戰馬鳴嚎"
+  },
+  {
+    "TextID": "TM_Warlord_14_Intro",
+    "TextContent": "騎乘戰馬狀態下可使用，戰馬遵循本身戰鬥的意志與獸性，發出他的戰嚎，對周圍駔多6位敵方目標造成物理傷害，並弱化25%2秒。"
+  },
+  {
+    "TextID": "TM_Warlord_15_Name",
+    "TextContent": "縱馬突刺"
+  },
+  {
+    "TextID": "TM_Warlord_15_Intro",
+    "TextContent": "騎乘戰馬狀態下可使用，操縱戰馬，衝向敵方目標，同時揮出手中的權杖進行攻擊，對路徑上的敵人造成物理傷害，對目標造成兩次物理傷害。"
+  },
+  {
+    "TextID": "TM_Warlord_16_Name",
+    "TextContent": "黑霧衝擊"
+  },
+  {
+    "TextID": "TM_Warlord_16_Intro",
+    "TextContent": "騎乘戰馬狀態下可使用，操縱戰馬，吐出黑暗氣息，攻擊前方一定範圍內最多5名敵方目標造成物理傷害。"
+  },
+  {
+    "TextID": "TM_Warlord_17_Name",
+    "TextContent": "深淵真空波"
+  },
+  {
+    "TextID": "TM_Warlord_17_Intro",
+    "TextContent": "升級真空波，造成的傷害提升，並在攻擊成功時賦予0.5秒的暈眩。"
+  },
+  {
+    "TextID": "TM_Warlord_18_Name",
+    "TextContent": "星雲呼喚"
+  },
+  {
+    "TextID": "TM_Warlord_18_Intro",
+    "TextContent": "詠唱4秒後，向隊友發請召喚邀請，接受召喚的隊友會在一時間的延遲後(發出召喚邀請的時限時間)被召喚到自身周圍。"
+  },
+  {
+    "TextID": "TM_LoneExile_01_Name",
+    "TextContent": "精通權杖"
+  },
+  {
+    "TextID": "TM_LoneExile_01_Intro",
+    "TextContent": "裝備單手武器(槌、劍)時，些微提升攻擊力以及命中"
+  },
+  {
+    "TextID": "TM_LoneExile_02_Name",
+    "TextContent": "精通皮甲"
+  },
+  {
+    "TextID": "TM_LoneExile_02_Intro",
+    "TextContent": "裝備皮甲時，提升防禦力、迴避值"
+  },
+  {
+    "TextID": "TM_LoneExile_03_Name",
+    "TextContent": "拿好久的盾牌"
+  },
+  {
+    "TextID": "TM_LoneExile_03_Intro",
+    "TextContent": "裝備盾牌時提升大量防禦力及格擋，些微降低攻擊速度"
+  },
+  {
+    "TextID": "TM_LoneExile_04_Name",
+    "TextContent": "孤兒印記"
+  },
+  {
+    "TextID": "TM_LoneExile_04_Intro",
+    "TextContent": "天生必須獨行的孤兒，當周圍沒有其他友方單位時，增加100%所有能力值，增加100%經驗值與100%掉寶率，這些獎勵根據周圍的友方單位下降，每個下降10%直到0%"
+  },
+  {
+    "TextID": "TM_LoneExile_05_Name",
+    "TextContent": "嚴實打擊"
+  },
+  {
+    "TextID": "TM_LoneExile_05_Intro",
+    "TextContent": "使用手中的權杖，對著一個敵方單位進行打擊，造成物理傷害。"
+  },
+  {
+    "TextID": "TM_LoneExile_06_Name",
+    "TextContent": "嚴實衝擊"
+  },
+  {
+    "TextID": "TM_LoneExile_06_Intro",
+    "TextContent": "使用手中的權杖，用力對著地板進行打擊，造成周圍最多3名敵方單位物理傷害。"
+  },
+  {
+    "TextID": "TM_LoneExile_07_Name",
+    "TextContent": "獨狼意志"
+  },
+  {
+    "TextID": "TM_LoneExile_07_Intro",
+    "TextContent": "身為一個獨來獨往的勇士，當孤兒印記享受到的獎勵倍率是完整時，STR、DEX、INT、AGI、WIS、CON各自提升20%，持續180秒。"
+  },
+  {
+    "TextID": "TM_LoneExile_08_Name",
+    "TextContent": "爆破突擊"
+  },
+  {
+    "TextID": "TM_LoneExile_08_Intro",
+    "TextContent": "舉起盾牌朝著目標衝刺，對路徑上的敵方單位造成物理傷害與擊退，對選定的目標造成物理傷害與0.75秒的暈眩"
+  },
+  {
+    "TextID": "TM_LoneExile_09_Name",
+    "TextContent": "瘋狂揮擊"
+  },
+  {
+    "TextID": "TM_LoneExile_09_Intro",
+    "TextContent": "歇斯底里地揮舞著手中的權杖與盾牌，對著周圍最多5名敵方單位造成物理傷害。"
+  },
+  {
+    "TextID": "TM_LoneExile_10_Name",
+    "TextContent": "連續不斷的攻勢"
+  },
+  {
+    "TextID": "TM_LoneExile_10_Intro",
+    "TextContent": "進入戰鬥狀態中，每使用一個技能造成傷害時，提升下一個技能傷害的倍率25%，可疊加，最多100%，當離開戰鬥狀態時效果消失。"
+  },
+  {
+    "TextID": "TM_LoneExile_11_Name",
+    "TextContent": "遵循戰鬥的本能"
+  },
+  {
+    "TextID": "TM_LoneExile_11_Intro",
+    "TextContent": "當在戰鬥中進行格檔時，有25%的機率以普攻進行反擊，此次普攻不列入攻擊速度的規則。"
+  },
+  {
+    "TextID": "TM_LoneExile_12_Name",
+    "TextContent": "烙印權杖"
+  },
+  {
+    "TextID": "TM_LoneExile_12_Intro",
+    "TextContent": "在180秒內，對目標造成任何傷害時，降低目標的物理防禦25%，若造成的是暴擊傷害則為50%，持續3秒。"
+  },
+  {
+    "TextID": "TM_LoneExile_13_Name",
+    "TextContent": "獨孤求敗"
+  },
+  {
+    "TextID": "TM_LoneExile_13_Intro",
+    "TextContent": "設立一個領域只有自己與指定的敵方玩家可以在其中活動，其他的任何單位不得介入，持續12秒，孤兒印記的效果在領域存在的時間內絕對是完整的獎勵，若在持續時間內擊殺目標，30秒內孤兒印記無視任何懲罰。"
+  },
+  {
+    "TextID": "TM_LoneExile_14_Name",
+    "TextContent": "天流的孤狼星"
+  },
+  {
+    "TextID": "TM_LoneExile_14_Intro",
+    "TextContent": "其實一直以來孤軍奮戰的你，也是在心中醞釀了濃厚的抱怨與負能量，看著其他人可以結伴而行，而你是個孤兒，所以你對著目標宣洩你的恨意，對著一個敵方單位造成極大的物理傷害。"
+  },
+  {
+    "TextID": "TM_LoneExile_15_Name",
+    "TextContent": "孤狼印記"
+  },
+  {
+    "TextID": "TM_LoneExile_15_Intro",
+    "TextContent": "恭喜你從孤兒進化為孤狼，升級孤兒印記，增加的能力值提升175%，並且根據周圍的友方單位下降的百分比降低為5%，最低降低至15%。"
+  },
+  {
+    "TextID": "TM_BeastTamer_01_Name",
+    "TextContent": "書裡的智慧"
+  },
+  {
+    "TextID": "TM_BeastTamer_01_Intro",
+    "TextContent": "裝備魔法書時，提升魔法攻擊力、魔法命中，並增加小量吟唱速度"
+  },
+  {
+    "TextID": "TM_BeastTamer_02_Name",
+    "TextContent": "精通皮甲"
+  },
+  {
+    "TextID": "TM_BeastTamer_02_Intro",
+    "TextContent": "裝備皮甲時，提升防禦力、迴避值"
+  },
+  {
+    "TextID": "TM_BeastTamer_03_Name",
+    "TextContent": "傳承的召喚術"
+  },
+  {
+    "TextID": "TM_BeastTamer_03_Intro",
+    "TextContent": "學習了先祖傳承的召喚術，可以召喚簽訂契約保存下來的召喚獸，與自己進行結伴戰鬥。(一次僅能召喚一隻召喚獸，召喚後有300秒冷卻時間)"
+  },
+  {
+    "TextID": "TM_BeastTamer_04_Name",
+    "TextContent": "惡意挑釁"
+  },
+  {
+    "TextID": "TM_BeastTamer_04_Intro",
+    "TextContent": "召喚厄俄斯才可以使用。厄俄斯使用各種肢體上的挑釁，迫使目標攻擊他，若目標是怪物則大量提升仇恨值。"
+  },
+  {
+    "TextID": "TM_BeastTamer_05_Name",
+    "TextContent": "穩定的仇恨"
+  },
+  {
+    "TextID": "TM_BeastTamer_05_Intro",
+    "TextContent": "召喚厄俄斯才可以使用。厄俄斯對目標造成任何傷害時，若目標是怪物時，每次的傷害小量提升仇恨值。"
+  },
+  {
+    "TextID": "TM_BeastTamer_06_Name",
+    "TextContent": "The扛"
+  },
+  {
+    "TextID": "TM_BeastTamer_06_Intro",
+    "TextContent": "召喚厄俄斯才可以使用。在180秒內自身受到的傷害，轉移一定傷害的比率到厄俄斯上。"
+  },
+  {
+    "TextID": "TM_BeastTamer_07_Name",
+    "TextContent": "歸禪"
+  },
+  {
+    "TextID": "TM_BeastTamer_07_Intro",
+    "TextContent": "召喚厄俄斯才可以使用。在短時間內，自身受到的所有傷害轉移到厄俄斯上，若厄俄斯死亡則提前結束效果，持續3秒。"
+  },
+  {
+    "TextID": "TM_BeastTamer_08_Name",
+    "TextContent": "引導靈魂"
+  },
+  {
+    "TextID": "TM_BeastTamer_08_Intro",
+    "TextContent": "召喚黑卡蒂才可以使用。黑卡蒂對目標進行任何攻擊時，有一定的機率造成暈眩持續0.5秒"
+  },
+  {
+    "TextID": "TM_BeastTamer_09_Name",
+    "TextContent": "三向之力"
+  },
+  {
+    "TextID": "TM_BeastTamer_09_Intro",
+    "TextContent": "召喚黑卡蒂才可以使用。黑卡蒂對目標進行攻擊，造成一定量的魔法攻擊外，造成暈眩持續0.5秒，「引導靈魂」的效果成功則可疊加。"
+  },
+  {
+    "TextID": "TM_BeastTamer_10_Name",
+    "TextContent": "交叉路口"
+  },
+  {
+    "TextID": "TM_BeastTamer_10_Intro",
+    "TextContent": "召喚黑卡蒂才可以使用。黑卡蒂對目標區域進行攻擊，對區域內最多3名敵方目標造成一定量的魔法攻擊外，造成暈眩持續0.5秒，「引導靈魂」的效果成功則可疊加。"
+  },
+  {
+    "TextID": "TM_BeastTamer_11_Name",
+    "TextContent": "三向相消"
+  },
+  {
+    "TextID": "TM_BeastTamer_11_Intro",
+    "TextContent": "召喚黑卡蒂才可以使用。在一定時間內有效，當本身受到硬控制狀態時，黑卡蒂會使用魔法作為抵銷，並且將硬控制效果轉換為相等秒數的暈眩狀態賦予目標，效果發生後消除此技能狀態"
+  },
+  {
+    "TextID": "TM_BeastTamer_12_Name",
+    "TextContent": "溫柔的慈愛"
+  },
+  {
+    "TextID": "TM_BeastTamer_12_Intro",
+    "TextContent": "召喚雷亞才可以使用。在沒有指定目標的情況下會自動施放直到將本身的生命值補滿，若有指定目標則改為治癒目標"
+  },
+  {
+    "TextID": "TM_BeastTamer_13_Name",
+    "TextContent": "偉大無私的母愛"
+  },
+  {
+    "TextID": "TM_BeastTamer_13_Intro",
+    "TextContent": "召喚雷亞才可以使用。消耗更強大的魔法使用治癒術，治癒目標更多的血量。"
+  },
+  {
+    "TextID": "TM_BeastTamer_14_Name",
+    "TextContent": "無條件的慈愛"
+  },
+  {
+    "TextID": "TM_BeastTamer_14_Intro",
+    "TextContent": "召喚雷亞才可以使用。以隊友為單位，為每個人使用慈愛治癒術"
+  },
+  {
+    "TextID": "TM_BeastTamer_15_Name",
+    "TextContent": "溫柔的慈愛·結"
+  },
+  {
+    "TextID": "TM_BeastTamer_15_Intro",
+    "TextContent": "召喚雷亞才可以使用。強化急救治癒術，使用急救治癒術時，附帶一定比例的護盾值，並且解除目標當下正在套用的負面狀態"
+  },
+  {
+    "TextID": "TM_BeastTamer_16_Name",
+    "TextContent": "暗語致殺"
+  },
+  {
+    "TextID": "TM_BeastTamer_16_Intro",
+    "TextContent": "召喚塞勒涅才可以使用。對目標進行物理傷害的攻擊，以一定的機率賦予沈默"
+  },
+  {
+    "TextID": "TM_BeastTamer_17_Name",
+    "TextContent": "二重致殺"
+  },
+  {
+    "TextID": "TM_BeastTamer_17_Intro",
+    "TextContent": "召喚塞勒涅才可以使用。對對目標進行二次物理傷害"
+  },
+  {
+    "TextID": "TM_BeastTamer_18_Name",
+    "TextContent": "厄烏列斯"
+  },
+  {
+    "TextID": "TM_BeastTamer_18_Intro",
+    "TextContent": "召喚塞勒涅才可以使用。對目標進行追擊，作用期間召喚獸不受操控，效果持續到結束或是目標死亡。"
+  },
+  {
+    "TextID": "TM_BeastTamer_19_Name",
+    "TextContent": "帕尼歐努恩"
+  },
+  {
+    "TextID": "TM_BeastTamer_19_Intro",
+    "TextContent": "召喚塞勒涅才可以使用。對召喚獸瞬移到目標身後，造成物理傷害，一定機率賦予目標出血"
+  },
+  {
+    "TextID": "TM_BeastTamer_20_Name",
+    "TextContent": "瞬間移動"
+  },
+  {
+    "TextID": "TM_BeastTamer_20_Intro",
+    "TextContent": "召喚諾托斯才可以使用。瞬間的速度移動到指定區域"
+  },
+  {
+    "TextID": "TM_BeastTamer_21_Name",
+    "TextContent": "扭曲空間"
+  },
+  {
+    "TextID": "TM_BeastTamer_21_Intro",
+    "TextContent": "召喚諾托斯才可以使用。使用魔法的力量，扭曲指定區域的空間，在區域被扭曲的持續時間下，區域內的任何單位的移動都會是反方向的"
+  },
+  {
+    "TextID": "TM_BeastTamer_22_Name",
+    "TextContent": "空間收斂"
+  },
+  {
+    "TextID": "TM_BeastTamer_22_Intro",
+    "TextContent": "召喚諾托斯才可以使用。將指定的敵方單位傳送到其後方一定距離的位置。"
+  },
+  {
+    "TextID": "TM_BeastTamer_23_Name",
+    "TextContent": "空間呼引"
+  },
+  {
+    "TextID": "TM_BeastTamer_23_Intro",
+    "TextContent": "召喚諾托斯才可以使用。無須吟唱，使用後立即將自己傳送到最近的休息區。"
+  },
+  {
+    "TextID": "TM_BeastTamer_24_Name",
+    "TextContent": "契約說明"
+  },
+  {
+    "TextID": "TM_BeastTamer_24_Intro",
+    "TextContent": "切換召喚的召喚獸時，會有一定時間的冷卻時間讀秒，讀秒期間不得再次進行切換。召喚獸死亡後，該召喚獸進入冷卻倒數，讀秒結束才可以再次進行召喚。未被馴服的召喚獸不可進行召喚。召喚該召喚獸並使用其專屬的增益狀態後進行切換召喚獸或是該召喚獸死亡的話會移除套用效果。"
+  },
+  {
+    "TextID": "TM_BeastTamer_25_Name",
+    "TextContent": "三重黑卡蒂"
+  },
+  {
+    "TextID": "TM_BeastTamer_25_Intro",
+    "TextContent": "召喚黑卡蒂才可以使用。在一定時間內當黑卡蒂成功暈眩目標後，賦予目標破甲、耗弱，並再次賦予傷害。"
+  },
+  {
+    "TextID": "TM_BeastTamer_26_Name",
+    "TextContent": "厄俄斯曙光"
+  },
+  {
+    "TextID": "TM_BeastTamer_26_Intro",
+    "TextContent": "召喚厄俄斯才可以使用。在一定時間內提升自身最大生命值，提升自身與隊友的防禦值、魔法防禦。"
+  },
+  {
+    "TextID": "TM_BeastTamer_27_Name",
+    "TextContent": "塞勒涅頌歌"
+  },
+  {
+    "TextID": "TM_BeastTamer_27_Intro",
+    "TextContent": "召喚塞勒涅才可以使用。在一定時間內提升自身物理攻擊、魔法攻擊、物理命中、魔法命中。"
+  },
+  {
+    "TextID": "TM_BeastTamer_28_Name",
+    "TextContent": "雷亞的母愛"
+  },
+  {
+    "TextID": "TM_BeastTamer_28_Intro",
+    "TextContent": "召喚雷亞才可以使用。在一定時間內，提升自身受到的任何治癒效果。"
+  },
+  {
+    "TextID": "TM_BeastTamer_29_Name",
+    "TextContent": "諾托斯之徑"
+  },
+  {
+    "TextID": "TM_BeastTamer_29_Intro",
+    "TextContent": "召喚諾托斯才可以使用。在一定時間內，提升自身與隊友的暴擊率、迴避值、移動速度。"
+  },
+  {
+    "TextID": "TM_BeastTamer_30_Name",
+    "TextContent": "遠古的召喚獸"
+  },
+  {
+    "TextID": "TM_BeastTamer_30_Intro",
+    "TextContent": "已契約的召喚獸轉化為他們遠古的樣子，他們會各自提升他們的能力值與附帶效果：厄俄斯降低受到的傷害，一定機率免疫受到的傷害、黑卡蒂在造成暈眩後下次的攻擊一定機率無視目標的防禦、雷亞造成治癒效果後附帶一定比率的護盾值、塞勒涅造成的傷害可以產生暴擊傷害。諾托斯使用瞬間移動後且在未現身期間，自身與諾托斯都屬於不可被指定的狀態。"
+  },
+  {
+    "TextID": "TM_SwordSoul_1_Name",
+    "TextContent": "精通皮甲"
+  },
+  {
+    "TextID": "TM_SwordSoul_1_Intro",
+    "TextContent": "裝備皮甲時，提升防禦力、迴避值"
+  },
+  {
+    "TextID": "TM_SwordSoul_2_Name",
+    "TextContent": "精通單手劍"
+  },
+  {
+    "TextID": "TM_SwordSoul_2_Intro",
+    "TextContent": "裝備單手劍時提升攻擊力、命中、暴擊"
+  },
+  {
+    "TextID": "TM_SwordSoul_3_Name",
+    "TextContent": "掌握靈氣"
+  },
+  {
+    "TextID": "TM_SwordSoul_3_Intro",
+    "TextContent": "習得對靈氣的控制，將靈氣灌注在劍中，以靈氣作為作戰主要手段，進行普通攻擊會揮出劍中蘊含的靈氣進行攻擊，比一般近距離武器的攻擊範圍更為遠。"
+  },
+  {
+    "TextID": "TM_SwordSoul_4_Name",
+    "TextContent": "伊南尼亞劍氣"
+  },
+  {
+    "TextID": "TM_SwordSoul_4_Intro",
+    "TextContent": "使用劍氣對指定的單體敵方目標進行攻擊，造成物理傷害。"
+  },
+  {
+    "TextID": "TM_SwordSoul_5_Name",
+    "TextContent": "波瑟尼亞劍氣"
+  },
+  {
+    "TextID": "TM_SwordSoul_5_Intro",
+    "TextContent": "使用靈氣劃出月牙形狀的劍氣並向指定方向揮出，造成路徑上最多3名敵方單位物理傷害。"
+  },
+  {
+    "TextID": "TM_SwordSoul_6_Name",
+    "TextContent": "澤西尼亞劍氣"
+  },
+  {
+    "TextID": "TM_SwordSoul_6_Intro",
+    "TextContent": "使用靈氣射出子彈形狀的劍氣，對指定的單體敵方單位射出，並對路徑上所有敵方單位傷害，每集中一名遞減10%傷害最低降至50%"
+  },
+  {
+    "TextID": "TM_SwordSoul_7_Name",
+    "TextContent": "諾維尼亞劍氣"
+  },
+  {
+    "TextID": "TM_SwordSoul_7_Intro",
+    "TextContent": "將靈氣壓縮並圍繞在自己周圍形成包裹自己的劍氣，對周圍的敵方單位造成物理傷害。"
+  },
+  {
+    "TextID": "TM_SwordSoul_8_Name",
+    "TextContent": "伊南尼亞的教誨"
+  },
+  {
+    "TextID": "TM_SwordSoul_8_Intro",
+    "TextContent": "遵循伊南尼亞的指導，提升在劍術上的造詣，在180秒內提升近距離物理攻擊、近距離物理命中、暴擊率。"
+  },
+  {
+    "TextID": "TM_SwordSoul_9_Name",
+    "TextContent": "波瑟尼亞的權威"
+  },
+  {
+    "TextID": "TM_SwordSoul_9_Intro",
+    "TextContent": "學習波瑟尼亞的權威，對劍氣的技巧更加熟練，在180秒內提升普通攻擊範圍與技能範圍。"
+  },
+  {
+    "TextID": "TM_SwordSoul_10_Name",
+    "TextContent": "澤西尼亞的技巧"
+  },
+  {
+    "TextID": "TM_SwordSoul_10_Intro",
+    "TextContent": "習得澤西尼亞的技巧，提升面對各種敵人的作戰方式，在180秒內提升物理防禦、迴避值、暴擊抵抗。"
+  },
+  {
+    "TextID": "TM_SwordSoul_11_Name",
+    "TextContent": "諾維尼亞的意志"
+  },
+  {
+    "TextID": "TM_SwordSoul_11_Intro",
+    "TextContent": "繼承諾維尼亞的意志，強化「諾維尼亞劍氣」的效果，使用後對周圍敵人造成的傷害提升，並且強化下次劍氣技能的傷害。"
+  },
+  {
+    "TextID": "TM_SwordSoul_12_Name",
+    "TextContent": "劍氣穿透"
+  },
+  {
+    "TextID": "TM_SwordSoul_12_Intro",
+    "TextContent": "使用劍氣撕裂指定的單體敵方單位，造成物理傷害並附帶破甲持續2秒。"
+  },
+  {
+    "TextID": "TM_SwordSoul_13_Name",
+    "TextContent": "劍氣衝擊"
+  },
+  {
+    "TextID": "TM_SwordSoul_13_Intro",
+    "TextContent": "使用蘊含龐大劍氣的攻擊，衝擊指定的單體單位，造成目標擊退一定距離。"
+  },
+  {
+    "TextID": "TM_SwordSoul_14_Name",
+    "TextContent": "劍氣末流"
+  },
+  {
+    "TextID": "TM_SwordSoul_14_Intro",
+    "TextContent": "集中劍氣攻擊指定的單體敵方單位，造成物理傷害，並控制劍氣的尾流，控制住敵人，使目標在3秒內被賦予無法迴避任何攻擊的負面狀態"
+  },
+  {
+    "TextID": "TM_SwordSoul_15_Name",
+    "TextContent": "劍靈與會"
+  },
+  {
+    "TextID": "TM_SwordSoul_15_Intro",
+    "TextContent": "呼喚偉大的四大劍靈，協助自己的戰鬥，強化下一個劍氣技能；「伊南尼亞劍氣」提升至極大的傷害量、「波瑟尼亞劍氣」劍氣範圍增加，命中的單位數量提升至12名、「澤西尼亞劍氣」造成的傷害必定為暴擊並取消遞減傷害、「諾維尼亞劍氣」更變每秒造成一次傷害，持續10秒"
+  },
+  {
+    "TextID": "TM_Specialist_1_Name",
+    "TextContent": "精通皮甲"
+  },
+  {
+    "TextID": "TM_Specialist_1_Intro",
+    "TextContent": "裝備皮甲時，提升防禦力、迴避值"
+  },
+  {
+    "TextID": "TM_Specialist_2_Name",
+    "TextContent": "精通遠距離兵器"
+  },
+  {
+    "TextID": "TM_Specialist_2_Intro",
+    "TextContent": "裝備遠距離類型的武器時(弓、弩、槍、砲)提升攻擊力、命中、暴擊"
+  },
+  {
+    "TextID": "TM_Specialist_3_Name",
+    "TextContent": "機甲駕照"
+  },
+  {
+    "TextID": "TM_Specialist_3_Intro",
+    "TextContent": "憑此駕照，可以駕駛機甲類型的載具(近距離、遠距離、魔法、功能型機甲)，可以製作機甲控制鑰匙與提升機甲的各個部位。駕駛機甲時無法使用任何道具、裝備任何武器防具，且若機甲損壞，視同死亡。"
+  },
+  {
+    "TextID": "TM_Specialist_4_Name",
+    "TextContent": "天匠製作術"
+  },
+  {
+    "TextID": "TM_Specialist_4_Intro",
+    "TextContent": "祖傳的製作技術，可以自己使用原料製作物品，武器，防具。(武器、防具都是無附魔與強化的基礎裝備)"
+  },
+  {
+    "TextID": "TM_Specialist_5_Name",
+    "TextContent": "穩定的射擊"
+  },
+  {
+    "TextID": "TM_Specialist_5_Intro",
+    "TextContent": "對一名敵方目標造成物理傷害(使用弓、弩:消耗1支箭、使用槍枝:消耗1顆子彈、使用火炮:消耗1顆砲彈)"
+  },
+  {
+    "TextID": "TM_Specialist_6_Name",
+    "TextContent": "穩定的範圍射擊"
+  },
+  {
+    "TextID": "TM_Specialist_6_Intro",
+    "TextContent": "對一個敵方目標與其周圍最多3名敵方單位造成物理傷害(使用弓、弩:消耗3支箭、使用槍枝:消耗3顆子彈、使用火炮:消耗3顆砲彈)"
+  },
+  {
+    "TextID": "TM_Specialist_7_Name",
+    "TextContent": "肌腱提升"
+  },
+  {
+    "TextID": "TM_Specialist_7_Intro",
+    "TextContent": "在180秒內，增加自己的移動速度與攻擊速度。"
+  },
+  {
+    "TextID": "TM_Specialist_8_Name",
+    "TextContent": "武裝機甲技術"
+  },
+  {
+    "TextID": "TM_Specialist_8_Intro",
+    "TextContent": "在180秒內，駕駛任何類型的機甲時，提升攻擊力、命中與暴擊率。"
+  },
+  {
+    "TextID": "TM_Specialist_9_Name",
+    "TextContent": "防禦機甲技術"
+  },
+  {
+    "TextID": "TM_Specialist_9_Intro",
+    "TextContent": "在180秒內，駕駛任何類型的機甲時，機甲損害降低。"
+  },
+  {
+    "TextID": "TM_Specialist_10_Name",
+    "TextContent": "巧奪天工之名"
+  },
+  {
+    "TextID": "TM_Specialist_10_Intro",
+    "TextContent": "升級「天匠製作術」，長久以來累積的經驗昇華了製作術的造詣，能製作更高階的道具、武器、裝備，與更高等級的機甲部位。"
+  },
+  {
+    "TextID": "TM_Specialist_11_Name",
+    "TextContent": "高科技菁英分子"
+  },
+  {
+    "TextID": "TM_Specialist_11_Intro",
+    "TextContent": "製作物品時，成功率提升，並且跟商人交易時，在消費的費用上獲得折抵。"
+  },
+  {
+    "TextID": "TM_Specialist_12_Name",
+    "TextContent": "超能機甲技術"
+  },
+  {
+    "TextID": "TM_Specialist_12_Intro",
+    "TextContent": "駕駛任何類型的機甲時，提升攻擊力、防禦力。"
   }
 ]
