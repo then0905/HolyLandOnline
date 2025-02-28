@@ -18,12 +18,8 @@ public class ItemEffectBase_Potion : ItemEffectBase
         if (ItemComponentList.CheckAnyData())
             ItemComponentList.ForEach(x => BattleOperation.Instance.ItemRestorationEvent?.Invoke(x as ItemComponent, caster, receiver));
 
-        //進入冷卻計時處理
-        if (!CooldownTime.Equals(0))
-            StartCoroutine(UpdateCooldown(CooldownTime));
-
-        //扣除背包內的物品數量
-        UseItemQtyProcessor();
+        //執行冷卻時間判斷、扣除背包道具內容
+        base.ItemEffectStart(caster, receiver);
     }
 
     protected override void ItemEffectEnd(ICombatant caster = null, ICombatant receiver = null)

@@ -108,12 +108,9 @@ public abstract class ItemEffectBase : MonoBehaviour, IItemEffect, IHotKey
     [Header("生成的動畫特效物件"), SerializeField] protected GameObject effectObj;
 
     /// <summary>
-    /// 初始化技能資料
+    /// 初始化道具資料
     /// </summary>
-    /// <param name="skillUpgradeID">是否升級技能</param>
-    /// <param name="caster">施放者</param>
-    /// <param name="receiver">接收者</param>
-    public virtual void InitItemEffectData(ICombatant caster = null, ICombatant receiver = null)
+    public virtual void InitItemEffectData()
     {
         //獲取GameData技能資料
         ItemData = GameData.ItemsDic[itemID];
@@ -133,8 +130,6 @@ public abstract class ItemEffectBase : MonoBehaviour, IItemEffect, IHotKey
     {
         if (ItemEffectCondition())
         {
-            if (!CooldownTime.Equals(0))
-                StartCoroutine(UpdateCooldown(CooldownTime));
             ItemEffectStart(caster, target);
         }
     }
@@ -188,6 +183,12 @@ public abstract class ItemEffectBase : MonoBehaviour, IItemEffect, IHotKey
     /// <param name="receiver">被施放者</param>
     protected virtual void ItemEffectStart(ICombatant caster = null, ICombatant receiver = null)
     {
+        if (!CooldownTime.Equals(0))
+            //進行冷卻
+            StartCoroutine(UpdateCooldown(CooldownTime));
+
+        //扣除背包內的效果
+        UseItemQtyProcessor();
     }
 
     /// <summary>

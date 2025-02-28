@@ -133,4 +133,20 @@ public class MapManager : MonoBehaviour
         //載入遊戲場景讀取完 執行事件
         onGameSceneLoad?.Invoke();
     }
+
+    /// <summary>
+    /// 回城處理
+    /// </summary>
+    public void RecordProcessor(ICombatant target)
+    {
+        //尋找最近的休息區
+
+        //進入Loading
+
+        //設定被使用回城對象的座標
+
+        //短暫無敵?不確定是否需要
+
+        Debug.Log("呼叫回城，回城系統暫未實裝");
+    }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,7 @@ public class RestorationItemComponent : ItemComponent
     }
     public override void Execute(ICombatant caster, ICombatant target)
     {
-        BattleOperation.Instance.ItemRestorationEvent?.Invoke(this,caster,target);
+        BattleOperation.Instance.ItemRestorationEvent?.Invoke(this, caster, target);
     }
 }
 
@@ -57,7 +58,7 @@ public class BuffItemComponent : ItemComponent
         CharacterStatusAdd(itemEffectData);
     }
 
-    public void ReverseExecute(params ItemEffectData[] itemEffectDatas)
+    public void ReverseExecute(params OperationData[] itemEffectDatas)
     {
         for (int i = 0; i < itemEffectDatas.Length; i++)
         {
@@ -90,6 +91,8 @@ public class BuffItemComponent : ItemComponent
 /// </summary>
 public class UtilityItemComponent : ItemComponent
 {
+    /// <summary>功能型道具執行內容事件</summary>
+    public Action<ICombatant, ICombatant> UtilityAct { get; set; }
     public UtilityItemComponent(ItemEffectBase item_Base, ItemEffectData itemEffectData)
     {
         itemBase = item_Base;
@@ -98,6 +101,6 @@ public class UtilityItemComponent : ItemComponent
 
     public override void Execute(ICombatant caster, ICombatant target)
     {
-
+        UtilityAct?.Invoke(caster,target);
     }
 }

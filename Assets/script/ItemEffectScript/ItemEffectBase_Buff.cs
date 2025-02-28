@@ -12,19 +12,14 @@ public class ItemEffectBase_Buff : ItemEffectBase
 {
     protected override void ItemEffectStart(ICombatant caster = null, ICombatant receiver = null)
     {
-        var tempData = ItemData.ItemEffectDataList[0];
-
         if (ItemComponentList.CheckAnyData())
-            //ItemComponentList.ForEach(x => BattleOperation.Instance.ItemRestorationEvent?.Invoke(x as ItemComponent, caster, receiver));
+            //效果運行
             ItemComponentList[0].Execute(caster, receiver);
 
-        if (!CooldownTime.Equals(0))
-            StartCoroutine(UpdateCooldown(CooldownTime));
-
-        UseItemQtyProcessor();
+        //執行冷卻時間判斷、扣除背包道具內容
+        base.ItemEffectStart(caster, receiver);
     }
     protected override void ItemEffectEnd(ICombatant caster = null, ICombatant receiver = null)
     {
-
     }
 }

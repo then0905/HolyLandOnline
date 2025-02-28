@@ -176,9 +176,19 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
     {
         if (operationData.ToArray().SequenceEqual(this.OperationDatas))
         {
+            //解除效果移除事件的訂閱
             CharacterStatusManager.Instance.CharacterSatusRemoveEvent -= RemoveCharacterStatusHint;
+            
+            //若是 技能類型的buff效果
             var buffComponen = skill_Base_Buff.SkillComponentList.Where(x => x is BuffComponent).Select(x => x as BuffComponent).FirstOrDefault();
+            //檢查空值 並還原加成效果
             buffComponen?.ReverseExecute(OperationDatas);
+            
+            //若是 道具類型的buff效果
+            var itemComponen = itemEffectBase_Buff.ItemComponentList.Where(x => x is BuffItemComponent).Select(x => x as BuffItemComponent).FirstOrDefault();
+            //檢查空值 並還原加成效果
+            itemComponen?.ReverseExecute(OperationDatas);
+            
             CharacterStatusManager.Instance.CharacterStatusHintDic.Remove(this);
             Destroy(this.gameObject);
         }
