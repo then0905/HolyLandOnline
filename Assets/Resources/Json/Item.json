@@ -277,7 +277,7 @@
         "CodeID": "Potion_Detoxification_01",
         "ItemComponentID": "Utility",
         "EffectValue": 0,
-        "InfluenceStatus": "RemovePoision",
+        "InfluenceStatus": "RemovePoison",
         "ConditionOR": [
           "NeedLv"
         ],

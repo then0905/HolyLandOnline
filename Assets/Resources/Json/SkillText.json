@@ -4385,11 +4385,11 @@
   },
   {
     "TextID": "TM_SwordSoul_11_Name",
-    "TextContent": "諾維尼亞的意志"
+    "TextContent": "諾維尼亞的加護"
   },
   {
     "TextID": "TM_SwordSoul_11_Intro",
-    "TextContent": "繼承諾維尼亞的意志，強化「諾維尼亞劍氣」的效果，使用後對周圍敵人造成的傷害提升，並且強化下次劍氣技能的傷害。"
+    "TextContent": "獲得諾維尼亞的加護，強化「諾維尼亞劍氣」的效果，使用後對周圍敵人造成的傷害提升，並且強化下次劍氣技能的傷害。"
   },
   {
     "TextID": "TM_SwordSoul_12_Name",
@@ -4417,10 +4417,18 @@
   },
   {
     "TextID": "TM_SwordSoul_15_Name",
-    "TextContent": "劍靈與會"
+    "TextContent": "切碎世界的瞬間"
   },
   {
     "TextID": "TM_SwordSoul_15_Intro",
+    "TextContent": "集中劍氣於劍中，快速揮舞手中的劍，將釋出的劍氣凝成大片方格狀的劍氣，攻擊路徑上的敵人，造成路徑上所有敵人受到極大的物理傷害。"
+  },
+  {
+    "TextID": "TM_SwordSoul_16_Name",
+    "TextContent": "劍靈與會"
+  },
+  {
+    "TextID": "TM_SwordSoul_16_Intro",
     "TextContent": "呼喚偉大的四大劍靈，協助自己的戰鬥，強化下一個劍氣技能；「伊南尼亞劍氣」提升至極大的傷害量、「波瑟尼亞劍氣」劍氣範圍增加，命中的單位數量提升至12名、「澤西尼亞劍氣」造成的傷害必定為暴擊並取消遞減傷害、「諾維尼亞劍氣」更變每秒造成一次傷害，持續10秒"
   },
   {
@@ -4518,5 +4526,125 @@
   {
     "TextID": "TM_Specialist_12_Intro",
     "TextContent": "駕駛任何類型的機甲時，提升攻擊力、防禦力。"
+  },
+  {
+    "TextID": "TM_Voodoo_1_Name",
+    "TextContent": "精通布甲"
+  },
+  {
+    "TextID": "TM_Voodoo_1_Intro",
+    "TextContent": "裝備布甲時，稍微提升防禦力"
+  },
+  {
+    "TextID": "TM_Voodoo_2_Name",
+    "TextContent": "精通長杖"
+  },
+  {
+    "TextID": "TM_Voodoo_2_Intro",
+    "TextContent": "使用長杖類的武器時，近距離物理攻擊與魔法攻擊提升"
+  },
+  {
+    "TextID": "TM_Voodoo_3_Name",
+    "TextContent": "殛咒"
+  },
+  {
+    "TextID": "TM_Voodoo_3_Intro",
+    "TextContent": "施放任何詛咒類型的技能對目標造成傷害時，附上此負面狀態，當接收下次的詛咒傷害時每層增加25%傷害最多4層，並向一定距離內的最多2名敵方單位擴散1層此狀態（若數量眾多以生命最高的敵方玩家單位優先）"
+  },
+  {
+    "TextID": "TM_Voodoo_4_Name",
+    "TextContent": "惡意"
+  },
+  {
+    "TextID": "TM_Voodoo_4_Intro",
+    "TextContent": "詠唱1秒後，對一個敵方單位降下詛咒，造成魔法傷害"
+  },
+  {
+    "TextID": "TM_Voodoo_5_Name",
+    "TextContent": "群體致語術"
+  },
+  {
+    "TextID": "TM_Voodoo_5_Intro",
+    "TextContent": "詠唱2.5秒後，對一個區域內的最多5名敵方單位降下詛咒，造成魔法傷害"
+  },
+  {
+    "TextID": "TM_Voodoo_6_Name",
+    "TextContent": "惡咒降頭"
+  },
+  {
+    "TextID": "TM_Voodoo_6_Intro",
+    "TextContent": "詠唱2秒後，對一個區域內的最多3名敵方單位降下詛咒，造成魔法傷害並緩速30%2秒"
+  },
+  {
+    "TextID": "TM_Voodoo_7_Name",
+    "TextContent": "巫族碎語"
+  },
+  {
+    "TextID": "TM_Voodoo_7_Intro",
+    "TextContent": "在180秒內，降低技能所需的詠唱時間25%"
+  },
+  {
+    "TextID": "TM_Voodoo_8_Name",
+    "TextContent": "毒咒術"
+  },
+  {
+    "TextID": "TM_Voodoo_8_Intro",
+    "TextContent": "詠唱2秒後，對一個區域內的最多5名敵方單位降下帶有中毒3秒的詛咒，並造成魔法傷害。"
+  },
+  {
+    "TextID": "TM_Voodoo_9_Name",
+    "TextContent": "速釋咒縛"
+  },
+  {
+    "TextID": "TM_Voodoo_9_Intro",
+    "TextContent": "立即對周圍範圍內最多5名敵方單位降下詛咒並造成魔法傷害"
+  },
+  {
+    "TextID": "TM_Voodoo_10_Name",
+    "TextContent": "大型降蠱"
+  },
+  {
+    "TextID": "TM_Voodoo_10_Intro",
+    "TextContent": "詠唱2秒後施放，對範圍內的最多8名敵方單位降下附帶蠱蟲的詛咒，蠱蟲會造成目標在5秒內收到持續的魔法傷害並耗弱30%持續3.5秒"
+  },
+  {
+    "TextID": "TM_Voodoo_11_Name",
+    "TextContent": "大邢殛咒崁"
+  },
+  {
+    "TextID": "TM_Voodoo_11_Intro",
+    "TextContent": "升級「殛咒」的效果，擴散的範圍擴大，能擴散的目標增加為5名"
+  },
+  {
+    "TextID": "TM_Voodoo_12_Name",
+    "TextContent": "煉屍咒縛"
+  },
+  {
+    "TextID": "TM_Voodoo_12_Intro",
+    "TextContent": "詠唱3.5秒後，對指定範圍內最多5名敵方單位降下詛咒，並造成禁錮2秒"
+  },
+  {
+    "TextID": "TM_Voodoo_13_Name",
+    "TextContent": "處刑咒毒"
+  },
+  {
+    "TextID": "TM_Voodoo_13_Intro",
+    "TextContent": "詠唱2秒後，對周圍最多5名敵方單位降下詛咒，造成大量的魔法傷害，並附上中毒5秒，中毒期間內收割5%"
+  },
+  {
+    "TextID": "TM_Voodoo_14_Name",
+    "TextContent": "大嶺煞神屠"
+  },
+  {
+    "TextID": "TM_Voodoo_14_Intro",
+    "TextContent": "詠唱3秒後，在指定區域召喚大嶺煞神持續12秒，在持續時間內每秒對其周圍一定範圍內最多5名敵方單位降下詛咒並造成魔法傷害"
+  },
+  {
+    "TextID": "TM_Voodoo_15_Name",
+    "TextContent": "殛咒降頭"
+  },
+  {
+    "TextID": "TM_Voodoo_15_Intro",
+    "TextContent": "詠唱3秒後，對一個目標降下4次詛咒並造成4次極大的魔法傷害，若對方死亡返還此技能的冷卻時間50%"
   }
 ]
