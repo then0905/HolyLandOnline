@@ -34,6 +34,8 @@ public class PlayerDataPanelProcessor : MonoBehaviour
     [Header("魔力文字"), SerializeField] protected TMP_Text mptext;
     [Header("等級文字"), SerializeField] protected TMP_Text lvtext;
     [Header("玩家名稱文字"), SerializeField] protected TMP_Text nametext;
+    [Header("迷你地圖"), SerializeField] protected Image miniMapImage;
+    [Header("迷你地圖名稱文字"), SerializeField] protected TMP_Text miniMapText;
 
     /// <summary>
     /// 初始化角色介面資料
@@ -55,6 +57,10 @@ public class PlayerDataPanelProcessor : MonoBehaviour
         playerDataOverView.NameText = nametext;
 
         SetPlayerDataContent();
+
+        //設定地圖資訊
+        //miniMapImage.sprite = CommonFunction.LoadObject<Sprite>("迷你地圖路徑",MapManager.MapName);
+        miniMapText.text = $"TM_{MapManager.MapName}_Name".GetText();
     }
 
     /// <summary>

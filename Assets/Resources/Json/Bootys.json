@@ -1,9 +1,7 @@
 [
   {
     "MonsterCodeID": "Monster_Test_0",
-    "Name": "測試用巨人",
     "AreaID": "Development",
-    "Area": "開發測試",
     "MinCoin": 5,
     "MaxCoin": 10,
     "BootyList": [
@@ -186,9 +184,7 @@
   },
   {
     "MonsterCodeID": "Monster_Test_1",
-    "Name": "測試用巨人2",
     "AreaID": "DevelopmentTest2",
-    "Area": "開發測試2",
     "MinCoin": 10,
     "MaxCoin": 20,
     "BootyList": [
@@ -371,9 +367,7 @@
   },
   {
     "MonsterCodeID": "Monster_Origin_0",
-    "Name": "野豬",
     "AreaID": "OriginalVillage",
-    "Area": "初始之村",
     "MinCoin": 5,
     "MaxCoin": 10,
     "BootyList": [
@@ -556,9 +550,7 @@
   },
   {
     "MonsterCodeID": "Monster_Origin_1",
-    "Name": "史萊姆",
     "AreaID": "OriginalVillage",
-    "Area": "初始之村",
     "MinCoin": 5,
     "MaxCoin": 10,
     "BootyList": [
@@ -741,9 +733,7 @@
   },
   {
     "MonsterCodeID": "Monster_Origin_2",
-    "Name": "小牛怪",
     "AreaID": "OriginalVillage",
-    "Area": "初始之村",
     "MinCoin": 5,
     "MaxCoin": 10,
     "BootyList": [
@@ -821,9 +811,7 @@
   },
   {
     "MonsterCodeID": "Monster_Origin_3",
-    "Name": "狼犬",
     "AreaID": "OriginalVillage",
-    "Area": "初始之村",
     "MinCoin": 8,
     "MaxCoin": 12,
     "BootyList": [
@@ -971,9 +959,7 @@
   },
   {
     "MonsterCodeID": "Monster_Origin_4",
-    "Name": "巨型史萊姆",
     "AreaID": "OriginalVillage",
-    "Area": "初始之村",
     "MinCoin": 50,
     "MaxCoin": 120,
     "BootyList": [
@@ -1058,9 +1044,7 @@
   },
   {
     "MonsterCodeID": "Monster_Gunn_0",
-    "Name": "小哥布林",
     "AreaID": "OutskirtsOfGunnCity",
-    "Area": "初始之村",
     "MinCoin": 10,
     "MaxCoin": 15,
     "BootyList": [
@@ -1243,9 +1227,7 @@
   },
   {
     "MonsterCodeID": "Monster_Gunn_1",
-    "Name": "牛怪",
     "AreaID": "OutskirtsOfGunnCity",
-    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 15,
     "BootyList": [
@@ -1428,9 +1410,7 @@
   },
   {
     "MonsterCodeID": "Monster_Gunn_2",
-    "Name": "哥布林戰士",
     "AreaID": "OutskirtsOfGunnCity",
-    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 20,
     "BootyList": [
@@ -1662,9 +1642,7 @@
   },
   {
     "MonsterCodeID": "Monster_Gunn_3",
-    "Name": "哥布林偵查兵",
     "AreaID": "OutskirtsOfGunnCity",
-    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 20,
     "BootyList": [
@@ -1896,9 +1874,7 @@
   },
   {
     "MonsterCodeID": "Monster_Gunn_4",
-    "Name": "哥布林薩滿",
     "AreaID": "OutskirtsOfGunnCity",
-    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 20,
     "BootyList": [
@@ -2130,9 +2106,7 @@
   },
   {
     "MonsterCodeID": "Monster_Gunn_5",
-    "Name": "哥布林信使",
     "AreaID": "OutskirtsOfGunnCity",
-    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 20,
     "BootyList": [
@@ -2364,9 +2338,7 @@
   },
   {
     "MonsterCodeID": "Monster_Gunn_6",
-    "Name": "哥布林狂熱者",
     "AreaID": "OutskirtsOfGunnCity",
-    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 20,
     "BootyList": [
@@ -2598,9 +2570,7 @@
   },
   {
     "MonsterCodeID": "Monster_Gunn_7",
-    "Name": "哥布林守護兵",
     "AreaID": "OutskirtsOfGunnCity",
-    "Area": "葛恩城郊外",
     "MinCoin": 10,
     "MaxCoin": 20,
     "BootyList": [
@@ -2832,9 +2802,7 @@
   },
   {
     "MonsterCodeID": "Monster_HardLabor_0",
-    "Name": "哥布林戰士(礦洞幹部)",
     "AreaID": "HardLaborMine",
-    "Area": "葛恩城郊外",
     "MinCoin": 55,
     "MaxCoin": 125,
     "BootyList": [
@@ -3002,9 +2970,7 @@
   },
   {
     "MonsterCodeID": "Monster_HardLabor_1",
-    "Name": "哥布林偵查兵(礦洞幹部)",
     "AreaID": "HardLaborMine",
-    "Area": "苦役礦洞",
     "MinCoin": 55,
     "MaxCoin": 125,
     "BootyList": [
@@ -3172,9 +3138,7 @@
   },
   {
     "MonsterCodeID": "Monster_HardLabor_2",
-    "Name": "哥布林薩滿(礦洞幹部)",
     "AreaID": "HardLaborMine",
-    "Area": "苦役礦洞",
     "MinCoin": 55,
     "MaxCoin": 125,
     "BootyList": [
@@ -3342,9 +3306,7 @@
   },
   {
     "MonsterCodeID": "Monster_HardLabor_3",
-    "Name": "哥布林信使(礦洞幹部)",
     "AreaID": "HardLaborMine",
-    "Area": "苦役礦洞",
     "MinCoin": 55,
     "MaxCoin": 125,
     "BootyList": [
@@ -3512,9 +3474,7 @@
   },
   {
     "MonsterCodeID": "Monster_HardLabor_4",
-    "Name": "哥布林狂熱者(礦洞幹部)",
     "AreaID": "HardLaborMine",
-    "Area": "苦役礦洞",
     "MinCoin": 55,
     "MaxCoin": 125,
     "BootyList": [
@@ -3682,9 +3642,7 @@
   },
   {
     "MonsterCodeID": "Monster_HardLabor_5",
-    "Name": "哥布林守護兵(礦洞幹部)",
     "AreaID": "HardLaborMine",
-    "Area": "苦役礦洞",
     "MinCoin": 55,
     "MaxCoin": 125,
     "BootyList": [
@@ -3852,9 +3810,7 @@
   },
   {
     "MonsterCodeID": "Monster_HardLabor_6",
-    "Name": "哥布林監工(礦洞幹部)",
     "AreaID": "HardLaborMine",
-    "Area": "苦役礦洞",
     "MinCoin": 70,
     "MaxCoin": 150,
     "BootyList": [
@@ -4022,9 +3978,7 @@
   },
   {
     "MonsterCodeID": "Monster_HardLabor_7",
-    "Name": "哥布林警戒兵(礦洞幹部)",
     "AreaID": "HardLaborMine",
-    "Area": "苦役礦洞",
     "MinCoin": 70,
     "MaxCoin": 150,
     "BootyList": [
@@ -4192,9 +4146,7 @@
   },
   {
     "MonsterCodeID": "Monster_HardLabor_8",
-    "Name": "哥布林督察(礦洞幹部)",
     "AreaID": "HardLaborMine",
-    "Area": "苦役礦洞",
     "MinCoin": 70,
     "MaxCoin": 150,
     "BootyList": [
@@ -4362,9 +4314,7 @@
   },
   {
     "MonsterCodeID": "Monster_HardLabor_9",
-    "Name": "哥布林礦洞衛兵(礦洞幹部)",
     "AreaID": "HardLaborMine",
-    "Area": "苦役礦洞",
     "MinCoin": 70,
     "MaxCoin": 150,
     "BootyList": [
@@ -4532,9 +4482,7 @@
   },
   {
     "MonsterCodeID": "Monster_HardLabor_10",
-    "Name": "哥布林大隊長\n崔西斯(礦洞幹部)",
     "AreaID": "HardLaborMine",
-    "Area": "苦役礦洞",
     "MinCoin": 300,
     "MaxCoin": 500,
     "BootyList": [

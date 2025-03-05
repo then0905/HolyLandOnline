@@ -31,7 +31,12 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
 
     public virtual int ATK { get; }
 
-    public virtual string GetAttackMode { get; set; }
+    private string attackMode;
+    public virtual string GetAttackMode
+    {
+        get { return attackMode; }
+        set { attackMode = value; }
+    }
 
     public virtual int Hit { get; }
 

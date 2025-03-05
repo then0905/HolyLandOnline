@@ -40,9 +40,10 @@ public partial class GameData : MonoBehaviour
     public static Dictionary<string, QuestDataModel> QuestDataDic = new Dictionary<string, QuestDataModel>();
     //教學資料字典
     public static Dictionary<string, TutorialSystemData> TutorialDataDic = new Dictionary<string, TutorialSystemData>();
+    //地區資料字典
+    public static Dictionary<string, AreaData> AreaDataDic = new Dictionary<string, AreaData>();
     //遊戲文字字典
     public static Dictionary<string, GameText> GameTextDataDic = new Dictionary<string, GameText>();
-
     #endregion
 
     /// <summary>
@@ -79,5 +80,6 @@ public partial class GameData : MonoBehaviour
         CommonFunction.InitData(NpcDataDic, "Json", "NpcData");
         CommonFunction.InitData(QuestDataDic, "Json", "Quest");
         CommonFunction.InitData(TutorialDataDic, "Json", "TutorialSystem");
+        CommonFunction.InitData(AreaDataDic, "Json", "Area");
     }
 }

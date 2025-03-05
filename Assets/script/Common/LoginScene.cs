@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 //==========================================
 //  創建者:家豪
@@ -12,9 +10,15 @@ public class LoginScene : MonoBehaviour
 {
     private void Start()
     {
-        StartCoroutine(InitSequenceManager.Instance.Init());
-        StartCoroutine(Init());
+        InitSequenceManager.Instance.Init();
+        //StartCoroutine(InitSequenceManager.Instance.Init());
+        //StartCoroutine(Init());
     }
+
+    /// <summary>
+    /// 呼叫初始化
+    /// </summary>
+    /// <returns></returns>
     public IEnumerator Init()
     {
         yield return new WaitForSeconds(2);

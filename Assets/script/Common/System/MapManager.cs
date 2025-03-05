@@ -26,8 +26,8 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    /// <summary> 記錄地圖名稱(輸入 要前往的下一個地圖) </summary>
-    public static string MapName;
+    /// <summary> 記錄地圖名稱</summary>
+    public static string MapName => mapName;
     /// <summary> 記錄地圖名稱(當前地圖) </summary>
     private static string mapName;
     #endregion
@@ -41,14 +41,16 @@ public class MapManager : MonoBehaviour
     [Header("進入遊戲場景須執行的事件")]
     [SerializeField] private UnityEvent onGameSceneLoad;
 
+    private AreaData areaData;
+
     /// <summary>
-    /// 登入時取得地圖名稱初始化
+    /// 登入時切換地圖、設定地圖的初始化
     /// </summary>
-    public IEnumerator Init()
+    public void Init(string mapName_)
     {
         //取得當前場景名稱
-        mapName = SceneManager.GetActiveScene().name;
-        yield return StartCoroutine(LoadMapAsync(mapName));
+        //mapName = SceneManager.GetActiveScene().name;
+        StartCoroutine(LoadMapAsync(mapName_));
     }
 
 
@@ -57,10 +59,10 @@ public class MapManager : MonoBehaviour
     /// </summary>
     /// <param name="mapName">場景名稱</param>
     public void NextMap(string mapName_)
-    {        
-        //切換場景 本地紀錄資料刷新點
-        LoadPlayerData.SaveUserData();
+    {
         StartCoroutine(LoadMapAsync(mapName_, false));
+        //切換場景完成後 本地紀錄資料刷新點
+        LoadPlayerData.SaveUserData();
     }
 
     /// <summary>
@@ -76,13 +78,14 @@ public class MapManager : MonoBehaviour
         {
             //更新場景名稱
             mapName = mapName_;
-
+            //儲存地圖資料
+            areaData = GameData.AreaDataDic[mapName];
             //Loading遮罩開啟
             loading.Show();
 
             AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(mapName_, LoadSceneMode.Single);
             // 允許場景立即激活
-            asyncLoad.allowSceneActivation = true; 
+            asyncLoad.allowSceneActivation = true;
 
             //非同步加載場景處理
             while (!asyncLoad.isDone)
@@ -110,7 +113,12 @@ public class MapManager : MonoBehaviour
     private IEnumerator PerformAdditionalTasks(bool isInit)
     {
         //生成玩家
-        Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.Player, "Player"));
+        if (areaData != null)
+            Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.Player, "Player"),
+                new Vector3(areaData.RecordPosX, areaData.RecordPosY, areaData.RecordPosZ),
+                Quaternion.identity);
+        else
+            Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.Player, "Player"));
         // 地圖需生成的NPC物件
         NpcManager.Instance.InitNpcManger(mapName);
         // 地圖需生成的怪物物件(單機 未進行伺服器同步地圖資料)
@@ -140,13 +148,18 @@ public class MapManager : MonoBehaviour
     public void RecordProcessor(ICombatant target)
     {
         //尋找最近的休息區
-
+        string recordTarget = GameData.AreaDataDic[mapName].RecordMapTarget;
         //進入Loading
-
-        //設定被使用回城對象的座標
-
+        if (mapName == recordTarget)
+        {
+            loading.Show();
+        }
+        else
+        {
+            NextMap(recordTarget);
+        }
         //短暫無敵?不確定是否需要
 
-        Debug.Log("呼叫回城，回城系統暫未實裝");
+        //Debug.Log("呼叫回城，回城系統暫未實裝");
     }
 }

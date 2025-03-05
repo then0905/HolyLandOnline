@@ -1,5 +1,9 @@
 [
   {
+    "TextID": "TM_RestAreaTest_Name",
+    "TextContent": "測試休息區"
+  },
+  {
     "TextID": "TM_DevelopmentTest_Name",
     "TextContent": "開發測試"
   },

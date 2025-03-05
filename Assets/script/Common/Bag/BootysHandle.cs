@@ -41,7 +41,7 @@ public class BootysHandle : MonoBehaviour
     public void GetBootysData(string MonsterID, Transform monsterTransform, List<ICombatant> battleTargetList)
     {
         //獲取該怪物的所有掉落物資料
-        var bootysData = GameData.MonsterBootysDic.Where(x => x.Key.Contains(MonsterID)).Select(x => x.Value).FirstOrDefault();
+        var bootysData = GameData.MonsterBootysDic.Where(x => x.Key.Contains(MonsterID) && x.Value.AreaID == MapManager.MapName).Select(x => x.Value).FirstOrDefault();
         //獲取該怪物的掉落物設定權限
         int bootysLockSetting = GameData.MonstersDataDic[MonsterID].BootysLockSetting;
         GenerateCoin(bootysData, monsterTransform, battleTargetList, bootysLockSetting);

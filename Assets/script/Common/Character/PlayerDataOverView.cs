@@ -47,10 +47,17 @@ public class PlayerDataOverView : ActivityCharacterBase
     //玩家名稱文字
     [HideInInspector] public TMP_Text NameText;
 
+    //暫存玩家座標(寫入及讀取玩家本地資料專用)
+    public Vector3 TempPlayerPos
+    {
+        get { return gameObject.transform.position; }
+        set { gameObject.transform.position = value; }
+    }
+
     [Header("遊戲資料")]
     public PlayerData PlayerData_ = new PlayerData();
 
-    public override string GetAttackMode { get; set; }
+    //public override string GetAttackMode { get; set; }
     public override int HP
     {
         get => PlayerData_.HP;
@@ -319,7 +326,7 @@ public class PlayerDataOverView : ActivityCharacterBase
     {
         if (operationData is SkillOperationData skillOperationData)
             StatusOperation.Instance.SkillEffectStatusOperation(skillOperationData.InfluenceStatus, (skillOperationData.AddType == "Rate"), skillOperationData.EffectValue);
-        else if(operationData is ItemEffectData itemOperationData)
+        else if (operationData is ItemEffectData itemOperationData)
             StatusOperation.Instance.SkillEffectStatusOperation(itemOperationData.InfluenceStatus, (itemOperationData.AddType == "Rate"), itemOperationData.EffectValue);
     }
 

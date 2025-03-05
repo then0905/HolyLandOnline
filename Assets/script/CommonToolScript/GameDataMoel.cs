@@ -75,21 +75,6 @@ public class BasalAttributesDataModel
 
 #region Json資料結構
 
-/// <summary>
-/// 怪物掉落物資料
-/// </summary>結構
-public class MonsterBootyDataModel : IDictionaryData<string>
-{
-    public string Area { get; set; }            //地區
-    public string AreaID { get; set; }            //地區ID
-    public string Name { get; set; }            //怪物名稱
-    public string MonsterCodeID { get; set; }          //怪物流水號
-    public int MinCoin { get; set; }            //金幣最小值
-    public int MaxCoin { get; set; }            //金幣最大值
-    public List<BootyDataList> BootyList { get; set; }     //怪物所有掉落物資料
-    public string GetKey { get { return MonsterCodeID; } }
-}
-
 #region 物品
 
 /// <summary>
@@ -336,6 +321,19 @@ public class MonsterSkillDataModel
     public float Width { get; set; }            // 技能施放面積 矩形寬度
     public float Height { get; set; }            // 技能施放面積 矩形長度
     public float CircleDistance { get; set; }            // 技能施放面積 圓形
+}
+
+/// <summary>
+/// 怪物掉落物資料
+/// </summary>結構
+public class MonsterBootyDataModel : IDictionaryData<string>
+{
+    public string AreaID { get; set; }            //地區ID
+    public string MonsterCodeID { get; set; }          //怪物流水號
+    public int MinCoin { get; set; }            //金幣最小值
+    public int MaxCoin { get; set; }            //金幣最大值
+    public List<BootyDataList> BootyList { get; set; }     //怪物所有掉落物資料
+    public string GetKey { get { return MonsterCodeID; } }
 }
 
 /// <summary>
@@ -603,6 +601,42 @@ public class TutorialIDData
     public string TutorialID { get; set; }          //教學ID
     public List<string> NotIncludedID { get; set; }          //此教學必須不包含的ID清單
     public List<string> IncludedID { get; set; }          //此教學必須包含的ID清單
+}
+
+#endregion
+
+#region 地圖
+
+/// <summary>
+/// 地區資料
+/// </summary>
+public class AreaData : IDictionaryData<string>
+{
+    /// <summary>
+    /// ID
+    /// </summary>
+    public string AreaID { get; set; }
+    /// <summary>
+    /// 地圖名稱文字ID
+    /// </summary>
+    public string AreaName { get; set; }
+    /// <summary>
+    /// 雷達地圖圖片路徑
+    /// </summary>
+    public string MiniMapPath { get; set; }
+    /// <summary>
+    /// 是否接受使用回城效果物品或技能
+    /// </summary>
+    public bool UseRecord { get; set; }
+    /// <summary>
+    /// 使用回城後的目標地圖
+    /// </summary>
+    public string RecordMapTarget { get; set; }
+    public float RecordPosX { get; set; }
+    public float RecordPosY { get; set; }
+    public float RecordPosZ { get; set; }
+    public string GetKey { get { return AreaID; } }
+
 }
 
 #endregion

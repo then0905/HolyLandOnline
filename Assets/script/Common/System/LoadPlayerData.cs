@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
-using static Equipment;
 using System.Linq;
+using WebSocketSharp;
+using System.Threading.Tasks;
 
 //==========================================
 //  創建者:家豪
@@ -28,17 +29,20 @@ public class AccountPlayerData
     public List<EquipmentDataToJson> BagItemList = new List<EquipmentDataToJson>();       //背包資料清單
     public List<EquipmentDataToJson> EquipDataList = new List<EquipmentDataToJson>();       //玩家穿戴裝備資料清單
     public List<string> finishedTutorialIDList = new List<string>();          //已完成的教學ID清單
+    public string LastMapID;        //最後遊玩的地圖
+    public Vector3 LastPos;     //最後存在的座標
 }
 
 public class LoadPlayerData : MonoBehaviour
 {
+    //玩家本地資料
     private static AccountPlayerData accountPlayerData = new AccountPlayerData();
 
     /// <summary>
     /// 讀取使用者資料
     /// </summary>
     /// <param name="isinit">是否為第一次登入遊戲讀取</param>
-    public static void LoadUserData(bool isinit = true)
+    public static async Task LoadUserData(bool isinit = true)
     {
         //存取路徑
         string SaveData = Application.persistentDataPath + "/Usersave.txt";
@@ -52,20 +56,32 @@ public class LoadPlayerData : MonoBehaviour
             sr.Close();
             accountPlayerData = JsonUtility.FromJson<AccountPlayerData>(sjon);
 
-            //讀取資料完 先讀取玩家基本資料
+            if (isinit)
+            {
+                BagManager.Instance.PickUp(accountPlayerData.Coin, true);       //不從PlayerData裡帶入值是因為這個方法可以更新玩家資料及背包UI文字
+                BagManager.Instance.Init(accountPlayerData.BagItemList, accountPlayerData.EquipDataList);       //背包物品資料
+                MissionManager.Instance.MissionList = accountPlayerData.missionDataList;
+                MissionManager.Instance.FinishedMissionList = accountPlayerData.finishedMissionDataList;
+
+                MapManager.Instance.Init(string.IsNullOrEmpty(accountPlayerData.LastMapID) ? "RestAreaTest" : accountPlayerData.LastMapID);   //設定地圖
+
+                while (!PlayerDataOverView.Instance)
+                {
+                    await Task.Delay(100);
+                }
+
+                if (accountPlayerData.LastPos != default)
+                    PlayerDataOverView.Instance.TempPlayerPos = accountPlayerData.LastPos;      //玩家座標設定
+            }
+
+            //讀取玩家基本資料
             PlayerDataOverView.Instance.PlayerData_.PlayerName = accountPlayerData.PlayerName;
             PlayerDataOverView.Instance.PlayerData_.Job = accountPlayerData.Job;
             PlayerDataOverView.Instance.PlayerData_.Race = accountPlayerData.Race;
             PlayerDataOverView.Instance.PlayerData_.Exp = accountPlayerData.Exp;
             PlayerDataOverView.Instance.PlayerData_.Lv = accountPlayerData.Lv;
             PlayerDataOverView.Instance.PlayerData_.PlayerTutorialList = accountPlayerData.finishedTutorialIDList;
-            if (isinit)
-            {
-                BagManager.Instance.PickUp(accountPlayerData.Coin, true);       //不從PlayerData裡帶入值是因為這個方法可以更新玩家資料及背包UI文字
-                BagManager.Instance.Init(accountPlayerData.BagItemList,accountPlayerData.EquipDataList);       //背包物品資料
-                MissionManager.Instance.MissionList = accountPlayerData.missionDataList;
-                MissionManager.Instance.FinishedMissionList = accountPlayerData.finishedMissionDataList;
-            }
+
         }
         //若沒有檔案 生成
         else
@@ -95,7 +111,9 @@ public class LoadPlayerData : MonoBehaviour
             finishedMissionDataList = MissionManager.Instance.FinishedMissionList,
             BagItemList = BagManager.Instance.BagItems.Select(x => x.EquipmentDatas.EquipmentDataToJson_).ToList(),
             EquipDataList = BagManager.Instance.EquipDataList.Select(x => x.EquipmentDatas.EquipmentDataToJson_).ToList(),
-            finishedTutorialIDList = PlayerDataOverView.Instance.PlayerData_.PlayerTutorialList
+            finishedTutorialIDList = PlayerDataOverView.Instance.PlayerData_.PlayerTutorialList,
+            LastMapID = MapManager.MapName,
+            LastPos = PlayerDataOverView.Instance.TempPlayerPos
         });
     }
 

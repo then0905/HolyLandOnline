@@ -1,7 +1,7 @@
 [
   {
     "NpcID": "Npc01",
-    "AreaID": "DevelopmentTest",
+    "AreaID": "RestAreaTest",
     "NpcName": "TM_Npc01_Name",
     "NpcAvatarPath": "NPC/Avatar",
     "NpcAvatarName": "Villagehead",
@@ -34,7 +34,7 @@
   },
   {
     "NpcID": "Npc02",
-    "AreaID": "DevelopmentTest",
+    "AreaID": "RestAreaTest",
     "NpcName": "TM_Npc02_Name",
     "NpcAvatarPath": "NPC/Avatar",
     "NpcAvatarName": "Girl",
@@ -67,7 +67,7 @@
   },
   {
     "NpcID": "Npc03",
-    "AreaID": "DevelopmentTest",
+    "AreaID": "RestAreaTest",
     "NpcName": "TM_Npc03_Name",
     "NpcAvatarPath": "NPC/Avatar",
     "NpcAvatarName": "Villagehead",

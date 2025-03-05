@@ -80,7 +80,8 @@ public class SelectTarget : MonoBehaviour
 
     private IEnumerator Init()
     {
-        yield return new WaitForSeconds(0.1f);
+        while (!PlayerDataOverView.Instance)
+            yield return new WaitForSeconds(0.1f);
         CharacterCamera = PlayerDataOverView.Instance.CharacterMove.CharacterCamera;
     }
 
