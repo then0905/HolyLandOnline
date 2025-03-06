@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Linq;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -56,6 +57,8 @@ public class PlayerDataOverView : ActivityCharacterBase
 
     [Header("遊戲資料")]
     public PlayerData PlayerData_ = new PlayerData();
+
+    private ICombatant lastAttacker;        //紀錄最後攻擊者(死亡時發送訊息)
 
     //public override string GetAttackMode { get; set; }
     public override int HP
@@ -254,14 +257,20 @@ public class PlayerDataOverView : ActivityCharacterBase
 
         LoadPlayerData.SaveUserData();
     }
+
     /// <summary>
     /// 經驗值更動時的處理
     /// </summary>
     public void ExpProcessor()
     {
+        //若經驗值小於0 強迫設定為0 (死亡扣除經驗避免扣超過0)
+        if (PlayerData_.Exp <= 0)
+            PlayerData_.Exp = 0;
+
         //設定經驗值條資料
         ExpSlider.value = PlayerData_.Exp;
         ExpSlider.maxValue = GameData.ExpAndLvDic.Where(x => x.Key.Contains(PlayerData_.Lv.ToString())).Select(x => x.Value).FirstOrDefault().EXP;
+
         //若玩家經驗值>最大經驗值條 為 升級事件
         if (PlayerData_.Exp >= ExpSlider.maxValue)
         {
@@ -309,6 +318,7 @@ public class PlayerDataOverView : ActivityCharacterBase
 
     public override void DealingWithInjuriesMethod(ICombatant attackerData, int damage, bool animTrigger = true)
     {
+        lastAttacker = attackerData;
         ChangeHpEvent.Invoke(damage);
     }
 
@@ -342,5 +352,23 @@ public class PlayerDataOverView : ActivityCharacterBase
     {
         base.GetDebuff(debuffEffectBase);
         CharacterStatusManager.Instance.InitCharacterStatusHintCheck(debuffEffectBase);
+    }
+
+    protected async override void CharacterIsDead()
+    {
+        //操作相關禁用
+        MoveEnable(false);
+        SkillEnable(false);
+        AttackEnable(false);
+        //播放死亡動畫
+        CharacterMove.CharacterAnimator.SetTrigger("IsDead");
+        //獲取死亡動畫時間
+        float animationTime = CharacterMove.CharacterAnimator.GetCurrentAnimatorStateInfo(0).length;
+        await Task.Delay((int)(animationTime * 1000));
+        //顯示死亡視窗
+        PlayerDataPanelProcessor.Instance.CallDeadWindow(lastAttacker);
+        //獲取死亡扣除經驗值倍率
+        float expDeathPenalty = GameData.GameSettingDic["ExpDeathPenalty"].GameSettingValue;
+        PlayerData_.Exp -= (int)MathF.Round((1f - (PlayerData_.Exp * expDeathPenalty)), 0, MidpointRounding.AwayFromZero);
     }
 }

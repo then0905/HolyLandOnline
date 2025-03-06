@@ -120,5 +120,10 @@ public class NpcBehavior : ActivityCharacterBase
 
     public override void DealingWithInjuriesMethod(ICombatant attackerData, int damage, bool animTrigger = true)
     {
+
+    }
+    protected override void CharacterIsDead()
+    {
+
     }
 }

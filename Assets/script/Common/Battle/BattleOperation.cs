@@ -360,7 +360,7 @@ public class BattleOperation : MonoBehaviour
         damage = attacker.ATK;
 
         // 計算防禦減免
-        float defenseRatio = Mathf.Clamp((attacker.GetAttackMode == "MageATK" ? defender.MDEF : defender.DEF) / (attacker.LV + 9), 0.1f, 0.9f);
+        float defenseRatio = Mathf.Clamp((attacker.GetAttackMode == "MageATK" ? defender.MDEF : defender.DEF) / (attacker.LV + 9), 0.1f, 0.75f);
 
         //是否暴擊 取得傷害量
         if (iscrt)

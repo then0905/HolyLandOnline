@@ -306,5 +306,9 @@
   {
     "TextID": "TM_None",
     "TextContent": "無"
+  },
+  {
+    "TextID": "TM_Resurrection",
+    "TextContent": "復活"
   }
 ]

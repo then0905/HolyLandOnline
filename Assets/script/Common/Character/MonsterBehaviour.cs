@@ -60,7 +60,7 @@ public class MonsterBehaviour : ActivityCharacterBase
     /// </summary>
     public Dictionary<ICombatant, int> BattleTargetDic = new Dictionary<ICombatant, int>();
 
-    [SerializeField]private List<DebuffEffectBase> debuffEffectBases = new List<DebuffEffectBase>();
+    [SerializeField] private List<DebuffEffectBase> debuffEffectBases = new List<DebuffEffectBase>();
     /// <summary> 怪物身上接受的負面狀態清單 </summary>
     public List<DebuffEffectBase> DebuffEffectBases
     {
@@ -99,12 +99,6 @@ public class MonsterBehaviour : ActivityCharacterBase
             {
                 value = 0;
                 IsDead = true;
-                Debug.Log("怪物死亡");
-                //移除怪物名稱文字
-                if (MonsterNameText.gameObject != null)
-                    Destroy(MonsterNameText.gameObject);
-                BreakAnyCoroutine();
-                StartCoroutine(DeadBehaviourAsync());
             }
             else if (value == monsterValue.HP)
             {
@@ -414,8 +408,12 @@ public class MonsterBehaviour : ActivityCharacterBase
                 },
                 () =>
                 {
-                    //Debug.Log("怪物:" + name + " 當前狀態 :" + "追擊成功 切換 攻擊");
-                    MonsterSetting(MonserBehaviorEnum.Attack);
+                    if (!targetObj.IsDead)
+                        //Debug.Log("怪物:" + name + " 當前狀態 :" + "追擊成功 切換 攻擊");
+                        MonsterSetting(MonserBehaviorEnum.Attack);
+                    else
+                        //玩家死亡後改為巡邏
+                        MonsterSetting(MonserBehaviorEnum.Patrol);
                 }));
         }
 
@@ -549,7 +547,7 @@ public class MonsterBehaviour : ActivityCharacterBase
     public override void GetDebuff(DebuffEffectBase debuffEffectBase)
     {
         base.GetDebuff(debuffEffectBase);
-     
+
         //將此次獲得的debuff加入清單
         DebuffEffectBases.Add(debuffEffectBase);
         //更新選取目標資訊呈現
@@ -574,5 +572,15 @@ public class MonsterBehaviour : ActivityCharacterBase
             SetTargetInformation(this);
         }
         MonsterSetting(MonserBehaviorEnum.Pursue);
+    }
+
+    protected override void CharacterIsDead()
+    {
+        Debug.Log("怪物死亡");
+        //移除怪物名稱文字
+        if (MonsterNameText.gameObject != null)
+            Destroy(MonsterNameText.gameObject);
+        BreakAnyCoroutine();
+        StartCoroutine(DeadBehaviourAsync());
     }
 }

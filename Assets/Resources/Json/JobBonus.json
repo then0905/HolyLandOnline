@@ -1,14 +1,14 @@
 [
   {
     "Job": "Sword",
-    "STR": 10,
-    "DEX": 8,
-    "INT": 5,
-    "AGI": 7,
-    "Wis": 6,
-    "VIT": 8,
-    "HP": 200,
-    "MP": 100
+    "STR": 5,
+    "DEX": 3,
+    "INT": 2,
+    "AGI": 3,
+    "Wis": 2,
+    "VIT": 3,
+    "HP": 100,
+    "MP": 50
   },
   {
     "Job": "Warrior",
@@ -67,14 +67,14 @@
   },
   {
     "Job": "Mage",
-    "STR": 6,
-    "DEX": 7,
-    "INT": 10,
-    "AGI": 5,
-    "Wis": 10,
-    "VIT": 6,
-    "HP": 150,
-    "MP": 200
+    "STR": 2,
+    "DEX": 3,
+    "INT": 5,
+    "AGI": 2,
+    "Wis": 4,
+    "VIT": 2,
+    "HP": 50,
+    "MP": 100
   },
   {
     "Job": "Monk",
@@ -133,14 +133,14 @@
   },
   {
     "Job": "Archer",
-    "STR": 6,
-    "DEX": 12,
-    "INT": 5,
-    "AGI": 8,
-    "Wis": 6,
-    "VIT": 7,
-    "HP": 150,
-    "MP": 100
+    "STR": 1,
+    "DEX": 6,
+    "INT": 2,
+    "AGI": 5,
+    "Wis": 2,
+    "VIT": 2,
+    "HP": 85,
+    "MP": 65
   },
   {
     "Job": "Shooter",
@@ -188,14 +188,14 @@
   },
   {
     "Job": "Rogue",
-    "STR": 9,
-    "DEX": 9,
-    "INT": 5,
-    "AGI": 9,
-    "Wis": 5,
-    "VIT": 7,
-    "HP": 185,
-    "MP": 100
+    "STR": 4,
+    "DEX": 4,
+    "INT": 2,
+    "AGI": 4,
+    "Wis": 2,
+    "VIT": 2,
+    "HP": 75,
+    "MP": 75
   },
   {
     "Job": "Ranger",

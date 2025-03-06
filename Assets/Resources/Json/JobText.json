@@ -154,5 +154,9 @@
   {
     "TextID": "TM_Specialist",
     "TextContent": "專家"
+  },
+  {
+    "TextID": "TM_Voodoo",
+    "TextContent": "巫毒"
   }
 ]

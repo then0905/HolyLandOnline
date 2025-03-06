@@ -70,5 +70,9 @@
   {
     "GameSettingID": "SecondPhaseBootysLockTime",
     "GameSettingValue": 30
+  },
+  {
+    "GameSettingID": "ExpDeathPenalty",
+    "GameSettingValue": 0.1
   }
 ]

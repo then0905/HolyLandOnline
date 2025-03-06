@@ -64,7 +64,20 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
 
     public virtual GameObject Obj { get; }
 
-    public bool IsDead { get; set; }
+    protected bool isDead;
+    public bool IsDead
+    {
+        get
+        {
+            return isDead;
+        }
+        set
+        {
+            isDead = value;
+            if (isDead)
+                CharacterIsDead();
+        }
+    }
     public int MoveIsEnable { get; set; } = 0;
 
     public virtual void MoveEnable(bool enable)
@@ -246,4 +259,9 @@ public abstract class ActivityCharacterBase : MonoBehaviour, ICombatant
                 break;
         }
     }
+
+    /// <summary>
+    /// 人物死亡執行內容
+    /// </summary>
+    protected abstract void CharacterIsDead();
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using System.Diagnostics;
+using System.Threading.Tasks;
 //==========================================
 //  創建者:家豪
 //  創建日期:2023/11/26
@@ -37,6 +37,11 @@ public class PlayerDataPanelProcessor : MonoBehaviour
     [Header("迷你地圖"), SerializeField] protected Image miniMapImage;
     [Header("迷你地圖名稱文字"), SerializeField] protected TMP_Text miniMapText;
 
+    [Header("角色死亡視窗物件"), SerializeField] protected GameObject deadWindowObj;
+    [Header("角色死亡文字訊息"), SerializeField] protected TMP_Text deadText;
+    [Header("死亡視窗壓黑"), SerializeField] protected CanvasGroup deadWindowCanvasGroup;
+    [Header("重生按鈕"), SerializeField] protected Button resurrectionBtn;
+
     /// <summary>
     /// 初始化角色介面資料
     /// </summary>
@@ -61,6 +66,23 @@ public class PlayerDataPanelProcessor : MonoBehaviour
         //設定地圖資訊
         //miniMapImage.sprite = CommonFunction.LoadObject<Sprite>("迷你地圖路徑",MapManager.MapName);
         miniMapText.text = $"TM_{MapManager.MapName}_Name".GetText();
+
+        //設定重生按鈕執行
+        resurrectionBtn.onClick.RemoveAllListeners();
+        resurrectionBtn.onClick.AddListener(() =>
+        {
+            deadWindowObj.SetActive(false);
+            MapManager.Instance?.RecordProcessor(playerDataOverView);
+            //操作相關回復
+            playerDataOverView.MoveEnable(true);
+            playerDataOverView.SkillEnable(true);
+            playerDataOverView.AttackEnable(true);
+            //Resurrection
+            //回復玩家生命
+            playerDataOverView.ChangeHpEvent(playerDataOverView.PlayerData_.MaxHP);
+            //還原死亡設定
+            playerDataOverView.IsDead = false;
+        });
     }
 
     /// <summary>
@@ -108,5 +130,22 @@ public class PlayerDataPanelProcessor : MonoBehaviour
             "TM_DisorderResistance".GetText(true) + playerData.DisorderResistance + "\n" +
             "TM_BlockRate".GetText(true) + playerData.BlockRate + "\n" +
             "TM_PlayerCoin".GetText(true) + playerData.Coin + "\n";
+    }
+
+    /// <summary>
+    /// 呼叫死亡視窗
+    /// </summary>
+    public async void CallDeadWindow(ICombatant attacker)
+    {
+        deadWindowObj.SetActive(true);
+        //設定死亡訊息
+        deadText.text = string.Format("TM_DeadMessage".GetText(), attacker.Name);
+        //設定視窗淡淡壓黑
+        deadWindowCanvasGroup.alpha = 0;
+        while (deadWindowCanvasGroup.alpha < 0.65f)
+        {
+            await Task.Delay(100);
+            deadWindowCanvasGroup.alpha += 0.05f;
+        }
     }
 }

@@ -150,5 +150,9 @@
   {
     "TextID": "TM_ItemEffectCoolDownError",
     "TextContent": "道具使用錯誤：道具 {0}正在冷卻時間中…"
+  },
+  {
+    "TextID": "TM_DeadMessage",
+    "TextContent": "已被<color=#ff0000> {0} </color> 擊殺"
   }
 ]

@@ -126,4 +126,9 @@ public class OtherPlayerCharacter : ActivityCharacterBase
     {
         
     }
+
+    protected override void CharacterIsDead()
+    {
+
+    }
 }
