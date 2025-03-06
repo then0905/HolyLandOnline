@@ -399,7 +399,7 @@
     "TypeID": "Reel",
     "Intro": "TM_Record_Reel_01_Intro",
     "Stackability": true,
-    "CD": 1,
+    "CD": 60,
     "Price": 50,
     "Redeem": 5,
     "ItemEffectDataList": [
