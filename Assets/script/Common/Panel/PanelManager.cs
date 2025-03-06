@@ -44,6 +44,9 @@ public class PanelManager : MonoBehaviour
     /// </summary>
     public void OpenTargetPanel(string panelName)
     {
+        //若玩家是死亡狀態 不允許開啟任何視窗
+        if (PlayerDataOverView.Instance.IsDead) return;
+
         PanelData playerDataPanel = PanelLsit.Where(x => x.PanelName.Contains(panelName)).FirstOrDefault();
         if (!playerDataPanel.PanelObj.activeSelf)
         {
@@ -66,6 +69,7 @@ public class PanelManager : MonoBehaviour
         if (func != null)
             func.Invoke();
     }
+
     /// <summary>
     /// 設定指定面板關閉
     /// </summary>

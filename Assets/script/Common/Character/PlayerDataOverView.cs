@@ -360,6 +360,8 @@ public class PlayerDataOverView : ActivityCharacterBase
         MoveEnable(false);
         SkillEnable(false);
         AttackEnable(false);
+        //關閉所有視窗
+        PanelManager.Instance.CloseAllPanel();
         //播放死亡動畫
         CharacterMove.CharacterAnimator.SetTrigger("IsDead");
         //獲取死亡動畫時間
