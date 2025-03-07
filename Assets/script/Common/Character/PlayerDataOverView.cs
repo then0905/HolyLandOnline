@@ -306,6 +306,7 @@ public class PlayerDataOverView : ActivityCharacterBase
         HP = value + HP;
         UIrefresh?.Invoke();
     }
+
     /// <summary>
     /// 更動玩家魔力
     /// </summary>

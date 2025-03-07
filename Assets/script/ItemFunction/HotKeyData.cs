@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using TMPro;
 //==========================================
 //  創建者:    家豪
 //  翻修日期:  2023/05/10
@@ -25,12 +26,17 @@ public class HotKeyData : MonoBehaviour
     [Header("遊戲物件")]
     [SerializeField] private Image hotkeyBackground;
     [SerializeField] private Image hotkeyCdSliderImage;
+    [SerializeField] private Image hotkeyCdSliderFillImage;
     [SerializeField] private Slider hotkeyCdSlider;
+    [SerializeField] private TMP_Text hotkeyNum;
+
     [Header("遊戲資料")]
     [SerializeField] private int keyindex;
+
     //暫存此快捷鍵資料 無論是技能還是道具
     private IHotKey tempHotKeyData;
     public IHotKey TempHotKeyData => tempHotKeyData;
+
     //快捷鍵管理器
     private HotKeyManager hotKeyManager;
 
@@ -40,6 +46,7 @@ public class HotKeyData : MonoBehaviour
     private void Start()
     {
         hotKeyManager = HotKeyManager.Instance;
+        hotkeyNum.text = keyindex.ToString();
     }
 
     /// <summary>
@@ -54,7 +61,8 @@ public class HotKeyData : MonoBehaviour
         //設定 技能圖片 與升級後的技能ID
         hotkeyBackground.sprite = skillIcon;
         hotkeyCdSliderImage.sprite = skillIcon;
-        tempHotKeyData = Instantiate(((Skill_Base)data).gameObject).GetComponent<Skill_Base>();
+        hotkeyCdSliderFillImage.sprite = skillIcon;
+        tempHotKeyData = Instantiate(((Skill_Base)data).gameObject,transform).GetComponent<Skill_Base>();
         UpgradeSkillID = upgradeSkillID;
 
         //取得技能腳本資料
@@ -82,7 +90,8 @@ public class HotKeyData : MonoBehaviour
         //設定 技能圖片 與升級後的技能ID
         hotkeyBackground.sprite = itemIcon;
         hotkeyCdSliderImage.sprite = itemIcon;
-        tempHotKeyData = Instantiate(((ItemEffectBase)data).gameObject).GetComponent<ItemEffectBase>();
+        hotkeyCdSliderFillImage.sprite = itemIcon;
+        tempHotKeyData = Instantiate(((ItemEffectBase)data).gameObject,transform).GetComponent<ItemEffectBase>();
 
         //取得技能腳本資料
         ItemEffectBase itemEffect_Base = (ItemEffectBase)tempHotKeyData;

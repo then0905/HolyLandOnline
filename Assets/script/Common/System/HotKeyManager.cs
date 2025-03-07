@@ -25,10 +25,6 @@ public class HotKeyManager : MonoBehaviour
     }
     #endregion 
 
-    //快捷鍵底圖Img
-    public Image[] HotKeyBackgroundArray;
-    //快捷鍵計時圖Img
-    public Image[] HotKeyFillArray;
     //快捷鍵底圖原圖
     public Sprite HotKeyBackgroundSprite;
     //面板管理器
@@ -107,10 +103,6 @@ public class HotKeyManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape) && !SelectTarget.Instance.CatchTarget)
         {
             panelManager.CloseAllPanel();
-        }
-        for (int i = 0; i < 10; i++)
-        {
-            HotKeyFillArray[i].sprite = HotKeyBackgroundArray[i].sprite;
         }
     }
 
