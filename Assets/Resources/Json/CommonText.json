@@ -314,5 +314,9 @@
   {
     "TextID": "TM_Comfirm",
     "TextContent": "確認"
+  },
+  {
+    "TextID": "TM_Discarded",
+    "TextContent": "丟棄"
   }
 ]

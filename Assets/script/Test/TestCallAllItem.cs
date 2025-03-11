@@ -47,6 +47,6 @@ public class TestCallAllItem : MonoBehaviour
     }
     public void ItemDrop()
     {
-        BootysHandle.Instance.TestDropBooty(tempItem);
+        BootysHandle.Instance.DropSpecifiedItem(tempItem);
     }
 }

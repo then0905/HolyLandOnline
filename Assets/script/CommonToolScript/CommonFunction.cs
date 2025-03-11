@@ -151,6 +151,27 @@ public static class CommonFunction
     }
 
     /// <summary>
+    /// 呼叫通用視窗
+    /// </summary>
+    /// <param name="windowName">呼叫的視窗名稱</param>
+    public static CommonInquiryWindowSetting CallCommonWindow(string windowName)
+    {
+        switch (windowName)
+        {
+            case "Canvas_InquiryWindow":
+                CommonInquiryWindowSetting commonInquiryWindowSetting = null;
+                commonInquiryWindowSetting = LoadObject<GameObject>(GameConfig.CommonWindow, windowName).GetComponent<CommonInquiryWindowSetting>();
+                return commonInquiryWindowSetting;
+            case "Canvas_ItemQtyWondow":
+                ItemQtyControlSetting itemQtyControlSetting = null;
+                itemQtyControlSetting = LoadObject<GameObject>(GameConfig.CommonWindow, windowName).GetComponent<ItemQtyControlSetting>();
+                return itemQtyControlSetting;
+            default:
+                return null;
+        }
+    }
+
+    /// <summary>
     /// 取得文字內容
     /// </summary>
     /// <param name="id">帶入文字ID</param>

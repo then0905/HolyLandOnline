@@ -14,7 +14,7 @@ using System.Linq;
 public class BagItem : MonoBehaviour
 {
     [Header("遊戲物件")]
-    [SerializeField]private GameObject cloneItem;    //生成預製物
+    [SerializeField] private GameObject cloneItem;    //生成預製物
     [SerializeField] private Transform bagWindowTransform;    //背包父級
     [SerializeField] private Sprite bagItemOriginImage;     //空背包圖
     [SerializeField] private BagsItemIntro bagsitemintro;           //物品詳細資訊腳本
@@ -155,6 +155,30 @@ public class BagItem : MonoBehaviour
         if (endDragTargetObj == null)
         {
             print("是否要丟棄物品");
+
+            //獲取複製物件的裝備資料
+            Equipment cloneObjEquipment = tempCloneItem.transform.GetComponent<Equipment>();
+
+            //武器 防具 呼叫丟棄物品處理
+            if (cloneObjEquipment.EquipmentDatas.Weapon != null || cloneObjEquipment.EquipmentDatas.Armor != null)
+            {
+                CommonInquiryWindowSetting commonInquiryWindowSetting = Instantiate(CommonFunction.CallCommonWindow("Canvas_InquiryWindow"));
+                commonInquiryWindowSetting.Init("TM_DiscardedItemTitle".GetText(),
+                    string.Format("TM_DiscardedItemHintMessage".GetText(), cloneObjEquipment.EquipmentDatas.ItemCommonData.Name.GetText()),
+                    DiscardedItemProcessor,
+                    null);
+            }
+
+            //道具
+            else
+            {
+                ItemQtyControlSetting itemQtyControlSetting = Instantiate(CommonFunction.CallCommonWindow("Canvas_ItemQtyWondow")) as ItemQtyControlSetting;
+                itemQtyControlSetting.Init(cloneObjEquipment,
+                    "TM_DiscardedItemTitle".GetText(),
+                    string.Format("TM_DiscardedItemHintMessage".GetText(), cloneObjEquipment.EquipmentDatas.ItemCommonData.Name.GetText()),
+                    null,
+                    null);
+            }
             ReverseDragObj();
             return;
         }
@@ -221,7 +245,7 @@ public class BagItem : MonoBehaviour
             if (PlayerDataOverView.Instance.PlayerData_.Lv >= getItemLV)
             {
                 //設定裝備欄
-                CommonFunction.ChangeSameComponent(ref targetEquipment.EquipmentDatas,  ref bagEquipment.EquipmentDatas);
+                CommonFunction.ChangeSameComponent(ref targetEquipment.EquipmentDatas, ref bagEquipment.EquipmentDatas);
                 var temp = targetEquipment.EquipImage.sprite;
                 targetEquipment.EquipImage.sprite = bagEquipment.EquipImage.sprite;
                 bagEquipment.EquipImage.sprite = temp;
@@ -575,16 +599,35 @@ movingEquipment.EquipImage.sprite, CommonFunction.LoadItemEffectPrefab(movingEqu
     private void CheckHotKeyUseFrame()
     {
         //取得 擁有資料的所有快捷鍵
-       var hotkeyItemList =  HotKeyManager.Instance.HotKeyArray.Where(x => x.TempHotKeyData != null).ToList();
+        var hotkeyItemList = HotKeyManager.Instance.HotKeyArray.Where(x => x.TempHotKeyData != null).ToList();
 
         foreach (var hotkeyItem in hotkeyItemList)
         {
             //檢查是否為裝備類型效果
-            if(hotkeyItem.TempHotKeyData is ItemEffectBase_Equip itemEffectBase)
+            if (hotkeyItem.TempHotKeyData is ItemEffectBase_Equip itemEffectBase)
             {
                 //裝備類型效果 檢查是否正在裝備中 開關使用中效果框
                 hotkeyItem.UseFrameEnable(itemEffectBase.CheckItemIsUse());
             }
         }
+    }
+
+    /// <summary>
+    /// 丟棄物品處理(武器、防具)
+    /// </summary>
+    private void DiscardedItemProcessor()
+    {
+        //取得物品資料
+        EquipmentData equipmentData = originItemSeat.GetComponent<Equipment>().EquipmentDatas;
+        //若是武器或防具
+        //if (equipmentData.Weapon != null || equipmentData.Armor != null)
+
+        //丟棄物品掉落物設定
+        BootysHandle.Instance.DropSpecifiedItem(equipmentData.ItemCommonData.CodeID);
+        BagManager.Instance.RemoveItem(equipmentData);
+
+        //else
+        //    //道具 還要處理數量
+        //    BagManager.Instance.RemoveItem(equipmentData.Item.CodeID);
     }
 }

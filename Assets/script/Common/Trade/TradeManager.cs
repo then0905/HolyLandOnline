@@ -353,12 +353,12 @@ public class TradeManager : MonoBehaviour
     /// </summary>
     public void SellItemProcessor()
     {
-        //if (tempSelectItem.EquipmentDatas.Weapon != null)
-        //    ItemManager.Instance.RemoveItem(tempSelectItemBasalData.CodeID);
-        //if (tempSelectItem.EquipmentDatas.Armor != null)
-        //    ItemManager.Instance.RemoveItem(tempSelectItem.EquipmentDatas.Armor.CodeID);
-        //if (tempSelectItem.EquipmentDatas.Item != null)
-        itemManager.RemoveItem(tempSelectItemBasalData.CodeID, tempSelectItemBasalData.Stackability ? int.Parse(finalTradeQtyText.text) : 1);
+        //防具、武器處理
+        if (tempSelectItem.EquipmentDatas.Weapon != null|| tempSelectItem.EquipmentDatas.Armor != null)
+            itemManager.RemoveItem(tempSelectItem.EquipmentDatas);
+        //道具處理
+        if (tempSelectItem.EquipmentDatas.Item != null)
+            itemManager.RemoveItem(tempSelectItemBasalData.CodeID, tempSelectItemBasalData.Stackability ? int.Parse(finalTradeQtyText.text) : 1);
 
         itemManager.PickUp((int.Parse(fincalTradePriceText.text)), true);
 

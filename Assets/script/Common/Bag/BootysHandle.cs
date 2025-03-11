@@ -115,10 +115,10 @@ public class BootysHandle : MonoBehaviour
     }
 
     /// <summary>
-    /// 測試 掉落指定道具到玩家附近
+    /// 掉落指定道具到玩家附近
     /// </summary>
     /// <param name="itemID"></param>
-    public void TestDropBooty(string itemID)
+    public void DropSpecifiedItem(string itemID, int qty = 1)
     {
         //生成掉落物
         bootyItem = Instantiate(BootyItem, RandomTransform(PlayerDataOverView.Instance.Obj.transform), transform.rotation).GetComponent<BootysPresent>();
@@ -133,6 +133,6 @@ public class BootysHandle : MonoBehaviour
         //設定物品圖片
         bootyItem.ThisEquipmentImage = CommonFunction.GetItemSprite(bootyItem.EquipmentDatas);
         //取得掉落數量
-        bootyItem.Qty = 1;
+        bootyItem.Qty = qty;
     }
 }

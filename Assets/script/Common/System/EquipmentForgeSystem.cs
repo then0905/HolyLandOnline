@@ -418,7 +418,7 @@ public class EquipmentForgeSystem : MonoBehaviour
             {
                 Debug.Log($"失敗裝備損壞率{destroyedRate}  && 隨機值{randomValue}");
                 //裝備毀損
-                BagManager.Instance.RemoveItem(currentEqquipment.EquipmentDatas.ItemCommonData.CodeID);
+                BagManager.Instance.RemoveItem(currentEqquipment.EquipmentDatas);
                 destroyedWindow.SetActive(true);
                 ClearForgeData();
                 LoadPlayerData.SaveUserData();

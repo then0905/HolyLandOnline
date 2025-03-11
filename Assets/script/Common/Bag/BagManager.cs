@@ -254,13 +254,13 @@ public class BagManager : MonoBehaviour
     }
 
     /// <summary>
-    /// 移除指定物品(指定數量移除數量)
+    /// 移除指定物品(道具類型)
     /// </summary>
     /// <param name="codeID"></param>
     /// <param name="Qty">可堆疊的物品需要額外設定數量</param>
     public void RemoveItem(string codeID, int Qty = 0)
     {
-        var queryResult = BagItems.Where(x => x.EquipmentDatas.Weapon?.CodeID == codeID || x.EquipmentDatas.Armor?.CodeID == codeID || x.EquipmentDatas.Item?.CodeID == codeID).FirstOrDefault();
+        var queryResult = BagItems.Where(x => x.EquipmentDatas.Item?.CodeID == codeID).FirstOrDefault();
         if (queryResult != null)
         {
             //若物品數量 大於 移除量 刪除指定數量即可
@@ -277,6 +277,28 @@ public class BagManager : MonoBehaviour
                 //設定圖片為原始圖片
                 queryResult.EquipImage.sprite = bagItemEquip.BagItemOriginImage;
             }
+        }
+
+        BagItemSort();
+    }
+
+    /// <summary>
+    /// 移除指定物品(防具、武器)
+    /// </summary>
+    /// <param name="equipmentData">物品資料</param>
+    public void RemoveItem(EquipmentData equipmentData)
+    {
+        var queryResult = BagItems.Where(x => (x.EquipmentDatas.ItemCommonData?.CodeID == equipmentData.ItemCommonData.CodeID && x.EquipmentDatas.ForceLv == equipmentData.ForceLv)).FirstOrDefault();
+        if (queryResult != null)
+        {
+            //清空物品的資料
+            queryResult.EquipmentDatas.Weapon = null;
+            queryResult.EquipmentDatas.Armor = null;
+            queryResult.EquipmentDatas.Item = null;
+            //清空數量資料
+            queryResult.Qty = 0;
+            //設定圖片為原始圖片
+            queryResult.EquipImage.sprite = bagItemEquip.BagItemOriginImage;
         }
 
         BagItemSort();

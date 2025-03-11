@@ -157,6 +157,10 @@
   },
   {
     "TextID": "TM_DiscardedItemHintMessage",
-    "TextContent": "是否要丟棄物品：<color=#e7d900> {0} </color>"
+    "TextContent": "是否要丟棄物品：\n<color=#e7d900> {0} </color>"
+  },
+  {
+    "TextID": "TM_DiscardedItemTitle",
+    "TextContent": "丟棄物品"
   }
 ]

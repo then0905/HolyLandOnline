@@ -28,4 +28,6 @@ public static class GameConfig
     public const string EffectPrefab = "Effect/Prefab";
 
     public const string AnimatorJob = "Animator/Job";
+
+    public const string CommonWindow = "CommonWindow";
 }
