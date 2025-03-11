@@ -154,5 +154,9 @@
   {
     "TextID": "TM_DeadMessage",
     "TextContent": "已被<color=#ff0000> {0} </color> 擊殺"
+  },
+  {
+    "TextID": "TM_DiscardedItemHintMessage",
+    "TextContent": "是否要丟棄物品：<color=#e7d900> {0} </color>"
   }
 ]
