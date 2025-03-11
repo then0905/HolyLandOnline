@@ -24,7 +24,7 @@ public class EquipmentData
     {
         Weapon = data.Weapon;
         Armor = data.Armor;
-        Weapon = data.Weapon;
+        Item = data.Item;
         Qty = data.Qty;
         ForceLv = data.ForceLv;
     }

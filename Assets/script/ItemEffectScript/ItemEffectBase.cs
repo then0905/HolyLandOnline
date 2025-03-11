@@ -72,13 +72,13 @@ public interface IItemComponent
 
 public abstract class ItemEffectBase : MonoBehaviour, IItemEffect, IHotKey
 {
-    public string ItemID { get { return itemID; } }
+    public string ItemID { get { return itemID; } set { itemID = value; } }
     public string KeyID => ItemID;
 
     public ItemDataModel ItemData { get; set; }
 
     //取得 道具效果所有運算資料
-    protected List<ItemEffectData> itemEffectDataList => ItemData.ItemEffectDataList;
+    protected virtual List<ItemEffectData> itemEffectDataList => ItemData.ItemEffectDataList;
     public string ItemName { get; set; }
 
     public string ItemIntro { get; set; }
@@ -214,6 +214,9 @@ public abstract class ItemEffectBase : MonoBehaviour, IItemEffect, IHotKey
     {
         List<bool> checkCondtionOR = new List<bool>();
         List<bool> checkCondtionAND = new List<bool>();
+
+        if (!itemEffectDataList.CheckAnyData())
+            return true;
 
         //檢查 技能運算資料清單
         foreach (var operationData in itemEffectDataList)

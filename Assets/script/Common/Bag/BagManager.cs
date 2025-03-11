@@ -30,9 +30,12 @@ public class BagManager : MonoBehaviour
     public TextMeshProUGUI CoinText;       //金幣Text
 
     [Header("生成背包格數的Content"), SerializeField] private Transform bagContent;
+
     [Header("背包格數生成量"), SerializeField] private int bagCount;
-    [Header("背包物品拖曳腳本"), SerializeField] private BagItem bagItemEquip;
     public int BagCount => bagCount;
+    [Header("背包物品拖曳腳本"), SerializeField] private BagItem bagItemEquip;
+    public BagItem BagItemEquip => bagItemEquip;
+
     [Header("背包格預置物"), SerializeField] private GameObject bagObject;
 
     /// <summary>
@@ -53,6 +56,7 @@ public class BagManager : MonoBehaviour
                 Equipment bag = Instantiate(bagObject, bagContent).GetComponent<Equipment>();
                 //紀錄背包格的物品資料
                 BagItems.Add(bag);
+                bag.name = $"BagItem_{i + 1}";
                 bag.gameObject.SetActive(true);
                 switch (itemBagList[i].Type)
                 {
@@ -77,6 +81,10 @@ public class BagManager : MonoBehaviour
                         break;
 
                     case "Item":
+                    case "Potion":
+                    case "Utility":
+                    case "Buff":
+                    case "Unavailable":
                         //設定物品資料
                         bag.EquipmentDatas = new EquipmentData()
                         {
@@ -107,6 +115,7 @@ public class BagManager : MonoBehaviour
                     GameObject bag = Instantiate(bagObject, bagContent);
                     //紀錄背包格的物品資料
                     BagItems.Add(bag.GetComponent<Equipment>());
+                    bag.name = $"BagItem_{i + 1}";
                     bag.SetActive(true);
                 }
             }
@@ -128,6 +137,7 @@ public class BagManager : MonoBehaviour
                     }
 
                 }
+
                 if (GameData.ArmorsDic.TryGetValue(data.CodedID, out ArmorDataModel armorData))
                 {
                     var armorItem = EquipDataList.Where(x => x.GetComponent<EquipData>().PartID.Any(y => y == armorData.WearPartID)).FirstOrDefault();
@@ -138,6 +148,7 @@ public class BagManager : MonoBehaviour
                         armorItem.EquipImage.sprite = CommonFunction.GetItemSprite(armorItem.EquipmentDatas);
                     }
                 }
+
             }
         }
     }
@@ -290,7 +301,7 @@ public class BagManager : MonoBehaviour
     /// 包包排序
     /// </summary>
     public void BagItemSort()
-    {     
+    {
         //背包物品重新排列 有資料的格數優先排列 物品=>武器=>防具
         BagItems = BagItems.OrderByDescending(x => x.EquipmentDatas.Item != null)
             .ThenByDescending(x => x.EquipmentDatas.Weapon != null)

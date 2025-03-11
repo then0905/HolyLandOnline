@@ -95,7 +95,7 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
     public OperationData[] OperationDatas { get; set; }     //儲存 運算資料
 
     public EventHandler<float> CharacterHintTimeEvent;     //狀態效果時間更新事件
-    
+
     protected Skill_Base_Buff skill_Base_Buff;      //技能類型狀態效果資料
     protected ItemEffectBase_Buff itemEffectBase_Buff;      //道具狀態效果資料
 
@@ -178,17 +178,23 @@ public abstract class CharacterStatusHint_Base : MonoBehaviour, ICharacterStatus
         {
             //解除效果移除事件的訂閱
             CharacterStatusManager.Instance.CharacterSatusRemoveEvent -= RemoveCharacterStatusHint;
-            
+
             //若是 技能類型的buff效果
-            var buffComponen = skill_Base_Buff.SkillComponentList.Where(x => x is BuffComponent).Select(x => x as BuffComponent).FirstOrDefault();
-            //檢查空值 並還原加成效果
-            buffComponen?.ReverseExecute(OperationDatas);
-            
+            if (skill_Base_Buff != null)
+            {
+                var buffComponen = skill_Base_Buff.SkillComponentList.Where(x => x is BuffComponent).Select(x => x as BuffComponent).FirstOrDefault();
+                //檢查空值 並還原加成效果
+                buffComponen?.ReverseExecute(OperationDatas);
+            }
+
             //若是 道具類型的buff效果
-            var itemComponen = itemEffectBase_Buff.ItemComponentList.Where(x => x is BuffItemComponent).Select(x => x as BuffItemComponent).FirstOrDefault();
-            //檢查空值 並還原加成效果
-            itemComponen?.ReverseExecute(OperationDatas);
-            
+            if (itemEffectBase_Buff != null)
+            {
+                var itemComponen = itemEffectBase_Buff.ItemComponentList.Where(x => x is BuffItemComponent).Select(x => x as BuffItemComponent).FirstOrDefault();
+                //檢查空值 並還原加成效果
+                itemComponen?.ReverseExecute(OperationDatas);
+            }
+
             CharacterStatusManager.Instance.CharacterStatusHintDic.Remove(this);
             Destroy(this.gameObject);
         }

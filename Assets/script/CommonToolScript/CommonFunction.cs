@@ -19,7 +19,7 @@ public static class CommonFunction
     /// <typeparam name="T">交換的內容</typeparam>
     /// <param name="t1">目標1</param>
     /// <param name="t2">目標2</param>
-    public static void ChangeSameComponent<T>(T t1, T t2)
+    public static void ChangeSameComponent<T>(ref T t1, ref T t2)
     {
         T temporaryT = t1;
         t1 = t2;
@@ -139,11 +139,15 @@ public static class CommonFunction
     /// <summary>
     /// 獲取道具效果預製物專用
     /// </summary>
-    /// <param name="itemID">道具ID</param>
+    /// <param name="itemID">物品ID</param>
+    /// <param name="typeID">帶入物品類型ID</param>
     /// <returns>回傳道具效果預製物</returns>
-    public static ItemEffectBase LoadItemEffectPrefab(string itemID)
+    public static ItemEffectBase LoadItemEffectPrefab(string itemID, string typeID)
     {
-        return LoadObject<GameObject>(GameConfig.ItemEffectPrefab, "ItemEffect_" + itemID).GetComponent<ItemEffectBase>();
+        ItemEffectBase itemEffectBase = null;
+        itemEffectBase = LoadObject<GameObject>(GameConfig.ItemEffectPrefab, "ItemEffect_" + typeID).GetComponent<ItemEffectBase>();
+        itemEffectBase.ItemID = itemID;
+        return itemEffectBase;
     }
 
     /// <summary>

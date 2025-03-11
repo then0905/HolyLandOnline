@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5327999191857462650}
   - component: {fileID: -7280221003261406008}
   m_Layer: 0
-  m_Name: ItemEffect_Potion_Mp_01
+  m_Name: ItemEffect_Potion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 014731922d6ef804e83a0de9399d1fd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: Potion_Mp_01
+  itemID: 
   effectObj: {fileID: 0}

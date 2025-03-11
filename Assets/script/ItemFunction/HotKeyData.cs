@@ -29,6 +29,7 @@ public class HotKeyData : MonoBehaviour
     [SerializeField] private Image hotkeyCdSliderFillImage;
     [SerializeField] private Slider hotkeyCdSlider;
     [SerializeField] private TMP_Text hotkeyNum;
+    [SerializeField] private Image hotkeyUseFrame;      //快捷鍵正在被使用中的提示
 
     [Header("遊戲資料")]
     [SerializeField] private int keyindex;
@@ -62,7 +63,7 @@ public class HotKeyData : MonoBehaviour
         hotkeyBackground.sprite = skillIcon;
         hotkeyCdSliderImage.sprite = skillIcon;
         hotkeyCdSliderFillImage.sprite = skillIcon;
-        tempHotKeyData = Instantiate(((Skill_Base)data).gameObject,transform).GetComponent<Skill_Base>();
+        tempHotKeyData = Instantiate(((Skill_Base)data).gameObject, transform).GetComponent<Skill_Base>();
         UpgradeSkillID = upgradeSkillID;
 
         //取得技能腳本資料
@@ -82,7 +83,7 @@ public class HotKeyData : MonoBehaviour
     /// </summary>
     /// <param name="itemIcon">技能圖示</param>
     /// <param name="data">技能腳本資料</param>
-    public void SetItemEffect(Sprite itemIcon, IHotKey data)
+    public void SetItemEffect(Sprite itemIcon, IHotKey data, Equipment bagItemData)
     {
         //先檢查快捷鍵上是否已有此技能資料 有的話清除
         hotKeyManager.PrepareHotKeySetting(data.KeyID);
@@ -91,11 +92,17 @@ public class HotKeyData : MonoBehaviour
         hotkeyBackground.sprite = itemIcon;
         hotkeyCdSliderImage.sprite = itemIcon;
         hotkeyCdSliderFillImage.sprite = itemIcon;
-        tempHotKeyData = Instantiate(((ItemEffectBase)data).gameObject,transform).GetComponent<ItemEffectBase>();
+        tempHotKeyData = Instantiate(((ItemEffectBase)data).gameObject, transform).GetComponent<ItemEffectBase>();
 
         //取得技能腳本資料
         ItemEffectBase itemEffect_Base = (ItemEffectBase)tempHotKeyData;
         itemEffect_Base.InitItemEffectData();
+
+        //若裝上的快捷鍵 是裝備
+        if (itemEffect_Base is ItemEffectBase_Equip equipment)
+        {
+            equipment.EquipmentData = bagItemData.EquipmentDatas;
+        }
 
         //設定讀條
         hotkeyCdSlider.maxValue = itemEffect_Base.CooldownTime;
@@ -139,6 +146,15 @@ public class HotKeyData : MonoBehaviour
     }
 
     /// <summary>
+    /// 快捷鍵使用效果開關(穿裝備、開關型技能等等使用)
+    /// </summary>
+    /// <param name="enable"></param>
+    public void UseFrameEnable(bool enable)
+    {
+        hotkeyUseFrame.enabled = enable;
+    }
+
+    /// <summary>
     /// 因應升級技能效果更換圖示
     /// </summary>
     public void UpgradeSkillHotkeyDataProceoose(Sprite upgradeSkillSprite)
@@ -162,11 +178,11 @@ public class HotKeyData : MonoBehaviour
             //判斷 快捷鍵的資料是否為空值
             //if (SkillController.Instance.SkillHotKey[keyIndex].TempHotKeyData != null)
             //{ 
-                //判斷道具數量是否足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
-                if (!itemBase.ItemEffectCanUse())
-                    return;
+            //判斷道具數量是否足夠 以及 冷卻時間是否完成刷新(防止玩家重複按指扣除魔力並沒有施放技能)
+            if (!itemBase.ItemEffectCanUse())
+                return;
 
-                itemBase.ItemEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
+            itemBase.ItemEffect(PlayerDataOverView.Instance, PlayerDataOverView.Instance);
             //}
         }
     }

@@ -102,7 +102,7 @@ public class BagsItemIntro : MonoBehaviour
                     });
 
                     //設定武器數據或盾牌數據
-                    if (introItem.EquipmentDatas.Weapon.Type == "盾牌")
+                    if (introItem.EquipmentDatas.Weapon.TypeID == "Shield")
                         AddShieldVaule();
                     else
                         AddWeaponVaule();
@@ -367,13 +367,15 @@ public class BagsItemIntro : MonoBehaviour
                 if (!string.IsNullOrEmpty(effect.AddType) && !string.IsNullOrEmpty(effect.AddType))
                     introStr += ("TM_" + effect.InfluenceStatus).GetText() + string.Format(("TM_" + effect.AddType).GetText(), effect.EffectValue.ToString()) + "\n";
                 else
-                    introStr += "--";
+                    introStr += "--" + "\n";
             }
         else
             introStr += "--";
         Value.text = introStr
-               + "TM_CD".GetText(true) + itemData.CD + "\n"
-               + "TM_Duration".GetText(true) + itemData.ItemEffectDataList.FirstOrDefault().EffectDurationTime + "\n";
+             + "TM_CD".GetText(true) + itemData.CD + "\n";
+
+        if (effectDatas.CheckAnyData())
+            Value.text += "TM_Duration".GetText(true) + itemData.ItemEffectDataList.FirstOrDefault().EffectDurationTime + "\n";
     }
     #endregion
 }
