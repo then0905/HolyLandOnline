@@ -74,7 +74,7 @@ public class StatusOperation : MonoBehaviour
     //需等待基礎數值計算完後才計算的部分
     private static Action refreshAfterStatus;
 
-    //處理技能影響的能力值計算
+    //處理技能效果計算能力值的字典 <能力值名稱,Action<技能能力值,基礎能力值,加成方式,加成值>>
     private readonly Dictionary<string, Action<TempBasalStatus, TempBasalStatus, bool, float>> statusModifyDic =
         new Dictionary<string, Action<TempBasalStatus, TempBasalStatus, bool, float>>
     {
