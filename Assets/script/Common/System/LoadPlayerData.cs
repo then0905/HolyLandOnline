@@ -58,7 +58,6 @@ public class LoadPlayerData : MonoBehaviour
 
             if (isinit)
             {
-                BagManager.Instance.PickUp(accountPlayerData.Coin, true);       //不從PlayerData裡帶入值是因為這個方法可以更新玩家資料及背包UI文字
                 BagManager.Instance.Init(accountPlayerData.BagItemList, accountPlayerData.EquipDataList);       //背包物品資料
                 MissionManager.Instance.MissionList = accountPlayerData.missionDataList;
                 MissionManager.Instance.FinishedMissionList = accountPlayerData.finishedMissionDataList;
@@ -70,6 +69,9 @@ public class LoadPlayerData : MonoBehaviour
                     await Task.Delay(100);
                 }
 
+                //2025/03/12 因為3/6那天修改把初始化順序管理腳本 修改為非同步方法 所以讀取金幣也改到等到玩家物件生成 不然有金幣的話會報錯 = =
+                //不從PlayerData裡帶入值是因為這個方法可以更新玩家資料及背包UI文字
+                BagManager.Instance.PickUp(accountPlayerData.Coin, true);       
                 if (accountPlayerData.LastPos != default)
                     PlayerDataOverView.Instance.TempPlayerPos = accountPlayerData.LastPos;      //玩家座標設定
             }

@@ -74,6 +74,44 @@ public class StatusOperation : MonoBehaviour
     //需等待基礎數值計算完後才計算的部分
     private static Action refreshAfterStatus;
 
+    //處理技能影響的能力值計算
+    private readonly Dictionary<string, Action<TempBasalStatus, TempBasalStatus, bool, float>> statusModifyDic =
+        new Dictionary<string, Action<TempBasalStatus, TempBasalStatus, bool, float>>
+    {
+            { "Speed", (effect, basal, isRate, value) => 
+                    //設定技能效果屬性的數值 (移動速度的算法比較特別 "倍率"的話以速度基準值來計算 不會用穿上裝備的加總)
+                    effect.Speed += (isRate ? (1 * value) : value)
+            },
+              { "ATK", (effect, basal, isRate, value) =>
+        {
+            //ATK為加總所有攻擊類型的能力值    
+            effect.MeleeATK += (isRate ? (int)(basal.MeleeATK * value) : (int)value);
+            effect.RemoteATK += (isRate ? (int)(basal.RemoteATK * value) : (int)value);
+            effect.MageATK += (isRate ? (int)(basal.MageATK * value) : (int)value);
+        }
+    },
+    { "MeleeATK", (effect, basal, isRate, value) => effect.MeleeATK += (isRate ? (int)(basal.MeleeATK * value) : (int)value) },
+    { "RemoteATK", (effect, basal, isRate, value) => effect.RemoteATK += (isRate ? (int)(basal.RemoteATK * value) : (int)value) },
+    { "MageATK", (effect, basal, isRate, value) => effect.MageATK += (isRate ? (int)(basal.MageATK * value) : (int)value) },
+    { "MaxHP", (effect, basal, isRate, value) => effect.MaxHP += (isRate ? (int)(basal.MaxHP * value) : (int)value) },
+    { "MaxMP", (effect, basal, isRate, value) => effect.MaxMP += (isRate ? (int)(basal.MaxMP * value) : (int)value) },
+    { "HP_Recovery", (effect, basal, isRate, value) => effect.HP_Recovery += (isRate ? (int)(basal.HP_Recovery * value) : (int)value) },
+    { "MP_Recovery", (effect, basal, isRate, value) => effect.MP_Recovery += (isRate ? (int)(basal.MP_Recovery * value) : (int)value) },
+    { "DEF", (effect, basal, isRate, value) => effect.DEF += (isRate ? (int)(basal.DEF * value) : (int)value) },
+    { "Avoid", (effect, basal, isRate, value) => effect.Avoid += (isRate ? (int)(basal.Avoid * value) : (int)value) },
+    { "MeleeHit", (effect, basal, isRate, value) => effect.MeleeHit += (isRate ? (int)(basal.MeleeHit * value) : (int)value) },
+    { "RemoteHit", (effect, basal, isRate, value) => effect.RemoteHit += (isRate ? (int)(basal.RemoteHit * value) : (int)value) },
+    { "MageHit", (effect, basal, isRate, value) => effect.MageHit += (isRate ? (int)(basal.MageHit * value) : (int)value) },
+    { "MDEF", (effect, basal, isRate, value) => effect.MDEF += (isRate ? (int)(basal.MDEF * value) : (int)value) },
+    { "DamageReduction", (effect, basal, isRate, value) => effect.DamageReduction += (isRate ? (int)(basal.DamageReduction * value) : (int)value) },
+    { "ElementDamageIncrease", (effect, basal, isRate, value) => effect.ElementDamageIncrease += (isRate ? (basal.ElementDamageIncrease * value) :value) },
+    { "ElementDamageReduction", (effect, basal, isRate, value) => effect.ElementDamageReduction += (isRate ? (basal.ElementDamageReduction * value) : value) },
+    { "BlockRate", (effect, basal, isRate, value) => effect.BlockRate += (isRate ? (basal.BlockRate * value) : value) },
+    { "Crt", (effect, basal, isRate, value) => effect.Crt += (isRate ? (basal.Crt * value) : value) },
+    { "AS", (effect, basal, isRate, value) => effect.AS += (isRate ? (basal.AS * value) : value) },
+    { "DisorderResistance", (effect, basal, isRate, value) => effect.DisorderResistance += (isRate ? (basal.DisorderResistance * value) : value) }
+    };
+
     /// <summary>
     /// 初始化訂閱事件內容
     /// </summary>
@@ -139,40 +177,39 @@ public class StatusOperation : MonoBehaviour
         }
 
         //防具清單
-        var tempArmorList = BagManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).ToList();
         armorList = new List<EquipmentData>();
-        if (tempArmorList.CheckAnyData())
-            foreach (var item in BagManager.Instance.EquipDataList.Where(x => x.EquipmentDatas.Armor != null).ToList())
-            {
-                if (item.EquipmentDatas.Armor != null)
-                    armorList.Add(item.EquipmentDatas);
-            }
+        foreach (var item in BagManager.Instance.EquipDataList)
+        {
+            if (item.EquipmentDatas.Armor != null)
+                armorList.Add(item.EquipmentDatas);
+        }
 
         //獲取武器資料
-        int weaponDataSTR = weaponList.Sum(x => x.Weapon.STR + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.STR).FirstOrDefault());
-        int weaponDataDEX = weaponList.Sum(x => x.Weapon.DEX + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.DEX).FirstOrDefault());
-        int weaponDataINT = weaponList.Sum(x => x.Weapon.INT + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.INT).FirstOrDefault());
-        int weaponDataAGI = weaponList.Sum(x => x.Weapon.AGI + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.AGI).FirstOrDefault());
-        int weaponDataWIS = weaponList.Sum(x => x.Weapon.WIS + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.WIS).FirstOrDefault());
-        int weaponDataVIT = weaponList.Sum(x => x.Weapon.VIT + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.VIT).FirstOrDefault());
+        int weaponDataSTR = weaponList.Sum(x => x.Weapon.STR + (x.ForceLv > 0 ? x.Weapon.ForgeConfigList.Find(y => y.ForgeLv == x.ForceLv).STR : 0));
+        int weaponDataDEX = weaponList.Sum(x => x.Weapon.DEX + (x.ForceLv > 0 ? x.Weapon.ForgeConfigList.Find(y => y.ForgeLv == x.ForceLv).DEX : 0));
+        int weaponDataINT = weaponList.Sum(x => x.Weapon.INT + (x.ForceLv > 0 ? x.Weapon.ForgeConfigList.Find(y => y.ForgeLv == x.ForceLv).INT : 0));
+        int weaponDataAGI = weaponList.Sum(x => x.Weapon.AGI + (x.ForceLv > 0 ? x.Weapon.ForgeConfigList.Find(y => y.ForgeLv == x.ForceLv).AGI : 0));
+        int weaponDataWIS = weaponList.Sum(x => x.Weapon.WIS + (x.ForceLv > 0 ? x.Weapon.ForgeConfigList.Find(y => y.ForgeLv == x.ForceLv).WIS : 0));
+        int weaponDataVIT = weaponList.Sum(x => x.Weapon.VIT + (x.ForceLv > 0 ? x.Weapon.ForgeConfigList.Find(y => y.ForgeLv == x.ForceLv).VIT : 0));
 
         //獲取防具資料
-        int armorDataSTR = armorList.Sum(x => x.Armor.STR + x.Armor.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.STR).FirstOrDefault());
-        int armorDataDEX = armorList.Sum(x => x.Armor.DEX + x.Armor.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.DEX).FirstOrDefault());
-        int armorDataINT = armorList.Sum(x => x.Armor.INT + x.Armor.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.INT).FirstOrDefault());
-        int armorDataAGI = armorList.Sum(x => x.Armor.AGI + x.Armor.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.AGI).FirstOrDefault());
-        int armorDataWIS = armorList.Sum(x => x.Armor.WIS + x.Armor.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.WIS).FirstOrDefault());
-        int armorDataVIT = armorList.Sum(x => x.Armor.VIT + x.Armor.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.VIT).FirstOrDefault());
+        int armorDataSTR = armorList.Sum(x => x.Armor.STR + (x.ForceLv > 0 ? x.Armor.ForgeConfigList.Find(y => y.ForgeLv == x.ForceLv).STR : 0));
+        int armorDataDEX = armorList.Sum(x => x.Armor.DEX + (x.ForceLv > 0 ? x.Armor.ForgeConfigList.Find(y => y.ForgeLv == x.ForceLv).DEX : 0));
+        int armorDataINT = armorList.Sum(x => x.Armor.INT + (x.ForceLv > 0 ? x.Armor.ForgeConfigList.Find(y => y.ForgeLv == x.ForceLv).INT : 0));
+        int armorDataAGI = armorList.Sum(x => x.Armor.AGI + (x.ForceLv > 0 ? x.Armor.ForgeConfigList.Find(y => y.ForgeLv == x.ForceLv).AGI : 0));
+        int armorDataWIS = armorList.Sum(x => x.Armor.WIS + (x.ForceLv > 0 ? x.Armor.ForgeConfigList.Find(y => y.ForgeLv == x.ForceLv).WIS : 0));
+        int armorDataVIT = armorList.Sum(x => x.Armor.VIT + (x.ForceLv > 0 ? x.Armor.ForgeConfigList.Find(y => y.ForgeLv == x.ForceLv).VIT : 0));
 
         //獲取職業加成的六維 並加上裝備數據
-        PlayerDataOverView.Instance.PlayerData_.STR = int.Parse(GameData.JobBonusDic[PlayerDataOverView.Instance.PlayerData_.Job].STR) + weaponDataSTR + armorDataSTR;
-        PlayerDataOverView.Instance.PlayerData_.DEX = int.Parse(GameData.JobBonusDic[PlayerDataOverView.Instance.PlayerData_.Job].DEX) + weaponDataDEX + armorDataDEX;
-        PlayerDataOverView.Instance.PlayerData_.INT = int.Parse(GameData.JobBonusDic[PlayerDataOverView.Instance.PlayerData_.Job].INT) + weaponDataINT + armorDataINT;
-        PlayerDataOverView.Instance.PlayerData_.AGI = int.Parse(GameData.JobBonusDic[PlayerDataOverView.Instance.PlayerData_.Job].AGI) + weaponDataAGI + armorDataAGI;
-        PlayerDataOverView.Instance.PlayerData_.WIS = int.Parse(GameData.JobBonusDic[PlayerDataOverView.Instance.PlayerData_.Job].WIS) + weaponDataWIS + armorDataWIS;
-        PlayerDataOverView.Instance.PlayerData_.VIT = int.Parse(GameData.JobBonusDic[PlayerDataOverView.Instance.PlayerData_.Job].VIT) + weaponDataVIT + armorDataVIT;
-        PlayerDataOverView.Instance.PlayerData_.MaxHP = int.Parse(GameData.JobBonusDic[PlayerDataOverView.Instance.PlayerData_.Job].HP);
-        PlayerDataOverView.Instance.PlayerData_.MaxMP = int.Parse(GameData.JobBonusDic[PlayerDataOverView.Instance.PlayerData_.Job].MP);
+        var jobBonusData = GameData.JobBonusDic[PlayerDataOverView.Instance.PlayerData_.Job];
+        PlayerDataOverView.Instance.PlayerData_.STR = int.Parse(jobBonusData.STR) + weaponDataSTR + armorDataSTR;
+        PlayerDataOverView.Instance.PlayerData_.DEX = int.Parse(jobBonusData.DEX) + weaponDataDEX + armorDataDEX;
+        PlayerDataOverView.Instance.PlayerData_.INT = int.Parse(jobBonusData.INT) + weaponDataINT + armorDataINT;
+        PlayerDataOverView.Instance.PlayerData_.AGI = int.Parse(jobBonusData.AGI) + weaponDataAGI + armorDataAGI;
+        PlayerDataOverView.Instance.PlayerData_.WIS = int.Parse(jobBonusData.WIS) + weaponDataWIS + armorDataWIS;
+        PlayerDataOverView.Instance.PlayerData_.VIT = int.Parse(jobBonusData.VIT) + weaponDataVIT + armorDataVIT;
+        PlayerDataOverView.Instance.PlayerData_.MaxHP = int.Parse(jobBonusData.HP);
+        PlayerDataOverView.Instance.PlayerData_.MaxMP = int.Parse(jobBonusData.MP);
     }
 
     /// <summary>
@@ -242,9 +279,7 @@ public class StatusOperation : MonoBehaviour
     private void MeleeATK()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("MeleeATK_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"MeleeATK_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取裝備能力值數據
         tempEquipStatus.MeleeATK = weaponList.Sum(x => x.Weapon.MeleeATK + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.MeleeATK).FirstOrDefault());
@@ -260,9 +295,7 @@ public class StatusOperation : MonoBehaviour
     private void RemoteATK()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("RemoteATK_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"RemoteATK_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取裝備能力值數據
         tempEquipStatus.RemoteATK = weaponList.Sum(x => x.Weapon.RemoteATK + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.RemoteATK).FirstOrDefault());
@@ -278,9 +311,7 @@ public class StatusOperation : MonoBehaviour
     private void MageATK()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("MageATK_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"MageATK_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取裝備能力值數據
         tempEquipStatus.MageATK = weaponList.Sum(x => x.Weapon.MageATK + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.MageATK).FirstOrDefault());
@@ -297,9 +328,7 @@ public class StatusOperation : MonoBehaviour
     private void MaxHp()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("HP_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"HP_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取武器、防具能力值數據
         tempEquipStatus.MaxHP = weaponList.Sum(x => x.Weapon.HP + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.HP).FirstOrDefault()) +
@@ -317,9 +346,7 @@ public class StatusOperation : MonoBehaviour
     private void MaxMp()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("MP_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"MP_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取武器、防具能力值數據
         tempEquipStatus.MaxMP = weaponList.Sum(x => x.Weapon.MP + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.MP).FirstOrDefault()) +
@@ -336,9 +363,7 @@ public class StatusOperation : MonoBehaviour
     private void DEF()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("DEF_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"DEF_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取武器、防具能力值數據
         tempEquipStatus.DEF = weaponList.Sum(x => x.Weapon.DEF + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.DEF).FirstOrDefault()) +
@@ -356,9 +381,7 @@ public class StatusOperation : MonoBehaviour
     private void Avoid()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("Avoid_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"Avoid_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取武器、防具能力值數據
         tempEquipStatus.Avoid = weaponList.Sum(x => x.Weapon.Avoid + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.Avoid).FirstOrDefault()) +
@@ -375,9 +398,7 @@ public class StatusOperation : MonoBehaviour
     private void MeleeHit()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("MeleeHit_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"MeleeHit_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取武器能力值數據
         tempEquipStatus.MeleeHit = weaponList.Sum(x => x.Weapon.MeleeHit + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.MeleeHit).FirstOrDefault());
@@ -394,9 +415,7 @@ public class StatusOperation : MonoBehaviour
     private void RemoteHit()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("RemoteHit_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"RemoteHit_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取武器能力值數據
         tempEquipStatus.RemoteHit = weaponList.Sum(x => x.Weapon.RemoteHit + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.RemoteHit).FirstOrDefault());
@@ -413,9 +432,7 @@ public class StatusOperation : MonoBehaviour
     private void MageHit()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("MageHit_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"MageHit_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取武器能力值數據
         tempEquipStatus.MageHit = weaponList.Sum(x => x.Weapon.MageHit + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.MageHit).FirstOrDefault());
@@ -432,9 +449,7 @@ public class StatusOperation : MonoBehaviour
     private void MDEF()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("MDEF_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"MDEF_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取武器、防具能力值數據
         tempEquipStatus.MDEF = weaponList.Sum(x => x.Weapon.MDEF + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.MDEF).FirstOrDefault()) +
@@ -475,9 +490,7 @@ public class StatusOperation : MonoBehaviour
     private void DamageReduction()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("DamageReduction_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"DamageReduction_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取防具能力值數據
         tempEquipStatus.DamageReduction = armorList.Sum(x => x.Armor.DamageReduction + x.Armor.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.DamageReduction).FirstOrDefault());
@@ -492,9 +505,7 @@ public class StatusOperation : MonoBehaviour
     private void ElementDamageIncrease()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("ElementDamageIncrease_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"ElementDamageIncrease_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取武器能力值數據
         tempEquipStatus.ElementDamageIncrease = (int)(weaponList.Sum(x => x.Weapon.ElementDamageIncrease + x.Weapon.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.ElementDamageIncrease).FirstOrDefault()));
@@ -509,9 +520,7 @@ public class StatusOperation : MonoBehaviour
     private void ElementDamageReduction()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("ElementDamageReduction_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"ElementDamageReduction_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取防具能力值數據
         tempEquipStatus.ElementDamageReduction = armorList.Sum(x => x.Armor.ElementDamageReduction + x.Armor.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.ElementDamageReduction).FirstOrDefault());
@@ -526,9 +535,7 @@ public class StatusOperation : MonoBehaviour
     private void HP_RecoveryReduction()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("HP_Recovery_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"HP_Recovery_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取防具能力值數據
         tempEquipStatus.HP_Recovery = armorList.Sum(x => x.Armor.HpRecovery + x.Armor.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.HpRecovery).FirstOrDefault());
@@ -545,9 +552,7 @@ public class StatusOperation : MonoBehaviour
     private void MP_RecoveryReduction()
     {
         //獲取種族能力值的成長加成
-        var targetStatus =
-                GameData.StatusFormulaDic.Where(x => x.Key.Contains("MP_Recovery_" + PlayerDataOverView.Instance.PlayerData_.Race))
-                .Select(x => x.Value).FirstOrDefault();
+        var targetStatus = GameData.StatusFormulaDic[$"MP_Recovery_{PlayerDataOverView.Instance.PlayerData_.Race}"];
 
         //獲取防具能力值數據
         tempEquipStatus.MP_Recovery = armorList.Sum(x => x.Armor.MpRecovery + x.Armor.ForgeConfigList.Where(y => y.ForgeLv.Equals(x.ForceLv)).Select(y => y.MpRecovery).FirstOrDefault());
@@ -601,89 +606,9 @@ public class StatusOperation : MonoBehaviour
     /// </summary>
     public void SkillEffectStatusOperation(string statusType, bool isRate, float value)
     {
-        //取得 能力值裡對應的欄位參數(技能效果)
-        FieldInfo effectProperty = typeof(TempBasalStatus).GetField(statusType);
-        //取得 能力值裡對應的欄位參數(當前基礎屬性)
-        FieldInfo basalProperty = typeof(TempBasalStatus).GetField(statusType);
-
-        //檢查空值
-        if (effectProperty != null && basalProperty != null)
+        if (statusModifyDic.TryGetValue(statusType, out var modifier))
         {
-
-            //若效果為 移動速度 屬性
-            if (statusType == "Speed")
-            {
-                //取得 技能效果 能力值裡對應的參數的數值
-                float effectValue = (float)effectProperty.GetValue(tempBasalStatus);
-                //設定技能效果屬性的數值 (移動速度的算法比較特別 "倍率"的話以速度基準值來計算 不會用穿上裝備的加總)
-                effectProperty.SetValue(tempBasalStatus, effectValue + (isRate ? (1 * value) : value));
-            }
-            //其餘屬性正常運算
-            else
-            {
-                //取得 技能效果 能力值裡對應的參數的數值
-                if (effectProperty.GetValue(tempEffectStatus) is int)
-                {
-                    int effectValue = (int)effectProperty.GetValue(tempEffectStatus);
-                    //取得 當前基礎屬性 能力值裡對應的參數的數值
-                    int basalValue = (int)basalProperty.GetValue(tempBasalStatus);
-                    //取得 當前裝備屬性 能力值裡對應的參數的數值
-                    int equipmentValue = (int)basalProperty.GetValue(tempEquipStatus);
-
-                    //依照加成或倍率計算數值
-                    effectValue += (isRate ? (int)((basalValue + equipmentValue) * value) : (int)value);
-
-                    //設定技能效果屬性的數值
-                    effectProperty.SetValue(tempEffectStatus, effectValue);
-                }
-                else if (effectProperty.GetValue(tempEffectStatus) is float)
-                {
-                    float effectValue = (float)effectProperty.GetValue(tempEffectStatus);
-                    //取得 當前基礎屬性 能力值裡對應的參數的數值
-                    float basalValue = (float)basalProperty.GetValue(tempBasalStatus);
-                    //取得 當前裝備屬性 能力值裡對應的參數的數值
-                    float equipmentValue = (float)basalProperty.GetValue(tempEquipStatus);
-
-                    //依照加成或倍率計算數值
-                    effectValue += (isRate ? ((basalValue + equipmentValue) * value) : value);
-
-                    //設定技能效果屬性的數值
-                    effectProperty.SetValue(tempEffectStatus, effectValue);
-                }
-
-
-            }
-        }
-        //若效果為 全部攻擊 屬性
-        else if (statusType == "ATK")
-        {
-            //取得所有攻擊屬性
-            string[] atkTypes = { "MeleeATK", "RemoteATK", "MageATK" };
-            //依次增加所有攻擊屬性
-            foreach (string atkType in atkTypes)
-            {
-                //取得能力值對應的攻擊欄位參數(技能效果)
-                FieldInfo effectATKProperty = typeof(TempBasalStatus).GetField(atkType);
-                //取得能力值對應的攻擊欄位參數(當前基礎屬性)
-                FieldInfo basalATKProperty = typeof(TempBasalStatus).GetField(atkType);
-
-                //檢查空值
-                if (effectProperty != null && basalProperty != null)
-                {
-                    //取得 技能效果 能力值裡對應的攻擊參數的數值
-                    int effectValue = (int)effectATKProperty.GetValue(tempEffectStatus);
-                    //取得 當前基礎屬性 能力值裡對應的攻擊參數的數值
-                    int basalValue = (int)basalATKProperty.GetValue(tempBasalStatus);
-                    //取得 當前裝備屬性 能力值裡對應的參數的數值
-                    int equipmentValue = (int)basalProperty.GetValue(tempEquipStatus);
-
-                    //依照加成或倍率計算數值
-                    effectValue += ((isRate ? (int)(basalValue * value) : (int)value) + (isRate ? (int)(equipmentValue * value) : (int)value));
-
-                    //設定技能效果屬性的數值
-                    effectProperty.SetValue(tempEffectStatus, effectValue);
-                }
-            }
+            modifier(tempEffectStatus, tempBasalStatus, isRate, value);
         }
         else
         {
@@ -691,6 +616,96 @@ public class StatusOperation : MonoBehaviour
         }
         //將效果影響的能力值進行運算
         PlayerDataStatusOperation();
+        #region 映射版本 但太耗效能 故棄用
+        ////取得 能力值裡對應的欄位參數(技能效果)
+        //FieldInfo effectProperty = typeof(TempBasalStatus).GetField(statusType);
+        ////取得 能力值裡對應的欄位參數(當前基礎屬性)
+        //FieldInfo basalProperty = typeof(TempBasalStatus).GetField(statusType);
+
+        ////檢查空值
+        //if (effectProperty != null && basalProperty != null)
+        //{
+
+        //    //若效果為 移動速度 屬性
+        //    if (statusType == "Speed")
+        //    {
+        //        //取得 技能效果 能力值裡對應的參數的數值
+        //        float effectValue = (float)effectProperty.GetValue(tempBasalStatus);
+        //        //設定技能效果屬性的數值 (移動速度的算法比較特別 "倍率"的話以速度基準值來計算 不會用穿上裝備的加總)
+        //        effectProperty.SetValue(tempBasalStatus, effectValue + (isRate ? (1 * value) : value));
+        //    }
+        //    //其餘屬性正常運算
+        //    else
+        //    {
+        //        //取得 技能效果 能力值裡對應的參數的數值
+        //        if (effectProperty.GetValue(tempEffectStatus) is int)
+        //        {
+        //            int effectValue = (int)effectProperty.GetValue(tempEffectStatus);
+        //            //取得 當前基礎屬性 能力值裡對應的參數的數值
+        //            int basalValue = (int)basalProperty.GetValue(tempBasalStatus);
+        //            //取得 當前裝備屬性 能力值裡對應的參數的數值
+        //            int equipmentValue = (int)basalProperty.GetValue(tempEquipStatus);
+
+        //            //依照加成或倍率計算數值
+        //            effectValue += (isRate ? (int)((basalValue + equipmentValue) * value) : (int)value);
+
+        //            //設定技能效果屬性的數值
+        //            effectProperty.SetValue(tempEffectStatus, effectValue);
+        //        }
+        //        else if (effectProperty.GetValue(tempEffectStatus) is float)
+        //        {
+        //            float effectValue = (float)effectProperty.GetValue(tempEffectStatus);
+        //            //取得 當前基礎屬性 能力值裡對應的參數的數值
+        //            float basalValue = (float)basalProperty.GetValue(tempBasalStatus);
+        //            //取得 當前裝備屬性 能力值裡對應的參數的數值
+        //            float equipmentValue = (float)basalProperty.GetValue(tempEquipStatus);
+
+        //            //依照加成或倍率計算數值
+        //            effectValue += (isRate ? ((basalValue + equipmentValue) * value) : value);
+
+        //            //設定技能效果屬性的數值
+        //            effectProperty.SetValue(tempEffectStatus, effectValue);
+        //        }
+
+
+        //    }
+        //}
+        ////若效果為 全部攻擊 屬性
+        //else if (statusType == "ATK")
+        //{
+        //    //取得所有攻擊屬性
+        //    string[] atkTypes = { "MeleeATK", "RemoteATK", "MageATK" };
+        //    //依次增加所有攻擊屬性
+        //    foreach (string atkType in atkTypes)
+        //    {
+        //        //取得能力值對應的攻擊欄位參數(技能效果)
+        //        FieldInfo effectATKProperty = typeof(TempBasalStatus).GetField(atkType);
+        //        //取得能力值對應的攻擊欄位參數(當前基礎屬性)
+        //        FieldInfo basalATKProperty = typeof(TempBasalStatus).GetField(atkType);
+
+        //        //檢查空值
+        //        if (effectProperty != null && basalProperty != null)
+        //        {
+        //            //取得 技能效果 能力值裡對應的攻擊參數的數值
+        //            int effectValue = (int)effectATKProperty.GetValue(tempEffectStatus);
+        //            //取得 當前基礎屬性 能力值裡對應的攻擊參數的數值
+        //            int basalValue = (int)basalATKProperty.GetValue(tempBasalStatus);
+        //            //取得 當前裝備屬性 能力值裡對應的參數的數值
+        //            int equipmentValue = (int)basalProperty.GetValue(tempEquipStatus);
+
+        //            //依照加成或倍率計算數值
+        //            effectValue += ((isRate ? (int)(basalValue * value) : (int)value) + (isRate ? (int)(equipmentValue * value) : (int)value));
+
+        //            //設定技能效果屬性的數值
+        //            effectProperty.SetValue(tempEffectStatus, effectValue);
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    Debug.Log($"未宣告參數或是輸入了不知名參數: {statusType}");
+        //}
+        #endregion
         #region 舊版運算 使用SwitchCase 已棄用 改用映射
         //switch (statusType)
         //{

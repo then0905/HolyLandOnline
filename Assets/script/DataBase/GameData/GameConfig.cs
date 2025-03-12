@@ -9,9 +9,17 @@ using UnityEngine;
 //==========================================
 public static class GameConfig
 {
-    public const string SkillIcon = "Skill/Icon";
+    #region 圖示類型
+    public const string SkillIcon = "Skill/Icon";       //技能圖示
+    public const string WeaponIcon = "UI/Weapon";       //武器圖示
+    public const string ArmorIcon = "UI/Armor";      //防具圖示
+    public const string ItemIcon = "UI/Item";       //道具圖示
+    #endregion
+
+    #region 效果預製物
     public const string SkillPrefab = "SkillPrefab";
     public const string ItemEffectPrefab = "ItemEffectPrefab";
+    #endregion
 
     public const string Monster = "Monster";
 

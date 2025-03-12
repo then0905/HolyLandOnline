@@ -27,13 +27,14 @@ public class InitSequenceManager : MonoBehaviour
     #endregion
 
     /// <summary>
-    /// 首次登入遊戲 腳本初始化協程
+    /// 首次登入遊戲 腳本初始化
     /// </summary>
     /// <returns></returns>
     public async void Init()
     {
         GameData.Init();//GameData資料優先       
-       
+
+        await CommonResourceManager.InitLoadResouce();     //常用資源加載
         //yield return StartCoroutine(MapManager.Instance.Init()); // 等待地圖管理器初始化完成，也會生成玩家預製物
 
         await LoadPlayerData.LoadUserData();//帶入使用者資料 先帶入血量魔力以外的資料 

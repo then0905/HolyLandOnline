@@ -84,24 +84,6 @@ public static class CommonFunction
     }
 
     /// <summary>
-    /// 依物品資料獲取圖片資源
-    /// </summary>
-    /// <param name="path">圖片路徑</param>
-    /// <param name="name">圖片檔名</param>
-    /// <returns></returns>
-    public static Sprite GetItemSprite(EquipmentData tempData)
-    {
-        Sprite sprite = null;
-        if (tempData.Weapon != null)
-            sprite = LoadObject<Sprite>(tempData.Weapon.Path, tempData.Weapon.FileName);
-        if (tempData.Armor != null)
-            sprite = LoadObject<Sprite>(tempData.Armor.Path, tempData.Armor.FileName);
-        if (tempData.Item != null)
-            sprite = LoadObject<Sprite>(tempData.Item.Path, tempData.Item.FileName);
-        return sprite;
-    }
-
-    /// <summary>
     /// Resorces讀取物件
     /// </summary>
     /// <typeparam name="T"></typeparam>
@@ -115,6 +97,24 @@ public static class CommonFunction
     }
 
     /// <summary>
+    /// 依物品資料獲取圖片資源
+    /// </summary>
+    /// <param name="path">圖片路徑</param>
+    /// <param name="name">圖片檔名</param>
+    /// <returns></returns>
+    public static Sprite GetItemSprite(EquipmentData tempData)
+    {
+        Sprite sprite = null;
+        if (tempData.Weapon != null)
+            sprite = GetCommonResource<Sprite>(tempData.Weapon.Path, tempData.Weapon.FileName);
+        if (tempData.Armor != null)
+            sprite = GetCommonResource<Sprite>(tempData.Armor.Path, tempData.Armor.FileName);
+        if (tempData.Item != null)
+            sprite = GetCommonResource<Sprite>(tempData.Item.Path, tempData.Item.FileName);
+        return sprite;
+    }
+
+    /// <summary>
     /// 讀取技能圖示專用
     /// </summary>
     /// <typeparam name="T"></typeparam>
@@ -123,7 +123,30 @@ public static class CommonFunction
     /// <returns></returns>
     public static Sprite LoadSkillIcon(string name)
     {
-        return Resources.LoadAll<Sprite>("").FirstOrDefault(x => x.name == name);
+        //讀取資源
+        return GetCommonResource<Sprite>(GameConfig.SkillIcon, name);
+    }
+
+    /// <summary>
+    /// 讀取資源
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="path"></param>
+    /// <param name="name"></param>
+    /// <returns></returns>
+    public static T GetCommonResource<T>(string path, string name)
+         where T : UnityEngine.Object
+    {
+        T t = null;
+        if (CommonResourceManager.InitLoadDic[path][name] != null)
+        {
+            t = CommonResourceManager.InitLoadDic[path][name] as T;
+        }
+        else if (LoadObject<T>(path, name) != null)
+        {
+            t = LoadObject<T>(path, name);
+        }
+        return t;
     }
 
     /// <summary>
