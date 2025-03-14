@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/FirstScene.unity
     guid: 8284e83eb6598b14cab6806f99117fd2
   - enabled: 1
+    path: Assets/Scenes/ChooseCharacterScene.unity
+    guid: 3ec18103f2719194993ca56512dd72c4
+  - enabled: 1
     path: Assets/Scenes/RestAreaTest.unity
     guid: 7d4502591d4bcc843883a545763608cc
   - enabled: 1

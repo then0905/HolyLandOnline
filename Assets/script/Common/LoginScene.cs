@@ -8,11 +8,18 @@ using UnityEngine;
 //==========================================
 public class LoginScene : MonoBehaviour
 {
+    public static UserAccountResponse UserAccountResponseData = null;
+
     private void Start()
     {
-        InitSequenceManager.Instance.Init();
+        //InitSequenceManager.Instance.Init();
         //StartCoroutine(InitSequenceManager.Instance.Init());
         //StartCoroutine(Init());
+
+        if (UserAccountResponseData.CharacterList.CheckAnyData())
+            SetChooseCharacterWindow();
+        else
+            SetCreateCharacterWindow();
     }
 
     /// <summary>
@@ -23,5 +30,21 @@ public class LoginScene : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
         MapManager.Instance.NextMap("DevelopmentTest");
+    }
+
+    /// <summary>
+    /// 設定創造角色畫面
+    /// </summary>
+    private void SetCreateCharacterWindow()
+    {
+        print("呼叫創角");
+    }
+
+    /// <summary>
+    /// 設定選擇角色畫面
+    /// </summary>
+    private void SetChooseCharacterWindow()
+    {
+        print("呼叫選角");
     }
 }
