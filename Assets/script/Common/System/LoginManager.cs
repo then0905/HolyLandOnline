@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 //using Photon.Pun;
 using System.Text;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 //==========================================
 //  創建者:家豪
 //  創建日期:2024/10/28
@@ -12,18 +13,20 @@ using UnityEngine.SceneManagement;
 //==========================================
 public class LoginManager : MonoBehaviour /*MonoBehaviourPunCallbacks*/
 {
-    [Header("帳號"), SerializeField] private TMP_InputField accountText;
-    [Header("密碼"), SerializeField] private TMP_InputField passwordText;
+    [Header("登入帳號"), SerializeField] private TMP_InputField accountText;
+    [Header("登入密碼"), SerializeField] private TMP_InputField passwordText;
+    [Header("註冊帳號"), SerializeField] private TMP_InputField registAccountText;
+    [Header("註冊密碼"), SerializeField] private TMP_InputField registPasswordText;
 
 
     [Header("登入成功物件"), SerializeField] private GameObject loginSuccessObj;
     [Header("登入成功文字"), SerializeField] private TextMeshProUGUI loginSuccessText;
+    [Header("登入成功按鈕"), SerializeField] private Button loginSuccessButton;
     [Header("登入失敗物件"), SerializeField] private GameObject loginFailObj;
     [Header("登入失敗文字"), SerializeField] private TextMeshProUGUI loginFailText;
+    [Header("登入失敗按鈕"), SerializeField] private Button loginFailButton;
 
     private const string ChooseCharacterSceneName = "ChooseCharacterScene";
-
-    private UserAccountResponse userAccountResponse;
 
     /// <summary>
     /// 登入
@@ -37,8 +40,8 @@ public class LoginManager : MonoBehaviour /*MonoBehaviourPunCallbacks*/
         //StartCoroutine(LoginRequest(account, password));
 
         //呼叫 登入API
-        await ApiManager.ApiPostFunc<UserAccountRequest, UserAccountResponse>(
-           new UserAccountRequest()
+        await ApiManager.ApiGetFunc<LoginAccountRequest, LoginAccountResponse>(
+           new LoginAccountRequest()
            {
                Account = account,
                Password = password
@@ -48,17 +51,105 @@ public class LoginManager : MonoBehaviour /*MonoBehaviourPunCallbacks*/
                 //將回傳資料儲存
                 if (response != null)
                 {
-                    LoginScene.UserAccountResponseData = response;
+                    CharacterScene.UserAccountResponseData = response;
+                    loginSuccessButton.onClick.RemoveAllListeners();
+                    loginSuccessButton.onClick.AddListener(() =>
+                    {
+                        loginSuccessText.text = response.ApiMsg;
+                        CloseLoginSuccess();
+                        ClickLoginSuccessButton();
+                    });
                     LoginSuccess();
                 }
                 else
                 {
                     LoginFail();
                 }
-            });
+            },
+             (failMsg) =>
+             {
+                 loginFailText.text = failMsg;
+                 LoginFail();
+             });
+    }
+
+    /// <summary>
+    /// 註冊
+    /// </summary>
+    public async void Regist()
+    {
+        string account = registAccountText.text;
+        string password = registPasswordText.text;
+        Debug.Log("帳號: " + account);
+        Debug.Log("密碼: " + password);
+        //呼叫 登入API
+        await ApiManager.ApiPostFunc<RegistRequest, RegistResponse>(
+           new RegistRequest()
+           {
+               Account = account,
+               Password = password
+           },
+            (response) =>
+            {
+                //將回傳資料儲存
+                if (response != null)
+                {
+                    loginSuccessText.text = response.ApiMsg;
+                    LoginSuccess();
+
+                }
+                else
+                {
+                    LoginFail();
+                }
+            },
+             (failMsg) =>
+             {
+                 loginFailText.text = failMsg;
+                 LoginFail();
+             });
+    }
+
+    /// <summary>
+    /// 登入成功
+    /// </summary>
+    public void LoginSuccess()
+    {
+        loginSuccessObj.SetActive(true);
+    }
+
+    /// <summary>
+    /// 關閉登入成功面板
+    /// </summary>
+    public void CloseLoginSuccess()
+    {
+        loginSuccessObj.SetActive(false);
+    }
+
+    /// <summary>
+    /// 點擊登入成功面板按鈕
+    /// </summary>
+    public void ClickLoginSuccessButton()
+    {
+        SceneManager.LoadScene(ChooseCharacterSceneName);
     }
 
 
+    /// <summary>
+    /// 登入失敗
+    /// </summary>
+    public void LoginFail()
+    {
+        loginFailObj.SetActive(true);
+    }
+
+    /// <summary>
+    /// 關閉登入失敗面板
+    /// </summary>
+    public void CloseLoginFail()
+    {
+        loginFailObj.SetActive(false);
+    }
     //private IEnumerator LoginRequest(string accountInput, string passwordInput)
     //{
     //    LoginDto loginData = new LoginDto
@@ -114,33 +205,6 @@ public class LoginManager : MonoBehaviour /*MonoBehaviourPunCallbacks*/
     //    Debug.Log("Connected to Photon");
     //    SceneManager.LoadScene("FirstScene");
     //}
-
-    /// <summary>
-    /// 登入成功
-    /// </summary>
-    public void LoginSuccess()
-    {
-        loginSuccessObj.SetActive(true);
-    }
-
-    /// <summary>
-    /// 點擊登入成功面板按鈕
-    /// </summary>
-    public void ClickLoginSuccessButton()
-    {
-        SceneManager.LoadScene(ChooseCharacterSceneName);
-    }
-
-
-    /// <summary>
-    /// 登入失敗
-    /// </summary>
-    public void LoginFail()
-    {
-        loginFailObj.SetActive(true);
-    }
-
-
     //[System.Serializable]
     //public class LoginDto
     //{

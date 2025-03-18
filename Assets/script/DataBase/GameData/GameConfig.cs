@@ -38,4 +38,10 @@ public static class GameConfig
     public const string AnimatorJob = "Animator/Job";
 
     public const string CommonWindow = "CommonWindow";
+
+    #region 創角選角相關物件路徑
+
+    public const string ChooseSceneCharacter = "Common/ChooseCharacterScene";
+
+    #endregion
 }

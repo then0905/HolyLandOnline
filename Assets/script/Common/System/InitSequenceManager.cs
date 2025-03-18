@@ -32,7 +32,7 @@ public class InitSequenceManager : MonoBehaviour
     /// <returns></returns>
     public async void Init()
     {
-        GameData.Init();//GameData資料優先       
+        //GameData.Init();//GameData資料優先(串接後端後 改到選角畫面就進行初始化)
 
         await CommonResourceManager.InitLoadResouce();     //常用資源加載
         //yield return StartCoroutine(MapManager.Instance.Init()); // 等待地圖管理器初始化完成，也會生成玩家預製物

@@ -1,13 +1,17 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
 //==========================================
 //  創建者:家豪
-//  創建日期:2025/03/14
-//  創建用途: 輸入帳號後的需求結構
+//  創建日期:2025/03/16
+//  創建用途: 註冊帳號的需求結構
 //==========================================
-public class UserAccountRequest : HLO_ClientRequest
+public class RegistRequest : HLO_ClientRequest
 {
-    public UserAccountRequest()
+    public RegistRequest()
     {
-        Path = "/User/Login";
+        Path = "/User/Regist";
     }
 
     /// <summary>

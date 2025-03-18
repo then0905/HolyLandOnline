@@ -55,6 +55,36 @@ public class StatusOperation : MonoBehaviour
 
     private static StatusOperation instance;
 
+    /// <summary>
+    /// 創建角色專用
+    /// </summary>
+    /// <param name="status">屬性名稱</param>
+    /// <param name="job">職業</param>
+    /// <param name="race">種族</param>
+    /// <returns></returns>
+    public static int CreateCharacterOperation(string status, string job, string race)
+    {
+        //獲取職業加成的六維 並加上裝備數據
+        var jobBonusData = GameData.JobBonusDic[job];
+        var jobItem = GameData.StatusFormulaDic[$"{status}_{race}"];
+        int temp;
+        switch (status)
+        {
+            case "HP":
+                temp = (int)Mathf.Round(int.Parse(jobBonusData.VIT) * jobItem.VIT +
+               int.Parse(jobBonusData.STR) * jobItem.STR +
+               1 * jobItem.LvCodition) + int.Parse(jobBonusData.HP);
+                return temp;
+            case "MP":
+                //獲取基礎加成能力值數據
+                temp = (int)Mathf.Round(int.Parse(jobBonusData.INT) * jobItem.INT +
+                       1 * jobItem.LvCodition) + int.Parse(jobBonusData.MP);
+                return temp;
+            default:
+                return 0;
+        }
+    }
+
     #endregion
 
     //暫存基礎能力值

@@ -12,7 +12,7 @@ public class HLO_ClientResponse
     public bool IsSuccess { get; set; }
 
     /// <summary>
-    /// 失敗訊息
+    /// 傳輸訊息
     /// </summary>
-    public string ErrorMsg { get; set; }
+    public string ApiMsg { get; set; }
 }

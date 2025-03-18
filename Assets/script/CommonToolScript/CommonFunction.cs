@@ -195,6 +195,47 @@ public static class CommonFunction
     }
 
     /// <summary>
+    /// 呼叫等待讀取視窗
+    /// </summary>
+    /// <returns></returns>
+    public static int CallLoadingWindowSetting()
+    {
+        //宣告鑰匙
+        int key = 0;
+
+        //判斷場景是否已經有生成讀取視窗
+        if (LoadingWindowSetting.Instance == null)
+        {
+            //當前場景沒有讀取視窗 生成
+            LoadingWindowSetting temp = UnityEngine.Object.Instantiate(LoadObject<GameObject>(GameConfig.CommonWindow, "Canvas_LoadingWindow")).GetComponent<LoadingWindowSetting>();
+            //獲取鑰匙
+            key = temp.CallLoadingWindow();
+        }
+        else
+        {
+            //呼叫鑰匙
+            key = LoadingWindowSetting.Instance.CallLoadingWindow();
+        }
+
+        return key;
+    }
+
+
+    /// <summary>
+    /// 歸還等待視窗鑰匙
+    /// </summary>
+    /// <param name="key">歸還的鑰匙數量</param>
+    public static void CloseLoadingWindowSetting(int key)
+    {
+        //若當前場景有生成的等待讀取視窗
+        if (LoadingWindowSetting.Instance != null)
+        {
+            //進行鑰匙歸還
+            LoadingWindowSetting.Instance.CloseLoadingWindow(key);
+        }
+    }
+
+    /// <summary>
     /// 取得文字內容
     /// </summary>
     /// <param name="id">帶入文字ID</param>

@@ -3,12 +3,18 @@ using System.Collections.Generic;
 //==========================================
 //  創建者:家豪
 //  創建日期:2025/03/14
-//  創建用途: 輸入帳號後的回應結構
+//  創建用途: 登入帳號後的回應結構
 //==========================================
-public class UserAccountResponse : HLO_ClientResponse
-{  /// <summary>
-   /// 創建日期
-   /// </summary>
+public class LoginAccountResponse : HLO_ClientResponse
+{ 
+    /// <summary>
+    /// 帳號
+    /// </summary>
+    public string Account { get; set; }
+
+    /// <summary>
+    /// 創建日期
+    /// </summary>
     public DateTime CreatDateTime { get; set; }
 
     /// <summary>
@@ -38,9 +44,19 @@ public class CharacterDataModel
     public int Lv { get; set; }
 
     /// <summary>
+    /// 最大血量
+    /// </summary>
+    public int MaxHP { get; set; }
+
+    /// <summary>
     /// 當前血量
     /// </summary>
     public int HP { get; set; }
+
+    /// <summary>
+    /// 最大魔力
+    /// </summary>
+    public int MaxMP { get; set; }
 
     /// <summary>
     /// 當前魔力
@@ -94,4 +110,78 @@ public class CharacterDataModel
     /// 背包格數
     /// </summary>
     public int BagCount { get; set; }
+
+    /// <summary>
+    /// 背包資料
+    /// </summary>
+    public List<BagDataModel>? BagDataList { get; set; } = new List<BagDataModel>();
+
+    /// <summary>
+    /// 正穿著的裝備資料
+    /// </summary>
+    public List<EquipDataModel>? EquipDataList { get; set; } = new List<EquipDataModel>();
+
+    /// <summary>
+    /// 角色是否正在線上
+    /// </summary>
+    public bool IsOnline { get; set; }
+}
+
+/// <summary>
+/// 角色背包物品資料結構
+/// </summary>
+public class BagDataModel
+{
+
+    /// <summary>
+    /// 物品ID
+    /// </summary>
+    public string ItemID { get; set; }
+
+    /// <summary>
+    /// 物品類型 (武器、防具、道具....)
+    /// </summary>
+    public string Type { get; set; }
+
+
+    /// <summary>
+    /// 物品數量
+    /// </summary>
+    public int Qty { get; set; }
+
+    /// <summary>
+    /// 物品強化等級 (武器、防具適用)
+    /// </summary>
+    public int ForgeLv { get; set; }
+}
+
+/// <summary>
+/// 裝備物品資料
+/// </summary>
+public class EquipDataModel
+{
+    /// <summary>
+    /// 物品ID
+    /// </summary>
+    public string ItemID { get; set; }
+
+    /// <summary>
+    /// 物品類型 (武器、防具、道具....)
+    /// </summary>
+    public string Type { get; set; }
+
+    /// <summary>
+    /// 裝備穿戴部位
+    /// </summary>
+    public string wearingPart { get; set; }
+
+    /// <summary>
+    /// 物品數量
+    /// </summary>
+    public int Qty { get; set; }
+
+    /// <summary>
+    /// 物品強化等級 (武器、防具適用)
+    /// </summary>
+    public int ForgeLv { get; set; }
 }
