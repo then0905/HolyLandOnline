@@ -5,6 +5,7 @@ using System.Text;
 using Newtonsoft.Json;
 using UnityEngine;
 using System.Linq;
+using HLO_Client;
 //==========================================
 //  創建者:家豪
 //  創建日期:2025/03/14
@@ -25,8 +26,9 @@ public class ApiManager : MonoBehaviour
     /// <param name="request">發送需求資料</param>
     /// <param name="successAct">資料成功回傳後 執行的內容</param>
     /// <param name="failAct">API 失敗時執行的內容 (通常帶入錯誤訊息檢視)</param>
+    /// <param name="enableBlock">是否啟動全屏遮罩</param>
     /// <returns></returns>
-    public static async Task<bool> ApiPostFunc<T1, T2>(T1 request, Action<T2> successAct, Action<string> failAct = null)
+    public static async Task<bool> ApiPostFunc<T1, T2>(T1 request, Action<T2> successAct, Action<string> failAct = null, bool enableBlock = true)
         where T1 : HLO_ClientRequest
         where T2 : HLO_ClientResponse
     {
@@ -53,8 +55,10 @@ public class ApiManager : MonoBehaviour
 
                 // 執行成功回調
                 successAct?.Invoke(responseObject);
-                //關閉等待讀取視窗
-                CommonFunction.CloseLoadingWindowSetting(key);
+
+                if (enableBlock)
+                    //關閉等待讀取視窗
+                    CommonFunction.CloseLoadingWindowSetting(key);
                 return true;
             }
             else
@@ -62,8 +66,10 @@ public class ApiManager : MonoBehaviour
                 // 執行失敗回調
                 CommonFunction.MessageHint($"API請求失敗，狀態碼: {await response.Content.ReadAsStringAsync()}", HintType.Warning);
                 failAct?.Invoke(await response.Content.ReadAsStringAsync());
-                //關閉等待讀取視窗
-                CommonFunction.CloseLoadingWindowSetting(key);
+
+                if (enableBlock)
+                    //關閉等待讀取視窗
+                    CommonFunction.CloseLoadingWindowSetting(key);
                 return false;
             }
         }
@@ -72,8 +78,10 @@ public class ApiManager : MonoBehaviour
             // 處理任何異常
             Debug.LogException(ex);
             failAct?.Invoke(ex.ToString());
-            //關閉等待讀取視窗
-            CommonFunction.CloseLoadingWindowSetting(key);
+
+            if (enableBlock)
+                //關閉等待讀取視窗
+                CommonFunction.CloseLoadingWindowSetting(key);
             return false;
         }
     }
@@ -85,9 +93,10 @@ public class ApiManager : MonoBehaviour
     /// <typeparam name="T2">回傳結構</typeparam>
     /// <param name="request">發送需求資料</param>
     /// <param name="successAct">資料成功回傳後 執行的內容</param>
-    /// <param name="failAct">API 失敗時執行的內容 (通常帶入錯誤訊息檢視)</param>
+    /// <param name="failAct">API 失敗時執行的內容 (通常帶入錯誤訊息檢視)</param> 
+    /// <param name="enableBlock">是否啟動全屏遮罩</param>
     /// <returns></returns>
-    public static async Task<bool> ApiGetFunc<T1, T2>(T1 request, Action<T2> successAct, Action<string> failAct = null)
+    public static async Task<bool> ApiGetFunc<T1, T2>(T1 request, Action<T2> successAct, Action<string> failAct = null, bool enableBlock = true)
         where T1 : HLO_ClientRequest
         where T2 : HLO_ClientResponse
     {
@@ -109,8 +118,10 @@ public class ApiManager : MonoBehaviour
                 T2 responseObject = JsonConvert.DeserializeObject<T2>(jsonResponse);
                 // 執行成功回調
                 successAct?.Invoke(responseObject);
-                //關閉等待讀取視窗
-                CommonFunction.CloseLoadingWindowSetting(key);
+
+                if (enableBlock)
+                    //關閉等待讀取視窗
+                    CommonFunction.CloseLoadingWindowSetting(key);
                 return true;
             }
             else
@@ -118,8 +129,10 @@ public class ApiManager : MonoBehaviour
                 // 執行失敗回調
                 CommonFunction.MessageHint($"API請求失敗，狀態碼: {await response.Content.ReadAsStringAsync()}", HintType.Warning);
                 failAct?.Invoke(await response.Content.ReadAsStringAsync());
-                //關閉等待讀取視窗
-                CommonFunction.CloseLoadingWindowSetting(key);
+
+                if (enableBlock)
+                    //關閉等待讀取視窗
+                    CommonFunction.CloseLoadingWindowSetting(key);
                 return false;
             }
         }
@@ -127,8 +140,10 @@ public class ApiManager : MonoBehaviour
         {
             // 處理任何異常
             Debug.LogException(ex);
-            //關閉等待讀取視窗
-            CommonFunction.CloseLoadingWindowSetting(key);
+
+            if (enableBlock)
+                //關閉等待讀取視窗
+                CommonFunction.CloseLoadingWindowSetting(key);
             //failAct?.Invoke();
             return false;
         }

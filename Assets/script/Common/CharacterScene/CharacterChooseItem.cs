@@ -1,3 +1,4 @@
+using HLO_Client;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,19 +21,19 @@ public class CharacterChooseItem : MonoBehaviour
     [SerializeField] private TextMeshProUGUI characterLoginTime;      //角色最後登入時間
 
     //暫存資料
-    public CharacterDataModel characterData { get; private set; }
+    public CharacterDataDTO characterData { get; private set; }
 
     /// <summary>
     /// 初始化
     /// </summary>
-    public void Init(CharacterDataModel data, Action<CharacterDataModel> beChooseEvent)
+    public void Init(CharacterDataDTO data, Action<CharacterDataDTO> beChooseEvent)
     {
         characterData = data;
         characterName.text = $"角色名稱：{data.CharacterName}";
         characterRace.text = $"所屬種族：{data.Race}";
         characterJob.text = $"職業：{data.Job}";
         characterCreateTime.text = $"創建日期：{data.CharacterCreateTime.ToString("yyyy/MM/dd HH:mm:ss")}";
-        characterLoginTime.text = $"最後登入日期：{data.LastLogintTime.ToString("yyyy/MM/dd HH:mm:ss")}";
+        characterLoginTime.text = $"最後登入日期：{(data.LastLogintTime == null ? "--" : data.LastLogintTime.Value.ToString("yyyy / MM / dd HH: mm: ss"))}";
         characterButton.onClick.AddListener(() => { beChooseEvent?.Invoke(characterData); });
     }
 }

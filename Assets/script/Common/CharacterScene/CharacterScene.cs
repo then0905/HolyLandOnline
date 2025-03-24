@@ -1,3 +1,4 @@
+using HLO_Client;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -40,7 +41,7 @@ public class CharacterScene : MonoBehaviour
     //帳號與角色資料
     public static LoginAccountResponse UserAccountResponseData = null;
     //暫存 選擇角色的資料
-    private CharacterDataModel tempChooseCharacterData = null;
+    private CharacterDataDTO tempChooseCharacterData = null;
 
     public string RaceData { get; set; }        //種族
     public string JobData { get; set; }       //職業
@@ -97,6 +98,7 @@ public class CharacterScene : MonoBehaviour
             var temp = Instantiate(characterChooseItem, characterChooseSpawnTrans);
             temp.gameObject.SetActive(true);
             temp.Init(characterData, CharacterBeChoosed);
+            characterChooseItemList.Add(temp);
         }
     }
 
@@ -104,7 +106,7 @@ public class CharacterScene : MonoBehaviour
     /// 角色被選擇事件
     /// </summary>
     /// <param name="data"></param>
-    private void CharacterBeChoosed(CharacterDataModel data)
+    private void CharacterBeChoosed(CharacterDataDTO data)
     {
         tempChooseCharacterData = data;
         characterName.text = data.CharacterName;
@@ -116,8 +118,8 @@ public class CharacterScene : MonoBehaviour
         characterMpTextSlider.maxValue = data.MaxMP;
         characterMpTextSlider.value = data.MP;
         characterMpText.text = $"{data.MP}/{data.MaxMP}";
-        characterCreateTime.text = data.CharacterCreateTime.ToString("yyyy/MM/dd");
-        characterLoginTime.text = data.LastLogintTime.ToString("yyyy/MM/dd");
+        characterCreateTime.text = $"創建日期：{data.CharacterCreateTime.ToString("yyyy/MM/dd HH:mm:ss")}";
+        characterLoginTime.text = $"最後登入日期：{(data.LastLogintTime == null ? "--" : data.LastLogintTime.Value.ToString("yyyy / MM / dd HH: mm: ss"))}";
     }
 
     #region 按鈕方法
@@ -136,12 +138,12 @@ public class CharacterScene : MonoBehaviour
     /// </summary>
     public async void CreateCharacterAPI()
     {
-        //呼叫 登入API
+        //呼叫 創造角色API
         await ApiManager.ApiPostFunc<CreateCharacterRequest, CreateCharacterResponse>(
            new CreateCharacterRequest()
            {
                Account = UserAccountResponseData.Account,
-               CharacterData = new CharacterDataModel()
+               CharacterData = new CharacterDataDTO()
                {
                    CharacterName = CharacterName,
                    Job = JobData,
@@ -177,7 +179,7 @@ public class CharacterScene : MonoBehaviour
            },
             (response) =>
             {
-                tempChooseCharacterData = response.CharacterData;
+                //tempChooseCharacterData = response.CharacterData;
             });
     }
 
