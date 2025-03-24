@@ -35,3 +35,8 @@ obj/
 Assets/3D/
 
 
+Assets/script/HLO_Client/HLO_Client/bin/
+Assets/script/HLO_Client/HLO_Client/dotnet
+Assets/script/HLO_Client/HLO_Client/dotnet.meta
+Assets/script/HLO_Client/HLO_Client/bin.meta
+Assets/script/HLO_Client/HLO_Client/obj.meta

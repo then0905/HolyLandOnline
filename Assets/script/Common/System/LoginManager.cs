@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 using System.Text;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using HLO_Client;
 //==========================================
 //  創建者:家豪
 //  創建日期:2024/10/28
