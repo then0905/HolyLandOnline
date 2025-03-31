@@ -80,7 +80,7 @@ public class CharacterScene : MonoBehaviour
         createCharacterWindow.SetActive(true);
         chooseCharacterWindow.SetActive(false);
         //生成角色物件
-        GameObject character = CommonFunction.LoadObject<GameObject>(GameConfig.ChooseSceneCharacter, "Character");
+        GameObject character = CommonFunction.LoadObject<GameObject>(GameConfig.ChooseSceneCharacterPrefab, "Character");
         Instantiate(character, characterTransOffset);
     }
 

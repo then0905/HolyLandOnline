@@ -388,7 +388,7 @@ public class BattleOperation : MonoBehaviour
     public void InstanceCombatText(string dmgVaule, CombatTextColor textColor, GameObject target)
     {
         //載入傷害數字prefab
-        GameObject DamageGUI = Resources.Load("DMGtext") as GameObject;
+        GameObject DamageGUI = CommonFunction.LoadObject<GameObject>(GameConfig.SystemHint, "DMGtext");
         //取得傷害數字生成位置
         GameObject head = target.transform.GetChild(0).gameObject;
 

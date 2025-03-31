@@ -167,7 +167,7 @@ public class SelectTarget : MonoBehaviour
             {
                 //生成圖示
                 CharacterStatusHint_DeBuff characterStatusHintObj =
-                    Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Debuff"), debuffTrans)
+                    Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.CharacterStatusHintPrefab, "CharacterStatusHint_Debuff"), debuffTrans)
                     .GetComponent<CharacterStatusHint_DeBuff>();
                 //加入暫存
                 DebuffEffectBases.Add(characterStatusHintObj);

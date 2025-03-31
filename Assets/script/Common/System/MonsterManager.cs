@@ -59,7 +59,7 @@ public class MonsterManager : MonoBehaviour
         foreach (var item in tempMapMonsterSpawnData)
         {
             //獲取資源
-            MonsterBehaviour monsterLegacy = CommonFunction.LoadObject<GameObject>(GameConfig.Monster, item.MonsterCodeID).GetComponent<MonsterBehaviour>();
+            MonsterBehaviour monsterLegacy = CommonFunction.LoadObject<GameObject>(GameConfig.MonsterPrefab, item.MonsterCodeID).GetComponent<MonsterBehaviour>();
             //取得座標
             Vector3 getMonsterSpwanPos = new Vector3(item.SpawnPosX, item.SpawnPosY, item.SpawnPosZ);
             //生成物件
@@ -111,7 +111,7 @@ public class MonsterManager : MonoBehaviour
         //尋找要生成的怪物
         var queryResult = tempMapMonsterSpawnObj.Where(x => x.Key == vector3).FirstOrDefault();
         //獲取資源
-        MonsterBehaviour monsterLegacy = CommonFunction.LoadObject<GameObject>(GameConfig.Monster, monsterBehaviour.MonsterValue.MonsterCodeID).GetComponent<MonsterBehaviour>();
+        MonsterBehaviour monsterLegacy = CommonFunction.LoadObject<GameObject>(GameConfig.MonsterPrefab, monsterBehaviour.MonsterValue.MonsterCodeID).GetComponent<MonsterBehaviour>();
         //生成物件
         MonsterBehaviour monsterObj = Instantiate(monsterLegacy, vector3, monsterLegacy.transform.rotation);
         //設定紀錄資料
@@ -126,7 +126,7 @@ public class MonsterManager : MonoBehaviour
     /// <param name="monsterName"></param>
     public void TestMethod_AddMonster(string monsterName)
     {
-        GameObject monsterObj = CommonFunction.LoadObject<GameObject>(GameConfig.Monster, monsterName);
+        GameObject monsterObj = CommonFunction.LoadObject<GameObject>(GameConfig.MonsterPrefab, monsterName);
         Vector3 targetPos = new Vector3(PlayerDataOverView.Instance.CharacterMove.transform.position.x + 5, 3f, PlayerDataOverView.Instance.CharacterMove.transform.position.z + 5);
         Instantiate(monsterObj, targetPos, monsterObj.transform.rotation);
     }

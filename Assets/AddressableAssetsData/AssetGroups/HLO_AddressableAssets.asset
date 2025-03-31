@@ -1,0 +1,145 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: HLO_AddressableAssets
+  m_EditorClassIdentifier: 
+  m_GroupName: HLO_AddressableAssets
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c3081936886a06b41be4d9e50d1b970a
+  m_SerializeEntries:
+  - m_GUID: 0a83e63400ec15645aea3c3fa1eeeb86
+    m_Address: Assets/AddressablesAssets/CharacterStatusHint
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CharacterStatusHint/Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 201dacdd372af31488c41f5b7b9281a4
+    m_Address: Assets/AddressablesAssets/OtherPlayer
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - OtherPlayer/Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2d7f260707470eb4095a99861c8bca5c
+    m_Address: Assets/AddressablesAssets/Npc/Avatar
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Npc/Avatar
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3eada3c7c5dac7c41ab8cfa07df6cb5a
+    m_Address: Assets/AddressablesAssets/Effect/Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effect/Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4886fe0eec7f10b4da12348ad7af5655
+    m_Address: Assets/AddressablesAssets/SystemHint
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SystemHint
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a22c126dcd0ab0469952e2bde020627
+    m_Address: Assets/AddressablesAssets/UI/Armor
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI/Armor
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 535e5983ce571e64ab99586ae4628f79
+    m_Address: Assets/AddressablesAssets/Skill/Icon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Skill/Icon
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 635998a3148804147b35c1988300e614
+    m_Address: Assets/AddressablesAssets/Monster
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Monster/Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6623569c97b17a94c909a4e57c6c2116
+    m_Address: Assets/AddressablesAssets/Json
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Json
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6e1d656ff7ae96642938044206ce641f
+    m_Address: Assets/AddressablesAssets/SkillPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - SkillPrefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 79c24e6769f68fd429bdf4fe7647ae46
+    m_Address: Assets/AddressablesAssets/UI/Item
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI/Item
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9ddc4b7fb41894e4f978e955d3241a7a
+    m_Address: Assets/AddressablesAssets/Effect/Sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Effect/Sprite
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a01e990d4b2d0de4fa6fa62a680c9864
+    m_Address: Assets/AddressablesAssets/UI/Weapon
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - UI/Weapon
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5fdd4a606da9b944ad99163ba056cbb
+    m_Address: Assets/AddressablesAssets/Player
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Player/Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa305ea66ef66e54eb5353bd1863cc3d
+    m_Address: Assets/AddressablesAssets/Tutorial
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Tutorial/Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c33282bdf0103084099baa63e2dcedb0
+    m_Address: Assets/AddressablesAssets/ItemEffectPrefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - ItemEffectPrefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd0721c4999a37549b7bd97fed2dcede
+    m_Address: Assets/AddressablesAssets/CommonWindow
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CommonWindow
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e20528d53baf27446a4f310babc69fa2
+    m_Address: Assets/AddressablesAssets/ChooseCharacterScene
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - CharacterStatusHint/Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e46bff67d11e3734ba25f386bd4c9fba
+    m_Address: Assets/AddressablesAssets/Npc/Prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Npc/Prefab
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e9bd0763c596e234bb1892311703a9a1
+    m_Address: Assets/AddressablesAssets/Animator
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Animator/Job
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b627fcf0cf5cfe142b4c80092a953166, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 0f1f972d889ef4d41ae3512f1e2e5cad, type: 2}
+    - {fileID: 11400000, guid: 4bbf9de8422e5ac4b90e307cc86cdac4, type: 2}

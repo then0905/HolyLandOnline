@@ -5,6 +5,8 @@ using System.Linq;
 using System;
 using Newtonsoft.Json;
 using System.IO;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 //==========================================
 //  創建者:    家豪
@@ -35,12 +37,21 @@ public static class CommonFunction
     /// <returns></returns>
     public static List<T> DeserializeJson<T>(string path, string name)
     {
-        TextAsset binAsset = Resources.Load<TextAsset>(path + "/" + name);
-        string jsonText = binAsset.text;
-        var jsonString = JsonConvert.DeserializeObject<List<T>>(jsonText);
-        // var jsonString = JsonConvert.DeserializeObject<string>(jsonText);
-
-
+        List<T> jsonString = new List<T>();
+        TextAsset binAsset = null;
+        Addressables.LoadAssetsAsync<TextAsset>(path, null).Completed += ((handle) =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                binAsset = handle.Result.Where(sprite => sprite.name == name).FirstOrDefault();
+                string jsonText = binAsset.text;
+                jsonString = JsonConvert.DeserializeObject<List<T>>(jsonText);
+            }
+            else
+            {
+                Debug.LogError("資源載入失敗");
+            }
+        });
         return jsonString;
     }
 
@@ -84,7 +95,7 @@ public static class CommonFunction
     }
 
     /// <summary>
-    /// Resorces讀取物件
+    /// AddressableAssets 讀取物件
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="path"></param>
@@ -93,7 +104,19 @@ public static class CommonFunction
     public static T LoadObject<T>(string path, string name)
         where T : UnityEngine.Object
     {
-        return Resources.Load<T>(path + "/" + name);
+        T temp = null;
+        Addressables.LoadAssetsAsync<T>(path, null).Completed += ((handle) =>
+        {
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                temp = handle.Result.Where(sprite => sprite.name == name).FirstOrDefault();
+            }
+            else
+            {
+                Debug.LogError($"資源 {name} 載入失敗");
+            }
+        });
+        return temp;
     }
 
     /// <summary>
@@ -258,7 +281,7 @@ public static class CommonFunction
     /// <param name="content"></param>
     public static void MessageHint(string content, HintType hintType)
     {
-        MessageHintSetting message = LoadObject<MessageHintSetting>("Hint", "MessageHint").GetComponent<MessageHintSetting>();
+        MessageHintSetting message = LoadObject<MessageHintSetting>(GameConfig.SystemHint, "MessageHint").GetComponent<MessageHintSetting>();
         MessageHintSetting instanceMessage = UnityEngine.Object.Instantiate(message);
         instanceMessage.CallHintCanvas(content, hintType);
     }

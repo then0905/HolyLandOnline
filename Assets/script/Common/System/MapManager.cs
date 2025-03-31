@@ -112,13 +112,18 @@ public class MapManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator PerformAdditionalTasks(bool isInit)
     {
+        PlayerDataOverView playerDataOverView = null;
         //生成玩家
         if (areaData != null)
-            Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.Player, "Player"),
+        {
+            playerDataOverView = Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.PlayerPrefab, "Player"),
                 new Vector3(areaData.RecordPosX, areaData.RecordPosY, areaData.RecordPosZ),
-                Quaternion.identity);
+                Quaternion.identity).GetComponent<PlayerDataOverView>();
+        }
         else
-            Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.Player, "Player"));
+        {
+            playerDataOverView = Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.PlayerPrefab, "Player")).GetComponent<PlayerDataOverView>();
+        }
         // 地圖需生成的NPC物件
         NpcManager.Instance.InitNpcManger(mapName);
         // 地圖需生成的怪物物件(單機 未進行伺服器同步地圖資料)

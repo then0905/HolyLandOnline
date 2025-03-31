@@ -21,7 +21,7 @@ public static class GameConfig
     public const string ItemEffectPrefab = "ItemEffectPrefab";
     #endregion
 
-    public const string Monster = "Monster";
+    public const string MonsterPrefab = "Monster/Prefab";
 
     public const string NpcAvatar = "Npc/Avatar";
     public const string NpcPrefab = "Npc/Prefab";
@@ -30,18 +30,30 @@ public static class GameConfig
     public const string SpriteWeapon = "CommonSprite/Weapon";
     public const string SpriteArmor = "CommonSprite/Armor";
 
-    public const string Player = "Player";
+    public const string PlayerPrefab = "Player/Prefab";
+
+    public const string OtherPlayerPrefab = "OtherPlayer/Prefab";
 
     public const string EffectIcon = "Effect/Sprite";
     public const string EffectPrefab = "Effect/Prefab";
+
+    public const string CharacterStatusHintPrefab = "CharacterStatusHint/Prefab";
 
     public const string AnimatorJob = "Animator/Job";
 
     public const string CommonWindow = "CommonWindow";
 
+    public const string SystemHint = "SystemHint";
+
     #region 創角選角相關物件路徑
 
-    public const string ChooseSceneCharacter = "Common/ChooseCharacterScene";
+    public const string ChooseSceneCharacterPrefab = "ChooseCharacterScene/Prefab";
+
+    #endregion
+
+    #region 教學系統
+
+    public const string TutorialObjPrefab = "Tutorial/Prefab";
 
     #endregion
 }

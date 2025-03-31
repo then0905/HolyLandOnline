@@ -172,12 +172,12 @@ public class CharacterStatusManager : MonoBehaviour
             //直接生成
             if (operationData is ItemEffectData[] itemOperatinData)
             {
-                CharacterStatusHint_Base characterStatusHintObj = Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Buff"), ReturnCharacterStatusArea(itemOperatinData[0].ItemComponentID.ToString())).GetComponent<CharacterStatusHint_Base>();
+                CharacterStatusHint_Base characterStatusHintObj = Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.CharacterStatusHintPrefab, "CharacterStatusHint_Buff"), ReturnCharacterStatusArea(itemOperatinData[0].ItemComponentID.ToString())).GetComponent<CharacterStatusHint_Base>();
                 StartCoroutine(characterStatusHintObj.BuffHintInit(basecomponent, operationData));
             }
             else if (operationData is SkillOperationData[] skillOperatinData)
             {
-                CharacterStatusHint_Base characterStatusHintObj = Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Buff"), ReturnCharacterStatusArea(skillOperatinData[0].SkillComponentID.ToString())).GetComponent<CharacterStatusHint_Base>();
+                CharacterStatusHint_Base characterStatusHintObj = Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.CharacterStatusHintPrefab, "CharacterStatusHint_Buff"), ReturnCharacterStatusArea(skillOperatinData[0].SkillComponentID.ToString())).GetComponent<CharacterStatusHint_Base>();
                 StartCoroutine(characterStatusHintObj.BuffHintInit(basecomponent, operationData));
             }
         }
@@ -192,7 +192,7 @@ public class CharacterStatusManager : MonoBehaviour
     {
         //直接生成
         CharacterStatusHint_DeBuff characterStatusHintObj =
-            Instantiate(CommonFunction.LoadObject<GameObject>("CharacterStatusHint", "CharacterStatusHint_Debuff"), ReturnCharacterStatusArea(debuffEffectData.EffectType))
+            Instantiate(CommonFunction.LoadObject<GameObject>(GameConfig.CharacterStatusHintPrefab, "CharacterStatusHint_Debuff"), ReturnCharacterStatusArea(debuffEffectData.EffectType))
             .GetComponent<CharacterStatusHint_DeBuff>();
         characterStatusHintObj.BuffHintInit(debuffEffectData);
     }
