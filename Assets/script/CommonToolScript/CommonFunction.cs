@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using System.IO;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using static UnityEngine.Rendering.VirtualTexturing.Debugging;
 
 //==========================================
 //  創建者:    家豪
@@ -39,19 +40,18 @@ public static class CommonFunction
     {
         List<T> jsonString = new List<T>();
         TextAsset binAsset = null;
-        Addressables.LoadAssetsAsync<TextAsset>(path, null).Completed += ((handle) =>
+        var handle = Addressables.LoadAssetsAsync<TextAsset>(path, null);
+        handle.WaitForCompletion(); // 這會 **同步** 等待載入完成
+        if (handle.Status == AsyncOperationStatus.Succeeded)
         {
-            if (handle.Status == AsyncOperationStatus.Succeeded)
-            {
-                binAsset = handle.Result.Where(sprite => sprite.name == name).FirstOrDefault();
-                string jsonText = binAsset.text;
-                jsonString = JsonConvert.DeserializeObject<List<T>>(jsonText);
-            }
-            else
-            {
-                Debug.LogError("資源載入失敗");
-            }
-        });
+            binAsset = handle.Result.Where(x => x.name.ToString() == name).FirstOrDefault();
+            string jsonText = binAsset.text;
+            jsonString = JsonConvert.DeserializeObject<List<T>>(jsonText);
+        }
+        else
+        {
+            Debug.LogError("資源載入失敗");
+        }
         return jsonString;
     }
 
@@ -104,19 +104,20 @@ public static class CommonFunction
     public static T LoadObject<T>(string path, string name)
         where T : UnityEngine.Object
     {
-        T temp = null;
-        Addressables.LoadAssetsAsync<T>(path, null).Completed += ((handle) =>
+        var handle = Addressables.LoadAssetsAsync<T>(path, null);
+        handle.WaitForCompletion(); // 這會 **同步** 等待載入完成
+
+        if (handle.Status == AsyncOperationStatus.Succeeded)
         {
-            if (handle.Status == AsyncOperationStatus.Succeeded)
+            foreach (var x in handle.Result)
             {
-                temp = handle.Result.Where(sprite => sprite.name == name).FirstOrDefault();
+                if (x.name == name)
+                    return x;
             }
-            else
-            {
-                Debug.LogError($"資源 {name} 載入失敗");
-            }
-        });
-        return temp;
+        }
+
+        Debug.LogError($"資源 {name} 載入失敗");
+        return null;
     }
 
     /// <summary>
@@ -229,8 +230,9 @@ public static class CommonFunction
         //判斷場景是否已經有生成讀取視窗
         if (LoadingWindowSetting.Instance == null)
         {
+            GameObject tempLegacy = LoadObject<GameObject>(GameConfig.CommonWindow, "Canvas_LoadingWindow");
             //當前場景沒有讀取視窗 生成
-            LoadingWindowSetting temp = UnityEngine.Object.Instantiate(LoadObject<GameObject>(GameConfig.CommonWindow, "Canvas_LoadingWindow")).GetComponent<LoadingWindowSetting>();
+            LoadingWindowSetting temp = UnityEngine.Object.Instantiate(tempLegacy).GetComponent<LoadingWindowSetting>();
             //獲取鑰匙
             key = temp.CallLoadingWindow();
         }
@@ -281,8 +283,8 @@ public static class CommonFunction
     /// <param name="content"></param>
     public static void MessageHint(string content, HintType hintType)
     {
-        MessageHintSetting message = LoadObject<MessageHintSetting>(GameConfig.SystemHint, "MessageHint").GetComponent<MessageHintSetting>();
-        MessageHintSetting instanceMessage = UnityEngine.Object.Instantiate(message);
+        GameObject message = LoadObject<GameObject>(GameConfig.SystemHint, "MessageHint");
+        MessageHintSetting instanceMessage = UnityEngine.Object.Instantiate(message).GetComponent<MessageHintSetting>();
         instanceMessage.CallHintCanvas(content, hintType);
     }
 
