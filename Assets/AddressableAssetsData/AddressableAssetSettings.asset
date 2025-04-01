@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: c3081936886a06b41be4d9e50d1b970a
   m_currentHash:
     serializedVersion: 2
-    Hash: 70ddbec28d9938c33507665f2db57e9d
+    Hash: c414d8e3a060111b95c82190da86ca8a
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -104,11 +104,11 @@ MonoBehaviour:
     - Effect/Prefab
     - Animator/Job
     - CommonWindow
-    - Common/ChooseCharacterScene
     - Json
     - CharacterStatusHint/Prefab
     - SystemHint
     - Tutorial/Prefab
+    - ChooseCharacterScene/Prefab
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: abc6dcdf4c4c46a428369d98549ca03d, type: 2}

@@ -123,7 +123,7 @@ MonoBehaviour:
     m_Address: Assets/AddressablesAssets/ChooseCharacterScene
     m_ReadOnly: 0
     m_SerializedLabels:
-    - CharacterStatusHint/Prefab
+    - ChooseCharacterScene/Prefab
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e46bff67d11e3734ba25f386bd4c9fba
     m_Address: Assets/AddressablesAssets/Npc/Prefab
